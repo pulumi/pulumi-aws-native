@@ -16,7 +16,11 @@ import (
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) that specifies the resource group that is created.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The tags (key and value pairs) that will be associated with the resource group.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	ResourceGroupTags ResourceGroupTagArrayOutput `pulumi:"resourceGroupTags"`
 }
 
@@ -67,11 +71,17 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
+	// The tags (key and value pairs) that will be associated with the resource group.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	ResourceGroupTags []ResourceGroupTag `pulumi:"resourceGroupTags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
+	// The tags (key and value pairs) that will be associated with the resource group.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	ResourceGroupTags ResourceGroupTagArrayInput
 }
 
@@ -112,10 +122,14 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the resource group that is created.
 func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The tags (key and value pairs) that will be associated with the resource group.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o ResourceGroupOutput) ResourceGroupTags() ResourceGroupTagArrayOutput {
 	return o.ApplyT(func(v *ResourceGroup) ResourceGroupTagArrayOutput { return v.ResourceGroupTags }).(ResourceGroupTagArrayOutput)
 }

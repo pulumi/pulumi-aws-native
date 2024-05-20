@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
     [OutputType]
     public sealed class TagAssociationTableWithColumnsResource
     {
+        /// <summary>
+        /// A wildcard object representing every table under a database.
+        /// 
+        /// At least one of TableResource$Name or TableResource$TableWildcard is required.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
+        /// <summary>
+        /// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key of the key-value pair.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the key-value pair.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

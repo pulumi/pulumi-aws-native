@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Outputs
     [OutputType]
     public sealed class ClusterEndpoint
     {
+        /// <summary>
+        /// A cluster endpoint URL for one of the five redundant clusters that you specify to set or retrieve a routing control state.
+        /// </summary>
         public readonly string? Endpoint;
+        /// <summary>
+        /// The AWS Region for a cluster endpoint.
+        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

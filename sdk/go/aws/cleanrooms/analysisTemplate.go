@@ -18,18 +18,38 @@ type AnalysisTemplate struct {
 	pulumi.CustomResourceState
 
 	// The member who can query can provide this placeholder for a literal data value in an analysis template
-	AnalysisParameters         AnalysisTemplateAnalysisParameterArrayOutput `pulumi:"analysisParameters"`
-	AnalysisTemplateIdentifier pulumi.StringOutput                          `pulumi:"analysisTemplateIdentifier"`
-	Arn                        pulumi.StringOutput                          `pulumi:"arn"`
-	CollaborationArn           pulumi.StringOutput                          `pulumi:"collaborationArn"`
-	CollaborationIdentifier    pulumi.StringOutput                          `pulumi:"collaborationIdentifier"`
-	Description                pulumi.StringPtrOutput                       `pulumi:"description"`
-	Format                     AnalysisTemplateFormatOutput                 `pulumi:"format"`
-	MembershipArn              pulumi.StringOutput                          `pulumi:"membershipArn"`
-	MembershipIdentifier       pulumi.StringOutput                          `pulumi:"membershipIdentifier"`
-	Name                       pulumi.StringOutput                          `pulumi:"name"`
-	Schema                     AnalysisTemplateAnalysisSchemaOutput         `pulumi:"schema"`
-	Source                     AnalysisTemplateAnalysisSourceOutput         `pulumi:"source"`
+	AnalysisParameters AnalysisTemplateAnalysisParameterArrayOutput `pulumi:"analysisParameters"`
+	// Returns the identifier for the analysis template.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+	AnalysisTemplateIdentifier pulumi.StringOutput `pulumi:"analysisTemplateIdentifier"`
+	// Returns the Amazon Resource Name (ARN) of the analysis template.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Returns the unique ARN for the analysis template’s associated collaboration.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+	CollaborationArn pulumi.StringOutput `pulumi:"collaborationArn"`
+	// Returns the unique ID for the associated collaboration of the analysis template.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
+	// The description of the analysis template.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The format of the analysis template.
+	Format AnalysisTemplateFormatOutput `pulumi:"format"`
+	// Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	MembershipArn pulumi.StringOutput `pulumi:"membershipArn"`
+	// The identifier for a membership resource.
+	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
+	// The name of the analysis template.
+	Name   pulumi.StringOutput                  `pulumi:"name"`
+	Schema AnalysisTemplateAnalysisSchemaOutput `pulumi:"schema"`
+	// The source of the analysis template.
+	Source AnalysisTemplateAnalysisSourceOutput `pulumi:"source"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -92,12 +112,17 @@ func (AnalysisTemplateState) ElementType() reflect.Type {
 
 type analysisTemplateArgs struct {
 	// The member who can query can provide this placeholder for a literal data value in an analysis template
-	AnalysisParameters   []AnalysisTemplateAnalysisParameter `pulumi:"analysisParameters"`
-	Description          *string                             `pulumi:"description"`
-	Format               AnalysisTemplateFormat              `pulumi:"format"`
-	MembershipIdentifier string                              `pulumi:"membershipIdentifier"`
-	Name                 *string                             `pulumi:"name"`
-	Source               AnalysisTemplateAnalysisSource      `pulumi:"source"`
+	AnalysisParameters []AnalysisTemplateAnalysisParameter `pulumi:"analysisParameters"`
+	// The description of the analysis template.
+	Description *string `pulumi:"description"`
+	// The format of the analysis template.
+	Format AnalysisTemplateFormat `pulumi:"format"`
+	// The identifier for a membership resource.
+	MembershipIdentifier string `pulumi:"membershipIdentifier"`
+	// The name of the analysis template.
+	Name *string `pulumi:"name"`
+	// The source of the analysis template.
+	Source AnalysisTemplateAnalysisSource `pulumi:"source"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -105,12 +130,17 @@ type analysisTemplateArgs struct {
 // The set of arguments for constructing a AnalysisTemplate resource.
 type AnalysisTemplateArgs struct {
 	// The member who can query can provide this placeholder for a literal data value in an analysis template
-	AnalysisParameters   AnalysisTemplateAnalysisParameterArrayInput
-	Description          pulumi.StringPtrInput
-	Format               AnalysisTemplateFormatInput
+	AnalysisParameters AnalysisTemplateAnalysisParameterArrayInput
+	// The description of the analysis template.
+	Description pulumi.StringPtrInput
+	// The format of the analysis template.
+	Format AnalysisTemplateFormatInput
+	// The identifier for a membership resource.
 	MembershipIdentifier pulumi.StringInput
-	Name                 pulumi.StringPtrInput
-	Source               AnalysisTemplateAnalysisSourceInput
+	// The name of the analysis template.
+	Name pulumi.StringPtrInput
+	// The source of the analysis template.
+	Source AnalysisTemplateAnalysisSourceInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayInput
 }
@@ -157,38 +187,57 @@ func (o AnalysisTemplateOutput) AnalysisParameters() AnalysisTemplateAnalysisPar
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisParameterArrayOutput { return v.AnalysisParameters }).(AnalysisTemplateAnalysisParameterArrayOutput)
 }
 
+// Returns the identifier for the analysis template.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
 func (o AnalysisTemplateOutput) AnalysisTemplateIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.AnalysisTemplateIdentifier }).(pulumi.StringOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the analysis template.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
 func (o AnalysisTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Returns the unique ARN for the analysis template’s associated collaboration.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o AnalysisTemplateOutput) CollaborationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.CollaborationArn }).(pulumi.StringOutput)
 }
 
+// Returns the unique ID for the associated collaboration of the analysis template.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o AnalysisTemplateOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
 }
 
+// The description of the analysis template.
 func (o AnalysisTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The format of the analysis template.
 func (o AnalysisTemplateOutput) Format() AnalysisTemplateFormatOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateFormatOutput { return v.Format }).(AnalysisTemplateFormatOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o AnalysisTemplateOutput) MembershipArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.MembershipArn }).(pulumi.StringOutput)
 }
 
+// The identifier for a membership resource.
 func (o AnalysisTemplateOutput) MembershipIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.MembershipIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the analysis template.
 func (o AnalysisTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -197,6 +246,7 @@ func (o AnalysisTemplateOutput) Schema() AnalysisTemplateAnalysisSchemaOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSchemaOutput { return v.Schema }).(AnalysisTemplateAnalysisSchemaOutput)
 }
 
+// The source of the analysis template.
 func (o AnalysisTemplateOutput) Source() AnalysisTemplateAnalysisSourceOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSourceOutput { return v.Source }).(AnalysisTemplateAnalysisSourceOutput)
 }

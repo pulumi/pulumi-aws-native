@@ -15,42 +15,83 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q Business application.
+        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for the Amazon Q Business application.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for the file upload during chat feature.
+        /// </summary>
         [Output("attachmentsConfiguration")]
         public Output<Outputs.ApplicationAttachmentsConfiguration?> AttachmentsConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business application was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the Amazon Q Business application.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Amazon Q Business application.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ApplicationEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+        /// </summary>
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+        /// 
+        /// *Required* : `Yes`
+        /// </summary>
         [Output("identityCenterInstanceArn")]
         public Output<string?> IdentityCenterInstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QBusiness.ApplicationStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business application was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -103,26 +144,50 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration information for the file upload during chat feature.
+        /// </summary>
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationArgs>? AttachmentsConfiguration { get; set; }
 
+        /// <summary>
+        /// A description for the Amazon Q Business application.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the Amazon Q Business application.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+        /// 
+        /// *Required* : `Yes`
+        /// </summary>
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

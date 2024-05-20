@@ -58,56 +58,89 @@ class GetFormResult:
     @property
     @pulumi.getter
     def cta(self) -> Optional['outputs.FormCta']:
+        """
+        The `FormCTA` object that stores the call to action configuration for the form.
+        """
         return pulumi.get(self, "cta")
 
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional['outputs.FormDataTypeConfig']:
+        """
+        The type of data source to use to create the form.
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter
     def fields(self) -> Optional[Mapping[str, 'outputs.FormFieldConfig']]:
+        """
+        The configuration information for the form's fields.
+        """
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter(name="formActionType")
     def form_action_type(self) -> Optional['FormActionType']:
+        """
+        Specifies whether to perform a create or update action on the form.
+        """
         return pulumi.get(self, "form_action_type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID for the form.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="labelDecorator")
     def label_decorator(self) -> Optional['FormLabelDecorator']:
+        """
+        Specifies an icon or decoration to display on the form.
+        """
         return pulumi.get(self, "label_decorator")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the form.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> Optional[str]:
+        """
+        The schema version of the form.
+        """
         return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter(name="sectionalElements")
     def sectional_elements(self) -> Optional[Mapping[str, 'outputs.FormSectionalElement']]:
+        """
+        The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        """
         return pulumi.get(self, "sectional_elements")
 
     @property
     @pulumi.getter
     def style(self) -> Optional['outputs.FormStyle']:
+        """
+        The configuration for the form's style.
+        """
         return pulumi.get(self, "style")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        One or more key-value pairs to use when tagging the form data.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -136,6 +169,11 @@ def get_form(app_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFormResult:
     """
     Definition of AWS::AmplifyUIBuilder::Form Resource Type
+
+
+    :param str app_id: The unique ID of the Amplify app associated with the form.
+    :param str environment_name: The name of the backend environment that is a part of the Amplify app.
+    :param str id: The ID for the form.
     """
     __args__ = dict()
     __args__['appId'] = app_id
@@ -165,5 +203,10 @@ def get_form_output(app_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Form Resource Type
+
+
+    :param str app_id: The unique ID of the Amplify app associated with the form.
+    :param str environment_name: The name of the backend environment that is a part of the Amplify app.
+    :param str id: The ID for the form.
     """
     ...

@@ -145,6 +145,9 @@ export class Association extends pulumi.CustomResource {
         return obj['__pulumiType'] === Association.__pulumiType;
     }
 
+    /**
+     * By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+     */
     public readonly applyOnlyAtCronInterval!: pulumi.Output<boolean | undefined>;
     /**
      * Unique identifier of the association.
@@ -154,8 +157,17 @@ export class Association extends pulumi.CustomResource {
      * The name of the association.
      */
     public readonly associationName!: pulumi.Output<string | undefined>;
+    /**
+     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+     */
     public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
+    /**
+     * The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+     */
     public readonly calendarNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * The severity level that is assigned to the association.
+     */
     public readonly complianceSeverity!: pulumi.Output<enums.ssm.AssociationComplianceSeverity | undefined>;
     /**
      * The version of the SSM document to associate with the target.
@@ -165,12 +177,25 @@ export class Association extends pulumi.CustomResource {
      * The ID of the instance that the SSM document is associated with.
      */
     public readonly instanceId!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+     *
+     * If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
+     */
     public readonly maxConcurrency!: pulumi.Output<string | undefined>;
+    /**
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+     *
+     * Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+     */
     public readonly maxErrors!: pulumi.Output<string | undefined>;
     /**
      * The name of the SSM document.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
+     */
     public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationInstanceAssociationOutputLocation | undefined>;
     /**
      * Parameter values that the SSM document uses at runtime.
@@ -180,12 +205,27 @@ export class Association extends pulumi.CustomResource {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
+    /**
+     * Number of days to wait after the scheduled day to run an association.
+     */
     public readonly scheduleOffset!: pulumi.Output<number | undefined>;
+    /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+     *
+     * In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+     *
+     * By default, all associations use `AUTO` mode.
+     */
     public readonly syncCompliance!: pulumi.Output<enums.ssm.AssociationSyncCompliance | undefined>;
     /**
      * The targets that the SSM document sends commands to.
      */
     public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[] | undefined>;
+    /**
+     * The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
+     *
+     * > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
+     */
     public readonly waitForSuccessTimeoutSeconds!: pulumi.Output<number | undefined>;
 
     /**
@@ -246,13 +286,25 @@ export class Association extends pulumi.CustomResource {
  * The set of arguments for constructing a Association resource.
  */
 export interface AssociationArgs {
+    /**
+     * By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+     */
     applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * The name of the association.
      */
     associationName?: pulumi.Input<string>;
+    /**
+     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+     */
     automationTargetParameterName?: pulumi.Input<string>;
+    /**
+     * The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+     */
     calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The severity level that is assigned to the association.
+     */
     complianceSeverity?: pulumi.Input<enums.ssm.AssociationComplianceSeverity>;
     /**
      * The version of the SSM document to associate with the target.
@@ -262,12 +314,25 @@ export interface AssociationArgs {
      * The ID of the instance that the SSM document is associated with.
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+     *
+     * If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
+     */
     maxConcurrency?: pulumi.Input<string>;
+    /**
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+     *
+     * Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+     */
     maxErrors?: pulumi.Input<string>;
     /**
      * The name of the SSM document.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
+     */
     outputLocation?: pulumi.Input<inputs.ssm.AssociationInstanceAssociationOutputLocationArgs>;
     /**
      * Parameter values that the SSM document uses at runtime.
@@ -277,11 +342,26 @@ export interface AssociationArgs {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     scheduleExpression?: pulumi.Input<string>;
+    /**
+     * Number of days to wait after the scheduled day to run an association.
+     */
     scheduleOffset?: pulumi.Input<number>;
+    /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+     *
+     * In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+     *
+     * By default, all associations use `AUTO` mode.
+     */
     syncCompliance?: pulumi.Input<enums.ssm.AssociationSyncCompliance>;
     /**
      * The targets that the SSM document sends commands to.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTargetArgs>[]>;
+    /**
+     * The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
+     *
+     * > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
+     */
     waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
 }

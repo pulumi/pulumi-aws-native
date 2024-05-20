@@ -21,16 +21,24 @@ type ModelQualityJobDefinition struct {
 	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
 	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn             pulumi.StringOutput                                          `pulumi:"jobDefinitionArn"`
-	JobDefinitionName            pulumi.StringPtrOutput                                       `pulumi:"jobDefinitionName"`
-	JobResources                 ModelQualityJobDefinitionMonitoringResourcesOutput           `pulumi:"jobResources"`
-	ModelQualityAppSpecification ModelQualityJobDefinitionModelQualityAppSpecificationOutput  `pulumi:"modelQualityAppSpecification"`
-	ModelQualityBaselineConfig   ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput `pulumi:"modelQualityBaselineConfig"`
-	ModelQualityJobInput         ModelQualityJobDefinitionModelQualityJobInputOutput          `pulumi:"modelQualityJobInput"`
-	ModelQualityJobOutputConfig  ModelQualityJobDefinitionMonitoringOutputConfigOutput        `pulumi:"modelQualityJobOutputConfig"`
-	NetworkConfig                ModelQualityJobDefinitionNetworkConfigPtrOutput              `pulumi:"networkConfig"`
+	JobDefinitionArn pulumi.StringOutput `pulumi:"jobDefinitionArn"`
+	// The name of the monitoring job definition.
+	JobDefinitionName pulumi.StringPtrOutput `pulumi:"jobDefinitionName"`
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelQualityJobDefinitionMonitoringResourcesOutput `pulumi:"jobResources"`
+	// Container image configuration object for the monitoring job.
+	ModelQualityAppSpecification ModelQualityJobDefinitionModelQualityAppSpecificationOutput `pulumi:"modelQualityAppSpecification"`
+	// Specifies the constraints and baselines for the monitoring job.
+	ModelQualityBaselineConfig ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput `pulumi:"modelQualityBaselineConfig"`
+	// A list of the inputs that are monitored. Currently endpoints are supported.
+	ModelQualityJobInput ModelQualityJobDefinitionModelQualityJobInputOutput `pulumi:"modelQualityJobInput"`
+	// The output configuration for monitoring jobs.
+	ModelQualityJobOutputConfig ModelQualityJobDefinitionMonitoringOutputConfigOutput `pulumi:"modelQualityJobOutputConfig"`
+	// Specifies the network configuration for the monitoring job.
+	NetworkConfig ModelQualityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           pulumi.StringOutput                                 `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelQualityJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -105,16 +113,24 @@ func (ModelQualityJobDefinitionState) ElementType() reflect.Type {
 }
 
 type modelQualityJobDefinitionArgs struct {
-	EndpointName                 *string                                               `pulumi:"endpointName"`
-	JobDefinitionName            *string                                               `pulumi:"jobDefinitionName"`
-	JobResources                 ModelQualityJobDefinitionMonitoringResources          `pulumi:"jobResources"`
+	EndpointName *string `pulumi:"endpointName"`
+	// The name of the monitoring job definition.
+	JobDefinitionName *string `pulumi:"jobDefinitionName"`
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelQualityJobDefinitionMonitoringResources `pulumi:"jobResources"`
+	// Container image configuration object for the monitoring job.
 	ModelQualityAppSpecification ModelQualityJobDefinitionModelQualityAppSpecification `pulumi:"modelQualityAppSpecification"`
-	ModelQualityBaselineConfig   *ModelQualityJobDefinitionModelQualityBaselineConfig  `pulumi:"modelQualityBaselineConfig"`
-	ModelQualityJobInput         ModelQualityJobDefinitionModelQualityJobInput         `pulumi:"modelQualityJobInput"`
-	ModelQualityJobOutputConfig  ModelQualityJobDefinitionMonitoringOutputConfig       `pulumi:"modelQualityJobOutputConfig"`
-	NetworkConfig                *ModelQualityJobDefinitionNetworkConfig               `pulumi:"networkConfig"`
+	// Specifies the constraints and baselines for the monitoring job.
+	ModelQualityBaselineConfig *ModelQualityJobDefinitionModelQualityBaselineConfig `pulumi:"modelQualityBaselineConfig"`
+	// A list of the inputs that are monitored. Currently endpoints are supported.
+	ModelQualityJobInput ModelQualityJobDefinitionModelQualityJobInput `pulumi:"modelQualityJobInput"`
+	// The output configuration for monitoring jobs.
+	ModelQualityJobOutputConfig ModelQualityJobDefinitionMonitoringOutputConfig `pulumi:"modelQualityJobOutputConfig"`
+	// Specifies the network configuration for the monitoring job.
+	NetworkConfig *ModelQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           string                                      `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition *ModelQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -122,16 +138,24 @@ type modelQualityJobDefinitionArgs struct {
 
 // The set of arguments for constructing a ModelQualityJobDefinition resource.
 type ModelQualityJobDefinitionArgs struct {
-	EndpointName                 pulumi.StringPtrInput
-	JobDefinitionName            pulumi.StringPtrInput
-	JobResources                 ModelQualityJobDefinitionMonitoringResourcesInput
+	EndpointName pulumi.StringPtrInput
+	// The name of the monitoring job definition.
+	JobDefinitionName pulumi.StringPtrInput
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelQualityJobDefinitionMonitoringResourcesInput
+	// Container image configuration object for the monitoring job.
 	ModelQualityAppSpecification ModelQualityJobDefinitionModelQualityAppSpecificationInput
-	ModelQualityBaselineConfig   ModelQualityJobDefinitionModelQualityBaselineConfigPtrInput
-	ModelQualityJobInput         ModelQualityJobDefinitionModelQualityJobInputInput
-	ModelQualityJobOutputConfig  ModelQualityJobDefinitionMonitoringOutputConfigInput
-	NetworkConfig                ModelQualityJobDefinitionNetworkConfigPtrInput
+	// Specifies the constraints and baselines for the monitoring job.
+	ModelQualityBaselineConfig ModelQualityJobDefinitionModelQualityBaselineConfigPtrInput
+	// A list of the inputs that are monitored. Currently endpoints are supported.
+	ModelQualityJobInput ModelQualityJobDefinitionModelQualityJobInputInput
+	// The output configuration for monitoring jobs.
+	ModelQualityJobOutputConfig ModelQualityJobDefinitionMonitoringOutputConfigInput
+	// Specifies the network configuration for the monitoring job.
+	NetworkConfig ModelQualityJobDefinitionNetworkConfigPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           pulumi.StringInput
+	RoleArn pulumi.StringInput
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelQualityJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -188,40 +212,47 @@ func (o ModelQualityJobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
 }
 
+// The name of the monitoring job definition.
 func (o ModelQualityJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
+// Identifies the resources to deploy for a monitoring job.
 func (o ModelQualityJobDefinitionOutput) JobResources() ModelQualityJobDefinitionMonitoringResourcesOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionMonitoringResourcesOutput {
 		return v.JobResources
 	}).(ModelQualityJobDefinitionMonitoringResourcesOutput)
 }
 
+// Container image configuration object for the monitoring job.
 func (o ModelQualityJobDefinitionOutput) ModelQualityAppSpecification() ModelQualityJobDefinitionModelQualityAppSpecificationOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionModelQualityAppSpecificationOutput {
 		return v.ModelQualityAppSpecification
 	}).(ModelQualityJobDefinitionModelQualityAppSpecificationOutput)
 }
 
+// Specifies the constraints and baselines for the monitoring job.
 func (o ModelQualityJobDefinitionOutput) ModelQualityBaselineConfig() ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput {
 		return v.ModelQualityBaselineConfig
 	}).(ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput)
 }
 
+// A list of the inputs that are monitored. Currently endpoints are supported.
 func (o ModelQualityJobDefinitionOutput) ModelQualityJobInput() ModelQualityJobDefinitionModelQualityJobInputOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionModelQualityJobInputOutput {
 		return v.ModelQualityJobInput
 	}).(ModelQualityJobDefinitionModelQualityJobInputOutput)
 }
 
+// The output configuration for monitoring jobs.
 func (o ModelQualityJobDefinitionOutput) ModelQualityJobOutputConfig() ModelQualityJobDefinitionMonitoringOutputConfigOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionMonitoringOutputConfigOutput {
 		return v.ModelQualityJobOutputConfig
 	}).(ModelQualityJobDefinitionMonitoringOutputConfigOutput)
 }
 
+// Specifies the network configuration for the monitoring job.
 func (o ModelQualityJobDefinitionOutput) NetworkConfig() ModelQualityJobDefinitionNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionNetworkConfigPtrOutput {
 		return v.NetworkConfig
@@ -233,6 +264,7 @@ func (o ModelQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A time limit for how long the monitoring job is allowed to run before stopping.
 func (o ModelQualityJobDefinitionOutput) StoppingCondition() ModelQualityJobDefinitionStoppingConditionPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinition) ModelQualityJobDefinitionStoppingConditionPtrOutput {
 		return v.StoppingCondition

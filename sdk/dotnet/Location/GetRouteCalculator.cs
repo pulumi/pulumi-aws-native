@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetRouteCalculatorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the route calculator resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique Route calculator resource name.
+        /// - No spaces allowed. For example, `ExampleRouteCalculator` .
+        /// </summary>
         [Input("calculatorName", required: true)]
         public string CalculatorName { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetRouteCalculatorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the route calculator resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique Route calculator resource name.
+        /// - No spaces allowed. For example, `ExampleRouteCalculator` .
+        /// </summary>
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
 
@@ -51,15 +69,39 @@ namespace Pulumi.AwsNative.Location
     [OutputType]
     public sealed class GetRouteCalculatorResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        /// </summary>
         public readonly string? CalculatorArn;
+        /// <summary>
+        /// The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? CreateTime;
+        /// <summary>
+        /// The optional description for the route calculator resource.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         public readonly Pulumi.AwsNative.Location.RouteCalculatorPricingPlan? PricingPlan;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? UpdateTime;
 
         [OutputConstructor]

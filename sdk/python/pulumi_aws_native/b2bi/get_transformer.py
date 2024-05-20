@@ -59,56 +59,89 @@ class GetTransformerResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="ediType")
     def edi_type(self) -> Optional['outputs.TransformerEdiTypeProperties']:
+        """
+        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        """
         return pulumi.get(self, "edi_type")
 
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional['TransformerFileFormat']:
+        """
+        Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+        """
         return pulumi.get(self, "file_format")
 
     @property
     @pulumi.getter(name="mappingTemplate")
     def mapping_template(self) -> Optional[str]:
+        """
+        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        """
         return pulumi.get(self, "mapping_template")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        Returns a timestamp representing the date and time for the most recent change for the transformer object.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Returns the descriptive name for the transformer.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sampleDocument")
     def sample_document(self) -> Optional[str]:
+        """
+        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        """
         return pulumi.get(self, "sample_document")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['TransformerStatus']:
+        """
+        Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transformerArn")
     def transformer_arn(self) -> Optional[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific transformer.
+        """
         return pulumi.get(self, "transformer_arn")
 
     @property
     @pulumi.getter(name="transformerId")
     def transformer_id(self) -> Optional[str]:
+        """
+        The system-assigned unique identifier for the transformer.
+        """
         return pulumi.get(self, "transformer_id")
 
 
@@ -135,6 +168,9 @@ def get_transformer(transformer_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransformerResult:
     """
     Definition of AWS::B2BI::Transformer Resource Type
+
+
+    :param str transformer_id: The system-assigned unique identifier for the transformer.
     """
     __args__ = dict()
     __args__['transformerId'] = transformer_id
@@ -160,5 +196,8 @@ def get_transformer_output(transformer_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransformerResult]:
     """
     Definition of AWS::B2BI::Transformer Resource Type
+
+
+    :param str transformer_id: The system-assigned unique identifier for the transformer.
     """
     ...

@@ -122,22 +122,59 @@ class RuleGroupBodyParsingFallbackBehavior(str, Enum):
 
 
 class RuleGroupForwardedIpConfigurationFallbackBehavior(str, Enum):
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+
+    You can specify the following fallback behaviors:
+
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
 class RuleGroupIpSetForwardedIpConfigurationFallbackBehavior(str, Enum):
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+
+    You can specify the following fallback behaviors:
+
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
 class RuleGroupIpSetForwardedIpConfigurationPosition(str, Enum):
+    """
+    The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+
+    The options for this setting are the following:
+
+    - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+    - LAST - Inspect the last IP address in the list of IP addresses in the header.
+    - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+    """
     FIRST = "FIRST"
     LAST = "LAST"
     ANY = "ANY"
 
 
 class RuleGroupJa3FingerprintFallbackBehavior(str, Enum):
+    """
+    The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+
+    You can specify the following fallback behaviors:
+
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
@@ -186,6 +223,28 @@ class RuleGroupPositionalConstraint(str, Enum):
 
 
 class RuleGroupRateBasedStatementAggregateKeyType(str, Enum):
+    """
+    Setting that indicates how to aggregate the request counts.
+
+    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+
+    - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+
+    With this option, you must configure the `ScopeDownStatement` property.
+    - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+
+    With this option, you must specify the aggregate keys in the `CustomKeys` property.
+
+    To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+    - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+
+    With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+
+    To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    - `IP` - Aggregate the request counts on the IP address from the web request origin.
+
+    To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    """
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
     CONSTANT = "CONSTANT"
@@ -218,6 +277,9 @@ class RuleGroupSensitivityLevel(str, Enum):
 
 
 class RuleGroupSizeConstraintStatementComparisonOperator(str, Enum):
+    """
+    The operator to use to compare the request part to the size setting.
+    """
     EQ = "EQ"
     NE = "NE"
     LE = "LE"
@@ -254,6 +316,9 @@ class RuleGroupTextTransformationType(str, Enum):
 
 
 class WebAclAwsManagedRulesBotControlRuleSetInspectionLevel(str, Enum):
+    """
+    The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
+    """
     COMMON = "COMMON"
     TARGETED = "TARGETED"
 
@@ -268,22 +333,59 @@ class WebAclBodyParsingFallbackBehavior(str, Enum):
 
 
 class WebAclForwardedIpConfigurationFallbackBehavior(str, Enum):
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+
+    You can specify the following fallback behaviors:
+
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
 class WebAclIpSetForwardedIpConfigurationFallbackBehavior(str, Enum):
+    """
+    The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+
+    You can specify the following fallback behaviors:
+
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
 
 class WebAclIpSetForwardedIpConfigurationPosition(str, Enum):
+    """
+    The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+
+    The options for this setting are the following:
+
+    - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+    - LAST - Inspect the last IP address in the list of IP addresses in the header.
+    - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+    """
     FIRST = "FIRST"
     LAST = "LAST"
     ANY = "ANY"
 
 
 class WebAclJa3FingerprintFallbackBehavior(str, Enum):
+    """
+    The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+
+    You can specify the following fallback behaviors:
+
+    - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+    - `NO_MATCH` - Treat the web request as not matching the rule statement.
+    """
     MATCH = "MATCH"
     NO_MATCH = "NO_MATCH"
 
@@ -303,6 +405,9 @@ class WebAclLabelMatchScope(str, Enum):
 
 
 class WebAclManagedRuleGroupConfigPayloadType(str, Enum):
+    """
+    > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+    """
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
 
@@ -337,6 +442,28 @@ class WebAclPositionalConstraint(str, Enum):
 
 
 class WebAclRateBasedStatementAggregateKeyType(str, Enum):
+    """
+    Setting that indicates how to aggregate the request counts.
+
+    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+
+    - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+
+    With this option, you must configure the `ScopeDownStatement` property.
+    - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+
+    With this option, you must specify the aggregate keys in the `CustomKeys` property.
+
+    To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+    - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+
+    With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+
+    To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    - `IP` - Aggregate the request counts on the IP address from the web request origin.
+
+    To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+    """
     CONSTANT = "CONSTANT"
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
@@ -344,11 +471,17 @@ class WebAclRateBasedStatementAggregateKeyType(str, Enum):
 
 
 class WebAclRequestInspectionAcfpPayloadType(str, Enum):
+    """
+    The payload type for your account creation endpoint, either JSON or form encoded.
+    """
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
 
 
 class WebAclRequestInspectionPayloadType(str, Enum):
+    """
+    The payload type for your login endpoint, either JSON or form encoded.
+    """
     JSON = "JSON"
     FORM_ENCODED = "FORM_ENCODED"
 
@@ -379,6 +512,9 @@ class WebAclSensitivityLevel(str, Enum):
 
 
 class WebAclSizeConstraintStatementComparisonOperator(str, Enum):
+    """
+    The operator to use to compare the request part to the size setting.
+    """
     EQ = "EQ"
     NE = "NE"
     LE = "LE"

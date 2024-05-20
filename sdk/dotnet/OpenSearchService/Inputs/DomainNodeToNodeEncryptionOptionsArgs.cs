@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainNodeToNodeEncryptionOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

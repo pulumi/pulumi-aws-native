@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.IoTEvents
     [AwsNativeResourceType("aws-native:iotevents:Input")]
     public partial class Input : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The definition of the input.
+        /// </summary>
         [Output("inputDefinition")]
         public Output<Outputs.InputDefinition> InputDefinition { get; private set; } = null!;
 
@@ -155,6 +158,9 @@ namespace Pulumi.AwsNative.IoTEvents
 
     public sealed class InputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The definition of the input.
+        /// </summary>
         [Input("inputDefinition", required: true)]
         public Input<Inputs.InputDefinitionArgs> InputDefinition { get; set; } = null!;
 

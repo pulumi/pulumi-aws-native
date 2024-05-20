@@ -51,36 +51,57 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="apiGatewayId")
     def api_gateway_id(self) -> Optional[str]:
+        """
+        The resource ID of the API Gateway for the proxy.
+        """
         return pulumi.get(self, "api_gateway_id")
 
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the application.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="nlbArn")
     def nlb_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Network Load Balancer .
+        """
         return pulumi.get(self, "nlb_arn")
 
     @property
     @pulumi.getter(name="nlbName")
     def nlb_name(self) -> Optional[str]:
+        """
+        The name of the Network Load Balancer configured by the API Gateway proxy.
+        """
         return pulumi.get(self, "nlb_name")
 
     @property
     @pulumi.getter(name="proxyUrl")
     def proxy_url(self) -> Optional[str]:
+        """
+        The endpoint URL of the Amazon API Gateway proxy.
+        """
         return pulumi.get(self, "proxy_url")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[str]:
+        """
+        The name of the API Gateway stage. The name defaults to `prod` .
+        """
         return pulumi.get(self, "stage_name")
 
     @property
@@ -94,6 +115,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="vpcLinkId")
     def vpc_link_id(self) -> Optional[str]:
+        """
+        The `VpcLink` ID of the API Gateway proxy.
+        """
         return pulumi.get(self, "vpc_link_id")
 
 
@@ -119,6 +143,10 @@ def get_application(application_identifier: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Definition of AWS::RefactorSpaces::Application Resource Type
+
+
+    :param str application_identifier: The unique identifier of the application.
+    :param str environment_identifier: The unique identifier of the environment.
     """
     __args__ = dict()
     __args__['applicationIdentifier'] = application_identifier
@@ -144,5 +172,9 @@ def get_application_output(application_identifier: Optional[pulumi.Input[str]] =
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Definition of AWS::RefactorSpaces::Application Resource Type
+
+
+    :param str application_identifier: The unique identifier of the application.
+    :param str environment_identifier: The unique identifier of the environment.
     """
     ...

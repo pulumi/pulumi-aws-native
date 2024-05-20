@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:QueueEnvironment")]
     public partial class QueueEnvironment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier assigned to the farm that contains the queue.
+        /// </summary>
         [Output("farmId")]
         public Output<string> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the queue environment.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The queue environment's priority.
+        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// The queue environment ID.
+        /// </summary>
         [Output("queueEnvironmentId")]
         public Output<string> QueueEnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the queue that contains the environment.
+        /// </summary>
         [Output("queueId")]
         public Output<string> QueueId { get; private set; } = null!;
 
+        /// <summary>
+        /// A JSON or YAML template the describes the processing environment for the queue.
+        /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the template for the queue environment is JSON or YAML.
+        /// </summary>
         [Output("templateType")]
         public Output<Pulumi.AwsNative.Deadline.QueueEnvironmentEnvironmentTemplateType> TemplateType { get; private set; } = null!;
 
@@ -86,18 +107,33 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class QueueEnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier assigned to the farm that contains the queue.
+        /// </summary>
         [Input("farmId", required: true)]
         public Input<string> FarmId { get; set; } = null!;
 
+        /// <summary>
+        /// The queue environment's priority.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the queue that contains the environment.
+        /// </summary>
         [Input("queueId", required: true)]
         public Input<string> QueueId { get; set; } = null!;
 
+        /// <summary>
+        /// A JSON or YAML template the describes the processing environment for the queue.
+        /// </summary>
         [Input("template", required: true)]
         public Input<string> Template { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the template for the queue environment is JSON or YAML.
+        /// </summary>
         [Input("templateType", required: true)]
         public Input<Pulumi.AwsNative.Deadline.QueueEnvironmentEnvironmentTemplateType> TemplateType { get; set; } = null!;
 

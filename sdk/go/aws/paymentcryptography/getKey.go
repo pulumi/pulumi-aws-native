@@ -28,14 +28,22 @@ type LookupKeyArgs struct {
 }
 
 type LookupKeyResult struct {
-	Enabled                *bool                   `pulumi:"enabled"`
-	Exportable             *bool                   `pulumi:"exportable"`
-	KeyAttributes          *KeyAttributes          `pulumi:"keyAttributes"`
+	// Specifies whether the key is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies whether the key is exportable. This data is immutable after the key is created.
+	Exportable *bool `pulumi:"exportable"`
+	// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+	KeyAttributes *KeyAttributes `pulumi:"keyAttributes"`
+	// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+	//
+	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm *KeyCheckValueAlgorithm `pulumi:"keyCheckValueAlgorithm"`
 	KeyIdentifier          *string                 `pulumi:"keyIdentifier"`
-	KeyOrigin              *KeyOrigin              `pulumi:"keyOrigin"`
-	KeyState               *KeyStateEnum           `pulumi:"keyState"`
-	Tags                   []aws.Tag               `pulumi:"tags"`
+	// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+	KeyOrigin *KeyOrigin `pulumi:"keyOrigin"`
+	// The state of key that is being created or deleted.
+	KeyState *KeyStateEnum `pulumi:"keyState"`
+	Tags     []aws.Tag     `pulumi:"tags"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -73,18 +81,24 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// Specifies whether the key is enabled.
 func (o LookupKeyResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the key is exportable. This data is immutable after the key is created.
 func (o LookupKeyResultOutput) Exportable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.Exportable }).(pulumi.BoolPtrOutput)
 }
 
+// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
 func (o LookupKeyResultOutput) KeyAttributes() KeyAttributesPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyAttributes { return v.KeyAttributes }).(KeyAttributesPtrOutput)
 }
 
+// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+//
+// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 func (o LookupKeyResultOutput) KeyCheckValueAlgorithm() KeyCheckValueAlgorithmPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyCheckValueAlgorithm { return v.KeyCheckValueAlgorithm }).(KeyCheckValueAlgorithmPtrOutput)
 }
@@ -93,10 +107,12 @@ func (o LookupKeyResultOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
 func (o LookupKeyResultOutput) KeyOrigin() KeyOriginPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyOrigin { return v.KeyOrigin }).(KeyOriginPtrOutput)
 }
 
+// The state of key that is being created or deleted.
 func (o LookupKeyResultOutput) KeyState() KeyStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyStateEnum { return v.KeyState }).(KeyStateEnumPtrOutput)
 }

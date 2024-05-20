@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePivotTableFieldCollapseStateOption
     {
+        /// <summary>
+        /// The state of the field target of a pivot table. Choose one of the following options:
+        /// 
+        /// - `COLLAPSED`
+        /// - `EXPANDED`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplatePivotTableFieldCollapseState? State;
+        /// <summary>
+        /// A tagged-union object that sets the collapse state.
+        /// </summary>
         public readonly Outputs.TemplatePivotTableFieldCollapseStateTarget Target;
 
         [OutputConstructor]

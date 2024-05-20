@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetModelPackageGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model group.
+        /// </summary>
         [Input("modelPackageGroupArn", required: true)]
         public string ModelPackageGroupArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetModelPackageGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model group.
+        /// </summary>
         [Input("modelPackageGroupArn", required: true)]
         public Input<string> ModelPackageGroupArn { get; set; } = null!;
 
@@ -55,8 +61,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// The time at which the model package group was created.
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model group.
+        /// </summary>
         public readonly string? ModelPackageGroupArn;
         /// <summary>
+        /// A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? ModelPackageGroupPolicy;

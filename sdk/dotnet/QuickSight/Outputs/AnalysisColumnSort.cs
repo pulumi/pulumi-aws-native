@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisColumnSort
     {
+        /// <summary>
+        /// The aggregation function that is defined in the column sort.
+        /// </summary>
         public readonly Outputs.AnalysisAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// The sort direction.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSortDirection Direction;
         public readonly Outputs.AnalysisColumnIdentifier SortBy;
 

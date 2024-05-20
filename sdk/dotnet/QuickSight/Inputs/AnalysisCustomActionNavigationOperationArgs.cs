@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCustomActionNavigationOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that chooses the navigation target.
+        /// </summary>
         [Input("localNavigationConfiguration")]
         public Input<Inputs.AnalysisLocalNavigationConfigurationArgs>? LocalNavigationConfiguration { get; set; }
 

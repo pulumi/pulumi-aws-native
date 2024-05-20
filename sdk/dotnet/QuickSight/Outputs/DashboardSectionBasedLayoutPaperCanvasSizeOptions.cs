@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSectionBasedLayoutPaperCanvasSizeOptions
     {
+        /// <summary>
+        /// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+        /// </summary>
         public readonly Outputs.DashboardSpacing? PaperMargin;
+        /// <summary>
+        /// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+        /// 
+        /// - PORTRAIT
+        /// - LANDSCAPE
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPaperOrientation? PaperOrientation;
+        /// <summary>
+        /// The paper size that is used to define canvas dimensions.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPaperSize? PaperSize;
 
         [OutputConstructor]

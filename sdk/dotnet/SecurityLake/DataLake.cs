@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.SecurityLake
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides encryption details of the Amazon Security Lake object.
+        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.DataLakeEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
+        /// </summary>
         [Output("lifecycleConfiguration")]
         public Output<Outputs.DataLakeLifecycleConfiguration?> LifecycleConfiguration { get; private set; } = null!;
 
@@ -33,6 +39,9 @@ namespace Pulumi.AwsNative.SecurityLake
         [Output("metaStoreManagerRoleArn")]
         public Output<string?> MetaStoreManagerRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides replication details of Amazon Security Lake object.
+        /// </summary>
         [Output("replicationConfiguration")]
         public Output<Outputs.DataLakeReplicationConfiguration?> ReplicationConfiguration { get; private set; } = null!;
 
@@ -42,6 +51,9 @@ namespace Pulumi.AwsNative.SecurityLake
         [Output("s3BucketArn")]
         public Output<string> S3BucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -90,9 +102,15 @@ namespace Pulumi.AwsNative.SecurityLake
 
     public sealed class DataLakeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides encryption details of the Amazon Security Lake object.
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.DataLakeEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
+        /// </summary>
         [Input("lifecycleConfiguration")]
         public Input<Inputs.DataLakeLifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
 
@@ -102,11 +120,18 @@ namespace Pulumi.AwsNative.SecurityLake
         [Input("metaStoreManagerRoleArn")]
         public Input<string>? MetaStoreManagerRoleArn { get; set; }
 
+        /// <summary>
+        /// Provides replication details of Amazon Security Lake object.
+        /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.DataLakeReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

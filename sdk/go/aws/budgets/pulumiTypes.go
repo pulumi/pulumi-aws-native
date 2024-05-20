@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BudgetsActionActionThreshold struct {
-	Type  BudgetsActionActionThresholdType `pulumi:"type"`
-	Value float64                          `pulumi:"value"`
+	// The type of threshold for a notification.
+	Type BudgetsActionActionThresholdType `pulumi:"type"`
+	// The threshold of a notification.
+	Value float64 `pulumi:"value"`
 }
 
 // BudgetsActionActionThresholdInput is an input type that accepts BudgetsActionActionThresholdArgs and BudgetsActionActionThresholdOutput values.
@@ -30,8 +32,10 @@ type BudgetsActionActionThresholdInput interface {
 }
 
 type BudgetsActionActionThresholdArgs struct {
-	Type  BudgetsActionActionThresholdTypeInput `pulumi:"type"`
-	Value pulumi.Float64Input                   `pulumi:"value"`
+	// The type of threshold for a notification.
+	Type BudgetsActionActionThresholdTypeInput `pulumi:"type"`
+	// The threshold of a notification.
+	Value pulumi.Float64Input `pulumi:"value"`
 }
 
 func (BudgetsActionActionThresholdArgs) ElementType() reflect.Type {
@@ -60,10 +64,12 @@ func (o BudgetsActionActionThresholdOutput) ToBudgetsActionActionThresholdOutput
 	return o
 }
 
+// The type of threshold for a notification.
 func (o BudgetsActionActionThresholdOutput) Type() BudgetsActionActionThresholdTypeOutput {
 	return o.ApplyT(func(v BudgetsActionActionThreshold) BudgetsActionActionThresholdType { return v.Type }).(BudgetsActionActionThresholdTypeOutput)
 }
 
+// The threshold of a notification.
 func (o BudgetsActionActionThresholdOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetsActionActionThreshold) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -92,6 +98,7 @@ func (o BudgetsActionActionThresholdPtrOutput) Elem() BudgetsActionActionThresho
 	}).(BudgetsActionActionThresholdOutput)
 }
 
+// The type of threshold for a notification.
 func (o BudgetsActionActionThresholdPtrOutput) Type() BudgetsActionActionThresholdTypePtrOutput {
 	return o.ApplyT(func(v *BudgetsActionActionThreshold) *BudgetsActionActionThresholdType {
 		if v == nil {
@@ -101,6 +108,7 @@ func (o BudgetsActionActionThresholdPtrOutput) Type() BudgetsActionActionThresho
 	}).(BudgetsActionActionThresholdTypePtrOutput)
 }
 
+// The threshold of a notification.
 func (o BudgetsActionActionThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BudgetsActionActionThreshold) *float64 {
 		if v == nil {
@@ -111,8 +119,11 @@ func (o BudgetsActionActionThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type BudgetsActionDefinition struct {
+	// The AWS Identity and Access Management ( IAM ) action definition details.
 	IamActionDefinition *BudgetsActionIamActionDefinition `pulumi:"iamActionDefinition"`
+	// The service control policies (SCP) action definition details.
 	ScpActionDefinition *BudgetsActionScpActionDefinition `pulumi:"scpActionDefinition"`
+	// The Amazon EC2 Systems Manager ( SSM ) action definition details.
 	SsmActionDefinition *BudgetsActionSsmActionDefinition `pulumi:"ssmActionDefinition"`
 }
 
@@ -128,8 +139,11 @@ type BudgetsActionDefinitionInput interface {
 }
 
 type BudgetsActionDefinitionArgs struct {
+	// The AWS Identity and Access Management ( IAM ) action definition details.
 	IamActionDefinition BudgetsActionIamActionDefinitionPtrInput `pulumi:"iamActionDefinition"`
+	// The service control policies (SCP) action definition details.
 	ScpActionDefinition BudgetsActionScpActionDefinitionPtrInput `pulumi:"scpActionDefinition"`
+	// The Amazon EC2 Systems Manager ( SSM ) action definition details.
 	SsmActionDefinition BudgetsActionSsmActionDefinitionPtrInput `pulumi:"ssmActionDefinition"`
 }
 
@@ -159,14 +173,17 @@ func (o BudgetsActionDefinitionOutput) ToBudgetsActionDefinitionOutputWithContex
 	return o
 }
 
+// The AWS Identity and Access Management ( IAM ) action definition details.
 func (o BudgetsActionDefinitionOutput) IamActionDefinition() BudgetsActionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionIamActionDefinition { return v.IamActionDefinition }).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
+// The service control policies (SCP) action definition details.
 func (o BudgetsActionDefinitionOutput) ScpActionDefinition() BudgetsActionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionScpActionDefinition { return v.ScpActionDefinition }).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
+// The Amazon EC2 Systems Manager ( SSM ) action definition details.
 func (o BudgetsActionDefinitionOutput) SsmActionDefinition() BudgetsActionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionSsmActionDefinition { return v.SsmActionDefinition }).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
@@ -195,6 +212,7 @@ func (o BudgetsActionDefinitionPtrOutput) Elem() BudgetsActionDefinitionOutput {
 	}).(BudgetsActionDefinitionOutput)
 }
 
+// The AWS Identity and Access Management ( IAM ) action definition details.
 func (o BudgetsActionDefinitionPtrOutput) IamActionDefinition() BudgetsActionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionIamActionDefinition {
 		if v == nil {
@@ -204,6 +222,7 @@ func (o BudgetsActionDefinitionPtrOutput) IamActionDefinition() BudgetsActionIam
 	}).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
+// The service control policies (SCP) action definition details.
 func (o BudgetsActionDefinitionPtrOutput) ScpActionDefinition() BudgetsActionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionScpActionDefinition {
 		if v == nil {
@@ -213,6 +232,7 @@ func (o BudgetsActionDefinitionPtrOutput) ScpActionDefinition() BudgetsActionScp
 	}).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
+// The Amazon EC2 Systems Manager ( SSM ) action definition details.
 func (o BudgetsActionDefinitionPtrOutput) SsmActionDefinition() BudgetsActionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionSsmActionDefinition {
 		if v == nil {
@@ -223,10 +243,14 @@ func (o BudgetsActionDefinitionPtrOutput) SsmActionDefinition() BudgetsActionSsm
 }
 
 type BudgetsActionIamActionDefinition struct {
-	Groups    []string `pulumi:"groups"`
-	PolicyArn string   `pulumi:"policyArn"`
-	Roles     []string `pulumi:"roles"`
-	Users     []string `pulumi:"users"`
+	// A list of groups to be attached. There must be at least one group.
+	Groups []string `pulumi:"groups"`
+	// The Amazon Resource Name (ARN) of the policy to be attached.
+	PolicyArn string `pulumi:"policyArn"`
+	// A list of roles to be attached. There must be at least one role.
+	Roles []string `pulumi:"roles"`
+	// A list of users to be attached. There must be at least one user.
+	Users []string `pulumi:"users"`
 }
 
 // BudgetsActionIamActionDefinitionInput is an input type that accepts BudgetsActionIamActionDefinitionArgs and BudgetsActionIamActionDefinitionOutput values.
@@ -241,10 +265,14 @@ type BudgetsActionIamActionDefinitionInput interface {
 }
 
 type BudgetsActionIamActionDefinitionArgs struct {
-	Groups    pulumi.StringArrayInput `pulumi:"groups"`
-	PolicyArn pulumi.StringInput      `pulumi:"policyArn"`
-	Roles     pulumi.StringArrayInput `pulumi:"roles"`
-	Users     pulumi.StringArrayInput `pulumi:"users"`
+	// A list of groups to be attached. There must be at least one group.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// The Amazon Resource Name (ARN) of the policy to be attached.
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
+	// A list of roles to be attached. There must be at least one role.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// A list of users to be attached. There must be at least one user.
+	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
 func (BudgetsActionIamActionDefinitionArgs) ElementType() reflect.Type {
@@ -324,18 +352,22 @@ func (o BudgetsActionIamActionDefinitionOutput) ToBudgetsActionIamActionDefiniti
 	}).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
+// A list of groups to be attached. There must be at least one group.
 func (o BudgetsActionIamActionDefinitionOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the policy to be attached.
 func (o BudgetsActionIamActionDefinitionOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) string { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
+// A list of roles to be attached. There must be at least one role.
 func (o BudgetsActionIamActionDefinitionOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// A list of users to be attached. There must be at least one user.
 func (o BudgetsActionIamActionDefinitionOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
@@ -364,6 +396,7 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Elem() BudgetsActionIamAction
 	}).(BudgetsActionIamActionDefinitionOutput)
 }
 
+// A list of groups to be attached. There must be at least one group.
 func (o BudgetsActionIamActionDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) []string {
 		if v == nil {
@@ -373,6 +406,7 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Groups() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the policy to be attached.
 func (o BudgetsActionIamActionDefinitionPtrOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) *string {
 		if v == nil {
@@ -382,6 +416,7 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) PolicyArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of roles to be attached. There must be at least one role.
 func (o BudgetsActionIamActionDefinitionPtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) []string {
 		if v == nil {
@@ -391,6 +426,7 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Roles() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of users to be attached. There must be at least one user.
 func (o BudgetsActionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) []string {
 		if v == nil {
@@ -401,12 +437,16 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOut
 }
 
 type BudgetsActionResourceTag struct {
-	Key   string `pulumi:"key"`
+	// The key that's associated with the tag.
+	Key string `pulumi:"key"`
+	// The value that's associated with the tag.
 	Value string `pulumi:"value"`
 }
 
 type BudgetsActionScpActionDefinition struct {
-	PolicyId  string   `pulumi:"policyId"`
+	// The policy ID attached.
+	PolicyId string `pulumi:"policyId"`
+	// A list of target IDs.
 	TargetIds []string `pulumi:"targetIds"`
 }
 
@@ -422,7 +462,9 @@ type BudgetsActionScpActionDefinitionInput interface {
 }
 
 type BudgetsActionScpActionDefinitionArgs struct {
-	PolicyId  pulumi.StringInput      `pulumi:"policyId"`
+	// The policy ID attached.
+	PolicyId pulumi.StringInput `pulumi:"policyId"`
+	// A list of target IDs.
 	TargetIds pulumi.StringArrayInput `pulumi:"targetIds"`
 }
 
@@ -503,10 +545,12 @@ func (o BudgetsActionScpActionDefinitionOutput) ToBudgetsActionScpActionDefiniti
 	}).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
+// The policy ID attached.
 func (o BudgetsActionScpActionDefinitionOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionScpActionDefinition) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
+// A list of target IDs.
 func (o BudgetsActionScpActionDefinitionOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionScpActionDefinition) []string { return v.TargetIds }).(pulumi.StringArrayOutput)
 }
@@ -535,6 +579,7 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) Elem() BudgetsActionScpAction
 	}).(BudgetsActionScpActionDefinitionOutput)
 }
 
+// The policy ID attached.
 func (o BudgetsActionScpActionDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionScpActionDefinition) *string {
 		if v == nil {
@@ -544,6 +589,7 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) PolicyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of target IDs.
 func (o BudgetsActionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionScpActionDefinition) []string {
 		if v == nil {
@@ -554,9 +600,12 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArra
 }
 
 type BudgetsActionSsmActionDefinition struct {
-	InstanceIds []string                                `pulumi:"instanceIds"`
-	Region      string                                  `pulumi:"region"`
-	Subtype     BudgetsActionSsmActionDefinitionSubtype `pulumi:"subtype"`
+	// The EC2 and RDS instance IDs.
+	InstanceIds []string `pulumi:"instanceIds"`
+	// The Region to run the ( SSM ) document.
+	Region string `pulumi:"region"`
+	// The action subType.
+	Subtype BudgetsActionSsmActionDefinitionSubtype `pulumi:"subtype"`
 }
 
 // BudgetsActionSsmActionDefinitionInput is an input type that accepts BudgetsActionSsmActionDefinitionArgs and BudgetsActionSsmActionDefinitionOutput values.
@@ -571,9 +620,12 @@ type BudgetsActionSsmActionDefinitionInput interface {
 }
 
 type BudgetsActionSsmActionDefinitionArgs struct {
-	InstanceIds pulumi.StringArrayInput                      `pulumi:"instanceIds"`
-	Region      pulumi.StringInput                           `pulumi:"region"`
-	Subtype     BudgetsActionSsmActionDefinitionSubtypeInput `pulumi:"subtype"`
+	// The EC2 and RDS instance IDs.
+	InstanceIds pulumi.StringArrayInput `pulumi:"instanceIds"`
+	// The Region to run the ( SSM ) document.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The action subType.
+	Subtype BudgetsActionSsmActionDefinitionSubtypeInput `pulumi:"subtype"`
 }
 
 func (BudgetsActionSsmActionDefinitionArgs) ElementType() reflect.Type {
@@ -653,14 +705,17 @@ func (o BudgetsActionSsmActionDefinitionOutput) ToBudgetsActionSsmActionDefiniti
 	}).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
 
+// The EC2 and RDS instance IDs.
 func (o BudgetsActionSsmActionDefinitionOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) []string { return v.InstanceIds }).(pulumi.StringArrayOutput)
 }
 
+// The Region to run the ( SSM ) document.
 func (o BudgetsActionSsmActionDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// The action subType.
 func (o BudgetsActionSsmActionDefinitionOutput) Subtype() BudgetsActionSsmActionDefinitionSubtypeOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) BudgetsActionSsmActionDefinitionSubtype { return v.Subtype }).(BudgetsActionSsmActionDefinitionSubtypeOutput)
 }
@@ -689,6 +744,7 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Elem() BudgetsActionSsmAction
 	}).(BudgetsActionSsmActionDefinitionOutput)
 }
 
+// The EC2 and RDS instance IDs.
 func (o BudgetsActionSsmActionDefinitionPtrOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) []string {
 		if v == nil {
@@ -698,6 +754,7 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) InstanceIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Region to run the ( SSM ) document.
 func (o BudgetsActionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) *string {
 		if v == nil {
@@ -707,6 +764,7 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action subType.
 func (o BudgetsActionSsmActionDefinitionPtrOutput) Subtype() BudgetsActionSsmActionDefinitionSubtypePtrOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) *BudgetsActionSsmActionDefinitionSubtype {
 		if v == nil {
@@ -717,8 +775,12 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Subtype() BudgetsActionSsmAct
 }
 
 type BudgetsActionSubscriber struct {
-	Address string                      `pulumi:"address"`
-	Type    BudgetsActionSubscriberType `pulumi:"type"`
+	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	//
+	// When you create a subscriber, the value of `Address` can't contain line breaks.
+	Address string `pulumi:"address"`
+	// The type of notification that AWS sends to a subscriber.
+	Type BudgetsActionSubscriberType `pulumi:"type"`
 }
 
 // BudgetsActionSubscriberInput is an input type that accepts BudgetsActionSubscriberArgs and BudgetsActionSubscriberOutput values.
@@ -733,8 +795,12 @@ type BudgetsActionSubscriberInput interface {
 }
 
 type BudgetsActionSubscriberArgs struct {
-	Address pulumi.StringInput               `pulumi:"address"`
-	Type    BudgetsActionSubscriberTypeInput `pulumi:"type"`
+	// The address that AWS sends budget notifications to, either an SNS topic or an email.
+	//
+	// When you create a subscriber, the value of `Address` can't contain line breaks.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The type of notification that AWS sends to a subscriber.
+	Type BudgetsActionSubscriberTypeInput `pulumi:"type"`
 }
 
 func (BudgetsActionSubscriberArgs) ElementType() reflect.Type {
@@ -788,10 +854,14 @@ func (o BudgetsActionSubscriberOutput) ToBudgetsActionSubscriberOutputWithContex
 	return o
 }
 
+// The address that AWS sends budget notifications to, either an SNS topic or an email.
+//
+// When you create a subscriber, the value of `Address` can't contain line breaks.
 func (o BudgetsActionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// The type of notification that AWS sends to a subscriber.
 func (o BudgetsActionSubscriberOutput) Type() BudgetsActionSubscriberTypeOutput {
 	return o.ApplyT(func(v BudgetsActionSubscriber) BudgetsActionSubscriberType { return v.Type }).(BudgetsActionSubscriberTypeOutput)
 }

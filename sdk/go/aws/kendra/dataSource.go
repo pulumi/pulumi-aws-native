@@ -17,18 +17,41 @@ import (
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	Arn                                   pulumi.StringOutput                                      `pulumi:"arn"`
-	AwsId                                 pulumi.StringOutput                                      `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) of the data source. For example:
+	//
+	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The identifier for the data source. For example:
+	//
+	// `b8cae438-6787-4091-8897-684a652bbb0a` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrOutput `pulumi:"customDocumentEnrichmentConfiguration"`
-	DataSourceConfiguration               DataSourceConfigurationPtrOutput                         `pulumi:"dataSourceConfiguration"`
-	Description                           pulumi.StringPtrOutput                                   `pulumi:"description"`
-	IndexId                               pulumi.StringOutput                                      `pulumi:"indexId"`
-	LanguageCode                          pulumi.StringPtrOutput                                   `pulumi:"languageCode"`
-	Name                                  pulumi.StringOutput                                      `pulumi:"name"`
-	RoleArn                               pulumi.StringPtrOutput                                   `pulumi:"roleArn"`
-	Schedule                              pulumi.StringPtrOutput                                   `pulumi:"schedule"`
+	// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+	//
+	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `Configuration` parameter is required for all other data sources.
+	DataSourceConfiguration DataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
+	// A description for the data source connector.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The identifier of the index you want to use with the data source connector.
+	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+	LanguageCode pulumi.StringPtrOutput `pulumi:"languageCode"`
+	// The name of the data source.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+	//
+	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `RoleArn` parameter is required for all other data sources.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
 	// Tags for labeling the data source
-	Tags aws.TagArrayOutput   `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of the data source.
 	Type DataSourceTypeOutput `pulumi:"type"`
 }
 
@@ -82,31 +105,65 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
+	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
-	DataSourceConfiguration               *DataSourceConfiguration                         `pulumi:"dataSourceConfiguration"`
-	Description                           *string                                          `pulumi:"description"`
-	IndexId                               string                                           `pulumi:"indexId"`
-	LanguageCode                          *string                                          `pulumi:"languageCode"`
-	Name                                  *string                                          `pulumi:"name"`
-	RoleArn                               *string                                          `pulumi:"roleArn"`
-	Schedule                              *string                                          `pulumi:"schedule"`
+	// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+	//
+	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `Configuration` parameter is required for all other data sources.
+	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	// A description for the data source connector.
+	Description *string `pulumi:"description"`
+	// The identifier of the index you want to use with the data source connector.
+	IndexId string `pulumi:"indexId"`
+	// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+	LanguageCode *string `pulumi:"languageCode"`
+	// The name of the data source.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+	//
+	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `RoleArn` parameter is required for all other data sources.
+	RoleArn *string `pulumi:"roleArn"`
+	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+	Schedule *string `pulumi:"schedule"`
 	// Tags for labeling the data source
-	Tags []aws.Tag      `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of the data source.
 	Type DataSourceType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
+	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrInput
-	DataSourceConfiguration               DataSourceConfigurationPtrInput
-	Description                           pulumi.StringPtrInput
-	IndexId                               pulumi.StringInput
-	LanguageCode                          pulumi.StringPtrInput
-	Name                                  pulumi.StringPtrInput
-	RoleArn                               pulumi.StringPtrInput
-	Schedule                              pulumi.StringPtrInput
+	// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+	//
+	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `Configuration` parameter is required for all other data sources.
+	DataSourceConfiguration DataSourceConfigurationPtrInput
+	// A description for the data source connector.
+	Description pulumi.StringPtrInput
+	// The identifier of the index you want to use with the data source connector.
+	IndexId pulumi.StringInput
+	// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+	LanguageCode pulumi.StringPtrInput
+	// The name of the data source.
+	Name pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+	//
+	// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `RoleArn` parameter is required for all other data sources.
+	RoleArn pulumi.StringPtrInput
+	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+	Schedule pulumi.StringPtrInput
 	// Tags for labeling the data source
 	Tags aws.TagArrayInput
+	// The type of the data source.
 	Type DataSourceTypeInput
 }
 
@@ -147,44 +204,66 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the data source. For example:
+//
+// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The identifier for the data source. For example:
+//
+// `b8cae438-6787-4091-8897-684a652bbb0a` .
 func (o DataSourceOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Configuration information for altering document metadata and content during the document ingestion process.
 func (o DataSourceOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 		return v.CustomDocumentEnrichmentConfiguration
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
+// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+//
+// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+//
+// The `Configuration` parameter is required for all other data sources.
 func (o DataSourceOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationPtrOutput { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }
 
+// A description for the data source connector.
 func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the index you want to use with the data source connector.
 func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
+// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 func (o DataSourceOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
 
+// The name of the data source.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+//
+// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+//
+// The `RoleArn` parameter is required for all other data sources.
 func (o DataSourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
 func (o DataSourceOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
 }
@@ -194,6 +273,7 @@ func (o DataSourceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the data source.
 func (o DataSourceOutput) Type() DataSourceTypeOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceTypeOutput { return v.Type }).(DataSourceTypeOutput)
 }

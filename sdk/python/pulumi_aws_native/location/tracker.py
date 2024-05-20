@@ -28,8 +28,26 @@ class TrackerArgs:
                  tracker_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tracker resource.
+        :param pulumi.Input[str] description: An optional description for the tracker resource.
+        :param pulumi.Input[str] kms_key_id: A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        :param pulumi.Input['TrackerPositionFiltering'] position_filtering: Specifies the position filtering for the tracker resource.
+               
+               Valid values:
+               
+               - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+               - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+               - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+               
+               This field is optional. If not specified, the default value is `TimeBased` .
         :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] tracker_name: The name for the tracker resource.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+               - Must be a unique tracker resource name.
+               - No spaces allowed. For example, `ExampleTracker` .
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -53,6 +71,9 @@ class TrackerArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description for the tracker resource.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,6 +101,9 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -89,6 +113,17 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> Optional[pulumi.Input['TrackerPositionFiltering']]:
+        """
+        Specifies the position filtering for the tracker resource.
+
+        Valid values:
+
+        - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+        - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+        - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+
+        This field is optional. If not specified, the default value is `TimeBased` .
+        """
         return pulumi.get(self, "position_filtering")
 
     @position_filtering.setter
@@ -131,6 +166,15 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the tracker resource.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        - Must be a unique tracker resource name.
+        - No spaces allowed. For example, `ExampleTracker` .
+        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -158,8 +202,26 @@ class Tracker(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: An optional description for the tracker resource.
+        :param pulumi.Input[str] kms_key_id: A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        :param pulumi.Input['TrackerPositionFiltering'] position_filtering: Specifies the position filtering for the tracker resource.
+               
+               Valid values:
+               
+               - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+               - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+               - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+               
+               This field is optional. If not specified, the default value is `TimeBased` .
         :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] tracker_name: The name for the tracker resource.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+               - Must be a unique tracker resource name.
+               - No spaces allowed. For example, `ExampleTracker` .
         """
         ...
     @overload
@@ -258,16 +320,27 @@ class Tracker(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the tracker resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description for the tracker resource.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -283,11 +356,25 @@ class Tracker(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> pulumi.Output[Optional['TrackerPositionFiltering']]:
+        """
+        Specifies the position filtering for the tracker resource.
+
+        Valid values:
+
+        - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+        - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+        - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+
+        This field is optional. If not specified, the default value is `TimeBased` .
+        """
         return pulumi.get(self, "position_filtering")
 
     @property
@@ -314,15 +401,32 @@ class Tracker(pulumi.CustomResource):
     @property
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> pulumi.Output[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+        """
         return pulumi.get(self, "tracker_arn")
 
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Output[str]:
+        """
+        The name for the tracker resource.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        - Must be a unique tracker resource name.
+        - No spaces allowed. For example, `ExampleTracker` .
+        """
         return pulumi.get(self, "tracker_name")
 
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 

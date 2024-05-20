@@ -20,9 +20,13 @@ type LocationNfs struct {
 	// The Amazon Resource Name (ARN) of the NFS location.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the NFS location that was described.
-	LocationUri  pulumi.StringOutput              `pulumi:"locationUri"`
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions LocationNfsMountOptionsPtrOutput `pulumi:"mountOptions"`
-	OnPremConfig LocationNfsOnPremConfigOutput    `pulumi:"onPremConfig"`
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	//
+	// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+	OnPremConfig LocationNfsOnPremConfigOutput `pulumi:"onPremConfig"`
 	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
 	ServerHostname pulumi.StringPtrOutput `pulumi:"serverHostname"`
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
@@ -78,8 +82,12 @@ func (LocationNfsState) ElementType() reflect.Type {
 }
 
 type locationNfsArgs struct {
+	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions *LocationNfsMountOptions `pulumi:"mountOptions"`
-	OnPremConfig LocationNfsOnPremConfig  `pulumi:"onPremConfig"`
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	//
+	// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+	OnPremConfig LocationNfsOnPremConfig `pulumi:"onPremConfig"`
 	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
 	ServerHostname *string `pulumi:"serverHostname"`
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
@@ -90,7 +98,11 @@ type locationNfsArgs struct {
 
 // The set of arguments for constructing a LocationNfs resource.
 type LocationNfsArgs struct {
+	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions LocationNfsMountOptionsPtrInput
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	//
+	// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
 	OnPremConfig LocationNfsOnPremConfigInput
 	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
 	ServerHostname pulumi.StringPtrInput
@@ -147,10 +159,14 @@ func (o LocationNfsOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationNfs) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
+// Specifies the options that DataSync can use to mount your NFS file server.
 func (o LocationNfsOutput) MountOptions() LocationNfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationNfs) LocationNfsMountOptionsPtrOutput { return v.MountOptions }).(LocationNfsMountOptionsPtrOutput)
 }
 
+// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+//
+// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
 func (o LocationNfsOutput) OnPremConfig() LocationNfsOnPremConfigOutput {
 	return o.ApplyT(func(v *LocationNfs) LocationNfsOnPremConfigOutput { return v.OnPremConfig }).(LocationNfsOnPremConfigOutput)
 }

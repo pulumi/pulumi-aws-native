@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilledMapFieldWells
     {
+        /// <summary>
+        /// The aggregated field well of the filled map.
+        /// </summary>
         public readonly Outputs.AnalysisFilledMapAggregatedFieldWells? FilledMapAggregatedFieldWells;
 
         [OutputConstructor]

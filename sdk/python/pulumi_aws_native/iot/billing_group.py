@@ -23,6 +23,8 @@ class BillingGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BillingGroup resource.
+        :param pulumi.Input[str] billing_group_name: The name of the billing group.
+        :param pulumi.Input['BillingGroupPropertiesPropertiesArgs'] billing_group_properties: The properties of the billing group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if billing_group_name is not None:
@@ -35,6 +37,9 @@ class BillingGroupArgs:
     @property
     @pulumi.getter(name="billingGroupName")
     def billing_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the billing group.
+        """
         return pulumi.get(self, "billing_group_name")
 
     @billing_group_name.setter
@@ -44,6 +49,9 @@ class BillingGroupArgs:
     @property
     @pulumi.getter(name="billingGroupProperties")
     def billing_group_properties(self) -> Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']]:
+        """
+        The properties of the billing group.
+        """
         return pulumi.get(self, "billing_group_properties")
 
     @billing_group_properties.setter
@@ -77,6 +85,8 @@ class BillingGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] billing_group_name: The name of the billing group.
+        :param pulumi.Input[pulumi.InputType['BillingGroupPropertiesPropertiesArgs']] billing_group_properties: The properties of the billing group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -154,21 +164,33 @@ class BillingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the billing group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the billing group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="billingGroupName")
     def billing_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the billing group.
+        """
         return pulumi.get(self, "billing_group_name")
 
     @property
     @pulumi.getter(name="billingGroupProperties")
     def billing_group_properties(self) -> pulumi.Output[Optional['outputs.BillingGroupPropertiesProperties']]:
+        """
+        The properties of the billing group.
+        """
         return pulumi.get(self, "billing_group_properties")
 
     @property

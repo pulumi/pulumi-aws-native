@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DetectorCfnDataSourceConfigurations struct {
-	Kubernetes        *DetectorCfnKubernetesConfiguration        `pulumi:"kubernetes"`
+	// Describes which Kubernetes data sources are enabled for a detector.
+	Kubernetes *DetectorCfnKubernetesConfiguration `pulumi:"kubernetes"`
+	// Describes whether Malware Protection will be enabled as a data source.
 	MalwareProtection *DetectorCfnMalwareProtectionConfiguration `pulumi:"malwareProtection"`
-	S3Logs            *DetectorCfns3LogsConfiguration            `pulumi:"s3Logs"`
+	// Describes whether S3 data event logs are enabled as a data source.
+	S3Logs *DetectorCfns3LogsConfiguration `pulumi:"s3Logs"`
 }
 
 // DetectorCfnDataSourceConfigurationsInput is an input type that accepts DetectorCfnDataSourceConfigurationsArgs and DetectorCfnDataSourceConfigurationsOutput values.
@@ -31,9 +34,12 @@ type DetectorCfnDataSourceConfigurationsInput interface {
 }
 
 type DetectorCfnDataSourceConfigurationsArgs struct {
-	Kubernetes        DetectorCfnKubernetesConfigurationPtrInput        `pulumi:"kubernetes"`
+	// Describes which Kubernetes data sources are enabled for a detector.
+	Kubernetes DetectorCfnKubernetesConfigurationPtrInput `pulumi:"kubernetes"`
+	// Describes whether Malware Protection will be enabled as a data source.
 	MalwareProtection DetectorCfnMalwareProtectionConfigurationPtrInput `pulumi:"malwareProtection"`
-	S3Logs            DetectorCfns3LogsConfigurationPtrInput            `pulumi:"s3Logs"`
+	// Describes whether S3 data event logs are enabled as a data source.
+	S3Logs DetectorCfns3LogsConfigurationPtrInput `pulumi:"s3Logs"`
 }
 
 func (DetectorCfnDataSourceConfigurationsArgs) ElementType() reflect.Type {
@@ -113,16 +119,19 @@ func (o DetectorCfnDataSourceConfigurationsOutput) ToDetectorCfnDataSourceConfig
 	}).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
 
+// Describes which Kubernetes data sources are enabled for a detector.
 func (o DetectorCfnDataSourceConfigurationsOutput) Kubernetes() DetectorCfnKubernetesConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnDataSourceConfigurations) *DetectorCfnKubernetesConfiguration { return v.Kubernetes }).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
 
+// Describes whether Malware Protection will be enabled as a data source.
 func (o DetectorCfnDataSourceConfigurationsOutput) MalwareProtection() DetectorCfnMalwareProtectionConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnDataSourceConfigurations) *DetectorCfnMalwareProtectionConfiguration {
 		return v.MalwareProtection
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
+// Describes whether S3 data event logs are enabled as a data source.
 func (o DetectorCfnDataSourceConfigurationsOutput) S3Logs() DetectorCfns3LogsConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnDataSourceConfigurations) *DetectorCfns3LogsConfiguration { return v.S3Logs }).(DetectorCfns3LogsConfigurationPtrOutput)
 }
@@ -151,6 +160,7 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) Elem() DetectorCfnDataSour
 	}).(DetectorCfnDataSourceConfigurationsOutput)
 }
 
+// Describes which Kubernetes data sources are enabled for a detector.
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) Kubernetes() DetectorCfnKubernetesConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnDataSourceConfigurations) *DetectorCfnKubernetesConfiguration {
 		if v == nil {
@@ -160,6 +170,7 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) Kubernetes() DetectorCfnKu
 	}).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
 
+// Describes whether Malware Protection will be enabled as a data source.
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) MalwareProtection() DetectorCfnMalwareProtectionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnDataSourceConfigurations) *DetectorCfnMalwareProtectionConfiguration {
 		if v == nil {
@@ -169,6 +180,7 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) MalwareProtection() Detect
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
+// Describes whether S3 data event logs are enabled as a data source.
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) S3Logs() DetectorCfns3LogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnDataSourceConfigurations) *DetectorCfns3LogsConfiguration {
 		if v == nil {
@@ -179,7 +191,9 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) S3Logs() DetectorCfns3Logs
 }
 
 type DetectorCfnFeatureAdditionalConfiguration struct {
-	Name   *string `pulumi:"name"`
+	// Name of the additional configuration.
+	Name *string `pulumi:"name"`
+	// Status of the additional configuration.
 	Status *string `pulumi:"status"`
 }
 
@@ -195,7 +209,9 @@ type DetectorCfnFeatureAdditionalConfigurationInput interface {
 }
 
 type DetectorCfnFeatureAdditionalConfigurationArgs struct {
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the additional configuration.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Status of the additional configuration.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -250,10 +266,12 @@ func (o DetectorCfnFeatureAdditionalConfigurationOutput) ToDetectorCfnFeatureAdd
 	return o
 }
 
+// Name of the additional configuration.
 func (o DetectorCfnFeatureAdditionalConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorCfnFeatureAdditionalConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Status of the additional configuration.
 func (o DetectorCfnFeatureAdditionalConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorCfnFeatureAdditionalConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -279,9 +297,12 @@ func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.Int
 }
 
 type DetectorCfnFeatureConfiguration struct {
+	// Information about the additional configuration of a feature in your account.
 	AdditionalConfiguration []DetectorCfnFeatureAdditionalConfiguration `pulumi:"additionalConfiguration"`
-	Name                    string                                      `pulumi:"name"`
-	Status                  DetectorCfnFeatureConfigurationStatus       `pulumi:"status"`
+	// Name of the feature.
+	Name string `pulumi:"name"`
+	// Status of the feature configuration.
+	Status DetectorCfnFeatureConfigurationStatus `pulumi:"status"`
 }
 
 // DetectorCfnFeatureConfigurationInput is an input type that accepts DetectorCfnFeatureConfigurationArgs and DetectorCfnFeatureConfigurationOutput values.
@@ -296,9 +317,12 @@ type DetectorCfnFeatureConfigurationInput interface {
 }
 
 type DetectorCfnFeatureConfigurationArgs struct {
+	// Information about the additional configuration of a feature in your account.
 	AdditionalConfiguration DetectorCfnFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfiguration"`
-	Name                    pulumi.StringInput                                  `pulumi:"name"`
-	Status                  DetectorCfnFeatureConfigurationStatusInput          `pulumi:"status"`
+	// Name of the feature.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Status of the feature configuration.
+	Status DetectorCfnFeatureConfigurationStatusInput `pulumi:"status"`
 }
 
 func (DetectorCfnFeatureConfigurationArgs) ElementType() reflect.Type {
@@ -352,16 +376,19 @@ func (o DetectorCfnFeatureConfigurationOutput) ToDetectorCfnFeatureConfiguration
 	return o
 }
 
+// Information about the additional configuration of a feature in your account.
 func (o DetectorCfnFeatureConfigurationOutput) AdditionalConfiguration() DetectorCfnFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) []DetectorCfnFeatureAdditionalConfiguration {
 		return v.AdditionalConfiguration
 	}).(DetectorCfnFeatureAdditionalConfigurationArrayOutput)
 }
 
+// Name of the feature.
 func (o DetectorCfnFeatureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Status of the feature configuration.
 func (o DetectorCfnFeatureConfigurationOutput) Status() DetectorCfnFeatureConfigurationStatusOutput {
 	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) DetectorCfnFeatureConfigurationStatus { return v.Status }).(DetectorCfnFeatureConfigurationStatusOutput)
 }
@@ -387,6 +414,7 @@ func (o DetectorCfnFeatureConfigurationArrayOutput) Index(i pulumi.IntInput) Det
 }
 
 type DetectorCfnKubernetesAuditLogsConfiguration struct {
+	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -402,6 +430,7 @@ type DetectorCfnKubernetesAuditLogsConfigurationInput interface {
 }
 
 type DetectorCfnKubernetesAuditLogsConfigurationArgs struct {
+	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -482,6 +511,7 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) ToDetectorCfnKubernet
 	}).(DetectorCfnKubernetesAuditLogsConfigurationPtrOutput)
 }
 
+// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 func (o DetectorCfnKubernetesAuditLogsConfigurationOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorCfnKubernetesAuditLogsConfiguration) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -510,6 +540,7 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) Elem() DetectorCfn
 	}).(DetectorCfnKubernetesAuditLogsConfigurationOutput)
 }
 
+// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnKubernetesAuditLogsConfiguration) *bool {
 		if v == nil {
@@ -520,6 +551,7 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) Enable() pulumi.Bo
 }
 
 type DetectorCfnKubernetesConfiguration struct {
+	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	AuditLogs DetectorCfnKubernetesAuditLogsConfiguration `pulumi:"auditLogs"`
 }
 
@@ -535,6 +567,7 @@ type DetectorCfnKubernetesConfigurationInput interface {
 }
 
 type DetectorCfnKubernetesConfigurationArgs struct {
+	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	AuditLogs DetectorCfnKubernetesAuditLogsConfigurationInput `pulumi:"auditLogs"`
 }
 
@@ -615,6 +648,7 @@ func (o DetectorCfnKubernetesConfigurationOutput) ToDetectorCfnKubernetesConfigu
 	}).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
 
+// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 func (o DetectorCfnKubernetesConfigurationOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationOutput {
 	return o.ApplyT(func(v DetectorCfnKubernetesConfiguration) DetectorCfnKubernetesAuditLogsConfiguration {
 		return v.AuditLogs
@@ -645,6 +679,7 @@ func (o DetectorCfnKubernetesConfigurationPtrOutput) Elem() DetectorCfnKubernete
 	}).(DetectorCfnKubernetesConfigurationOutput)
 }
 
+// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 func (o DetectorCfnKubernetesConfigurationPtrOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnKubernetesConfiguration) *DetectorCfnKubernetesAuditLogsConfiguration {
 		if v == nil {
@@ -655,6 +690,7 @@ func (o DetectorCfnKubernetesConfigurationPtrOutput) AuditLogs() DetectorCfnKube
 }
 
 type DetectorCfnMalwareProtectionConfiguration struct {
+	// Describes the configuration of Malware Protection for EC2 instances with findings.
 	ScanEc2InstanceWithFindings *DetectorCfnScanEc2InstanceWithFindingsConfiguration `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -670,6 +706,7 @@ type DetectorCfnMalwareProtectionConfigurationInput interface {
 }
 
 type DetectorCfnMalwareProtectionConfigurationArgs struct {
+	// Describes the configuration of Malware Protection for EC2 instances with findings.
 	ScanEc2InstanceWithFindings DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrInput `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -750,6 +787,7 @@ func (o DetectorCfnMalwareProtectionConfigurationOutput) ToDetectorCfnMalwarePro
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
+// Describes the configuration of Malware Protection for EC2 instances with findings.
 func (o DetectorCfnMalwareProtectionConfigurationOutput) ScanEc2InstanceWithFindings() DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnMalwareProtectionConfiguration) *DetectorCfnScanEc2InstanceWithFindingsConfiguration {
 		return v.ScanEc2InstanceWithFindings
@@ -780,6 +818,7 @@ func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) Elem() DetectorCfnMa
 	}).(DetectorCfnMalwareProtectionConfigurationOutput)
 }
 
+// Describes the configuration of Malware Protection for EC2 instances with findings.
 func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) ScanEc2InstanceWithFindings() DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnMalwareProtectionConfiguration) *DetectorCfnScanEc2InstanceWithFindingsConfiguration {
 		if v == nil {
@@ -790,6 +829,7 @@ func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) ScanEc2InstanceWithF
 }
 
 type DetectorCfnScanEc2InstanceWithFindingsConfiguration struct {
+	// Describes the configuration for scanning EBS volumes as data source.
 	EbsVolumes *bool `pulumi:"ebsVolumes"`
 }
 
@@ -805,6 +845,7 @@ type DetectorCfnScanEc2InstanceWithFindingsConfigurationInput interface {
 }
 
 type DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs struct {
+	// Describes the configuration for scanning EBS volumes as data source.
 	EbsVolumes pulumi.BoolPtrInput `pulumi:"ebsVolumes"`
 }
 
@@ -885,6 +926,7 @@ func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput) ToDetectorCfn
 	}).(DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput)
 }
 
+// Describes the configuration for scanning EBS volumes as data source.
 func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput) EbsVolumes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorCfnScanEc2InstanceWithFindingsConfiguration) *bool { return v.EbsVolumes }).(pulumi.BoolPtrOutput)
 }
@@ -913,6 +955,7 @@ func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) Elem() Det
 	}).(DetectorCfnScanEc2InstanceWithFindingsConfigurationOutput)
 }
 
+// Describes the configuration for scanning EBS volumes as data source.
 func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) EbsVolumes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnScanEc2InstanceWithFindingsConfiguration) *bool {
 		if v == nil {
@@ -923,6 +966,7 @@ func (o DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput) EbsVolumes
 }
 
 type DetectorCfns3LogsConfiguration struct {
+	// The status of S3 data event logs as a data source.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -938,6 +982,7 @@ type DetectorCfns3LogsConfigurationInput interface {
 }
 
 type DetectorCfns3LogsConfigurationArgs struct {
+	// The status of S3 data event logs as a data source.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -1018,6 +1063,7 @@ func (o DetectorCfns3LogsConfigurationOutput) ToDetectorCfns3LogsConfigurationPt
 	}).(DetectorCfns3LogsConfigurationPtrOutput)
 }
 
+// The status of S3 data event logs as a data source.
 func (o DetectorCfns3LogsConfigurationOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorCfns3LogsConfiguration) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -1046,6 +1092,7 @@ func (o DetectorCfns3LogsConfigurationPtrOutput) Elem() DetectorCfns3LogsConfigu
 	}).(DetectorCfns3LogsConfigurationOutput)
 }
 
+// The status of S3 data event logs as a data source.
 func (o DetectorCfns3LogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorCfns3LogsConfiguration) *bool {
 		if v == nil {
@@ -1056,7 +1103,9 @@ func (o DetectorCfns3LogsConfigurationPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type DetectorTagItem struct {
-	Key   string `pulumi:"key"`
+	// The tag value.
+	Key string `pulumi:"key"`
+	// The tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1221,6 +1270,107 @@ func (o FilterConditionMapOutput) MapIndex(k pulumi.StringInput) FilterCondition
 }
 
 type FilterFindingCriteria struct {
+	// Represents a map of finding properties that match specified conditions and values when querying findings.
+	//
+	// For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+	//
+	// - accountId
+	// - id
+	// - region
+	// - severity
+	//
+	// To filter on the basis of severity, API and CFN use the following input list for the condition:
+	//
+	// - *Low* : `["1", "2", "3"]`
+	// - *Medium* : `["4", "5", "6"]`
+	// - *High* : `["7", "8", "9"]`
+	//
+	// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+	// - type
+	// - updatedAt
+	//
+	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+	// - resource.accessKeyDetails.accessKeyId
+	// - resource.accessKeyDetails.principalId
+	// - resource.accessKeyDetails.userName
+	// - resource.accessKeyDetails.userType
+	// - resource.instanceDetails.iamInstanceProfile.id
+	// - resource.instanceDetails.imageId
+	// - resource.instanceDetails.instanceId
+	// - resource.instanceDetails.tags.key
+	// - resource.instanceDetails.tags.value
+	// - resource.instanceDetails.networkInterfaces.ipv6Addresses
+	// - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+	// - resource.instanceDetails.networkInterfaces.publicDnsName
+	// - resource.instanceDetails.networkInterfaces.publicIp
+	// - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+	// - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+	// - resource.instanceDetails.networkInterfaces.subnetId
+	// - resource.instanceDetails.networkInterfaces.vpcId
+	// - resource.instanceDetails.outpostArn
+	// - resource.resourceType
+	// - resource.s3BucketDetails.publicAccess.effectivePermissions
+	// - resource.s3BucketDetails.name
+	// - resource.s3BucketDetails.tags.key
+	// - resource.s3BucketDetails.tags.value
+	// - resource.s3BucketDetails.type
+	// - service.action.actionType
+	// - service.action.awsApiCallAction.api
+	// - service.action.awsApiCallAction.callerType
+	// - service.action.awsApiCallAction.errorCode
+	// - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+	// - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+	// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+	// - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+	// - service.action.awsApiCallAction.serviceName
+	// - service.action.dnsRequestAction.domain
+	// - service.action.networkConnectionAction.blocked
+	// - service.action.networkConnectionAction.connectionDirection
+	// - service.action.networkConnectionAction.localPortDetails.port
+	// - service.action.networkConnectionAction.protocol
+	// - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+	// - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+	// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+	// - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+	// - service.action.networkConnectionAction.remotePortDetails.port
+	// - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+	// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.kubernetesApiCallAction.requestUri
+	// - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.protocol
+	// - service.action.awsApiCallAction.serviceName
+	// - service.action.awsApiCallAction.remoteAccountDetails.accountId
+	// - service.additionalInfo.threatListName
+	// - service.resourceRole
+	// - resource.eksClusterDetails.name
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+	// - resource.kubernetesDetails.kubernetesUserDetails.username
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+	// - service.ebsVolumeScanDetails.scanId
+	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+	// - resource.ecsClusterDetails.name
+	// - resource.ecsClusterDetails.taskDetails.containers.image
+	// - resource.ecsClusterDetails.taskDetails.definitionArn
+	// - resource.containerDetails.image
+	// - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+	// - resource.rdsDbInstanceDetails.dbClusterIdentifier
+	// - resource.rdsDbInstanceDetails.engine
+	// - resource.rdsDbUserDetails.user
+	// - resource.rdsDbInstanceDetails.tags.key
+	// - resource.rdsDbInstanceDetails.tags.value
+	// - service.runtimeDetails.process.executableSha256
+	// - service.runtimeDetails.process.name
+	// - service.runtimeDetails.process.name
+	// - resource.lambdaDetails.functionName
+	// - resource.lambdaDetails.functionArn
+	// - resource.lambdaDetails.tags.key
+	// - resource.lambdaDetails.tags.value
 	Criterion map[string]FilterCondition `pulumi:"criterion"`
 }
 
@@ -1236,6 +1386,107 @@ type FilterFindingCriteriaInput interface {
 }
 
 type FilterFindingCriteriaArgs struct {
+	// Represents a map of finding properties that match specified conditions and values when querying findings.
+	//
+	// For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+	//
+	// - accountId
+	// - id
+	// - region
+	// - severity
+	//
+	// To filter on the basis of severity, API and CFN use the following input list for the condition:
+	//
+	// - *Low* : `["1", "2", "3"]`
+	// - *Medium* : `["4", "5", "6"]`
+	// - *High* : `["7", "8", "9"]`
+	//
+	// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+	// - type
+	// - updatedAt
+	//
+	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+	// - resource.accessKeyDetails.accessKeyId
+	// - resource.accessKeyDetails.principalId
+	// - resource.accessKeyDetails.userName
+	// - resource.accessKeyDetails.userType
+	// - resource.instanceDetails.iamInstanceProfile.id
+	// - resource.instanceDetails.imageId
+	// - resource.instanceDetails.instanceId
+	// - resource.instanceDetails.tags.key
+	// - resource.instanceDetails.tags.value
+	// - resource.instanceDetails.networkInterfaces.ipv6Addresses
+	// - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+	// - resource.instanceDetails.networkInterfaces.publicDnsName
+	// - resource.instanceDetails.networkInterfaces.publicIp
+	// - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+	// - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+	// - resource.instanceDetails.networkInterfaces.subnetId
+	// - resource.instanceDetails.networkInterfaces.vpcId
+	// - resource.instanceDetails.outpostArn
+	// - resource.resourceType
+	// - resource.s3BucketDetails.publicAccess.effectivePermissions
+	// - resource.s3BucketDetails.name
+	// - resource.s3BucketDetails.tags.key
+	// - resource.s3BucketDetails.tags.value
+	// - resource.s3BucketDetails.type
+	// - service.action.actionType
+	// - service.action.awsApiCallAction.api
+	// - service.action.awsApiCallAction.callerType
+	// - service.action.awsApiCallAction.errorCode
+	// - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+	// - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+	// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+	// - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+	// - service.action.awsApiCallAction.serviceName
+	// - service.action.dnsRequestAction.domain
+	// - service.action.networkConnectionAction.blocked
+	// - service.action.networkConnectionAction.connectionDirection
+	// - service.action.networkConnectionAction.localPortDetails.port
+	// - service.action.networkConnectionAction.protocol
+	// - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+	// - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+	// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+	// - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+	// - service.action.networkConnectionAction.remotePortDetails.port
+	// - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+	// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+	// - service.action.kubernetesApiCallAction.requestUri
+	// - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+	// - service.action.networkConnectionAction.protocol
+	// - service.action.awsApiCallAction.serviceName
+	// - service.action.awsApiCallAction.remoteAccountDetails.accountId
+	// - service.additionalInfo.threatListName
+	// - service.resourceRole
+	// - resource.eksClusterDetails.name
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+	// - resource.kubernetesDetails.kubernetesUserDetails.username
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+	// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+	// - service.ebsVolumeScanDetails.scanId
+	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+	// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+	// - resource.ecsClusterDetails.name
+	// - resource.ecsClusterDetails.taskDetails.containers.image
+	// - resource.ecsClusterDetails.taskDetails.definitionArn
+	// - resource.containerDetails.image
+	// - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+	// - resource.rdsDbInstanceDetails.dbClusterIdentifier
+	// - resource.rdsDbInstanceDetails.engine
+	// - resource.rdsDbUserDetails.user
+	// - resource.rdsDbInstanceDetails.tags.key
+	// - resource.rdsDbInstanceDetails.tags.value
+	// - service.runtimeDetails.process.executableSha256
+	// - service.runtimeDetails.process.name
+	// - service.runtimeDetails.process.name
+	// - resource.lambdaDetails.functionName
+	// - resource.lambdaDetails.functionArn
+	// - resource.lambdaDetails.tags.key
+	// - resource.lambdaDetails.tags.value
 	Criterion FilterConditionMapInput `pulumi:"criterion"`
 }
 
@@ -1265,6 +1516,107 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaOutputWithContext(ct
 	return o
 }
 
+// Represents a map of finding properties that match specified conditions and values when querying findings.
+//
+// For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+//
+// - accountId
+// - id
+// - region
+// - severity
+//
+// To filter on the basis of severity, API and CFN use the following input list for the condition:
+//
+// - *Low* : `["1", "2", "3"]`
+// - *Medium* : `["4", "5", "6"]`
+// - *High* : `["7", "8", "9"]`
+//
+// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+// - type
+// - updatedAt
+//
+// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+// - resource.accessKeyDetails.accessKeyId
+// - resource.accessKeyDetails.principalId
+// - resource.accessKeyDetails.userName
+// - resource.accessKeyDetails.userType
+// - resource.instanceDetails.iamInstanceProfile.id
+// - resource.instanceDetails.imageId
+// - resource.instanceDetails.instanceId
+// - resource.instanceDetails.tags.key
+// - resource.instanceDetails.tags.value
+// - resource.instanceDetails.networkInterfaces.ipv6Addresses
+// - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+// - resource.instanceDetails.networkInterfaces.publicDnsName
+// - resource.instanceDetails.networkInterfaces.publicIp
+// - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+// - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+// - resource.instanceDetails.networkInterfaces.subnetId
+// - resource.instanceDetails.networkInterfaces.vpcId
+// - resource.instanceDetails.outpostArn
+// - resource.resourceType
+// - resource.s3BucketDetails.publicAccess.effectivePermissions
+// - resource.s3BucketDetails.name
+// - resource.s3BucketDetails.tags.key
+// - resource.s3BucketDetails.tags.value
+// - resource.s3BucketDetails.type
+// - service.action.actionType
+// - service.action.awsApiCallAction.api
+// - service.action.awsApiCallAction.callerType
+// - service.action.awsApiCallAction.errorCode
+// - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+// - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+// - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+// - service.action.awsApiCallAction.serviceName
+// - service.action.dnsRequestAction.domain
+// - service.action.networkConnectionAction.blocked
+// - service.action.networkConnectionAction.connectionDirection
+// - service.action.networkConnectionAction.localPortDetails.port
+// - service.action.networkConnectionAction.protocol
+// - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+// - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+// - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+// - service.action.networkConnectionAction.remotePortDetails.port
+// - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.kubernetesApiCallAction.requestUri
+// - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.protocol
+// - service.action.awsApiCallAction.serviceName
+// - service.action.awsApiCallAction.remoteAccountDetails.accountId
+// - service.additionalInfo.threatListName
+// - service.resourceRole
+// - resource.eksClusterDetails.name
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+// - resource.kubernetesDetails.kubernetesUserDetails.username
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+// - service.ebsVolumeScanDetails.scanId
+// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+// - resource.ecsClusterDetails.name
+// - resource.ecsClusterDetails.taskDetails.containers.image
+// - resource.ecsClusterDetails.taskDetails.definitionArn
+// - resource.containerDetails.image
+// - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+// - resource.rdsDbInstanceDetails.dbClusterIdentifier
+// - resource.rdsDbInstanceDetails.engine
+// - resource.rdsDbUserDetails.user
+// - resource.rdsDbInstanceDetails.tags.key
+// - resource.rdsDbInstanceDetails.tags.value
+// - service.runtimeDetails.process.executableSha256
+// - service.runtimeDetails.process.name
+// - service.runtimeDetails.process.name
+// - resource.lambdaDetails.functionName
+// - resource.lambdaDetails.functionArn
+// - resource.lambdaDetails.tags.key
+// - resource.lambdaDetails.tags.value
 func (o FilterFindingCriteriaOutput) Criterion() FilterConditionMapOutput {
 	return o.ApplyT(func(v FilterFindingCriteria) map[string]FilterCondition { return v.Criterion }).(FilterConditionMapOutput)
 }
@@ -1293,6 +1645,107 @@ func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
 	}).(FilterFindingCriteriaOutput)
 }
 
+// Represents a map of finding properties that match specified conditions and values when querying findings.
+//
+// For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+//
+// - accountId
+// - id
+// - region
+// - severity
+//
+// To filter on the basis of severity, API and CFN use the following input list for the condition:
+//
+// - *Low* : `["1", "2", "3"]`
+// - *Medium* : `["4", "5", "6"]`
+// - *High* : `["7", "8", "9"]`
+//
+// For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+// - type
+// - updatedAt
+//
+// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+// - resource.accessKeyDetails.accessKeyId
+// - resource.accessKeyDetails.principalId
+// - resource.accessKeyDetails.userName
+// - resource.accessKeyDetails.userType
+// - resource.instanceDetails.iamInstanceProfile.id
+// - resource.instanceDetails.imageId
+// - resource.instanceDetails.instanceId
+// - resource.instanceDetails.tags.key
+// - resource.instanceDetails.tags.value
+// - resource.instanceDetails.networkInterfaces.ipv6Addresses
+// - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+// - resource.instanceDetails.networkInterfaces.publicDnsName
+// - resource.instanceDetails.networkInterfaces.publicIp
+// - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+// - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+// - resource.instanceDetails.networkInterfaces.subnetId
+// - resource.instanceDetails.networkInterfaces.vpcId
+// - resource.instanceDetails.outpostArn
+// - resource.resourceType
+// - resource.s3BucketDetails.publicAccess.effectivePermissions
+// - resource.s3BucketDetails.name
+// - resource.s3BucketDetails.tags.key
+// - resource.s3BucketDetails.tags.value
+// - resource.s3BucketDetails.type
+// - service.action.actionType
+// - service.action.awsApiCallAction.api
+// - service.action.awsApiCallAction.callerType
+// - service.action.awsApiCallAction.errorCode
+// - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+// - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+// - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+// - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+// - service.action.awsApiCallAction.serviceName
+// - service.action.dnsRequestAction.domain
+// - service.action.networkConnectionAction.blocked
+// - service.action.networkConnectionAction.connectionDirection
+// - service.action.networkConnectionAction.localPortDetails.port
+// - service.action.networkConnectionAction.protocol
+// - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+// - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+// - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+// - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+// - service.action.networkConnectionAction.remotePortDetails.port
+// - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+// - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+// - service.action.kubernetesApiCallAction.requestUri
+// - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+// - service.action.networkConnectionAction.protocol
+// - service.action.awsApiCallAction.serviceName
+// - service.action.awsApiCallAction.remoteAccountDetails.accountId
+// - service.additionalInfo.threatListName
+// - service.resourceRole
+// - resource.eksClusterDetails.name
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+// - resource.kubernetesDetails.kubernetesUserDetails.username
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+// - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+// - service.ebsVolumeScanDetails.scanId
+// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+// - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+// - resource.ecsClusterDetails.name
+// - resource.ecsClusterDetails.taskDetails.containers.image
+// - resource.ecsClusterDetails.taskDetails.definitionArn
+// - resource.containerDetails.image
+// - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+// - resource.rdsDbInstanceDetails.dbClusterIdentifier
+// - resource.rdsDbInstanceDetails.engine
+// - resource.rdsDbUserDetails.user
+// - resource.rdsDbInstanceDetails.tags.key
+// - resource.rdsDbInstanceDetails.tags.value
+// - service.runtimeDetails.process.executableSha256
+// - service.runtimeDetails.process.name
+// - service.runtimeDetails.process.name
+// - resource.lambdaDetails.functionName
+// - resource.lambdaDetails.functionArn
+// - resource.lambdaDetails.tags.key
+// - resource.lambdaDetails.tags.value
 func (o FilterFindingCriteriaPtrOutput) Criterion() FilterConditionMapOutput {
 	return o.ApplyT(func(v *FilterFindingCriteria) map[string]FilterCondition {
 		if v == nil {

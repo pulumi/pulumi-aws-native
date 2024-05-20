@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:StoredQuery")]
     public partial class StoredQuery : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+        /// </summary>
         [Output("queryArn")]
         public Output<string> QueryArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique description for the query.
+        /// </summary>
         [Output("queryDescription")]
         public Output<string?> QueryDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        /// </summary>
         [Output("queryExpression")]
         public Output<string> QueryExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the query.
+        /// </summary>
         [Output("queryId")]
         public Output<string> QueryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the query.
+        /// </summary>
         [Output("queryName")]
         public Output<string> QueryName { get; private set; } = null!;
 
@@ -85,12 +100,21 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class StoredQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique description for the query.
+        /// </summary>
         [Input("queryDescription")]
         public Input<string>? QueryDescription { get; set; }
 
+        /// <summary>
+        /// The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        /// </summary>
         [Input("queryExpression", required: true)]
         public Input<string> QueryExpression { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the query.
+        /// </summary>
         [Input("queryName")]
         public Input<string>? QueryName { get; set; }
 

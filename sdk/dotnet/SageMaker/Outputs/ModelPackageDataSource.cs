@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageDataSource
     {
+        /// <summary>
+        /// The S3 location of the data source that is associated with a channel.
+        /// </summary>
         public readonly Outputs.ModelPackageS3DataSource S3DataSource;
 
         [OutputConstructor]

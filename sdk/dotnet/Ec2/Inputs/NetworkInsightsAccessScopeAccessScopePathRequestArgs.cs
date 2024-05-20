@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class NetworkInsightsAccessScopeAccessScopePathRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination.
+        /// </summary>
         [Input("destination")]
         public Input<Inputs.NetworkInsightsAccessScopePathStatementRequestArgs>? Destination { get; set; }
 
+        /// <summary>
+        /// The source.
+        /// </summary>
         [Input("source")]
         public Input<Inputs.NetworkInsightsAccessScopePathStatementRequestArgs>? Source { get; set; }
 
         [Input("throughResources")]
         private InputList<Inputs.NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs>? _throughResources;
+
+        /// <summary>
+        /// The through resources.
+        /// </summary>
         public InputList<Inputs.NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs> ThroughResources
         {
             get => _throughResources ?? (_throughResources = new InputList<Inputs.NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs>());

@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class TaskSetNetworkConfiguration
     {
+        /// <summary>
+        /// The VPC subnets and security groups that are associated with a task.
+        /// 
+        /// &gt; All specified subnets and security groups must be from the same VPC.
+        /// </summary>
         public readonly Outputs.TaskSetAwsVpcConfiguration? AwsVpcConfiguration;
 
         [OutputConstructor]

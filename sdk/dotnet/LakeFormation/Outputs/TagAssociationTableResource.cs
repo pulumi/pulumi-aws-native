@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
     [OutputType]
     public sealed class TagAssociationTableResource
     {
+        /// <summary>
+        /// The identifier for the Data Catalog . By default, it is the account ID of the caller.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+        /// 
+        /// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
+        /// </summary>
         public readonly Outputs.TagAssociationTableWildcard? TableWildcard;
 
         [OutputConstructor]

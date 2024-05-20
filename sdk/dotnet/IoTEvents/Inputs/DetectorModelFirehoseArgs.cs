@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("deliveryStreamName", required: true)]
         public Input<string> DeliveryStreamName { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
 

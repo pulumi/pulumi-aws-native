@@ -22,6 +22,9 @@ class RefreshScheduleArgs:
                  schedule: Optional[pulumi.Input['RefreshScheduleMapArgs']] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
+        :param pulumi.Input[str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
+        :param pulumi.Input['RefreshScheduleMapArgs'] schedule: The refresh schedule of a dataset.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -33,6 +36,9 @@ class RefreshScheduleArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the account that you are creating a schedule in.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -42,6 +48,9 @@ class RefreshScheduleArgs:
     @property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the dataset that you are creating a refresh schedule for.
+        """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
@@ -51,6 +60,9 @@ class RefreshScheduleArgs:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['RefreshScheduleMapArgs']]:
+        """
+        The refresh schedule of a dataset.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -72,6 +84,9 @@ class RefreshSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
+        :param pulumi.Input[str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
+        :param pulumi.Input[pulumi.InputType['RefreshScheduleMapArgs']] schedule: The refresh schedule of a dataset.
         """
         ...
     @overload
@@ -154,15 +169,24 @@ class RefreshSchedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account ID of the account that you are creating a schedule in.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the dataset that you are creating a refresh schedule for.
+        """
         return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.RefreshScheduleMap']]:
+        """
+        The refresh schedule of a dataset.
+        """
         return pulumi.get(self, "schedule")
 

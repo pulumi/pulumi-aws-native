@@ -23,14 +23,19 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 }
 
 type LookupLinkArgs struct {
+	// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
 	Arn string `pulumi:"arn"`
 }
 
 type LookupLinkResult struct {
-	Arn               *string            `pulumi:"arn"`
-	Label             *string            `pulumi:"label"`
+	// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+	Arn *string `pulumi:"arn"`
+	// The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+	Label *string `pulumi:"label"`
+	// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 	LinkConfiguration *LinkConfiguration `pulumi:"linkConfiguration"`
-	ResourceTypes     []LinkResourceType `pulumi:"resourceTypes"`
+	// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+	ResourceTypes []LinkResourceType `pulumi:"resourceTypes"`
 	// Tags to apply to the link
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -49,6 +54,7 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 }
 
 type LookupLinkOutputArgs struct {
+	// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -70,18 +76,22 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.
 	return o
 }
 
+// The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
 func (o LookupLinkResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
 func (o LookupLinkResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
 func (o LookupLinkResultOutput) LinkConfiguration() LinkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *LinkConfiguration { return v.LinkConfiguration }).(LinkConfigurationPtrOutput)
 }
 
+// An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
 func (o LookupLinkResultOutput) ResourceTypes() LinkResourceTypeArrayOutput {
 	return o.ApplyT(func(v LookupLinkResult) []LinkResourceType { return v.ResourceTypes }).(LinkResourceTypeArrayOutput)
 }

@@ -13,10 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDateDimensionField
     {
+        /// <summary>
+        /// The column that is used in the `DateDimensionField` .
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The date granularity of the `DateDimensionField` . Choose one of the following options:
+        /// 
+        /// - `YEAR`
+        /// - `QUARTER`
+        /// - `MONTH`
+        /// - `WEEK`
+        /// - `DAY`
+        /// - `HOUR`
+        /// - `MINUTE`
+        /// - `SECOND`
+        /// - `MILLISECOND`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? DateGranularity;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The format configuration of the field.
+        /// </summary>
         public readonly Outputs.DashboardDateTimeFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         public readonly string? HierarchyId;
 
         [OutputConstructor]

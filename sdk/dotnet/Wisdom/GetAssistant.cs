@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAssistantArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Wisdom assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAssistantInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Wisdom assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAssistantResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the assistant.
+        /// </summary>
         public readonly string? AssistantArn;
+        /// <summary>
+        /// The ID of the Wisdom assistant.
+        /// </summary>
         public readonly string? AssistantId;
 
         [OutputConstructor]

@@ -49,6 +49,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
                  s3: Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Destination configuration for IVS Chat logging.
+        :param pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs'] cloud_watch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs'] firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs'] s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
@@ -60,6 +63,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> Optional[pulumi.Input['LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs']]:
+        """
+        An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "cloud_watch_logs")
 
     @cloud_watch_logs.setter
@@ -69,6 +75,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['LoggingConfigurationFirehoseDestinationConfigurationArgs']]:
+        """
+        An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
@@ -78,6 +87,9 @@ class LoggingConfigurationDestinationConfigurationArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['LoggingConfigurationS3DestinationConfigurationArgs']]:
+        """
+        An Amazon S3 destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter

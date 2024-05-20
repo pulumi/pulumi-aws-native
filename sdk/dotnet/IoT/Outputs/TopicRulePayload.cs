@@ -13,11 +13,31 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRulePayload
     {
+        /// <summary>
+        /// The actions associated with the rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleAction> Actions;
+        /// <summary>
+        /// The version of the SQL rules engine to use when evaluating the rule.
+        /// 
+        /// The default value is 2015-10-08.
+        /// </summary>
         public readonly string? AwsIotSqlVersion;
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The action to take when an error occurs.
+        /// </summary>
         public readonly Outputs.TopicRuleAction? ErrorAction;
+        /// <summary>
+        /// Specifies whether the rule is disabled.
+        /// </summary>
         public readonly bool? RuleDisabled;
+        /// <summary>
+        /// The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+        /// </summary>
         public readonly string Sql;
 
         [OutputConstructor]

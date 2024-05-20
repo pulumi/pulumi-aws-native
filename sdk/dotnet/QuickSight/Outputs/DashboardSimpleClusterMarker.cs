@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSimpleClusterMarker
     {
+        /// <summary>
+        /// The color of the simple cluster marker.
+        /// </summary>
         public readonly string? Color;
 
         [OutputConstructor]

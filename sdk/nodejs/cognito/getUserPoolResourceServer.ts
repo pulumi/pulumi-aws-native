@@ -19,12 +19,24 @@ export function getUserPoolResourceServer(args: GetUserPoolResourceServerArgs, o
 }
 
 export interface GetUserPoolResourceServerArgs {
+    /**
+     * The resource ID.
+     */
     id: string;
 }
 
 export interface GetUserPoolResourceServerResult {
+    /**
+     * The resource ID.
+     */
     readonly id?: string;
+    /**
+     * A friendly name for the resource server.
+     */
     readonly name?: string;
+    /**
+     * A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
+     */
     readonly scopes?: outputs.cognito.UserPoolResourceServerResourceServerScopeType[];
 }
 /**
@@ -35,5 +47,8 @@ export function getUserPoolResourceServerOutput(args: GetUserPoolResourceServerO
 }
 
 export interface GetUserPoolResourceServerOutputArgs {
+    /**
+     * The resource ID.
+     */
     id: pulumi.Input<string>;
 }

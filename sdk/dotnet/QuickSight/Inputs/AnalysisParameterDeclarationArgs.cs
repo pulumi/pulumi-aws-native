@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A parameter declaration for the `DateTime` data type.
+        /// </summary>
         [Input("dateTimeParameterDeclaration")]
         public Input<Inputs.AnalysisDateTimeParameterDeclarationArgs>? DateTimeParameterDeclaration { get; set; }
 
+        /// <summary>
+        /// A parameter declaration for the `Decimal` data type.
+        /// </summary>
         [Input("decimalParameterDeclaration")]
         public Input<Inputs.AnalysisDecimalParameterDeclarationArgs>? DecimalParameterDeclaration { get; set; }
 
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// </summary>
         [Input("integerParameterDeclaration")]
         public Input<Inputs.AnalysisIntegerParameterDeclarationArgs>? IntegerParameterDeclaration { get; set; }
 
+        /// <summary>
+        /// A parameter declaration for the `String` data type.
+        /// </summary>
         [Input("stringParameterDeclaration")]
         public Input<Inputs.AnalysisStringParameterDeclarationArgs>? StringParameterDeclaration { get; set; }
 

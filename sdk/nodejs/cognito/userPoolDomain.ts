@@ -37,10 +37,27 @@ export class UserPoolDomain extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolDomain.__pulumiType;
     }
 
+    /**
+     * The resource ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     */
     public /*out*/ readonly cloudFrontDistribution!: pulumi.Output<string>;
+    /**
+     * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+     */
     public readonly customDomainConfig!: pulumi.Output<outputs.cognito.UserPoolDomainCustomDomainConfigType | undefined>;
+    /**
+     * The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+     *
+     * This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+     */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * The user pool ID for the user pool where you want to associate a user pool domain.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -83,7 +100,18 @@ export class UserPoolDomain extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolDomain resource.
  */
 export interface UserPoolDomainArgs {
+    /**
+     * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+     */
     customDomainConfig?: pulumi.Input<inputs.cognito.UserPoolDomainCustomDomainConfigTypeArgs>;
+    /**
+     * The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+     *
+     * This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+     */
     domain: pulumi.Input<string>;
+    /**
+     * The user pool ID for the user pool where you want to associate a user pool domain.
+     */
     userPoolId: pulumi.Input<string>;
 }

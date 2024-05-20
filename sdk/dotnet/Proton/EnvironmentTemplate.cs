@@ -39,9 +39,15 @@ namespace Pulumi.AwsNative.Proton
         [Output("encryptionKey")]
         public Output<string?> EncryptionKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the environment template.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+        /// </summary>
         [Output("provisioning")]
         public Output<Pulumi.AwsNative.Proton.EnvironmentTemplateProvisioning?> Provisioning { get; private set; } = null!;
 
@@ -122,9 +128,15 @@ namespace Pulumi.AwsNative.Proton
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
+        /// <summary>
+        /// The name of the environment template.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+        /// </summary>
         [Input("provisioning")]
         public Input<Pulumi.AwsNative.Proton.EnvironmentTemplateProvisioning>? Provisioning { get; set; }
 

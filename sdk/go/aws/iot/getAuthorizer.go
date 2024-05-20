@@ -24,16 +24,32 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 }
 
 type LookupAuthorizerArgs struct {
+	// The authorizer name.
 	AuthorizerName string `pulumi:"authorizerName"`
 }
 
 type LookupAuthorizerResult struct {
-	Arn                    *string           `pulumi:"arn"`
-	AuthorizerFunctionArn  *string           `pulumi:"authorizerFunctionArn"`
-	EnableCachingForHttp   *bool             `pulumi:"enableCachingForHttp"`
-	Status                 *AuthorizerStatus `pulumi:"status"`
-	Tags                   []aws.Tag         `pulumi:"tags"`
-	TokenKeyName           *string           `pulumi:"tokenKeyName"`
+	// The Amazon Resource Name (ARN) of the authorizer.
+	Arn *string `pulumi:"arn"`
+	// The authorizer's Lambda function ARN.
+	AuthorizerFunctionArn *string `pulumi:"authorizerFunctionArn"`
+	// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
+	// The status of the authorizer.
+	//
+	// Valid values: `ACTIVE` | `INACTIVE`
+	Status *AuthorizerStatus `pulumi:"status"`
+	// Metadata which can be used to manage the custom authorizer.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+	Tags []aws.Tag `pulumi:"tags"`
+	// The key used to extract the token from the HTTP headers.
+	TokenKeyName *string `pulumi:"tokenKeyName"`
+	// The public keys used to validate the token signature returned by your custom authentication service.
 	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
 }
 
@@ -51,6 +67,7 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 }
 
 type LookupAuthorizerOutputArgs struct {
+	// The authorizer name.
 	AuthorizerName pulumi.StringInput `pulumi:"authorizerName"`
 }
 
@@ -72,30 +89,45 @@ func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the authorizer.
 func (o LookupAuthorizerResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The authorizer's Lambda function ARN.
 func (o LookupAuthorizerResultOutput) AuthorizerFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerFunctionArn }).(pulumi.StringPtrOutput)
 }
 
+// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
 func (o LookupAuthorizerResultOutput) EnableCachingForHttp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *bool { return v.EnableCachingForHttp }).(pulumi.BoolPtrOutput)
 }
 
+// The status of the authorizer.
+//
+// Valid values: `ACTIVE` | `INACTIVE`
 func (o LookupAuthorizerResultOutput) Status() AuthorizerStatusPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *AuthorizerStatus { return v.Status }).(AuthorizerStatusPtrOutput)
 }
 
+// Metadata which can be used to manage the custom authorizer.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o LookupAuthorizerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The key used to extract the token from the HTTP headers.
 func (o LookupAuthorizerResultOutput) TokenKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.TokenKeyName }).(pulumi.StringPtrOutput)
 }
 
+// The public keys used to validate the token signature returned by your custom authentication service.
 func (o LookupAuthorizerResultOutput) TokenSigningPublicKeys() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) map[string]string { return v.TokenSigningPublicKeys }).(pulumi.StringMapOutput)
 }

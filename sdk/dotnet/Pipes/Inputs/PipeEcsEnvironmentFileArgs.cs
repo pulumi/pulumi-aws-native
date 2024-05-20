@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeEcsEnvironmentFileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The file type to use. The only supported value is `s3` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Pipes.PipeEcsEnvironmentFileType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

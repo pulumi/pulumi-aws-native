@@ -38,6 +38,14 @@ class FindingsFilterCriterionAdditionalProperties(dict):
                  lt: Optional[int] = None,
                  lte: Optional[int] = None,
                  neq: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] eq: The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        :param int gt: The value for the specified property is greater than the specified value.
+        :param int gte: The value for the specified property is greater than or equal to the specified value.
+        :param int lt: The value for the specified property is less than the specified value.
+        :param int lte: The value for the specified property is less than or equal to the specified value.
+        :param Sequence[str] neq: The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gt is not None:
@@ -54,31 +62,49 @@ class FindingsFilterCriterionAdditionalProperties(dict):
     @property
     @pulumi.getter
     def eq(self) -> Optional[Sequence[str]]:
+        """
+        The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def gt(self) -> Optional[int]:
+        """
+        The value for the specified property is greater than the specified value.
+        """
         return pulumi.get(self, "gt")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[int]:
+        """
+        The value for the specified property is greater than or equal to the specified value.
+        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lt(self) -> Optional[int]:
+        """
+        The value for the specified property is less than the specified value.
+        """
         return pulumi.get(self, "lt")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[int]:
+        """
+        The value for the specified property is less than or equal to the specified value.
+        """
         return pulumi.get(self, "lte")
 
     @property
     @pulumi.getter
     def neq(self) -> Optional[Sequence[str]]:
+        """
+        The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
         return pulumi.get(self, "neq")
 
 
@@ -86,12 +112,18 @@ class FindingsFilterCriterionAdditionalProperties(dict):
 class FindingsFilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterion: Optional[Mapping[str, 'outputs.FindingsFilterCriterionAdditionalProperties']] = None):
+        """
+        :param Mapping[str, 'FindingsFilterCriterionAdditionalProperties'] criterion: Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+        """
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
     def criterion(self) -> Optional[Mapping[str, 'outputs.FindingsFilterCriterionAdditionalProperties']]:
+        """
+        Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+        """
         return pulumi.get(self, "criterion")
 
 

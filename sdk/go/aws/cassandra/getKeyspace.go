@@ -29,6 +29,9 @@ type LookupKeyspaceArgs struct {
 }
 
 type LookupKeyspaceResult struct {
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -68,6 +71,9 @@ func (o LookupKeyspaceResultOutput) ToLookupKeyspaceResultOutputWithContext(ctx 
 	return o
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupKeyspaceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupKeyspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

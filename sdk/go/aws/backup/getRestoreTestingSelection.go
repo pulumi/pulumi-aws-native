@@ -23,16 +23,27 @@ func LookupRestoreTestingSelection(ctx *pulumi.Context, args *LookupRestoreTesti
 }
 
 type LookupRestoreTestingSelectionArgs struct {
-	RestoreTestingPlanName      string `pulumi:"restoreTestingPlanName"`
+	// Unique string that is the name of the restore testing plan.
+	//
+	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
 	RestoreTestingSelectionName string `pulumi:"restoreTestingSelectionName"`
 }
 
 type LookupRestoreTestingSelectionResult struct {
-	IamRoleArn                  *string                                             `pulumi:"iamRoleArn"`
-	ProtectedResourceArns       []string                                            `pulumi:"protectedResourceArns"`
+	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+	ProtectedResourceArns []string `pulumi:"protectedResourceArns"`
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
-	RestoreMetadataOverrides    map[string]string                                   `pulumi:"restoreMetadataOverrides"`
-	ValidationWindowHours       *int                                                `pulumi:"validationWindowHours"`
+	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+	//
+	// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
+	// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+	ValidationWindowHours *int `pulumi:"validationWindowHours"`
 }
 
 func LookupRestoreTestingSelectionOutput(ctx *pulumi.Context, args LookupRestoreTestingSelectionOutputArgs, opts ...pulumi.InvokeOption) LookupRestoreTestingSelectionResultOutput {
@@ -49,7 +60,11 @@ func LookupRestoreTestingSelectionOutput(ctx *pulumi.Context, args LookupRestore
 }
 
 type LookupRestoreTestingSelectionOutputArgs struct {
-	RestoreTestingPlanName      pulumi.StringInput `pulumi:"restoreTestingPlanName"`
+	// Unique string that is the name of the restore testing plan.
+	//
+	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+	RestoreTestingPlanName pulumi.StringInput `pulumi:"restoreTestingPlanName"`
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
 	RestoreTestingSelectionName pulumi.StringInput `pulumi:"restoreTestingSelectionName"`
 }
 
@@ -71,24 +86,31 @@ func (o LookupRestoreTestingSelectionResultOutput) ToLookupRestoreTestingSelecti
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
 func (o LookupRestoreTestingSelectionResultOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 func (o LookupRestoreTestingSelectionResultOutput) ProtectedResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) []string { return v.ProtectedResourceArns }).(pulumi.StringArrayOutput)
 }
 
+// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 func (o LookupRestoreTestingSelectionResultOutput) ProtectedResourceConditions() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) *RestoreTestingSelectionProtectedResourceConditions {
 		return v.ProtectedResourceConditions
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
+// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+//
+// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 func (o LookupRestoreTestingSelectionResultOutput) RestoreMetadataOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) map[string]string { return v.RestoreMetadataOverrides }).(pulumi.StringMapOutput)
 }
 
+// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
 func (o LookupRestoreTestingSelectionResultOutput) ValidationWindowHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) *int { return v.ValidationWindowHours }).(pulumi.IntPtrOutput)
 }

@@ -418,6 +418,11 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
                  account_ids: Sequence[str],
                  all_aws_regions: Optional[bool] = None,
                  aws_regions: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] account_ids: The 12-digit account ID of the account being aggregated.
+        :param bool all_aws_regions: If true, aggregate existing AWS Config regions and future regions.
+        :param Sequence[str] aws_regions: The source regions being aggregated.
+        """
         pulumi.set(__self__, "account_ids", account_ids)
         if all_aws_regions is not None:
             pulumi.set(__self__, "all_aws_regions", all_aws_regions)
@@ -427,16 +432,25 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
     @property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> Sequence[str]:
+        """
+        The 12-digit account ID of the account being aggregated.
+        """
         return pulumi.get(self, "account_ids")
 
     @property
     @pulumi.getter(name="allAwsRegions")
     def all_aws_regions(self) -> Optional[bool]:
+        """
+        If true, aggregate existing AWS Config regions and future regions.
+        """
         return pulumi.get(self, "all_aws_regions")
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
+        """
+        The source regions being aggregated.
+        """
         return pulumi.get(self, "aws_regions")
 
 
@@ -467,6 +481,11 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
                  role_arn: str,
                  all_aws_regions: Optional[bool] = None,
                  aws_regions: Optional[Sequence[str]] = None):
+        """
+        :param str role_arn: ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+        :param bool all_aws_regions: If true, aggregate existing AWS Config regions and future regions.
+        :param Sequence[str] aws_regions: The source regions being aggregated.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         if all_aws_regions is not None:
             pulumi.set(__self__, "all_aws_regions", all_aws_regions)
@@ -476,16 +495,25 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="allAwsRegions")
     def all_aws_regions(self) -> Optional[bool]:
+        """
+        If true, aggregate existing AWS Config regions and future regions.
+        """
         return pulumi.get(self, "all_aws_regions")
 
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[Sequence[str]]:
+        """
+        The source regions being aggregated.
+        """
         return pulumi.get(self, "aws_regions")
 
 
@@ -518,6 +546,8 @@ class ConformancePackInputParameter(dict):
                  parameter_value: str):
         """
         Input parameters in the form of key-value pairs for the conformance pack.
+        :param str parameter_name: One part of a key-value pair.
+        :param str parameter_value: Another part of the key-value pair.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -525,11 +555,17 @@ class ConformancePackInputParameter(dict):
     @property
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
+        """
+        One part of a key-value pair.
+        """
         return pulumi.get(self, "parameter_name")
 
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> str:
+        """
+        Another part of the key-value pair.
+        """
         return pulumi.get(self, "parameter_value")
 
 
@@ -562,6 +598,8 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
                  parameter_value: str):
         """
         Input parameters in the form of key-value pairs for the conformance pack.
+        :param str parameter_name: One part of a key-value pair.
+        :param str parameter_value: One part of a key-value pair.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -569,11 +607,17 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
     @property
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
+        """
+        One part of a key-value pair.
+        """
         return pulumi.get(self, "parameter_name")
 
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> str:
+        """
+        One part of a key-value pair.
+        """
         return pulumi.get(self, "parameter_value")
 
 
@@ -606,6 +650,10 @@ class TemplateSsmDocumentDetailsProperties(dict):
                  document_version: Optional[str] = None):
         """
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        :param str document_name: The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
+        :param str document_version: The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+               
+               > This field is optional.
         """
         if document_name is not None:
             pulumi.set(__self__, "document_name", document_name)
@@ -615,11 +663,19 @@ class TemplateSsmDocumentDetailsProperties(dict):
     @property
     @pulumi.getter(name="documentName")
     def document_name(self) -> Optional[str]:
+        """
+        The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
+        """
         return pulumi.get(self, "document_name")
 
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[str]:
+        """
+        The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+
+        > This field is optional.
+        """
         return pulumi.get(self, "document_version")
 
 

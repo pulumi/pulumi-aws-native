@@ -24,6 +24,11 @@ class ConfiguredTableAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfiguredTableAssociation resource.
+        :param pulumi.Input[str] configured_table_identifier: A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+        :param pulumi.Input[str] membership_identifier: The unique ID for the membership this configured table association belongs to.
+        :param pulumi.Input[str] role_arn: The service will assume this role to access catalog metadata and query the table.
+        :param pulumi.Input[str] description: A description of the configured table association.
+        :param pulumi.Input[str] name: The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         pulumi.set(__self__, "configured_table_identifier", configured_table_identifier)
@@ -39,6 +44,9 @@ class ConfiguredTableAssociationArgs:
     @property
     @pulumi.getter(name="configuredTableIdentifier")
     def configured_table_identifier(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+        """
         return pulumi.get(self, "configured_table_identifier")
 
     @configured_table_identifier.setter
@@ -48,6 +56,9 @@ class ConfiguredTableAssociationArgs:
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique ID for the membership this configured table association belongs to.
+        """
         return pulumi.get(self, "membership_identifier")
 
     @membership_identifier.setter
@@ -57,6 +68,9 @@ class ConfiguredTableAssociationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The service will assume this role to access catalog metadata and query the table.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -66,6 +80,9 @@ class ConfiguredTableAssociationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the configured table association.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -75,6 +92,9 @@ class ConfiguredTableAssociationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,6 +131,11 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configured_table_identifier: A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+        :param pulumi.Input[str] description: A description of the configured table association.
+        :param pulumi.Input[str] membership_identifier: The unique ID for the membership this configured table association belongs to.
+        :param pulumi.Input[str] name: The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+        :param pulumi.Input[str] role_arn: The service will assume this role to access catalog metadata and query the table.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
@@ -203,36 +228,61 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified configured table association.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configuredTableAssociationIdentifier")
     def configured_table_association_identifier(self) -> pulumi.Output[str]:
+        """
+        Returns the unique identifier of the specified configured table association.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "configured_table_association_identifier")
 
     @property
     @pulumi.getter(name="configuredTableIdentifier")
     def configured_table_identifier(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+        """
         return pulumi.get(self, "configured_table_identifier")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the configured table association.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique ID for the membership this configured table association belongs to.
+        """
         return pulumi.get(self, "membership_identifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The service will assume this role to access catalog metadata and query the table.
+        """
         return pulumi.get(self, "role_arn")
 
     @property

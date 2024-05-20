@@ -24,6 +24,15 @@ class ServiceActionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]] definition: A map that defines the self-service action.
+        :param pulumi.Input['ServiceActionDefinitionType'] definition_type: The self-service action definition type. For example, `SSM_AUTOMATION` .
+        :param pulumi.Input['ServiceActionAcceptLanguage'] accept_language: The language code.
+               
+               - `en` - English (default)
+               - `jp` - Japanese
+               - `zh` - Chinese
+        :param pulumi.Input[str] description: The self-service action description.
+        :param pulumi.Input[str] name: The self-service action name.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "definition_type", definition_type)
@@ -37,6 +46,9 @@ class ServiceActionArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]]:
+        """
+        A map that defines the self-service action.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -46,6 +58,9 @@ class ServiceActionArgs:
     @property
     @pulumi.getter(name="definitionType")
     def definition_type(self) -> pulumi.Input['ServiceActionDefinitionType']:
+        """
+        The self-service action definition type. For example, `SSM_AUTOMATION` .
+        """
         return pulumi.get(self, "definition_type")
 
     @definition_type.setter
@@ -55,6 +70,13 @@ class ServiceActionArgs:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input['ServiceActionAcceptLanguage']]:
+        """
+        The language code.
+
+        - `en` - English (default)
+        - `jp` - Japanese
+        - `zh` - Chinese
+        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -64,6 +86,9 @@ class ServiceActionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The self-service action description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,6 +98,9 @@ class ServiceActionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The self-service action name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,6 +124,15 @@ class ServiceAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ServiceActionAcceptLanguage'] accept_language: The language code.
+               
+               - `en` - English (default)
+               - `jp` - Japanese
+               - `zh` - Chinese
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceActionDefinitionParameterArgs']]]] definition: A map that defines the self-service action.
+        :param pulumi.Input['ServiceActionDefinitionType'] definition_type: The self-service action definition type. For example, `SSM_AUTOMATION` .
+        :param pulumi.Input[str] description: The self-service action description.
+        :param pulumi.Input[str] name: The self-service action name.
         """
         ...
     @overload
@@ -178,30 +215,52 @@ class ServiceAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional['ServiceActionAcceptLanguage']]:
+        """
+        The language code.
+
+        - `en` - English (default)
+        - `jp` - Japanese
+        - `zh` - Chinese
+        """
         return pulumi.get(self, "accept_language")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Sequence['outputs.ServiceActionDefinitionParameter']]:
+        """
+        A map that defines the self-service action.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="definitionType")
     def definition_type(self) -> pulumi.Output['ServiceActionDefinitionType']:
+        """
+        The self-service action definition type. For example, `SSM_AUTOMATION` .
+        """
         return pulumi.get(self, "definition_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The self-service action description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The self-service action name.
+        """
         return pulumi.get(self, "name")
 

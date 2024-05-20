@@ -19,13 +19,28 @@ export function getResourceSet(args: GetResourceSetArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetResourceSetArgs {
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     id: string;
 }
 
 export interface GetResourceSetResult {
+    /**
+     * A description of the resource set.
+     */
     readonly description?: string;
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     readonly id?: string;
+    /**
+     * The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+     */
     readonly name?: string;
+    /**
+     * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     */
     readonly resourceTypeList?: string[];
     readonly resources?: string[];
     readonly tags?: outputs.Tag[];
@@ -38,5 +53,8 @@ export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulu
 }
 
 export interface GetResourceSetOutputArgs {
+    /**
+     * A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+     */
     id: pulumi.Input<string>;
 }

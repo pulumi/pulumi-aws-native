@@ -24,6 +24,12 @@ class TestGridProjectArgs:
                  vpc_config: Optional[pulumi.Input['TestGridProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a TestGridProject resource.
+        :param pulumi.Input[str] description: A human-readable description for the project.
+        :param pulumi.Input[str] name: A human-readable name for the project.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        :param pulumi.Input['TestGridProjectVpcConfigArgs'] vpc_config: The VPC security groups and subnets that are attached to a project.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -37,6 +43,9 @@ class TestGridProjectArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-readable description for the project.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -46,6 +55,9 @@ class TestGridProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-readable name for the project.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -55,6 +67,11 @@ class TestGridProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,6 +81,9 @@ class TestGridProjectArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['TestGridProjectVpcConfigArgs']]:
+        """
+        The VPC security groups and subnets that are attached to a project.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -86,6 +106,12 @@ class TestGridProject(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A human-readable description for the project.
+        :param pulumi.Input[str] name: A human-readable name for the project.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        :param pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']] vpc_config: The VPC security groups and subnets that are attached to a project.
         """
         ...
     @overload
@@ -161,25 +187,42 @@ class TestGridProject(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A human-readable description for the project.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A human-readable name for the project.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.TestGridProjectVpcConfig']]:
+        """
+        The VPC security groups and subnets that are attached to a project.
+        """
         return pulumi.get(self, "vpc_config")
 

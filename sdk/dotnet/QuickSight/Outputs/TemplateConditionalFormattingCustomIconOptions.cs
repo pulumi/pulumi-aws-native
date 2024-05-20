@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateConditionalFormattingCustomIconOptions
     {
+        /// <summary>
+        /// Determines the type of icon.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateIcon? Icon;
+        /// <summary>
+        /// Determines the Unicode icon type.
+        /// </summary>
         public readonly string? UnicodeIcon;
 
         [OutputConstructor]

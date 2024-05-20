@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCalculatedField
     {
+        /// <summary>
+        /// The data set that is used in this calculated field.
+        /// </summary>
         public readonly string DataSetIdentifier;
+        /// <summary>
+        /// The expression of the calculated field.
+        /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// The name of the calculated field.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

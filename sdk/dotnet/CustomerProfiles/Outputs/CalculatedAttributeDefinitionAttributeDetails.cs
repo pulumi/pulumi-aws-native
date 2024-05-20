@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class CalculatedAttributeDefinitionAttributeDetails
     {
+        /// <summary>
+        /// Mathematical expression and a list of attribute items specified in that expression.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CalculatedAttributeDefinitionAttributeItem> Attributes;
+        /// <summary>
+        /// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

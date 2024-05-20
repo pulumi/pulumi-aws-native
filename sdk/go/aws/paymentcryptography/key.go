@@ -17,14 +17,22 @@ import (
 type Key struct {
 	pulumi.CustomResourceState
 
-	Enabled                pulumi.BoolPtrOutput            `pulumi:"enabled"`
-	Exportable             pulumi.BoolOutput               `pulumi:"exportable"`
-	KeyAttributes          KeyAttributesOutput             `pulumi:"keyAttributes"`
+	// Specifies whether the key is enabled.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Specifies whether the key is exportable. This data is immutable after the key is created.
+	Exportable pulumi.BoolOutput `pulumi:"exportable"`
+	// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+	KeyAttributes KeyAttributesOutput `pulumi:"keyAttributes"`
+	// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+	//
+	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm KeyCheckValueAlgorithmPtrOutput `pulumi:"keyCheckValueAlgorithm"`
 	KeyIdentifier          pulumi.StringOutput             `pulumi:"keyIdentifier"`
-	KeyOrigin              KeyOriginOutput                 `pulumi:"keyOrigin"`
-	KeyState               KeyStateEnumOutput              `pulumi:"keyState"`
-	Tags                   aws.TagArrayOutput              `pulumi:"tags"`
+	// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+	KeyOrigin KeyOriginOutput `pulumi:"keyOrigin"`
+	// The state of key that is being created or deleted.
+	KeyState KeyStateEnumOutput `pulumi:"keyState"`
+	Tags     aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +81,30 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
-	Enabled                *bool                   `pulumi:"enabled"`
-	Exportable             bool                    `pulumi:"exportable"`
-	KeyAttributes          KeyAttributes           `pulumi:"keyAttributes"`
+	// Specifies whether the key is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies whether the key is exportable. This data is immutable after the key is created.
+	Exportable bool `pulumi:"exportable"`
+	// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+	KeyAttributes KeyAttributes `pulumi:"keyAttributes"`
+	// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+	//
+	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm *KeyCheckValueAlgorithm `pulumi:"keyCheckValueAlgorithm"`
 	Tags                   []aws.Tag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
-	Enabled                pulumi.BoolPtrInput
-	Exportable             pulumi.BoolInput
-	KeyAttributes          KeyAttributesInput
+	// Specifies whether the key is enabled.
+	Enabled pulumi.BoolPtrInput
+	// Specifies whether the key is exportable. This data is immutable after the key is created.
+	Exportable pulumi.BoolInput
+	// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+	KeyAttributes KeyAttributesInput
+	// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+	//
+	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm KeyCheckValueAlgorithmPtrInput
 	Tags                   aws.TagArrayInput
 }
@@ -126,18 +146,24 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+// Specifies whether the key is enabled.
 func (o KeyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the key is exportable. This data is immutable after the key is created.
 func (o KeyOutput) Exportable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Key) pulumi.BoolOutput { return v.Exportable }).(pulumi.BoolOutput)
 }
 
+// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
 func (o KeyOutput) KeyAttributes() KeyAttributesOutput {
 	return o.ApplyT(func(v *Key) KeyAttributesOutput { return v.KeyAttributes }).(KeyAttributesOutput)
 }
 
+// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+//
+// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 func (o KeyOutput) KeyCheckValueAlgorithm() KeyCheckValueAlgorithmPtrOutput {
 	return o.ApplyT(func(v *Key) KeyCheckValueAlgorithmPtrOutput { return v.KeyCheckValueAlgorithm }).(KeyCheckValueAlgorithmPtrOutput)
 }
@@ -146,10 +172,12 @@ func (o KeyOutput) KeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
 
+// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
 func (o KeyOutput) KeyOrigin() KeyOriginOutput {
 	return o.ApplyT(func(v *Key) KeyOriginOutput { return v.KeyOrigin }).(KeyOriginOutput)
 }
 
+// The state of key that is being created or deleted.
 func (o KeyOutput) KeyState() KeyStateEnumOutput {
 	return o.ApplyT(func(v *Key) KeyStateEnumOutput { return v.KeyState }).(KeyStateEnumOutput)
 }

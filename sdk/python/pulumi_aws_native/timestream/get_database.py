@@ -33,6 +33,9 @@ class GetDatabaseResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The `arn` of the database.
+        """
         return pulumi.get(self, "arn")
 
     @property

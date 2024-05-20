@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public string FirewallPolicyArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetFirewallPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
@@ -51,10 +57,27 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetFirewallPolicyResult
     {
+        /// <summary>
+        /// A description of the firewall policy.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        /// </summary>
         public readonly Outputs.FirewallPolicy? FirewallPolicyValue;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        /// </summary>
         public readonly string? FirewallPolicyArn;
+        /// <summary>
+        /// The unique ID of the `FirewallPolicy` resource.
+        /// </summary>
         public readonly string? FirewallPolicyId;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -511,8 +511,10 @@ func (o ChannelLogConfigurationForChannelPtrOutput) LogTypes() ChannelLogTypeArr
 
 // <p>The output configuration for this channel.</p>
 type ChannelRequestOutputItem struct {
+	// DASH manifest configuration parameters.
 	DashPlaylistSettings *ChannelDashPlaylistSettings `pulumi:"dashPlaylistSettings"`
-	HlsPlaylistSettings  *ChannelHlsPlaylistSettings  `pulumi:"hlsPlaylistSettings"`
+	// HLS playlist configuration parameters.
+	HlsPlaylistSettings *ChannelHlsPlaylistSettings `pulumi:"hlsPlaylistSettings"`
 	// <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
 	ManifestName string `pulumi:"manifestName"`
 	// <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
@@ -532,8 +534,10 @@ type ChannelRequestOutputItemInput interface {
 
 // <p>The output configuration for this channel.</p>
 type ChannelRequestOutputItemArgs struct {
+	// DASH manifest configuration parameters.
 	DashPlaylistSettings ChannelDashPlaylistSettingsPtrInput `pulumi:"dashPlaylistSettings"`
-	HlsPlaylistSettings  ChannelHlsPlaylistSettingsPtrInput  `pulumi:"hlsPlaylistSettings"`
+	// HLS playlist configuration parameters.
+	HlsPlaylistSettings ChannelHlsPlaylistSettingsPtrInput `pulumi:"hlsPlaylistSettings"`
 	// <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
 	ManifestName pulumi.StringInput `pulumi:"manifestName"`
 	// <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
@@ -592,10 +596,12 @@ func (o ChannelRequestOutputItemOutput) ToChannelRequestOutputItemOutputWithCont
 	return o
 }
 
+// DASH manifest configuration parameters.
 func (o ChannelRequestOutputItemOutput) DashPlaylistSettings() ChannelDashPlaylistSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelRequestOutputItem) *ChannelDashPlaylistSettings { return v.DashPlaylistSettings }).(ChannelDashPlaylistSettingsPtrOutput)
 }
 
+// HLS playlist configuration parameters.
 func (o ChannelRequestOutputItemOutput) HlsPlaylistSettings() ChannelHlsPlaylistSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelRequestOutputItem) *ChannelHlsPlaylistSettings { return v.HlsPlaylistSettings }).(ChannelHlsPlaylistSettingsPtrOutput)
 }
@@ -939,8 +945,9 @@ type LiveSourceHttpPackageConfiguration struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
 	Path string `pulumi:"path"`
 	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
-	SourceGroup string         `pulumi:"sourceGroup"`
-	Type        LiveSourceType `pulumi:"type"`
+	SourceGroup string `pulumi:"sourceGroup"`
+	// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+	Type LiveSourceType `pulumi:"type"`
 }
 
 // LiveSourceHttpPackageConfigurationInput is an input type that accepts LiveSourceHttpPackageConfigurationArgs and LiveSourceHttpPackageConfigurationOutput values.
@@ -959,8 +966,9 @@ type LiveSourceHttpPackageConfigurationArgs struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
 	Path pulumi.StringInput `pulumi:"path"`
 	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
-	SourceGroup pulumi.StringInput  `pulumi:"sourceGroup"`
-	Type        LiveSourceTypeInput `pulumi:"type"`
+	SourceGroup pulumi.StringInput `pulumi:"sourceGroup"`
+	// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+	Type LiveSourceTypeInput `pulumi:"type"`
 }
 
 func (LiveSourceHttpPackageConfigurationArgs) ElementType() reflect.Type {
@@ -1025,6 +1033,7 @@ func (o LiveSourceHttpPackageConfigurationOutput) SourceGroup() pulumi.StringOut
 	return o.ApplyT(func(v LiveSourceHttpPackageConfiguration) string { return v.SourceGroup }).(pulumi.StringOutput)
 }
 
+// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
 func (o LiveSourceHttpPackageConfigurationOutput) Type() LiveSourceTypeOutput {
 	return o.ApplyT(func(v LiveSourceHttpPackageConfiguration) LiveSourceType { return v.Type }).(LiveSourceTypeOutput)
 }
@@ -2319,7 +2328,19 @@ type PlaybackConfigurationTag struct {
 
 // <p>Access configuration parameters.</p>
 type SourceLocationAccessConfiguration struct {
-	AccessType                             *SourceLocationAccessType                             `pulumi:"accessType"`
+	// The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+	//
+	// `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+	//
+	// Before you can use `S3_SIGV4` , you must meet these requirements:
+	//
+	// • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+	//
+	// • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+	//
+	// • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
+	AccessType *SourceLocationAccessType `pulumi:"accessType"`
+	// AWS Secrets Manager access token configuration parameters.
 	SecretsManagerAccessTokenConfiguration *SourceLocationSecretsManagerAccessTokenConfiguration `pulumi:"secretsManagerAccessTokenConfiguration"`
 }
 
@@ -2336,7 +2357,19 @@ type SourceLocationAccessConfigurationInput interface {
 
 // <p>Access configuration parameters.</p>
 type SourceLocationAccessConfigurationArgs struct {
-	AccessType                             SourceLocationAccessTypePtrInput                             `pulumi:"accessType"`
+	// The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+	//
+	// `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+	//
+	// Before you can use `S3_SIGV4` , you must meet these requirements:
+	//
+	// • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+	//
+	// • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+	//
+	// • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
+	AccessType SourceLocationAccessTypePtrInput `pulumi:"accessType"`
+	// AWS Secrets Manager access token configuration parameters.
 	SecretsManagerAccessTokenConfiguration SourceLocationSecretsManagerAccessTokenConfigurationPtrInput `pulumi:"secretsManagerAccessTokenConfiguration"`
 }
 
@@ -2418,10 +2451,22 @@ func (o SourceLocationAccessConfigurationOutput) ToSourceLocationAccessConfigura
 	}).(SourceLocationAccessConfigurationPtrOutput)
 }
 
+// The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+//
+// `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+//
+// Before you can use `S3_SIGV4` , you must meet these requirements:
+//
+// • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+//
+// • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+//
+// • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
 func (o SourceLocationAccessConfigurationOutput) AccessType() SourceLocationAccessTypePtrOutput {
 	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationAccessType { return v.AccessType }).(SourceLocationAccessTypePtrOutput)
 }
 
+// AWS Secrets Manager access token configuration parameters.
 func (o SourceLocationAccessConfigurationOutput) SecretsManagerAccessTokenConfiguration() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
 	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
 		return v.SecretsManagerAccessTokenConfiguration
@@ -2452,6 +2497,17 @@ func (o SourceLocationAccessConfigurationPtrOutput) Elem() SourceLocationAccessC
 	}).(SourceLocationAccessConfigurationOutput)
 }
 
+// The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+//
+// `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+//
+// Before you can use `S3_SIGV4` , you must meet these requirements:
+//
+// • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+//
+// • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+//
+// • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
 func (o SourceLocationAccessConfigurationPtrOutput) AccessType() SourceLocationAccessTypePtrOutput {
 	return o.ApplyT(func(v *SourceLocationAccessConfiguration) *SourceLocationAccessType {
 		if v == nil {
@@ -2461,6 +2517,7 @@ func (o SourceLocationAccessConfigurationPtrOutput) AccessType() SourceLocationA
 	}).(SourceLocationAccessTypePtrOutput)
 }
 
+// AWS Secrets Manager access token configuration parameters.
 func (o SourceLocationAccessConfigurationPtrOutput) SecretsManagerAccessTokenConfiguration() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
 	return o.ApplyT(func(v *SourceLocationAccessConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
 		if v == nil {
@@ -2996,8 +3053,9 @@ type VodSourceHttpPackageConfiguration struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
 	Path string `pulumi:"path"`
 	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
-	SourceGroup string        `pulumi:"sourceGroup"`
-	Type        VodSourceType `pulumi:"type"`
+	SourceGroup string `pulumi:"sourceGroup"`
+	// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+	Type VodSourceType `pulumi:"type"`
 }
 
 // VodSourceHttpPackageConfigurationInput is an input type that accepts VodSourceHttpPackageConfigurationArgs and VodSourceHttpPackageConfigurationOutput values.
@@ -3017,7 +3075,8 @@ type VodSourceHttpPackageConfigurationArgs struct {
 	Path pulumi.StringInput `pulumi:"path"`
 	// <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
 	SourceGroup pulumi.StringInput `pulumi:"sourceGroup"`
-	Type        VodSourceTypeInput `pulumi:"type"`
+	// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+	Type VodSourceTypeInput `pulumi:"type"`
 }
 
 func (VodSourceHttpPackageConfigurationArgs) ElementType() reflect.Type {
@@ -3082,6 +3141,7 @@ func (o VodSourceHttpPackageConfigurationOutput) SourceGroup() pulumi.StringOutp
 	return o.ApplyT(func(v VodSourceHttpPackageConfiguration) string { return v.SourceGroup }).(pulumi.StringOutput)
 }
 
+// The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
 func (o VodSourceHttpPackageConfigurationOutput) Type() VodSourceTypeOutput {
 	return o.ApplyT(func(v VodSourceHttpPackageConfiguration) VodSourceType { return v.Type }).(VodSourceTypeOutput)
 }

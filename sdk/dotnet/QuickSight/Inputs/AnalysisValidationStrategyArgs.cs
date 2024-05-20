@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class AnalysisValidationStrategyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The mode of validation for the asset to be created or updated. When you set this value to `STRICT` , strict validation for every error is enforced. When you set this value to `LENIENT` , validation is skipped for specific UI errors.
+        /// </summary>
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisValidationStrategyMode> Mode { get; set; } = null!;
 

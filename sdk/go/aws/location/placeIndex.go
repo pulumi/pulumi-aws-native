@@ -17,16 +17,49 @@ import (
 type PlaceIndex struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                        `pulumi:"arn"`
-	CreateTime              pulumi.StringOutput                        `pulumi:"createTime"`
-	DataSource              pulumi.StringOutput                        `pulumi:"dataSource"`
+	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	// Specifies the geospatial data provider for the new place index.
+	//
+	// > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
+	//
+	// Valid values include:
+	//
+	// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on geocoding coverage](https://docs.aws.amazon.com/https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm) .
+	// - `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+	// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE details on goecoding coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html) .
+	//
+	// > If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+	//
+	// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+	DataSource pulumi.StringOutput `pulumi:"dataSource"`
+	// Specifies the data storage option requesting Places.
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
-	Description             pulumi.StringPtrOutput                     `pulumi:"description"`
-	IndexArn                pulumi.StringOutput                        `pulumi:"indexArn"`
-	IndexName               pulumi.StringOutput                        `pulumi:"indexName"`
-	PricingPlan             PlaceIndexPricingPlanPtrOutput             `pulumi:"pricingPlan"`
+	// The optional description for the place index resource.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+	IndexArn pulumi.StringOutput `pulumi:"indexArn"`
+	// The name of the place index resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique place index resource name.
+	// - No spaces allowed. For example, `ExamplePlaceIndex` .
+	IndexName pulumi.StringOutput `pulumi:"indexName"`
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan PlaceIndexPricingPlanPtrOutput `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -78,22 +111,72 @@ func (PlaceIndexState) ElementType() reflect.Type {
 }
 
 type placeIndexArgs struct {
-	DataSource              string                             `pulumi:"dataSource"`
+	// Specifies the geospatial data provider for the new place index.
+	//
+	// > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
+	//
+	// Valid values include:
+	//
+	// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on geocoding coverage](https://docs.aws.amazon.com/https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm) .
+	// - `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+	// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE details on goecoding coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html) .
+	//
+	// > If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+	//
+	// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+	DataSource string `pulumi:"dataSource"`
+	// Specifies the data storage option requesting Places.
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	Description             *string                            `pulumi:"description"`
-	IndexName               *string                            `pulumi:"indexName"`
-	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
+	// The optional description for the place index resource.
+	Description *string `pulumi:"description"`
+	// The name of the place index resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique place index resource name.
+	// - No spaces allowed. For example, `ExamplePlaceIndex` .
+	IndexName *string `pulumi:"indexName"`
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan *PlaceIndexPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
 type PlaceIndexArgs struct {
-	DataSource              pulumi.StringInput
+	// Specifies the geospatial data provider for the new place index.
+	//
+	// > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
+	//
+	// Valid values include:
+	//
+	// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on geocoding coverage](https://docs.aws.amazon.com/https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm) .
+	// - `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+	// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE details on goecoding coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html) .
+	//
+	// > If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+	//
+	// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+	DataSource pulumi.StringInput
+	// Specifies the data storage option requesting Places.
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrInput
-	Description             pulumi.StringPtrInput
-	IndexName               pulumi.StringPtrInput
-	PricingPlan             PlaceIndexPricingPlanPtrInput
+	// The optional description for the place index resource.
+	Description pulumi.StringPtrInput
+	// The name of the place index resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique place index resource name.
+	// - No spaces allowed. For example, `ExamplePlaceIndex` .
+	IndexName pulumi.StringPtrInput
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan PlaceIndexPricingPlanPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -135,34 +218,66 @@ func (o PlaceIndexOutput) ToPlaceIndexOutputWithContext(ctx context.Context) Pla
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
 func (o PlaceIndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o PlaceIndexOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
+// Specifies the geospatial data provider for the new place index.
+//
+// > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
+//
+// Valid values include:
+//
+// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on geocoding coverage](https://docs.aws.amazon.com/https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm) .
+// - `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE details on goecoding coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html) .
+//
+// > If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+//
+// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
 func (o PlaceIndexOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
 }
 
+// Specifies the data storage option requesting Places.
 func (o PlaceIndexOutput) DataSourceConfiguration() PlaceIndexDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *PlaceIndex) PlaceIndexDataSourceConfigurationPtrOutput { return v.DataSourceConfiguration }).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
+// The optional description for the place index resource.
 func (o PlaceIndexOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
 func (o PlaceIndexOutput) IndexArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexArn }).(pulumi.StringOutput)
 }
 
+// The name of the place index resource.
+//
+// Requirements:
+//
+// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+// - Must be a unique place index resource name.
+// - No spaces allowed. For example, `ExamplePlaceIndex` .
 func (o PlaceIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+//
+// *Allowed Values* : `RequestBasedUsage`
 func (o PlaceIndexOutput) PricingPlan() PlaceIndexPricingPlanPtrOutput {
 	return o.ApplyT(func(v *PlaceIndex) PlaceIndexPricingPlanPtrOutput { return v.PricingPlan }).(PlaceIndexPricingPlanPtrOutput)
 }
@@ -172,6 +287,7 @@ func (o PlaceIndexOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *PlaceIndex) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o PlaceIndexOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

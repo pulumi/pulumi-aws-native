@@ -32,7 +32,15 @@ class ModelExplainabilityJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs'] model_explainability_app_specification: Configures the model explainability job to run a specified Docker container image.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'] model_explainability_job_input: Inputs for the model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs'] model_explainability_job_output_config: The output configuration for monitoring jobs.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[str] job_definition_name: The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs'] model_explainability_baseline_config: The baseline configuration for a model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs'] network_config: Networking options for a model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs'] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "job_resources", job_resources)
@@ -56,6 +64,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']:
+        """
+        Identifies the resources to deploy for a monitoring job.
+        """
         return pulumi.get(self, "job_resources")
 
     @job_resources.setter
@@ -65,6 +76,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityAppSpecification")
     def model_explainability_app_specification(self) -> pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']:
+        """
+        Configures the model explainability job to run a specified Docker container image.
+        """
         return pulumi.get(self, "model_explainability_app_specification")
 
     @model_explainability_app_specification.setter
@@ -74,6 +88,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityJobInput")
     def model_explainability_job_input(self) -> pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs']:
+        """
+        Inputs for the model explainability job.
+        """
         return pulumi.get(self, "model_explainability_job_input")
 
     @model_explainability_job_input.setter
@@ -83,6 +100,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityJobOutputConfig")
     def model_explainability_job_output_config(self) -> pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs']:
+        """
+        The output configuration for monitoring jobs.
+        """
         return pulumi.get(self, "model_explainability_job_output_config")
 
     @model_explainability_job_output_config.setter
@@ -113,6 +133,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+        """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
@@ -122,6 +145,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
     def model_explainability_baseline_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]:
+        """
+        The baseline configuration for a model explainability job.
+        """
         return pulumi.get(self, "model_explainability_baseline_config")
 
     @model_explainability_baseline_config.setter
@@ -131,6 +157,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']]:
+        """
+        Networking options for a model explainability job.
+        """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
@@ -140,6 +169,9 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']]:
+        """
+        A time limit for how long the monitoring job is allowed to run before stopping.
+        """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
@@ -181,7 +213,15 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] job_definition_name: The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']] job_resources: Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']] model_explainability_app_specification: Configures the model explainability job to run a specified Docker container image.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] model_explainability_baseline_config: The baseline configuration for a model explainability job.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs']] model_explainability_job_input: Inputs for the model explainability job.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs']] model_explainability_job_output_config: The output configuration for monitoring jobs.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionNetworkConfigArgs']] network_config: Networking options for a model explainability job.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionStoppingConditionArgs']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -314,36 +354,57 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+        """
         return pulumi.get(self, "job_definition_name")
 
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionMonitoringResources']:
+        """
+        Identifies the resources to deploy for a monitoring job.
+        """
         return pulumi.get(self, "job_resources")
 
     @property
     @pulumi.getter(name="modelExplainabilityAppSpecification")
     def model_explainability_app_specification(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification']:
+        """
+        Configures the model explainability job to run a specified Docker container image.
+        """
         return pulumi.get(self, "model_explainability_app_specification")
 
     @property
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
     def model_explainability_baseline_config(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig']]:
+        """
+        The baseline configuration for a model explainability job.
+        """
         return pulumi.get(self, "model_explainability_baseline_config")
 
     @property
     @pulumi.getter(name="modelExplainabilityJobInput")
     def model_explainability_job_input(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionModelExplainabilityJobInput']:
+        """
+        Inputs for the model explainability job.
+        """
         return pulumi.get(self, "model_explainability_job_input")
 
     @property
     @pulumi.getter(name="modelExplainabilityJobOutputConfig")
     def model_explainability_job_output_config(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionMonitoringOutputConfig']:
+        """
+        The output configuration for monitoring jobs.
+        """
         return pulumi.get(self, "model_explainability_job_output_config")
 
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionNetworkConfig']]:
+        """
+        Networking options for a model explainability job.
+        """
         return pulumi.get(self, "network_config")
 
     @property
@@ -357,6 +418,9 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionStoppingCondition']]:
+        """
+        A time limit for how long the monitoring job is allowed to run before stopping.
+        """
         return pulumi.get(self, "stopping_condition")
 
     @property

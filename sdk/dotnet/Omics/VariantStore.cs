@@ -15,39 +15,75 @@ namespace Pulumi.AwsNative.Omics
     [AwsNativeResourceType("aws-native:omics:VariantStore")]
     public partial class VariantStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// When the store was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the store.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the store.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The genome reference for the store's variants.
+        /// </summary>
         [Output("reference")]
         public Output<Outputs.VariantStoreReferenceItem> Reference { get; private set; } = null!;
 
+        /// <summary>
+        /// Server-side encryption (SSE) settings for the store.
+        /// </summary>
         [Output("sseConfig")]
         public Output<Outputs.VariantStoreSseConfig?> SseConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Omics.VariantStoreStoreStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's status message.
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's ARN.
+        /// </summary>
         [Output("storeArn")]
         public Output<string> StoreArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's size in bytes.
+        /// </summary>
         [Output("storeSizeBytes")]
         public Output<double> StoreSizeBytes { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the store.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// When the store was updated.
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -103,20 +139,36 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class VariantStoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the store.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A name for the store.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The genome reference for the store's variants.
+        /// </summary>
         [Input("reference", required: true)]
         public Input<Inputs.VariantStoreReferenceItemArgs> Reference { get; set; } = null!;
 
+        /// <summary>
+        /// Server-side encryption (SSE) settings for the store.
+        /// </summary>
         [Input("sseConfig")]
         public Input<Inputs.VariantStoreSseConfigArgs>? SseConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags for the store.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

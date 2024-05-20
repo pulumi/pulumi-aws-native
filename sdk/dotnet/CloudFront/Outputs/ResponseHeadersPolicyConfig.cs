@@ -13,12 +13,37 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyConfig
     {
+        /// <summary>
+        /// A comment to describe the response headers policy.
+        /// 
+        /// The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfig? CorsConfig;
+        /// <summary>
+        /// A configuration for a set of custom HTTP response headers.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig;
+        /// <summary>
+        /// A name to identify the response headers policy.
+        /// 
+        /// The name must be unique for response headers policies in this AWS account .
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A configuration for a set of HTTP headers to remove from the HTTP response.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig;
+        /// <summary>
+        /// A configuration for a set of security-related HTTP response headers.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig;
+        /// <summary>
+        /// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig;
 
         [OutputConstructor]

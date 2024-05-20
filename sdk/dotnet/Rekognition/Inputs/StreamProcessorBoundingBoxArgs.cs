@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     /// </summary>
     public sealed class StreamProcessorBoundingBoxArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Height of the bounding box as a ratio of the overall image height.
+        /// </summary>
         [Input("height", required: true)]
         public Input<double> Height { get; set; } = null!;
 
+        /// <summary>
+        /// Left coordinate of the bounding box as a ratio of overall image width.
+        /// </summary>
         [Input("left", required: true)]
         public Input<double> Left { get; set; } = null!;
 
+        /// <summary>
+        /// Top coordinate of the bounding box as a ratio of overall image height.
+        /// </summary>
         [Input("top", required: true)]
         public Input<double> Top { get; set; } = null!;
 
+        /// <summary>
+        /// Width of the bounding box as a ratio of the overall image width.
+        /// </summary>
         [Input("width", required: true)]
         public Input<double> Width { get; set; } = null!;
 

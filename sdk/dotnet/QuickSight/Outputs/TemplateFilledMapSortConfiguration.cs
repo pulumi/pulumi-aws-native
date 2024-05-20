@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilledMapSortConfiguration
     {
+        /// <summary>
+        /// The sort configuration of the location fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
 
         [OutputConstructor]

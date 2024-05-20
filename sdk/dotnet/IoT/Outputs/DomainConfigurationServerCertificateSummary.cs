@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class DomainConfigurationServerCertificateSummary
     {
+        /// <summary>
+        /// The ARN of the server certificate.
+        /// </summary>
         public readonly string? ServerCertificateArn;
+        /// <summary>
+        /// The status of the server certificate.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.DomainConfigurationServerCertificateSummaryServerCertificateStatus? ServerCertificateStatus;
+        /// <summary>
+        /// Details that explain the status of the server certificate.
+        /// </summary>
         public readonly string? ServerCertificateStatusDetail;
 
         [OutputConstructor]

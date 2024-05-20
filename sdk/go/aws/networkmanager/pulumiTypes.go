@@ -424,6 +424,7 @@ func (o ConnectPeerBgpConfigurationArrayOutput) Index(i pulumi.IntInput) Connect
 
 // Bgp options
 type ConnectPeerBgpOptions struct {
+	// The Peer ASN of the BGP.
 	PeerAsn *float64 `pulumi:"peerAsn"`
 }
 
@@ -440,6 +441,7 @@ type ConnectPeerBgpOptionsInput interface {
 
 // Bgp options
 type ConnectPeerBgpOptionsArgs struct {
+	// The Peer ASN of the BGP.
 	PeerAsn pulumi.Float64PtrInput `pulumi:"peerAsn"`
 }
 
@@ -521,6 +523,7 @@ func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext
 	}).(ConnectPeerBgpOptionsPtrOutput)
 }
 
+// The Peer ASN of the BGP.
 func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpOptions) *float64 { return v.PeerAsn }).(pulumi.Float64PtrOutput)
 }
@@ -549,6 +552,7 @@ func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
 	}).(ConnectPeerBgpOptionsOutput)
 }
 
+// The Peer ASN of the BGP.
 func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConnectPeerBgpOptions) *float64 {
 		if v == nil {
@@ -559,6 +563,7 @@ func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.Float64PtrOutput {
 }
 
 type ConnectPeerConfiguration struct {
+	// The Connect peer BGP configurations.
 	BgpConfigurations []ConnectPeerBgpConfiguration `pulumi:"bgpConfigurations"`
 	// The IP address of a core network.
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
@@ -566,7 +571,8 @@ type ConnectPeerConfiguration struct {
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The IP address of the Connect peer.
 	PeerAddress *string `pulumi:"peerAddress"`
-	Protocol    *string `pulumi:"protocol"`
+	// The protocol used for a Connect peer configuration.
+	Protocol *string `pulumi:"protocol"`
 }
 
 type ConnectPeerConfigurationOutput struct{ *pulumi.OutputState }
@@ -583,6 +589,7 @@ func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutputWithCont
 	return o
 }
 
+// The Connect peer BGP configurations.
 func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) []ConnectPeerBgpConfiguration { return v.BgpConfigurations }).(ConnectPeerBgpConfigurationArrayOutput)
 }
@@ -602,6 +609,7 @@ func (o ConnectPeerConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
 
+// The protocol used for a Connect peer configuration.
 func (o ConnectPeerConfigurationOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -630,6 +638,7 @@ func (o ConnectPeerConfigurationPtrOutput) Elem() ConnectPeerConfigurationOutput
 	}).(ConnectPeerConfigurationOutput)
 }
 
+// The Connect peer BGP configurations.
 func (o ConnectPeerConfigurationPtrOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConnectPeerConfiguration) []ConnectPeerBgpConfiguration {
 		if v == nil {
@@ -669,6 +678,7 @@ func (o ConnectPeerConfigurationPtrOutput) PeerAddress() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The protocol used for a Connect peer configuration.
 func (o ConnectPeerConfigurationPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectPeerConfiguration) *string {
 		if v == nil {
@@ -690,7 +700,8 @@ type CoreNetworkEdge struct {
 	// The ASN of a core network edge.
 	Asn *float64 `pulumi:"asn"`
 	// The Region where a core network edge is located.
-	EdgeLocation     *string  `pulumi:"edgeLocation"`
+	EdgeLocation *string `pulumi:"edgeLocation"`
+	// The inside IP addresses used for core network edges.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 }
 
@@ -718,6 +729,7 @@ func (o CoreNetworkEdgeOutput) EdgeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CoreNetworkEdge) *string { return v.EdgeLocation }).(pulumi.StringPtrOutput)
 }
 
+// The inside IP addresses used for core network edges.
 func (o CoreNetworkEdgeOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CoreNetworkEdge) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -743,9 +755,11 @@ func (o CoreNetworkEdgeArrayOutput) Index(i pulumi.IntInput) CoreNetworkEdgeOutp
 }
 
 type CoreNetworkSegment struct {
+	// The Regions where the edges are located.
 	EdgeLocations []string `pulumi:"edgeLocations"`
 	// Name of segment
-	Name           *string  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The shared segments of a core network.
 	SharedSegments []string `pulumi:"sharedSegments"`
 }
 
@@ -763,6 +777,7 @@ func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutputWithContext(ctx cont
 	return o
 }
 
+// The Regions where the edges are located.
 func (o CoreNetworkSegmentOutput) EdgeLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
 }
@@ -772,6 +787,7 @@ func (o CoreNetworkSegmentOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CoreNetworkSegment) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The shared segments of a core network.
 func (o CoreNetworkSegmentOutput) SharedSegments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CoreNetworkSegment) []string { return v.SharedSegments }).(pulumi.StringArrayOutput)
 }

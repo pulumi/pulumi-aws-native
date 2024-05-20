@@ -21,6 +21,11 @@ type AclTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// Denotes whether the user requires a password to authenticate.
+//
+// *Example:*
+//
+// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
 type AuthenticationModeProperties struct {
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
@@ -39,6 +44,11 @@ type AuthenticationModePropertiesInput interface {
 	ToAuthenticationModePropertiesOutputWithContext(context.Context) AuthenticationModePropertiesOutput
 }
 
+// Denotes whether the user requires a password to authenticate.
+//
+// *Example:*
+//
+// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
 type AuthenticationModePropertiesArgs struct {
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
@@ -99,6 +109,11 @@ func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesPtrOutput)
 }
 
+// Denotes whether the user requires a password to authenticate.
+//
+// *Example:*
+//
+// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
 type AuthenticationModePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationModePropertiesOutput) ElementType() reflect.Type {

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetTlsInspectionConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the TLS inspection configuration.
+        /// </summary>
         [Input("tlsInspectionConfigurationArn", required: true)]
         public string TlsInspectionConfigurationArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetTlsInspectionConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the TLS inspection configuration.
+        /// </summary>
         [Input("tlsInspectionConfigurationArn", required: true)]
         public Input<string> TlsInspectionConfigurationArn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetTlsInspectionConfigurationResult
     {
+        /// <summary>
+        /// A description of the TLS inspection configuration.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The key:value pairs to associate with the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+        /// </summary>
         public readonly Outputs.TlsInspectionConfigurationTlsInspectionConfiguration? TLSInspectionConfigurationValue;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the TLS inspection configuration.
+        /// </summary>
         public readonly string? TlsInspectionConfigurationArn;
+        /// <summary>
+        /// A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.
+        /// </summary>
         public readonly string? TlsInspectionConfigurationId;
 
         [OutputConstructor]

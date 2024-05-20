@@ -16,11 +16,23 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RuleActions
     {
+        /// <summary>
+        /// Information about the contact category action. The syntax can be empty, for example, `{}` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleAssignContactCategoryAction> AssignContactCategoryActions;
         public readonly ImmutableArray<Outputs.RuleCreateCaseAction> CreateCaseActions;
         public readonly ImmutableArray<Outputs.RuleEndAssociatedTasksAction> EndAssociatedTasksActions;
+        /// <summary>
+        /// Information about the EventBridge action.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleEventBridgeAction> EventBridgeActions;
+        /// <summary>
+        /// Information about the send notification action.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleSendNotificationAction> SendNotificationActions;
+        /// <summary>
+        /// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleTaskAction> TaskActions;
         public readonly ImmutableArray<Outputs.RuleUpdateCaseAction> UpdateCaseActions;
 

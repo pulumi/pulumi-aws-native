@@ -25,7 +25,11 @@ class TransitGatewayAttachmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayAttachment resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param pulumi.Input['OptionsPropertiesArgs'] options: The options for the transit gateway vpc attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the attachment.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -38,6 +42,9 @@ class TransitGatewayAttachmentArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -47,6 +54,9 @@ class TransitGatewayAttachmentArgs:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -56,6 +66,9 @@ class TransitGatewayAttachmentArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -77,6 +90,9 @@ class TransitGatewayAttachmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the attachment.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,6 +117,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']] options: The options for the transit gateway vpc attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the attachment.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -187,6 +207,9 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the attachment.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -200,20 +223,32 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the attachment.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

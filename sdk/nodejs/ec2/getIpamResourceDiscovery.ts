@@ -26,6 +26,9 @@ export interface GetIpamResourceDiscoveryArgs {
 }
 
 export interface GetIpamResourceDiscoveryResult {
+    /**
+     * The resource discovery description.
+     */
     readonly description?: string;
     /**
      * Amazon Resource Name (Arn) for the Resource Discovery.

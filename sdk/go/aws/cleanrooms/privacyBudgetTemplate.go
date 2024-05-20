@@ -17,15 +17,26 @@ import (
 type PrivacyBudgetTemplate struct {
 	pulumi.CustomResourceState
 
-	Arn                             pulumi.StringOutput                          `pulumi:"arn"`
-	AutoRefresh                     PrivacyBudgetTemplateAutoRefreshOutput       `pulumi:"autoRefresh"`
-	CollaborationArn                pulumi.StringOutput                          `pulumi:"collaborationArn"`
-	CollaborationIdentifier         pulumi.StringOutput                          `pulumi:"collaborationIdentifier"`
-	MembershipArn                   pulumi.StringOutput                          `pulumi:"membershipArn"`
-	MembershipIdentifier            pulumi.StringOutput                          `pulumi:"membershipIdentifier"`
-	Parameters                      ParametersPropertiesOutput                   `pulumi:"parameters"`
-	PrivacyBudgetTemplateIdentifier pulumi.StringOutput                          `pulumi:"privacyBudgetTemplateIdentifier"`
-	PrivacyBudgetType               PrivacyBudgetTemplatePrivacyBudgetTypeOutput `pulumi:"privacyBudgetType"`
+	// The ARN of the privacy budget template.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// How often the privacy budget refreshes.
+	//
+	// > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+	AutoRefresh PrivacyBudgetTemplateAutoRefreshOutput `pulumi:"autoRefresh"`
+	// The ARN of the collaboration that contains this privacy budget template.
+	CollaborationArn pulumi.StringOutput `pulumi:"collaborationArn"`
+	// The unique ID of the collaboration that contains this privacy budget template.
+	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
+	// The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+	MembershipArn pulumi.StringOutput `pulumi:"membershipArn"`
+	// The identifier for a membership resource.
+	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
+	// Specifies the epislon and noise parameters for the privacy budget template.
+	Parameters ParametersPropertiesOutput `pulumi:"parameters"`
+	// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+	PrivacyBudgetTemplateIdentifier pulumi.StringOutput `pulumi:"privacyBudgetTemplateIdentifier"`
+	// Specifies the type of the privacy budget template.
+	PrivacyBudgetType PrivacyBudgetTemplatePrivacyBudgetTypeOutput `pulumi:"privacyBudgetType"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -88,20 +99,32 @@ func (PrivacyBudgetTemplateState) ElementType() reflect.Type {
 }
 
 type privacyBudgetTemplateArgs struct {
-	AutoRefresh          PrivacyBudgetTemplateAutoRefresh       `pulumi:"autoRefresh"`
-	MembershipIdentifier string                                 `pulumi:"membershipIdentifier"`
-	Parameters           ParametersProperties                   `pulumi:"parameters"`
-	PrivacyBudgetType    PrivacyBudgetTemplatePrivacyBudgetType `pulumi:"privacyBudgetType"`
+	// How often the privacy budget refreshes.
+	//
+	// > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+	AutoRefresh PrivacyBudgetTemplateAutoRefresh `pulumi:"autoRefresh"`
+	// The identifier for a membership resource.
+	MembershipIdentifier string `pulumi:"membershipIdentifier"`
+	// Specifies the epislon and noise parameters for the privacy budget template.
+	Parameters ParametersProperties `pulumi:"parameters"`
+	// Specifies the type of the privacy budget template.
+	PrivacyBudgetType PrivacyBudgetTemplatePrivacyBudgetType `pulumi:"privacyBudgetType"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivacyBudgetTemplate resource.
 type PrivacyBudgetTemplateArgs struct {
-	AutoRefresh          PrivacyBudgetTemplateAutoRefreshInput
+	// How often the privacy budget refreshes.
+	//
+	// > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+	AutoRefresh PrivacyBudgetTemplateAutoRefreshInput
+	// The identifier for a membership resource.
 	MembershipIdentifier pulumi.StringInput
-	Parameters           ParametersPropertiesInput
-	PrivacyBudgetType    PrivacyBudgetTemplatePrivacyBudgetTypeInput
+	// Specifies the epislon and noise parameters for the privacy budget template.
+	Parameters ParametersPropertiesInput
+	// Specifies the type of the privacy budget template.
+	PrivacyBudgetType PrivacyBudgetTemplatePrivacyBudgetTypeInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
 	Tags aws.TagArrayInput
 }
@@ -143,38 +166,49 @@ func (o PrivacyBudgetTemplateOutput) ToPrivacyBudgetTemplateOutputWithContext(ct
 	return o
 }
 
+// The ARN of the privacy budget template.
 func (o PrivacyBudgetTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// How often the privacy budget refreshes.
+//
+// > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
 func (o PrivacyBudgetTemplateOutput) AutoRefresh() PrivacyBudgetTemplateAutoRefreshOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) PrivacyBudgetTemplateAutoRefreshOutput { return v.AutoRefresh }).(PrivacyBudgetTemplateAutoRefreshOutput)
 }
 
+// The ARN of the collaboration that contains this privacy budget template.
 func (o PrivacyBudgetTemplateOutput) CollaborationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.CollaborationArn }).(pulumi.StringOutput)
 }
 
+// The unique ID of the collaboration that contains this privacy budget template.
 func (o PrivacyBudgetTemplateOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the member who created the privacy budget template.
 func (o PrivacyBudgetTemplateOutput) MembershipArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.MembershipArn }).(pulumi.StringOutput)
 }
 
+// The identifier for a membership resource.
 func (o PrivacyBudgetTemplateOutput) MembershipIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.MembershipIdentifier }).(pulumi.StringOutput)
 }
 
+// Specifies the epislon and noise parameters for the privacy budget template.
 func (o PrivacyBudgetTemplateOutput) Parameters() ParametersPropertiesOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) ParametersPropertiesOutput { return v.Parameters }).(ParametersPropertiesOutput)
 }
 
+// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
 func (o PrivacyBudgetTemplateOutput) PrivacyBudgetTemplateIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) pulumi.StringOutput { return v.PrivacyBudgetTemplateIdentifier }).(pulumi.StringOutput)
 }
 
+// Specifies the type of the privacy budget template.
 func (o PrivacyBudgetTemplateOutput) PrivacyBudgetType() PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
 	return o.ApplyT(func(v *PrivacyBudgetTemplate) PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
 		return v.PrivacyBudgetType

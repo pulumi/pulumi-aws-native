@@ -19,16 +19,31 @@ export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetPermissionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the new permission.
+     */
     arn: string;
 }
 
 export interface GetPermissionResult {
+    /**
+     * The Amazon Resource Name (ARN) of the new permission.
+     */
     readonly arn?: string;
     /**
      * Set to true to use this as the default permission.
      */
     readonly isResourceTypeDefault?: boolean;
+    /**
+     * The type of managed permission. This can be one of the following values:
+     *
+     * - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+     * - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
+     */
     readonly permissionType?: string;
+    /**
+     * Specifies a list of one or more tag key and value pairs to attach to the permission.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * Version of the permission.
@@ -43,5 +58,8 @@ export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi
 }
 
 export interface GetPermissionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the new permission.
+     */
     arn: pulumi.Input<string>;
 }

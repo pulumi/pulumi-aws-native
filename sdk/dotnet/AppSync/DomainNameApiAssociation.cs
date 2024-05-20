@@ -18,9 +18,15 @@ namespace Pulumi.AwsNative.AppSync
         [Output("apiAssociationIdentifier")]
         public Output<string> ApiAssociationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The API ID.
+        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -73,9 +79,15 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class DomainNameApiAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API ID.
+        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 

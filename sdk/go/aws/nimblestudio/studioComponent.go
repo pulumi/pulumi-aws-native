@@ -16,6 +16,7 @@ import (
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
+	// The configuration of the studio component, based on component type.
 	Configuration pulumi.AnyOutput `pulumi:"configuration"`
 	// <p>The description.</p>
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -24,17 +25,25 @@ type StudioComponent struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts StudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name           pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 	RuntimeRoleArn pulumi.StringPtrOutput `pulumi:"runtimeRoleArn"`
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters            StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
-	SecureInitializationRoleArn pulumi.StringPtrOutput                            `pulumi:"secureInitializationRoleArn"`
-	StudioComponentId           pulumi.StringOutput                               `pulumi:"studioComponentId"`
+	ScriptParameters StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
+	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+	SecureInitializationRoleArn pulumi.StringPtrOutput `pulumi:"secureInitializationRoleArn"`
+	// The unique identifier for the studio component resource.
+	StudioComponentId pulumi.StringOutput `pulumi:"studioComponentId"`
 	// <p>The studio ID. </p>
-	StudioId pulumi.StringOutput             `pulumi:"studioId"`
-	Subtype  StudioComponentSubtypePtrOutput `pulumi:"subtype"`
-	Tags     pulumi.StringMapOutput          `pulumi:"tags"`
-	Type     StudioComponentTypeOutput       `pulumi:"type"`
+	StudioId pulumi.StringOutput `pulumi:"studioId"`
+	// The specific subtype of a studio component.
+	Subtype StudioComponentSubtypePtrOutput `pulumi:"subtype"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The type of the studio component.
+	Type StudioComponentTypeOutput `pulumi:"type"`
 }
 
 // NewStudioComponent registers a new resource with the given unique name, arguments, and options.
@@ -89,6 +98,7 @@ func (StudioComponentState) ElementType() reflect.Type {
 }
 
 type studioComponentArgs struct {
+	// The configuration of the studio component, based on component type.
 	Configuration interface{} `pulumi:"configuration"`
 	// <p>The description.</p>
 	Description *string `pulumi:"description"`
@@ -97,20 +107,28 @@ type studioComponentArgs struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name           *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 	RuntimeRoleArn *string `pulumi:"runtimeRoleArn"`
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters            []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	SecureInitializationRoleArn *string                                  `pulumi:"secureInitializationRoleArn"`
+	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+	SecureInitializationRoleArn *string `pulumi:"secureInitializationRoleArn"`
 	// <p>The studio ID. </p>
-	StudioId string                  `pulumi:"studioId"`
-	Subtype  *StudioComponentSubtype `pulumi:"subtype"`
-	Tags     map[string]string       `pulumi:"tags"`
-	Type     StudioComponentType     `pulumi:"type"`
+	StudioId string `pulumi:"studioId"`
+	// The specific subtype of a studio component.
+	Subtype *StudioComponentSubtype `pulumi:"subtype"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the studio component.
+	Type StudioComponentType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
+	// The configuration of the studio component, based on component type.
 	Configuration pulumi.Input
 	// <p>The description.</p>
 	Description pulumi.StringPtrInput
@@ -119,16 +137,23 @@ type StudioComponentArgs struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts StudioComponentInitializationScriptArrayInput
 	// <p>The name for the studio component.</p>
-	Name           pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 	RuntimeRoleArn pulumi.StringPtrInput
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters            StudioComponentScriptParameterKeyValueArrayInput
+	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
+	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
 	SecureInitializationRoleArn pulumi.StringPtrInput
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput
-	Subtype  StudioComponentSubtypePtrInput
-	Tags     pulumi.StringMapInput
-	Type     StudioComponentTypeInput
+	// The specific subtype of a studio component.
+	Subtype StudioComponentSubtypePtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags pulumi.StringMapInput
+	// The type of the studio component.
+	Type StudioComponentTypeInput
 }
 
 func (StudioComponentArgs) ElementType() reflect.Type {
@@ -168,6 +193,7 @@ func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Co
 	return o
 }
 
+// The configuration of the studio component, based on component type.
 func (o StudioComponentOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
@@ -194,6 +220,7 @@ func (o StudioComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 func (o StudioComponentOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -203,10 +230,12 @@ func (o StudioComponentOutput) ScriptParameters() StudioComponentScriptParameter
 	return o.ApplyT(func(v *StudioComponent) StudioComponentScriptParameterKeyValueArrayOutput { return v.ScriptParameters }).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
+// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
 func (o StudioComponentOutput) SecureInitializationRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.SecureInitializationRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the studio component resource.
 func (o StudioComponentOutput) StudioComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioComponentId }).(pulumi.StringOutput)
 }
@@ -216,14 +245,19 @@ func (o StudioComponentOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
+// The specific subtype of a studio component.
 func (o StudioComponentOutput) Subtype() StudioComponentSubtypePtrOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentSubtypePtrOutput { return v.Subtype }).(StudioComponentSubtypePtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o StudioComponentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The type of the studio component.
 func (o StudioComponentOutput) Type() StudioComponentTypeOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentTypeOutput { return v.Type }).(StudioComponentTypeOutput)
 }

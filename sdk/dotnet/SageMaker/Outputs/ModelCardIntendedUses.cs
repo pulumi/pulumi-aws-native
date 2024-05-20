@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelCardIntendedUses
     {
+        /// <summary>
+        /// An explanation of why your organization categorizes the model with its risk rating.
+        /// </summary>
         public readonly string? ExplanationsForRiskRating;
+        /// <summary>
+        /// Factors affecting model efficacy.
+        /// </summary>
         public readonly string? FactorsAffectingModelEfficiency;
         /// <summary>
         /// intended use cases.
@@ -26,6 +32,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Why the model was developed?
         /// </summary>
         public readonly string? PurposeOfModel;
+        /// <summary>
+        /// Your organization's risk rating. You can specify one the following values as the risk rating:
+        /// 
+        /// - High
+        /// - Medium
+        /// - Low
+        /// - Unknown
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelCardRiskRating? RiskRating;
 
         [OutputConstructor]

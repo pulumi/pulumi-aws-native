@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.PcaConnectorAd.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());

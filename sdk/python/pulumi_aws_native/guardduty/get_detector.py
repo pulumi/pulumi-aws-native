@@ -44,21 +44,33 @@ class GetDetectorResult:
     @property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional['outputs.DetectorCfnDataSourceConfigurations']:
+        """
+        Describes which data sources will be enabled for the detector.
+        """
         return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
     def enable(self) -> Optional[bool]:
+        """
+        Specifies whether the detector is to be enabled on creation.
+        """
         return pulumi.get(self, "enable")
 
     @property
     @pulumi.getter
     def features(self) -> Optional[Sequence['outputs.DetectorCfnFeatureConfiguration']]:
+        """
+        A list of features that will be configured for the detector.
+        """
         return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> Optional[str]:
+        """
+        Specifies how frequently updated findings are exported.
+        """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @property
@@ -69,6 +81,13 @@ class GetDetectorResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+
+        Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 

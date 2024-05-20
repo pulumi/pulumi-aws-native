@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisReferenceLineCustomLabelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The string text of the custom label.
+        /// </summary>
         [Input("customLabel", required: true)]
         public Input<string> CustomLabel { get; set; } = null!;
 

@@ -39,6 +39,7 @@ func LookupHostedZone(ctx *pulumi.Context, args *LookupHostedZoneArgs, opts ...p
 }
 
 type LookupHostedZoneArgs struct {
+	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 	Id string `pulumi:"id"`
 }
 
@@ -49,8 +50,12 @@ type LookupHostedZoneResult struct {
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
 	HostedZoneTags []HostedZoneTag `pulumi:"hostedZoneTags"`
-	Id             *string         `pulumi:"id"`
-	NameServers    []string        `pulumi:"nameServers"`
+	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+	Id *string `pulumi:"id"`
+	// Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+	//
+	// This attribute is not supported for private hosted zones.
+	NameServers []string `pulumi:"nameServers"`
 	// Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
 	//  DNS query logs contain information about the queries that Route 53 receives for a specified public hosted zone, such as the following:
 	//   +  Route 53 edge location that responded to the DNS query
@@ -79,6 +84,7 @@ func LookupHostedZoneOutput(ctx *pulumi.Context, args LookupHostedZoneOutputArgs
 }
 
 type LookupHostedZoneOutputArgs struct {
+	// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -114,10 +120,14 @@ func (o LookupHostedZoneResultOutput) HostedZoneTags() HostedZoneTagArrayOutput 
 	return o.ApplyT(func(v LookupHostedZoneResult) []HostedZoneTag { return v.HostedZoneTags }).(HostedZoneTagArrayOutput)
 }
 
+// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
 func (o LookupHostedZoneResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHostedZoneResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+//
+// This attribute is not supported for private hosted zones.
 func (o LookupHostedZoneResultOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupHostedZoneResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
 }

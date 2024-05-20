@@ -19,6 +19,7 @@ class TemplateInitArgs:
                  template: Optional[pulumi.Input['TemplateArgs']] = None):
         """
         The set of arguments for constructing a Template resource.
+        :param pulumi.Input['TemplateArgs'] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
         """
         if template is not None:
             pulumi.set(__self__, "template", template)
@@ -26,6 +27,9 @@ class TemplateInitArgs:
     @property
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input['TemplateArgs']]:
+        """
+        The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        """
         return pulumi.get(self, "template")
 
     @template.setter
@@ -85,6 +89,7 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['TemplateArgs']] template: The content of the email, composed of a subject line and either an HTML part or a text-only part.
         """
         ...
     @overload
@@ -198,5 +203,8 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter
     def template(self) -> pulumi.Output[Optional['outputs.Template']]:
+        """
+        The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        """
         return pulumi.get(self, "template")
 

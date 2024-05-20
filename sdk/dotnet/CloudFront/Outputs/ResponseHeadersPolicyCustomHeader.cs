@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyCustomHeader
     {
+        /// <summary>
+        /// The HTTP response header name.
+        /// </summary>
         public readonly string Header;
+        /// <summary>
+        /// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
+        /// </summary>
         public readonly bool Override;
+        /// <summary>
+        /// The value for the HTTP response header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

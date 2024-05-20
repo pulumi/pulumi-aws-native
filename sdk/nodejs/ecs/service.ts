@@ -86,6 +86,9 @@ export class Service extends pulumi.CustomResource {
      * A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
+    /**
+     * The name of the Amazon ECS service, such as `sample-webapp` .
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -122,6 +125,9 @@ export class Service extends pulumi.CustomResource {
      *   Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
      */
     public readonly schedulingStrategy!: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
+    /**
+     * Not currently supported in AWS CloudFormation .
+     */
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     /**
      * The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;
 
+        /// <summary>
+        /// Contextual parameters for the transformation.
+        /// </summary>
         [Input("parameters")]
         public InputUnion<Inputs.RecipeParametersArgs, ImmutableDictionary<string, string>>? Parameters { get; set; }
 

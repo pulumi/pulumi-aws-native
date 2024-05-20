@@ -22,6 +22,9 @@ class StoredQueryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StoredQuery resource.
+        :param pulumi.Input[str] query_expression: The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        :param pulumi.Input[str] query_description: A unique description for the query.
+        :param pulumi.Input[str] query_name: The name of the query.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the stored query.
         """
         pulumi.set(__self__, "query_expression", query_expression)
@@ -35,6 +38,9 @@ class StoredQueryArgs:
     @property
     @pulumi.getter(name="queryExpression")
     def query_expression(self) -> pulumi.Input[str]:
+        """
+        The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        """
         return pulumi.get(self, "query_expression")
 
     @query_expression.setter
@@ -44,6 +50,9 @@ class StoredQueryArgs:
     @property
     @pulumi.getter(name="queryDescription")
     def query_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique description for the query.
+        """
         return pulumi.get(self, "query_description")
 
     @query_description.setter
@@ -53,6 +62,9 @@ class StoredQueryArgs:
     @property
     @pulumi.getter(name="queryName")
     def query_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the query.
+        """
         return pulumi.get(self, "query_name")
 
     @query_name.setter
@@ -87,6 +99,9 @@ class StoredQuery(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] query_description: A unique description for the query.
+        :param pulumi.Input[str] query_expression: The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        :param pulumi.Input[str] query_name: The name of the query.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the stored query.
         """
         ...
@@ -169,26 +184,41 @@ class StoredQuery(pulumi.CustomResource):
     @property
     @pulumi.getter(name="queryArn")
     def query_arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+        """
         return pulumi.get(self, "query_arn")
 
     @property
     @pulumi.getter(name="queryDescription")
     def query_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A unique description for the query.
+        """
         return pulumi.get(self, "query_description")
 
     @property
     @pulumi.getter(name="queryExpression")
     def query_expression(self) -> pulumi.Output[str]:
+        """
+        The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        """
         return pulumi.get(self, "query_expression")
 
     @property
     @pulumi.getter(name="queryId")
     def query_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the query.
+        """
         return pulumi.get(self, "query_id")
 
     @property
     @pulumi.getter(name="queryName")
     def query_name(self) -> pulumi.Output[str]:
+        """
+        The name of the query.
+        """
         return pulumi.get(self, "query_name")
 
     @property

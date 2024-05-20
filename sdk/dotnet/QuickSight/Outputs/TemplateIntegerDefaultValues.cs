@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateIntegerDefaultValues
     {
+        /// <summary>
+        /// The dynamic value of the `IntegerDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
+        /// </summary>
         public readonly Outputs.TemplateDynamicDefaultValue? DynamicValue;
+        /// <summary>
+        /// The static values of the `IntegerDefaultValues` .
+        /// </summary>
         public readonly ImmutableArray<double> StaticValues;
 
         [OutputConstructor]

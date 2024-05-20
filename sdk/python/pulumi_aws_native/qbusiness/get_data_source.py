@@ -69,6 +69,8 @@ class GetDataSourceResult:
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
         """
+        Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration")
@@ -76,66 +78,109 @@ class GetDataSourceResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the Amazon Q Business data source was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dataSourceArn")
     def data_source_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
+        """
         return pulumi.get(self, "data_source_arn")
 
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[str]:
+        """
+        The identifier of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "data_source_id")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the data source connector.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The name of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="documentEnrichmentConfiguration")
     def document_enrichment_configuration(self) -> Optional['outputs.DataSourceDocumentEnrichmentConfiguration']:
+        """
+        Provides the configuration information for altering document metadata and content during the document ingestion process.
+
+        For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        """
         return pulumi.get(self, "document_enrichment_configuration")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['DataSourceStatus']:
+        """
+        The status of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="syncSchedule")
     def sync_schedule(self) -> Optional[str]:
+        """
+        Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+
+        Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        """
         return pulumi.get(self, "sync_schedule")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the Amazon Q Business data source was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.DataSourceVpcConfiguration']:
+        """
+        Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+        """
         return pulumi.get(self, "vpc_configuration")
 
 
@@ -167,6 +212,11 @@ def get_data_source(application_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
     Definition of AWS::QBusiness::DataSource Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business application the data source will be attached to.
+    :param str data_source_id: The identifier of the Amazon Q Business data source.
+    :param str index_id: The identifier of the index the data source is attached to.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -199,5 +249,10 @@ def get_data_source_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of AWS::QBusiness::DataSource Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business application the data source will be attached to.
+    :param str data_source_id: The identifier of the Amazon Q Business data source.
+    :param str index_id: The identifier of the index the data source is attached to.
     """
     ...

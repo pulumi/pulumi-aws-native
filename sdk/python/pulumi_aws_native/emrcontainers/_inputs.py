@@ -19,11 +19,17 @@ __all__ = [
 class VirtualClusterContainerInfoArgs:
     def __init__(__self__, *,
                  eks_info: pulumi.Input['VirtualClusterEksInfoArgs']):
+        """
+        :param pulumi.Input['VirtualClusterEksInfoArgs'] eks_info: The information about the Amazon EKS cluster.
+        """
         pulumi.set(__self__, "eks_info", eks_info)
 
     @property
     @pulumi.getter(name="eksInfo")
     def eks_info(self) -> pulumi.Input['VirtualClusterEksInfoArgs']:
+        """
+        The information about the Amazon EKS cluster.
+        """
         return pulumi.get(self, "eks_info")
 
     @eks_info.setter
@@ -39,6 +45,7 @@ class VirtualClusterContainerProviderArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The ID of the container cluster
+        :param pulumi.Input['VirtualClusterContainerInfoArgs'] info: The information about the container cluster.
         :param pulumi.Input[str] type: The type of the container provider
         """
         pulumi.set(__self__, "id", id)
@@ -60,6 +67,9 @@ class VirtualClusterContainerProviderArgs:
     @property
     @pulumi.getter
     def info(self) -> pulumi.Input['VirtualClusterContainerInfoArgs']:
+        """
+        The information about the container cluster.
+        """
         return pulumi.get(self, "info")
 
     @info.setter
@@ -83,11 +93,29 @@ class VirtualClusterContainerProviderArgs:
 class VirtualClusterEksInfoArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] namespace: The namespaces of the EKS cluster.
+               
+               *Minimum* : 1
+               
+               *Maximum* : 63
+               
+               *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+        """
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespaces of the EKS cluster.
+
+        *Minimum* : 1
+
+        *Maximum* : 63
+
+        *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter

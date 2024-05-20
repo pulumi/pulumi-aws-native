@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamDeserializer
     {
+        /// <summary>
+        /// The native Hive / HCatalog JsonSerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
+        /// </summary>
         public readonly Outputs.DeliveryStreamHiveJsonSerDe? HiveJsonSerDe;
+        /// <summary>
+        /// The OpenX SerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
+        /// </summary>
         public readonly Outputs.DeliveryStreamOpenXJsonSerDe? OpenXJsonSerDe;
 
         [OutputConstructor]

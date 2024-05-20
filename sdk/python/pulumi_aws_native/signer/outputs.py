@@ -19,6 +19,10 @@ class SigningProfileSignatureValidityPeriod(dict):
     def __init__(__self__, *,
                  type: Optional['SigningProfileSignatureValidityPeriodType'] = None,
                  value: Optional[int] = None):
+        """
+        :param 'SigningProfileSignatureValidityPeriodType' type: The time unit for signature validity: DAYS | MONTHS | YEARS.
+        :param int value: The numerical value of the time unit for signature validity.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -27,11 +31,17 @@ class SigningProfileSignatureValidityPeriod(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional['SigningProfileSignatureValidityPeriodType']:
+        """
+        The time unit for signature validity: DAYS | MONTHS | YEARS.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[int]:
+        """
+        The numerical value of the time unit for signature validity.
+        """
         return pulumi.get(self, "value")
 
 

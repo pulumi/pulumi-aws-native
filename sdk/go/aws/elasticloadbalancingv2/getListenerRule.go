@@ -25,6 +25,7 @@ func LookupListenerRule(ctx *pulumi.Context, args *LookupListenerRuleArgs, opts 
 }
 
 type LookupListenerRuleArgs struct {
+	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn string `pulumi:"ruleArn"`
 }
 
@@ -35,11 +36,13 @@ type LookupListenerRuleResult struct {
 	// The conditions.
 	//  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
 	Conditions []ListenerRuleRuleCondition `pulumi:"conditions"`
-	IsDefault  *bool                       `pulumi:"isDefault"`
+	// Indicates whether this is the default rule.
+	IsDefault *bool `pulumi:"isDefault"`
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-	Priority *int    `pulumi:"priority"`
-	RuleArn  *string `pulumi:"ruleArn"`
+	Priority *int `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the rule.
+	RuleArn *string `pulumi:"ruleArn"`
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
@@ -56,6 +59,7 @@ func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutput
 }
 
 type LookupListenerRuleOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn pulumi.StringInput `pulumi:"ruleArn"`
 }
 
@@ -91,6 +95,7 @@ func (o LookupListenerRuleResultOutput) Conditions() ListenerRuleRuleConditionAr
 	return o.ApplyT(func(v LookupListenerRuleResult) []ListenerRuleRuleCondition { return v.Conditions }).(ListenerRuleRuleConditionArrayOutput)
 }
 
+// Indicates whether this is the default rule.
 func (o LookupListenerRuleResultOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
@@ -102,6 +107,7 @@ func (o LookupListenerRuleResultOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the rule.
 func (o LookupListenerRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }

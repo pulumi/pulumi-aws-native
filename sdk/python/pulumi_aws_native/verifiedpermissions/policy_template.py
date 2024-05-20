@@ -19,6 +19,9 @@ class PolicyTemplateArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
+        :param pulumi.Input[str] policy_store_id: The unique identifier of the policy store that contains the template.
+        :param pulumi.Input[str] statement: Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        :param pulumi.Input[str] description: The description to attach to the new or updated policy template.
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         pulumi.set(__self__, "statement", statement)
@@ -28,6 +31,9 @@ class PolicyTemplateArgs:
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the policy store that contains the template.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -37,6 +43,9 @@ class PolicyTemplateArgs:
     @property
     @pulumi.getter
     def statement(self) -> pulumi.Input[str]:
+        """
+        Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        """
         return pulumi.get(self, "statement")
 
     @statement.setter
@@ -46,6 +55,9 @@ class PolicyTemplateArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description to attach to the new or updated policy template.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,6 +98,9 @@ class PolicyTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description to attach to the new or updated policy template.
+        :param pulumi.Input[str] policy_store_id: The unique identifier of the policy store that contains the template.
+        :param pulumi.Input[str] statement: Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
         """
         ...
     @overload
@@ -183,20 +198,32 @@ class PolicyTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description to attach to the new or updated policy template.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the policy store that contains the template.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @property
     @pulumi.getter(name="policyTemplateId")
     def policy_template_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the new or modified policy template.
+        """
         return pulumi.get(self, "policy_template_id")
 
     @property
     @pulumi.getter
     def statement(self) -> pulumi.Output[str]:
+        """
+        Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        """
         return pulumi.get(self, "statement")
 

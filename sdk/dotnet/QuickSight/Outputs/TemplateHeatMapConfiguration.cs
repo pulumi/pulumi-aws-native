@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateHeatMapConfiguration
     {
+        /// <summary>
+        /// The color options (gradient color, point of divergence) in a heat map.
+        /// </summary>
         public readonly Outputs.TemplateColorScale? ColorScale;
+        /// <summary>
+        /// The label options of the column that is displayed in a heat map.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ColumnLabelOptions;
+        /// <summary>
+        /// The options that determine if visual data labels are displayed.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.TemplateHeatMapFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The label options of the row that is displayed in a `heat map` .
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? RowLabelOptions;
+        /// <summary>
+        /// The sort configuration of a heat map.
+        /// </summary>
         public readonly Outputs.TemplateHeatMapSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
 
         [OutputConstructor]

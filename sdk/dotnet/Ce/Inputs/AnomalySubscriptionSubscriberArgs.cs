@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Ce.Inputs
 
     public sealed class AnomalySubscriptionSubscriberArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates if the subscriber accepts the notifications.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.Ce.AnomalySubscriptionSubscriberStatus>? Status { get; set; }
 
+        /// <summary>
+        /// The notification delivery channel.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Ce.AnomalySubscriptionSubscriberType> Type { get; set; } = null!;
 

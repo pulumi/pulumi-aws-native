@@ -23,17 +23,21 @@ func LookupRobotApplication(ctx *pulumi.Context, args *LookupRobotApplicationArg
 }
 
 type LookupRobotApplicationArgs struct {
+	// The Amazon Resource Name (ARN) of the robot application.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupRobotApplicationResult struct {
+	// The Amazon Resource Name (ARN) of the robot application.
 	Arn *string `pulumi:"arn"`
 	// The revision ID of robot application.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
 	// The URI of the Docker image for the robot application.
-	Environment        *string                             `pulumi:"environment"`
+	Environment *string `pulumi:"environment"`
+	// The robot software suite used by the robot application.
 	RobotSoftwareSuite *RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
-	Tags               map[string]string                   `pulumi:"tags"`
+	// A map that contains tag keys and tag values that are attached to the robot application.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupRobotApplicationResultOutput {
@@ -50,6 +54,7 @@ func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicati
 }
 
 type LookupRobotApplicationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the robot application.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,6 +76,7 @@ func (o LookupRobotApplicationResultOutput) ToLookupRobotApplicationResultOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the robot application.
 func (o LookupRobotApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -85,10 +91,12 @@ func (o LookupRobotApplicationResultOutput) Environment() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.Environment }).(pulumi.StringPtrOutput)
 }
 
+// The robot software suite used by the robot application.
 func (o LookupRobotApplicationResultOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuitePtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationRobotSoftwareSuite { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuitePtrOutput)
 }
 
+// A map that contains tag keys and tag values that are attached to the robot application.
 func (o LookupRobotApplicationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

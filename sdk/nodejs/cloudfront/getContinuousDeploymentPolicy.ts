@@ -19,12 +19,24 @@ export function getContinuousDeploymentPolicy(args: GetContinuousDeploymentPolic
 }
 
 export interface GetContinuousDeploymentPolicyArgs {
+    /**
+     * The identifier of the cotinuous deployment policy.
+     */
     id: string;
 }
 
 export interface GetContinuousDeploymentPolicyResult {
+    /**
+     * Contains the configuration for a continuous deployment policy.
+     */
     readonly continuousDeploymentPolicyConfig?: outputs.cloudfront.ContinuousDeploymentPolicyConfig;
+    /**
+     * The identifier of the cotinuous deployment policy.
+     */
     readonly id?: string;
+    /**
+     * The date and time when the continuous deployment policy was last modified.
+     */
     readonly lastModifiedTime?: string;
 }
 /**
@@ -35,5 +47,8 @@ export function getContinuousDeploymentPolicyOutput(args: GetContinuousDeploymen
 }
 
 export interface GetContinuousDeploymentPolicyOutputArgs {
+    /**
+     * The identifier of the cotinuous deployment policy.
+     */
     id: pulumi.Input<string>;
 }

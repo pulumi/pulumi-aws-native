@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataLabelOptions
     {
+        /// <summary>
+        /// Determines the visibility of the category field labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? CategoryLabelVisibility;
+        /// <summary>
+        /// The option that determines the data label type.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDataLabelType> DataLabelTypes;
+        /// <summary>
+        /// Determines the color of the data labels.
+        /// </summary>
         public readonly string? LabelColor;
+        /// <summary>
+        /// Determines the content of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardDataLabelContent? LabelContent;
+        /// <summary>
+        /// Determines the font configuration of the data labels.
+        /// </summary>
         public readonly Outputs.DashboardFontConfiguration? LabelFontConfiguration;
+        /// <summary>
+        /// Determines the visibility of the measure field labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? MeasureLabelVisibility;
+        /// <summary>
+        /// Determines whether overlap is enabled or disabled for the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardDataLabelOverlap? Overlap;
+        /// <summary>
+        /// Determines the position of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardDataLabelPosition? Position;
+        /// <summary>
+        /// Determines the visibility of the total.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? TotalsVisibility;
+        /// <summary>
+        /// Determines the visibility of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

@@ -64,66 +64,105 @@ class GetPipeResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the pipe.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        The time the pipe was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="currentState")
     def current_state(self) -> Optional['PipeState']:
+        """
+        The state the pipe is in.
+        """
         return pulumi.get(self, "current_state")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the pipe.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="desiredState")
     def desired_state(self) -> Optional['PipeRequestedPipeState']:
+        """
+        The state the pipe should be in.
+        """
         return pulumi.get(self, "desired_state")
 
     @property
     @pulumi.getter
     def enrichment(self) -> Optional[str]:
+        """
+        The ARN of the enrichment resource.
+        """
         return pulumi.get(self, "enrichment")
 
     @property
     @pulumi.getter(name="enrichmentParameters")
     def enrichment_parameters(self) -> Optional['outputs.PipeEnrichmentParameters']:
+        """
+        The parameters required to set up enrichment on your pipe.
+        """
         return pulumi.get(self, "enrichment_parameters")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.PipeLogConfiguration']:
+        """
+        The logging configuration settings for the pipe.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role that allows the pipe to send data to the target.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> Optional[str]:
+        """
+        The reason the pipe is in its current state.
+        """
         return pulumi.get(self, "state_reason")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The list of key-value pairs to associate with the pipe.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
+        """
+        The ARN of the target resource.
+        """
         return pulumi.get(self, "target")
 
 
@@ -152,6 +191,9 @@ def get_pipe(name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipeResult:
     """
     Definition of AWS::Pipes::Pipe Resource Type
+
+
+    :param str name: The name of the pipe.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -179,5 +221,8 @@ def get_pipe_output(name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipeResult]:
     """
     Definition of AWS::Pipes::Pipe Resource Type
+
+
+    :param str name: The name of the pipe.
     """
     ...

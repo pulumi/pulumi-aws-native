@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDateMeasureField
     {
+        /// <summary>
+        /// The aggregation function of the measure field.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardDateAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// The column that is used in the `DateMeasureField` .
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The format configuration of the field.
+        /// </summary>
         public readonly Outputs.DashboardDateTimeFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

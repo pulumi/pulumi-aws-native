@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class Partition
     {
+        /// <summary>
+        /// The name of the attribute that defines a partition dimension.
+        /// </summary>
         public readonly string AttributeName;
 
         [OutputConstructor]

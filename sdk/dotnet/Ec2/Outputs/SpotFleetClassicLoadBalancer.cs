@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetClassicLoadBalancer
     {
+        /// <summary>
+        /// The name of the load balancer.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

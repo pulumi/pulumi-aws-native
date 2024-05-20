@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class NetworkInsightsAccessScopePathStatementRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The packet header statement.
+        /// </summary>
         [Input("packetHeaderStatement")]
         public Input<Inputs.NetworkInsightsAccessScopePacketHeaderStatementRequestArgs>? PacketHeaderStatement { get; set; }
 
+        /// <summary>
+        /// The resource statement.
+        /// </summary>
         [Input("resourceStatement")]
         public Input<Inputs.NetworkInsightsAccessScopeResourceStatementRequestArgs>? ResourceStatement { get; set; }
 

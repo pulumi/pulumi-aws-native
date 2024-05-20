@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetThemeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account where you want to store the new theme.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+        /// </summary>
         [Input("themeId", required: true)]
         public string ThemeId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetThemeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account where you want to store the new theme.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+        /// </summary>
         [Input("themeId", required: true)]
         public Input<string> ThemeId { get; set; } = null!;
 
@@ -69,9 +81,21 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The date and time that the theme was last updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// A display name for the theme.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A valid grouping of resource permissions to apply to the new theme.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeResourcePermission> Permissions;
+        /// <summary>
+        /// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Theme type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.ThemeType? Type;
         public readonly Outputs.ThemeVersion? Version;
 

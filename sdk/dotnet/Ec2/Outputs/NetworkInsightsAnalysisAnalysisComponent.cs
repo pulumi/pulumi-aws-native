@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAnalysisComponent
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the component.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ID of the component.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

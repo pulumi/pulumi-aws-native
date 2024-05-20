@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetJsonOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A value that specifies whether JSON input contains embedded new line characters.
+        /// </summary>
         [Input("multiLine")]
         public Input<bool>? MultiLine { get; set; }
 

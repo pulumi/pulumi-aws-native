@@ -38,11 +38,17 @@ export interface GetRotationResult {
      * Name of the Rotation
      */
     readonly name?: string;
+    /**
+     * Information about the rule that specifies when shift team members rotate.
+     */
     readonly recurrence?: outputs.ssmcontacts.RotationRecurrenceSettings;
     /**
      * Start time of the first shift of Oncall Schedule
      */
     readonly startTime?: string;
+    /**
+     * Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+     */
     readonly tags?: outputs.Tag[];
     /**
      * TimeZone Identifier for the Oncall Schedule

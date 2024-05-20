@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceStorageSettings
     {
+        /// <summary>
+        /// A collection of EBS storage settings for a space.
+        /// </summary>
         public readonly Outputs.SpaceEbsStorageSettings? EbsStorageSettings;
 
         [OutputConstructor]

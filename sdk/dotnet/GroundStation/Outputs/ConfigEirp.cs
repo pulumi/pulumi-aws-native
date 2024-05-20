@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigEirp
     {
+        /// <summary>
+        /// The units of the EIRP.
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.ConfigEirpUnits? Units;
+        /// <summary>
+        /// The value of the EIRP. Valid values are between 20.0 to 50.0 dBW.
+        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

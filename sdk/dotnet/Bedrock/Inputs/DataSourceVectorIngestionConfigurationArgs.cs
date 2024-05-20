@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceVectorIngestionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+        /// </summary>
         [Input("chunkingConfiguration")]
         public Input<Inputs.DataSourceChunkingConfigurationArgs>? ChunkingConfiguration { get; set; }
 

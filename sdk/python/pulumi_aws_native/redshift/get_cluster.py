@@ -294,6 +294,9 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional['outputs.ClusterEndpoint']:
+        """
+        The connection endpoint.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -343,6 +346,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="loggingProperties")
     def logging_properties(self) -> Optional['outputs.ClusterLoggingProperties']:
+        """
+        Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        """
         return pulumi.get(self, "logging_properties")
 
     @property

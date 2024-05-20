@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Output("healthCheckIntervalSeconds")]
         public Output<int?> HealthCheckIntervalSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        /// </summary>
         [Output("healthCheckPath")]
         public Output<string?> HealthCheckPath { get; private set; } = null!;
 
@@ -60,6 +63,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+        /// </summary>
         [Output("portOverrides")]
         public Output<ImmutableArray<Outputs.EndpointGroupPortOverride>> PortOverrides { get; private set; } = null!;
 
@@ -149,6 +155,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Input("healthCheckIntervalSeconds")]
         public Input<int>? HealthCheckIntervalSeconds { get; set; }
 
+        /// <summary>
+        /// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
@@ -172,6 +181,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
         [Input("portOverrides")]
         private InputList<Inputs.EndpointGroupPortOverrideArgs>? _portOverrides;
+
+        /// <summary>
+        /// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+        /// </summary>
         public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
         {
             get => _portOverrides ?? (_portOverrides = new InputList<Inputs.EndpointGroupPortOverrideArgs>());

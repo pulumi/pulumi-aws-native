@@ -85,21 +85,35 @@ class GetDashboardResult:
     @property
     @pulumi.getter(name="linkEntities")
     def link_entities(self) -> Optional[Sequence[str]]:
+        """
+        A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+        """
         return pulumi.get(self, "link_entities")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The display name of the dashboard.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DashboardResourcePermission']]:
+        """
+        A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+
+        To specify no permissions, omit the permissions list.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -130,6 +144,10 @@ def get_dashboard(aws_account_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDashboardResult:
     """
     Definition of the AWS::QuickSight::Dashboard Resource Type.
+
+
+    :param str aws_account_id: The ID of the AWS account where you want to create the dashboard.
+    :param str dashboard_id: The ID for the dashboard, also added to the IAM policy.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -155,5 +173,9 @@ def get_dashboard_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Definition of the AWS::QuickSight::Dashboard Resource Type.
+
+
+    :param str aws_account_id: The ID of the AWS account where you want to create the dashboard.
+    :param str dashboard_id: The ID for the dashboard, also added to the IAM policy.
     """
     ...

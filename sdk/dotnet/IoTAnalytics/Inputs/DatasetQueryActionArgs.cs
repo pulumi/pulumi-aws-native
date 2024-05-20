@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.DatasetFilterArgs>? _filters;
+
+        /// <summary>
+        /// Pre-filters applied to message data.
+        /// </summary>
         public InputList<Inputs.DatasetFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.DatasetFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+        /// </summary>
         [Input("sqlQuery", required: true)]
         public Input<string> SqlQuery { get; set; } = null!;
 

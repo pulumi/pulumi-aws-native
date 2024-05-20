@@ -38,7 +38,16 @@ export interface GetGroupResult {
      * The case-sensitive name of the new group. Names must be unique.
      */
     readonly groupName?: string;
+    /**
+     * The structure containing configurations related to insights.
+     *
+     * - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+     * - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
+     */
     readonly insightsConfiguration?: outputs.xray.GroupInsightsConfiguration;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

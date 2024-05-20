@@ -27,8 +27,20 @@ class GroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+               
+               > You can include either a `Configuration` or a `ResourceQuery` , but not both.
         :param pulumi.Input[str] description: The description of the resource group
         :param pulumi.Input[str] name: The name of the resource group
+        :param pulumi.Input['GroupResourceQueryArgs'] resource_query: The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+               
+               > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+               > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+               
+               > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+               > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag key and value pairs that are attached to the resource group.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -46,6 +58,11 @@ class GroupArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationItemArgs']]]]:
+        """
+        The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+
+        > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -79,6 +96,12 @@ class GroupArgs:
     @property
     @pulumi.getter(name="resourceQuery")
     def resource_query(self) -> Optional[pulumi.Input['GroupResourceQueryArgs']]:
+        """
+        The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+
+        > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+        > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+        """
         return pulumi.get(self, "resource_query")
 
     @resource_query.setter
@@ -88,6 +111,12 @@ class GroupArgs:
     @property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+
+        > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -97,6 +126,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag key and value pairs that are attached to the resource group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -121,8 +153,20 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupConfigurationItemArgs']]]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+               
+               > You can include either a `Configuration` or a `ResourceQuery` , but not both.
         :param pulumi.Input[str] description: The description of the resource group
         :param pulumi.Input[str] name: The name of the resource group
+        :param pulumi.Input[pulumi.InputType['GroupResourceQueryArgs']] resource_query: The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+               
+               > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+               > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+               
+               > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+               > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag key and value pairs that are attached to the resource group.
         """
         ...
     @overload
@@ -214,6 +258,11 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional[Sequence['outputs.GroupConfigurationItem']]]:
+        """
+        The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+
+        > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -235,15 +284,30 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceQuery")
     def resource_query(self) -> pulumi.Output[Optional['outputs.GroupResourceQuery']]:
+        """
+        The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+
+        > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+        > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+        """
         return pulumi.get(self, "resource_query")
 
     @property
     @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+
+        > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        """
         return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag key and value pairs that are attached to the resource group.
+        """
         return pulumi.get(self, "tags")
 

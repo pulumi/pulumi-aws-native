@@ -35,21 +35,33 @@ class GetCapacityReservationFleetResult:
     @property
     @pulumi.getter(name="capacityReservationFleetId")
     def capacity_reservation_fleet_id(self) -> Optional[str]:
+        """
+        The ID of the Capacity Reservation Fleet.
+        """
         return pulumi.get(self, "capacity_reservation_fleet_id")
 
     @property
     @pulumi.getter(name="noRemoveEndDate")
     def no_remove_end_date(self) -> Optional[bool]:
+        """
+        Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        """
         return pulumi.get(self, "no_remove_end_date")
 
     @property
     @pulumi.getter(name="removeEndDate")
     def remove_end_date(self) -> Optional[bool]:
+        """
+        Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+        """
         return pulumi.get(self, "remove_end_date")
 
     @property
     @pulumi.getter(name="totalTargetCapacity")
     def total_target_capacity(self) -> Optional[int]:
+        """
+        The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+        """
         return pulumi.get(self, "total_target_capacity")
 
 
@@ -69,6 +81,9 @@ def get_capacity_reservation_fleet(capacity_reservation_fleet_id: Optional[str] 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationFleetResult:
     """
     Resource Type definition for AWS::EC2::CapacityReservationFleet
+
+
+    :param str capacity_reservation_fleet_id: The ID of the Capacity Reservation Fleet.
     """
     __args__ = dict()
     __args__['capacityReservationFleetId'] = capacity_reservation_fleet_id
@@ -87,5 +102,8 @@ def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: Optiona
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationFleetResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservationFleet
+
+
+    :param str capacity_reservation_fleet_id: The ID of the Capacity Reservation Fleet.
     """
     ...

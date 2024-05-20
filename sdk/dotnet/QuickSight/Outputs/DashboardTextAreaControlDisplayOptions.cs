@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTextAreaControlDisplayOptions
     {
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         public readonly Outputs.DashboardSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The configuration of the placeholder options in a text area control.
+        /// </summary>
         public readonly Outputs.DashboardTextControlPlaceholderOptions? PlaceholderOptions;
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         public readonly Outputs.DashboardLabelOptions? TitleOptions;
 
         [OutputConstructor]

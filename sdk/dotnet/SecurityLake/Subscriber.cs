@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.SecurityLake
     [AwsNativeResourceType("aws-native:securitylake:Subscriber")]
     public partial class Subscriber : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+        /// 
+        /// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
+        /// </summary>
         [Output("accessTypes")]
         public Output<ImmutableArray<Pulumi.AwsNative.SecurityLake.SubscriberAccessTypesItem>> AccessTypes { get; private set; } = null!;
 
@@ -24,12 +29,21 @@ namespace Pulumi.AwsNative.SecurityLake
         [Output("dataLakeArn")]
         public Output<string> DataLakeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
+        /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN name of the Amazon Security Lake subscriber.
+        /// </summary>
         [Output("resourceShareName")]
         public Output<string> ResourceShareName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the S3 bucket.
+        /// </summary>
         [Output("s3BucketArn")]
         public Output<string> S3BucketArn { get; private set; } = null!;
 
@@ -39,6 +53,9 @@ namespace Pulumi.AwsNative.SecurityLake
         [Output("sources")]
         public Output<ImmutableArray<Union<Outputs.SubscriberSource0Properties, Outputs.SubscriberSource1Properties>>> Sources { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Security Lake subscriber.
+        /// </summary>
         [Output("subscriberArn")]
         public Output<string> SubscriberArn { get; private set; } = null!;
 
@@ -60,6 +77,9 @@ namespace Pulumi.AwsNative.SecurityLake
         [Output("subscriberName")]
         public Output<string> SubscriberName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
+        /// </summary>
         [Output("subscriberRoleArn")]
         public Output<string> SubscriberRoleArn { get; private set; } = null!;
 
@@ -120,6 +140,12 @@ namespace Pulumi.AwsNative.SecurityLake
     {
         [Input("accessTypes", required: true)]
         private InputList<Pulumi.AwsNative.SecurityLake.SubscriberAccessTypesItem>? _accessTypes;
+
+        /// <summary>
+        /// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+        /// 
+        /// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.SecurityLake.SubscriberAccessTypesItem> AccessTypes
         {
             get => _accessTypes ?? (_accessTypes = new InputList<Pulumi.AwsNative.SecurityLake.SubscriberAccessTypesItem>());

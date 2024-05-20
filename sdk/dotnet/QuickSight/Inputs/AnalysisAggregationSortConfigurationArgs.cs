@@ -12,12 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisAggregationSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The function that aggregates the values in `Column` .
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.AnalysisAggregationFunctionArgs>? AggregationFunction { get; set; }
 
+        /// <summary>
+        /// The column that determines the sort order of aggregated values.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The sort direction of values.
+        /// 
+        /// - `ASC` : Sort in ascending order.
+        /// - `DESC` : Sort in descending order.
+        /// </summary>
         [Input("sortDirection", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSortDirection> SortDirection { get; set; } = null!;
 

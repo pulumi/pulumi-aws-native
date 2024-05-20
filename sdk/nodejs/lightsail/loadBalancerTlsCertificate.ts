@@ -58,6 +58,9 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
      * The name of your load balancer.
      */
     public readonly loadBalancerName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+     */
     public /*out*/ readonly loadBalancerTlsCertificateArn!: pulumi.Output<string>;
     /**
      * The validation status of the SSL/TLS certificate.

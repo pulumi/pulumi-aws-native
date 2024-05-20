@@ -20,7 +20,12 @@ class IdentityPoolPrincipalTagArgs:
                  use_defaults: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolPrincipalTag resource.
-        :param Any principal_tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        :param pulumi.Input[str] identity_pool_id: The identity pool that you want to associate with this principal tag map.
+        :param pulumi.Input[str] identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+        :param Any principal_tags: A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        :param pulumi.Input[bool] use_defaults: Use a default set of mappings between claims and tags for this provider, instead of a custom map.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "identity_provider_name", identity_provider_name)
@@ -32,6 +37,9 @@ class IdentityPoolPrincipalTagArgs:
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Input[str]:
+        """
+        The identity pool that you want to associate with this principal tag map.
+        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -41,6 +49,9 @@ class IdentityPoolPrincipalTagArgs:
     @property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Input[str]:
+        """
+        The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+        """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
@@ -51,6 +62,8 @@ class IdentityPoolPrincipalTagArgs:
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[Any]:
         """
+        A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "principal_tags")
@@ -62,6 +75,9 @@ class IdentityPoolPrincipalTagArgs:
     @property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+        """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
@@ -84,7 +100,12 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any principal_tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        :param pulumi.Input[str] identity_pool_id: The identity pool that you want to associate with this principal tag map.
+        :param pulumi.Input[str] identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+        :param Any principal_tags: A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
+        :param pulumi.Input[bool] use_defaults: Use a default set of mappings between claims and tags for this provider, instead of a custom map.
         """
         ...
     @overload
@@ -164,17 +185,25 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Output[str]:
+        """
+        The identity pool that you want to associate with this principal tag map.
+        """
         return pulumi.get(self, "identity_pool_id")
 
     @property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> pulumi.Output[str]:
+        """
+        The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+        """
         return pulumi.get(self, "identity_provider_name")
 
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> pulumi.Output[Optional[Any]]:
         """
+        A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "principal_tags")
@@ -182,5 +211,8 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
     @property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+        """
         return pulumi.get(self, "use_defaults")
 

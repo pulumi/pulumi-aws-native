@@ -15,24 +15,50 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:ServiceNetwork")]
     public partial class ServiceNetwork : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of IAM policy.
+        /// 
+        /// - `NONE` : The resource does not use an IAM policy. This is the default.
+        /// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        /// </summary>
         [Output("authType")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceNetworkAuthType?> AuthType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service network.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the service network was created, specified in ISO-8601 format.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time of the last update, specified in ISO-8601 format.
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the service network.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -85,14 +111,29 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ServiceNetworkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of IAM policy.
+        /// 
+        /// - `NONE` : The resource does not use an IAM policy. This is the default.
+        /// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        /// </summary>
         [Input("authType")]
         public Input<Pulumi.AwsNative.VpcLattice.ServiceNetworkAuthType>? AuthType { get; set; }
 
+        /// <summary>
+        /// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the service network.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

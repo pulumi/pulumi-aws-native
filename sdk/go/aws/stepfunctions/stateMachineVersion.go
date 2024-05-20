@@ -16,9 +16,17 @@ import (
 type StateMachineVersion struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput    `pulumi:"arn"`
-	Description            pulumi.StringPtrOutput `pulumi:"description"`
-	StateMachineArn        pulumi.StringOutput    `pulumi:"stateMachineArn"`
+	// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An optional description of the state machine version.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the state machine.
+	StateMachineArn pulumi.StringOutput `pulumi:"stateMachineArn"`
+	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+	//
+	// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+	//
+	// To specify the initial state machine revision, set the value as `INITIAL` .
 	StateMachineRevisionId pulumi.StringPtrOutput `pulumi:"stateMachineRevisionId"`
 }
 
@@ -70,15 +78,29 @@ func (StateMachineVersionState) ElementType() reflect.Type {
 }
 
 type stateMachineVersionArgs struct {
-	Description            *string `pulumi:"description"`
-	StateMachineArn        string  `pulumi:"stateMachineArn"`
+	// An optional description of the state machine version.
+	Description *string `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the state machine.
+	StateMachineArn string `pulumi:"stateMachineArn"`
+	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+	//
+	// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+	//
+	// To specify the initial state machine revision, set the value as `INITIAL` .
 	StateMachineRevisionId *string `pulumi:"stateMachineRevisionId"`
 }
 
 // The set of arguments for constructing a StateMachineVersion resource.
 type StateMachineVersionArgs struct {
-	Description            pulumi.StringPtrInput
-	StateMachineArn        pulumi.StringInput
+	// An optional description of the state machine version.
+	Description pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the state machine.
+	StateMachineArn pulumi.StringInput
+	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+	//
+	// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+	//
+	// To specify the initial state machine revision, set the value as `INITIAL` .
 	StateMachineRevisionId pulumi.StringPtrInput
 }
 
@@ -119,18 +141,26 @@ func (o StateMachineVersionOutput) ToStateMachineVersionOutputWithContext(ctx co
 	return o
 }
 
+// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
 func (o StateMachineVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachineVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An optional description of the state machine version.
 func (o StateMachineVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the state machine.
 func (o StateMachineVersionOutput) StateMachineArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachineVersion) pulumi.StringOutput { return v.StateMachineArn }).(pulumi.StringOutput)
 }
 
+// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+//
+// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+//
+// To specify the initial state machine revision, set the value as `INITIAL` .
 func (o StateMachineVersionOutput) StateMachineRevisionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineVersion) pulumi.StringPtrOutput { return v.StateMachineRevisionId }).(pulumi.StringPtrOutput)
 }

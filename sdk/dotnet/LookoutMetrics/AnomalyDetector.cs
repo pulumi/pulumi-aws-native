@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.LookoutMetrics
         [Output("anomalyDetectorName")]
         public Output<string?> AnomalyDetectorName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

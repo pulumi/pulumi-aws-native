@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPivotTableDataPathOption
     {
+        /// <summary>
+        /// The list of data path values for the data path options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataPathValue> DataPathList;
         /// <summary>
         /// String based length that is composed of value and unit in px

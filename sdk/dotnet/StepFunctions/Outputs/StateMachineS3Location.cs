@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineS3Location
     {
+        /// <summary>
+        /// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The name of the state machine definition file (Amazon S3 object name).
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// For versioning-enabled buckets, a specific version of the state machine definition.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

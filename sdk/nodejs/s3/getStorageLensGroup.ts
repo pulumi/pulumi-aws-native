@@ -19,10 +19,16 @@ export function getStorageLensGroup(args: GetStorageLensGroupArgs, opts?: pulumi
 }
 
 export interface GetStorageLensGroupArgs {
+    /**
+     * This property contains the Storage Lens group name.
+     */
     name: string;
 }
 
 export interface GetStorageLensGroupResult {
+    /**
+     * This property contains the criteria for the Storage Lens group data that is displayed
+     */
     readonly filter?: outputs.s3.StorageLensGroupFilter;
     /**
      * The ARN for the Amazon S3 Storage Lens Group.
@@ -41,5 +47,8 @@ export function getStorageLensGroupOutput(args: GetStorageLensGroupOutputArgs, o
 }
 
 export interface GetStorageLensGroupOutputArgs {
+    /**
+     * This property contains the Storage Lens group name.
+     */
     name: pulumi.Input<string>;
 }

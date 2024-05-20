@@ -90,6 +90,9 @@ class GetRoomResult:
     @property
     @pulumi.getter(name="messageReviewHandler")
     def message_review_handler(self) -> Optional['outputs.RoomMessageReviewHandler']:
+        """
+        Configuration information for optional review of messages.
+        """
         return pulumi.get(self, "message_review_handler")
 
     @property

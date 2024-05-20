@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateIntegerParameterDeclaration
     {
+        /// <summary>
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+        /// </summary>
         public readonly Outputs.TemplateIntegerDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.TemplateMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type determines whether the parameter is a single-value or multi-value parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateParameterValueType ParameterValueType;
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// </summary>
         public readonly Outputs.TemplateIntegerValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class JobTemplateRateIncreaseCriteria
     {
+        /// <summary>
+        /// The threshold for number of notified things that will initiate the increase in rate of rollout.
+        /// </summary>
         public readonly int? NumberOfNotifiedThings;
+        /// <summary>
+        /// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        /// </summary>
         public readonly int? NumberOfSucceededThings;
 
         [OutputConstructor]

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateNumberFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the numeric format configuration.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.TemplateNumericFormatConfigurationArgs>? FormatConfiguration { get; set; }
 

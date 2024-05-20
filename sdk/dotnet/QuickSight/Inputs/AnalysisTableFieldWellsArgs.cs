@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTableFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field well for the table.
+        /// </summary>
         [Input("tableAggregatedFieldWells")]
         public Input<Inputs.AnalysisTableAggregatedFieldWellsArgs>? TableAggregatedFieldWells { get; set; }
 
+        /// <summary>
+        /// The unaggregated field well for the table.
+        /// </summary>
         [Input("tableUnaggregatedFieldWells")]
         public Input<Inputs.AnalysisTableUnaggregatedFieldWellsArgs>? TableUnaggregatedFieldWells { get; set; }
 

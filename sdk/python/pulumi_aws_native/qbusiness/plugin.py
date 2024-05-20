@@ -29,6 +29,14 @@ class PluginArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Plugin resource.
+        :param pulumi.Input[str] application_id: The identifier of the application that will contain the plugin.
+        :param pulumi.Input[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgs']] auth_configuration: Authentication configuration information for an Amazon Q Business plugin.
+        :param pulumi.Input[str] display_name: The name of the plugin.
+        :param pulumi.Input['PluginType'] type: The type of the plugin.
+        :param pulumi.Input['PluginCustomPluginConfigurationArgs'] custom_plugin_configuration: Configuration information required to create a custom plugin.
+        :param pulumi.Input[str] server_url: The plugin server URL used for configuration.
+        :param pulumi.Input['PluginState'] state: The current status of the plugin.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "auth_configuration", auth_configuration)
@@ -46,6 +54,9 @@ class PluginArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the application that will contain the plugin.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -55,6 +66,9 @@ class PluginArgs:
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> pulumi.Input[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgs']]:
+        """
+        Authentication configuration information for an Amazon Q Business plugin.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @auth_configuration.setter
@@ -64,6 +78,9 @@ class PluginArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the plugin.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -73,6 +90,9 @@ class PluginArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['PluginType']:
+        """
+        The type of the plugin.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -82,6 +102,9 @@ class PluginArgs:
     @property
     @pulumi.getter(name="customPluginConfiguration")
     def custom_plugin_configuration(self) -> Optional[pulumi.Input['PluginCustomPluginConfigurationArgs']]:
+        """
+        Configuration information required to create a custom plugin.
+        """
         return pulumi.get(self, "custom_plugin_configuration")
 
     @custom_plugin_configuration.setter
@@ -91,6 +114,9 @@ class PluginArgs:
     @property
     @pulumi.getter(name="serverUrl")
     def server_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The plugin server URL used for configuration.
+        """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
@@ -100,6 +126,9 @@ class PluginArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['PluginState']]:
+        """
+        The current status of the plugin.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -109,6 +138,9 @@ class PluginArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,6 +167,14 @@ class Plugin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The identifier of the application that will contain the plugin.
+        :param pulumi.Input[Union[pulumi.InputType['PluginAuthConfiguration0PropertiesArgs'], pulumi.InputType['PluginAuthConfiguration1PropertiesArgs'], pulumi.InputType['PluginAuthConfiguration2PropertiesArgs']]] auth_configuration: Authentication configuration information for an Amazon Q Business plugin.
+        :param pulumi.Input[pulumi.InputType['PluginCustomPluginConfigurationArgs']] custom_plugin_configuration: Configuration information required to create a custom plugin.
+        :param pulumi.Input[str] display_name: The name of the plugin.
+        :param pulumi.Input[str] server_url: The plugin server URL used for configuration.
+        :param pulumi.Input['PluginState'] state: The current status of the plugin.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input['PluginType'] type: The type of the plugin.
         """
         ...
     @overload
@@ -240,65 +280,104 @@ class Plugin(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the application that will contain the plugin.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> pulumi.Output[Any]:
+        """
+        Authentication configuration information for an Amazon Q Business plugin.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @property
     @pulumi.getter(name="buildStatus")
     def build_status(self) -> pulumi.Output['PluginBuildStatus']:
+        """
+        The current status of a plugin. A plugin is modified asynchronously.
+        """
         return pulumi.get(self, "build_status")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the plugin was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="customPluginConfiguration")
     def custom_plugin_configuration(self) -> pulumi.Output[Optional['outputs.PluginCustomPluginConfiguration']]:
+        """
+        Configuration information required to create a custom plugin.
+        """
         return pulumi.get(self, "custom_plugin_configuration")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of the plugin.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="pluginArn")
     def plugin_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of a plugin.
+        """
         return pulumi.get(self, "plugin_arn")
 
     @property
     @pulumi.getter(name="pluginId")
     def plugin_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the plugin.
+        """
         return pulumi.get(self, "plugin_id")
 
     @property
     @pulumi.getter(name="serverUrl")
     def server_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The plugin server URL used for configuration.
+        """
         return pulumi.get(self, "server_url")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional['PluginState']]:
+        """
+        The current status of the plugin.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['PluginType']:
+        """
+        The type of the plugin.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the plugin was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

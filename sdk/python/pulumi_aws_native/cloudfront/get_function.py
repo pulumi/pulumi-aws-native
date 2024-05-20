@@ -42,26 +42,47 @@ class GetFunctionResult:
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
+        """
+        The ARN of the function. For example:
+
+        `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+
+        To get the function ARN, use the following syntax:
+
+        `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+        """
         return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="functionCode")
     def function_code(self) -> Optional[str]:
+        """
+        The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        """
         return pulumi.get(self, "function_code")
 
     @property
     @pulumi.getter(name="functionConfig")
     def function_config(self) -> Optional['outputs.FunctionConfig']:
+        """
+        Contains configuration information about a CloudFront function.
+        """
         return pulumi.get(self, "function_config")
 
     @property
     @pulumi.getter(name="functionMetadata")
     def function_metadata(self) -> Optional['outputs.FunctionMetadata']:
+        """
+        Contains metadata about a CloudFront function.
+        """
         return pulumi.get(self, "function_metadata")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A name to identify the function.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -88,6 +109,15 @@ def get_function(function_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionResult:
     """
     Resource Type definition for AWS::CloudFront::Function
+
+
+    :param str function_arn: The ARN of the function. For example:
+           
+           `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+           
+           To get the function ARN, use the following syntax:
+           
+           `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
@@ -108,5 +138,14 @@ def get_function_output(function_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Resource Type definition for AWS::CloudFront::Function
+
+
+    :param str function_arn: The ARN of the function. For example:
+           
+           `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+           
+           To get the function ARN, use the following syntax:
+           
+           `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
     """
     ...

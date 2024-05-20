@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Dms
     [OutputType]
     public sealed class GetReplicationConfigResult
     {
+        /// <summary>
+        /// Configuration parameters for provisioning an AWS DMS Serverless replication.
+        /// </summary>
         public readonly Outputs.ReplicationConfigComputeConfig? ComputeConfig;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Replication Config

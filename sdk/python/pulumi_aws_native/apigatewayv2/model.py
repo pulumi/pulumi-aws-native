@@ -232,6 +232,9 @@ class Model(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Output[str]:
+        """
+        The model ID.
+        """
         return pulumi.get(self, "model_id")
 
     @property

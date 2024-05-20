@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTimeRangeFilterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameter type input value.
+        /// </summary>
         [Input("parameter")]
         public Input<string>? Parameter { get; set; }
 
+        /// <summary>
+        /// The rolling date input value.
+        /// </summary>
         [Input("rollingDate")]
         public Input<Inputs.TemplateRollingDateConfigurationArgs>? RollingDate { get; set; }
 
+        /// <summary>
+        /// The static input value.
+        /// </summary>
         [Input("staticValue")]
         public Input<string>? StaticValue { get; set; }
 

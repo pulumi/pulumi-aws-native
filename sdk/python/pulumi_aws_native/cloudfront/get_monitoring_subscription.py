@@ -28,6 +28,9 @@ class GetMonitoringSubscriptionResult:
     @property
     @pulumi.getter(name="monitoringSubscription")
     def monitoring_subscription(self) -> Optional['outputs.MonitoringSubscription']:
+        """
+        A subscription configuration for additional CloudWatch metrics.
+        """
         return pulumi.get(self, "monitoring_subscription")
 
 
@@ -44,6 +47,9 @@ def get_monitoring_subscription(distribution_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringSubscriptionResult:
     """
     Resource Type definition for AWS::CloudFront::MonitoringSubscription
+
+
+    :param str distribution_id: The ID of the distribution that you are enabling metrics for.
     """
     __args__ = dict()
     __args__['distributionId'] = distribution_id
@@ -59,5 +65,8 @@ def get_monitoring_subscription_output(distribution_id: Optional[pulumi.Input[st
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringSubscriptionResult]:
     """
     Resource Type definition for AWS::CloudFront::MonitoringSubscription
+
+
+    :param str distribution_id: The ID of the distribution that you are enabling metrics for.
     """
     ...

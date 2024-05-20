@@ -15,15 +15,31 @@ namespace Pulumi.AwsNative.StepFunctions
     [AwsNativeResourceType("aws-native:stepfunctions:StateMachineVersion")]
     public partial class StateMachineVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description of the state machine version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the state machine.
+        /// </summary>
         [Output("stateMachineArn")]
         public Output<string> StateMachineArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+        /// 
+        /// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+        /// 
+        /// To specify the initial state machine revision, set the value as `INITIAL` .
+        /// </summary>
         [Output("stateMachineRevisionId")]
         public Output<string?> StateMachineRevisionId { get; private set; } = null!;
 
@@ -77,12 +93,25 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class StateMachineVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An optional description of the state machine version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the state machine.
+        /// </summary>
         [Input("stateMachineArn", required: true)]
         public Input<string> StateMachineArn { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+        /// 
+        /// Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+        /// 
+        /// To specify the initial state machine revision, set the value as `INITIAL` .
+        /// </summary>
         [Input("stateMachineRevisionId")]
         public Input<string>? StateMachineRevisionId { get; set; }
 

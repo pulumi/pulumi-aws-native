@@ -23,11 +23,14 @@ func LookupAppBlock(ctx *pulumi.Context, args *LookupAppBlockArgs, opts ...pulum
 }
 
 type LookupAppBlockArgs struct {
+	// The ARN of the app block.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupAppBlockResult struct {
-	Arn         *string `pulumi:"arn"`
+	// The ARN of the app block.
+	Arn *string `pulumi:"arn"`
+	// The time when the app block was created.
 	CreatedTime *string `pulumi:"createdTime"`
 }
 
@@ -45,6 +48,7 @@ func LookupAppBlockOutput(ctx *pulumi.Context, args LookupAppBlockOutputArgs, op
 }
 
 type LookupAppBlockOutputArgs struct {
+	// The ARN of the app block.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupAppBlockResultOutput) ToLookupAppBlockResultOutputWithContext(ctx 
 	return o
 }
 
+// The ARN of the app block.
 func (o LookupAppBlockResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The time when the app block was created.
 func (o LookupAppBlockResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }

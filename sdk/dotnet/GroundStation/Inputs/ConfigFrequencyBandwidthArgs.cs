@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigFrequencyBandwidthArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The units of the bandwidth.
+        /// </summary>
         [Input("units")]
         public Input<Pulumi.AwsNative.GroundStation.ConfigBandwidthUnits>? Units { get; set; }
 
+        /// <summary>
+        /// The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations: 
+        /// 
+        /// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+        /// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+        /// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
+        /// </summary>
         [Input("value")]
         public Input<double>? Value { get; set; }
 

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class CalculatedAttributeDefinitionThreshold
     {
+        /// <summary>
+        /// The operator of the threshold.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.CalculatedAttributeDefinitionThresholdOperator Operator;
+        /// <summary>
+        /// The value of the threshold.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

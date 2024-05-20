@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.PipeFilterArgs>? _filters;
+
+        /// <summary>
+        /// The event patterns.
+        /// </summary>
         public InputList<Inputs.PipeFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.PipeFilterArgs>());

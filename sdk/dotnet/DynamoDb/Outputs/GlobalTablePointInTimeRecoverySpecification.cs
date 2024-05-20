@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTablePointInTimeRecoverySpecification
     {
+        /// <summary>
+        /// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        /// </summary>
         public readonly bool? PointInTimeRecoveryEnabled;
 
         [OutputConstructor]

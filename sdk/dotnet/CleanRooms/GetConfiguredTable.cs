@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetConfiguredTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Input("configuredTableIdentifier", required: true)]
         public string ConfiguredTableIdentifier { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetConfiguredTableInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Input("configuredTableIdentifier", required: true)]
         public Input<string> ConfiguredTableIdentifier { get; set; } = null!;
 
@@ -51,10 +61,29 @@ namespace Pulumi.AwsNative.CleanRooms
     [OutputType]
     public sealed class GetConfiguredTableResult
     {
+        /// <summary>
+        /// The entire created analysis rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfiguredTableAnalysisRule> AnalysisRules;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified configured table.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         public readonly string? ConfiguredTableIdentifier;
+        /// <summary>
+        /// A description for the configured table.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A name for the configured table.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

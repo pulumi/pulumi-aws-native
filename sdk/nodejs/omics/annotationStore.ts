@@ -37,19 +37,61 @@ export class AnnotationStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnnotationStore.__pulumiType;
     }
 
+    /**
+     * The store's ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * When the store was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * A description for the store.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Annotation Store.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The genome reference for the store's annotations.
+     */
     public readonly reference!: pulumi.Output<outputs.omics.AnnotationStoreReferenceItem | undefined>;
+    /**
+     * The store's server-side encryption (SSE) settings.
+     */
     public readonly sseConfig!: pulumi.Output<outputs.omics.AnnotationStoreSseConfig | undefined>;
+    /**
+     * The store's status.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.omics.AnnotationStoreStoreStatus>;
+    /**
+     * The store's status message.
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * The store's ARN.
+     */
     public /*out*/ readonly storeArn!: pulumi.Output<string>;
+    /**
+     * The annotation file format of the store.
+     */
     public readonly storeFormat!: pulumi.Output<enums.omics.AnnotationStoreStoreFormat>;
+    /**
+     * File parsing options for the annotation store.
+     */
     public readonly storeOptions!: pulumi.Output<outputs.omics.AnnotationStoreStoreOptionsProperties | undefined>;
+    /**
+     * The store's size in bytes.
+     */
     public /*out*/ readonly storeSizeBytes!: pulumi.Output<number>;
+    /**
+     * Tags for the store.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * When the store was updated.
+     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -107,11 +149,32 @@ export class AnnotationStore extends pulumi.CustomResource {
  * The set of arguments for constructing a AnnotationStore resource.
  */
 export interface AnnotationStoreArgs {
+    /**
+     * A description for the store.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Annotation Store.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The genome reference for the store's annotations.
+     */
     reference?: pulumi.Input<inputs.omics.AnnotationStoreReferenceItemArgs>;
+    /**
+     * The store's server-side encryption (SSE) settings.
+     */
     sseConfig?: pulumi.Input<inputs.omics.AnnotationStoreSseConfigArgs>;
+    /**
+     * The annotation file format of the store.
+     */
     storeFormat: pulumi.Input<enums.omics.AnnotationStoreStoreFormat>;
+    /**
+     * File parsing options for the annotation store.
+     */
     storeOptions?: pulumi.Input<inputs.omics.AnnotationStoreStoreOptionsPropertiesArgs>;
+    /**
+     * Tags for the store.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

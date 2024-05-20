@@ -33,7 +33,8 @@ type LookupDatabaseResult struct {
 	BackupRetention *bool `pulumi:"backupRetention"`
 	// Indicates the certificate that needs to be associated with the database.
 	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
-	DatabaseArn             *string `pulumi:"databaseArn"`
+	// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+	DatabaseArn *string `pulumi:"databaseArn"`
 	// The daily time range during which automated backups are created for your new database if automated backups are enabled.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur on your new database.
@@ -90,6 +91,7 @@ func (o LookupDatabaseResultOutput) CaCertificateIdentifier() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 func (o LookupDatabaseResultOutput) DatabaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.DatabaseArn }).(pulumi.StringPtrOutput)
 }

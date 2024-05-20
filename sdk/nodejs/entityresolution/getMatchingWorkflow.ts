@@ -31,10 +31,25 @@ export interface GetMatchingWorkflowResult {
      * The description of the MatchingWorkflow
      */
     readonly description?: string;
+    /**
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+     */
     readonly inputSourceConfig?: outputs.entityresolution.MatchingWorkflowInputSource[];
+    /**
+     * A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
+     */
     readonly outputSourceConfig?: outputs.entityresolution.MatchingWorkflowOutputSource[];
+    /**
+     * An object which defines the `resolutionType` and the `ruleBasedProperties` .
+     */
     readonly resolutionTechniques?: outputs.entityresolution.MatchingWorkflowResolutionTechniques;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+     */
     readonly roleArn?: string;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;
     readonly workflowArn?: string;

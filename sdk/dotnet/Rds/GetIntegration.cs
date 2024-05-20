@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetIntegrationResult
     {
+        /// <summary>
+        /// The time when the integration was created, in Universal Coordinated Time (UTC).
+        /// </summary>
         public readonly string? CreateTime;
         /// <summary>
         /// The data filter for the integration.

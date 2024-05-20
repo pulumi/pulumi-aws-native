@@ -15,24 +15,41 @@ namespace Pulumi.AwsNative.Events
     [AwsNativeResourceType("aws-native:events:Archive")]
     public partial class Archive : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name for the archive to create.
+        /// </summary>
         [Output("archiveName")]
         public Output<string?> ArchiveName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the archive created.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the archive.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// An event pattern to use to filter events sent to the archive.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         /// </summary>
         [Output("eventPattern")]
         public Output<object?> EventPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+        /// </summary>
         [Output("retentionDays")]
         public Output<int?> RetentionDays { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the event bus that sends events to the archive.
+        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
@@ -86,21 +103,35 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class ArchiveArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name for the archive to create.
+        /// </summary>
         [Input("archiveName")]
         public Input<string>? ArchiveName { get; set; }
 
+        /// <summary>
+        /// A description for the archive.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// An event pattern to use to filter events sent to the archive.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         /// </summary>
         [Input("eventPattern")]
         public Input<object>? EventPattern { get; set; }
 
+        /// <summary>
+        /// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+        /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
 
+        /// <summary>
+        /// The ARN of the event bus that sends events to the archive.
+        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 

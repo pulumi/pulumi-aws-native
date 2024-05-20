@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class IpamPoolSourceResource
     {
+        /// <summary>
+        /// The source resource ID.
+        /// </summary>
         public readonly string ResourceId;
+        /// <summary>
+        /// The source resource owner.
+        /// </summary>
         public readonly string ResourceOwner;
+        /// <summary>
+        /// The source resource Region.
+        /// </summary>
         public readonly string ResourceRegion;
+        /// <summary>
+        /// The source resource type.
+        /// </summary>
         public readonly string ResourceType;
 
         [OutputConstructor]

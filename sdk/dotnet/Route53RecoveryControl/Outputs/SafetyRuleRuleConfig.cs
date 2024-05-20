@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Outputs
         /// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
         /// </summary>
         public readonly int Threshold;
+        /// <summary>
+        /// A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleRuleType Type;
 
         [OutputConstructor]

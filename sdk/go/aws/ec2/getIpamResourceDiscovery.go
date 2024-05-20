@@ -29,6 +29,7 @@ type LookupIpamResourceDiscoveryArgs struct {
 }
 
 type LookupIpamResourceDiscoveryResult struct {
+	// The resource discovery description.
 	Description *string `pulumi:"description"`
 	// Amazon Resource Name (Arn) for the Resource Discovery.
 	IpamResourceDiscoveryArn *string `pulumi:"ipamResourceDiscoveryArn"`
@@ -84,6 +85,7 @@ func (o LookupIpamResourceDiscoveryResultOutput) ToLookupIpamResourceDiscoveryRe
 	return o
 }
 
+// The resource discovery description.
 func (o LookupIpamResourceDiscoveryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamResourceDiscoveryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -37,23 +37,57 @@ export class Assessment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assessment.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the assessment.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The unique identifier for the assessment.
+     */
     public /*out*/ readonly assessmentId!: pulumi.Output<string>;
+    /**
+     * The destination that evidence reports are stored in for the assessment.
+     */
     public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentReportsDestination | undefined>;
+    /**
+     * The AWS account that's associated with the assessment.
+     */
     public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAwsAccount | undefined>;
+    /**
+     * Specifies when the assessment was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<number>;
     /**
      * The list of delegations.
      */
     public readonly delegations!: pulumi.Output<outputs.auditmanager.AssessmentDelegation[] | undefined>;
+    /**
+     * The description of the assessment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier for the framework.
+     */
     public readonly frameworkId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the assessment.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The list of roles for the specified assessment.
      */
     public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
+    /**
+     * The wrapper of AWS accounts and services that are in scope for the assessment.
+     */
     public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
+    /**
+     * The overall status of the assessment.
+     *
+     * When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+     *
+     * After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+     */
     public readonly status!: pulumi.Output<enums.auditmanager.AssessmentStatus | undefined>;
     /**
      * The tags associated with the assessment.
@@ -110,20 +144,45 @@ export class Assessment extends pulumi.CustomResource {
  * The set of arguments for constructing a Assessment resource.
  */
 export interface AssessmentArgs {
+    /**
+     * The destination that evidence reports are stored in for the assessment.
+     */
     assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs>;
+    /**
+     * The AWS account that's associated with the assessment.
+     */
     awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAwsAccountArgs>;
     /**
      * The list of delegations.
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentDelegationArgs>[]>;
+    /**
+     * The description of the assessment.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The unique identifier for the framework.
+     */
     frameworkId?: pulumi.Input<string>;
+    /**
+     * The name of the assessment.
+     */
     name?: pulumi.Input<string>;
     /**
      * The list of roles for the specified assessment.
      */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[]>;
+    /**
+     * The wrapper of AWS accounts and services that are in scope for the assessment.
+     */
     scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs>;
+    /**
+     * The overall status of the assessment.
+     *
+     * When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+     *
+     * After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+     */
     status?: pulumi.Input<enums.auditmanager.AssessmentStatus>;
     /**
      * The tags associated with the assessment.

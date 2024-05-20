@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCertificateProviderArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the certificate provider.
+        /// </summary>
         [Input("certificateProviderName", required: true)]
         public string CertificateProviderName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCertificateProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the certificate provider.
+        /// </summary>
         [Input("certificateProviderName", required: true)]
         public Input<string> CertificateProviderName { get; set; } = null!;
 
@@ -51,8 +57,23 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetCertificateProviderResult
     {
+        /// <summary>
+        /// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.IoT.CertificateProviderOperation> AccountDefaultForOperations;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+        /// 
+        /// A value similar to the following is returned:
+        /// 
+        /// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         public readonly string? LambdaFunctionArn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

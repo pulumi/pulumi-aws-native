@@ -15,18 +15,29 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of this policy.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The JSON document that describes the policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy name.
+        /// </summary>
         [Output("policyName")]
         public Output<string?> PolicyName { get; private set; } = null!;
 
@@ -83,11 +94,16 @@ namespace Pulumi.AwsNative.IoT
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The JSON document that describes the policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
 
+        /// <summary>
+        /// The policy name.
+        /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 

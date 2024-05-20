@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// </summary>
     public sealed class AssetModelMetricWindowArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tumbling time interval window.
+        /// </summary>
         [Input("tumbling")]
         public Input<Inputs.AssetModelTumblingWindowArgs>? Tumbling { get; set; }
 

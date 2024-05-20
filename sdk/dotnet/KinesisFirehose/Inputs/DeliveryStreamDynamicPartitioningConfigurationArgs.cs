@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamDynamicPartitioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
+        /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamRetryOptionsArgs>? RetryOptions { get; set; }
 

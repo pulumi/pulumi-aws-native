@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetChannelPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the channel policy.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public string ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the channel associated with the channel policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public string ChannelName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetChannelPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the channel policy.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public Input<string> ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the channel associated with the channel policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
@@ -58,6 +70,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
     public sealed class GetChannelPolicyResult
     {
         /// <summary>
+        /// The policy associated with the channel.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;

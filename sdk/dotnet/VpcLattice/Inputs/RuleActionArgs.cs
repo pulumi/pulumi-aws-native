@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class RuleActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fixed response action. The rule returns a custom HTTP response.
+        /// </summary>
         [Input("fixedResponse")]
         public Input<Inputs.RuleFixedResponseArgs>? FixedResponse { get; set; }
 
+        /// <summary>
+        /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        /// </summary>
         [Input("forward")]
         public Input<Inputs.RuleForwardArgs>? Forward { get; set; }
 

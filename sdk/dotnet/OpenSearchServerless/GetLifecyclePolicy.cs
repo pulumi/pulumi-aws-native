@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of lifecycle policy.
+        /// </summary>
         [Input("type", required: true)]
         public Pulumi.AwsNative.OpenSearchServerless.LifecyclePolicyType Type { get; set; }
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of lifecycle policy.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.OpenSearchServerless.LifecyclePolicyType> Type { get; set; } = null!;
 

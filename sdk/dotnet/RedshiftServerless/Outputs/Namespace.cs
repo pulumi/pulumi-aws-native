@@ -13,18 +13,57 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
     [OutputType]
     public sealed class Namespace
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.
+        /// </summary>
         public readonly string? AdminPasswordSecretArn;
+        /// <summary>
+        /// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
+        /// </summary>
         public readonly string? AdminPasswordSecretKmsKeyId;
+        /// <summary>
+        /// The username of the administrator for the first database created in the namespace.
+        /// </summary>
         public readonly string? AdminUsername;
+        /// <summary>
+        /// The date of when the namespace was created.
+        /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The name of the first database created in the namespace.
+        /// </summary>
         public readonly string? DbName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        /// </summary>
         public readonly string? DefaultIamRoleArn;
+        /// <summary>
+        /// A list of IAM roles to associate with the namespace.
+        /// </summary>
         public readonly ImmutableArray<string> IamRoles;
+        /// <summary>
+        /// The ID of the AWS Key Management Service key used to encrypt your data.
+        /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.RedshiftServerless.NamespaceLogExport> LogExports;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) associated with a namespace.
+        /// </summary>
         public readonly string? NamespaceArn;
+        /// <summary>
+        /// The unique identifier of a namespace.
+        /// </summary>
         public readonly string? NamespaceId;
+        /// <summary>
+        /// The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com//redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
+        /// </summary>
         public readonly string? NamespaceName;
+        /// <summary>
+        /// The status of the namespace.
+        /// </summary>
         public readonly Pulumi.AwsNative.RedshiftServerless.NamespaceStatus? Status;
 
         [OutputConstructor]

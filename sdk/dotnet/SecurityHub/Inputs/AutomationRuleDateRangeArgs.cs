@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
     public sealed class AutomationRuleDateRangeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A date range unit for the date filter.
+        /// </summary>
         [Input("unit", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleDateRangeUnit> Unit { get; set; } = null!;
 
+        /// <summary>
+        /// A date range value for the date filter.
+        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

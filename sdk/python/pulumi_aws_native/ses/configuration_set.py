@@ -25,7 +25,13 @@ class ConfigurationSetArgs:
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
+        :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         :param pulumi.Input[str] name: The name of the configuration set.
+        :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that represents the reputation settings for the configuration set.
+        :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: The name of the custom open and click tracking domain associated with the configuration set.
+        :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
@@ -45,6 +51,9 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
+        """
+        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        """
         return pulumi.get(self, "delivery_options")
 
     @delivery_options.setter
@@ -66,6 +75,9 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]:
+        """
+        An object that represents the reputation settings for the configuration set.
+        """
         return pulumi.get(self, "reputation_options")
 
     @reputation_options.setter
@@ -75,6 +87,9 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]:
+        """
+        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        """
         return pulumi.get(self, "sending_options")
 
     @sending_options.setter
@@ -84,6 +99,9 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]:
+        """
+        An object that contains information about the suppression list preferences for your account.
+        """
         return pulumi.get(self, "suppression_options")
 
     @suppression_options.setter
@@ -93,6 +111,9 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
+        """
+        The name of the custom open and click tracking domain associated with the configuration set.
+        """
         return pulumi.get(self, "tracking_options")
 
     @tracking_options.setter
@@ -102,6 +123,9 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="vdmOptions")
     def vdm_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]:
+        """
+        The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+        """
         return pulumi.get(self, "vdm_options")
 
     @vdm_options.setter
@@ -243,7 +267,13 @@ class ConfigurationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         :param pulumi.Input[str] name: The name of the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that represents the reputation settings for the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: The name of the custom open and click tracking domain associated with the configuration set.
+        :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
         ...
     @overload
@@ -444,6 +474,9 @@ class ConfigurationSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetDeliveryOptions']]:
+        """
+        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        """
         return pulumi.get(self, "delivery_options")
 
     @property
@@ -457,25 +490,40 @@ class ConfigurationSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetReputationOptions']]:
+        """
+        An object that represents the reputation settings for the configuration set.
+        """
         return pulumi.get(self, "reputation_options")
 
     @property
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetSendingOptions']]:
+        """
+        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        """
         return pulumi.get(self, "sending_options")
 
     @property
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetSuppressionOptions']]:
+        """
+        An object that contains information about the suppression list preferences for your account.
+        """
         return pulumi.get(self, "suppression_options")
 
     @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetTrackingOptions']]:
+        """
+        The name of the custom open and click tracking domain associated with the configuration set.
+        """
         return pulumi.get(self, "tracking_options")
 
     @property
     @pulumi.getter(name="vdmOptions")
     def vdm_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetVdmOptions']]:
+        """
+        The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+        """
         return pulumi.get(self, "vdm_options")
 

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("knowledgeBaseArn")]
         public Output<string> KnowledgeBaseArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about the embeddings configuration of the knowledge base.
+        /// </summary>
         [Output("knowledgeBaseConfiguration")]
         public Output<Outputs.KnowledgeBaseConfiguration> KnowledgeBaseConfiguration { get; private set; } = null!;
 
@@ -60,12 +63,24 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the knowledge base.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.KnowledgeBaseStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about the storage configuration of the knowledge base.
+        /// </summary>
         [Output("storageConfiguration")]
         public Output<Outputs.KnowledgeBaseStorageConfiguration> StorageConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -131,6 +146,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Contains details about the embeddings configuration of the knowledge base.
+        /// </summary>
         [Input("knowledgeBaseConfiguration", required: true)]
         public Input<Inputs.KnowledgeBaseConfigurationArgs> KnowledgeBaseConfiguration { get; set; } = null!;
 
@@ -146,11 +164,21 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Contains details about the storage configuration of the knowledge base.
+        /// </summary>
         [Input("storageConfiguration", required: true)]
         public Input<Inputs.KnowledgeBaseStorageConfigurationArgs> StorageConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

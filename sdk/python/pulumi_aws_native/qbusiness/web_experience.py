@@ -26,6 +26,13 @@ class WebExperienceArgs:
                  welcome_message: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebExperience resource.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
+        :param pulumi.Input[str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[str] title: The title for your Amazon Q Business web experience.
+        :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
         pulumi.set(__self__, "application_id", application_id)
         if role_arn is not None:
@@ -44,6 +51,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q Business web experience.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -53,6 +63,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -62,6 +75,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter(name="samplePromptsControlMode")
     def sample_prompts_control_mode(self) -> Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']]:
+        """
+        Determines whether sample prompts are enabled in the web experience for an end user.
+        """
         return pulumi.get(self, "sample_prompts_control_mode")
 
     @sample_prompts_control_mode.setter
@@ -71,6 +87,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter
     def subtitle(self) -> Optional[pulumi.Input[str]]:
+        """
+        A subtitle to personalize your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "subtitle")
 
     @subtitle.setter
@@ -80,6 +99,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -89,6 +111,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title for your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -98,6 +123,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter(name="welcomeMessage")
     def welcome_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message in an Amazon Q Business web experience.
+        """
         return pulumi.get(self, "welcome_message")
 
     @welcome_message.setter
@@ -123,6 +151,13 @@ class WebExperience(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
+        :param pulumi.Input[str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[str] title: The title for your Amazon Q Business web experience.
+        :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
         ...
     @overload
@@ -221,65 +256,104 @@ class WebExperience(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q Business web experience.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the Amazon Q Business application was last updated.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="defaultEndpoint")
     def default_endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
+        """
         return pulumi.get(self, "default_endpoint")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="samplePromptsControlMode")
     def sample_prompts_control_mode(self) -> pulumi.Output[Optional['WebExperienceSamplePromptsControlMode']]:
+        """
+        Determines whether sample prompts are enabled in the web experience for an end user.
+        """
         return pulumi.get(self, "sample_prompts_control_mode")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['WebExperienceStatus']:
+        """
+        The status of your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def subtitle(self) -> pulumi.Output[Optional[str]]:
+        """
+        A subtitle to personalize your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "subtitle")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[Optional[str]]:
+        """
+        The title for your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when your Amazon Q Business web experience was updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="webExperienceArn")
     def web_experience_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
+        """
         return pulumi.get(self, "web_experience_arn")
 
     @property
     @pulumi.getter(name="webExperienceId")
     def web_experience_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "web_experience_id")
 
     @property
     @pulumi.getter(name="welcomeMessage")
     def welcome_message(self) -> pulumi.Output[Optional[str]]:
+        """
+        A message in an Amazon Q Business web experience.
+        """
         return pulumi.get(self, "welcome_message")
 

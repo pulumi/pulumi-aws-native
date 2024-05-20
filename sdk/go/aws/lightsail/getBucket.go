@@ -30,9 +30,11 @@ type LookupBucketArgs struct {
 
 type LookupBucketResult struct {
 	// Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
-	AbleToUpdateBundle *bool              `pulumi:"ableToUpdateBundle"`
-	AccessRules        *BucketAccessRules `pulumi:"accessRules"`
-	BucketArn          *string            `pulumi:"bucketArn"`
+	AbleToUpdateBundle *bool `pulumi:"ableToUpdateBundle"`
+	// An object that describes the access rules for the bucket.
+	AccessRules *BucketAccessRules `pulumi:"accessRules"`
+	// The Amazon Resource Name (ARN) of the bucket.
+	BucketArn *string `pulumi:"bucketArn"`
 	// The ID of the bundle to use for the bucket.
 	BundleId *string `pulumi:"bundleId"`
 	// Specifies whether to enable or disable versioning of objects in the bucket.
@@ -88,10 +90,12 @@ func (o LookupBucketResultOutput) AbleToUpdateBundle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *bool { return v.AbleToUpdateBundle }).(pulumi.BoolPtrOutput)
 }
 
+// An object that describes the access rules for the bucket.
 func (o LookupBucketResultOutput) AccessRules() BucketAccessRulesPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *BucketAccessRules { return v.AccessRules }).(BucketAccessRulesPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the bucket.
 func (o LookupBucketResultOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.BucketArn }).(pulumi.StringPtrOutput)
 }

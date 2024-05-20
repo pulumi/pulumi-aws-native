@@ -28,6 +28,15 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
+        :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Configuration information for the file upload during chat feature.
+        :param pulumi.Input[str] description: A description for the Amazon Q Business application.
+        :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+               
+               *Required* : `Yes`
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         pulumi.set(__self__, "display_name", display_name)
         if attachments_configuration is not None:
@@ -46,6 +55,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon Q Business application.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -55,6 +67,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="attachmentsConfiguration")
     def attachments_configuration(self) -> Optional[pulumi.Input['ApplicationAttachmentsConfigurationArgs']]:
+        """
+        Configuration information for the file upload during chat feature.
+        """
         return pulumi.get(self, "attachments_configuration")
 
     @attachments_configuration.setter
@@ -64,6 +79,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Amazon Q Business application.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,6 +91,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
+        """
+        Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -82,6 +103,11 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+
+        *Required* : `Yes`
+        """
         return pulumi.get(self, "identity_center_instance_arn")
 
     @identity_center_instance_arn.setter
@@ -91,6 +117,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -100,6 +129,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -125,6 +157,15 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ApplicationAttachmentsConfigurationArgs']] attachments_configuration: Configuration information for the file upload during chat feature.
+        :param pulumi.Input[str] description: A description for the Amazon Q Business application.
+        :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
+        :param pulumi.Input[pulumi.InputType['ApplicationEncryptionConfigurationArgs']] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+               
+               *Required* : `Yes`
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         ...
     @overload
@@ -223,65 +264,106 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="attachmentsConfiguration")
     def attachments_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationAttachmentsConfiguration']]:
+        """
+        Configuration information for the file upload during chat feature.
+        """
         return pulumi.get(self, "attachments_configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the Amazon Q Business application was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the Amazon Q Business application.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon Q Business application.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationEncryptionConfiguration']]:
+        """
+        Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+        """
         return pulumi.get(self, "identity_center_application_arn")
 
     @property
     @pulumi.getter(name="identityCenterInstanceArn")
     def identity_center_instance_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+
+        *Required* : `Yes`
+        """
         return pulumi.get(self, "identity_center_instance_arn")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['ApplicationStatus']:
+        """
+        The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the Amazon Q Business application was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

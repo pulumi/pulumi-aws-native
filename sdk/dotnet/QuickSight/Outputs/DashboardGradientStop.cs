@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGradientStop
     {
+        /// <summary>
+        /// Determines the color.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// Determines the data value.
+        /// </summary>
         public readonly double? DataValue;
+        /// <summary>
+        /// Determines gradient offset value.
+        /// </summary>
         public readonly double GradientOffset;
 
         [OutputConstructor]

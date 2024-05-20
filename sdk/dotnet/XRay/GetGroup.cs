@@ -69,7 +69,16 @@ namespace Pulumi.AwsNative.XRay
         /// The case-sensitive name of the new group. Names must be unique.
         /// </summary>
         public readonly string? GroupName;
+        /// <summary>
+        /// The structure containing configurations related to insights.
+        /// 
+        /// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+        /// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
+        /// </summary>
         public readonly Outputs.GroupInsightsConfiguration? InsightsConfiguration;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

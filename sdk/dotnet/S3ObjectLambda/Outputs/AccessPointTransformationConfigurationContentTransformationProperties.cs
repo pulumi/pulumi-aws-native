@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
 {
 
+    /// <summary>
+    /// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+    /// </summary>
     [OutputType]
     public sealed class AccessPointTransformationConfigurationContentTransformationProperties
     {

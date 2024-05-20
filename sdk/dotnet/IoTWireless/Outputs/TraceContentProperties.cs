@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class TraceContentProperties
     {
+        /// <summary>
+        /// The log level for a log message. The log levels can be disabled, or set to `ERROR` to display less verbose logs containing only error information, or to `INFO` for more detailed logs
+        /// </summary>
         public readonly Pulumi.AwsNative.IoTWireless.NetworkAnalyzerConfigurationLogLevel? LogLevel;
+        /// <summary>
+        /// `FrameInfo` of your wireless device resources for the trace content. Use FrameInfo to debug the communication between your LoRaWAN end devices and the network server.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoTWireless.NetworkAnalyzerConfigurationWirelessDeviceFrameInfo? WirelessDeviceFrameInfo;
 
         [OutputConstructor]

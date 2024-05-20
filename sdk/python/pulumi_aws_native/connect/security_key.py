@@ -18,6 +18,18 @@ class SecurityKeyArgs:
                  key: pulumi.Input[str]):
         """
         The set of arguments for constructing a SecurityKey resource.
+        :param pulumi.Input[str] instance_id: The Amazon Resource Name (ARN) of the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+        :param pulumi.Input[str] key: A valid security key in PEM format. For example:
+               
+               `"-----BEGIN PUBLIC KEY-----\\ [a lot of characters] ----END PUBLIC KEY-----"`
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `1024`
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "key", key)
@@ -25,6 +37,13 @@ class SecurityKeyArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -34,6 +53,15 @@ class SecurityKeyArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        A valid security key in PEM format. For example:
+
+        `"-----BEGIN PUBLIC KEY-----\\ [a lot of characters] ----END PUBLIC KEY-----"`
+
+        *Minimum* : `1`
+
+        *Maximum* : `1024`
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -67,6 +95,18 @@ class SecurityKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_id: The Amazon Resource Name (ARN) of the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+        :param pulumi.Input[str] key: A valid security key in PEM format. For example:
+               
+               `"-----BEGIN PUBLIC KEY-----\\ [a lot of characters] ----END PUBLIC KEY-----"`
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `1024`
         """
         ...
     @overload
@@ -155,15 +195,34 @@ class SecurityKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
+        """
+        An `AssociationId` is automatically generated when a storage config is associated with an instance.
+        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        A valid security key in PEM format. For example:
+
+        `"-----BEGIN PUBLIC KEY-----\\ [a lot of characters] ----END PUBLIC KEY-----"`
+
+        *Minimum* : `1`
+
+        *Maximum* : `1024`
+        """
         return pulumi.get(self, "key")
 

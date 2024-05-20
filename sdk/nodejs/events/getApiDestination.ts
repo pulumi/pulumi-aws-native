@@ -34,12 +34,21 @@ export interface GetApiDestinationResult {
      * The arn of the connection.
      */
     readonly connectionArn?: string;
+    /**
+     * A description for the API destination to create.
+     */
     readonly description?: string;
+    /**
+     * The method to use for the request to the HTTP invocation endpoint.
+     */
     readonly httpMethod?: enums.events.ApiDestinationHttpMethod;
     /**
      * Url endpoint to invoke.
      */
     readonly invocationEndpoint?: string;
+    /**
+     * The maximum number of requests per second to send to the HTTP invocation endpoint.
+     */
     readonly invocationRateLimitPerSecond?: number;
 }
 /**

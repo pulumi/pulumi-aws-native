@@ -24,22 +24,35 @@ func LookupServiceNetworkServiceAssociation(ctx *pulumi.Context, args *LookupSer
 }
 
 type LookupServiceNetworkServiceAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the association between the service network and the service.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServiceNetworkServiceAssociationResult struct {
-	Arn                *string                                   `pulumi:"arn"`
-	CreatedAt          *string                                   `pulumi:"createdAt"`
-	DnsEntry           *ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntry"`
-	Id                 *string                                   `pulumi:"id"`
-	ServiceArn         *string                                   `pulumi:"serviceArn"`
-	ServiceId          *string                                   `pulumi:"serviceId"`
-	ServiceName        *string                                   `pulumi:"serviceName"`
-	ServiceNetworkArn  *string                                   `pulumi:"serviceNetworkArn"`
-	ServiceNetworkId   *string                                   `pulumi:"serviceNetworkId"`
-	ServiceNetworkName *string                                   `pulumi:"serviceNetworkName"`
-	Status             *ServiceNetworkServiceAssociationStatus   `pulumi:"status"`
-	Tags               []aws.Tag                                 `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the association between the service network and the service.
+	Arn *string `pulumi:"arn"`
+	// The date and time that the association was created, specified in ISO-8601 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The DNS information of the service.
+	DnsEntry *ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntry"`
+	// The ID of the of the association between the service network and the service.
+	Id *string `pulumi:"id"`
+	// The Amazon Resource Name (ARN) of the service.
+	ServiceArn *string `pulumi:"serviceArn"`
+	// The ID of the service.
+	ServiceId *string `pulumi:"serviceId"`
+	// The name of the service.
+	ServiceName *string `pulumi:"serviceName"`
+	// The Amazon Resource Name (ARN) of the service network
+	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
+	// The ID of the service network.
+	ServiceNetworkId *string `pulumi:"serviceNetworkId"`
+	// The name of the service network.
+	ServiceNetworkName *string `pulumi:"serviceNetworkName"`
+	// The status of the association between the service network and the service.
+	Status *ServiceNetworkServiceAssociationStatus `pulumi:"status"`
+	// The tags for the association.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceNetworkServiceAssociationOutput(ctx *pulumi.Context, args LookupServiceNetworkServiceAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkServiceAssociationResultOutput {
@@ -56,6 +69,7 @@ func LookupServiceNetworkServiceAssociationOutput(ctx *pulumi.Context, args Look
 }
 
 type LookupServiceNetworkServiceAssociationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the association between the service network and the service.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -77,54 +91,66 @@ func (o LookupServiceNetworkServiceAssociationResultOutput) ToLookupServiceNetwo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the association between the service network and the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the association was created, specified in ISO-8601 format.
 func (o LookupServiceNetworkServiceAssociationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The DNS information of the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) DnsEntry() ServiceNetworkServiceAssociationDnsEntryPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *ServiceNetworkServiceAssociationDnsEntry {
 		return v.DnsEntry
 	}).(ServiceNetworkServiceAssociationDnsEntryPtrOutput)
 }
 
+// The ID of the of the association between the service network and the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) ServiceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.ServiceArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service network
 func (o LookupServiceNetworkServiceAssociationResultOutput) ServiceNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.ServiceNetworkArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service network.
 func (o LookupServiceNetworkServiceAssociationResultOutput) ServiceNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.ServiceNetworkId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the service network.
 func (o LookupServiceNetworkServiceAssociationResultOutput) ServiceNetworkName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.ServiceNetworkName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the association between the service network and the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) Status() ServiceNetworkServiceAssociationStatusPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *ServiceNetworkServiceAssociationStatus {
 		return v.Status
 	}).(ServiceNetworkServiceAssociationStatusPtrOutput)
 }
 
+// The tags for the association.
 func (o LookupServiceNetworkServiceAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

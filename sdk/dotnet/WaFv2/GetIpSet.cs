@@ -27,12 +27,23 @@ namespace Pulumi.AwsNative.WaFv2
 
     public sealed class GetIpSetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the IP set.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        /// 
+        /// &gt; For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        /// </summary>
         [Input("scope", required: true)]
         public Pulumi.AwsNative.WaFv2.IpSetScope Scope { get; set; }
 
@@ -44,12 +55,23 @@ namespace Pulumi.AwsNative.WaFv2
 
     public sealed class GetIpSetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the IP set.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+        /// 
+        /// &gt; For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        /// </summary>
         [Input("scope", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.IpSetScope> Scope { get; set; } = null!;
 
@@ -67,10 +89,27 @@ namespace Pulumi.AwsNative.WaFv2
         /// List of IPAddresses.
         /// </summary>
         public readonly ImmutableArray<string> Addresses;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IP set.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A description of the IP set that helps with identification.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ID of the IP set.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The version of the IP addresses, either `IPV4` or `IPV6` .
+        /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.IpSetIpAddressVersion? IpAddressVersion;
+        /// <summary>
+        /// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// 
+        /// &gt; To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

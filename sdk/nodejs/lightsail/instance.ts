@@ -53,7 +53,15 @@ export class Instance extends pulumi.CustomResource {
      * The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
      */
     public readonly bundleId!: pulumi.Output<string>;
+    /**
+     * The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     *
+     * > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
+     */
     public readonly hardware!: pulumi.Output<outputs.lightsail.InstanceHardware | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     public /*out*/ readonly instanceArn!: pulumi.Output<string>;
     /**
      * The names to use for your new Lightsail instance.
@@ -71,7 +79,15 @@ export class Instance extends pulumi.CustomResource {
      * The name of your key pair.
      */
     public readonly keyPairName!: pulumi.Output<string | undefined>;
+    /**
+     * The location for the instance, such as the AWS Region and Availability Zone.
+     *
+     * > The `Location` property is read-only and should not be specified in a create instance or update instance request.
+     */
     public readonly location!: pulumi.Output<outputs.lightsail.InstanceLocation | undefined>;
+    /**
+     * The public ports and the monthly amount of data transfer allocated for the instance.
+     */
     public readonly networking!: pulumi.Output<outputs.lightsail.InstanceNetworking | undefined>;
     /**
      * Private IP Address of the Instance
@@ -89,6 +105,11 @@ export class Instance extends pulumi.CustomResource {
      * SSH Key Name of the  Lightsail instance.
      */
     public /*out*/ readonly sshKeyName!: pulumi.Output<string>;
+    /**
+     * The status code and the state (for example, `running` ) of the instance.
+     *
+     * > The `State` property is read-only and should not be specified in a create instance or update instance request.
+     */
     public readonly state!: pulumi.Output<outputs.lightsail.InstanceState | undefined>;
     /**
      * Support code to help identify any issues
@@ -195,6 +216,11 @@ export interface InstanceArgs {
      * The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
      */
     bundleId: pulumi.Input<string>;
+    /**
+     * The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     *
+     * > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
+     */
     hardware?: pulumi.Input<inputs.lightsail.InstanceHardwareArgs>;
     /**
      * The names to use for your new Lightsail instance.
@@ -204,8 +230,21 @@ export interface InstanceArgs {
      * The name of your key pair.
      */
     keyPairName?: pulumi.Input<string>;
+    /**
+     * The location for the instance, such as the AWS Region and Availability Zone.
+     *
+     * > The `Location` property is read-only and should not be specified in a create instance or update instance request.
+     */
     location?: pulumi.Input<inputs.lightsail.InstanceLocationArgs>;
+    /**
+     * The public ports and the monthly amount of data transfer allocated for the instance.
+     */
     networking?: pulumi.Input<inputs.lightsail.InstanceNetworkingArgs>;
+    /**
+     * The status code and the state (for example, `running` ) of the instance.
+     *
+     * > The `State` property is read-only and should not be specified in a create instance or update instance request.
+     */
     state?: pulumi.Input<inputs.lightsail.InstanceStateArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

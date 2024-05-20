@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? FontConfiguration { get; set; }
 
+        /// <summary>
+        /// Sets the horizontal text alignment of the title within each panel.
+        /// </summary>
         [Input("horizontalTextAlignment")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardHorizontalTextAlignment>? HorizontalTextAlignment { get; set; }
 
+        /// <summary>
+        /// Determines whether or not panel titles are displayed.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

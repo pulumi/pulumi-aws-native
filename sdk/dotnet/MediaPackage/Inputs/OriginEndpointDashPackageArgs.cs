@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
             set => _adTriggers = value;
         }
 
+        /// <summary>
+        /// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+        /// </summary>
         [Input("adsOnDeliveryRestrictions")]
         public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions>? AdsOnDeliveryRestrictions { get; set; }
 
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointDashEncryptionArgs>? Encryption { get; set; }
 
@@ -93,6 +99,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("segmentTemplateFormat")]
         public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageSegmentTemplateFormat>? SegmentTemplateFormat { get; set; }
 
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 

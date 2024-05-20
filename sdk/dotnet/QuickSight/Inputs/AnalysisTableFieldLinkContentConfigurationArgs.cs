@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTableFieldLinkContentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom icon content for the table link content configuration.
+        /// </summary>
         [Input("customIconContent")]
         public Input<Inputs.AnalysisTableFieldCustomIconContentArgs>? CustomIconContent { get; set; }
 
+        /// <summary>
+        /// The custom text content (value, font configuration) for the table link content configuration.
+        /// </summary>
         [Input("customTextContent")]
         public Input<Inputs.AnalysisTableFieldCustomTextContentArgs>? CustomTextContent { get; set; }
 

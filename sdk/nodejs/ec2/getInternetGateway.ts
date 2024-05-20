@@ -19,10 +19,16 @@ export function getInternetGateway(args: GetInternetGatewayArgs, opts?: pulumi.I
 }
 
 export interface GetInternetGatewayArgs {
+    /**
+     * The ID of the internet gateway.
+     */
     internetGatewayId: string;
 }
 
 export interface GetInternetGatewayResult {
+    /**
+     * The ID of the internet gateway.
+     */
     readonly internetGatewayId?: string;
     /**
      * Any tags to assign to the internet gateway.
@@ -37,5 +43,8 @@ export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opt
 }
 
 export interface GetInternetGatewayOutputArgs {
+    /**
+     * The ID of the internet gateway.
+     */
     internetGatewayId: pulumi.Input<string>;
 }

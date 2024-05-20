@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class AssistantAssociationAssociationDataArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the knowledge base.
+        /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 

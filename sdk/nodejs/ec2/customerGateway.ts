@@ -42,7 +42,13 @@ export class CustomerGateway extends pulumi.CustomResource {
      *  Default: 65000
      */
     public readonly bgpAsn!: pulumi.Output<number | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the customer gateway.
+     */
     public /*out*/ readonly customerGatewayId!: pulumi.Output<string>;
     /**
      * The name of customer gateway device.
@@ -110,6 +116,9 @@ export interface CustomerGatewayArgs {
      *  Default: 65000
      */
     bgpAsn?: pulumi.Input<number>;
+    /**
+     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     */
     certificateArn?: pulumi.Input<string>;
     /**
      * The name of customer gateway device.

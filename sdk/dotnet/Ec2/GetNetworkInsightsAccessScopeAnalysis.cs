@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsAccessScopeAnalysisArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Network Access Scope analysis.
+        /// </summary>
         [Input("networkInsightsAccessScopeAnalysisId", required: true)]
         public string NetworkInsightsAccessScopeAnalysisId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsAccessScopeAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Network Access Scope analysis.
+        /// </summary>
         [Input("networkInsightsAccessScopeAnalysisId", required: true)]
         public Input<string> NetworkInsightsAccessScopeAnalysisId { get; set; } = null!;
 
@@ -51,14 +57,41 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkInsightsAccessScopeAnalysisResult
     {
+        /// <summary>
+        /// The number of network interfaces analyzed.
+        /// </summary>
         public readonly int? AnalyzedEniCount;
+        /// <summary>
+        /// The end date of the analysis.
+        /// </summary>
         public readonly string? EndDate;
+        /// <summary>
+        /// Indicates whether there are findings (true | false | unknown).
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeAnalysisFindingsFound? FindingsFound;
+        /// <summary>
+        /// The ARN of the Network Access Scope analysis.
+        /// </summary>
         public readonly string? NetworkInsightsAccessScopeAnalysisArn;
+        /// <summary>
+        /// The ID of the Network Access Scope analysis.
+        /// </summary>
         public readonly string? NetworkInsightsAccessScopeAnalysisId;
+        /// <summary>
+        /// The start date of the analysis.
+        /// </summary>
         public readonly string? StartDate;
+        /// <summary>
+        /// The status of the analysis (running | succeeded | failed).
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeAnalysisStatus? Status;
+        /// <summary>
+        /// The status message.
+        /// </summary>
         public readonly string? StatusMessage;
+        /// <summary>
+        /// The tags.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

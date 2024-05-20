@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateCategoryFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration for a `CategoryFilter` .
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.TemplateCategoryFilterConfigurationArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+        /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.TemplateDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 

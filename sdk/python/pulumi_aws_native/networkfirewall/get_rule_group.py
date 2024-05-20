@@ -41,26 +41,43 @@ class GetRuleGroupResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the rule group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> Optional['outputs.RuleGroup']:
+        """
+        An object that defines the rule group rules.
+        """
         return pulumi.get(self, "rule_group")
 
     @property
     @pulumi.getter(name="ruleGroupArn")
     def rule_group_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the `RuleGroup` .
+        """
         return pulumi.get(self, "rule_group_arn")
 
     @property
     @pulumi.getter(name="ruleGroupId")
     def rule_group_id(self) -> Optional[str]:
+        """
+        The unique ID of the `RuleGroup` resource.
+        """
         return pulumi.get(self, "rule_group_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -81,6 +98,9 @@ def get_rule_group(rule_group_arn: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleGroupResult:
     """
     Resource type definition for AWS::NetworkFirewall::RuleGroup
+
+
+    :param str rule_group_arn: The Amazon Resource Name (ARN) of the `RuleGroup` .
     """
     __args__ = dict()
     __args__['ruleGroupArn'] = rule_group_arn
@@ -100,5 +120,8 @@ def get_rule_group_output(rule_group_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Resource type definition for AWS::NetworkFirewall::RuleGroup
+
+
+    :param str rule_group_arn: The Amazon Resource Name (ARN) of the `RuleGroup` .
     """
     ...

@@ -19,13 +19,28 @@ export function getStoredQuery(args: GetStoredQueryArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetStoredQueryArgs {
+    /**
+     * The name of the query.
+     */
     queryName: string;
 }
 
 export interface GetStoredQueryResult {
+    /**
+     * Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+     */
     readonly queryArn?: string;
+    /**
+     * A unique description for the query.
+     */
     readonly queryDescription?: string;
+    /**
+     * The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+     */
     readonly queryExpression?: string;
+    /**
+     * The ID of the query.
+     */
     readonly queryId?: string;
     /**
      * The tags for the stored query.
@@ -40,5 +55,8 @@ export function getStoredQueryOutput(args: GetStoredQueryOutputArgs, opts?: pulu
 }
 
 export interface GetStoredQueryOutputArgs {
+    /**
+     * The name of the query.
+     */
     queryName: pulumi.Input<string>;
 }

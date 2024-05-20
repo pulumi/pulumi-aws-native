@@ -55,9 +55,15 @@ namespace Pulumi.AwsNative.DataBrew
     [AwsNativeResourceType("aws-native:databrew:Job")]
     public partial class Job : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        /// </summary>
         [Output("dataCatalogOutputs")]
         public Output<ImmutableArray<Outputs.JobDataCatalogOutput>> DataCatalogOutputs { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        /// </summary>
         [Output("databaseOutputs")]
         public Output<ImmutableArray<Outputs.JobDatabaseOutput>> DatabaseOutputs { get; private set; } = null!;
 
@@ -115,6 +121,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("outputLocation")]
         public Output<Outputs.JobOutputLocation?> OutputLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more artifacts that represent output from running the job.
+        /// </summary>
         [Output("outputs")]
         public Output<ImmutableArray<Outputs.JobOutput>> Outputs { get; private set; } = null!;
 
@@ -130,6 +139,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("projectName")]
         public Output<string?> ProjectName { get; private set; } = null!;
 
+        /// <summary>
+        /// A series of data transformation steps that the job runs.
+        /// </summary>
         [Output("recipe")]
         public Output<Outputs.JobRecipe?> Recipe { get; private set; } = null!;
 
@@ -139,6 +151,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata tags that have been applied to the job.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -213,6 +228,10 @@ namespace Pulumi.AwsNative.DataBrew
     {
         [Input("dataCatalogOutputs")]
         private InputList<Inputs.JobDataCatalogOutputArgs>? _dataCatalogOutputs;
+
+        /// <summary>
+        /// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        /// </summary>
         public InputList<Inputs.JobDataCatalogOutputArgs> DataCatalogOutputs
         {
             get => _dataCatalogOutputs ?? (_dataCatalogOutputs = new InputList<Inputs.JobDataCatalogOutputArgs>());
@@ -221,6 +240,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("databaseOutputs")]
         private InputList<Inputs.JobDatabaseOutputArgs>? _databaseOutputs;
+
+        /// <summary>
+        /// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        /// </summary>
         public InputList<Inputs.JobDatabaseOutputArgs> DatabaseOutputs
         {
             get => _databaseOutputs ?? (_databaseOutputs = new InputList<Inputs.JobDatabaseOutputArgs>());
@@ -283,6 +306,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("outputs")]
         private InputList<Inputs.JobOutputArgs>? _outputs;
+
+        /// <summary>
+        /// One or more artifacts that represent output from running the job.
+        /// </summary>
         public InputList<Inputs.JobOutputArgs> Outputs
         {
             get => _outputs ?? (_outputs = new InputList<Inputs.JobOutputArgs>());
@@ -301,6 +328,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
+        /// <summary>
+        /// A series of data transformation steps that the job runs.
+        /// </summary>
         [Input("recipe")]
         public Input<Inputs.JobRecipeArgs>? Recipe { get; set; }
 
@@ -312,6 +342,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata tags that have been applied to the job.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

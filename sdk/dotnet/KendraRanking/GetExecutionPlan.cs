@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.KendraRanking
 
     public sealed class GetExecutionPlanArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the rescore execution plan.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.KendraRanking
 
     public sealed class GetExecutionPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the rescore execution plan.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.KendraRanking
     [OutputType]
     public sealed class GetExecutionPlanResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rescore execution plan.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Capacity units
@@ -60,7 +69,13 @@ namespace Pulumi.AwsNative.KendraRanking
         /// A description for the execution plan
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The identifier of the rescore execution plan.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A name for the rescore execution plan.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// Tags for labeling the execution plan

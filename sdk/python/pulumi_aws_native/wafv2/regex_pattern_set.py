@@ -24,9 +24,13 @@ class RegexPatternSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regular_expression_list: The regular expression patterns in the set.
         :param pulumi.Input['RegexPatternSetScope'] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         :param pulumi.Input[str] description: Description of the entity.
         :param pulumi.Input[str] name: Name of the RegexPatternSet.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+               
+               > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
         """
         pulumi.set(__self__, "regular_expression_list", regular_expression_list)
         pulumi.set(__self__, "scope", scope)
@@ -40,6 +44,9 @@ class RegexPatternSetArgs:
     @property
     @pulumi.getter(name="regularExpressionList")
     def regular_expression_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The regular expression patterns in the set.
+        """
         return pulumi.get(self, "regular_expression_list")
 
     @regular_expression_list.setter
@@ -85,6 +92,11 @@ class RegexPatternSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+
+        > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -110,7 +122,11 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the entity.
         :param pulumi.Input[str] name: Name of the RegexPatternSet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regular_expression_list: The regular expression patterns in the set.
         :param pulumi.Input['RegexPatternSetScope'] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+               
+               > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
         """
         ...
     @overload
@@ -229,6 +245,9 @@ class RegexPatternSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="regularExpressionList")
     def regular_expression_list(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The regular expression patterns in the set.
+        """
         return pulumi.get(self, "regular_expression_list")
 
     @property
@@ -242,5 +261,10 @@ class RegexPatternSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+
+        > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        """
         return pulumi.get(self, "tags")
 

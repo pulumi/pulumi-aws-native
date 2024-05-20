@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateComboChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The item limit configuration for the category field well of a combo chart.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of the category field well in a combo chart.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The item limit configuration of the color field well in a combo chart.
+        /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }
 
         [Input("colorSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _colorSort;
+
+        /// <summary>
+        /// The sort configuration of the color field well in a combo chart.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> ColorSort
         {
             get => _colorSort ?? (_colorSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());

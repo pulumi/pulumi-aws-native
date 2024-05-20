@@ -37,11 +37,35 @@ export class View extends pulumi.CustomResource {
         return obj['__pulumiType'] === View.__pulumiType;
     }
 
+    /**
+     * An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+     *
+     * For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+     *
+     * > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+     */
     public readonly filters!: pulumi.Output<outputs.resourceexplorer2.ViewSearchFilter | undefined>;
+    /**
+     * A list of fields that provide additional information about the view.
+     */
     public readonly includedProperties!: pulumi.Output<outputs.resourceexplorer2.ViewIncludedProperty[] | undefined>;
+    /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Tag key and value pairs that are attached to the view.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARN of the new view. For example:
+     *
+     * `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+     */
     public /*out*/ readonly viewArn!: pulumi.Output<string>;
+    /**
+     * The name of the new view.
+     */
     public readonly viewName!: pulumi.Output<string>;
 
     /**
@@ -80,9 +104,28 @@ export class View extends pulumi.CustomResource {
  * The set of arguments for constructing a View resource.
  */
 export interface ViewArgs {
+    /**
+     * An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+     *
+     * For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+     *
+     * > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+     */
     filters?: pulumi.Input<inputs.resourceexplorer2.ViewSearchFilterArgs>;
+    /**
+     * A list of fields that provide additional information about the view.
+     */
     includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer2.ViewIncludedPropertyArgs>[]>;
+    /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Tag key and value pairs that are attached to the view.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The name of the new view.
+     */
     viewName?: pulumi.Input<string>;
 }

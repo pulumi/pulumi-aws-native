@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class PatchBaselinePatchFilterGroup
     {
+        /// <summary>
+        /// The set of patch filters that make up the group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PatchBaselinePatchFilter> PatchFilters;
 
         [OutputConstructor]

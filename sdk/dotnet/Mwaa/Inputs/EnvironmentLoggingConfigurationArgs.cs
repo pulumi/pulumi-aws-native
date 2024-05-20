@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Mwaa.Inputs
     /// </summary>
     public sealed class EnvironmentLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         [Input("dagProcessingLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? DagProcessingLogs { get; set; }
 
+        /// <summary>
+        /// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         [Input("schedulerLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? SchedulerLogs { get; set; }
 
+        /// <summary>
+        /// Defines the task logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         [Input("taskLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? TaskLogs { get; set; }
 
+        /// <summary>
+        /// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         [Input("webserverLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? WebserverLogs { get; set; }
 
+        /// <summary>
+        /// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         [Input("workerLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? WorkerLogs { get; set; }
 

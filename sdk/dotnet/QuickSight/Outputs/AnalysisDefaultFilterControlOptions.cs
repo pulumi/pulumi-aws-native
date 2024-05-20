@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultFilterControlOptions
     {
+        /// <summary>
+        /// The default options that correspond to the filter control type of a `DateTimePicker` .
+        /// </summary>
         public readonly Outputs.AnalysisDefaultDateTimePickerControlOptions? DefaultDateTimePickerOptions;
+        /// <summary>
+        /// The default options that correspond to the `Dropdown` filter control type.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultFilterDropDownControlOptions? DefaultDropdownOptions;
+        /// <summary>
+        /// The default options that correspond to the `List` filter control type.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultFilterListControlOptions? DefaultListOptions;
+        /// <summary>
+        /// The default options that correspond to the `RelativeDateTime` filter control type.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultRelativeDateTimeControlOptions? DefaultRelativeDateTimeOptions;
+        /// <summary>
+        /// The default options that correspond to the `Slider` filter control type.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultSliderControlOptions? DefaultSliderOptions;
+        /// <summary>
+        /// The default options that correspond to the `TextArea` filter control type.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultTextAreaControlOptions? DefaultTextAreaOptions;
+        /// <summary>
+        /// The default options that correspond to the `TextField` filter control type.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultTextFieldControlOptions? DefaultTextFieldOptions;
 
         [OutputConstructor]

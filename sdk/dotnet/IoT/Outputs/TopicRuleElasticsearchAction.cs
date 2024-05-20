@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleElasticsearchAction
     {
+        /// <summary>
+        /// The endpoint of your OpenSearch domain.
+        /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// The unique identifier for the document you are storing.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The index where you want to store your data.
+        /// </summary>
         public readonly string Index;
+        /// <summary>
+        /// The IAM role ARN that has access to OpenSearch.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The type of document you are storing.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

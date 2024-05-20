@@ -14,15 +14,28 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("axisLabelOptions")]
         private InputList<Inputs.AnalysisAxisLabelOptionsArgs>? _axisLabelOptions;
+
+        /// <summary>
+        /// The label options for a chart axis.
+        /// </summary>
         public InputList<Inputs.AnalysisAxisLabelOptionsArgs> AxisLabelOptions
         {
             get => _axisLabelOptions ?? (_axisLabelOptions = new InputList<Inputs.AnalysisAxisLabelOptionsArgs>());
             set => _axisLabelOptions = value;
         }
 
+        /// <summary>
+        /// The visibility configuration of the sort icon on a chart's axis label.
+        /// </summary>
         [Input("sortIconVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? SortIconVisibility { get; set; }
 
+        /// <summary>
+        /// The visibility of an axis label on a chart. Choose one of the following options:
+        /// 
+        /// - `VISIBLE` : Shows the axis.
+        /// - `HIDDEN` : Hides the axis.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

@@ -38,6 +38,9 @@ export class ApiMapping extends pulumi.CustomResource {
      * The identifier of the API.
      */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The API mapping resource ID.
+     */
     public /*out*/ readonly apiMappingId!: pulumi.Output<string>;
     /**
      * The API mapping key.

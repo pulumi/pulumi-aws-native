@@ -24,11 +24,14 @@ func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConne
 }
 
 type LookupVpcPeeringConnectionArgs struct {
+	// The ID of the peering connection.
 	Id string `pulumi:"id"`
 }
 
 type LookupVpcPeeringConnectionResult struct {
-	Id   *string   `pulumi:"id"`
+	// The ID of the peering connection.
+	Id *string `pulumi:"id"`
+	// Any tags assigned to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -46,6 +49,7 @@ func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeering
 }
 
 type LookupVpcPeeringConnectionOutputArgs struct {
+	// The ID of the peering connection.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,10 +71,12 @@ func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResu
 	return o
 }
 
+// The ID of the peering connection.
 func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Any tags assigned to the resource.
 func (o LookupVpcPeeringConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -41,10 +41,21 @@ export class ModelPackageGroup extends pulumi.CustomResource {
      * The time at which the model package group was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the model group.
+     */
     public /*out*/ readonly modelPackageGroupArn!: pulumi.Output<string>;
+    /**
+     * The description for the model group.
+     */
     public readonly modelPackageGroupDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the model group.
+     */
     public readonly modelPackageGroupName!: pulumi.Output<string>;
     /**
+     * A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
      */
     public readonly modelPackageGroupPolicy!: pulumi.Output<any | undefined>;
@@ -95,9 +106,17 @@ export class ModelPackageGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelPackageGroup resource.
  */
 export interface ModelPackageGroupArgs {
+    /**
+     * The description for the model group.
+     */
     modelPackageGroupDescription?: pulumi.Input<string>;
+    /**
+     * The name of the model group.
+     */
     modelPackageGroupName?: pulumi.Input<string>;
     /**
+     * A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
      */
     modelPackageGroupPolicy?: any;

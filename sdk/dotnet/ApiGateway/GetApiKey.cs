@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetApiKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the API key. For example: `abc123` .
+        /// </summary>
         [Input("apiKeyId", required: true)]
         public string ApiKeyId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetApiKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the API key. For example: `abc123` .
+        /// </summary>
         [Input("apiKeyId", required: true)]
         public Input<string> ApiKeyId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetApiKeyResult
     {
+        /// <summary>
+        /// The ID for the API key. For example: `abc123` .
+        /// </summary>
         public readonly string? ApiKeyId;
         /// <summary>
         /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.

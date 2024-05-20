@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensDataExport
     {
+        /// <summary>
+        /// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
+        /// </summary>
         public readonly Outputs.StorageLensCloudWatchMetrics? CloudWatchMetrics;
+        /// <summary>
+        /// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
+        /// </summary>
         public readonly Outputs.StorageLensS3BucketDestination? S3BucketDestination;
 
         [OutputConstructor]

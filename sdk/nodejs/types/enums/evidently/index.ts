@@ -7,6 +7,11 @@ export const ExperimentMetricGoalObjectDesiredChange = {
     Decrease: "DECREASE",
 } as const;
 
+/**
+ * `INCREASE` means that a variation with a higher number for this metric is performing better.
+ *
+ * `DECREASE` means that a variation with a lower number for this metric is performing better.
+ */
 export type ExperimentMetricGoalObjectDesiredChange = (typeof ExperimentMetricGoalObjectDesiredChange)[keyof typeof ExperimentMetricGoalObjectDesiredChange];
 
 export const FeatureEvaluationStrategy = {
@@ -14,4 +19,7 @@ export const FeatureEvaluationStrategy = {
     DefaultVariation: "DEFAULT_VARIATION",
 } as const;
 
+/**
+ * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+ */
 export type FeatureEvaluationStrategy = (typeof FeatureEvaluationStrategy)[keyof typeof FeatureEvaluationStrategy];

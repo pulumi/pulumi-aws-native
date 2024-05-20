@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class ConnectorPlugin
     {
+        /// <summary>
+        /// Details about a custom plugin.
+        /// </summary>
         public readonly Outputs.ConnectorCustomPlugin CustomPlugin;
 
         [OutputConstructor]

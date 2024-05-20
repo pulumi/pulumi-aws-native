@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAddOns
     {
+        /// <summary>
+        /// The operating mode of advanced security features in your user pool.
+        /// </summary>
         public readonly string? AdvancedSecurityMode;
 
         [OutputConstructor]

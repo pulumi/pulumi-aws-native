@@ -34,6 +34,11 @@ export class MountTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === MountTarget.__pulumiType;
     }
 
+    /**
+     * The ID of the Amazon EFS file system that the mount target provides access to.
+     *
+     * Example: `fs-0123456789111222a`
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The ID of the file system for which to create the mount target.

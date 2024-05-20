@@ -24,22 +24,35 @@ func LookupPlugin(ctx *pulumi.Context, args *LookupPluginArgs, opts ...pulumi.In
 }
 
 type LookupPluginArgs struct {
+	// The identifier of the application that will contain the plugin.
 	ApplicationId string `pulumi:"applicationId"`
-	PluginId      string `pulumi:"pluginId"`
+	// The identifier of the plugin.
+	PluginId string `pulumi:"pluginId"`
 }
 
 type LookupPluginResult struct {
-	AuthConfiguration         interface{}                      `pulumi:"authConfiguration"`
-	BuildStatus               *PluginBuildStatus               `pulumi:"buildStatus"`
-	CreatedAt                 *string                          `pulumi:"createdAt"`
+	// Authentication configuration information for an Amazon Q Business plugin.
+	AuthConfiguration interface{} `pulumi:"authConfiguration"`
+	// The current status of a plugin. A plugin is modified asynchronously.
+	BuildStatus *PluginBuildStatus `pulumi:"buildStatus"`
+	// The timestamp for when the plugin was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Configuration information required to create a custom plugin.
 	CustomPluginConfiguration *PluginCustomPluginConfiguration `pulumi:"customPluginConfiguration"`
-	DisplayName               *string                          `pulumi:"displayName"`
-	PluginArn                 *string                          `pulumi:"pluginArn"`
-	PluginId                  *string                          `pulumi:"pluginId"`
-	ServerUrl                 *string                          `pulumi:"serverUrl"`
-	State                     *PluginStateEnum                 `pulumi:"state"`
-	Tags                      []aws.Tag                        `pulumi:"tags"`
-	UpdatedAt                 *string                          `pulumi:"updatedAt"`
+	// The name of the plugin.
+	DisplayName *string `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of a plugin.
+	PluginArn *string `pulumi:"pluginArn"`
+	// The identifier of the plugin.
+	PluginId *string `pulumi:"pluginId"`
+	// The plugin server URL used for configuration.
+	ServerUrl *string `pulumi:"serverUrl"`
+	// The current status of the plugin.
+	State *PluginStateEnum `pulumi:"state"`
+	// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The timestamp for when the plugin was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupPluginOutput(ctx *pulumi.Context, args LookupPluginOutputArgs, opts ...pulumi.InvokeOption) LookupPluginResultOutput {
@@ -56,8 +69,10 @@ func LookupPluginOutput(ctx *pulumi.Context, args LookupPluginOutputArgs, opts .
 }
 
 type LookupPluginOutputArgs struct {
+	// The identifier of the application that will contain the plugin.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	PluginId      pulumi.StringInput `pulumi:"pluginId"`
+	// The identifier of the plugin.
+	PluginId pulumi.StringInput `pulumi:"pluginId"`
 }
 
 func (LookupPluginOutputArgs) ElementType() reflect.Type {
@@ -78,46 +93,57 @@ func (o LookupPluginResultOutput) ToLookupPluginResultOutputWithContext(ctx cont
 	return o
 }
 
+// Authentication configuration information for an Amazon Q Business plugin.
 func (o LookupPluginResultOutput) AuthConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPluginResult) interface{} { return v.AuthConfiguration }).(pulumi.AnyOutput)
 }
 
+// The current status of a plugin. A plugin is modified asynchronously.
 func (o LookupPluginResultOutput) BuildStatus() PluginBuildStatusPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *PluginBuildStatus { return v.BuildStatus }).(PluginBuildStatusPtrOutput)
 }
 
+// The timestamp for when the plugin was created.
 func (o LookupPluginResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Configuration information required to create a custom plugin.
 func (o LookupPluginResultOutput) CustomPluginConfiguration() PluginCustomPluginConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *PluginCustomPluginConfiguration { return v.CustomPluginConfiguration }).(PluginCustomPluginConfigurationPtrOutput)
 }
 
+// The name of the plugin.
 func (o LookupPluginResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of a plugin.
 func (o LookupPluginResultOutput) PluginArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *string { return v.PluginArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the plugin.
 func (o LookupPluginResultOutput) PluginId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *string { return v.PluginId }).(pulumi.StringPtrOutput)
 }
 
+// The plugin server URL used for configuration.
 func (o LookupPluginResultOutput) ServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the plugin.
 func (o LookupPluginResultOutput) State() PluginStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *PluginStateEnum { return v.State }).(PluginStateEnumPtrOutput)
 }
 
+// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupPluginResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPluginResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the plugin was last updated.
 func (o LookupPluginResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

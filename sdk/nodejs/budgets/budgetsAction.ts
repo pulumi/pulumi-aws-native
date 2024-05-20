@@ -37,15 +37,45 @@ export class BudgetsAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === BudgetsAction.__pulumiType;
     }
 
+    /**
+     * A system-generated universally unique identifier (UUID) for the action.
+     */
     public /*out*/ readonly actionId!: pulumi.Output<string>;
+    /**
+     * The trigger threshold of the action.
+     */
     public readonly actionThreshold!: pulumi.Output<outputs.budgets.BudgetsActionActionThreshold>;
+    /**
+     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+     */
     public readonly actionType!: pulumi.Output<enums.budgets.BudgetsActionActionType>;
+    /**
+     * This specifies if the action needs manual or automatic approval.
+     */
     public readonly approvalModel!: pulumi.Output<enums.budgets.BudgetsActionApprovalModel | undefined>;
+    /**
+     * A string that represents the budget name. ":" and "\" characters aren't allowed.
+     */
     public readonly budgetName!: pulumi.Output<string>;
+    /**
+     * Specifies all of the type-specific parameters.
+     */
     public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
+    /**
+     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     */
     public readonly executionRoleArn!: pulumi.Output<string>;
+    /**
+     * The type of a notification.
+     */
     public readonly notificationType!: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
+    /**
+     * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+     */
     public readonly resourceTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * A list of subscribers.
+     */
     public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[]>;
 
     /**
@@ -113,13 +143,40 @@ export class BudgetsAction extends pulumi.CustomResource {
  * The set of arguments for constructing a BudgetsAction resource.
  */
 export interface BudgetsActionArgs {
+    /**
+     * The trigger threshold of the action.
+     */
     actionThreshold: pulumi.Input<inputs.budgets.BudgetsActionActionThresholdArgs>;
+    /**
+     * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+     */
     actionType: pulumi.Input<enums.budgets.BudgetsActionActionType>;
+    /**
+     * This specifies if the action needs manual or automatic approval.
+     */
     approvalModel?: pulumi.Input<enums.budgets.BudgetsActionApprovalModel>;
+    /**
+     * A string that represents the budget name. ":" and "\" characters aren't allowed.
+     */
     budgetName: pulumi.Input<string>;
+    /**
+     * Specifies all of the type-specific parameters.
+     */
     definition: pulumi.Input<inputs.budgets.BudgetsActionDefinitionArgs>;
+    /**
+     * The role passed for action execution and reversion. Roles and actions must be in the same account.
+     */
     executionRoleArn: pulumi.Input<string>;
+    /**
+     * The type of a notification.
+     */
     notificationType: pulumi.Input<enums.budgets.BudgetsActionNotificationType>;
+    /**
+     * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+     */
     resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * A list of subscribers.
+     */
     subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
 }

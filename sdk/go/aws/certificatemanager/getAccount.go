@@ -23,11 +23,14 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
+	// ID of the AWS account that owns the certificate.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupAccountResult struct {
-	AccountId                 *string                           `pulumi:"accountId"`
+	// ID of the AWS account that owns the certificate.
+	AccountId *string `pulumi:"accountId"`
+	// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 	ExpiryEventsConfiguration *AccountExpiryEventsConfiguration `pulumi:"expiryEventsConfiguration"`
 }
 
@@ -45,6 +48,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 }
 
 type LookupAccountOutputArgs struct {
+	// ID of the AWS account that owns the certificate.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
+// ID of the AWS account that owns the certificate.
 func (o LookupAccountResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
+// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 func (o LookupAccountResultOutput) ExpiryEventsConfiguration() AccountExpiryEventsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *AccountExpiryEventsConfiguration { return v.ExpiryEventsConfiguration }).(AccountExpiryEventsConfigurationPtrOutput)
 }

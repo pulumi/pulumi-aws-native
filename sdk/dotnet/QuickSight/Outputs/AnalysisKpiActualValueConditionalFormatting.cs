@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisKpiActualValueConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting of the actual value's icon.
+        /// </summary>
         public readonly Outputs.AnalysisConditionalFormattingIcon? Icon;
+        /// <summary>
+        /// The conditional formatting of the actual value's text color.
+        /// </summary>
         public readonly Outputs.AnalysisConditionalFormattingColor? TextColor;
 
         [OutputConstructor]

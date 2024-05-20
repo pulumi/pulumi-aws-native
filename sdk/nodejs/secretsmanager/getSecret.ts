@@ -24,6 +24,9 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetSecretArgs {
+    /**
+     * The ARN of the secret.
+     */
     id: string;
 }
 
@@ -32,6 +35,9 @@ export interface GetSecretResult {
      * The description of the secret.
      */
     readonly description?: string;
+    /**
+     * The ARN of the secret.
+     */
     readonly id?: string;
     /**
      * The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the secret value in the secret. An alias is always prefixed by ``alias/``, for example ``alias/aws/secretsmanager``. For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html).
@@ -74,5 +80,8 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetSecretOutputArgs {
+    /**
+     * The ARN of the secret.
+     */
     id: pulumi.Input<string>;
 }

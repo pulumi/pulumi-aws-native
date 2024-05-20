@@ -49,6 +49,9 @@ export class Database extends pulumi.CustomResource {
      * Indicates the certificate that needs to be associated with the database.
      */
     public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     public /*out*/ readonly databaseArn!: pulumi.Output<string>;
     /**
      * The name of the database to create when the Lightsail database resource is created. For MySQL, if this parameter isn't specified, no database is created in the database resource. For PostgreSQL, if this parameter isn't specified, a database named postgres is created in the database resource.

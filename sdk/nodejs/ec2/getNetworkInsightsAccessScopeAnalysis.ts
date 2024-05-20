@@ -19,18 +19,48 @@ export function getNetworkInsightsAccessScopeAnalysis(args: GetNetworkInsightsAc
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisArgs {
+    /**
+     * The ID of the Network Access Scope analysis.
+     */
     networkInsightsAccessScopeAnalysisId: string;
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisResult {
+    /**
+     * The number of network interfaces analyzed.
+     */
     readonly analyzedEniCount?: number;
+    /**
+     * The end date of the analysis.
+     */
     readonly endDate?: string;
+    /**
+     * Indicates whether there are findings (true | false | unknown).
+     */
     readonly findingsFound?: enums.ec2.NetworkInsightsAccessScopeAnalysisFindingsFound;
+    /**
+     * The ARN of the Network Access Scope analysis.
+     */
     readonly networkInsightsAccessScopeAnalysisArn?: string;
+    /**
+     * The ID of the Network Access Scope analysis.
+     */
     readonly networkInsightsAccessScopeAnalysisId?: string;
+    /**
+     * The start date of the analysis.
+     */
     readonly startDate?: string;
+    /**
+     * The status of the analysis (running | succeeded | failed).
+     */
     readonly status?: enums.ec2.NetworkInsightsAccessScopeAnalysisStatus;
+    /**
+     * The status message.
+     */
     readonly statusMessage?: string;
+    /**
+     * The tags.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -41,5 +71,8 @@ export function getNetworkInsightsAccessScopeAnalysisOutput(args: GetNetworkInsi
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisOutputArgs {
+    /**
+     * The ID of the Network Access Scope analysis.
+     */
     networkInsightsAccessScopeAnalysisId: pulumi.Input<string>;
 }

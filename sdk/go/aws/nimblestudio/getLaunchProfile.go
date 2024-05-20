@@ -23,6 +23,7 @@ func LookupLaunchProfile(ctx *pulumi.Context, args *LookupLaunchProfileArgs, opt
 }
 
 type LookupLaunchProfileArgs struct {
+	// The unique identifier for the launch profile resource.
 	LaunchProfileId string `pulumi:"launchProfileId"`
 	// <p>The studio ID. </p>
 	StudioId string `pulumi:"studioId"`
@@ -30,13 +31,15 @@ type LookupLaunchProfileArgs struct {
 
 type LookupLaunchProfileResult struct {
 	// <p>The description.</p>
-	Description     *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The unique identifier for the launch profile resource.
 	LaunchProfileId *string `pulumi:"launchProfileId"`
 	// <p>The version number of the protocol that is used by the launch profile. The only valid
 	//             version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
 	// <p>The name for the launch profile.</p>
-	Name                *string                           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A configuration for a streaming session.
 	StreamConfiguration *LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
 	// <p>Unique identifiers for a collection of studio components that can be used with this
 	//             launch profile.</p>
@@ -57,6 +60,7 @@ func LookupLaunchProfileOutput(ctx *pulumi.Context, args LookupLaunchProfileOutp
 }
 
 type LookupLaunchProfileOutputArgs struct {
+	// The unique identifier for the launch profile resource.
 	LaunchProfileId pulumi.StringInput `pulumi:"launchProfileId"`
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput `pulumi:"studioId"`
@@ -85,6 +89,7 @@ func (o LookupLaunchProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the launch profile resource.
 func (o LookupLaunchProfileResultOutput) LaunchProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) *string { return v.LaunchProfileId }).(pulumi.StringPtrOutput)
 }
@@ -101,6 +106,7 @@ func (o LookupLaunchProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A configuration for a streaming session.
 func (o LookupLaunchProfileResultOutput) StreamConfiguration() LaunchProfileStreamConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) *LaunchProfileStreamConfiguration { return v.StreamConfiguration }).(LaunchProfileStreamConfigurationPtrOutput)
 }

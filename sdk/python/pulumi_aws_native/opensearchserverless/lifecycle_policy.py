@@ -22,6 +22,7 @@ class LifecyclePolicyArgs:
         """
         The set of arguments for constructing a LifecyclePolicy resource.
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
+        :param pulumi.Input['LifecyclePolicyType'] type: The type of lifecycle policy.
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
         """
@@ -47,6 +48,9 @@ class LifecyclePolicyArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['LifecyclePolicyType']:
+        """
+        The type of lifecycle policy.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -96,6 +100,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
+        :param pulumi.Input['LifecyclePolicyType'] type: The type of lifecycle policy.
         """
         ...
     @overload
@@ -199,5 +204,8 @@ class LifecyclePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['LifecyclePolicyType']:
+        """
+        The type of lifecycle policy.
+        """
         return pulumi.get(self, "type")
 

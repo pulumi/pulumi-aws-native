@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisChartAxisLabelOptions
     {
+        /// <summary>
+        /// The label options for a chart axis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisAxisLabelOptions> AxisLabelOptions;
+        /// <summary>
+        /// The visibility configuration of the sort icon on a chart's axis label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? SortIconVisibility;
+        /// <summary>
+        /// The visibility of an axis label on a chart. Choose one of the following options:
+        /// 
+        /// - `VISIBLE` : Shows the axis.
+        /// - `HIDDEN` : Hides the axis.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

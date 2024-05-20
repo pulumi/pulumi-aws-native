@@ -76,6 +76,9 @@ class GetEndpointGroupResult:
     @property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[str]:
+        """
+        If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        """
         return pulumi.get(self, "health_check_path")
 
     @property
@@ -97,6 +100,9 @@ class GetEndpointGroupResult:
     @property
     @pulumi.getter(name="portOverrides")
     def port_overrides(self) -> Optional[Sequence['outputs.EndpointGroupPortOverride']]:
+        """
+        Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+        """
         return pulumi.get(self, "port_overrides")
 
     @property

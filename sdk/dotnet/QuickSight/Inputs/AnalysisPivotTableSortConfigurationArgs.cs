@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("fieldSortOptions")]
         private InputList<Inputs.AnalysisPivotFieldSortOptionsArgs>? _fieldSortOptions;
+
+        /// <summary>
+        /// The field sort options for a pivot table sort configuration.
+        /// </summary>
         public InputList<Inputs.AnalysisPivotFieldSortOptionsArgs> FieldSortOptions
         {
             get => _fieldSortOptions ?? (_fieldSortOptions = new InputList<Inputs.AnalysisPivotFieldSortOptionsArgs>());

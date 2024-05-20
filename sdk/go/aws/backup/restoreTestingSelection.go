@@ -16,14 +16,26 @@ import (
 type RestoreTestingSelection struct {
 	pulumi.CustomResourceState
 
-	IamRoleArn                  pulumi.StringOutput                                         `pulumi:"iamRoleArn"`
-	ProtectedResourceArns       pulumi.StringArrayOutput                                    `pulumi:"protectedResourceArns"`
+	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
+	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+	ProtectedResourceArns pulumi.StringArrayOutput `pulumi:"protectedResourceArns"`
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrOutput `pulumi:"protectedResourceConditions"`
-	ProtectedResourceType       pulumi.StringOutput                                         `pulumi:"protectedResourceType"`
-	RestoreMetadataOverrides    pulumi.StringMapOutput                                      `pulumi:"restoreMetadataOverrides"`
-	RestoreTestingPlanName      pulumi.StringOutput                                         `pulumi:"restoreTestingPlanName"`
-	RestoreTestingSelectionName pulumi.StringOutput                                         `pulumi:"restoreTestingSelectionName"`
-	ValidationWindowHours       pulumi.IntPtrOutput                                         `pulumi:"validationWindowHours"`
+	// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+	ProtectedResourceType pulumi.StringOutput `pulumi:"protectedResourceType"`
+	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+	//
+	// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+	RestoreMetadataOverrides pulumi.StringMapOutput `pulumi:"restoreMetadataOverrides"`
+	// Unique string that is the name of the restore testing plan.
+	//
+	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+	RestoreTestingPlanName pulumi.StringOutput `pulumi:"restoreTestingPlanName"`
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
+	RestoreTestingSelectionName pulumi.StringOutput `pulumi:"restoreTestingSelectionName"`
+	// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+	ValidationWindowHours pulumi.IntPtrOutput `pulumi:"validationWindowHours"`
 }
 
 // NewRestoreTestingSelection registers a new resource with the given unique name, arguments, and options.
@@ -81,26 +93,50 @@ func (RestoreTestingSelectionState) ElementType() reflect.Type {
 }
 
 type restoreTestingSelectionArgs struct {
-	IamRoleArn                  string                                              `pulumi:"iamRoleArn"`
-	ProtectedResourceArns       []string                                            `pulumi:"protectedResourceArns"`
+	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+	IamRoleArn string `pulumi:"iamRoleArn"`
+	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+	ProtectedResourceArns []string `pulumi:"protectedResourceArns"`
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
-	ProtectedResourceType       string                                              `pulumi:"protectedResourceType"`
-	RestoreMetadataOverrides    map[string]string                                   `pulumi:"restoreMetadataOverrides"`
-	RestoreTestingPlanName      string                                              `pulumi:"restoreTestingPlanName"`
-	RestoreTestingSelectionName *string                                             `pulumi:"restoreTestingSelectionName"`
-	ValidationWindowHours       *int                                                `pulumi:"validationWindowHours"`
+	// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+	ProtectedResourceType string `pulumi:"protectedResourceType"`
+	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+	//
+	// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
+	// Unique string that is the name of the restore testing plan.
+	//
+	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
+	RestoreTestingSelectionName *string `pulumi:"restoreTestingSelectionName"`
+	// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+	ValidationWindowHours *int `pulumi:"validationWindowHours"`
 }
 
 // The set of arguments for constructing a RestoreTestingSelection resource.
 type RestoreTestingSelectionArgs struct {
-	IamRoleArn                  pulumi.StringInput
-	ProtectedResourceArns       pulumi.StringArrayInput
+	// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+	IamRoleArn pulumi.StringInput
+	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+	ProtectedResourceArns pulumi.StringArrayInput
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
-	ProtectedResourceType       pulumi.StringInput
-	RestoreMetadataOverrides    pulumi.StringMapInput
-	RestoreTestingPlanName      pulumi.StringInput
+	// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+	ProtectedResourceType pulumi.StringInput
+	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+	//
+	// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+	RestoreMetadataOverrides pulumi.StringMapInput
+	// Unique string that is the name of the restore testing plan.
+	//
+	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+	RestoreTestingPlanName pulumi.StringInput
+	// The unique name of the restore testing selection that belongs to the related restore testing plan.
 	RestoreTestingSelectionName pulumi.StringPtrInput
-	ValidationWindowHours       pulumi.IntPtrInput
+	// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+	ValidationWindowHours pulumi.IntPtrInput
 }
 
 func (RestoreTestingSelectionArgs) ElementType() reflect.Type {
@@ -140,36 +176,48 @@ func (o RestoreTestingSelectionOutput) ToRestoreTestingSelectionOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
 func (o RestoreTestingSelectionOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
+// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 func (o RestoreTestingSelectionOutput) ProtectedResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringArrayOutput { return v.ProtectedResourceArns }).(pulumi.StringArrayOutput)
 }
 
+// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 func (o RestoreTestingSelectionOutput) ProtectedResourceConditions() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 		return v.ProtectedResourceConditions
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
+// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
 func (o RestoreTestingSelectionOutput) ProtectedResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.ProtectedResourceType }).(pulumi.StringOutput)
 }
 
+// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+//
+// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
 func (o RestoreTestingSelectionOutput) RestoreMetadataOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringMapOutput { return v.RestoreMetadataOverrides }).(pulumi.StringMapOutput)
 }
 
+// Unique string that is the name of the restore testing plan.
+//
+// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
 func (o RestoreTestingSelectionOutput) RestoreTestingPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.RestoreTestingPlanName }).(pulumi.StringOutput)
 }
 
+// The unique name of the restore testing selection that belongs to the related restore testing plan.
 func (o RestoreTestingSelectionOutput) RestoreTestingSelectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.RestoreTestingSelectionName }).(pulumi.StringOutput)
 }
 
+// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
 func (o RestoreTestingSelectionOutput) ValidationWindowHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.IntPtrOutput { return v.ValidationWindowHours }).(pulumi.IntPtrOutput)
 }

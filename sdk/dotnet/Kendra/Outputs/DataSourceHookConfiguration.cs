@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceHookConfiguration
     {
+        /// <summary>
+        /// The condition used for when a Lambda function should be invoked.
+        /// 
+        /// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+        /// </summary>
         public readonly string LambdaArn;
+        /// <summary>
+        /// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+        /// </summary>
         public readonly string S3Bucket;
 
         [OutputConstructor]

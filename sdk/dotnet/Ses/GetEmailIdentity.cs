@@ -57,16 +57,49 @@ namespace Pulumi.AwsNative.Ses
     [OutputType]
     public sealed class GetEmailIdentityResult
     {
+        /// <summary>
+        /// Used to associate a configuration set with an email identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityConfigurationSetAttributes? ConfigurationSetAttributes;
+        /// <summary>
+        /// An object that contains information about the DKIM attributes for the identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityDkimAttributes? DkimAttributes;
+        /// <summary>
+        /// The host name for the first token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenName1;
+        /// <summary>
+        /// The host name for the second token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenName2;
+        /// <summary>
+        /// The host name for the third token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenName3;
+        /// <summary>
+        /// The record value for the first token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenValue1;
+        /// <summary>
+        /// The record value for the second token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenValue2;
+        /// <summary>
+        /// The record value for the third token that you have to add to the DNS configuration for your domain.
+        /// </summary>
         public readonly string? DkimDnsTokenValue3;
+        /// <summary>
+        /// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+        /// </summary>
         public readonly Outputs.EmailIdentityDkimSigningAttributes? DkimSigningAttributes;
+        /// <summary>
+        /// Used to enable or disable feedback forwarding for an identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityFeedbackAttributes? FeedbackAttributes;
+        /// <summary>
+        /// Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        /// </summary>
         public readonly Outputs.EmailIdentityMailFromAttributes? MailFromAttributes;
 
         [OutputConstructor]

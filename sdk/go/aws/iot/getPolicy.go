@@ -24,12 +24,17 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
+	// The name of this policy.
 	Id string `pulumi:"id"`
 }
 
 type LookupPolicyResult struct {
+	// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
+	// The name of this policy.
+	Id *string `pulumi:"id"`
+	// The JSON document that describes the policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	Tags           []aws.Tag   `pulumi:"tags"`
@@ -49,6 +54,7 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 }
 
 type LookupPolicyOutputArgs struct {
+	// The name of this policy.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,14 +76,18 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
 func (o LookupPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The name of this policy.
 func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The JSON document that describes the policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 func (o LookupPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)

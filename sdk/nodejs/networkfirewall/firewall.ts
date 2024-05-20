@@ -37,17 +37,57 @@ export class Firewall extends pulumi.CustomResource {
         return obj['__pulumiType'] === Firewall.__pulumiType;
     }
 
+    /**
+     * A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+     */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * A description of the firewall.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique IDs of the firewall endpoints for all of the subnets that you attached to the firewall. The subnets are not listed in any particular order. For example: `["us-west-2c:vpce-111122223333", "us-west-2a:vpce-987654321098", "us-west-2b:vpce-012345678901"]` .
+     */
     public /*out*/ readonly endpointIds!: pulumi.Output<string[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the `Firewall` .
+     */
     public /*out*/ readonly firewallArn!: pulumi.Output<string>;
+    /**
+     * The name of the `Firewall` resource.
+     */
     public /*out*/ readonly firewallId!: pulumi.Output<string>;
+    /**
+     * The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+     */
     public readonly firewallName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the firewall policy.
+     *
+     * The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+     */
     public readonly firewallPolicyArn!: pulumi.Output<string>;
+    /**
+     * A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+     */
     public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+     */
     public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+     */
     public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -107,13 +147,44 @@ export class Firewall extends pulumi.CustomResource {
  * The set of arguments for constructing a Firewall resource.
  */
 export interface FirewallArgs {
+    /**
+     * A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
+     */
     deleteProtection?: pulumi.Input<boolean>;
+    /**
+     * A description of the firewall.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The descriptive name of the firewall. You can't change the name of a firewall after you create it.
+     */
     firewallName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the firewall policy.
+     *
+     * The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
+     */
     firewallPolicyArn: pulumi.Input<string>;
+    /**
+     * A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+     */
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    /**
+     * A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
+     */
     subnetChangeProtection?: pulumi.Input<boolean>;
+    /**
+     * The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
+     */
     subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
+     */
     vpcId: pulumi.Input<string>;
 }

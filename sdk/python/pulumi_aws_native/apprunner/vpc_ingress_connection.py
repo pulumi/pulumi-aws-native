@@ -25,7 +25,9 @@ class VpcIngressConnectionArgs:
                  vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpcIngressConnection resource.
+        :param pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
         :param pulumi.Input[str] vpc_ingress_connection_name: The customer-provided Vpc Ingress Connection name.
         """
         pulumi.set(__self__, "ingress_vpc_configuration", ingress_vpc_configuration)
@@ -38,6 +40,9 @@ class VpcIngressConnectionArgs:
     @property
     @pulumi.getter(name="ingressVpcConfiguration")
     def ingress_vpc_configuration(self) -> pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']:
+        """
+        Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
+        """
         return pulumi.get(self, "ingress_vpc_configuration")
 
     @ingress_vpc_configuration.setter
@@ -59,6 +64,9 @@ class VpcIngressConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,7 +101,9 @@ class VpcIngressConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
         :param pulumi.Input[str] vpc_ingress_connection_name: The customer-provided Vpc Ingress Connection name.
         """
         ...
@@ -188,6 +198,9 @@ class VpcIngressConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ingressVpcConfiguration")
     def ingress_vpc_configuration(self) -> pulumi.Output['outputs.VpcIngressConnectionIngressVpcConfiguration']:
+        """
+        Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
+        """
         return pulumi.get(self, "ingress_vpc_configuration")
 
     @property
@@ -209,6 +222,9 @@ class VpcIngressConnection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property

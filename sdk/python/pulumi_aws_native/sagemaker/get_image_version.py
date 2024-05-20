@@ -57,6 +57,9 @@ class GetImageVersionResult:
     @property
     @pulumi.getter(name="containerImage")
     def container_image(self) -> Optional[str]:
+        """
+        The URI of the container image version referenced by ImageVersion.
+        """
         return pulumi.get(self, "container_image")
 
     @property
@@ -67,11 +70,23 @@ class GetImageVersionResult:
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the parent Image.
+        """
         return pulumi.get(self, "image_arn")
 
     @property
     @pulumi.getter(name="imageVersionArn")
     def image_version_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the image version.
+
+        *Type* : String
+
+        *Length Constraints* : Maximum length of 256.
+
+        *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
+        """
         return pulumi.get(self, "image_version_arn")
 
     @property
@@ -107,6 +122,9 @@ class GetImageVersionResult:
     @property
     @pulumi.getter
     def version(self) -> Optional[int]:
+        """
+        The version of the image.
+        """
         return pulumi.get(self, "version")
 
 
@@ -133,6 +151,15 @@ def get_image_version(image_version_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageVersionResult:
     """
     Resource Type definition for AWS::SageMaker::ImageVersion
+
+
+    :param str image_version_arn: The Amazon Resource Name (ARN) of the image version.
+           
+           *Type* : String
+           
+           *Length Constraints* : Maximum length of 256.
+           
+           *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
     """
     __args__ = dict()
     __args__['imageVersionArn'] = image_version_arn
@@ -158,5 +185,14 @@ def get_image_version_output(image_version_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageVersionResult]:
     """
     Resource Type definition for AWS::SageMaker::ImageVersion
+
+
+    :param str image_version_arn: The Amazon Resource Name (ARN) of the image version.
+           
+           *Type* : String
+           
+           *Length Constraints* : Maximum length of 256.
+           
+           *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
     """
     ...

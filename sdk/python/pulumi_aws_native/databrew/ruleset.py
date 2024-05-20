@@ -30,6 +30,9 @@ class RulesetArgs:
         :param pulumi.Input[str] target_arn: Arn of the target resource (dataset) to apply the ruleset to
         :param pulumi.Input[str] description: Description of the Ruleset
         :param pulumi.Input[str] name: Name of the Ruleset
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "rules", rules)
         pulumi.set(__self__, "target_arn", target_arn)
@@ -91,6 +94,11 @@ class RulesetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -117,6 +125,9 @@ class Ruleset(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Ruleset
         :param pulumi.Input[str] name: Name of the Ruleset
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleArgs']]]] rules: List of the data quality rules in the ruleset
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input[str] target_arn: Arn of the target resource (dataset) to apply the ruleset to
         """
         ...
@@ -224,6 +235,11 @@ class Ruleset(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @property

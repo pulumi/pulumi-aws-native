@@ -17,15 +17,26 @@ export function getIdentityPoolPrincipalTag(args: GetIdentityPoolPrincipalTagArg
 }
 
 export interface GetIdentityPoolPrincipalTagArgs {
+    /**
+     * The identity pool that you want to associate with this principal tag map.
+     */
     identityPoolId: string;
+    /**
+     * The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+     */
     identityProviderName: string;
 }
 
 export interface GetIdentityPoolPrincipalTagResult {
     /**
+     * A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
      */
     readonly principalTags?: any;
+    /**
+     * Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+     */
     readonly useDefaults?: boolean;
 }
 /**
@@ -36,6 +47,12 @@ export function getIdentityPoolPrincipalTagOutput(args: GetIdentityPoolPrincipal
 }
 
 export interface GetIdentityPoolPrincipalTagOutputArgs {
+    /**
+     * The identity pool that you want to associate with this principal tag map.
+     */
     identityPoolId: pulumi.Input<string>;
+    /**
+     * The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+     */
     identityProviderName: pulumi.Input<string>;
 }

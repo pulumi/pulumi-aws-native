@@ -37,14 +37,29 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayAttachment.__pulumiType;
     }
 
+    /**
+     * The ID of the attachment.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The options for the transit gateway vpc attachment.
      */
     public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
+    /**
+     * The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * The tags for the attachment.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the transit gateway.
+     */
     public readonly transitGatewayId!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -96,8 +111,20 @@ export interface TransitGatewayAttachmentArgs {
      * The options for the transit gateway vpc attachment.
      */
     options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
+    /**
+     * The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags for the attachment.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the transit gateway.
+     */
     transitGatewayId: pulumi.Input<string>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

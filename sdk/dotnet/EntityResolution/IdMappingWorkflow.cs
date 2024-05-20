@@ -24,18 +24,33 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An object which defines the `idMappingType` and the `providerProperties` .
+        /// </summary>
         [Output("idMappingTechniques")]
         public Output<Outputs.IdMappingWorkflowIdMappingTechniques> IdMappingTechniques { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        /// </summary>
         [Output("inputSourceConfig")]
         public Output<ImmutableArray<Outputs.IdMappingWorkflowInputSource>> InputSourceConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        /// </summary>
         [Output("outputSourceConfig")]
         public Output<ImmutableArray<Outputs.IdMappingWorkflowOutputSource>> OutputSourceConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -106,11 +121,18 @@ namespace Pulumi.AwsNative.EntityResolution
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// An object which defines the `idMappingType` and the `providerProperties` .
+        /// </summary>
         [Input("idMappingTechniques", required: true)]
         public Input<Inputs.IdMappingWorkflowIdMappingTechniquesArgs> IdMappingTechniques { get; set; } = null!;
 
         [Input("inputSourceConfig", required: true)]
         private InputList<Inputs.IdMappingWorkflowInputSourceArgs>? _inputSourceConfig;
+
+        /// <summary>
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        /// </summary>
         public InputList<Inputs.IdMappingWorkflowInputSourceArgs> InputSourceConfig
         {
             get => _inputSourceConfig ?? (_inputSourceConfig = new InputList<Inputs.IdMappingWorkflowInputSourceArgs>());
@@ -119,17 +141,28 @@ namespace Pulumi.AwsNative.EntityResolution
 
         [Input("outputSourceConfig")]
         private InputList<Inputs.IdMappingWorkflowOutputSourceArgs>? _outputSourceConfig;
+
+        /// <summary>
+        /// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+        /// </summary>
         public InputList<Inputs.IdMappingWorkflowOutputSourceArgs> OutputSourceConfig
         {
             get => _outputSourceConfig ?? (_outputSourceConfig = new InputList<Inputs.IdMappingWorkflowOutputSourceArgs>());
             set => _outputSourceConfig = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

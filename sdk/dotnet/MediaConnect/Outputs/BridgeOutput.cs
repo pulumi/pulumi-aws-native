@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     [OutputType]
     public sealed class BridgeOutput
     {
+        /// <summary>
+        /// The output of the bridge. A network output is delivered to your premises.
+        /// </summary>
         public readonly Outputs.BridgeNetworkOutput? NetworkOutput;
 
         [OutputConstructor]

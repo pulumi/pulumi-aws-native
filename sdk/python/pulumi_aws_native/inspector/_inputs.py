@@ -19,12 +19,19 @@ class AssessmentTemplateTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: A tag key.
+        :param pulumi.Input[str] value: A value assigned to a tag key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        A tag key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -34,6 +41,9 @@ class AssessmentTemplateTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A value assigned to a tag key.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -46,12 +56,19 @@ class ResourceGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: A tag key.
+        :param pulumi.Input[str] value: A value assigned to a tag key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        A tag key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -61,6 +78,9 @@ class ResourceGroupTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        A value assigned to a tag key.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

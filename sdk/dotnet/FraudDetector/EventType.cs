@@ -33,12 +33,21 @@ namespace Pulumi.AwsNative.FraudDetector
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The event type entity types.
+        /// </summary>
         [Output("entityTypes")]
         public Output<ImmutableArray<Outputs.EventTypeEntityType>> EntityTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// The event type event variables.
+        /// </summary>
         [Output("eventVariables")]
         public Output<ImmutableArray<Outputs.EventTypeEventVariable>> EventVariables { get; private set; } = null!;
 
+        /// <summary>
+        /// The event type labels.
+        /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<Outputs.EventTypeLabel>> Labels { get; private set; } = null!;
 
@@ -117,6 +126,10 @@ namespace Pulumi.AwsNative.FraudDetector
 
         [Input("entityTypes", required: true)]
         private InputList<Inputs.EventTypeEntityTypeArgs>? _entityTypes;
+
+        /// <summary>
+        /// The event type entity types.
+        /// </summary>
         public InputList<Inputs.EventTypeEntityTypeArgs> EntityTypes
         {
             get => _entityTypes ?? (_entityTypes = new InputList<Inputs.EventTypeEntityTypeArgs>());
@@ -125,6 +138,10 @@ namespace Pulumi.AwsNative.FraudDetector
 
         [Input("eventVariables", required: true)]
         private InputList<Inputs.EventTypeEventVariableArgs>? _eventVariables;
+
+        /// <summary>
+        /// The event type event variables.
+        /// </summary>
         public InputList<Inputs.EventTypeEventVariableArgs> EventVariables
         {
             get => _eventVariables ?? (_eventVariables = new InputList<Inputs.EventTypeEventVariableArgs>());
@@ -133,6 +150,10 @@ namespace Pulumi.AwsNative.FraudDetector
 
         [Input("labels", required: true)]
         private InputList<Inputs.EventTypeLabelArgs>? _labels;
+
+        /// <summary>
+        /// The event type labels.
+        /// </summary>
         public InputList<Inputs.EventTypeLabelArgs> Labels
         {
             get => _labels ?? (_labels = new InputList<Inputs.EventTypeLabelArgs>());

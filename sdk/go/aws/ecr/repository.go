@@ -88,6 +88,7 @@ import (
 type Repository struct {
 	pulumi.CustomResourceState
 
+	// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
 	EmptyOnDelete pulumi.BoolPtrOutput `pulumi:"emptyOnDelete"`
@@ -106,8 +107,9 @@ type Repository struct {
 	// The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
-	RepositoryPolicyText pulumi.AnyOutput    `pulumi:"repositoryPolicyText"`
-	RepositoryUri        pulumi.StringOutput `pulumi:"repositoryUri"`
+	RepositoryPolicyText pulumi.AnyOutput `pulumi:"repositoryPolicyText"`
+	// Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+	RepositoryUri pulumi.StringOutput `pulumi:"repositoryUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -240,6 +242,7 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -284,6 +287,7 @@ func (o RepositoryOutput) RepositoryPolicyText() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Repository) pulumi.AnyOutput { return v.RepositoryPolicyText }).(pulumi.AnyOutput)
 }
 
+// Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
 func (o RepositoryOutput) RepositoryUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUri }).(pulumi.StringOutput)
 }

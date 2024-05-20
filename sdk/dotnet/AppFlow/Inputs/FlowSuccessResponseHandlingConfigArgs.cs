@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowSuccessResponseHandlingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 bucket prefix.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 

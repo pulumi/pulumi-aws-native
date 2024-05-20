@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ThemeValue
     {
+        /// <summary>
+        /// A list of key-value pairs that define the theme's properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeValues> Children;
+        /// <summary>
+        /// The value of a theme property.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

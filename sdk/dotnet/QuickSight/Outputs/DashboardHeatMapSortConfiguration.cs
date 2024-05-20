@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardHeatMapSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of columns that are displayed in a heat map.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? HeatMapColumnItemsLimitConfiguration;
+        /// <summary>
+        /// The column sort configuration for heat map for columns that aren't a part of a field well.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> HeatMapColumnSort;
+        /// <summary>
+        /// The limit on the number of rows that are displayed in a heat map.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? HeatMapRowItemsLimitConfiguration;
+        /// <summary>
+        /// The field sort configuration of the rows fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> HeatMapRowSort;
 
         [OutputConstructor]

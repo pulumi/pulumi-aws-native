@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardBoxPlotFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a box plot.
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotAggregatedFieldWells? BoxPlotAggregatedFieldWells;
 
         [OutputConstructor]

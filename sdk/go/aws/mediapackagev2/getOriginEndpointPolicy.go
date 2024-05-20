@@ -23,12 +23,17 @@ func LookupOriginEndpointPolicy(ctx *pulumi.Context, args *LookupOriginEndpointP
 }
 
 type LookupOriginEndpointPolicyArgs struct {
-	ChannelGroupName   string `pulumi:"channelGroupName"`
-	ChannelName        string `pulumi:"channelName"`
+	// The name of the channel group associated with the origin endpoint policy.
+	ChannelGroupName string `pulumi:"channelGroupName"`
+	// The channel name associated with the origin endpoint policy.
+	ChannelName string `pulumi:"channelName"`
+	// The name of the origin endpoint associated with the origin endpoint policy.
 	OriginEndpointName string `pulumi:"originEndpointName"`
 }
 
 type LookupOriginEndpointPolicyResult struct {
+	// The policy associated with the origin endpoint.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
@@ -47,8 +52,11 @@ func LookupOriginEndpointPolicyOutput(ctx *pulumi.Context, args LookupOriginEndp
 }
 
 type LookupOriginEndpointPolicyOutputArgs struct {
-	ChannelGroupName   pulumi.StringInput `pulumi:"channelGroupName"`
-	ChannelName        pulumi.StringInput `pulumi:"channelName"`
+	// The name of the channel group associated with the origin endpoint policy.
+	ChannelGroupName pulumi.StringInput `pulumi:"channelGroupName"`
+	// The channel name associated with the origin endpoint policy.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The name of the origin endpoint associated with the origin endpoint policy.
 	OriginEndpointName pulumi.StringInput `pulumi:"originEndpointName"`
 }
 
@@ -70,6 +78,8 @@ func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResu
 	return o
 }
 
+// The policy associated with the origin endpoint.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 func (o LookupOriginEndpointPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupOriginEndpointPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)

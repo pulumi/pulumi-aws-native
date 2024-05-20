@@ -30,6 +30,9 @@ export interface GetIpamScopeResult {
      * The Amazon Resource Name (ARN) of the IPAM scope.
      */
     readonly arn?: string;
+    /**
+     * The description of the scope.
+     */
     readonly description?: string;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this scope is a part of.

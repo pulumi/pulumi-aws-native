@@ -31,10 +31,25 @@ export interface GetIdMappingWorkflowResult {
      * The description of the IdMappingWorkflow
      */
     readonly description?: string;
+    /**
+     * An object which defines the `idMappingType` and the `providerProperties` .
+     */
     readonly idMappingTechniques?: outputs.entityresolution.IdMappingWorkflowIdMappingTechniques;
+    /**
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+     */
     readonly inputSourceConfig?: outputs.entityresolution.IdMappingWorkflowInputSource[];
+    /**
+     * A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
+     */
     readonly outputSourceConfig?: outputs.entityresolution.IdMappingWorkflowOutputSource[];
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
+     */
     readonly roleArn?: string;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     readonly tags?: outputs.Tag[];
     readonly updatedAt?: string;
     readonly workflowArn?: string;

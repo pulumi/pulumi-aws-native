@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Scheduler
 
     public sealed class GetScheduleGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the schedule group.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Scheduler
 
     public sealed class GetScheduleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the schedule group.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -63,6 +69,11 @@ namespace Pulumi.AwsNative.Scheduler
         /// The time at which the schedule group was last modified.
         /// </summary>
         public readonly string? LastModificationDate;
+        /// <summary>
+        /// Specifies the state of the schedule group.
+        /// 
+        /// *Allowed Values* : `ACTIVE` | `DELETING`
+        /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.ScheduleGroupState? State;
         /// <summary>
         /// The list of tags to associate with the schedule group.

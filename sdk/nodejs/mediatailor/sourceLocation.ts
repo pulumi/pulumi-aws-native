@@ -37,17 +37,29 @@ export class SourceLocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SourceLocation.__pulumiType;
     }
 
+    /**
+     * The access configuration for the source location.
+     */
     public readonly accessConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationAccessConfiguration | undefined>;
     /**
      * <p>The ARN of the source location.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The default segment delivery configuration.
+     */
     public readonly defaultSegmentDeliveryConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfiguration | undefined>;
+    /**
+     * The HTTP configuration for the source location.
+     */
     public readonly httpConfiguration!: pulumi.Output<outputs.mediatailor.SourceLocationHttpConfiguration>;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
      */
     public readonly segmentDeliveryConfigurations!: pulumi.Output<outputs.mediatailor.SourceLocationSegmentDeliveryConfiguration[] | undefined>;
+    /**
+     * The name of the source location.
+     */
     public readonly sourceLocationName!: pulumi.Output<string>;
     /**
      * The tags to assign to the source location.
@@ -95,13 +107,25 @@ export class SourceLocation extends pulumi.CustomResource {
  * The set of arguments for constructing a SourceLocation resource.
  */
 export interface SourceLocationArgs {
+    /**
+     * The access configuration for the source location.
+     */
     accessConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationAccessConfigurationArgs>;
+    /**
+     * The default segment delivery configuration.
+     */
     defaultSegmentDeliveryConfiguration?: pulumi.Input<inputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfigurationArgs>;
+    /**
+     * The HTTP configuration for the source location.
+     */
     httpConfiguration: pulumi.Input<inputs.mediatailor.SourceLocationHttpConfigurationArgs>;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
      */
     segmentDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.mediatailor.SourceLocationSegmentDeliveryConfigurationArgs>[]>;
+    /**
+     * The name of the source location.
+     */
     sourceLocationName?: pulumi.Input<string>;
     /**
      * The tags to assign to the source location.

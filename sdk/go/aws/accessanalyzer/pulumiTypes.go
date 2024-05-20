@@ -15,6 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRule struct {
+	// The criteria for the rule.
 	Filter []AnalyzerFilter `pulumi:"filter"`
 	// The archive rule name
 	RuleName string `pulumi:"ruleName"`
@@ -33,6 +34,7 @@ type AnalyzerArchiveRuleInput interface {
 
 // An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRuleArgs struct {
+	// The criteria for the rule.
 	Filter AnalyzerFilterArrayInput `pulumi:"filter"`
 	// The archive rule name
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
@@ -90,6 +92,7 @@ func (o AnalyzerArchiveRuleOutput) ToAnalyzerArchiveRuleOutputWithContext(ctx co
 	return o
 }
 
+// The criteria for the rule.
 func (o AnalyzerArchiveRuleOutput) Filter() AnalyzerFilterArrayOutput {
 	return o.ApplyT(func(v AnalyzerArchiveRule) []AnalyzerFilter { return v.Filter }).(AnalyzerFilterArrayOutput)
 }
@@ -121,6 +124,7 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 
 // The configuration for the analyzer
 type AnalyzerConfigurationProperties struct {
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 	UnusedAccessConfiguration *AnalyzerUnusedAccessConfiguration `pulumi:"unusedAccessConfiguration"`
 }
 
@@ -137,6 +141,7 @@ type AnalyzerConfigurationPropertiesInput interface {
 
 // The configuration for the analyzer
 type AnalyzerConfigurationPropertiesArgs struct {
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 	UnusedAccessConfiguration AnalyzerUnusedAccessConfigurationPtrInput `pulumi:"unusedAccessConfiguration"`
 }
 
@@ -218,6 +223,7 @@ func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationProperties
 	}).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
+// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 func (o AnalyzerConfigurationPropertiesOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		return v.UnusedAccessConfiguration
@@ -248,6 +254,7 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPr
 	}).(AnalyzerConfigurationPropertiesOutput)
 }
 
+// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 func (o AnalyzerConfigurationPropertiesPtrOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		if v == nil {
@@ -258,11 +265,16 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) UnusedAccessConfiguration() An
 }
 
 type AnalyzerFilter struct {
+	// A "contains" condition to match for the rule.
 	Contains []string `pulumi:"contains"`
-	Eq       []string `pulumi:"eq"`
-	Exists   *bool    `pulumi:"exists"`
-	Neq      []string `pulumi:"neq"`
-	Property string   `pulumi:"property"`
+	// An "equals" condition to match for the rule.
+	Eq []string `pulumi:"eq"`
+	// An "exists" condition to match for the rule.
+	Exists *bool `pulumi:"exists"`
+	// A "not equal" condition to match for the rule.
+	Neq []string `pulumi:"neq"`
+	// The property used to define the criteria in the filter for the rule.
+	Property string `pulumi:"property"`
 }
 
 // AnalyzerFilterInput is an input type that accepts AnalyzerFilterArgs and AnalyzerFilterOutput values.
@@ -277,11 +289,16 @@ type AnalyzerFilterInput interface {
 }
 
 type AnalyzerFilterArgs struct {
+	// A "contains" condition to match for the rule.
 	Contains pulumi.StringArrayInput `pulumi:"contains"`
-	Eq       pulumi.StringArrayInput `pulumi:"eq"`
-	Exists   pulumi.BoolPtrInput     `pulumi:"exists"`
-	Neq      pulumi.StringArrayInput `pulumi:"neq"`
-	Property pulumi.StringInput      `pulumi:"property"`
+	// An "equals" condition to match for the rule.
+	Eq pulumi.StringArrayInput `pulumi:"eq"`
+	// An "exists" condition to match for the rule.
+	Exists pulumi.BoolPtrInput `pulumi:"exists"`
+	// A "not equal" condition to match for the rule.
+	Neq pulumi.StringArrayInput `pulumi:"neq"`
+	// The property used to define the criteria in the filter for the rule.
+	Property pulumi.StringInput `pulumi:"property"`
 }
 
 func (AnalyzerFilterArgs) ElementType() reflect.Type {
@@ -335,22 +352,27 @@ func (o AnalyzerFilterOutput) ToAnalyzerFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A "contains" condition to match for the rule.
 func (o AnalyzerFilterOutput) Contains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerFilter) []string { return v.Contains }).(pulumi.StringArrayOutput)
 }
 
+// An "equals" condition to match for the rule.
 func (o AnalyzerFilterOutput) Eq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerFilter) []string { return v.Eq }).(pulumi.StringArrayOutput)
 }
 
+// An "exists" condition to match for the rule.
 func (o AnalyzerFilterOutput) Exists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AnalyzerFilter) *bool { return v.Exists }).(pulumi.BoolPtrOutput)
 }
 
+// A "not equal" condition to match for the rule.
 func (o AnalyzerFilterOutput) Neq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerFilter) []string { return v.Neq }).(pulumi.StringArrayOutput)
 }
 
+// The property used to define the criteria in the filter for the rule.
 func (o AnalyzerFilterOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerFilter) string { return v.Property }).(pulumi.StringOutput)
 }

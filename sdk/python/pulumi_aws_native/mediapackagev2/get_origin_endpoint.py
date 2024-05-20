@@ -64,6 +64,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter(name="containerType")
     def container_type(self) -> Optional['OriginEndpointContainerType']:
+        """
+        The container type associated with the origin endpoint configuration.
+        """
         return pulumi.get(self, "container_type")
 
     @property
@@ -109,6 +112,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter
     def segment(self) -> Optional['outputs.OriginEndpointSegment']:
+        """
+        The segment associated with the origin endpoint.
+        """
         return pulumi.get(self, "segment")
 
     @property
@@ -122,6 +128,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags associated with the origin endpoint.
+        """
         return pulumi.get(self, "tags")
 
 

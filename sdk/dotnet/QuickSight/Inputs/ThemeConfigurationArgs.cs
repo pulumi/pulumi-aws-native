@@ -16,15 +16,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class ThemeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Color properties that apply to chart data colors.
+        /// </summary>
         [Input("dataColorPalette")]
         public Input<Inputs.ThemeDataColorPaletteArgs>? DataColorPalette { get; set; }
 
+        /// <summary>
+        /// Display options related to sheets.
+        /// </summary>
         [Input("sheet")]
         public Input<Inputs.ThemeSheetStyleArgs>? Sheet { get; set; }
 
         [Input("typography")]
         public Input<Inputs.ThemeTypographyArgs>? Typography { get; set; }
 
+        /// <summary>
+        /// Color properties that apply to the UI and to charts, excluding the colors that apply to data.
+        /// </summary>
         [Input("uiColorPalette")]
         public Input<Inputs.ThemeUiColorPaletteArgs>? UiColorPalette { get; set; }
 

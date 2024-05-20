@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataSetIdentifierDeclaration
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data set.
+        /// </summary>
         public readonly string DataSetArn;
+        /// <summary>
+        /// The identifier of the data set, typically the data set's name.
+        /// </summary>
         public readonly string Identifier;
 
         [OutputConstructor]

@@ -19,15 +19,39 @@ export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.Inv
 }
 
 export interface GetServiceNetworkArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     arn: string;
 }
 
 export interface GetServiceNetworkResult {
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     readonly arn?: string;
+    /**
+     * The type of IAM policy.
+     *
+     * - `NONE` : The resource does not use an IAM policy. This is the default.
+     * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+     */
     readonly authType?: enums.vpclattice.ServiceNetworkAuthType;
+    /**
+     * The date and time that the service network was created, specified in ISO-8601 format.
+     */
     readonly createdAt?: string;
+    /**
+     * The ID of the service network.
+     */
     readonly id?: string;
+    /**
+     * The date and time of the last update, specified in ISO-8601 format.
+     */
     readonly lastUpdatedAt?: string;
+    /**
+     * The tags for the service network.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +62,8 @@ export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?
 }
 
 export interface GetServiceNetworkOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     arn: pulumi.Input<string>;
 }

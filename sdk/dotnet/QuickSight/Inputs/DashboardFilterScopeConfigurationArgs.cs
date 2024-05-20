@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilterScopeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration` , this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
+        /// </summary>
         [Input("allSheets")]
         public Input<Inputs.DashboardAllSheetsFilterScopeConfigurationArgs>? AllSheets { get; set; }
 
+        /// <summary>
+        /// The configuration for applying a filter to specific sheets.
+        /// </summary>
         [Input("selectedSheets")]
         public Input<Inputs.DashboardSelectedSheetsFilterScopeConfigurationArgs>? SelectedSheets { get; set; }
 

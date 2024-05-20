@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetColumnTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for a column.
+        /// </summary>
         [Input("columnDescription")]
         public Input<Inputs.DataSetColumnDescriptionArgs>? ColumnDescription { get; set; }
 
+        /// <summary>
+        /// A geospatial role for a column.
+        /// </summary>
         [Input("columnGeographicRole")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetGeoSpatialDataRole>? ColumnGeographicRole { get; set; }
 

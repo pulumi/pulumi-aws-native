@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolPoliciesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password policy.
+        /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
 

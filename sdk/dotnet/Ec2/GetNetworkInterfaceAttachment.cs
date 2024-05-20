@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Ec2
         /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
         /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// Configures ENA Express for the network interface that this action attaches to the instance.
+        /// </summary>
         public readonly Outputs.NetworkInterfaceAttachmentEnaSrdSpecification? EnaSrdSpecification;
 
         [OutputConstructor]

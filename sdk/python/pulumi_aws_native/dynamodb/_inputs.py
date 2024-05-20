@@ -59,12 +59,23 @@ class GlobalTableAttributeDefinitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  attribute_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] attribute_name: A name for the attribute.
+        :param pulumi.Input[str] attribute_type: The data type for the attribute, where:
+               
+               - `S` - the attribute is of type String
+               - `N` - the attribute is of type Number
+               - `B` - the attribute is of type Binary
+        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "attribute_type", attribute_type)
 
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
+        """
+        A name for the attribute.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -74,6 +85,13 @@ class GlobalTableAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="attributeType")
     def attribute_type(self) -> pulumi.Input[str]:
+        """
+        The data type for the attribute, where:
+
+        - `S` - the attribute is of type String
+        - `N` - the attribute is of type Number
+        - `B` - the attribute is of type Binary
+        """
         return pulumi.get(self, "attribute_type")
 
     @attribute_type.setter
@@ -88,6 +106,16 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
                  min_capacity: pulumi.Input[int],
                  target_tracking_scaling_policy_configuration: pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'],
                  seed_capacity: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_capacity: The maximum provisioned capacity units for the global table.
+        :param pulumi.Input[int] min_capacity: The minimum provisioned capacity units for the global table.
+        :param pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: Defines a target tracking scaling policy.
+        :param pulumi.Input[int] seed_capacity: When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+               
+               If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+               
+               You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
+        """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
         pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
@@ -97,6 +125,9 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Input[int]:
+        """
+        The maximum provisioned capacity units for the global table.
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -106,6 +137,9 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Input[int]:
+        """
+        The minimum provisioned capacity units for the global table.
+        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -115,6 +149,9 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
     def target_tracking_scaling_policy_configuration(self) -> pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs']:
+        """
+        Defines a target tracking scaling policy.
+        """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
 
     @target_tracking_scaling_policy_configuration.setter
@@ -124,6 +161,13 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="seedCapacity")
     def seed_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        When switching billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , DynamoDB requires you to specify read and write capacity unit values for the table and for each global secondary index. These values will be applied to all replicas. The table will use these provisioned values until CloudFormation creates the autoscaling policies you configured in your template. CloudFormation cannot determine what capacity the table and its global secondary indexes will require in this time period, since they are application-dependent.
+
+        If you want to switch a table's billing mode from `PAY_PER_REQUEST` to `PROVISIONED` , you must specify a value for this property for each autoscaled resource. If you specify different values for the same resource in different regions, CloudFormation will use the highest value found in either the `SeedCapacity` or `ReadCapacityUnits` properties. For example, if your global secondary index `myGSI` has a `SeedCapacity` of 10 in us-east-1 and a fixed `ReadCapacityUnits` of 20 in eu-west-1, CloudFormation will initially set the read capacity for `myGSI` to 20. Note that if you disable `ScaleIn` for `myGSI` in us-east-1, its read capacity units might not be set back to 10.
+
+        You must also specify a value for `SeedCapacity` when you plan to switch a table's billing mode from `PROVISIONED` to `PAY_PER_REQUEST` , because CloudFormation might need to roll back the operation (reverting the billing mode to `PROVISIONED` ) and this cannot succeed without specifying a value for `SeedCapacity` .
+        """
         return pulumi.get(self, "seed_capacity")
 
     @seed_capacity.setter
@@ -135,11 +179,17 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
 class GlobalTableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -155,6 +205,20 @@ class GlobalTableGlobalSecondaryIndexArgs:
                  projection: pulumi.Input['GlobalTableProjectionArgs'],
                  write_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']] = None,
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
+        """
+        :param pulumi.Input[str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+               
+               - `HASH` - partition key
+               - `RANGE` - sort key
+               
+               > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+               > 
+               > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        :param pulumi.Input['GlobalTableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
+        """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
@@ -166,6 +230,9 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the global secondary index. The name must be unique among all other indexes on this table.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -175,6 +242,16 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
+        """
+        The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+
+        - `HASH` - partition key
+        - `RANGE` - sort key
+
+        > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+        > 
+        > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -184,6 +261,9 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter
     def projection(self) -> pulumi.Input['GlobalTableProjectionArgs']:
+        """
+        Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -193,6 +273,9 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
+        """
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @write_on_demand_throughput_settings.setter
@@ -202,6 +285,9 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
+        """
+        Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
+        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
     @write_provisioned_throughput_settings.setter
@@ -214,12 +300,26 @@ class GlobalTableKeySchemaArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  key_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] attribute_name: The name of a key attribute.
+        :param pulumi.Input[str] key_type: The role that this key attribute will assume:
+               
+               - `HASH` - partition key
+               - `RANGE` - sort key
+               
+               > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+               > 
+               > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "key_type", key_type)
 
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
+        """
+        The name of a key attribute.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -229,6 +329,16 @@ class GlobalTableKeySchemaArgs:
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
+        """
+        The role that this key attribute will assume:
+
+        - `HASH` - partition key
+        - `RANGE` - sort key
+
+        > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+        > 
+        > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -241,6 +351,10 @@ class GlobalTableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str],
                  approximate_creation_date_time_precision: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
+        """
+        :param pulumi.Input[str] stream_arn: The ARN for a specific Kinesis data stream.
+        :param pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision'] approximate_creation_date_time_precision: The precision for the time and date that the stream was created.
+        """
         pulumi.set(__self__, "stream_arn", stream_arn)
         if approximate_creation_date_time_precision is not None:
             pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
@@ -248,6 +362,9 @@ class GlobalTableKinesisStreamSpecificationArgs:
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN for a specific Kinesis data stream.
+        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
@@ -257,6 +374,9 @@ class GlobalTableKinesisStreamSpecificationArgs:
     @property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
     def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
+        """
+        The precision for the time and date that the stream was created.
+        """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
@@ -270,6 +390,18 @@ class GlobalTableLocalSecondaryIndexArgs:
                  index_name: pulumi.Input[str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs']):
+        """
+        :param pulumi.Input[str] index_name: The name of the local secondary index. The name must be unique among all other indexes on this table.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+               
+               - `HASH` - partition key
+               - `RANGE` - sort key
+               
+               > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+               > 
+               > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        :param pulumi.Input['GlobalTableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
@@ -277,6 +409,9 @@ class GlobalTableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the local secondary index. The name must be unique among all other indexes on this table.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -286,6 +421,16 @@ class GlobalTableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
+        """
+        The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+
+        - `HASH` - partition key
+        - `RANGE` - sort key
+
+        > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+        > 
+        > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -295,6 +440,9 @@ class GlobalTableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter
     def projection(self) -> pulumi.Input['GlobalTableProjectionArgs']:
+        """
+        Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -306,12 +454,18 @@ class GlobalTableLocalSecondaryIndexArgs:
 class GlobalTablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
     def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
     @point_in_time_recovery_enabled.setter
@@ -324,6 +478,18 @@ class GlobalTableProjectionArgs:
     def __init__(__self__, *,
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  projection_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Represents the non-key attribute names which will be projected into the index.
+               
+               For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+        :param pulumi.Input[str] projection_type: The set of attributes that are projected into the index:
+               
+               - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+               - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+               - `ALL` - All of the table attributes are projected into the index.
+               
+               When using the DynamoDB console, `ALL` is selected by default.
+        """
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         if projection_type is not None:
@@ -332,6 +498,11 @@ class GlobalTableProjectionArgs:
     @property
     @pulumi.getter(name="nonKeyAttributes")
     def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Represents the non-key attribute names which will be projected into the index.
+
+        For local secondary indexes, the total count of `NonKeyAttributes` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+        """
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
@@ -341,6 +512,15 @@ class GlobalTableProjectionArgs:
     @property
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The set of attributes that are projected into the index:
+
+        - `KEYS_ONLY` - Only the index and primary keys are projected into the index.
+        - `INCLUDE` - In addition to the attributes described in `KEYS_ONLY` , the secondary index will include other non-key attributes that you specify.
+        - `ALL` - All of the table attributes are projected into the index.
+
+        When using the DynamoDB console, `ALL` is selected by default.
+        """
         return pulumi.get(self, "projection_type")
 
     @projection_type.setter
@@ -352,12 +532,18 @@ class GlobalTableProjectionArgs:
 class GlobalTableReadOnDemandThroughputSettingsArgs:
     def __init__(__self__, *,
                  max_read_request_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_read_request_units: Maximum number of read request units for the specified replica of a global table.
+        """
         if max_read_request_units is not None:
             pulumi.set(__self__, "max_read_request_units", max_read_request_units)
 
     @property
     @pulumi.getter(name="maxReadRequestUnits")
     def max_read_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of read request units for the specified replica of a global table.
+        """
         return pulumi.get(self, "max_read_request_units")
 
     @max_read_request_units.setter
@@ -370,6 +556,10 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
                  read_capacity_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs'] read_capacity_auto_scaling_settings: Specifies auto scaling settings for the replica table or global secondary index.
+        :param pulumi.Input[int] read_capacity_units: Specifies a fixed read capacity for the replica table or global secondary index.
+        """
         if read_capacity_auto_scaling_settings is not None:
             pulumi.set(__self__, "read_capacity_auto_scaling_settings", read_capacity_auto_scaling_settings)
         if read_capacity_units is not None:
@@ -378,6 +568,9 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     @property
     @pulumi.getter(name="readCapacityAutoScalingSettings")
     def read_capacity_auto_scaling_settings(self) -> Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]:
+        """
+        Specifies auto scaling settings for the replica table or global secondary index.
+        """
         return pulumi.get(self, "read_capacity_auto_scaling_settings")
 
     @read_capacity_auto_scaling_settings.setter
@@ -387,6 +580,9 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     @property
     @pulumi.getter(name="readCapacityUnits")
     def read_capacity_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a fixed read capacity for the replica table or global secondary index.
+        """
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
@@ -401,6 +597,12 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
                  contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
                  read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None):
+        """
+        :param pulumi.Input[str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
+        :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
+        :param pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs'] read_on_demand_throughput_settings: Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs'] read_provisioned_throughput_settings: Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
+        """
         pulumi.set(__self__, "index_name", index_name)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
@@ -412,6 +614,9 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the global secondary index. The name must be unique among all other indexes on this table.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -421,6 +626,9 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]:
+        """
+        Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
+        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
@@ -430,6 +638,9 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="readOnDemandThroughputSettings")
     def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+        """
+        Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "read_on_demand_throughput_settings")
 
     @read_on_demand_throughput_settings.setter
@@ -439,6 +650,9 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="readProvisionedThroughputSettings")
     def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
+        """
+        Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
+        """
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
@@ -462,6 +676,25 @@ class GlobalTableReplicaSpecificationArgs:
                  sse_specification: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
+        """
+        :param pulumi.Input[str] region: The region in which this replica exists.
+        :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
+        :param pulumi.Input[bool] deletion_protection_enabled: Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]] global_secondary_indexes: Defines additional settings for the global secondary indexes of this replica.
+        :param pulumi.Input['GlobalTableKinesisStreamSpecificationArgs'] kinesis_stream_specification: Defines the Kinesis Data Streams configuration for the specified replica.
+        :param pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs'] point_in_time_recovery_specification: The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
+        :param pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs'] read_on_demand_throughput_settings: Sets read request settings for the replica table.
+        :param pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs'] read_provisioned_throughput_settings: Defines read capacity settings for the replica table.
+        :param pulumi.Input['GlobalTableReplicaStreamSpecificationArgs'] replica_stream_specification: Represents the DynamoDB Streams configuration for a global table replica.
+        :param pulumi.Input['GlobalTableResourcePolicyArgs'] resource_policy: A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+               
+               In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+        :param pulumi.Input['GlobalTableReplicaSseSpecificationArgs'] sse_specification: Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
+        :param pulumi.Input[str] table_class: The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]] tags: An array of key-value pairs to apply to this replica.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         pulumi.set(__self__, "region", region)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
@@ -491,6 +724,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
+        """
+        The region in which this replica exists.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -500,6 +736,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]:
+        """
+        The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
+        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
@@ -509,6 +748,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
+        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
@@ -518,6 +760,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]:
+        """
+        Defines additional settings for the global secondary indexes of this replica.
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
@@ -527,6 +772,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="kinesisStreamSpecification")
     def kinesis_stream_specification(self) -> Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']]:
+        """
+        Defines the Kinesis Data Streams configuration for the specified replica.
+        """
         return pulumi.get(self, "kinesis_stream_specification")
 
     @kinesis_stream_specification.setter
@@ -536,6 +784,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]:
+        """
+        The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
+        """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @point_in_time_recovery_specification.setter
@@ -545,6 +796,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="readOnDemandThroughputSettings")
     def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+        """
+        Sets read request settings for the replica table.
+        """
         return pulumi.get(self, "read_on_demand_throughput_settings")
 
     @read_on_demand_throughput_settings.setter
@@ -554,6 +808,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="readProvisionedThroughputSettings")
     def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
+        """
+        Defines read capacity settings for the replica table.
+        """
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
@@ -563,6 +820,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="replicaStreamSpecification")
     def replica_stream_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaStreamSpecificationArgs']]:
+        """
+        Represents the DynamoDB Streams configuration for a global table replica.
+        """
         return pulumi.get(self, "replica_stream_specification")
 
     @replica_stream_specification.setter
@@ -572,6 +832,11 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional[pulumi.Input['GlobalTableResourcePolicyArgs']]:
+        """
+        A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+
+        In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -581,6 +846,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']]:
+        """
+        Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
+        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -590,6 +858,9 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="tableClass")
     def table_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
+        """
         return pulumi.get(self, "table_class")
 
     @table_class.setter
@@ -599,6 +870,11 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this replica.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -610,11 +886,17 @@ class GlobalTableReplicaSpecificationArgs:
 class GlobalTableReplicaSseSpecificationArgs:
     def __init__(__self__, *,
                  kms_master_key_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] kms_master_key_id: The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+        """
         pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> pulumi.Input[str]:
+        """
+        The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+        """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
@@ -626,11 +908,25 @@ class GlobalTableReplicaSseSpecificationArgs:
 class GlobalTableReplicaStreamSpecificationArgs:
     def __init__(__self__, *,
                  resource_policy: pulumi.Input['GlobalTableResourcePolicyArgs']):
+        """
+        :param pulumi.Input['GlobalTableResourcePolicyArgs'] resource_policy: A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+               
+               In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+               
+               You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
+        """
         pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Input['GlobalTableResourcePolicyArgs']:
+        """
+        A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+
+        In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+
+        You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
+        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -642,11 +938,17 @@ class GlobalTableReplicaStreamSpecificationArgs:
 class GlobalTableResourcePolicyArgs:
     def __init__(__self__, *,
                  policy_document: Any):
+        """
+        :param Any policy_document: A resource-based policy document that contains permissions to add to the specified DynamoDB table, its indexes, and stream. In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+        """
         pulumi.set(__self__, "policy_document", policy_document)
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
+        """
+        A resource-based policy document that contains permissions to add to the specified DynamoDB table, its indexes, and stream. In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -659,6 +961,12 @@ class GlobalTableSseSpecificationArgs:
     def __init__(__self__, *,
                  sse_enabled: pulumi.Input[bool],
                  sse_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] sse_enabled: Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+        :param pulumi.Input[str] sse_type: Server-side encryption type. The only supported value is:
+               
+               - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+        """
         pulumi.set(__self__, "sse_enabled", sse_enabled)
         if sse_type is not None:
             pulumi.set(__self__, "sse_type", sse_type)
@@ -666,6 +974,9 @@ class GlobalTableSseSpecificationArgs:
     @property
     @pulumi.getter(name="sseEnabled")
     def sse_enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+        """
         return pulumi.get(self, "sse_enabled")
 
     @sse_enabled.setter
@@ -675,6 +986,11 @@ class GlobalTableSseSpecificationArgs:
     @property
     @pulumi.getter(name="sseType")
     def sse_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server-side encryption type. The only supported value is:
+
+        - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+        """
         return pulumi.get(self, "sse_type")
 
     @sse_type.setter
@@ -686,11 +1002,27 @@ class GlobalTableSseSpecificationArgs:
 class GlobalTableStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_view_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] stream_view_type: When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table. Valid values for `StreamViewType` are:
+               
+               - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+               - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+               - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+               - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
+        """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
 
     @property
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> pulumi.Input[str]:
+        """
+        When an item in the table is modified, `StreamViewType` determines what information is written to the stream for this table. Valid values for `StreamViewType` are:
+
+        - `KEYS_ONLY` - Only the key attributes of the modified item are written to the stream.
+        - `NEW_IMAGE` - The entire item, as it appears after it was modified, is written to the stream.
+        - `OLD_IMAGE` - The entire item, as it appeared before it was modified, is written to the stream.
+        - `NEW_AND_OLD_IMAGES` - Both the new and the old item images of the item are written to the stream.
+        """
         return pulumi.get(self, "stream_view_type")
 
     @stream_view_type.setter
@@ -703,12 +1035,19 @@ class GlobalTableTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        :param pulumi.Input[str] value: The value of the tag. Tag values are case-sensitive and can be null.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -718,6 +1057,9 @@ class GlobalTableTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the tag. Tag values are case-sensitive and can be null.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -732,6 +1074,12 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
                  disable_scale_in: Optional[pulumi.Input[bool]] = None,
                  scale_in_cooldown: Optional[pulumi.Input[int]] = None,
                  scale_out_cooldown: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[float] target_value: Defines a target value for the scaling policy.
+        :param pulumi.Input[bool] disable_scale_in: Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
+        :param pulumi.Input[int] scale_in_cooldown: The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+        :param pulumi.Input[int] scale_out_cooldown: The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+        """
         pulumi.set(__self__, "target_value", target_value)
         if disable_scale_in is not None:
             pulumi.set(__self__, "disable_scale_in", disable_scale_in)
@@ -743,6 +1091,9 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[float]:
+        """
+        Defines a target value for the scaling policy.
+        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -752,6 +1103,9 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="disableScaleIn")
     def disable_scale_in(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether scale in by the target tracking scaling policy is disabled. The default value is `false` .
+        """
         return pulumi.get(self, "disable_scale_in")
 
     @disable_scale_in.setter
@@ -761,6 +1115,9 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="scaleInCooldown")
     def scale_in_cooldown(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+        """
         return pulumi.get(self, "scale_in_cooldown")
 
     @scale_in_cooldown.setter
@@ -770,6 +1127,9 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="scaleOutCooldown")
     def scale_out_cooldown(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
+        """
         return pulumi.get(self, "scale_out_cooldown")
 
     @scale_out_cooldown.setter
@@ -782,6 +1142,12 @@ class GlobalTableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  attribute_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+        :param pulumi.Input[str] attribute_name: The name of the attribute used to store the expiration time for items in the table.
+               
+               Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if attribute_name is not None:
             pulumi.set(__self__, "attribute_name", attribute_name)
@@ -789,6 +1155,9 @@ class GlobalTableTimeToLiveSpecificationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -798,6 +1167,11 @@ class GlobalTableTimeToLiveSpecificationArgs:
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the attribute used to store the expiration time for items in the table.
+
+        Currently, you cannot directly change the attribute name used to evaluate time to live. In order to do so, you must first disable time to live, and then re-enable it with the new attribute name. It can take up to one hour for changes to time to live to take effect. If you attempt to modify time to live within that time window, your stack operation might be delayed.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -809,12 +1183,18 @@ class GlobalTableTimeToLiveSpecificationArgs:
 class GlobalTableWriteOnDemandThroughputSettingsArgs:
     def __init__(__self__, *,
                  max_write_request_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_write_request_units: Maximum number of write request settings for the specified replica of a global table.
+        """
         if max_write_request_units is not None:
             pulumi.set(__self__, "max_write_request_units", max_write_request_units)
 
     @property
     @pulumi.getter(name="maxWriteRequestUnits")
     def max_write_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of write request settings for the specified replica of a global table.
+        """
         return pulumi.get(self, "max_write_request_units")
 
     @max_write_request_units.setter
@@ -826,12 +1206,18 @@ class GlobalTableWriteOnDemandThroughputSettingsArgs:
 class GlobalTableWriteProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None):
+        """
+        :param pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs'] write_capacity_auto_scaling_settings: Specifies auto scaling settings for the replica table or global secondary index.
+        """
         if write_capacity_auto_scaling_settings is not None:
             pulumi.set(__self__, "write_capacity_auto_scaling_settings", write_capacity_auto_scaling_settings)
 
     @property
     @pulumi.getter(name="writeCapacityAutoScalingSettings")
     def write_capacity_auto_scaling_settings(self) -> Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]:
+        """
+        Specifies auto scaling settings for the replica table or global secondary index.
+        """
         return pulumi.get(self, "write_capacity_auto_scaling_settings")
 
     @write_capacity_auto_scaling_settings.setter

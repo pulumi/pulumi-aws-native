@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableContributorInsightsSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

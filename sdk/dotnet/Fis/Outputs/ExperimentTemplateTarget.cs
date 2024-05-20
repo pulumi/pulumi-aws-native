@@ -16,11 +16,29 @@ namespace Pulumi.AwsNative.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateTarget
     {
+        /// <summary>
+        /// The filters to apply to identify target resources using specific attributes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateTargetFilter> Filters;
+        /// <summary>
+        /// The parameters for the resource type.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the targets.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
+        /// <summary>
+        /// The tags for the target resources.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? ResourceTags;
+        /// <summary>
+        /// The resource type.
+        /// </summary>
         public readonly string ResourceType;
+        /// <summary>
+        /// Scopes the identified resources to a specific count or percentage.
+        /// </summary>
         public readonly string SelectionMode;
 
         [OutputConstructor]

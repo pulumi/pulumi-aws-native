@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTotalAggregationOption
     {
+        /// <summary>
+        /// The field id that's associated with the total aggregation option.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The total aggregation function that you want to set for a specified field id.
+        /// </summary>
         public readonly Outputs.AnalysisTotalAggregationFunction TotalAggregationFunction;
 
         [OutputConstructor]

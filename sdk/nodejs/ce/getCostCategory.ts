@@ -34,7 +34,13 @@ export interface GetCostCategoryResult {
      * The default value for the cost category
      */
     readonly defaultValue?: string;
+    /**
+     * The Cost Category's effective start date.
+     */
     readonly effectiveStart?: string;
+    /**
+     * The rule schema version in this particular Cost Category.
+     */
     readonly ruleVersion?: enums.ce.CostCategoryRuleVersion;
     /**
      * JSON array format of Expression in Billing and Cost Management API

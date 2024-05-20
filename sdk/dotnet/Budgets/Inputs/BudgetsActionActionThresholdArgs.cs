@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Budgets.Inputs
 
     public sealed class BudgetsActionActionThresholdArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of threshold for a notification.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionActionThresholdType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The threshold of a notification.
+        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

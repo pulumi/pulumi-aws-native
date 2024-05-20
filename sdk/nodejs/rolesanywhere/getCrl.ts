@@ -28,6 +28,9 @@ export interface GetCrlResult {
     readonly enabled?: boolean;
     readonly name?: string;
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+     */
     readonly trustAnchorArn?: string;
 }
 /**

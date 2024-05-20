@@ -43,11 +43,17 @@ class GetPipelineResult:
     @property
     @pulumi.getter(name="parallelismConfiguration")
     def parallelism_configuration(self) -> Optional['outputs.ParallelismConfigurationProperties']:
+        """
+        The parallelism configuration applied to the pipeline.
+        """
         return pulumi.get(self, "parallelism_configuration")
 
     @property
     @pulumi.getter(name="pipelineDefinition")
     def pipeline_definition(self) -> Optional[Any]:
+        """
+        The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        """
         return pulumi.get(self, "pipeline_definition")
 
     @property
@@ -77,6 +83,9 @@ class GetPipelineResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags of the pipeline.
+        """
         return pulumi.get(self, "tags")
 
 

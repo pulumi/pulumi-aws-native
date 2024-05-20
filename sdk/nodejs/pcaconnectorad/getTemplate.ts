@@ -16,10 +16,16 @@ export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetTemplateArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+     */
     templateArn: string;
 }
 
 export interface GetTemplateResult {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+     */
     readonly templateArn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetTemplateOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+     */
     templateArn: pulumi.Input<string>;
 }

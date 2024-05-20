@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Amplify.Outputs
     [OutputType]
     public sealed class BranchBasicAuthConfig
     {
+        /// <summary>
+        /// Enables basic authorization for the branch.
+        /// </summary>
         public readonly bool? EnableBasicAuth;
+        /// <summary>
+        /// The password for basic authorization.
+        /// </summary>
         public readonly string Password;
         public readonly string Username;
 

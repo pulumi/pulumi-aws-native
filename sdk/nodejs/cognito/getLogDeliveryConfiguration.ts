@@ -19,11 +19,20 @@ export function getLogDeliveryConfiguration(args: GetLogDeliveryConfigurationArg
 }
 
 export interface GetLogDeliveryConfigurationArgs {
+    /**
+     * A user pool ID, for example `us-east-1_EXAMPLE` .
+     */
     id: string;
 }
 
 export interface GetLogDeliveryConfigurationResult {
+    /**
+     * A user pool ID, for example `us-east-1_EXAMPLE` .
+     */
     readonly id?: string;
+    /**
+     * The detailed activity logging destination of a user pool.
+     */
     readonly logConfigurations?: outputs.cognito.LogDeliveryConfigurationLogConfiguration[];
 }
 /**
@@ -34,5 +43,8 @@ export function getLogDeliveryConfigurationOutput(args: GetLogDeliveryConfigurat
 }
 
 export interface GetLogDeliveryConfigurationOutputArgs {
+    /**
+     * A user pool ID, for example `us-east-1_EXAMPLE` .
+     */
     id: pulumi.Input<string>;
 }

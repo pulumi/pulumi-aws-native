@@ -30,11 +30,17 @@ class GetAccountResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        ID of the AWS account that owns the certificate.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="expiryEventsConfiguration")
     def expiry_events_configuration(self) -> Optional['outputs.AccountExpiryEventsConfiguration']:
+        """
+        Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+        """
         return pulumi.get(self, "expiry_events_configuration")
 
 
@@ -52,6 +58,9 @@ def get_account(account_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Resource schema for AWS::CertificateManager::Account.
+
+
+    :param str account_id: ID of the AWS account that owns the certificate.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -68,5 +77,8 @@ def get_account_output(account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Resource schema for AWS::CertificateManager::Account.
+
+
+    :param str account_id: ID of the AWS account that owns the certificate.
     """
     ...

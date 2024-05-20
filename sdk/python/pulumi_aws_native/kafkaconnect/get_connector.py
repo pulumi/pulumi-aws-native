@@ -34,6 +34,9 @@ class GetConnectorResult:
     @property
     @pulumi.getter
     def capacity(self) -> Optional['outputs.ConnectorCapacity']:
+        """
+        The connector's compute capacity settings.
+        """
         return pulumi.get(self, "capacity")
 
     @property

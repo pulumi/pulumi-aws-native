@@ -37,15 +37,45 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
+    /**
+     * The number of seconds vended session credentials will be valid for
+     */
     public readonly durationSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The enabled status of the resource.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+     */
     public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The customer specified name of the resource.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of the profile.
+     */
     public /*out*/ readonly profileArn!: pulumi.Output<string>;
+    /**
+     * The unique primary identifier of the Profile
+     */
     public /*out*/ readonly profileId!: pulumi.Output<string>;
+    /**
+     * Specifies whether instance properties are required in CreateSession requests with this profile.
+     */
     public readonly requireInstanceProperties!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+     */
     public readonly roleArns!: pulumi.Output<string[]>;
+    /**
+     * A session policy that will applied to the trust boundary of the vended session credentials.
+     */
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * A list of Tags.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -93,12 +123,36 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * The number of seconds vended session credentials will be valid for
+     */
     durationSeconds?: pulumi.Input<number>;
+    /**
+     * The enabled status of the resource.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+     */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The customer specified name of the resource.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether instance properties are required in CreateSession requests with this profile.
+     */
     requireInstanceProperties?: pulumi.Input<boolean>;
+    /**
+     * A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+     */
     roleArns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A session policy that will applied to the trust boundary of the vended session credentials.
+     */
     sessionPolicy?: pulumi.Input<string>;
+    /**
+     * A list of Tags.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CodeStarNotifications
 
     public sealed class GetNotificationRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the notification rule.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CodeStarNotifications
 
     public sealed class GetNotificationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the notification rule.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.CodeStarNotifications
     [OutputType]
     public sealed class GetNotificationRuleResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the notification rule.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The name or email alias of the person who created the notification rule.
+        /// </summary>
         public readonly string? CreatedBy;
+        /// <summary>
+        /// The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeStarNotifications.NotificationRuleDetailType? DetailType;
+        /// <summary>
+        /// A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+        /// </summary>
         public readonly ImmutableArray<string> EventTypeIds;
+        /// <summary>
+        /// The name for the notification rule. Notification rule names must be unique in your AWS account .
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus? Status;
+        /// <summary>
+        /// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NotificationRuleTarget> Targets;
 
         [OutputConstructor]

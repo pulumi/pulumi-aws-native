@@ -21,7 +21,13 @@ class ArchiveArgs:
                  retention_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Archive resource.
-        :param Any event_pattern: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        :param pulumi.Input[str] source_arn: The ARN of the event bus that sends events to the archive.
+        :param pulumi.Input[str] archive_name: The name for the archive to create.
+        :param pulumi.Input[str] description: A description for the archive.
+        :param Any event_pattern: An event pattern to use to filter events sent to the archive.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        :param pulumi.Input[int] retention_days: The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
         """
         pulumi.set(__self__, "source_arn", source_arn)
         if archive_name is not None:
@@ -36,6 +42,9 @@ class ArchiveArgs:
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the event bus that sends events to the archive.
+        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -45,6 +54,9 @@ class ArchiveArgs:
     @property
     @pulumi.getter(name="archiveName")
     def archive_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the archive to create.
+        """
         return pulumi.get(self, "archive_name")
 
     @archive_name.setter
@@ -54,6 +66,9 @@ class ArchiveArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the archive.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,6 +79,8 @@ class ArchiveArgs:
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> Optional[Any]:
         """
+        An event pattern to use to filter events sent to the archive.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "event_pattern")
@@ -75,6 +92,9 @@ class ArchiveArgs:
     @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+        """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
@@ -98,7 +118,13 @@ class Archive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any event_pattern: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        :param pulumi.Input[str] archive_name: The name for the archive to create.
+        :param pulumi.Input[str] description: A description for the archive.
+        :param Any event_pattern: An event pattern to use to filter events sent to the archive.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
+        :param pulumi.Input[int] retention_days: The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+        :param pulumi.Input[str] source_arn: The ARN of the event bus that sends events to the archive.
         """
         ...
     @overload
@@ -181,22 +207,33 @@ class Archive(pulumi.CustomResource):
     @property
     @pulumi.getter(name="archiveName")
     def archive_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name for the archive to create.
+        """
         return pulumi.get(self, "archive_name")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the archive created.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the archive.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="eventPattern")
     def event_pattern(self) -> pulumi.Output[Optional[Any]]:
         """
+        An event pattern to use to filter events sent to the archive.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "event_pattern")
@@ -204,10 +241,16 @@ class Archive(pulumi.CustomResource):
     @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+        """
         return pulumi.get(self, "retention_days")
 
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the event bus that sends events to the archive.
+        """
         return pulumi.get(self, "source_arn")
 

@@ -62,6 +62,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="accessConfig")
     def access_config(self) -> Optional['outputs.ClusterAccessConfig']:
+        """
+        The access configuration for the cluster.
+        """
         return pulumi.get(self, "access_config")
 
     @property
@@ -115,6 +118,9 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def logging(self) -> Optional['outputs.Logging']:
+        """
+        The logging configuration for your cluster.
+        """
         return pulumi.get(self, "logging")
 
     @property
@@ -128,6 +134,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="resourcesVpcConfig")
     def resources_vpc_config(self) -> Optional['outputs.ClusterResourcesVpcConfig']:
+        """
+        The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+        """
         return pulumi.get(self, "resources_vpc_config")
 
     @property

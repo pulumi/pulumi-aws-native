@@ -46,6 +46,9 @@ export interface GetInstanceResult {
      * The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
      */
     readonly status?: enums.sso.InstanceStatus;
+    /**
+     * Specifies tags to be attached to the instance of IAM Identity Center.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

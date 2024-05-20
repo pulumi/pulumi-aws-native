@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateListControlSearchOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility configuration of the search options in a list control.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPieChartFieldWells
     {
+        /// <summary>
+        /// The field well configuration of a pie chart.
+        /// </summary>
         public readonly Outputs.AnalysisPieChartAggregatedFieldWells? PieChartAggregatedFieldWells;
 
         [OutputConstructor]

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetFilterValue
     {
+        /// <summary>
+        /// The value to be associated with the substitution variable.
+        /// </summary>
         public readonly string Value;
         /// <summary>
         /// Variable name

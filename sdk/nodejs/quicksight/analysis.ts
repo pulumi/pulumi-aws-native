@@ -37,11 +37,17 @@ export class Analysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === Analysis.__pulumiType;
     }
 
+    /**
+     * The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+     */
     public readonly analysisId!: pulumi.Output<string>;
     /**
      * <p>The Amazon Resource Name (ARN) of the analysis.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account where you are creating an analysis.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
      * <p>The time that the analysis was created.</p>
@@ -64,19 +70,41 @@ export class Analysis extends pulumi.CustomResource {
      * <p>The descriptive name of the analysis.</p>
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+     */
     public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
+    /**
+     * A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+     *
+     * To specify no permissions, omit `Permissions` .
+     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
     /**
      * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
     public readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
+    /**
+     * A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+     *
+     * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+     */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
+    /**
+     * Status associated with the analysis.
+     */
     public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * <p>The ARN of the theme of the analysis.</p>
      */
     public readonly themeArn!: pulumi.Output<string | undefined>;
+    /**
+     * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+     */
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.AnalysisValidationStrategy | undefined>;
 
     /**
@@ -143,7 +171,13 @@ export class Analysis extends pulumi.CustomResource {
  * The set of arguments for constructing a Analysis resource.
  */
 export interface AnalysisArgs {
+    /**
+     * The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+     */
     analysisId: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account where you are creating an analysis.
+     */
     awsAccountId: pulumi.Input<string>;
     definition?: pulumi.Input<inputs.quicksight.AnalysisDefinitionArgs>;
     /**
@@ -154,18 +188,40 @@ export interface AnalysisArgs {
      * <p>The descriptive name of the analysis.</p>
      */
     name?: pulumi.Input<string>;
+    /**
+     * The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+     */
     parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
+    /**
+     * A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+     *
+     * To specify no permissions, omit `Permissions` .
+     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
     /**
      * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
     sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetArgs>[]>;
+    /**
+     * A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+     *
+     * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+     */
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
+    /**
+     * Status associated with the analysis.
+     */
     status?: pulumi.Input<enums.quicksight.AnalysisResourceStatus>;
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * <p>The ARN of the theme of the analysis.</p>
      */
     themeArn?: pulumi.Input<string>;
+    /**
+     * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+     */
     validationStrategy?: pulumi.Input<inputs.quicksight.AnalysisValidationStrategyArgs>;
 }

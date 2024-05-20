@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     {
         [Input("classicLoadBalancers", required: true)]
         private InputList<Inputs.SpotFleetClassicLoadBalancerArgs>? _classicLoadBalancers;
+
+        /// <summary>
+        /// One or more Classic Load Balancers.
+        /// </summary>
         public InputList<Inputs.SpotFleetClassicLoadBalancerArgs> ClassicLoadBalancers
         {
             get => _classicLoadBalancers ?? (_classicLoadBalancers = new InputList<Inputs.SpotFleetClassicLoadBalancerArgs>());

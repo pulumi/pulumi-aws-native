@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicSemanticEntityTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The semantic entity sub type name.
+        /// </summary>
         [Input("subTypeName")]
         public Input<string>? SubTypeName { get; set; }
 
+        /// <summary>
+        /// The semantic entity type name.
+        /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
         [Input("typeParameters")]
         private InputMap<string>? _typeParameters;
+
+        /// <summary>
+        /// The semantic entity type parameters.
+        /// </summary>
         public InputMap<string> TypeParameters
         {
             get => _typeParameters ?? (_typeParameters = new InputMap<string>());

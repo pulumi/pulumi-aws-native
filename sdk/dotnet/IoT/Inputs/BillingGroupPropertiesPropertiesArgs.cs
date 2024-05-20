@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
+    /// <summary>
+    /// The properties of the billing group.
+    /// </summary>
     public sealed class BillingGroupPropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the billing group.
+        /// </summary>
         [Input("billingGroupDescription")]
         public Input<string>? BillingGroupDescription { get; set; }
 

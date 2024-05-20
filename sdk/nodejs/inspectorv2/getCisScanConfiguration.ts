@@ -34,9 +34,21 @@ export interface GetCisScanConfigurationResult {
      * Name of the scan
      */
     readonly scanName?: string;
+    /**
+     * The CIS scan configuration's schedule.
+     */
     readonly schedule?: outputs.inspectorv2.CisScanConfigurationSchedule;
+    /**
+     * The CIS scan configuration's CIS Benchmark level.
+     */
     readonly securityLevel?: enums.inspectorv2.CisScanConfigurationCisSecurityLevel;
+    /**
+     * The CIS scan configuration's tags.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * The CIS scan configuration's targets.
+     */
     readonly targets?: outputs.inspectorv2.CisScanConfigurationCisTargets;
 }
 /**

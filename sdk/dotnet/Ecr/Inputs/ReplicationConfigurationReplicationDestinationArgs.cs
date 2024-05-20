@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Ecr.Inputs
     /// </summary>
     public sealed class ReplicationConfigurationReplicationDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Region to replicate to.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
+        /// </summary>
         [Input("registryId", required: true)]
         public Input<string> RegistryId { get; set; } = null!;
 

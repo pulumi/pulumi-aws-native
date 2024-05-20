@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardNumericRangeFilterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameter that is used in the numeric range.
+        /// </summary>
         [Input("parameter")]
         public Input<string>? Parameter { get; set; }
 
+        /// <summary>
+        /// The static value of the numeric range filter.
+        /// </summary>
         [Input("staticValue")]
         public Input<double>? StaticValue { get; set; }
 

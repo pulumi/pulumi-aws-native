@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
     [OutputType]
     public sealed class ApplicationSourceConfigProperties
     {
+        /// <summary>
+        /// The external URL source for the application.
+        /// </summary>
         public readonly Outputs.ApplicationExternalUrlConfig ExternalUrlConfig;
 
         [OutputConstructor]

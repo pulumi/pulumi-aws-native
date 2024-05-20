@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreTimestampPartition
     {
+        /// <summary>
+        /// The attribute name of the partition defined by a timestamp.
+        /// </summary>
         public readonly string AttributeName;
+        /// <summary>
+        /// The timestamp format of a partition defined by a timestamp. The default format is seconds since epoch (January 1, 1970 at midnight UTC time).
+        /// </summary>
         public readonly string? TimestampFormat;
 
         [OutputConstructor]

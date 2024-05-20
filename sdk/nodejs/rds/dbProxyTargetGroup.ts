@@ -37,8 +37,17 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbProxyTargetGroup.__pulumiType;
     }
 
+    /**
+     * Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+     */
     public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
+    /**
+     * One or more DB cluster identifiers.
+     */
     public readonly dbClusterIdentifiers!: pulumi.Output<string[] | undefined>;
+    /**
+     * One or more DB instance identifiers.
+     */
     public readonly dbInstanceIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * The identifier for the proxy.
@@ -95,8 +104,17 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DbProxyTargetGroup resource.
  */
 export interface DbProxyTargetGroupArgs {
+    /**
+     * Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+     */
     connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
+    /**
+     * One or more DB cluster identifiers.
+     */
     dbClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * One or more DB instance identifiers.
+     */
     dbInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The identifier for the proxy.

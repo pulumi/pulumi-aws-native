@@ -24,6 +24,24 @@ class ServerCertificateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServerCertificate resource.
+        :param pulumi.Input[str] certificate_body: The contents of the public key certificate.
+        :param pulumi.Input[str] certificate_chain: The contents of the public key certificate chain.
+        :param pulumi.Input[str] path: The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+               
+               This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\\u0021` ) through the DEL character ( `\\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+               
+               > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+        :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
+               
+               The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+               
+               - Any printable ASCII character ranging from the space character ( `\\u0020` ) through the end of the ASCII character range
+               - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\\u00FF` )
+               - The special characters tab ( `\\u0009` ), line feed ( `\\u000A` ), and carriage return ( `\\u000D` )
+        :param pulumi.Input[str] server_certificate_name: The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+               
+               This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
         """
         if certificate_body is not None:
             pulumi.set(__self__, "certificate_body", certificate_body)
@@ -41,6 +59,9 @@ class ServerCertificateArgs:
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the public key certificate.
+        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -50,6 +71,9 @@ class ServerCertificateArgs:
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the public key certificate chain.
+        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -59,6 +83,13 @@ class ServerCertificateArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+
+        This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\\u0021` ) through the DEL character ( `\\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+
+        > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -68,6 +99,15 @@ class ServerCertificateArgs:
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the private key in PEM-encoded format.
+
+        The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+
+        - Any printable ASCII character ranging from the space character ( `\\u0020` ) through the end of the ASCII character range
+        - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\\u00FF` )
+        - The special characters tab ( `\\u0009` ), line feed ( `\\u000A` ), and carriage return ( `\\u000D` )
+        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -77,6 +117,11 @@ class ServerCertificateArgs:
     @property
     @pulumi.getter(name="serverCertificateName")
     def server_certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+
+        This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        """
         return pulumi.get(self, "server_certificate_name")
 
     @server_certificate_name.setter
@@ -86,6 +131,9 @@ class ServerCertificateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -110,6 +158,24 @@ class ServerCertificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_body: The contents of the public key certificate.
+        :param pulumi.Input[str] certificate_chain: The contents of the public key certificate chain.
+        :param pulumi.Input[str] path: The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+               
+               This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\\u0021` ) through the DEL character ( `\\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+               
+               > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+        :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
+               
+               The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+               
+               - Any printable ASCII character ranging from the space character ( `\\u0020` ) through the end of the ASCII character range
+               - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\\u00FF` )
+               - The special characters tab ( `\\u0009` ), line feed ( `\\u000A` ), and carriage return ( `\\u000D` )
+        :param pulumi.Input[str] server_certificate_name: The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+               
+               This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
         """
         ...
     @overload
@@ -201,30 +267,60 @@ class ServerCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Output[Optional[str]]:
+        """
+        The contents of the public key certificate.
+        """
         return pulumi.get(self, "certificate_body")
 
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The contents of the public key certificate chain.
+        """
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+
+        This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\\u0021` ) through the DEL character ( `\\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+
+        > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The contents of the private key in PEM-encoded format.
+
+        The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+
+        - Any printable ASCII character ranging from the space character ( `\\u0020` ) through the end of the ASCII character range
+        - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\\u00FF` )
+        - The special characters tab ( `\\u0009` ), line feed ( `\\u000A` ), and carriage return ( `\\u000D` )
+        """
         return pulumi.get(self, "private_key")
 
     @property
     @pulumi.getter(name="serverCertificateName")
     def server_certificate_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+
+        This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        """
         return pulumi.get(self, "server_certificate_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "tags")
 

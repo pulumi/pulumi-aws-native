@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -39,27 +42,52 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A display name for the template.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of resource permissions to be set on the template.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+        /// 
+        /// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+        /// 
+        /// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        /// </summary>
         [Output("templateId")]
         public Output<string> TemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Output("validationStrategy")]
         public Output<Outputs.TemplateValidationStrategy?> ValidationStrategy { get; private set; } = null!;
 
         [Output("version")]
         public Output<Outputs.TemplateVersion> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -113,40 +141,70 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
         [Input("definition")]
         public Input<Inputs.TemplateVersionDefinitionArgs>? Definition { get; set; }
 
+        /// <summary>
+        /// A display name for the template.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.TemplateResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// A list of resource permissions to be set on the template.
+        /// </summary>
         public InputList<Inputs.TemplateResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.TemplateResourcePermissionArgs>());
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+        /// 
+        /// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+        /// 
+        /// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        /// </summary>
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Input("validationStrategy")]
         public Input<Inputs.TemplateValidationStrategyArgs>? ValidationStrategy { get; set; }
 
+        /// <summary>
+        /// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

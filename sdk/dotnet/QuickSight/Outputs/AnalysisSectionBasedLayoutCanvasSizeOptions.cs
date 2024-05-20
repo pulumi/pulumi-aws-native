@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSectionBasedLayoutCanvasSizeOptions
     {
+        /// <summary>
+        /// The options for a paper canvas of a section-based layout.
+        /// </summary>
         public readonly Outputs.AnalysisSectionBasedLayoutPaperCanvasSizeOptions? PaperCanvasSizeOptions;
 
         [OutputConstructor]

@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.B2bi
     [AwsNativeResourceType("aws-native:b2bi:Capability")]
     public partial class Capability : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        /// </summary>
         [Output("capabilityArn")]
         public Output<string> CapabilityArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         [Output("capabilityId")]
         public Output<string> CapabilityId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a structure that contains the details for a capability.
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.CapabilityConfigurationProperties> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp for creation date and time of the capability.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        /// </summary>
         [Output("instructionsDocuments")]
         public Output<ImmutableArray<Outputs.CapabilityS3Location>> InstructionsDocuments { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the capability.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the type of the capability. Currently, only `edi` is supported.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.B2bi.CapabilityType> Type { get; private set; } = null!;
 
@@ -91,28 +118,45 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a structure that contains the details for a capability.
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.CapabilityConfigurationPropertiesArgs> Configuration { get; set; } = null!;
 
         [Input("instructionsDocuments")]
         private InputList<Inputs.CapabilityS3LocationArgs>? _instructionsDocuments;
+
+        /// <summary>
+        /// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        /// </summary>
         public InputList<Inputs.CapabilityS3LocationArgs> InstructionsDocuments
         {
             get => _instructionsDocuments ?? (_instructionsDocuments = new InputList<Inputs.CapabilityS3LocationArgs>());
             set => _instructionsDocuments = value;
         }
 
+        /// <summary>
+        /// The display name of the capability.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Returns the type of the capability. Currently, only `edi` is supported.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.B2bi.CapabilityType> Type { get; set; } = null!;
 

@@ -59,6 +59,9 @@ export const ComponentTypeStatusState = {
     Error: "ERROR",
 } as const;
 
+/**
+ * The component type status state.
+ */
 export type ComponentTypeStatusState = (typeof ComponentTypeStatusState)[keyof typeof ComponentTypeStatusState];
 
 export const EntityDataTypeType = {

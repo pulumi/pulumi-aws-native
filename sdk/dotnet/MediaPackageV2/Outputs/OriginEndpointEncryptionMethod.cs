@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointEncryptionMethod
     {
+        /// <summary>
+        /// The encryption method to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointCmafEncryptionMethod? CmafEncryptionMethod;
+        /// <summary>
+        /// The encryption method to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointTsEncryptionMethod? TsEncryptionMethod;
 
         [OutputConstructor]

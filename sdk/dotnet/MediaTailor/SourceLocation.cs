@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaTailor
     [AwsNativeResourceType("aws-native:mediatailor:SourceLocation")]
     public partial class SourceLocation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The access configuration for the source location.
+        /// </summary>
         [Output("accessConfiguration")]
         public Output<Outputs.SourceLocationAccessConfiguration?> AccessConfiguration { get; private set; } = null!;
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The default segment delivery configuration.
+        /// </summary>
         [Output("defaultSegmentDeliveryConfiguration")]
         public Output<Outputs.SourceLocationDefaultSegmentDeliveryConfiguration?> DefaultSegmentDeliveryConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The HTTP configuration for the source location.
+        /// </summary>
         [Output("httpConfiguration")]
         public Output<Outputs.SourceLocationHttpConfiguration> HttpConfiguration { get; private set; } = null!;
 
@@ -36,6 +45,9 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("segmentDeliveryConfigurations")]
         public Output<ImmutableArray<Outputs.SourceLocationSegmentDeliveryConfiguration>> SegmentDeliveryConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the source location.
+        /// </summary>
         [Output("sourceLocationName")]
         public Output<string> SourceLocationName { get; private set; } = null!;
 
@@ -94,12 +106,21 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class SourceLocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access configuration for the source location.
+        /// </summary>
         [Input("accessConfiguration")]
         public Input<Inputs.SourceLocationAccessConfigurationArgs>? AccessConfiguration { get; set; }
 
+        /// <summary>
+        /// The default segment delivery configuration.
+        /// </summary>
         [Input("defaultSegmentDeliveryConfiguration")]
         public Input<Inputs.SourceLocationDefaultSegmentDeliveryConfigurationArgs>? DefaultSegmentDeliveryConfiguration { get; set; }
 
+        /// <summary>
+        /// The HTTP configuration for the source location.
+        /// </summary>
         [Input("httpConfiguration", required: true)]
         public Input<Inputs.SourceLocationHttpConfigurationArgs> HttpConfiguration { get; set; } = null!;
 
@@ -115,6 +136,9 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _segmentDeliveryConfigurations = value;
         }
 
+        /// <summary>
+        /// The name of the source location.
+        /// </summary>
         [Input("sourceLocationName")]
         public Input<string>? SourceLocationName { get; set; }
 

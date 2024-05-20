@@ -23,11 +23,16 @@ import (
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
 
+	// The default version of the launch template, such as 2.
+	//
+	// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
 	DefaultVersionNumber pulumi.StringOutput `pulumi:"defaultVersionNumber"`
-	LatestVersionNumber  pulumi.StringOutput `pulumi:"latestVersionNumber"`
+	// The latest version of the launch template, such as `5` .
+	LatestVersionNumber pulumi.StringOutput `pulumi:"latestVersionNumber"`
 	// The information for the launch template.
 	LaunchTemplateData LaunchTemplateDataOutput `pulumi:"launchTemplateData"`
-	LaunchTemplateId   pulumi.StringOutput      `pulumi:"launchTemplateId"`
+	// The ID of the launch template.
+	LaunchTemplateId pulumi.StringOutput `pulumi:"launchTemplateId"`
 	// A name for the launch template.
 	LaunchTemplateName pulumi.StringPtrOutput `pulumi:"launchTemplateName"`
 	// The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
@@ -145,10 +150,14 @@ func (o LaunchTemplateOutput) ToLaunchTemplateOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The default version of the launch template, such as 2.
+//
+// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
 func (o LaunchTemplateOutput) DefaultVersionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.DefaultVersionNumber }).(pulumi.StringOutput)
 }
 
+// The latest version of the launch template, such as `5` .
 func (o LaunchTemplateOutput) LatestVersionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.LatestVersionNumber }).(pulumi.StringOutput)
 }
@@ -158,6 +167,7 @@ func (o LaunchTemplateOutput) LaunchTemplateData() LaunchTemplateDataOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateDataOutput { return v.LaunchTemplateData }).(LaunchTemplateDataOutput)
 }
 
+// The ID of the launch template.
 func (o LaunchTemplateOutput) LaunchTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.LaunchTemplateId }).(pulumi.StringOutput)
 }

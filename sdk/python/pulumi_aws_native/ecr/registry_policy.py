@@ -183,5 +183,8 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
+        """
+        The account ID of the private registry the policy is associated with.
+        """
         return pulumi.get(self, "registry_id")
 

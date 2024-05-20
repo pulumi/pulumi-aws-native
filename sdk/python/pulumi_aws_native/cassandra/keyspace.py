@@ -25,6 +25,15 @@ class KeyspaceArgs:
         """
         The set of arguments for constructing a Keyspace resource.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
+        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
+               
+               - `SINGLE_REGION` for a single Region keyspace (optional) or
+               - `MULTI_REGION` for a multi-Region keyspace
+               
+               If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         if keyspace_name is not None:
             pulumi.set(__self__, "keyspace_name", keyspace_name)
@@ -48,6 +57,14 @@ class KeyspaceArgs:
     @property
     @pulumi.getter(name="replicationSpecification")
     def replication_specification(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]:
+        """
+        Specifies the `ReplicationStrategy` of a keyspace. The options are:
+
+        - `SINGLE_REGION` for a single Region keyspace (optional) or
+        - `MULTI_REGION` for a multi-Region keyspace
+
+        If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        """
         return pulumi.get(self, "replication_specification")
 
     @replication_specification.setter
@@ -57,6 +74,11 @@ class KeyspaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,6 +159,15 @@ class Keyspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
+        :param pulumi.Input[pulumi.InputType['KeyspaceReplicationSpecificationArgs']] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
+               
+               - `SINGLE_REGION` for a single Region keyspace (optional) or
+               - `MULTI_REGION` for a multi-Region keyspace
+               
+               If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -275,10 +306,23 @@ class Keyspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="replicationSpecification")
     def replication_specification(self) -> pulumi.Output[Optional['outputs.KeyspaceReplicationSpecification']]:
+        """
+        Specifies the `ReplicationStrategy` of a keyspace. The options are:
+
+        - `SINGLE_REGION` for a single Region keyspace (optional) or
+        - `MULTI_REGION` for a multi-Region keyspace
+
+        If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        """
         return pulumi.get(self, "replication_specification")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

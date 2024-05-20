@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:ConfigRule")]
     public partial class ConfigRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -32,6 +35,9 @@ namespace Pulumi.AwsNative.Configuration
         [Output("compliance")]
         public Output<Outputs.ComplianceProperties?> Compliance { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
+        /// </summary>
         [Output("configRuleId")]
         public Output<string> ConfigRuleId { get; private set; } = null!;
 

@@ -17,14 +17,18 @@ import (
 type SourceLocation struct {
 	pulumi.CustomResourceState
 
+	// The access configuration for the source location.
 	AccessConfiguration SourceLocationAccessConfigurationPtrOutput `pulumi:"accessConfiguration"`
 	// <p>The ARN of the source location.</p>
-	Arn                                 pulumi.StringOutput                                        `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput `pulumi:"defaultSegmentDeliveryConfiguration"`
-	HttpConfiguration                   SourceLocationHttpConfigurationOutput                      `pulumi:"httpConfiguration"`
+	// The HTTP configuration for the source location.
+	HttpConfiguration SourceLocationHttpConfigurationOutput `pulumi:"httpConfiguration"`
 	// <p>A list of the segment delivery configurations associated with this resource.</p>
 	SegmentDeliveryConfigurations SourceLocationSegmentDeliveryConfigurationArrayOutput `pulumi:"segmentDeliveryConfigurations"`
-	SourceLocationName            pulumi.StringOutput                                   `pulumi:"sourceLocationName"`
+	// The name of the source location.
+	SourceLocationName pulumi.StringOutput `pulumi:"sourceLocationName"`
 	// The tags to assign to the source location.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -76,24 +80,32 @@ func (SourceLocationState) ElementType() reflect.Type {
 }
 
 type sourceLocationArgs struct {
-	AccessConfiguration                 *SourceLocationAccessConfiguration                 `pulumi:"accessConfiguration"`
+	// The access configuration for the source location.
+	AccessConfiguration *SourceLocationAccessConfiguration `pulumi:"accessConfiguration"`
+	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration *SourceLocationDefaultSegmentDeliveryConfiguration `pulumi:"defaultSegmentDeliveryConfiguration"`
-	HttpConfiguration                   SourceLocationHttpConfiguration                    `pulumi:"httpConfiguration"`
+	// The HTTP configuration for the source location.
+	HttpConfiguration SourceLocationHttpConfiguration `pulumi:"httpConfiguration"`
 	// <p>A list of the segment delivery configurations associated with this resource.</p>
 	SegmentDeliveryConfigurations []SourceLocationSegmentDeliveryConfiguration `pulumi:"segmentDeliveryConfigurations"`
-	SourceLocationName            *string                                      `pulumi:"sourceLocationName"`
+	// The name of the source location.
+	SourceLocationName *string `pulumi:"sourceLocationName"`
 	// The tags to assign to the source location.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SourceLocation resource.
 type SourceLocationArgs struct {
-	AccessConfiguration                 SourceLocationAccessConfigurationPtrInput
+	// The access configuration for the source location.
+	AccessConfiguration SourceLocationAccessConfigurationPtrInput
+	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration SourceLocationDefaultSegmentDeliveryConfigurationPtrInput
-	HttpConfiguration                   SourceLocationHttpConfigurationInput
+	// The HTTP configuration for the source location.
+	HttpConfiguration SourceLocationHttpConfigurationInput
 	// <p>A list of the segment delivery configurations associated with this resource.</p>
 	SegmentDeliveryConfigurations SourceLocationSegmentDeliveryConfigurationArrayInput
-	SourceLocationName            pulumi.StringPtrInput
+	// The name of the source location.
+	SourceLocationName pulumi.StringPtrInput
 	// The tags to assign to the source location.
 	Tags aws.TagArrayInput
 }
@@ -135,6 +147,7 @@ func (o SourceLocationOutput) ToSourceLocationOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The access configuration for the source location.
 func (o SourceLocationOutput) AccessConfiguration() SourceLocationAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v *SourceLocation) SourceLocationAccessConfigurationPtrOutput { return v.AccessConfiguration }).(SourceLocationAccessConfigurationPtrOutput)
 }
@@ -144,12 +157,14 @@ func (o SourceLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceLocation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The default segment delivery configuration.
 func (o SourceLocationOutput) DefaultSegmentDeliveryConfiguration() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
 	return o.ApplyT(func(v *SourceLocation) SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
 		return v.DefaultSegmentDeliveryConfiguration
 	}).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
 }
 
+// The HTTP configuration for the source location.
 func (o SourceLocationOutput) HttpConfiguration() SourceLocationHttpConfigurationOutput {
 	return o.ApplyT(func(v *SourceLocation) SourceLocationHttpConfigurationOutput { return v.HttpConfiguration }).(SourceLocationHttpConfigurationOutput)
 }
@@ -161,6 +176,7 @@ func (o SourceLocationOutput) SegmentDeliveryConfigurations() SourceLocationSegm
 	}).(SourceLocationSegmentDeliveryConfigurationArrayOutput)
 }
 
+// The name of the source location.
 func (o SourceLocationOutput) SourceLocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceLocation) pulumi.StringOutput { return v.SourceLocationName }).(pulumi.StringOutput)
 }

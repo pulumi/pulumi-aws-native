@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
         [Input("realtimeMetricsSubscriptionStatus", required: true)]
         public Input<Pulumi.AwsNative.CloudFront.MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus> RealtimeMetricsSubscriptionStatus { get; set; } = null!;
 

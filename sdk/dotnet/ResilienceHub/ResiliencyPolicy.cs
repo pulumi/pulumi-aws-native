@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Output("dataLocationConstraint")]
         public Output<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint?> DataLocationConstraint { get; private set; } = null!;
 
+        /// <summary>
+        /// The resiliency policy.
+        /// </summary>
         [Output("policy")]
         public Output<Outputs.ResiliencyPolicyPolicyMap> Policy { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -102,6 +108,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         [Input("dataLocationConstraint")]
         public Input<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint>? DataLocationConstraint { get; set; }
 
+        /// <summary>
+        /// The resiliency policy.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.ResiliencyPolicyPolicyMapArgs> Policy { get; set; } = null!;
 
@@ -119,6 +128,10 @@ namespace Pulumi.AwsNative.ResilienceHub
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

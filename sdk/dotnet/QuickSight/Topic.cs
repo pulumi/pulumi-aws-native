@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the topic.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account that you want to create a topic in.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The data sets that the topic is associated with.
+        /// </summary>
         [Output("dataSets")]
         public Output<ImmutableArray<Outputs.TopicDatasetMetadata>> DataSets { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the topic.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the topic.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Output("topicId")]
         public Output<string?> TopicId { get; private set; } = null!;
 
+        /// <summary>
+        /// The user experience version of the topic.
+        /// </summary>
         [Output("userExperienceVersion")]
         public Output<Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion?> UserExperienceVersion { get; private set; } = null!;
 
@@ -86,26 +107,45 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that you want to create a topic in.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
         [Input("dataSets")]
         private InputList<Inputs.TopicDatasetMetadataArgs>? _dataSets;
+
+        /// <summary>
+        /// The data sets that the topic is associated with.
+        /// </summary>
         public InputList<Inputs.TopicDatasetMetadataArgs> DataSets
         {
             get => _dataSets ?? (_dataSets = new InputList<Inputs.TopicDatasetMetadataArgs>());
             set => _dataSets = value;
         }
 
+        /// <summary>
+        /// The description of the topic.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the topic.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }
 
+        /// <summary>
+        /// The user experience version of the topic.
+        /// </summary>
         [Input("userExperienceVersion")]
         public Input<Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion>? UserExperienceVersion { get; set; }
 

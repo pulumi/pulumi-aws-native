@@ -39,26 +39,41 @@ class GetLicenseEndpointResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the license endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The DNS name of the license server endpoint.
+        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="licenseEndpointId")
     def license_endpoint_id(self) -> Optional[str]:
+        """
+        The license endpoint ID.
+        """
         return pulumi.get(self, "license_endpoint_id")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['LicenseEndpointStatus']:
+        """
+        The status of the license endpoint.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[str]:
+        """
+        The status message of the license endpoint.
+        """
         return pulumi.get(self, "status_message")
 
 
@@ -79,6 +94,9 @@ def get_license_endpoint(arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicenseEndpointResult:
     """
     Definition of AWS::Deadline::LicenseEndpoint Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the license endpoint.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -98,5 +116,8 @@ def get_license_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseEndpointResult]:
     """
     Definition of AWS::Deadline::LicenseEndpoint Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the license endpoint.
     """
     ...

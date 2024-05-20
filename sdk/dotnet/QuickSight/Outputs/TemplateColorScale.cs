@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateColorScale
     {
+        /// <summary>
+        /// Determines the color fill type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateColorFillType ColorFillType;
+        /// <summary>
+        /// Determines the list of colors that are applied to the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataColor> Colors;
+        /// <summary>
+        /// Determines the color that is applied to null values.
+        /// </summary>
         public readonly Outputs.TemplateDataColor? NullValueColor;
 
         [OutputConstructor]

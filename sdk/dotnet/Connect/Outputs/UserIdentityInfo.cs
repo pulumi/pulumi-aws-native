@@ -16,10 +16,27 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class UserIdentityInfo
     {
+        /// <summary>
+        /// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+        /// </summary>
         public readonly string? Email;
+        /// <summary>
+        /// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        /// </summary>
         public readonly string? FirstName;
+        /// <summary>
+        /// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        /// </summary>
         public readonly string? LastName;
+        /// <summary>
+        /// The user's mobile number.
+        /// </summary>
         public readonly string? Mobile;
+        /// <summary>
+        /// The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+        /// 
+        /// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
+        /// </summary>
         public readonly string? SecondaryEmail;
 
         [OutputConstructor]

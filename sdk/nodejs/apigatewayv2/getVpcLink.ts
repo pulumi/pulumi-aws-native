@@ -16,15 +16,24 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetVpcLinkArgs {
+    /**
+     * The VPC link ID.
+     */
     vpcLinkId: string;
 }
 
 export interface GetVpcLinkResult {
+    /**
+     * The name of the VPC link.
+     */
     readonly name?: string;
     /**
      * This resource type use map for Tags, suggest to use List of Tag
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The VPC link ID.
+     */
     readonly vpcLinkId?: string;
 }
 /**
@@ -35,5 +44,8 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetVpcLinkOutputArgs {
+    /**
+     * The VPC link ID.
+     */
     vpcLinkId: pulumi.Input<string>;
 }

@@ -37,12 +37,33 @@ export class Topic extends pulumi.CustomResource {
         return obj['__pulumiType'] === Topic.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the topic.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that you want to create a topic in.
+     */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * The data sets that the topic is associated with.
+     */
     public readonly dataSets!: pulumi.Output<outputs.quicksight.TopicDatasetMetadata[] | undefined>;
+    /**
+     * The description of the topic.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the topic.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The ID for the topic. This ID is unique per AWS Region for each AWS account.
+     */
     public readonly topicId!: pulumi.Output<string | undefined>;
+    /**
+     * The user experience version of the topic.
+     */
     public readonly userExperienceVersion!: pulumi.Output<enums.quicksight.TopicUserExperienceVersion | undefined>;
 
     /**
@@ -83,10 +104,28 @@ export class Topic extends pulumi.CustomResource {
  * The set of arguments for constructing a Topic resource.
  */
 export interface TopicArgs {
+    /**
+     * The ID of the AWS account that you want to create a topic in.
+     */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * The data sets that the topic is associated with.
+     */
     dataSets?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicDatasetMetadataArgs>[]>;
+    /**
+     * The description of the topic.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the topic.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID for the topic. This ID is unique per AWS Region for each AWS account.
+     */
     topicId?: pulumi.Input<string>;
+    /**
+     * The user experience version of the topic.
+     */
     userExperienceVersion?: pulumi.Input<enums.quicksight.TopicUserExperienceVersion>;
 }

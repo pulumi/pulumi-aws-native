@@ -28,6 +28,12 @@ class ImageVersionArgs:
                  vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None):
         """
         The set of arguments for constructing a ImageVersion resource.
+        :param pulumi.Input[str] base_image: The container image that the SageMaker image version is based on.
+        :param pulumi.Input[str] image_name: The name of the parent image.
+               
+               *Length Constraints* : Minimum length of 1. Maximum length of 63.
+               
+               *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
@@ -53,6 +59,9 @@ class ImageVersionArgs:
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> pulumi.Input[str]:
+        """
+        The container image that the SageMaker image version is based on.
+        """
         return pulumi.get(self, "base_image")
 
     @base_image.setter
@@ -62,6 +71,13 @@ class ImageVersionArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the parent image.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 63.
+
+        *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -172,6 +188,12 @@ class ImageVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] base_image: The container image that the SageMaker image version is based on.
+        :param pulumi.Input[str] image_name: The name of the parent image.
+               
+               *Length Constraints* : Minimum length of 1. Maximum length of 63.
+               
+               *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
         """
         ...
     @overload
@@ -290,11 +312,17 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> pulumi.Output[str]:
+        """
+        The container image that the SageMaker image version is based on.
+        """
         return pulumi.get(self, "base_image")
 
     @property
     @pulumi.getter(name="containerImage")
     def container_image(self) -> pulumi.Output[str]:
+        """
+        The URI of the container image version referenced by ImageVersion.
+        """
         return pulumi.get(self, "container_image")
 
     @property
@@ -305,16 +333,35 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the parent Image.
+        """
         return pulumi.get(self, "image_arn")
 
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[str]:
+        """
+        The name of the parent image.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 63.
+
+        *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        """
         return pulumi.get(self, "image_name")
 
     @property
     @pulumi.getter(name="imageVersionArn")
     def image_version_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the image version.
+
+        *Type* : String
+
+        *Length Constraints* : Maximum length of 256.
+
+        *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
+        """
         return pulumi.get(self, "image_version_arn")
 
     @property
@@ -350,5 +397,8 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        The version of the image.
+        """
         return pulumi.get(self, "version")
 

@@ -44,26 +44,45 @@ class GetConfiguredTableResult:
     @property
     @pulumi.getter(name="analysisRules")
     def analysis_rules(self) -> Optional[Sequence['outputs.ConfiguredTableAnalysisRule']]:
+        """
+        The entire created analysis rule.
+        """
         return pulumi.get(self, "analysis_rules")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified configured table.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configuredTableIdentifier")
     def configured_table_identifier(self) -> Optional[str]:
+        """
+        Returns the unique identifier of the specified configured table.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "configured_table_identifier")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the configured table.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A name for the configured table.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -93,6 +112,11 @@ def get_configured_table(configured_table_identifier: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfiguredTableResult:
     """
     Represents a table that can be associated with collaborations
+
+
+    :param str configured_table_identifier: Returns the unique identifier of the specified configured table.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
     """
     __args__ = dict()
     __args__['configuredTableIdentifier'] = configured_table_identifier
@@ -113,5 +137,10 @@ def get_configured_table_output(configured_table_identifier: Optional[pulumi.Inp
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfiguredTableResult]:
     """
     Represents a table that can be associated with collaborations
+
+
+    :param str configured_table_identifier: Returns the unique identifier of the specified configured table.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
     """
     ...

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Monitoring end time offset, e.g. PT0H
         /// </summary>
         public readonly string? EndTimeOffset;
+        /// <summary>
+        /// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        /// </summary>
         public readonly string EndpointName;
         /// <summary>
         /// JSONpath to locate features in JSONlines dataset
@@ -37,6 +40,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Index or JSONpath to locate probabilities
         /// </summary>
         public readonly string? ProbabilityAttribute;
+        /// <summary>
+        /// The threshold for the class probability to be evaluated as a positive result.
+        /// </summary>
         public readonly double? ProbabilityThresholdAttribute;
         /// <summary>
         /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated

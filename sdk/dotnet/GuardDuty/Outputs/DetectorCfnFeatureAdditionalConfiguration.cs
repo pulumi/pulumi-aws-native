@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfnFeatureAdditionalConfiguration
     {
+        /// <summary>
+        /// Name of the additional configuration.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Status of the additional configuration.
+        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

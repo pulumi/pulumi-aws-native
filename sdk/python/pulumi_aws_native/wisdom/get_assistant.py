@@ -29,11 +29,17 @@ class GetAssistantResult:
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> Optional[str]:
+        """
+        The ID of the Wisdom assistant.
+        """
         return pulumi.get(self, "assistant_id")
 
 
@@ -51,6 +57,9 @@ def get_assistant(assistant_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssistantResult:
     """
     Definition of AWS::Wisdom::Assistant Resource Type
+
+
+    :param str assistant_id: The ID of the Wisdom assistant.
     """
     __args__ = dict()
     __args__['assistantId'] = assistant_id
@@ -67,5 +76,8 @@ def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantResult]:
     """
     Definition of AWS::Wisdom::Assistant Resource Type
+
+
+    :param str assistant_id: The ID of the Wisdom assistant.
     """
     ...

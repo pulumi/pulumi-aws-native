@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("pathOptions")]
         public Output<Outputs.DatasetPathOptions?> PathOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata tags that have been applied to the dataset.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -176,6 +179,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata tags that have been applied to the dataset.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

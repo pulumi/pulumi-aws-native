@@ -48,8 +48,27 @@ export class SecurityKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityKey.__pulumiType;
     }
 
+    /**
+     * An `AssociationId` is automatically generated when a storage config is associated with an instance.
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * A valid security key in PEM format. For example:
+     *
+     * `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `1024`
+     */
     public readonly key!: pulumi.Output<string>;
 
     /**
@@ -88,6 +107,22 @@ export class SecurityKey extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityKey resource.
  */
 export interface SecurityKeyArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * A valid security key in PEM format. For example:
+     *
+     * `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `1024`
+     */
     key: pulumi.Input<string>;
 }

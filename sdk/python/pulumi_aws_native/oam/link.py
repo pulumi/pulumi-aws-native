@@ -24,6 +24,16 @@ class LinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        :param pulumi.Input[str] sink_identifier: The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+        :param pulumi.Input[str] label_template: Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+               
+               You can include the following variables in your template:
+               
+               - `$AccountName` is the name of the account
+               - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+               - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+        :param pulumi.Input['LinkConfigurationArgs'] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the link
         """
         pulumi.set(__self__, "resource_types", resource_types)
@@ -38,6 +48,9 @@ class LinkArgs:
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]:
+        """
+        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
@@ -47,6 +60,9 @@ class LinkArgs:
     @property
     @pulumi.getter(name="sinkIdentifier")
     def sink_identifier(self) -> pulumi.Input[str]:
+        """
+        The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+        """
         return pulumi.get(self, "sink_identifier")
 
     @sink_identifier.setter
@@ -56,6 +72,15 @@ class LinkArgs:
     @property
     @pulumi.getter(name="labelTemplate")
     def label_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+
+        You can include the following variables in your template:
+
+        - `$AccountName` is the name of the account
+        - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+        - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+        """
         return pulumi.get(self, "label_template")
 
     @label_template.setter
@@ -65,6 +90,9 @@ class LinkArgs:
     @property
     @pulumi.getter(name="linkConfiguration")
     def link_configuration(self) -> Optional[pulumi.Input['LinkConfigurationArgs']]:
+        """
+        Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        """
         return pulumi.get(self, "link_configuration")
 
     @link_configuration.setter
@@ -100,6 +128,16 @@ class Link(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] label_template: Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+               
+               You can include the following variables in your template:
+               
+               - `$AccountName` is the name of the account
+               - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+               - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+        :param pulumi.Input[pulumi.InputType['LinkConfigurationArgs']] link_configuration: Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]] resource_types: An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        :param pulumi.Input[str] sink_identifier: The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the link
         """
         ...
@@ -187,31 +225,55 @@ class Link(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
+        """
+        The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+        """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="labelTemplate")
     def label_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+
+        You can include the following variables in your template:
+
+        - `$AccountName` is the name of the account
+        - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+        - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+        """
         return pulumi.get(self, "label_template")
 
     @property
     @pulumi.getter(name="linkConfiguration")
     def link_configuration(self) -> pulumi.Output[Optional['outputs.LinkConfiguration']]:
+        """
+        Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+        """
         return pulumi.get(self, "link_configuration")
 
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Output[Sequence['LinkResourceType']]:
+        """
+        An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+        """
         return pulumi.get(self, "resource_types")
 
     @property
     @pulumi.getter(name="sinkIdentifier")
     def sink_identifier(self) -> pulumi.Output[str]:
+        """
+        The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+        """
         return pulumi.get(self, "sink_identifier")
 
     @property

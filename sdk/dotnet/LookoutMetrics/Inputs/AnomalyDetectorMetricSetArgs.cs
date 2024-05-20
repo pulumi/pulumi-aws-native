@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         [Input("metricSetName", required: true)]
         public Input<string> MetricSetName { get; set; } = null!;
 
+        /// <summary>
+        /// Contains information about how the source data should be interpreted.
+        /// </summary>
         [Input("metricSource", required: true)]
         public Input<Inputs.AnomalyDetectorMetricSourceArgs> MetricSource { get; set; } = null!;
 
@@ -63,9 +66,15 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         [Input("offset")]
         public Input<int>? Offset { get; set; }
 
+        /// <summary>
+        /// Contains information about the column used for tracking time in your source data.
+        /// </summary>
         [Input("timestampColumn")]
         public Input<Inputs.AnomalyDetectorTimestampColumnArgs>? TimestampColumn { get; set; }
 
+        /// <summary>
+        /// The time zone in which your source data was recorded.
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 

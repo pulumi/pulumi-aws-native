@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDynamicDefaultValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The column that contains the default value of each user or group.
+        /// </summary>
         [Input("defaultValueColumn", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> DefaultValueColumn { get; set; } = null!;
 
+        /// <summary>
+        /// The column that contains the group name.
+        /// </summary>
         [Input("groupNameColumn")]
         public Input<Inputs.DashboardColumnIdentifierArgs>? GroupNameColumn { get; set; }
 
+        /// <summary>
+        /// The column that contains the username.
+        /// </summary>
         [Input("userNameColumn")]
         public Input<Inputs.DashboardColumnIdentifierArgs>? UserNameColumn { get; set; }
 

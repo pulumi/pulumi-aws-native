@@ -34,9 +34,19 @@ type Detector struct {
 	// The event type to associate this detector with.
 	EventType DetectorEventTypeOutput `pulumi:"eventType"`
 	// The time when the detector was last updated.
-	LastUpdatedTime   pulumi.StringOutput                `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The rule execution mode for the rules included in the detector version.
+	//
+	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+	//
+	// You can define and edit the rule mode at the detector version level, when it is in draft status.
+	//
+	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+	//
+	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode DetectorRuleExecutionModePtrOutput `pulumi:"ruleExecutionMode"`
-	Rules             DetectorRuleArrayOutput            `pulumi:"rules"`
+	// The rules to include in the detector version.
+	Rules DetectorRuleArrayOutput `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -103,9 +113,19 @@ type detectorArgs struct {
 	// The desired detector version status for the detector
 	DetectorVersionStatus *DetectorVersionStatus `pulumi:"detectorVersionStatus"`
 	// The event type to associate this detector with.
-	EventType         DetectorEventType          `pulumi:"eventType"`
+	EventType DetectorEventType `pulumi:"eventType"`
+	// The rule execution mode for the rules included in the detector version.
+	//
+	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+	//
+	// You can define and edit the rule mode at the detector version level, when it is in draft status.
+	//
+	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+	//
+	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
-	Rules             []DetectorRule             `pulumi:"rules"`
+	// The rules to include in the detector version.
+	Rules []DetectorRule `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -121,9 +141,19 @@ type DetectorArgs struct {
 	// The desired detector version status for the detector
 	DetectorVersionStatus DetectorVersionStatusPtrInput
 	// The event type to associate this detector with.
-	EventType         DetectorEventTypeInput
+	EventType DetectorEventTypeInput
+	// The rule execution mode for the rules included in the detector version.
+	//
+	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+	//
+	// You can define and edit the rule mode at the detector version level, when it is in draft status.
+	//
+	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+	//
+	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode DetectorRuleExecutionModePtrInput
-	Rules             DetectorRuleArrayInput
+	// The rules to include in the detector version.
+	Rules DetectorRuleArrayInput
 	// Tags associated with this detector.
 	Tags aws.TagArrayInput
 }
@@ -210,10 +240,20 @@ func (o DetectorOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// The rule execution mode for the rules included in the detector version.
+//
+// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+//
+// You can define and edit the rule mode at the detector version level, when it is in draft status.
+//
+// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+//
+// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 func (o DetectorOutput) RuleExecutionMode() DetectorRuleExecutionModePtrOutput {
 	return o.ApplyT(func(v *Detector) DetectorRuleExecutionModePtrOutput { return v.RuleExecutionMode }).(DetectorRuleExecutionModePtrOutput)
 }
 
+// The rules to include in the detector version.
 func (o DetectorOutput) Rules() DetectorRuleArrayOutput {
 	return o.ApplyT(func(v *Detector) DetectorRuleArrayOutput { return v.Rules }).(DetectorRuleArrayOutput)
 }

@@ -24,19 +24,29 @@ func LookupLandingZone(ctx *pulumi.Context, args *LookupLandingZoneArgs, opts ..
 }
 
 type LookupLandingZoneArgs struct {
+	// The unique identifier of the landing zone.
 	LandingZoneIdentifier string `pulumi:"landingZoneIdentifier"`
 }
 
 type LookupLandingZoneResult struct {
-	Arn                    *string                 `pulumi:"arn"`
-	DriftStatus            *LandingZoneDriftStatus `pulumi:"driftStatus"`
-	LandingZoneIdentifier  *string                 `pulumi:"landingZoneIdentifier"`
-	LatestAvailableVersion *string                 `pulumi:"latestAvailableVersion"`
+	// The ARN of the landing zone.
+	Arn *string `pulumi:"arn"`
+	// The drift status of the landing zone.
+	DriftStatus *LandingZoneDriftStatus `pulumi:"driftStatus"`
+	// The unique identifier of the landing zone.
+	LandingZoneIdentifier *string `pulumi:"landingZoneIdentifier"`
+	// The latest available version of the landing zone.
+	LatestAvailableVersion *string `pulumi:"latestAvailableVersion"`
+	// The landing zone manifest JSON text file that specifies the landing zone configurations.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
-	Manifest interface{}        `pulumi:"manifest"`
-	Status   *LandingZoneStatus `pulumi:"status"`
-	Tags     []aws.Tag          `pulumi:"tags"`
-	Version  *string            `pulumi:"version"`
+	Manifest interface{} `pulumi:"manifest"`
+	// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
+	Status *LandingZoneStatus `pulumi:"status"`
+	// Tags to be applied to the landing zone.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The landing zone's current deployed version.
+	Version *string `pulumi:"version"`
 }
 
 func LookupLandingZoneOutput(ctx *pulumi.Context, args LookupLandingZoneOutputArgs, opts ...pulumi.InvokeOption) LookupLandingZoneResultOutput {
@@ -53,6 +63,7 @@ func LookupLandingZoneOutput(ctx *pulumi.Context, args LookupLandingZoneOutputAr
 }
 
 type LookupLandingZoneOutputArgs struct {
+	// The unique identifier of the landing zone.
 	LandingZoneIdentifier pulumi.StringInput `pulumi:"landingZoneIdentifier"`
 }
 
@@ -74,35 +85,44 @@ func (o LookupLandingZoneResultOutput) ToLookupLandingZoneResultOutputWithContex
 	return o
 }
 
+// The ARN of the landing zone.
 func (o LookupLandingZoneResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The drift status of the landing zone.
 func (o LookupLandingZoneResultOutput) DriftStatus() LandingZoneDriftStatusPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *LandingZoneDriftStatus { return v.DriftStatus }).(LandingZoneDriftStatusPtrOutput)
 }
 
+// The unique identifier of the landing zone.
 func (o LookupLandingZoneResultOutput) LandingZoneIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *string { return v.LandingZoneIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The latest available version of the landing zone.
 func (o LookupLandingZoneResultOutput) LatestAvailableVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *string { return v.LatestAvailableVersion }).(pulumi.StringPtrOutput)
 }
 
+// The landing zone manifest JSON text file that specifies the landing zone configurations.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 func (o LookupLandingZoneResultOutput) Manifest() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) interface{} { return v.Manifest }).(pulumi.AnyOutput)
 }
 
+// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
 func (o LookupLandingZoneResultOutput) Status() LandingZoneStatusPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *LandingZoneStatus { return v.Status }).(LandingZoneStatusPtrOutput)
 }
 
+// Tags to be applied to the landing zone.
 func (o LookupLandingZoneResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The landing zone's current deployed version.
 func (o LookupLandingZoneResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

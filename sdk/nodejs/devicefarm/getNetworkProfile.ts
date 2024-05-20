@@ -19,21 +19,62 @@ export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.Inv
 }
 
 export interface GetNetworkProfileArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetNetworkProfileResult {
+    /**
+     * The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * The description of the network profile.
+     */
     readonly description?: string;
+    /**
+     * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+     */
     readonly downlinkBandwidthBits?: number;
+    /**
+     * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+     */
     readonly downlinkDelayMs?: number;
+    /**
+     * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+     */
     readonly downlinkJitterMs?: number;
+    /**
+     * Proportion of received packets that fail to arrive from 0 to 100 percent.
+     */
     readonly downlinkLossPercent?: number;
+    /**
+     * The name of the network profile.
+     */
     readonly name?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+     */
     readonly uplinkBandwidthBits?: number;
+    /**
+     * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+     */
     readonly uplinkDelayMs?: number;
+    /**
+     * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+     */
     readonly uplinkJitterMs?: number;
+    /**
+     * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+     */
     readonly uplinkLossPercent?: number;
 }
 /**
@@ -44,5 +85,8 @@ export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?
 }
 
 export interface GetNetworkProfileOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNumericAxisOptions
     {
+        /// <summary>
+        /// The range setup of a numeric axis.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayRange? Range;
+        /// <summary>
+        /// The scale setup of a numeric axis.
+        /// </summary>
         public readonly Outputs.AnalysisAxisScale? Scale;
 
         [OutputConstructor]

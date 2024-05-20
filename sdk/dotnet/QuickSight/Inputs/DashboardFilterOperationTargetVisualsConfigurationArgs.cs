@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilterOperationTargetVisualsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the same-sheet target visuals that you want to be filtered.
+        /// </summary>
         [Input("sameSheetTargetVisualConfiguration")]
         public Input<Inputs.DashboardSameSheetTargetVisualConfigurationArgs>? SameSheetTargetVisualConfiguration { get; set; }
 

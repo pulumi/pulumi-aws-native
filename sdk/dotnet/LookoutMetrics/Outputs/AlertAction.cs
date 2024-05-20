@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AlertAction
     {
+        /// <summary>
+        /// A configuration for an AWS Lambda channel.
+        /// </summary>
         public readonly Outputs.AlertLambdaConfiguration? LambdaConfiguration;
+        /// <summary>
+        /// A configuration for an Amazon SNS channel.
+        /// </summary>
         public readonly Outputs.AlertSnsConfiguration? SnsConfiguration;
 
         [OutputConstructor]

@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        /// </summary>
         [Output("domainSettings")]
         public Output<Outputs.DomainSettings?> DomainSettings { get; private set; } = null!;
 
@@ -210,6 +213,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainSettingsArgs>? DomainSettings { get; set; }
 

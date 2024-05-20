@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateHistogramConfiguration
     {
+        /// <summary>
+        /// The options that determine the presentation of histogram bins.
+        /// </summary>
         public readonly Outputs.TemplateHistogramBinOptions? BinOptions;
+        /// <summary>
+        /// The data label configuration of a histogram.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a histogram.
+        /// </summary>
         public readonly Outputs.TemplateHistogramFieldWells? FieldWells;
+        /// <summary>
+        /// The tooltip configuration of a histogram.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual palette configuration of a histogram.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis label.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? XAxisLabelOptions;
+        /// <summary>
+        /// The options that determine the presentation of the y-axis.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? YAxisDisplayOptions;
 
         [OutputConstructor]

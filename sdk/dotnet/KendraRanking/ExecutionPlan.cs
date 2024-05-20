@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.KendraRanking
     [AwsNativeResourceType("aws-native:kendraranking:ExecutionPlan")]
     public partial class ExecutionPlan : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rescore execution plan.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the rescore execution plan.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -33,6 +39,9 @@ namespace Pulumi.AwsNative.KendraRanking
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the rescore execution plan.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -99,6 +108,9 @@ namespace Pulumi.AwsNative.KendraRanking
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A name for the rescore execution plan.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

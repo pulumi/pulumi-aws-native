@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
     [OutputType]
     public sealed class ContainerPublicDomainName
     {
+        /// <summary>
+        /// The name of the certificate for the public domains.
+        /// </summary>
         public readonly string? CertificateName;
         /// <summary>
         /// An object that describes the configuration for the containers of the deployment.

@@ -18,6 +18,8 @@ class ApplicationFleetAssociationArgs:
                  fleet_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ApplicationFleetAssociation resource.
+        :param pulumi.Input[str] application_arn: The ARN of the application.
+        :param pulumi.Input[str] fleet_name: The name of the fleet.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "fleet_name", fleet_name)
@@ -25,6 +27,9 @@ class ApplicationFleetAssociationArgs:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the application.
+        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -34,6 +39,9 @@ class ApplicationFleetAssociationArgs:
     @property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Input[str]:
+        """
+        The name of the fleet.
+        """
         return pulumi.get(self, "fleet_name")
 
     @fleet_name.setter
@@ -54,6 +62,8 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_arn: The ARN of the application.
+        :param pulumi.Input[str] fleet_name: The name of the fleet.
         """
         ...
     @overload
@@ -127,10 +137,16 @@ class ApplicationFleetAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Output[str]:
+        """
+        The name of the fleet.
+        """
         return pulumi.get(self, "fleet_name")
 

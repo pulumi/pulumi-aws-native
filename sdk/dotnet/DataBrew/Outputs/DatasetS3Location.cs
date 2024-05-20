@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetS3Location
     {
+        /// <summary>
+        /// The Amazon S3 bucket name.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The unique name of the object in the bucket.
+        /// </summary>
         public readonly string? Key;
 
         [OutputConstructor]

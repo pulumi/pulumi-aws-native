@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastoreIotSiteWiseMultiLayerStorageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
+        /// </summary>
         [Input("customerManagedS3Storage")]
         public Input<Inputs.DatastoreCustomerManagedS3StorageArgs>? CustomerManagedS3Storage { get; set; }
 

@@ -21,10 +21,13 @@ type Vpc struct {
 
 	// The IPv4 network range for the VPC, in CIDR notation. For example, ``10.0.0.0/16``. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
 	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
-	CidrBlock             pulumi.StringPtrOutput   `pulumi:"cidrBlock"`
+	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	// The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
 	CidrBlockAssociations pulumi.StringArrayOutput `pulumi:"cidrBlockAssociations"`
-	DefaultNetworkAcl     pulumi.StringOutput      `pulumi:"defaultNetworkAcl"`
-	DefaultSecurityGroup  pulumi.StringOutput      `pulumi:"defaultSecurityGroup"`
+	// The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+	DefaultNetworkAcl pulumi.StringOutput `pulumi:"defaultNetworkAcl"`
+	// The ID of the default security group for the VPC. For example, sg-b178e0d3.
+	DefaultSecurityGroup pulumi.StringOutput `pulumi:"defaultSecurityGroup"`
 	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
 	//  You can only enable DNS hostnames if you've enabled DNS support.
 	EnableDnsHostnames pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
@@ -40,10 +43,12 @@ type Vpc struct {
 	//  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
-	Ipv4NetmaskLength pulumi.IntPtrOutput      `pulumi:"ipv4NetmaskLength"`
-	Ipv6CidrBlocks    pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
+	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
+	// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
-	Tags  aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -185,14 +190,17 @@ func (o VpcOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
 func (o VpcOutput) CidrBlockAssociations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringArrayOutput { return v.CidrBlockAssociations }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the default network ACL for the VPC. For example, acl-814dafe3.
 func (o VpcOutput) DefaultNetworkAcl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.DefaultNetworkAcl }).(pulumi.StringOutput)
 }
 
+// The ID of the default security group for the VPC. For example, sg-b178e0d3.
 func (o VpcOutput) DefaultSecurityGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.DefaultSecurityGroup }).(pulumi.StringOutput)
 }
@@ -232,6 +240,7 @@ func (o VpcOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
+// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
 func (o VpcOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringArrayOutput { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -241,6 +250,7 @@ func (o VpcOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Vpc) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC.
 func (o VpcOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

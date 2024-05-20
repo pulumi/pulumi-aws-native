@@ -139,6 +139,9 @@ class SubnetNetworkAclAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
+        """
+        Returns the value of this object's AssociationId property.
+        """
         return pulumi.get(self, "association_id")
 
     @property

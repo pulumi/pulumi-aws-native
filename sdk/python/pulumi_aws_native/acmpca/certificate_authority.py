@@ -36,6 +36,7 @@ class CertificateAuthorityArgs:
         :param pulumi.Input['CertificateAuthorityCsrExtensionsArgs'] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
         :param pulumi.Input[str] key_storage_security_standard: KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
         :param pulumi.Input[str] usage_mode: Usage mode of the ceritificate authority.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
@@ -140,6 +141,9 @@ class CertificateAuthorityArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -364,6 +368,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         :param pulumi.Input[str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
         :param pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']] subject: Structure that contains X.500 distinguished name information for your CA.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
         :param pulumi.Input[str] type: The type of the certificate authority.
         :param pulumi.Input[str] usage_mode: Usage mode of the ceritificate authority.
         """
@@ -711,6 +716,9 @@ class CertificateAuthority(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @property

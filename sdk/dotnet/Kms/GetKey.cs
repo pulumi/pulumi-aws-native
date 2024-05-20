@@ -45,6 +45,11 @@ namespace Pulumi.AwsNative.Kms
 
     public sealed class GetKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
 
@@ -56,6 +61,11 @@ namespace Pulumi.AwsNative.Kms
 
     public sealed class GetKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
@@ -69,6 +79,11 @@ namespace Pulumi.AwsNative.Kms
     [OutputType]
     public sealed class GetKeyResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// A description of the KMS key. Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
@@ -88,6 +103,11 @@ namespace Pulumi.AwsNative.Kms
         ///  For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         public readonly string? KeyId;
         /// <summary>
         /// The key policy to attach to the KMS key.

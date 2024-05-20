@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:VpcEndpointServicePermissions")]
     public partial class VpcEndpointServicePermissions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        /// </summary>
         [Output("allowedPrincipals")]
         public Output<ImmutableArray<string>> AllowedPrincipals { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
@@ -72,12 +78,19 @@ namespace Pulumi.AwsNative.Ec2
     {
         [Input("allowedPrincipals")]
         private InputList<string>? _allowedPrincipals;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        /// </summary>
         public InputList<string> AllowedPrincipals
         {
             get => _allowedPrincipals ?? (_allowedPrincipals = new InputList<string>());
             set => _allowedPrincipals = value;
         }
 
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 

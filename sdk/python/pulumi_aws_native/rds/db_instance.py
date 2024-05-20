@@ -3270,6 +3270,9 @@ class DbInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dbInstanceArn")
     def db_instance_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB instance.
+        """
         return pulumi.get(self, "db_instance_arn")
 
     @property
@@ -3432,6 +3435,9 @@ class DbInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dbiResourceId")
     def dbi_resource_id(self) -> pulumi.Output[str]:
+        """
+        The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        """
         return pulumi.get(self, "dbi_resource_id")
 
     @property

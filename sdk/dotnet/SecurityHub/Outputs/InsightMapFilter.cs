@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// The condition to apply to the key value when filtering Security Hub findings with a map filter.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.InsightMapFilterComparison Comparison;
+        /// <summary>
+        /// The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

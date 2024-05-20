@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class InstanceStorageConfigKinesisStreamConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data stream.
+        /// </summary>
         public readonly string StreamArn;
 
         [OutputConstructor]

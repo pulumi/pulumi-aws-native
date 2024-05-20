@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SecurityLake.Inputs
     /// </summary>
     public sealed class DataLakeLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides data expiration details of the Amazon Security Lake object.
+        /// </summary>
         [Input("expiration")]
         public Input<Inputs.DataLakeExpirationArgs>? Expiration { get; set; }
 

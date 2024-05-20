@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
         /// The add-on type
         /// </summary>
         public readonly string AddOnType;
+        /// <summary>
+        /// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
+        /// </summary>
         public readonly Outputs.InstanceAutoSnapshotAddOn? AutoSnapshotAddOnRequest;
         /// <summary>
         /// Status of the Addon

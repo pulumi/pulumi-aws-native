@@ -26,6 +26,7 @@ class LocationFSxOpenZfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxOpenZfs resource.
+        :param pulumi.Input['LocationFSxOpenZfsProtocolArgs'] protocol: The type of protocol that AWS DataSync uses to access your file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
@@ -43,6 +44,9 @@ class LocationFSxOpenZfsArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['LocationFSxOpenZfsProtocolArgs']:
+        """
+        The type of protocol that AWS DataSync uses to access your file system.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -115,6 +119,7 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
+        :param pulumi.Input[pulumi.InputType['LocationFSxOpenZfsProtocolArgs']] protocol: The type of protocol that AWS DataSync uses to access your file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -228,6 +233,9 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output['outputs.LocationFSxOpenZfsProtocol']:
+        """
+        The type of protocol that AWS DataSync uses to access your file system.
+        """
         return pulumi.get(self, "protocol")
 
     @property

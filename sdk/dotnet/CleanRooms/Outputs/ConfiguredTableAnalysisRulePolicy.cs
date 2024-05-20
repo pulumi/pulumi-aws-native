@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableAnalysisRulePolicy
     {
+        /// <summary>
+        /// Controls on the query specifications that can be run on a configured table.
+        /// </summary>
         public readonly object V1;
 
         [OutputConstructor]

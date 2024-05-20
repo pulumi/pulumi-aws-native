@@ -16,11 +16,20 @@ export function getRobot(args: GetRobotArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetRobotArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the robot.
+     */
     arn: string;
 }
 
 export interface GetRobotResult {
+    /**
+     * The Amazon Resource Name (ARN) of the robot.
+     */
     readonly arn?: string;
+    /**
+     * A map that contains tag keys and tag values that are attached to the robot.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -31,5 +40,8 @@ export function getRobotOutput(args: GetRobotOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetRobotOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the robot.
+     */
     arn: pulumi.Input<string>;
 }

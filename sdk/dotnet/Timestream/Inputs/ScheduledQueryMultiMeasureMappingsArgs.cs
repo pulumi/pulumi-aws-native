@@ -17,12 +17,19 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     {
         [Input("multiMeasureAttributeMappings", required: true)]
         private InputList<Inputs.ScheduledQueryMultiMeasureAttributeMappingArgs>? _multiMeasureAttributeMappings;
+
+        /// <summary>
+        /// Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
+        /// </summary>
         public InputList<Inputs.ScheduledQueryMultiMeasureAttributeMappingArgs> MultiMeasureAttributeMappings
         {
             get => _multiMeasureAttributeMappings ?? (_multiMeasureAttributeMappings = new InputList<Inputs.ScheduledQueryMultiMeasureAttributeMappingArgs>());
             set => _multiMeasureAttributeMappings = value;
         }
 
+        /// <summary>
+        /// The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
+        /// </summary>
         [Input("targetMultiMeasureName")]
         public Input<string>? TargetMultiMeasureName { get; set; }
 

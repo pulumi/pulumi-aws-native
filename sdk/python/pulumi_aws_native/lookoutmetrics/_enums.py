@@ -14,6 +14,9 @@ __all__ = [
 
 
 class AnomalyDetectorCsvFormatDescriptorFileCompression(str, Enum):
+    """
+    The level of compression of the source CSV file.
+    """
     NONE = "NONE"
     GZIP = "GZIP"
 
@@ -29,6 +32,9 @@ class AnomalyDetectorFrequency(str, Enum):
 
 
 class AnomalyDetectorJsonFormatDescriptorFileCompression(str, Enum):
+    """
+    The level of compression of the source CSV file.
+    """
     NONE = "NONE"
     GZIP = "GZIP"
 

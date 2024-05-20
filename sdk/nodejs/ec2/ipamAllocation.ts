@@ -34,7 +34,18 @@ export class IpamAllocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpamAllocation.__pulumiType;
     }
 
+    /**
+     * The CIDR you would like to allocate from the IPAM pool. Note the following:
+     *
+     * - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+     * - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+     *
+     * Possible values: Any available IPv4 or IPv6 CIDR.
+     */
     public readonly cidr!: pulumi.Output<string | undefined>;
+    /**
+     * A description for the allocation.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Id of the allocation.
@@ -86,7 +97,18 @@ export class IpamAllocation extends pulumi.CustomResource {
  * The set of arguments for constructing a IpamAllocation resource.
  */
 export interface IpamAllocationArgs {
+    /**
+     * The CIDR you would like to allocate from the IPAM pool. Note the following:
+     *
+     * - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+     * - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+     *
+     * Possible values: Any available IPv4 or IPv6 CIDR.
+     */
     cidr?: pulumi.Input<string>;
+    /**
+     * A description for the allocation.
+     */
     description?: pulumi.Input<string>;
     /**
      * Id of the IPAM Pool.

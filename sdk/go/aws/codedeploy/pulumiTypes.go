@@ -14,13 +14,26 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 type DeploymentConfigMinimumHealthyHosts struct {
-	Type  string `pulumi:"type"`
-	Value int    `pulumi:"value"`
+	// The minimum healthy instance type:
+	//
+	// - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+	// - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+	//
+	// In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+	//
+	// > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+	//
+	// For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+	Type string `pulumi:"type"`
+	// The minimum healthy instance value.
+	Value int `pulumi:"value"`
 }
 
 // DeploymentConfigMinimumHealthyHostsInput is an input type that accepts DeploymentConfigMinimumHealthyHostsArgs and DeploymentConfigMinimumHealthyHostsOutput values.
@@ -35,8 +48,19 @@ type DeploymentConfigMinimumHealthyHostsInput interface {
 }
 
 type DeploymentConfigMinimumHealthyHostsArgs struct {
-	Type  pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// The minimum healthy instance type:
+	//
+	// - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+	// - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+	//
+	// In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+	//
+	// > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+	//
+	// For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+	Type pulumi.StringInput `pulumi:"type"`
+	// The minimum healthy instance value.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (DeploymentConfigMinimumHealthyHostsArgs) ElementType() reflect.Type {
@@ -116,10 +140,21 @@ func (o DeploymentConfigMinimumHealthyHostsOutput) ToDeploymentConfigMinimumHeal
 	}).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
 
+// The minimum healthy instance type:
+//
+// - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+// - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+//
+// In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+//
+// > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+//
+// For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
 func (o DeploymentConfigMinimumHealthyHostsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The minimum healthy instance value.
 func (o DeploymentConfigMinimumHealthyHostsOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -148,6 +183,16 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Elem() DeploymentConfigMin
 	}).(DeploymentConfigMinimumHealthyHostsOutput)
 }
 
+// The minimum healthy instance type:
+//
+// - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+// - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+//
+// In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+//
+// > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+//
+// For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHosts) *string {
 		if v == nil {
@@ -157,6 +202,7 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Type() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum healthy instance value.
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHosts) *int {
 		if v == nil {
@@ -167,8 +213,10 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Value() pulumi.IntPtrOutpu
 }
 
 type DeploymentConfigMinimumHealthyHostsPerZone struct {
-	Type  string `pulumi:"type"`
-	Value int    `pulumi:"value"`
+	// The `type` associated with the `MinimumHealthyHostsPerZone` option.
+	Type string `pulumi:"type"`
+	// The `value` associated with the `MinimumHealthyHostsPerZone` option.
+	Value int `pulumi:"value"`
 }
 
 // DeploymentConfigMinimumHealthyHostsPerZoneInput is an input type that accepts DeploymentConfigMinimumHealthyHostsPerZoneArgs and DeploymentConfigMinimumHealthyHostsPerZoneOutput values.
@@ -183,8 +231,10 @@ type DeploymentConfigMinimumHealthyHostsPerZoneInput interface {
 }
 
 type DeploymentConfigMinimumHealthyHostsPerZoneArgs struct {
-	Type  pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// The `type` associated with the `MinimumHealthyHostsPerZone` option.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The `value` associated with the `MinimumHealthyHostsPerZone` option.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (DeploymentConfigMinimumHealthyHostsPerZoneArgs) ElementType() reflect.Type {
@@ -264,10 +314,12 @@ func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigMini
 	}).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
 }
 
+// The `type` associated with the `MinimumHealthyHostsPerZone` option.
 func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHostsPerZone) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The `value` associated with the `MinimumHealthyHostsPerZone` option.
 func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHostsPerZone) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -296,6 +348,7 @@ func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Elem() DeploymentCo
 	}).(DeploymentConfigMinimumHealthyHostsPerZoneOutput)
 }
 
+// The `type` associated with the `MinimumHealthyHostsPerZone` option.
 func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHostsPerZone) *string {
 		if v == nil {
@@ -305,6 +358,7 @@ func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Type() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The `value` associated with the `MinimumHealthyHostsPerZone` option.
 func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHostsPerZone) *int {
 		if v == nil {
@@ -315,7 +369,9 @@ func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Value() pulumi.IntP
 }
 
 type DeploymentConfigTimeBasedCanary struct {
-	CanaryInterval   int `pulumi:"canaryInterval"`
+	// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+	CanaryInterval int `pulumi:"canaryInterval"`
+	// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 	CanaryPercentage int `pulumi:"canaryPercentage"`
 }
 
@@ -331,7 +387,9 @@ type DeploymentConfigTimeBasedCanaryInput interface {
 }
 
 type DeploymentConfigTimeBasedCanaryArgs struct {
-	CanaryInterval   pulumi.IntInput `pulumi:"canaryInterval"`
+	// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+	CanaryInterval pulumi.IntInput `pulumi:"canaryInterval"`
+	// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 	CanaryPercentage pulumi.IntInput `pulumi:"canaryPercentage"`
 }
 
@@ -412,10 +470,12 @@ func (o DeploymentConfigTimeBasedCanaryOutput) ToDeploymentConfigTimeBasedCanary
 	}).(DeploymentConfigTimeBasedCanaryPtrOutput)
 }
 
+// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTimeBasedCanaryOutput) CanaryInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentConfigTimeBasedCanary) int { return v.CanaryInterval }).(pulumi.IntOutput)
 }
 
+// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTimeBasedCanaryOutput) CanaryPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentConfigTimeBasedCanary) int { return v.CanaryPercentage }).(pulumi.IntOutput)
 }
@@ -444,6 +504,7 @@ func (o DeploymentConfigTimeBasedCanaryPtrOutput) Elem() DeploymentConfigTimeBas
 	}).(DeploymentConfigTimeBasedCanaryOutput)
 }
 
+// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTimeBasedCanaryPtrOutput) CanaryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTimeBasedCanary) *int {
 		if v == nil {
@@ -453,6 +514,7 @@ func (o DeploymentConfigTimeBasedCanaryPtrOutput) CanaryInterval() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTimeBasedCanaryPtrOutput) CanaryPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTimeBasedCanary) *int {
 		if v == nil {
@@ -463,7 +525,9 @@ func (o DeploymentConfigTimeBasedCanaryPtrOutput) CanaryPercentage() pulumi.IntP
 }
 
 type DeploymentConfigTimeBasedLinear struct {
-	LinearInterval   int `pulumi:"linearInterval"`
+	// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+	LinearInterval int `pulumi:"linearInterval"`
+	// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 	LinearPercentage int `pulumi:"linearPercentage"`
 }
 
@@ -479,7 +543,9 @@ type DeploymentConfigTimeBasedLinearInput interface {
 }
 
 type DeploymentConfigTimeBasedLinearArgs struct {
-	LinearInterval   pulumi.IntInput `pulumi:"linearInterval"`
+	// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+	LinearInterval pulumi.IntInput `pulumi:"linearInterval"`
+	// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 	LinearPercentage pulumi.IntInput `pulumi:"linearPercentage"`
 }
 
@@ -560,10 +626,12 @@ func (o DeploymentConfigTimeBasedLinearOutput) ToDeploymentConfigTimeBasedLinear
 	}).(DeploymentConfigTimeBasedLinearPtrOutput)
 }
 
+// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTimeBasedLinearOutput) LinearInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentConfigTimeBasedLinear) int { return v.LinearInterval }).(pulumi.IntOutput)
 }
 
+// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTimeBasedLinearOutput) LinearPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentConfigTimeBasedLinear) int { return v.LinearPercentage }).(pulumi.IntOutput)
 }
@@ -592,6 +660,7 @@ func (o DeploymentConfigTimeBasedLinearPtrOutput) Elem() DeploymentConfigTimeBas
 	}).(DeploymentConfigTimeBasedLinearOutput)
 }
 
+// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTimeBasedLinearPtrOutput) LinearInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTimeBasedLinear) *int {
 		if v == nil {
@@ -601,6 +670,7 @@ func (o DeploymentConfigTimeBasedLinearPtrOutput) LinearInterval() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTimeBasedLinearPtrOutput) LinearPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTimeBasedLinear) *int {
 		if v == nil {
@@ -611,9 +681,12 @@ func (o DeploymentConfigTimeBasedLinearPtrOutput) LinearPercentage() pulumi.IntP
 }
 
 type DeploymentConfigTrafficRoutingConfig struct {
+	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedCanary *DeploymentConfigTimeBasedCanary `pulumi:"timeBasedCanary"`
+	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedLinear *DeploymentConfigTimeBasedLinear `pulumi:"timeBasedLinear"`
-	Type            string                           `pulumi:"type"`
+	// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
+	Type string `pulumi:"type"`
 }
 
 // DeploymentConfigTrafficRoutingConfigInput is an input type that accepts DeploymentConfigTrafficRoutingConfigArgs and DeploymentConfigTrafficRoutingConfigOutput values.
@@ -628,9 +701,12 @@ type DeploymentConfigTrafficRoutingConfigInput interface {
 }
 
 type DeploymentConfigTrafficRoutingConfigArgs struct {
+	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedCanary DeploymentConfigTimeBasedCanaryPtrInput `pulumi:"timeBasedCanary"`
+	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedLinear DeploymentConfigTimeBasedLinearPtrInput `pulumi:"timeBasedLinear"`
-	Type            pulumi.StringInput                      `pulumi:"type"`
+	// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (DeploymentConfigTrafficRoutingConfigArgs) ElementType() reflect.Type {
@@ -710,18 +786,21 @@ func (o DeploymentConfigTrafficRoutingConfigOutput) ToDeploymentConfigTrafficRou
 	}).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
 
+// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigOutput) TimeBasedCanary() DeploymentConfigTimeBasedCanaryPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedCanary {
 		return v.TimeBasedCanary
 	}).(DeploymentConfigTimeBasedCanaryPtrOutput)
 }
 
+// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigOutput) TimeBasedLinear() DeploymentConfigTimeBasedLinearPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedLinear {
 		return v.TimeBasedLinear
 	}).(DeploymentConfigTimeBasedLinearPtrOutput)
 }
 
+// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
 func (o DeploymentConfigTrafficRoutingConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -750,6 +829,7 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Elem() DeploymentConfigTr
 	}).(DeploymentConfigTrafficRoutingConfigOutput)
 }
 
+// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedCanary() DeploymentConfigTimeBasedCanaryPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedCanary {
 		if v == nil {
@@ -759,6 +839,7 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedCanary() Deploym
 	}).(DeploymentConfigTimeBasedCanaryPtrOutput)
 }
 
+// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedLinear() DeploymentConfigTimeBasedLinearPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedLinear {
 		if v == nil {
@@ -768,6 +849,7 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedLinear() Deploym
 	}).(DeploymentConfigTimeBasedLinearPtrOutput)
 }
 
+// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) *string {
 		if v == nil {
@@ -778,9 +860,20 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Type() pulumi.StringPtrOu
 }
 
 type DeploymentConfigZonalConfig struct {
-	FirstZoneMonitorDurationInSeconds *int                                        `pulumi:"firstZoneMonitorDurationInSeconds"`
-	MinimumHealthyHostsPerZone        *DeploymentConfigMinimumHealthyHostsPerZone `pulumi:"minimumHealthyHostsPerZone"`
-	MonitorDurationInSeconds          *int                                        `pulumi:"monitorDurationInSeconds"`
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+	FirstZoneMonitorDurationInSeconds *int `pulumi:"firstZoneMonitorDurationInSeconds"`
+	// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+	//
+	// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+	MinimumHealthyHostsPerZone *DeploymentConfigMinimumHealthyHostsPerZone `pulumi:"minimumHealthyHostsPerZone"`
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+	MonitorDurationInSeconds *int `pulumi:"monitorDurationInSeconds"`
 }
 
 // DeploymentConfigZonalConfigInput is an input type that accepts DeploymentConfigZonalConfigArgs and DeploymentConfigZonalConfigOutput values.
@@ -795,9 +888,20 @@ type DeploymentConfigZonalConfigInput interface {
 }
 
 type DeploymentConfigZonalConfigArgs struct {
-	FirstZoneMonitorDurationInSeconds pulumi.IntPtrInput                                 `pulumi:"firstZoneMonitorDurationInSeconds"`
-	MinimumHealthyHostsPerZone        DeploymentConfigMinimumHealthyHostsPerZonePtrInput `pulumi:"minimumHealthyHostsPerZone"`
-	MonitorDurationInSeconds          pulumi.IntPtrInput                                 `pulumi:"monitorDurationInSeconds"`
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+	FirstZoneMonitorDurationInSeconds pulumi.IntPtrInput `pulumi:"firstZoneMonitorDurationInSeconds"`
+	// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+	//
+	// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+	MinimumHealthyHostsPerZone DeploymentConfigMinimumHealthyHostsPerZonePtrInput `pulumi:"minimumHealthyHostsPerZone"`
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+	MonitorDurationInSeconds pulumi.IntPtrInput `pulumi:"monitorDurationInSeconds"`
 }
 
 func (DeploymentConfigZonalConfigArgs) ElementType() reflect.Type {
@@ -877,16 +981,27 @@ func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigPtrOutpu
 	}).(DeploymentConfigZonalConfigPtrOutput)
 }
 
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigOutput) FirstZoneMonitorDurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.FirstZoneMonitorDurationInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+//
+// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigOutput) MinimumHealthyHostsPerZone() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
 	return o.ApplyT(func(v DeploymentConfigZonalConfig) *DeploymentConfigMinimumHealthyHostsPerZone {
 		return v.MinimumHealthyHostsPerZone
 	}).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
 }
 
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigOutput) MonitorDurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.MonitorDurationInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -915,6 +1030,9 @@ func (o DeploymentConfigZonalConfigPtrOutput) Elem() DeploymentConfigZonalConfig
 	}).(DeploymentConfigZonalConfigOutput)
 }
 
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigPtrOutput) FirstZoneMonitorDurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *int {
 		if v == nil {
@@ -924,6 +1042,11 @@ func (o DeploymentConfigZonalConfigPtrOutput) FirstZoneMonitorDurationInSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+//
+// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigPtrOutput) MinimumHealthyHostsPerZone() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *DeploymentConfigMinimumHealthyHostsPerZone {
 		if v == nil {
@@ -933,6 +1056,9 @@ func (o DeploymentConfigZonalConfigPtrOutput) MinimumHealthyHostsPerZone() Deplo
 	}).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
 }
 
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigPtrOutput) MonitorDurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *int {
 		if v == nil {

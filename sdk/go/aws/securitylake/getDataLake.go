@@ -30,13 +30,17 @@ type LookupDataLakeArgs struct {
 
 type LookupDataLakeResult struct {
 	// The Amazon Resource Name (ARN) created by you to provide to the subscriber.
-	Arn                      *string                           `pulumi:"arn"`
-	EncryptionConfiguration  *DataLakeEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
-	LifecycleConfiguration   *DataLakeLifecycleConfiguration   `pulumi:"lifecycleConfiguration"`
+	Arn *string `pulumi:"arn"`
+	// Provides encryption details of the Amazon Security Lake object.
+	EncryptionConfiguration *DataLakeEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
+	LifecycleConfiguration *DataLakeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
+	// Provides replication details of Amazon Security Lake object.
 	ReplicationConfiguration *DataLakeReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
-	S3BucketArn *string   `pulumi:"s3BucketArn"`
-	Tags        []aws.Tag `pulumi:"tags"`
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+	// An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataLakeOutput(ctx *pulumi.Context, args LookupDataLakeOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeResultOutput {
@@ -80,14 +84,17 @@ func (o LookupDataLakeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Provides encryption details of the Amazon Security Lake object.
 func (o LookupDataLakeResultOutput) EncryptionConfiguration() DataLakeEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *DataLakeEncryptionConfiguration { return v.EncryptionConfiguration }).(DataLakeEncryptionConfigurationPtrOutput)
 }
 
+// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
 func (o LookupDataLakeResultOutput) LifecycleConfiguration() DataLakeLifecycleConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *DataLakeLifecycleConfiguration { return v.LifecycleConfiguration }).(DataLakeLifecycleConfigurationPtrOutput)
 }
 
+// Provides replication details of Amazon Security Lake object.
 func (o LookupDataLakeResultOutput) ReplicationConfiguration() DataLakeReplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *DataLakeReplicationConfiguration { return v.ReplicationConfiguration }).(DataLakeReplicationConfigurationPtrOutput)
 }
@@ -97,6 +104,7 @@ func (o LookupDataLakeResultOutput) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
 
+// An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
 func (o LookupDataLakeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataLakeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

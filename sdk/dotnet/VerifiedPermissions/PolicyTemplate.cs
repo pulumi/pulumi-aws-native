@@ -45,15 +45,27 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:PolicyTemplate")]
     public partial class PolicyTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description to attach to the new or updated policy template.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the policy store that contains the template.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the new or modified policy template.
+        /// </summary>
         [Output("policyTemplateId")]
         public Output<string> PolicyTemplateId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
 
@@ -106,12 +118,21 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description to attach to the new or updated policy template.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the policy store that contains the template.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
 

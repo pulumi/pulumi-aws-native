@@ -15,27 +15,75 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:PlaceIndex")]
     public partial class PlaceIndex : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the geospatial data provider for the new place index.
+        /// 
+        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on geocoding coverage](https://docs.aws.amazon.com/https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm) .
+        /// - `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+        /// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE details on goecoding coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html) .
+        /// 
+        /// &gt; If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+        /// 
+        /// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the data storage option requesting Places.
+        /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.PlaceIndexDataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The optional description for the place index resource.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+        /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the place index resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique place index resource name.
+        /// - No spaces allowed. For example, `ExamplePlaceIndex` .
+        /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
 
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.PlaceIndexPricingPlan?> PricingPlan { get; private set; } = null!;
 
@@ -45,6 +93,9 @@ namespace Pulumi.AwsNative.Location
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -98,18 +149,53 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class PlaceIndexArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the geospatial data provider for the new place index.
+        /// 
+        /// &gt; This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on geocoding coverage](https://docs.aws.amazon.com/https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm) .
+        /// - `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+        /// - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE details on goecoding coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html) .
+        /// 
+        /// &gt; If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
+        /// 
+        /// For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the data storage option requesting Places.
+        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.PlaceIndexDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
+        /// <summary>
+        /// The optional description for the place index resource.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the place index resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique place index resource name.
+        /// - No spaces allowed. For example, `ExamplePlaceIndex` .
+        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.PlaceIndexPricingPlan>? PricingPlan { get; set; }
 

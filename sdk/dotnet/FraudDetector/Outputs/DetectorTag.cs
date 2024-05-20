@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
     [OutputType]
     public sealed class DetectorTag
     {
+        /// <summary>
+        /// A tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// A value assigned to a tag key.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

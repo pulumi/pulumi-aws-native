@@ -19,7 +19,11 @@ class RegistryPolicyArgs:
                  revision_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        :param Any policy: A resource-based policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] registry_name: The name of the registry.
+        :param pulumi.Input[str] revision_id: The revision ID of the policy.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -30,6 +34,8 @@ class RegistryPolicyArgs:
     @pulumi.getter
     def policy(self) -> Any:
         """
+        A resource-based policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -41,6 +47,9 @@ class RegistryPolicyArgs:
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -50,6 +59,9 @@ class RegistryPolicyArgs:
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The revision ID of the policy.
+        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -148,7 +160,11 @@ class RegistryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        :param Any policy: A resource-based policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] registry_name: The name of the registry.
+        :param pulumi.Input[str] revision_id: The revision ID of the policy.
         """
         ...
     @overload
@@ -302,12 +318,17 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the policy.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
         """
+        A resource-based policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -315,10 +336,16 @@ class RegistryPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[str]:
+        """
+        The name of the registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The revision ID of the policy.
+        """
         return pulumi.get(self, "revision_id")
 

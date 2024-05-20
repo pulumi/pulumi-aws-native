@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
+        /// </summary>
         public readonly Outputs.StorageLensEncryption? Encryption;
         /// <summary>
         /// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.

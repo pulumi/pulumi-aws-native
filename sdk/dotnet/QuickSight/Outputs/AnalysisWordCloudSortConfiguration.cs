@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWordCloudSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of groups that are displayed in a word cloud.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> CategorySort;
 
         [OutputConstructor]

@@ -50,46 +50,73 @@ class GetRunGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The run group's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        When the run group was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The run group's ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maxCpus")
     def max_cpus(self) -> Optional[float]:
+        """
+        The group's maximum CPU count setting.
+        """
         return pulumi.get(self, "max_cpus")
 
     @property
     @pulumi.getter(name="maxDuration")
     def max_duration(self) -> Optional[float]:
+        """
+        The group's maximum duration setting in minutes.
+        """
         return pulumi.get(self, "max_duration")
 
     @property
     @pulumi.getter(name="maxGpus")
     def max_gpus(self) -> Optional[float]:
+        """
+        The maximum GPUs that can be used by a run group.
+        """
         return pulumi.get(self, "max_gpus")
 
     @property
     @pulumi.getter(name="maxRuns")
     def max_runs(self) -> Optional[float]:
+        """
+        The group's maximum concurrent run setting.
+        """
         return pulumi.get(self, "max_runs")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The group's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags for the group.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -114,6 +141,9 @@ def get_run_group(id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRunGroupResult:
     """
     Definition of AWS::Omics::RunGroup Resource Type
+
+
+    :param str id: The run group's ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -137,5 +167,8 @@ def get_run_group_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRunGroupResult]:
     """
     Definition of AWS::Omics::RunGroup Resource Type
+
+
+    :param str id: The run group's ID.
     """
     ...

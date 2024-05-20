@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Fms
     [AwsNativeResourceType("aws-native:fms:ResourceSet")]
     public partial class ResourceSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the resource set.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        /// </summary>
         [Output("resourceTypeList")]
         public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
 
@@ -78,14 +90,24 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the resource set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("resourceTypeList", required: true)]
         private InputList<string>? _resourceTypeList;
+
+        /// <summary>
+        /// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        /// </summary>
         public InputList<string> ResourceTypeList
         {
             get => _resourceTypeList ?? (_resourceTypeList = new InputList<string>());

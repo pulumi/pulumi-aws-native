@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class FunctionMetadata
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
+        /// </summary>
         public readonly string? FunctionArn;
 
         [OutputConstructor]

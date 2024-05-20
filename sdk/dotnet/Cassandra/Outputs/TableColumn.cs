@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableColumn
     {
+        /// <summary>
+        /// The name of the column. For more information, see [Identifiers](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.elements.identifier) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         public readonly string ColumnName;
+        /// <summary>
+        /// The data type of the column. For more information, see [Data types](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         public readonly string ColumnType;
 
         [OutputConstructor]

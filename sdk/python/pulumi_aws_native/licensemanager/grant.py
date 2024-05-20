@@ -22,9 +22,18 @@ class GrantArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Grant resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operations: Allowed operations for the grant.
         :param pulumi.Input[str] grant_name: Name for the created Grant.
         :param pulumi.Input[str] home_region: Home region for the created grant.
         :param pulumi.Input[str] license_arn: License Arn for the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+               
+               - An AWS account, which includes only the account specified.
+               
+               - An organizational unit (OU), which includes all accounts in the OU.
+               
+               - An organization, which will include all accounts across your organization.
+        :param pulumi.Input[str] status: Granted license status.
         """
         if allowed_operations is not None:
             pulumi.set(__self__, "allowed_operations", allowed_operations)
@@ -42,6 +51,9 @@ class GrantArgs:
     @property
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed operations for the grant.
+        """
         return pulumi.get(self, "allowed_operations")
 
     @allowed_operations.setter
@@ -87,6 +99,15 @@ class GrantArgs:
     @property
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+
+        - An AWS account, which includes only the account specified.
+
+        - An organizational unit (OU), which includes all accounts in the OU.
+
+        - An organization, which will include all accounts across your organization.
+        """
         return pulumi.get(self, "principals")
 
     @principals.setter
@@ -96,6 +117,9 @@ class GrantArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Granted license status.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -120,9 +144,18 @@ class Grant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operations: Allowed operations for the grant.
         :param pulumi.Input[str] grant_name: Name for the created Grant.
         :param pulumi.Input[str] home_region: Home region for the created grant.
         :param pulumi.Input[str] license_arn: License Arn for the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+               
+               - An AWS account, which includes only the account specified.
+               
+               - An organizational unit (OU), which includes all accounts in the OU.
+               
+               - An organization, which will include all accounts across your organization.
+        :param pulumi.Input[str] status: Granted license status.
         """
         ...
     @overload
@@ -206,6 +239,9 @@ class Grant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Allowed operations for the grant.
+        """
         return pulumi.get(self, "allowed_operations")
 
     @property
@@ -243,11 +279,23 @@ class Grant(pulumi.CustomResource):
     @property
     @pulumi.getter
     def principals(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+
+        - An AWS account, which includes only the account specified.
+
+        - An organizational unit (OU), which includes all accounts in the OU.
+
+        - An organization, which will include all accounts across your organization.
+        """
         return pulumi.get(self, "principals")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Granted license status.
+        """
         return pulumi.get(self, "status")
 
     @property

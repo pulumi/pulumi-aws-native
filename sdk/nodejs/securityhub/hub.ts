@@ -124,6 +124,11 @@ export class Hub extends pulumi.CustomResource {
      * The date and time when Security Hub was enabled in the account.
      */
     public /*out*/ readonly subscribedAt!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -172,5 +177,10 @@ export interface HubArgs {
      * Whether to enable the security standards that Security Hub has designated as automatically enabled.
      */
     enableDefaultStandards?: pulumi.Input<boolean>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -23,12 +23,15 @@ func LookupRobotApplicationVersion(ctx *pulumi.Context, args *LookupRobotApplica
 }
 
 type LookupRobotApplicationVersionArgs struct {
+	// The Amazon Resource Name (ARN) of the robot application version.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupRobotApplicationVersionResult struct {
+	// The robot application version.
 	ApplicationVersion *string `pulumi:"applicationVersion"`
-	Arn                *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the robot application version.
+	Arn *string `pulumi:"arn"`
 }
 
 func LookupRobotApplicationVersionOutput(ctx *pulumi.Context, args LookupRobotApplicationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupRobotApplicationVersionResultOutput {
@@ -45,6 +48,7 @@ func LookupRobotApplicationVersionOutput(ctx *pulumi.Context, args LookupRobotAp
 }
 
 type LookupRobotApplicationVersionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the robot application version.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupRobotApplicationVersionResultOutput) ToLookupRobotApplicationVersi
 	return o
 }
 
+// The robot application version.
 func (o LookupRobotApplicationVersionResultOutput) ApplicationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationVersionResult) *string { return v.ApplicationVersion }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the robot application version.
 func (o LookupRobotApplicationVersionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationVersionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

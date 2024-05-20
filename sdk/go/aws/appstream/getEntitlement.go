@@ -23,16 +23,23 @@ func LookupEntitlement(ctx *pulumi.Context, args *LookupEntitlementArgs, opts ..
 }
 
 type LookupEntitlementArgs struct {
-	Name      string `pulumi:"name"`
+	// The name of the entitlement.
+	Name string `pulumi:"name"`
+	// The name of the stack.
 	StackName string `pulumi:"stackName"`
 }
 
 type LookupEntitlementResult struct {
-	AppVisibility    *string                `pulumi:"appVisibility"`
-	Attributes       []EntitlementAttribute `pulumi:"attributes"`
-	CreatedTime      *string                `pulumi:"createdTime"`
-	Description      *string                `pulumi:"description"`
-	LastModifiedTime *string                `pulumi:"lastModifiedTime"`
+	// Specifies whether to entitle all apps or only selected apps.
+	AppVisibility *string `pulumi:"appVisibility"`
+	// The attributes of the entitlement.
+	Attributes []EntitlementAttribute `pulumi:"attributes"`
+	// The time when the entitlement was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The description of the entitlement.
+	Description *string `pulumi:"description"`
+	// The time when the entitlement was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 }
 
 func LookupEntitlementOutput(ctx *pulumi.Context, args LookupEntitlementOutputArgs, opts ...pulumi.InvokeOption) LookupEntitlementResultOutput {
@@ -49,7 +56,9 @@ func LookupEntitlementOutput(ctx *pulumi.Context, args LookupEntitlementOutputAr
 }
 
 type LookupEntitlementOutputArgs struct {
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the entitlement.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the stack.
 	StackName pulumi.StringInput `pulumi:"stackName"`
 }
 
@@ -71,22 +80,27 @@ func (o LookupEntitlementResultOutput) ToLookupEntitlementResultOutputWithContex
 	return o
 }
 
+// Specifies whether to entitle all apps or only selected apps.
 func (o LookupEntitlementResultOutput) AppVisibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) *string { return v.AppVisibility }).(pulumi.StringPtrOutput)
 }
 
+// The attributes of the entitlement.
 func (o LookupEntitlementResultOutput) Attributes() EntitlementAttributeArrayOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) []EntitlementAttribute { return v.Attributes }).(EntitlementAttributeArrayOutput)
 }
 
+// The time when the entitlement was created.
 func (o LookupEntitlementResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The description of the entitlement.
 func (o LookupEntitlementResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The time when the entitlement was last modified.
 func (o LookupEntitlementResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }

@@ -24,17 +24,25 @@ func LookupIpAccessSettings(ctx *pulumi.Context, args *LookupIpAccessSettingsArg
 }
 
 type LookupIpAccessSettingsArgs struct {
+	// The ARN of the IP access settings resource.
 	IpAccessSettingsArn string `pulumi:"ipAccessSettingsArn"`
 }
 
 type LookupIpAccessSettingsResult struct {
-	AssociatedPortalArns []string                 `pulumi:"associatedPortalArns"`
-	CreationDate         *string                  `pulumi:"creationDate"`
-	Description          *string                  `pulumi:"description"`
-	DisplayName          *string                  `pulumi:"displayName"`
-	IpAccessSettingsArn  *string                  `pulumi:"ipAccessSettingsArn"`
-	IpRules              []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	Tags                 []aws.Tag                `pulumi:"tags"`
+	// A list of web portal ARNs that this IP access settings resource is associated with.
+	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// The creation date timestamp of the IP access settings.
+	CreationDate *string `pulumi:"creationDate"`
+	// The description of the IP access settings.
+	Description *string `pulumi:"description"`
+	// The display name of the IP access settings.
+	DisplayName *string `pulumi:"displayName"`
+	// The ARN of the IP access settings resource.
+	IpAccessSettingsArn *string `pulumi:"ipAccessSettingsArn"`
+	// The IP rules of the IP access settings.
+	IpRules []IpAccessSettingsIpRule `pulumi:"ipRules"`
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIpAccessSettingsOutput(ctx *pulumi.Context, args LookupIpAccessSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupIpAccessSettingsResultOutput {
@@ -51,6 +59,7 @@ func LookupIpAccessSettingsOutput(ctx *pulumi.Context, args LookupIpAccessSettin
 }
 
 type LookupIpAccessSettingsOutputArgs struct {
+	// The ARN of the IP access settings resource.
 	IpAccessSettingsArn pulumi.StringInput `pulumi:"ipAccessSettingsArn"`
 }
 
@@ -72,30 +81,37 @@ func (o LookupIpAccessSettingsResultOutput) ToLookupIpAccessSettingsResultOutput
 	return o
 }
 
+// A list of web portal ARNs that this IP access settings resource is associated with.
 func (o LookupIpAccessSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The creation date timestamp of the IP access settings.
 func (o LookupIpAccessSettingsResultOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
+// The description of the IP access settings.
 func (o LookupIpAccessSettingsResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the IP access settings.
 func (o LookupIpAccessSettingsResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IP access settings resource.
 func (o LookupIpAccessSettingsResultOutput) IpAccessSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) *string { return v.IpAccessSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// The IP rules of the IP access settings.
 func (o LookupIpAccessSettingsResultOutput) IpRules() IpAccessSettingsIpRuleArrayOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) []IpAccessSettingsIpRule { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
+// The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o LookupIpAccessSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowUpsolverS3OutputFormatConfig
     {
+        /// <summary>
+        /// The aggregation settings that you can use to customize the output format of your flow data.
+        /// </summary>
         public readonly Outputs.FlowAggregationConfig? AggregationConfig;
+        /// <summary>
+        /// Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowFileType? FileType;
+        /// <summary>
+        /// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+        /// </summary>
         public readonly Outputs.FlowPrefixConfig PrefixConfig;
 
         [OutputConstructor]

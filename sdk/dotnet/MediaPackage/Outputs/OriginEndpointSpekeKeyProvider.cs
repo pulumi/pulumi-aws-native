@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
         /// </summary>
         public readonly string? CertificateArn;
+        /// <summary>
+        /// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+        /// </summary>
         public readonly Outputs.OriginEndpointEncryptionContractConfiguration? EncryptionContractConfiguration;
         /// <summary>
         /// The resource ID to include in key requests.

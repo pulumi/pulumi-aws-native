@@ -45,7 +45,13 @@ export class Group extends pulumi.CustomResource {
      * Name of the group.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARNs of the canaries that you want to associate with this group.
+     */
     public readonly resourceArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The list of key-value pairs that are associated with the group.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -84,6 +90,12 @@ export interface GroupArgs {
      * Name of the group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ARNs of the canaries that you want to associate with this group.
+     */
     resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of key-value pairs that are associated with the group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

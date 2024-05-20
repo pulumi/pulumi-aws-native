@@ -75,6 +75,9 @@ export class Route extends pulumi.CustomResource {
      * The request parameters for the route. Supported only for WebSocket APIs.
      */
     public readonly requestParameters!: pulumi.Output<outputs.apigatewayv2.RouteParameterConstraints[] | undefined>;
+    /**
+     * The route ID.
+     */
     public /*out*/ readonly routeId!: pulumi.Output<string>;
     /**
      * The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.

@@ -20,12 +20,24 @@ export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetStreamArgs {
+    /**
+     * The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+     */
     id: string;
+    /**
+     * The name of the ledger.
+     */
     ledgerName: string;
 }
 
 export interface GetStreamResult {
+    /**
+     * The Amazon Resource Name (ARN) of the QLDB journal stream. For example: `arn:aws:qldb:us-east-1:123456789012:stream/exampleLedger/IiPT4brpZCqCq3f4MTHbYy` .
+     */
     readonly arn?: string;
+    /**
+     * The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+     */
     readonly id?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -40,6 +52,12 @@ export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetStreamOutputArgs {
+    /**
+     * The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
+     */
     id: pulumi.Input<string>;
+    /**
+     * The name of the ledger.
+     */
     ledgerName: pulumi.Input<string>;
 }

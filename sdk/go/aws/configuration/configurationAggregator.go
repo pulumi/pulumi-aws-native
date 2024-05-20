@@ -16,11 +16,13 @@ import (
 type ConfigurationAggregator struct {
 	pulumi.CustomResourceState
 
+	// Provides a list of source accounts and regions to be aggregated.
 	AccountAggregationSources ConfigurationAggregatorAccountAggregationSourceArrayOutput `pulumi:"accountAggregationSources"`
 	// The Amazon Resource Name (ARN) of the aggregator.
 	ConfigurationAggregatorArn pulumi.StringOutput `pulumi:"configurationAggregatorArn"`
 	// The name of the aggregator.
-	ConfigurationAggregatorName   pulumi.StringPtrOutput                                        `pulumi:"configurationAggregatorName"`
+	ConfigurationAggregatorName pulumi.StringPtrOutput `pulumi:"configurationAggregatorName"`
+	// Provides an organization and list of regions to be aggregated.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
 	// The tags for the configuration aggregator.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -70,9 +72,11 @@ func (ConfigurationAggregatorState) ElementType() reflect.Type {
 }
 
 type configurationAggregatorArgs struct {
+	// Provides a list of source accounts and regions to be aggregated.
 	AccountAggregationSources []ConfigurationAggregatorAccountAggregationSource `pulumi:"accountAggregationSources"`
 	// The name of the aggregator.
-	ConfigurationAggregatorName   *string                                               `pulumi:"configurationAggregatorName"`
+	ConfigurationAggregatorName *string `pulumi:"configurationAggregatorName"`
+	// Provides an organization and list of regions to be aggregated.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// The tags for the configuration aggregator.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -80,9 +84,11 @@ type configurationAggregatorArgs struct {
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
 type ConfigurationAggregatorArgs struct {
+	// Provides a list of source accounts and regions to be aggregated.
 	AccountAggregationSources ConfigurationAggregatorAccountAggregationSourceArrayInput
 	// The name of the aggregator.
-	ConfigurationAggregatorName   pulumi.StringPtrInput
+	ConfigurationAggregatorName pulumi.StringPtrInput
+	// Provides an organization and list of regions to be aggregated.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
 	// The tags for the configuration aggregator.
 	Tags aws.TagArrayInput
@@ -125,6 +131,7 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContex
 	return o
 }
 
+// Provides a list of source accounts and regions to be aggregated.
 func (o ConfigurationAggregatorOutput) AccountAggregationSources() ConfigurationAggregatorAccountAggregationSourceArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorAccountAggregationSourceArrayOutput {
 		return v.AccountAggregationSources
@@ -141,6 +148,7 @@ func (o ConfigurationAggregatorOutput) ConfigurationAggregatorName() pulumi.Stri
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringPtrOutput { return v.ConfigurationAggregatorName }).(pulumi.StringPtrOutput)
 }
 
+// Provides an organization and list of regions to be aggregated.
 func (o ConfigurationAggregatorOutput) OrganizationAggregationSource() ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 		return v.OrganizationAggregationSource

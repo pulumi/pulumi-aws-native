@@ -13,14 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAxisDisplayOptions
     {
+        /// <summary>
+        /// Determines whether or not the axis line is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? AxisLineVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? AxisOffset;
+        /// <summary>
+        /// The data options for an axis.
+        /// </summary>
         public readonly Outputs.DashboardAxisDataOptions? DataOptions;
+        /// <summary>
+        /// Determines whether or not the grid line is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? GridLineVisibility;
+        /// <summary>
+        /// The scroll bar options for an axis.
+        /// </summary>
         public readonly Outputs.DashboardScrollBarOptions? ScrollbarOptions;
+        /// <summary>
+        /// The tick label options of an axis.
+        /// </summary>
         public readonly Outputs.DashboardAxisTickLabelOptions? TickLabelOptions;
 
         [OutputConstructor]

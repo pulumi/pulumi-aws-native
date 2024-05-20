@@ -16,7 +16,17 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclResponseInspectionStatusCode
     {
+        /// <summary>
+        /// Status codes in the response that indicate a failed login or account creation attempt. To be counted as a failure, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+        /// 
+        /// JSON example: `"FailureCodes": [ 400, 404 ]`
+        /// </summary>
         public readonly ImmutableArray<int> FailureCodes;
+        /// <summary>
+        /// Status codes in the response that indicate a successful login or account creation attempt. To be counted as a success, the response status code must match one of these. Each code must be unique among the success and failure status codes.
+        /// 
+        /// JSON example: `"SuccessCodes": [ 200, 201 ]`
+        /// </summary>
         public readonly ImmutableArray<int> SuccessCodes;
 
         [OutputConstructor]

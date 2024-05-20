@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEcsProperties
     {
+        /// <summary>
+        /// An object that contains the properties for the Amazon ECS task definition of a job.
+        /// 
+        /// &gt; This object is currently limited to one element.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEcsTaskProperties> TaskProperties;
 
         [OutputConstructor]

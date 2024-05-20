@@ -26,6 +26,9 @@ class GetJobTemplateResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the job to use as the basis for the job template.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -42,6 +45,9 @@ def get_job_template(job_template_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobTemplateResult:
     """
     Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+
+
+    :param str job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
     """
     __args__ = dict()
     __args__['jobTemplateId'] = job_template_id
@@ -57,5 +63,8 @@ def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTemplateResult]:
     """
     Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+
+
+    :param str job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
     """
     ...

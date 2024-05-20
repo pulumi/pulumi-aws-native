@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     {
         [Input("destinationAddresses")]
         private InputList<string>? _destinationAddresses;
+
+        /// <summary>
+        /// The destination addresses.
+        /// </summary>
         public InputList<string> DestinationAddresses
         {
             get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("destinationPorts")]
         private InputList<string>? _destinationPorts;
+
+        /// <summary>
+        /// The destination ports.
+        /// </summary>
         public InputList<string> DestinationPorts
         {
             get => _destinationPorts ?? (_destinationPorts = new InputList<string>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("destinationPrefixLists")]
         private InputList<string>? _destinationPrefixLists;
+
+        /// <summary>
+        /// The destination prefix lists.
+        /// </summary>
         public InputList<string> DestinationPrefixLists
         {
             get => _destinationPrefixLists ?? (_destinationPrefixLists = new InputList<string>());
@@ -38,6 +50,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("protocols")]
         private InputList<Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeProtocol>? _protocols;
+
+        /// <summary>
+        /// The protocols.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeProtocol> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeProtocol>());
@@ -46,6 +62,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;
+
+        /// <summary>
+        /// The source addresses.
+        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -54,6 +74,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("sourcePorts")]
         private InputList<string>? _sourcePorts;
+
+        /// <summary>
+        /// The source ports.
+        /// </summary>
         public InputList<string> SourcePorts
         {
             get => _sourcePorts ?? (_sourcePorts = new InputList<string>());
@@ -62,6 +86,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("sourcePrefixLists")]
         private InputList<string>? _sourcePrefixLists;
+
+        /// <summary>
+        /// The source prefix lists.
+        /// </summary>
         public InputList<string> SourcePrefixLists
         {
             get => _sourcePrefixLists ?? (_sourcePrefixLists = new InputList<string>());

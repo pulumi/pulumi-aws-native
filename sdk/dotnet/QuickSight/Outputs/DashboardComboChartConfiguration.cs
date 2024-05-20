@@ -13,21 +13,77 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardComboChartConfiguration
     {
+        /// <summary>
+        /// The options that determine if visual data labels are displayed.
+        /// 
+        /// The data label options for a bar in a combo chart.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? BarDataLabels;
+        /// <summary>
+        /// Determines the bar arrangement in a combo chart. The following are valid values in this structure:
+        /// 
+        /// - `CLUSTERED` : For clustered bar combo charts.
+        /// - `STACKED` : For stacked bar combo charts.
+        /// - `STACKED_PERCENT` : Do not use. If you use this value, the operation returns a validation error.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardBarsArrangement? BarsArrangement;
+        /// <summary>
+        /// The category axis of a combo chart.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? ColorLabelOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.DashboardComboChartFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// The options that determine if visual data labels are displayed.
+        /// 
+        /// The data label options for a line in a combo chart.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? LineDataLabels;
+        /// <summary>
+        /// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? SecondaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        /// <summary>
+        /// The sort configuration of a `ComboChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardComboChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 
         [OutputConstructor]

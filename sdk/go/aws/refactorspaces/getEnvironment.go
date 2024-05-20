@@ -24,15 +24,19 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
+	// The unique identifier of the environment.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
 }
 
 type LookupEnvironmentResult struct {
-	Arn                   *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the environment.
+	Arn *string `pulumi:"arn"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags             []aws.Tag `pulumi:"tags"`
-	TransitGatewayId *string   `pulumi:"transitGatewayId"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the AWS Transit Gateway set up by the environment.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -49,6 +53,7 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 }
 
 type LookupEnvironmentOutputArgs struct {
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
 }
 
@@ -70,10 +75,12 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the environment.
 func (o LookupEnvironmentResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the environment.
 func (o LookupEnvironmentResultOutput) EnvironmentIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EnvironmentIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -83,6 +90,7 @@ func (o LookupEnvironmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the AWS Transit Gateway set up by the environment.
 func (o LookupEnvironmentResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }

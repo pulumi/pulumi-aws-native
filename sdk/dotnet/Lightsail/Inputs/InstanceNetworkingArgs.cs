@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
     /// </summary>
     public sealed class InstanceNetworkingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The monthly amount of data transfer, in GB, allocated for the instance
+        /// </summary>
         [Input("monthlyTransfer")]
         public Input<Inputs.InstanceMonthlyTransferArgs>? MonthlyTransfer { get; set; }
 

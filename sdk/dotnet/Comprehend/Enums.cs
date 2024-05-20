@@ -7,6 +7,13 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Comprehend
 {
+    /// <summary>
+    /// The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.
+    /// 
+    /// TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.
+    /// 
+    /// TEST - all of the documents in the manifest will be used for testing.
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierAugmentedManifestsListItemSplit : IEquatable<DocumentClassifierAugmentedManifestsListItemSplit>
     {
@@ -35,6 +42,12 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// This field defines the Amazon Textract API operation that Amazon Comprehend uses to extract text from PDF files and image files. Enter one of the following values:
+    /// 
+    /// - `TEXTRACT_DETECT_DOCUMENT_TEXT` - The Amazon Comprehend service uses the `DetectDocumentText` API operation.
+    /// - `TEXTRACT_ANALYZE_DOCUMENT` - The Amazon Comprehend service uses the `AnalyzeDocument` API operation.
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierDocumentReaderConfigDocumentReadAction : IEquatable<DocumentClassifierDocumentReaderConfigDocumentReadAction>
     {
@@ -63,6 +76,12 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Determines the text extraction actions for PDF files. Enter one of the following values:
+    /// 
+    /// - `SERVICE_DEFAULT` - use the Amazon Comprehend service defaults for PDF files.
+    /// - `FORCE_DOCUMENT_READ_ACTION` - Amazon Comprehend uses the Textract API specified by DocumentReadAction for all PDF files, including digital PDF files.
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierDocumentReaderConfigDocumentReadMode : IEquatable<DocumentClassifierDocumentReaderConfigDocumentReadMode>
     {
@@ -119,6 +138,16 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The format of your training data:
+    /// 
+    /// - `COMPREHEND_CSV` : A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the `S3Uri` parameter in your request.
+    /// - `AUGMENTED_MANIFEST` : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels.
+    /// 
+    /// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
+    /// 
+    /// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierInputDataConfigDataFormat : IEquatable<DocumentClassifierInputDataConfigDataFormat>
     {
@@ -147,6 +176,9 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierInputDataConfigDocumentType : IEquatable<DocumentClassifierInputDataConfigDocumentType>
     {
@@ -175,6 +207,9 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierLanguageCode : IEquatable<DocumentClassifierLanguageCode>
     {
@@ -207,6 +242,9 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+    /// </summary>
     [EnumType]
     public readonly struct DocumentClassifierMode : IEquatable<DocumentClassifierMode>
     {
@@ -235,6 +273,9 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+    /// </summary>
     [EnumType]
     public readonly struct FlywheelDocumentClassificationConfigMode : IEquatable<FlywheelDocumentClassificationConfigMode>
     {
@@ -263,6 +304,9 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Model type of the flywheel's model.
+    /// </summary>
     [EnumType]
     public readonly struct FlywheelModelType : IEquatable<FlywheelModelType>
     {
@@ -291,6 +335,9 @@ namespace Pulumi.AwsNative.Comprehend
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Language code for the language that the model supports.
+    /// </summary>
     [EnumType]
     public readonly struct FlywheelTaskConfigLanguageCode : IEquatable<FlywheelTaskConfigLanguageCode>
     {

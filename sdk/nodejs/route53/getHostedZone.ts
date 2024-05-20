@@ -34,6 +34,9 @@ export function getHostedZone(args: GetHostedZoneArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetHostedZoneArgs {
+    /**
+     * The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+     */
     id: string;
 }
 
@@ -48,7 +51,15 @@ export interface GetHostedZoneResult {
      *  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
      */
     readonly hostedZoneTags?: outputs.route53.HostedZoneTag[];
+    /**
+     * The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+     */
     readonly id?: string;
+    /**
+     * Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+     *
+     * This attribute is not supported for private hosted zones.
+     */
     readonly nameServers?: string[];
     /**
      * Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
@@ -90,5 +101,8 @@ export function getHostedZoneOutput(args: GetHostedZoneOutputArgs, opts?: pulumi
 }
 
 export interface GetHostedZoneOutputArgs {
+    /**
+     * The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+     */
     id: pulumi.Input<string>;
 }

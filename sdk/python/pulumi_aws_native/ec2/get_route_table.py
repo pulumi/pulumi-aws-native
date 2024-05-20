@@ -30,6 +30,9 @@ class GetRouteTableResult:
     @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[str]:
+        """
+        The ID of the route table.
+        """
         return pulumi.get(self, "route_table_id")
 
     @property
@@ -56,6 +59,9 @@ def get_route_table(route_table_id: Optional[str] = None,
     """
     Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
      For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+
+
+    :param str route_table_id: The ID of the route table.
     """
     __args__ = dict()
     __args__['routeTableId'] = route_table_id
@@ -73,5 +79,8 @@ def get_route_table_output(route_table_id: Optional[pulumi.Input[str]] = None,
     """
     Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
      For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+
+
+    :param str route_table_id: The ID of the route table.
     """
     ...

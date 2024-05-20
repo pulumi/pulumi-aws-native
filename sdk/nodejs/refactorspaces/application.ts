@@ -37,22 +37,61 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The resource ID of the API Gateway for the proxy.
+     */
     public /*out*/ readonly apiGatewayId!: pulumi.Output<string>;
+    /**
+     * The endpoint URL of the Amazon API Gateway proxy.
+     */
     public readonly apiGatewayProxy!: pulumi.Output<outputs.refactorspaces.ApplicationApiGatewayProxyInput | undefined>;
+    /**
+     * The unique identifier of the application.
+     */
     public /*out*/ readonly applicationIdentifier!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the application.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the environment.
+     */
     public readonly environmentIdentifier!: pulumi.Output<string>;
+    /**
+     * The name of the application.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Network Load Balancer .
+     */
     public /*out*/ readonly nlbArn!: pulumi.Output<string>;
+    /**
+     * The name of the Network Load Balancer configured by the API Gateway proxy.
+     */
     public /*out*/ readonly nlbName!: pulumi.Output<string>;
+    /**
+     * The proxy type of the proxy created within the application.
+     */
     public readonly proxyType!: pulumi.Output<enums.refactorspaces.ApplicationProxyType>;
+    /**
+     * The endpoint URL of the Amazon API Gateway proxy.
+     */
     public /*out*/ readonly proxyUrl!: pulumi.Output<string>;
+    /**
+     * The name of the API Gateway stage. The name defaults to `prod` .
+     */
     public /*out*/ readonly stageName!: pulumi.Output<string>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the virtual private cloud (VPC).
+     */
     public readonly vpcId!: pulumi.Output<string>;
+    /**
+     * The `VpcLink` ID of the API Gateway proxy.
+     */
     public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
     /**
@@ -116,13 +155,28 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The endpoint URL of the Amazon API Gateway proxy.
+     */
     apiGatewayProxy?: pulumi.Input<inputs.refactorspaces.ApplicationApiGatewayProxyInputArgs>;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
+    /**
+     * The name of the application.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The proxy type of the proxy created within the application.
+     */
     proxyType: pulumi.Input<enums.refactorspaces.ApplicationProxyType>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the virtual private cloud (VPC).
+     */
     vpcId: pulumi.Input<string>;
 }

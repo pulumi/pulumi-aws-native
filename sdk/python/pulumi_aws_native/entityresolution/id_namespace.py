@@ -28,6 +28,17 @@ class IdNamespaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdNamespace resource.
+        :param pulumi.Input['IdNamespaceType'] type: The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+               
+               The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+               
+               The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        :param pulumi.Input[str] description: The description of the ID namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]] id_mapping_workflow_properties: Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
+        :param pulumi.Input[str] id_namespace_name: The name of the ID namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -46,6 +57,13 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['IdNamespaceType']:
+        """
+        The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+
+        The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+
+        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -55,6 +73,9 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the ID namespace.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,6 +85,9 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter(name="idMappingWorkflowProperties")
     def id_mapping_workflow_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceIdMappingWorkflowPropertiesArgs']]]]:
+        """
+        Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
+        """
         return pulumi.get(self, "id_mapping_workflow_properties")
 
     @id_mapping_workflow_properties.setter
@@ -73,6 +97,9 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter(name="idNamespaceName")
     def id_namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ID namespace.
+        """
         return pulumi.get(self, "id_namespace_name")
 
     @id_namespace_name.setter
@@ -82,6 +109,9 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceInputSourceArgs']]]]:
+        """
+        A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        """
         return pulumi.get(self, "input_source_config")
 
     @input_source_config.setter
@@ -91,6 +121,9 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -100,6 +133,9 @@ class IdNamespaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -125,6 +161,17 @@ class IdNamespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the ID namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdNamespaceIdMappingWorkflowPropertiesArgs']]]] id_mapping_workflow_properties: Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
+        :param pulumi.Input[str] id_namespace_name: The name of the ID namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdNamespaceInputSourceArgs']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input['IdNamespaceType'] type: The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+               
+               The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+               
+               The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
         """
         ...
     @overload
@@ -225,11 +272,17 @@ class IdNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the ID namespace.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="idMappingWorkflowProperties")
     def id_mapping_workflow_properties(self) -> pulumi.Output[Optional[Sequence['outputs.IdNamespaceIdMappingWorkflowProperties']]]:
+        """
+        Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
+        """
         return pulumi.get(self, "id_mapping_workflow_properties")
 
     @property
@@ -243,26 +296,45 @@ class IdNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="idNamespaceName")
     def id_namespace_name(self) -> pulumi.Output[str]:
+        """
+        The name of the ID namespace.
+        """
         return pulumi.get(self, "id_namespace_name")
 
     @property
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> pulumi.Output[Optional[Sequence['outputs.IdNamespaceInputSource']]]:
+        """
+        A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        """
         return pulumi.get(self, "input_source_config")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['IdNamespaceType']:
+        """
+        The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+
+        The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+
+        The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+        """
         return pulumi.get(self, "type")
 
     @property

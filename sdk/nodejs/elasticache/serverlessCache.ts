@@ -41,6 +41,9 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The ARN of the Serverless Cache.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The cache usage limit for the serverless cache.
+     */
     public readonly cacheUsageLimits!: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
      * The creation time of the Serverless Cache.
@@ -54,6 +57,9 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The description of the Serverless Cache.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the information required for client programs to connect to a cache node. This value is read-only.
+     */
     public readonly endpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
     /**
      * The engine name of the Serverless Cache.
@@ -75,6 +81,9 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The major engine version of the Serverless Cache.
      */
     public readonly majorEngineVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the information required for client programs to connect to a cache node. This value is read-only.
+     */
     public readonly readerEndpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.
@@ -176,6 +185,9 @@ export class ServerlessCache extends pulumi.CustomResource {
  * The set of arguments for constructing a ServerlessCache resource.
  */
 export interface ServerlessCacheArgs {
+    /**
+     * The cache usage limit for the serverless cache.
+     */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsArgs>;
     /**
      * The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
@@ -185,6 +197,9 @@ export interface ServerlessCacheArgs {
      * The description of the Serverless Cache.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Represents the information required for client programs to connect to a cache node. This value is read-only.
+     */
     endpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs>;
     /**
      * The engine name of the Serverless Cache.
@@ -202,6 +217,9 @@ export interface ServerlessCacheArgs {
      * The major engine version of the Serverless Cache.
      */
     majorEngineVersion?: pulumi.Input<string>;
+    /**
+     * Represents the information required for client programs to connect to a cache node. This value is read-only.
+     */
     readerEndpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs>;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.

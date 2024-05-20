@@ -19,12 +19,24 @@ export function getResponseHeadersPolicy(args: GetResponseHeadersPolicyArgs, opt
 }
 
 export interface GetResponseHeadersPolicyArgs {
+    /**
+     * The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+     */
     id: string;
 }
 
 export interface GetResponseHeadersPolicyResult {
+    /**
+     * The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+     */
     readonly id?: string;
+    /**
+     * The date and time when the response headers policy was last modified.
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * A response headers policy configuration.
+     */
     readonly responseHeadersPolicyConfig?: outputs.cloudfront.ResponseHeadersPolicyConfig;
 }
 /**
@@ -35,5 +47,8 @@ export function getResponseHeadersPolicyOutput(args: GetResponseHeadersPolicyOut
 }
 
 export interface GetResponseHeadersPolicyOutputArgs {
+    /**
+     * The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+     */
     id: pulumi.Input<string>;
 }

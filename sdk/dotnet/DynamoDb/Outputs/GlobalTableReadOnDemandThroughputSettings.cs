@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTableReadOnDemandThroughputSettings
     {
+        /// <summary>
+        /// Maximum number of read request units for the specified replica of a global table.
+        /// </summary>
         public readonly int? MaxReadRequestUnits;
 
         [OutputConstructor]

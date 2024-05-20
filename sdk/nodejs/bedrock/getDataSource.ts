@@ -35,12 +35,24 @@ export interface GetDataSourceResult {
      * The time at which the data source was created.
      */
     readonly createdAt?: string;
+    /**
+     * The data deletion policy for a data source.
+     */
     readonly dataDeletionPolicy?: enums.bedrock.DataSourceDataDeletionPolicy;
+    /**
+     * Contains details about how the data source is stored.
+     */
     readonly dataSourceConfiguration?: outputs.bedrock.DataSourceConfiguration;
     /**
      * Identifier for a resource.
      */
     readonly dataSourceId?: string;
+    /**
+     * The status of the data source. The following statuses are possible:
+     *
+     * - Available – The data source has been created and is ready for ingestion into the knowledge base.
+     * - Deleting – The data source is being deleted.
+     */
     readonly dataSourceStatus?: enums.bedrock.DataSourceStatus;
     /**
      * Description of the Resource.
@@ -54,6 +66,9 @@ export interface GetDataSourceResult {
      * The name of the data source.
      */
     readonly name?: string;
+    /**
+     * Contains details about the configuration of the server-side encryption.
+     */
     readonly serverSideEncryptionConfiguration?: outputs.bedrock.DataSourceServerSideEncryptionConfiguration;
     /**
      * The time at which the knowledge base was last updated.

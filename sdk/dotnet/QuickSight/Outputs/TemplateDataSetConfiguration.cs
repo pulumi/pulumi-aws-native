@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;A structure containing the list of column group schemas.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnGroupSchema> ColumnGroupSchemaList;
+        /// <summary>
+        /// Dataset schema.
+        /// </summary>
         public readonly Outputs.TemplateDataSetSchema? DataSetSchema;
         /// <summary>
         /// &lt;p&gt;Placeholder.&lt;/p&gt;

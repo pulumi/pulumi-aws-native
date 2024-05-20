@@ -28,12 +28,21 @@ export interface GetAlarmModelArgs {
 }
 
 export interface GetAlarmModelResult {
+    /**
+     * Contains the configuration information of alarm state changes.
+     */
     readonly alarmCapabilities?: outputs.iotevents.AlarmModelAlarmCapabilities;
+    /**
+     * Contains information about one or more alarm actions.
+     */
     readonly alarmEventActions?: outputs.iotevents.AlarmModelAlarmEventActions;
     /**
      * A brief description of the alarm model.
      */
     readonly alarmModelDescription?: string;
+    /**
+     * Defines when your alarm is invoked.
+     */
     readonly alarmRule?: outputs.iotevents.AlarmModelAlarmRule;
     /**
      * The ARN of the role that grants permission to AWS IoT Events to perform its operations.

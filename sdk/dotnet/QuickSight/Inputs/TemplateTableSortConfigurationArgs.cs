@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTableSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The pagination configuration (page size, page number) for the table.
+        /// </summary>
         [Input("paginationConfiguration")]
         public Input<Inputs.TemplatePaginationConfigurationArgs>? PaginationConfiguration { get; set; }
 
         [Input("rowSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _rowSort;
+
+        /// <summary>
+        /// The field sort options for rows in the table.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> RowSort
         {
             get => _rowSort ?? (_rowSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());

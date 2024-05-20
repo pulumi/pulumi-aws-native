@@ -12,12 +12,29 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class DataSourceDocumentAttributeConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the document attribute used for the condition.
+        /// 
+        /// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+        /// 
+        /// Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+        /// </summary>
         [Input("conditionDocumentAttributeKey", required: true)]
         public Input<string> ConditionDocumentAttributeKey { get; set; } = null!;
 
+        /// <summary>
+        /// The value used by the operator.
+        /// 
+        /// For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
+        /// </summary>
         [Input("conditionOnValue")]
         public Input<Inputs.DataSourceDocumentAttributeValueArgs>? ConditionOnValue { get; set; }
 
+        /// <summary>
+        /// The condition operator.
+        /// 
+        /// For example, you can use 'Contains' to partially match a string.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.Kendra.DataSourceConditionOperator> Operator { get; set; } = null!;
 

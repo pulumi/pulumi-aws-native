@@ -15,39 +15,75 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:ServiceNetworkVpcAssociation")]
     public partial class ServiceNetworkVpcAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the specified association between the service network and the VPC.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the association was created, specified in ISO-8601 format.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         [Output("serviceNetworkArn")]
         public Output<string> ServiceNetworkArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service network.
+        /// </summary>
         [Output("serviceNetworkId")]
         public Output<string> ServiceNetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+        /// </summary>
         [Output("serviceNetworkIdentifier")]
         public Output<string?> ServiceNetworkIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service network.
+        /// </summary>
         [Output("serviceNetworkName")]
         public Output<string> ServiceNetworkName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the association.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceNetworkVpcAssociationStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the association.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcIdentifier")]
         public Output<string?> VpcIdentifier { get; private set; } = null!;
 
@@ -103,23 +139,37 @@ namespace Pulumi.AwsNative.VpcLattice
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+        /// </summary>
         [Input("serviceNetworkIdentifier")]
         public Input<string>? ServiceNetworkIdentifier { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the association.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcIdentifier")]
         public Input<string>? VpcIdentifier { get; set; }
 

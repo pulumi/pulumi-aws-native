@@ -13,9 +13,25 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaContainerParams
     {
+        /// <summary>
+        /// The list of system devices that the container can access.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaDeviceMount> Devices;
+        /// <summary>
+        /// The memory size of the container, expressed in kilobytes.
+        /// 
+        /// Default: `16384` (16 MB)
+        /// </summary>
         public readonly int? MemorySizeInKb;
+        /// <summary>
+        /// Whether or not the container can read information from the device's `/sys` folder.
+        /// 
+        /// Default: `false`
+        /// </summary>
         public readonly bool? MountRoSysfs;
+        /// <summary>
+        /// The list of volumes that the container can access.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaVolumeMount> Volumes;
 
         [OutputConstructor]

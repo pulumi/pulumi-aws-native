@@ -38,6 +38,9 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly alias!: pulumi.Output<outputs.s3objectlambda.AccessPointAlias>;
+    /**
+     * Specifies the ARN for the Object Lambda Access Point.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The date and time when the Object lambda Access Point was created.

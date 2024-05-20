@@ -59,8 +59,17 @@ namespace Pulumi.AwsNative.IoT
     {
         public readonly ImmutableDictionary<string, string>? Attributes;
         public readonly string? Description;
+        /// <summary>
+        /// Error reason for a package version failure during creation or update.
+        /// </summary>
         public readonly string? ErrorReason;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the package.
+        /// </summary>
         public readonly string? PackageVersionArn;
+        /// <summary>
+        /// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.SoftwarePackageVersionPackageVersionStatus? Status;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

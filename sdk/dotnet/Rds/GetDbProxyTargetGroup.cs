@@ -57,8 +57,17 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetDbProxyTargetGroupResult
     {
+        /// <summary>
+        /// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        /// </summary>
         public readonly Outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat? ConnectionPoolConfigurationInfo;
+        /// <summary>
+        /// One or more DB cluster identifiers.
+        /// </summary>
         public readonly ImmutableArray<string> DbClusterIdentifiers;
+        /// <summary>
+        /// One or more DB instance identifiers.
+        /// </summary>
         public readonly ImmutableArray<string> DbInstanceIdentifiers;
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.

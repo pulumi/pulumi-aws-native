@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     {
         [Input("parameters", required: true)]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// A map that includes overrides of an evaluation’s parameters.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// The name of an evaluation
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;
 

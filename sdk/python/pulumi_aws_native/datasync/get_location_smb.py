@@ -79,6 +79,9 @@ class GetLocationSmbResult:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional['outputs.LocationSmbMountOptions']:
+        """
+        Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        """
         return pulumi.get(self, "mount_options")
 
     @property

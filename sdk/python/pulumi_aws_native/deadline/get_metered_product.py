@@ -35,21 +35,33 @@ class GetMeteredProductResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the metered product.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def family(self) -> Optional[str]:
+        """
+        The family to which the metered product belongs.
+        """
         return pulumi.get(self, "family")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
+        """
+        The port on which the metered product should run.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def vendor(self) -> Optional[str]:
+        """
+        The vendor.
+        """
         return pulumi.get(self, "vendor")
 
 
@@ -69,6 +81,9 @@ def get_metered_product(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMeteredProductResult:
     """
     Definition of AWS::Deadline::MeteredProduct Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the metered product.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -87,5 +102,8 @@ def get_metered_product_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMeteredProductResult]:
     """
     Definition of AWS::Deadline::MeteredProduct Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the metered product.
     """
     ...

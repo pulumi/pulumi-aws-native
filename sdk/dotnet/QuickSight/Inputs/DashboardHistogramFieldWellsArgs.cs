@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardHistogramFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a histogram.
+        /// </summary>
         [Input("histogramAggregatedFieldWells")]
         public Input<Inputs.DashboardHistogramAggregatedFieldWellsArgs>? HistogramAggregatedFieldWells { get; set; }
 

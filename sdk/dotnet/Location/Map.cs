@@ -15,24 +15,57 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:Map")]
     public partial class Map : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.MapConfiguration> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description for the map resource.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        /// </summary>
         [Output("mapArn")]
         public Output<string> MapArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the map resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique map resource name.
+        /// - No spaces allowed. For example, `ExampleMap` .
+        /// </summary>
         [Output("mapName")]
         public Output<string> MapName { get; private set; } = null!;
 
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.MapPricingPlan?> PricingPlan { get; private set; } = null!;
 
@@ -42,6 +75,9 @@ namespace Pulumi.AwsNative.Location
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -95,15 +131,35 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class MapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.MapConfigurationArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// An optional description for the map resource.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name for the map resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique map resource name.
+        /// - No spaces allowed. For example, `ExampleMap` .
+        /// </summary>
         [Input("mapName")]
         public Input<string>? MapName { get; set; }
 
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.MapPricingPlan>? PricingPlan { get; set; }
 

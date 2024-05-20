@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleBatchArrayPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+        /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 

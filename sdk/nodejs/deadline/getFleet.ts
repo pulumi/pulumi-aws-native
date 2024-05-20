@@ -19,20 +19,53 @@ export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetFleetArgs {
+    /**
+     * The Amazon Resource Name (ARN) assigned to the fleet.
+     */
     arn: string;
 }
 
 export interface GetFleetResult {
+    /**
+     * The Amazon Resource Name (ARN) assigned to the fleet.
+     */
     readonly arn?: string;
     readonly capabilities?: outputs.deadline.FleetCapabilities;
+    /**
+     * The configuration details for the fleet.
+     */
     readonly configuration?: outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties;
+    /**
+     * A description that helps identify what the fleet is used for.
+     */
     readonly description?: string;
+    /**
+     * The display name of the fleet summary to update.
+     */
     readonly displayName?: string;
+    /**
+     * The fleet ID.
+     */
     readonly fleetId?: string;
+    /**
+     * The maximum number of workers specified in the fleet.
+     */
     readonly maxWorkerCount?: number;
+    /**
+     * The minimum number of workers in the fleet.
+     */
     readonly minWorkerCount?: number;
+    /**
+     * The IAM role that workers in the fleet use when processing jobs.
+     */
     readonly roleArn?: string;
+    /**
+     * The status of the fleet.
+     */
     readonly status?: enums.deadline.FleetStatus;
+    /**
+     * The number of workers in the fleet summary.
+     */
     readonly workerCount?: number;
 }
 /**
@@ -43,5 +76,8 @@ export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetFleetOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) assigned to the fleet.
+     */
     arn: pulumi.Input<string>;
 }

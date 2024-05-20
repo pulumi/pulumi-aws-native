@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormValueMapping
     {
+        /// <summary>
+        /// The value to display for the complex object.
+        /// </summary>
         public readonly Outputs.FormInputValueProperty? DisplayValue;
+        /// <summary>
+        /// The complex object.
+        /// </summary>
         public readonly Outputs.FormInputValueProperty Value;
 
         [OutputConstructor]

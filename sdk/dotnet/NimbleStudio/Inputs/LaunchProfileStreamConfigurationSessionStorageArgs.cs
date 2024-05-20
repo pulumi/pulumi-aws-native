@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
             set => _mode = value;
         }
 
+        /// <summary>
+        /// The configuration for the upload storage root of the streaming session.
+        /// </summary>
         [Input("root")]
         public Input<Inputs.LaunchProfileStreamingSessionStorageRootArgs>? Root { get; set; }
 

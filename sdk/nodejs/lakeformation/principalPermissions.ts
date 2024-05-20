@@ -53,11 +53,17 @@ export class PrincipalPermissions extends pulumi.CustomResource {
      * The principal to be granted a permission.
      */
     public readonly principal!: pulumi.Output<outputs.lakeformation.PrincipalPermissionsDataLakePrincipal>;
+    /**
+     * Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+     */
     public /*out*/ readonly principalIdentifier!: pulumi.Output<string>;
     /**
      * The resource to be granted or revoked permissions.
      */
     public readonly resource!: pulumi.Output<outputs.lakeformation.PrincipalPermissionsResource>;
+    /**
+     * Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+     */
     public /*out*/ readonly resourceIdentifier!: pulumi.Output<string>;
 
     /**

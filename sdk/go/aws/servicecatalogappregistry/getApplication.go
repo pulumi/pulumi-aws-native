@@ -23,6 +23,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
+	// The identifier of the application.
 	Id string `pulumi:"id"`
 }
 
@@ -33,12 +34,15 @@ type LookupApplicationResult struct {
 	ApplicationTagKey *string `pulumi:"applicationTagKey"`
 	// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
 	ApplicationTagValue *string `pulumi:"applicationTagValue"`
-	Arn                 *string `pulumi:"arn"`
+	// The Amazon resource name (ARN) that specifies the application across services.
+	Arn *string `pulumi:"arn"`
 	// The description of the application.
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
+	// The identifier of the application.
+	Id *string `pulumi:"id"`
 	// The name of the application.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value pairs you can use to associate with the application.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -56,6 +60,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
+	// The identifier of the application.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -92,6 +97,7 @@ func (o LookupApplicationResultOutput) ApplicationTagValue() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationTagValue }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon resource name (ARN) that specifies the application across services.
 func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -101,6 +107,7 @@ func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the application.
 func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -110,6 +117,7 @@ func (o LookupApplicationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Key-value pairs you can use to associate with the application.
 func (o LookupApplicationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

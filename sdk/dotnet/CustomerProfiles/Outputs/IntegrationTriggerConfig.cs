@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationTriggerConfig
     {
+        /// <summary>
+        /// Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
+        /// </summary>
         public readonly Outputs.IntegrationTriggerProperties? TriggerProperties;
+        /// <summary>
+        /// Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationTriggerType TriggerType;
 
         [OutputConstructor]

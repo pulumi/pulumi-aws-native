@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.IoTAnalytics
 {
+    /// <summary>
+    /// The type of the compute resource used to execute the `containerAction` . Possible values are: `ACU_1` (vCPU=4, memory=16 GiB) or `ACU_2` (vCPU=8, memory=32 GiB).
+    /// </summary>
     [EnumType]
     public readonly struct DatasetResourceConfigurationComputeType : IEquatable<DatasetResourceConfigurationComputeType>
     {

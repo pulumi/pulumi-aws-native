@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class AnalysisTemplateAnalysisSchema
     {
+        /// <summary>
+        /// The tables referenced in the analysis schema.
+        /// </summary>
         public readonly ImmutableArray<string> ReferencedTables;
 
         [OutputConstructor]

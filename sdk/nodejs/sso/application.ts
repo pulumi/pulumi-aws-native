@@ -65,6 +65,9 @@ export class Application extends pulumi.CustomResource {
      * Specifies whether the application is enabled or disabled
      */
     public readonly status!: pulumi.Output<enums.sso.ApplicationStatus | undefined>;
+    /**
+     * Specifies tags to be attached to the application
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -137,5 +140,8 @@ export interface ApplicationArgs {
      * Specifies whether the application is enabled or disabled
      */
     status?: pulumi.Input<enums.sso.ApplicationStatus>;
+    /**
+     * Specifies tags to be attached to the application
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

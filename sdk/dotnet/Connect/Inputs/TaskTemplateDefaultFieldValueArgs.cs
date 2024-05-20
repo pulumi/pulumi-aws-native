@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class TaskTemplateDefaultFieldValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Default value for the field.
+        /// </summary>
         [Input("defaultValue", required: true)]
         public Input<string> DefaultValue { get; set; } = null!;
 
+        /// <summary>
+        /// Identifier of a field.
+        /// </summary>
         [Input("id", required: true)]
         public Input<Inputs.TaskTemplateFieldIdentifierArgs> Id { get; set; } = null!;
 

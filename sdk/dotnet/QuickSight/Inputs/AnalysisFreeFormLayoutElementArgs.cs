@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFreeFormLayoutElementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background style configuration of a free-form layout element.
+        /// </summary>
         [Input("backgroundStyle")]
         public Input<Inputs.AnalysisFreeFormLayoutElementBackgroundStyleArgs>? BackgroundStyle { get; set; }
 
+        /// <summary>
+        /// The border style configuration of a free-form layout element.
+        /// </summary>
         [Input("borderStyle")]
         public Input<Inputs.AnalysisFreeFormLayoutElementBorderStyleArgs>? BorderStyle { get; set; }
 
+        /// <summary>
+        /// A unique identifier for an element within a free-form layout.
+        /// </summary>
         [Input("elementId", required: true)]
         public Input<string> ElementId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of element.
+        /// </summary>
         [Input("elementType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisLayoutElementType> ElementType { get; set; } = null!;
 
@@ -30,20 +42,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("height", required: true)]
         public Input<string> Height { get; set; } = null!;
 
+        /// <summary>
+        /// The loading animation configuration of a free-form layout element.
+        /// </summary>
         [Input("loadingAnimation")]
         public Input<Inputs.AnalysisLoadingAnimationArgs>? LoadingAnimation { get; set; }
 
         [Input("renderingRules")]
         private InputList<Inputs.AnalysisSheetElementRenderingRuleArgs>? _renderingRules;
+
+        /// <summary>
+        /// The rendering rules that determine when an element should be displayed within a free-form layout.
+        /// </summary>
         public InputList<Inputs.AnalysisSheetElementRenderingRuleArgs> RenderingRules
         {
             get => _renderingRules ?? (_renderingRules = new InputList<Inputs.AnalysisSheetElementRenderingRuleArgs>());
             set => _renderingRules = value;
         }
 
+        /// <summary>
+        /// The border style configuration of a free-form layout element. This border style is used when the element is selected.
+        /// </summary>
         [Input("selectedBorderStyle")]
         public Input<Inputs.AnalysisFreeFormLayoutElementBorderStyleArgs>? SelectedBorderStyle { get; set; }
 
+        /// <summary>
+        /// The visibility of an element within a free-form layout.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

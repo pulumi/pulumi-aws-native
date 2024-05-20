@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Signer
     [AwsNativeResourceType("aws-native:signer:ProfilePermission")]
     public partial class ProfilePermission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The AWS Signer action permitted as part of cross-account permissions.
+        /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
+        /// <summary>
+        /// The human-readable name of the signing profile.
+        /// </summary>
         [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the signing profile.
+        /// </summary>
         [Output("profileVersion")]
         public Output<string?> ProfileVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the cross-account permission statement.
+        /// </summary>
         [Output("statementId")]
         public Output<string> StatementId { get; private set; } = null!;
 
@@ -83,18 +98,33 @@ namespace Pulumi.AwsNative.Signer
 
     public sealed class ProfilePermissionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Signer action permitted as part of cross-account permissions.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
+        /// <summary>
+        /// The human-readable name of the signing profile.
+        /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the signing profile.
+        /// </summary>
         [Input("profileVersion")]
         public Input<string>? ProfileVersion { get; set; }
 
+        /// <summary>
+        /// A unique identifier for the cross-account permission statement.
+        /// </summary>
         [Input("statementId", required: true)]
         public Input<string> StatementId { get; set; } = null!;
 

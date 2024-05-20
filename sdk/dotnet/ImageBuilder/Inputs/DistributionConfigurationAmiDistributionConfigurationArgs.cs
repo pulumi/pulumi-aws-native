@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Launch permissions can be used to configure which AWS account s can use the AMI to launch instances.
+        /// </summary>
         [Input("launchPermissionConfiguration")]
         public Input<Inputs.DistributionConfigurationLaunchPermissionConfigurationArgs>? LaunchPermissionConfiguration { get; set; }
 

@@ -23,13 +23,21 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
-	PolicyId      string `pulumi:"policyId"`
+	// The unique ID of the new or updated policy.
+	PolicyId string `pulumi:"policyId"`
+	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 }
 
 type LookupPolicyResult struct {
+	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition interface{} `pulumi:"definition"`
-	PolicyId   *string     `pulumi:"policyId"`
+	// The unique ID of the new or updated policy.
+	PolicyId *string `pulumi:"policyId"`
+	// The type of the policy. This is one of the following values:
+	//
+	// - Static
+	// - TemplateLinked
 	PolicyType *PolicyType `pulumi:"policyType"`
 }
 
@@ -47,7 +55,9 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 }
 
 type LookupPolicyOutputArgs struct {
-	PolicyId      pulumi.StringInput `pulumi:"policyId"`
+	// The unique ID of the new or updated policy.
+	PolicyId pulumi.StringInput `pulumi:"policyId"`
+	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId pulumi.StringInput `pulumi:"policyStoreId"`
 }
 
@@ -69,14 +79,20 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
+// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 func (o LookupPolicyResultOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.Definition }).(pulumi.AnyOutput)
 }
 
+// The unique ID of the new or updated policy.
 func (o LookupPolicyResultOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
+// The type of the policy. This is one of the following values:
+//
+// - Static
+// - TemplateLinked
 func (o LookupPolicyResultOutput) PolicyType() PolicyTypePtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *PolicyType { return v.PolicyType }).(PolicyTypePtrOutput)
 }

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardVisualCustomActionOperation
     {
+        /// <summary>
+        /// The filter operation that filters data included in a visual or in an entire sheet.
+        /// </summary>
         public readonly Outputs.DashboardCustomActionFilterOperation? FilterOperation;
+        /// <summary>
+        /// The navigation operation that navigates between different sheets in the same analysis.
+        /// </summary>
         public readonly Outputs.DashboardCustomActionNavigationOperation? NavigationOperation;
+        /// <summary>
+        /// The set parameter operation that sets parameters in custom action.
+        /// </summary>
         public readonly Outputs.DashboardCustomActionSetParametersOperation? SetParametersOperation;
+        /// <summary>
+        /// The URL operation that opens a link to another webpage.
+        /// </summary>
         public readonly Outputs.DashboardCustomActionUrlOperation? UrlOperation;
 
         [OutputConstructor]

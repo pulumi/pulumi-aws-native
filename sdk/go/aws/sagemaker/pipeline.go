@@ -84,8 +84,10 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	// The parallelism configuration applied to the pipeline.
 	ParallelismConfiguration ParallelismConfigurationPropertiesPtrOutput `pulumi:"parallelismConfiguration"`
-	PipelineDefinition       pulumi.AnyOutput                            `pulumi:"pipelineDefinition"`
+	// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+	PipelineDefinition pulumi.AnyOutput `pulumi:"pipelineDefinition"`
 	// The description of the Pipeline.
 	PipelineDescription pulumi.StringPtrOutput `pulumi:"pipelineDescription"`
 	// The display name of the Pipeline.
@@ -94,7 +96,8 @@ type Pipeline struct {
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// Role Arn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	Tags    aws.TagArrayOutput  `pulumi:"tags"`
+	// The tags of the pipeline.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -147,8 +150,10 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
+	// The parallelism configuration applied to the pipeline.
 	ParallelismConfiguration *ParallelismConfigurationProperties `pulumi:"parallelismConfiguration"`
-	PipelineDefinition       interface{}                         `pulumi:"pipelineDefinition"`
+	// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+	PipelineDefinition interface{} `pulumi:"pipelineDefinition"`
 	// The description of the Pipeline.
 	PipelineDescription *string `pulumi:"pipelineDescription"`
 	// The display name of the Pipeline.
@@ -156,14 +161,17 @@ type pipelineArgs struct {
 	// The name of the Pipeline.
 	PipelineName *string `pulumi:"pipelineName"`
 	// Role Arn
-	RoleArn string    `pulumi:"roleArn"`
-	Tags    []aws.Tag `pulumi:"tags"`
+	RoleArn string `pulumi:"roleArn"`
+	// The tags of the pipeline.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
+	// The parallelism configuration applied to the pipeline.
 	ParallelismConfiguration ParallelismConfigurationPropertiesPtrInput
-	PipelineDefinition       pulumi.Input
+	// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+	PipelineDefinition pulumi.Input
 	// The description of the Pipeline.
 	PipelineDescription pulumi.StringPtrInput
 	// The display name of the Pipeline.
@@ -172,7 +180,8 @@ type PipelineArgs struct {
 	PipelineName pulumi.StringPtrInput
 	// Role Arn
 	RoleArn pulumi.StringInput
-	Tags    aws.TagArrayInput
+	// The tags of the pipeline.
+	Tags aws.TagArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -212,10 +221,12 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+// The parallelism configuration applied to the pipeline.
 func (o PipelineOutput) ParallelismConfiguration() ParallelismConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *Pipeline) ParallelismConfigurationPropertiesPtrOutput { return v.ParallelismConfiguration }).(ParallelismConfigurationPropertiesPtrOutput)
 }
 
+// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
 func (o PipelineOutput) PipelineDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.AnyOutput { return v.PipelineDefinition }).(pulumi.AnyOutput)
 }
@@ -240,6 +251,7 @@ func (o PipelineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The tags of the pipeline.
 func (o PipelineOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

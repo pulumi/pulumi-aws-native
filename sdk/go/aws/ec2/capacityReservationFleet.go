@@ -61,16 +61,35 @@ import (
 type CapacityReservationFleet struct {
 	pulumi.CustomResourceState
 
-	AllocationStrategy         pulumi.StringPtrOutput                                       `pulumi:"allocationStrategy"`
-	CapacityReservationFleetId pulumi.StringOutput                                          `pulumi:"capacityReservationFleetId"`
-	EndDate                    pulumi.StringPtrOutput                                       `pulumi:"endDate"`
-	InstanceMatchCriteria      CapacityReservationFleetInstanceMatchCriteriaPtrOutput       `pulumi:"instanceMatchCriteria"`
+	// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+	//
+	// Valid values: `prioritized`
+	AllocationStrategy pulumi.StringPtrOutput `pulumi:"allocationStrategy"`
+	// The ID of the Capacity Reservation Fleet.
+	CapacityReservationFleetId pulumi.StringOutput `pulumi:"capacityReservationFleetId"`
+	// The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+	//
+	// The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
+	// Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+	//
+	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+	InstanceMatchCriteria CapacityReservationFleetInstanceMatchCriteriaPtrOutput `pulumi:"instanceMatchCriteria"`
+	// Information about the instance types for which to reserve the capacity.
 	InstanceTypeSpecifications CapacityReservationFleetInstanceTypeSpecificationArrayOutput `pulumi:"instanceTypeSpecifications"`
-	NoRemoveEndDate            pulumi.BoolPtrOutput                                         `pulumi:"noRemoveEndDate"`
-	RemoveEndDate              pulumi.BoolPtrOutput                                         `pulumi:"removeEndDate"`
-	TagSpecifications          CapacityReservationFleetTagSpecificationArrayOutput          `pulumi:"tagSpecifications"`
-	Tenancy                    CapacityReservationFleetTenancyPtrOutput                     `pulumi:"tenancy"`
-	TotalTargetCapacity        pulumi.IntPtrOutput                                          `pulumi:"totalTargetCapacity"`
+	// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+	NoRemoveEndDate pulumi.BoolPtrOutput `pulumi:"noRemoveEndDate"`
+	// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+	RemoveEndDate pulumi.BoolPtrOutput `pulumi:"removeEndDate"`
+	// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
+	TagSpecifications CapacityReservationFleetTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
+	// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+	//
+	// - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+	// - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+	Tenancy CapacityReservationFleetTenancyPtrOutput `pulumi:"tenancy"`
+	// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+	TotalTargetCapacity pulumi.IntPtrOutput `pulumi:"totalTargetCapacity"`
 }
 
 // NewCapacityReservationFleet registers a new resource with the given unique name, arguments, and options.
@@ -122,28 +141,64 @@ func (CapacityReservationFleetState) ElementType() reflect.Type {
 }
 
 type capacityReservationFleetArgs struct {
-	AllocationStrategy         *string                                             `pulumi:"allocationStrategy"`
-	EndDate                    *string                                             `pulumi:"endDate"`
-	InstanceMatchCriteria      *CapacityReservationFleetInstanceMatchCriteria      `pulumi:"instanceMatchCriteria"`
+	// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+	//
+	// Valid values: `prioritized`
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+	//
+	// The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+	EndDate *string `pulumi:"endDate"`
+	// Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+	//
+	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+	InstanceMatchCriteria *CapacityReservationFleetInstanceMatchCriteria `pulumi:"instanceMatchCriteria"`
+	// Information about the instance types for which to reserve the capacity.
 	InstanceTypeSpecifications []CapacityReservationFleetInstanceTypeSpecification `pulumi:"instanceTypeSpecifications"`
-	NoRemoveEndDate            *bool                                               `pulumi:"noRemoveEndDate"`
-	RemoveEndDate              *bool                                               `pulumi:"removeEndDate"`
-	TagSpecifications          []CapacityReservationFleetTagSpecification          `pulumi:"tagSpecifications"`
-	Tenancy                    *CapacityReservationFleetTenancy                    `pulumi:"tenancy"`
-	TotalTargetCapacity        *int                                                `pulumi:"totalTargetCapacity"`
+	// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+	NoRemoveEndDate *bool `pulumi:"noRemoveEndDate"`
+	// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+	RemoveEndDate *bool `pulumi:"removeEndDate"`
+	// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
+	TagSpecifications []CapacityReservationFleetTagSpecification `pulumi:"tagSpecifications"`
+	// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+	//
+	// - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+	// - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+	Tenancy *CapacityReservationFleetTenancy `pulumi:"tenancy"`
+	// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+	TotalTargetCapacity *int `pulumi:"totalTargetCapacity"`
 }
 
 // The set of arguments for constructing a CapacityReservationFleet resource.
 type CapacityReservationFleetArgs struct {
-	AllocationStrategy         pulumi.StringPtrInput
-	EndDate                    pulumi.StringPtrInput
-	InstanceMatchCriteria      CapacityReservationFleetInstanceMatchCriteriaPtrInput
+	// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+	//
+	// Valid values: `prioritized`
+	AllocationStrategy pulumi.StringPtrInput
+	// The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+	//
+	// The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+	EndDate pulumi.StringPtrInput
+	// Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+	//
+	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+	InstanceMatchCriteria CapacityReservationFleetInstanceMatchCriteriaPtrInput
+	// Information about the instance types for which to reserve the capacity.
 	InstanceTypeSpecifications CapacityReservationFleetInstanceTypeSpecificationArrayInput
-	NoRemoveEndDate            pulumi.BoolPtrInput
-	RemoveEndDate              pulumi.BoolPtrInput
-	TagSpecifications          CapacityReservationFleetTagSpecificationArrayInput
-	Tenancy                    CapacityReservationFleetTenancyPtrInput
-	TotalTargetCapacity        pulumi.IntPtrInput
+	// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+	NoRemoveEndDate pulumi.BoolPtrInput
+	// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+	RemoveEndDate pulumi.BoolPtrInput
+	// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
+	TagSpecifications CapacityReservationFleetTagSpecificationArrayInput
+	// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+	//
+	// - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+	// - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+	Tenancy CapacityReservationFleetTenancyPtrInput
+	// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+	TotalTargetCapacity pulumi.IntPtrInput
 }
 
 func (CapacityReservationFleetArgs) ElementType() reflect.Type {
@@ -183,48 +238,67 @@ func (o CapacityReservationFleetOutput) ToCapacityReservationFleetOutputWithCont
 	return o
 }
 
+// The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+//
+// Valid values: `prioritized`
 func (o CapacityReservationFleetOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.StringPtrOutput { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Capacity Reservation Fleet.
 func (o CapacityReservationFleetOutput) CapacityReservationFleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.StringOutput { return v.CapacityReservationFleetId }).(pulumi.StringOutput)
 }
 
+// The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+//
+// The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
 func (o CapacityReservationFleetOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
+// Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+//
+// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
 func (o CapacityReservationFleetOutput) InstanceMatchCriteria() CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
 		return v.InstanceMatchCriteria
 	}).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
 }
 
+// Information about the instance types for which to reserve the capacity.
 func (o CapacityReservationFleetOutput) InstanceTypeSpecifications() CapacityReservationFleetInstanceTypeSpecificationArrayOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetInstanceTypeSpecificationArrayOutput {
 		return v.InstanceTypeSpecifications
 	}).(CapacityReservationFleetInstanceTypeSpecificationArrayOutput)
 }
 
+// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
 func (o CapacityReservationFleetOutput) NoRemoveEndDate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.BoolPtrOutput { return v.NoRemoveEndDate }).(pulumi.BoolPtrOutput)
 }
 
+// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
 func (o CapacityReservationFleetOutput) RemoveEndDate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.BoolPtrOutput { return v.RemoveEndDate }).(pulumi.BoolPtrOutput)
 }
 
+// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
 func (o CapacityReservationFleetOutput) TagSpecifications() CapacityReservationFleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetTagSpecificationArrayOutput {
 		return v.TagSpecifications
 	}).(CapacityReservationFleetTagSpecificationArrayOutput)
 }
 
+// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+//
+// - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+// - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
 func (o CapacityReservationFleetOutput) Tenancy() CapacityReservationFleetTenancyPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetTenancyPtrOutput { return v.Tenancy }).(CapacityReservationFleetTenancyPtrOutput)
 }
 
+// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
 func (o CapacityReservationFleetOutput) TotalTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.IntPtrOutput { return v.TotalTargetCapacity }).(pulumi.IntPtrOutput)
 }

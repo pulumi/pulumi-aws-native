@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:IpamResourceDiscovery")]
     public partial class IpamResourceDiscovery : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource discovery description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class IpamResourceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource discovery description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

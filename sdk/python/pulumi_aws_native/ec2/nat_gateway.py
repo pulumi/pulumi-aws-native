@@ -323,6 +323,9 @@ class NatGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the NAT gateway.
+        """
         return pulumi.get(self, "nat_gateway_id")
 
     @property

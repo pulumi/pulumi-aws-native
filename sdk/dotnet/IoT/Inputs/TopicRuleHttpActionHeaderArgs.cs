@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleHttpActionHeaderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP header key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP header value. Substitution templates are supported.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

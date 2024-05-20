@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Msk
     [AwsNativeResourceType("aws-native:msk:VpcConnection")]
     public partial class VpcConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the VPC connection.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of private link authentication.
+        /// </summary>
         [Output("authentication")]
         public Output<Pulumi.AwsNative.Msk.VpcConnectionAuthentication> Authentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of subnets in the client VPC to connect to.
+        /// </summary>
         [Output("clientSubnets")]
         public Output<ImmutableArray<string>> ClientSubnets { get; private set; } = null!;
 
+        /// <summary>
+        /// The security groups to attach to the ENIs for the broker nodes.
+        /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// Create tags when creating the VPC connection.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -36,6 +51,9 @@ namespace Pulumi.AwsNative.Msk
         [Output("targetClusterArn")]
         public Output<string> TargetClusterArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC id of the remote client.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -92,11 +110,18 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class VpcConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of private link authentication.
+        /// </summary>
         [Input("authentication", required: true)]
         public Input<Pulumi.AwsNative.Msk.VpcConnectionAuthentication> Authentication { get; set; } = null!;
 
         [Input("clientSubnets", required: true)]
         private InputList<string>? _clientSubnets;
+
+        /// <summary>
+        /// The list of subnets in the client VPC to connect to.
+        /// </summary>
         public InputList<string> ClientSubnets
         {
             get => _clientSubnets ?? (_clientSubnets = new InputList<string>());
@@ -105,6 +130,10 @@ namespace Pulumi.AwsNative.Msk
 
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// The security groups to attach to the ENIs for the broker nodes.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -113,6 +142,10 @@ namespace Pulumi.AwsNative.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Create tags when creating the VPC connection.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -125,6 +158,9 @@ namespace Pulumi.AwsNative.Msk
         [Input("targetClusterArn", required: true)]
         public Input<string> TargetClusterArn { get; set; } = null!;
 
+        /// <summary>
+        /// The VPC id of the remote client.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

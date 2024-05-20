@@ -144,6 +144,9 @@ class InternetGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the internet gateway.
+        """
         return pulumi.get(self, "internet_gateway_id")
 
     @property

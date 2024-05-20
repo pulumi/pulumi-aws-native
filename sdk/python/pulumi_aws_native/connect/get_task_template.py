@@ -67,6 +67,9 @@ class GetTaskTemplateResult:
     @property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> Optional[str]:
+        """
+        A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+        """
         return pulumi.get(self, "client_token")
 
     @property
@@ -88,6 +91,9 @@ class GetTaskTemplateResult:
     @property
     @pulumi.getter
     def defaults(self) -> Optional[Sequence['outputs.TaskTemplateDefaultFieldValue']]:
+        """
+        The default values for fields when a task is created by referencing this template.
+        """
         return pulumi.get(self, "defaults")
 
     @property
@@ -125,6 +131,9 @@ class GetTaskTemplateResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['TaskTemplateStatus']:
+        """
+        The status of the task template.
+        """
         return pulumi.get(self, "status")
 
     @property

@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Ecr
         /// The RegistryId associated with the aws account.
         /// </summary>
         public readonly string? RegistryId;
+        /// <summary>
+        /// The replication configuration for a registry.
+        /// </summary>
         public readonly Outputs.ReplicationConfiguration? ReplicationConfigurationValue;
 
         [OutputConstructor]

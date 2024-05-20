@@ -49,11 +49,17 @@ export class Rotation extends pulumi.CustomResource {
      * Name of the Rotation
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Information about the rule that specifies when shift team members rotate.
+     */
     public readonly recurrence!: pulumi.Output<outputs.ssmcontacts.RotationRecurrenceSettings>;
     /**
      * Start time of the first shift of Oncall Schedule
      */
     public readonly startTime!: pulumi.Output<string>;
+    /**
+     * Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * TimeZone Identifier for the Oncall Schedule
@@ -116,11 +122,17 @@ export interface RotationArgs {
      * Name of the Rotation
      */
     name?: pulumi.Input<string>;
+    /**
+     * Information about the rule that specifies when shift team members rotate.
+     */
     recurrence: pulumi.Input<inputs.ssmcontacts.RotationRecurrenceSettingsArgs>;
     /**
      * Start time of the first shift of Oncall Schedule
      */
     startTime: pulumi.Input<string>;
+    /**
+     * Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * TimeZone Identifier for the Oncall Schedule

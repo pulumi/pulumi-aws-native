@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class ExperimentMetricGoalObjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `INCREASE` means that a variation with a higher number for this metric is performing better.
+        /// 
+        /// `DECREASE` means that a variation with a lower number for this metric is performing better.
+        /// </summary>
         [Input("desiredChange", required: true)]
         public Input<Pulumi.AwsNative.Evidently.ExperimentMetricGoalObjectDesiredChange> DesiredChange { get; set; } = null!;
 
@@ -27,9 +32,15 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
+        /// <summary>
+        /// A name for the metric. It can include up to 255 characters.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// A label for the units that the metric is measuring.
+        /// </summary>
         [Input("unitLabel")]
         public Input<string>? UnitLabel { get; set; }
 

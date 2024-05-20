@@ -49,6 +49,15 @@ export class Environment extends pulumi.CustomResource {
      * Your description for this environment.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+     *
+     * Example load balancer URL:
+     *
+     * Example instance IP address:
+     *
+     * `192.0.2.0`
+     */
     public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
     /**
      * A unique name for the environment.

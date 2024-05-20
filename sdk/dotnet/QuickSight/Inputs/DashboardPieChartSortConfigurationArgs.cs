@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPieChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit on the number of categories that are displayed in a pie chart.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The limit on the number of small multiples panels that are displayed.
+        /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }
 
         [Input("smallMultiplesSort")]
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _smallMultiplesSort;
+
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> SmallMultiplesSort
         {
             get => _smallMultiplesSort ?? (_smallMultiplesSort = new InputList<Inputs.DashboardFieldSortOptionsArgs>());

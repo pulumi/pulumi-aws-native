@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCustomActionNavigationOperation
     {
+        /// <summary>
+        /// The configuration that chooses the navigation target.
+        /// </summary>
         public readonly Outputs.TemplateLocalNavigationConfiguration? LocalNavigationConfiguration;
 
         [OutputConstructor]

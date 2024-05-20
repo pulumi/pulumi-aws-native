@@ -23,14 +23,25 @@ func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.Invo
 }
 
 type LookupIndexArgs struct {
+	// The ARN of the new index for the AWS Region . For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 	Arn string `pulumi:"arn"`
 }
 
 type LookupIndexResult struct {
-	Arn        *string           `pulumi:"arn"`
-	IndexState *IndexStateEnum   `pulumi:"indexState"`
-	Tags       map[string]string `pulumi:"tags"`
-	Type       *IndexType        `pulumi:"type"`
+	// The ARN of the new index for the AWS Region . For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+	Arn *string `pulumi:"arn"`
+	// Indicates the current state of the index. For example:
+	//
+	// `CREATING`
+	IndexState *IndexStateEnum `pulumi:"indexState"`
+	// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+	Type *IndexType `pulumi:"type"`
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
@@ -47,6 +58,9 @@ func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...
 }
 
 type LookupIndexOutputArgs struct {
+	// The ARN of the new index for the AWS Region . For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68,18 +82,26 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx contex
 	return o
 }
 
+// The ARN of the new index for the AWS Region . For example:
+//
+// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 func (o LookupIndexResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Indicates the current state of the index. For example:
+//
+// `CREATING`
 func (o LookupIndexResultOutput) IndexState() IndexStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexStateEnum { return v.IndexState }).(IndexStateEnumPtrOutput)
 }
 
+// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
 func (o LookupIndexResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupIndexResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
 func (o LookupIndexResultOutput) Type() IndexTypePtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexType { return v.Type }).(IndexTypePtrOutput)
 }

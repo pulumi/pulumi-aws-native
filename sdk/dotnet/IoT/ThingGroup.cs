@@ -15,15 +15,31 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:ThingGroup")]
     public partial class ThingGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The thing group ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The thing group ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The parent thing group name.
+        /// 
+        /// A Dynamic Thing Group does not have `parentGroupName` defined.
+        /// </summary>
         [Output("parentGroupName")]
         public Output<string?> ParentGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The dynamic thing group search query string.
+        /// 
+        /// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+        /// </summary>
         [Output("queryString")]
         public Output<string?> QueryString { get; private set; } = null!;
 
@@ -33,9 +49,15 @@ namespace Pulumi.AwsNative.IoT
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The thing group name.
+        /// </summary>
         [Output("thingGroupName")]
         public Output<string?> ThingGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Thing group properties.
+        /// </summary>
         [Output("thingGroupProperties")]
         public Output<Outputs.ThingGroupPropertiesProperties?> ThingGroupProperties { get; private set; } = null!;
 
@@ -89,9 +111,19 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class ThingGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parent thing group name.
+        /// 
+        /// A Dynamic Thing Group does not have `parentGroupName` defined.
+        /// </summary>
         [Input("parentGroupName")]
         public Input<string>? ParentGroupName { get; set; }
 
+        /// <summary>
+        /// The dynamic thing group search query string.
+        /// 
+        /// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+        /// </summary>
         [Input("queryString")]
         public Input<string>? QueryString { get; set; }
 
@@ -107,9 +139,15 @@ namespace Pulumi.AwsNative.IoT
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The thing group name.
+        /// </summary>
         [Input("thingGroupName")]
         public Input<string>? ThingGroupName { get; set; }
 
+        /// <summary>
+        /// Thing group properties.
+        /// </summary>
         [Input("thingGroupProperties")]
         public Input<Inputs.ThingGroupPropertiesPropertiesArgs>? ThingGroupProperties { get; set; }
 

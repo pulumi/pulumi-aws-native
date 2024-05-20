@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastoreRetentionPeriodArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days that message data is kept. The `unlimited` parameter must be false.
+        /// </summary>
         [Input("numberOfDays")]
         public Input<int>? NumberOfDays { get; set; }
 
+        /// <summary>
+        /// If true, message data is kept indefinitely.
+        /// </summary>
         [Input("unlimited")]
         public Input<bool>? Unlimited { get; set; }
 

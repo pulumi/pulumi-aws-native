@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:LogDeliveryConfiguration")]
     public partial class LogDeliveryConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A user pool ID, for example `us-east-1_EXAMPLE` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The detailed activity logging destination of a user pool.
+        /// </summary>
         [Output("logConfigurations")]
         public Output<ImmutableArray<Outputs.LogDeliveryConfigurationLogConfiguration>> LogConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the user pool where you configured detailed activity logging.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -75,12 +84,19 @@ namespace Pulumi.AwsNative.Cognito
     {
         [Input("logConfigurations")]
         private InputList<Inputs.LogDeliveryConfigurationLogConfigurationArgs>? _logConfigurations;
+
+        /// <summary>
+        /// The detailed activity logging destination of a user pool.
+        /// </summary>
         public InputList<Inputs.LogDeliveryConfigurationLogConfigurationArgs> LogConfigurations
         {
             get => _logConfigurations ?? (_logConfigurations = new InputList<Inputs.LogDeliveryConfigurationLogConfigurationArgs>());
             set => _logConfigurations = value;
         }
 
+        /// <summary>
+        /// The ID of the user pool where you configured detailed activity logging.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

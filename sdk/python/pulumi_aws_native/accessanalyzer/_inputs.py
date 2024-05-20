@@ -23,6 +23,7 @@ class AnalyzerArchiveRuleArgs:
                  rule_name: pulumi.Input[str]):
         """
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]] filter: The criteria for the rule.
         :param pulumi.Input[str] rule_name: The archive rule name
         """
         pulumi.set(__self__, "filter", filter)
@@ -31,6 +32,9 @@ class AnalyzerArchiveRuleArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]]:
+        """
+        The criteria for the rule.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -56,6 +60,7 @@ class AnalyzerConfigurationPropertiesArgs:
                  unused_access_configuration: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']] = None):
         """
         The configuration for the analyzer
+        :param pulumi.Input['AnalyzerUnusedAccessConfigurationArgs'] unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
         """
         if unused_access_configuration is not None:
             pulumi.set(__self__, "unused_access_configuration", unused_access_configuration)
@@ -63,6 +68,9 @@ class AnalyzerConfigurationPropertiesArgs:
     @property
     @pulumi.getter(name="unusedAccessConfiguration")
     def unused_access_configuration(self) -> Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']]:
+        """
+        Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+        """
         return pulumi.get(self, "unused_access_configuration")
 
     @unused_access_configuration.setter
@@ -78,6 +86,13 @@ class AnalyzerFilterArgs:
                  eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exists: Optional[pulumi.Input[bool]] = None,
                  neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] property: The property used to define the criteria in the filter for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contains: A "contains" condition to match for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] eq: An "equals" condition to match for the rule.
+        :param pulumi.Input[bool] exists: An "exists" condition to match for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] neq: A "not equal" condition to match for the rule.
+        """
         pulumi.set(__self__, "property", property)
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
@@ -91,6 +106,9 @@ class AnalyzerFilterArgs:
     @property
     @pulumi.getter
     def contains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A "contains" condition to match for the rule.
+        """
         return pulumi.get(self, "contains")
 
     @contains.setter
@@ -100,6 +118,9 @@ class AnalyzerFilterArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An "equals" condition to match for the rule.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -109,6 +130,9 @@ class AnalyzerFilterArgs:
     @property
     @pulumi.getter
     def exists(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An "exists" condition to match for the rule.
+        """
         return pulumi.get(self, "exists")
 
     @exists.setter
@@ -118,6 +142,9 @@ class AnalyzerFilterArgs:
     @property
     @pulumi.getter
     def neq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A "not equal" condition to match for the rule.
+        """
         return pulumi.get(self, "neq")
 
     @neq.setter
@@ -127,6 +154,9 @@ class AnalyzerFilterArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The property used to define the criteria in the filter for the rule.
+        """
         return pulumi.get(self, "property")
 
     @property.setter

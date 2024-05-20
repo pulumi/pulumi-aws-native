@@ -23,10 +23,12 @@ func LookupLoggingConfiguration(ctx *pulumi.Context, args *LookupLoggingConfigur
 }
 
 type LookupLoggingConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn string `pulumi:"firewallArn"`
 }
 
 type LookupLoggingConfigurationResult struct {
+	// Defines how AWS Network Firewall performs logging for a `Firewall` .
 	LoggingConfiguration *LoggingConfigurationType `pulumi:"loggingConfiguration"`
 }
 
@@ -44,6 +46,7 @@ func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingCon
 }
 
 type LookupLoggingConfigurationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
 	FirewallArn pulumi.StringInput `pulumi:"firewallArn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupLoggingConfigurationResultOutput) ToLookupLoggingConfigurationResu
 	return o
 }
 
+// Defines how AWS Network Firewall performs logging for a `Firewall` .
 func (o LookupLoggingConfigurationResultOutput) LoggingConfiguration() LoggingConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupLoggingConfigurationResult) *LoggingConfigurationType { return v.LoggingConfiguration }).(LoggingConfigurationTypePtrOutput)
 }

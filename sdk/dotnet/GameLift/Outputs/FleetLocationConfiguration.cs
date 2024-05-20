@@ -16,7 +16,15 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class FleetLocationConfiguration
     {
+        /// <summary>
+        /// An AWS Region code, such as `us-west-2` .
+        /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+        /// 
+        /// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
+        /// </summary>
         public readonly Outputs.FleetLocationCapacity? LocationCapacity;
 
         [OutputConstructor]

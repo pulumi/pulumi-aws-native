@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineMath
     {
+        /// <summary>
+        /// The name of the attribute that contains the result of the math operation.
+        /// </summary>
         public readonly string Attribute;
+        /// <summary>
+        /// An expression that uses one or more existing attributes and must return an integer value.
+        /// </summary>
         public readonly string Math;
+        /// <summary>
+        /// The name of the 'math' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
 
         [OutputConstructor]

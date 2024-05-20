@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleRepublishAction
     {
+        /// <summary>
+        /// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+        /// </summary>
         public readonly Outputs.TopicRuleRepublishActionHeaders? Headers;
+        /// <summary>
+        /// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+        /// </summary>
         public readonly int? Qos;
+        /// <summary>
+        /// The ARN of the IAM role that grants access.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The name of the MQTT topic.
+        /// </summary>
         public readonly string Topic;
 
         [OutputConstructor]

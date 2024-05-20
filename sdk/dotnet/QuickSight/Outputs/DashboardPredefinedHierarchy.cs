@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPredefinedHierarchy
     {
+        /// <summary>
+        /// The list of columns that define the predefined hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardColumnIdentifier> Columns;
+        /// <summary>
+        /// The option that determines the drill down filters for the predefined hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDrillDownFilter> DrillDownFilters;
+        /// <summary>
+        /// The hierarchy ID of the predefined hierarchy.
+        /// </summary>
         public readonly string HierarchyId;
 
         [OutputConstructor]

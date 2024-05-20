@@ -50,6 +50,9 @@ export interface GetIpamPoolResult {
      * Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
      */
     readonly autoImport?: boolean;
+    /**
+     * The description of the IPAM pool.
+     */
     readonly description?: string;
     /**
      * The Amazon Resource Name (ARN) of the IPAM this pool is a part of.

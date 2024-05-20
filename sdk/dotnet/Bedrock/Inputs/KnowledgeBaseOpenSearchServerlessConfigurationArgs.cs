@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("collectionArn", required: true)]
         public Input<string> CollectionArn { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         [Input("fieldMapping", required: true)]
         public Input<Inputs.KnowledgeBaseOpenSearchServerlessFieldMappingArgs> FieldMapping { get; set; } = null!;
 

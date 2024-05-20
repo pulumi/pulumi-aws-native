@@ -17,9 +17,15 @@ namespace Pulumi.AwsNative.IoTEvents
     [AwsNativeResourceType("aws-native:iotevents:AlarmModel")]
     public partial class AlarmModel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Contains the configuration information of alarm state changes.
+        /// </summary>
         [Output("alarmCapabilities")]
         public Output<Outputs.AlarmModelAlarmCapabilities?> AlarmCapabilities { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about one or more alarm actions.
+        /// </summary>
         [Output("alarmEventActions")]
         public Output<Outputs.AlarmModelAlarmEventActions?> AlarmEventActions { get; private set; } = null!;
 
@@ -35,6 +41,9 @@ namespace Pulumi.AwsNative.IoTEvents
         [Output("alarmModelName")]
         public Output<string?> AlarmModelName { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines when your alarm is invoked.
+        /// </summary>
         [Output("alarmRule")]
         public Output<Outputs.AlarmModelAlarmRule> AlarmRule { get; private set; } = null!;
 
@@ -116,9 +125,15 @@ namespace Pulumi.AwsNative.IoTEvents
 
     public sealed class AlarmModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the configuration information of alarm state changes.
+        /// </summary>
         [Input("alarmCapabilities")]
         public Input<Inputs.AlarmModelAlarmCapabilitiesArgs>? AlarmCapabilities { get; set; }
 
+        /// <summary>
+        /// Contains information about one or more alarm actions.
+        /// </summary>
         [Input("alarmEventActions")]
         public Input<Inputs.AlarmModelAlarmEventActionsArgs>? AlarmEventActions { get; set; }
 
@@ -134,6 +149,9 @@ namespace Pulumi.AwsNative.IoTEvents
         [Input("alarmModelName")]
         public Input<string>? AlarmModelName { get; set; }
 
+        /// <summary>
+        /// Defines when your alarm is invoked.
+        /// </summary>
         [Input("alarmRule", required: true)]
         public Input<Inputs.AlarmModelAlarmRuleArgs> AlarmRule { get; set; } = null!;
 

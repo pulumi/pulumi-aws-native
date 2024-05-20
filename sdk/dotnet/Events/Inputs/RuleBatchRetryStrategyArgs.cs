@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleBatchRetryStrategyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to attempt to retry, if the job fails. Valid values are 1–10.
+        /// </summary>
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
 

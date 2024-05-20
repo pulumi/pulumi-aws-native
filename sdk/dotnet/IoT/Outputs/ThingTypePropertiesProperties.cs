@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Outputs
 {
 
+    /// <summary>
+    /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+    /// </summary>
     [OutputType]
     public sealed class ThingTypePropertiesProperties
     {
+        /// <summary>
+        /// A list of searchable thing attribute names.
+        /// </summary>
         public readonly ImmutableArray<string> SearchableAttributes;
+        /// <summary>
+        /// The description of the thing type.
+        /// </summary>
         public readonly string? ThingTypeDescription;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class MonitoringScheduleMonitoringJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
+        /// </summary>
         [Input("baselineConfig")]
         public Input<Inputs.MonitoringScheduleBaselineConfigArgs>? BaselineConfig { get; set; }
 
@@ -24,23 +27,39 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("environment")]
         public Input<object>? Environment { get; set; }
 
+        /// <summary>
+        /// Configures the monitoring job to run a specified Docker container image.
+        /// </summary>
         [Input("monitoringAppSpecification", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringAppSpecificationArgs> MonitoringAppSpecification { get; set; } = null!;
 
         [Input("monitoringInputs", required: true)]
         private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _monitoringInputs;
+
+        /// <summary>
+        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        /// </summary>
         public InputList<Inputs.MonitoringScheduleMonitoringInputArgs> MonitoringInputs
         {
             get => _monitoringInputs ?? (_monitoringInputs = new InputList<Inputs.MonitoringScheduleMonitoringInputArgs>());
             set => _monitoringInputs = value;
         }
 
+        /// <summary>
+        /// The array of outputs from the monitoring job to be uploaded to Amazon S3.
+        /// </summary>
         [Input("monitoringOutputConfig", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringOutputConfigArgs> MonitoringOutputConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
+        /// </summary>
         [Input("monitoringResources", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringResourcesArgs> MonitoringResources { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies networking options for an monitoring job.
+        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.MonitoringScheduleNetworkConfigArgs>? NetworkConfig { get; set; }
 
@@ -50,6 +69,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a time limit for how long the monitoring job is allowed to run.
+        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.MonitoringScheduleStoppingConditionArgs>? StoppingCondition { get; set; }
 

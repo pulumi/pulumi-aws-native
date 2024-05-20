@@ -37,14 +37,43 @@ export class PrivacyBudgetTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivacyBudgetTemplate.__pulumiType;
     }
 
+    /**
+     * The ARN of the privacy budget template.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * How often the privacy budget refreshes.
+     *
+     * > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+     */
     public readonly autoRefresh!: pulumi.Output<enums.cleanrooms.PrivacyBudgetTemplateAutoRefresh>;
+    /**
+     * The ARN of the collaboration that contains this privacy budget template.
+     */
     public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    /**
+     * The unique ID of the collaboration that contains this privacy budget template.
+     */
     public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+     */
     public /*out*/ readonly membershipArn!: pulumi.Output<string>;
+    /**
+     * The identifier for a membership resource.
+     */
     public readonly membershipIdentifier!: pulumi.Output<string>;
+    /**
+     * Specifies the epislon and noise parameters for the privacy budget template.
+     */
     public readonly parameters!: pulumi.Output<outputs.cleanrooms.ParametersProperties>;
+    /**
+     * A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+     */
     public /*out*/ readonly privacyBudgetTemplateIdentifier!: pulumi.Output<string>;
+    /**
+     * Specifies the type of the privacy budget template.
+     */
     public readonly privacyBudgetType!: pulumi.Output<enums.cleanrooms.PrivacyBudgetTemplatePrivacyBudgetType>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
@@ -107,9 +136,23 @@ export class PrivacyBudgetTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivacyBudgetTemplate resource.
  */
 export interface PrivacyBudgetTemplateArgs {
+    /**
+     * How often the privacy budget refreshes.
+     *
+     * > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+     */
     autoRefresh: pulumi.Input<enums.cleanrooms.PrivacyBudgetTemplateAutoRefresh>;
+    /**
+     * The identifier for a membership resource.
+     */
     membershipIdentifier: pulumi.Input<string>;
+    /**
+     * Specifies the epislon and noise parameters for the privacy budget template.
+     */
     parameters: pulumi.Input<inputs.cleanrooms.ParametersPropertiesArgs>;
+    /**
+     * Specifies the type of the privacy budget template.
+     */
     privacyBudgetType: pulumi.Input<enums.cleanrooms.PrivacyBudgetTemplatePrivacyBudgetType>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.

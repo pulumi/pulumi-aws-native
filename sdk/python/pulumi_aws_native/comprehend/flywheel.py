@@ -29,6 +29,14 @@ class FlywheelArgs:
                  task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None):
         """
         The set of arguments for constructing a Flywheel resource.
+        :param pulumi.Input[str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        :param pulumi.Input[str] data_lake_s3_uri: Amazon S3 URI of the data lake location.
+        :param pulumi.Input[str] active_model_arn: The Amazon Resource Number (ARN) of the active model version.
+        :param pulumi.Input['FlywheelDataSecurityConfigArgs'] data_security_config: Data security configuration.
+        :param pulumi.Input[str] flywheel_name: Name for the flywheel.
+        :param pulumi.Input['FlywheelModelType'] model_type: Model type of the flywheel's model.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        :param pulumi.Input['FlywheelTaskConfigArgs'] task_config: Configuration about the model associated with a flywheel.
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "data_lake_s3_uri", data_lake_s3_uri)
@@ -48,6 +56,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
@@ -57,6 +68,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="dataLakeS3Uri")
     def data_lake_s3_uri(self) -> pulumi.Input[str]:
+        """
+        Amazon S3 URI of the data lake location.
+        """
         return pulumi.get(self, "data_lake_s3_uri")
 
     @data_lake_s3_uri.setter
@@ -66,6 +80,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="activeModelArn")
     def active_model_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Number (ARN) of the active model version.
+        """
         return pulumi.get(self, "active_model_arn")
 
     @active_model_arn.setter
@@ -75,6 +92,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="dataSecurityConfig")
     def data_security_config(self) -> Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']]:
+        """
+        Data security configuration.
+        """
         return pulumi.get(self, "data_security_config")
 
     @data_security_config.setter
@@ -84,6 +104,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="flywheelName")
     def flywheel_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the flywheel.
+        """
         return pulumi.get(self, "flywheel_name")
 
     @flywheel_name.setter
@@ -93,6 +116,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="modelType")
     def model_type(self) -> Optional[pulumi.Input['FlywheelModelType']]:
+        """
+        Model type of the flywheel's model.
+        """
         return pulumi.get(self, "model_type")
 
     @model_type.setter
@@ -102,6 +128,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,6 +140,9 @@ class FlywheelArgs:
     @property
     @pulumi.getter(name="taskConfig")
     def task_config(self) -> Optional[pulumi.Input['FlywheelTaskConfigArgs']]:
+        """
+        Configuration about the model associated with a flywheel.
+        """
         return pulumi.get(self, "task_config")
 
     @task_config.setter
@@ -137,6 +169,14 @@ class Flywheel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] active_model_arn: The Amazon Resource Number (ARN) of the active model version.
+        :param pulumi.Input[str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        :param pulumi.Input[str] data_lake_s3_uri: Amazon S3 URI of the data lake location.
+        :param pulumi.Input[pulumi.InputType['FlywheelDataSecurityConfigArgs']] data_security_config: Data security configuration.
+        :param pulumi.Input[str] flywheel_name: Name for the flywheel.
+        :param pulumi.Input['FlywheelModelType'] model_type: Model type of the flywheel's model.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        :param pulumi.Input[pulumi.InputType['FlywheelTaskConfigArgs']] task_config: Configuration about the model associated with a flywheel.
         """
         ...
     @overload
@@ -230,45 +270,72 @@ class Flywheel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="activeModelArn")
     def active_model_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Number (ARN) of the active model version.
+        """
         return pulumi.get(self, "active_model_arn")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the flywheel.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @property
     @pulumi.getter(name="dataLakeS3Uri")
     def data_lake_s3_uri(self) -> pulumi.Output[str]:
+        """
+        Amazon S3 URI of the data lake location.
+        """
         return pulumi.get(self, "data_lake_s3_uri")
 
     @property
     @pulumi.getter(name="dataSecurityConfig")
     def data_security_config(self) -> pulumi.Output[Optional['outputs.FlywheelDataSecurityConfig']]:
+        """
+        Data security configuration.
+        """
         return pulumi.get(self, "data_security_config")
 
     @property
     @pulumi.getter(name="flywheelName")
     def flywheel_name(self) -> pulumi.Output[str]:
+        """
+        Name for the flywheel.
+        """
         return pulumi.get(self, "flywheel_name")
 
     @property
     @pulumi.getter(name="modelType")
     def model_type(self) -> pulumi.Output[Optional['FlywheelModelType']]:
+        """
+        Model type of the flywheel's model.
+        """
         return pulumi.get(self, "model_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="taskConfig")
     def task_config(self) -> pulumi.Output[Optional['outputs.FlywheelTaskConfig']]:
+        """
+        Configuration about the model associated with a flywheel.
+        """
         return pulumi.get(self, "task_config")
 

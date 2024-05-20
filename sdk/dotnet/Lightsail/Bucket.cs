@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("ableToUpdateBundle")]
         public Output<bool> AbleToUpdateBundle { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that describes the access rules for the bucket.
+        /// </summary>
         [Output("accessRules")]
         public Output<Outputs.BucketAccessRules?> AccessRules { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bucket.
+        /// </summary>
         [Output("bucketArn")]
         public Output<string> BucketArn { get; private set; } = null!;
 
@@ -118,6 +124,9 @@ namespace Pulumi.AwsNative.Lightsail
 
     public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An object that describes the access rules for the bucket.
+        /// </summary>
         [Input("accessRules")]
         public Input<Inputs.BucketAccessRulesArgs>? AccessRules { get; set; }
 

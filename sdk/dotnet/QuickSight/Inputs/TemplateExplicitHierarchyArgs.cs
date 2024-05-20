@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("columns", required: true)]
         private InputList<Inputs.TemplateColumnIdentifierArgs>? _columns;
+
+        /// <summary>
+        /// The list of columns that define the explicit hierarchy.
+        /// </summary>
         public InputList<Inputs.TemplateColumnIdentifierArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.TemplateColumnIdentifierArgs>());
@@ -22,12 +26,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("drillDownFilters")]
         private InputList<Inputs.TemplateDrillDownFilterArgs>? _drillDownFilters;
+
+        /// <summary>
+        /// The option that determines the drill down filters for the explicit hierarchy.
+        /// </summary>
         public InputList<Inputs.TemplateDrillDownFilterArgs> DrillDownFilters
         {
             get => _drillDownFilters ?? (_drillDownFilters = new InputList<Inputs.TemplateDrillDownFilterArgs>());
             set => _drillDownFilters = value;
         }
 
+        /// <summary>
+        /// The hierarchy ID of the explicit hierarchy.
+        /// </summary>
         [Input("hierarchyId", required: true)]
         public Input<string> HierarchyId { get; set; } = null!;
 

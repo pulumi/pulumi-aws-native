@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWaterfallChartGroupColorConfiguration
     {
+        /// <summary>
+        /// Defines the color for the negative bars of a waterfall chart.
+        /// </summary>
         public readonly string? NegativeBarColor;
+        /// <summary>
+        /// Defines the color for the positive bars of a waterfall chart.
+        /// </summary>
         public readonly string? PositiveBarColor;
+        /// <summary>
+        /// Defines the color for the total bars of a waterfall chart.
+        /// </summary>
         public readonly string? TotalBarColor;
 
         [OutputConstructor]

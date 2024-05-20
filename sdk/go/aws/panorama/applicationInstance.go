@@ -17,22 +17,38 @@ import (
 type ApplicationInstance struct {
 	pulumi.CustomResourceState
 
-	ApplicationInstanceId           pulumi.StringOutput                                  `pulumi:"applicationInstanceId"`
-	ApplicationInstanceIdToReplace  pulumi.StringPtrOutput                               `pulumi:"applicationInstanceIdToReplace"`
-	Arn                             pulumi.StringOutput                                  `pulumi:"arn"`
-	CreatedTime                     pulumi.IntOutput                                     `pulumi:"createdTime"`
-	DefaultRuntimeContextDevice     pulumi.StringOutput                                  `pulumi:"defaultRuntimeContextDevice"`
-	DefaultRuntimeContextDeviceName pulumi.StringOutput                                  `pulumi:"defaultRuntimeContextDeviceName"`
-	Description                     pulumi.StringPtrOutput                               `pulumi:"description"`
-	HealthStatus                    ApplicationInstanceHealthStatusOutput                `pulumi:"healthStatus"`
-	LastUpdatedTime                 pulumi.IntOutput                                     `pulumi:"lastUpdatedTime"`
-	ManifestOverridesPayload        ApplicationInstanceManifestOverridesPayloadPtrOutput `pulumi:"manifestOverridesPayload"`
-	ManifestPayload                 ApplicationInstanceManifestPayloadOutput             `pulumi:"manifestPayload"`
-	Name                            pulumi.StringPtrOutput                               `pulumi:"name"`
-	RuntimeRoleArn                  pulumi.StringPtrOutput                               `pulumi:"runtimeRoleArn"`
-	Status                          ApplicationInstanceStatusOutput                      `pulumi:"status"`
-	StatusDescription               pulumi.StringOutput                                  `pulumi:"statusDescription"`
-	Tags                            aws.TagArrayOutput                                   `pulumi:"tags"`
+	// The application instance's ID.
+	ApplicationInstanceId pulumi.StringOutput `pulumi:"applicationInstanceId"`
+	// The ID of an application instance to replace with the new instance.
+	ApplicationInstanceIdToReplace pulumi.StringPtrOutput `pulumi:"applicationInstanceIdToReplace"`
+	// The application instance's ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The application instance's created time.
+	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
+	// The device's ID.
+	DefaultRuntimeContextDevice pulumi.StringOutput `pulumi:"defaultRuntimeContextDevice"`
+	// The application instance's default runtime context device name.
+	DefaultRuntimeContextDeviceName pulumi.StringOutput `pulumi:"defaultRuntimeContextDeviceName"`
+	// A description for the application instance.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The application instance's health status.
+	HealthStatus ApplicationInstanceHealthStatusOutput `pulumi:"healthStatus"`
+	// The application instance's last updated time.
+	LastUpdatedTime pulumi.IntOutput `pulumi:"lastUpdatedTime"`
+	// Setting overrides for the application manifest.
+	ManifestOverridesPayload ApplicationInstanceManifestOverridesPayloadPtrOutput `pulumi:"manifestOverridesPayload"`
+	// The application's manifest document.
+	ManifestPayload ApplicationInstanceManifestPayloadOutput `pulumi:"manifestPayload"`
+	// A name for the application instance.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The ARN of a runtime role for the application instance.
+	RuntimeRoleArn pulumi.StringPtrOutput `pulumi:"runtimeRoleArn"`
+	// The application instance's status.
+	Status ApplicationInstanceStatusOutput `pulumi:"status"`
+	// The application instance's status description.
+	StatusDescription pulumi.StringOutput `pulumi:"statusDescription"`
+	// Tags for the application instance.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplicationInstance registers a new resource with the given unique name, arguments, and options.
@@ -91,26 +107,42 @@ func (ApplicationInstanceState) ElementType() reflect.Type {
 }
 
 type applicationInstanceArgs struct {
-	ApplicationInstanceIdToReplace *string                                      `pulumi:"applicationInstanceIdToReplace"`
-	DefaultRuntimeContextDevice    string                                       `pulumi:"defaultRuntimeContextDevice"`
-	Description                    *string                                      `pulumi:"description"`
-	ManifestOverridesPayload       *ApplicationInstanceManifestOverridesPayload `pulumi:"manifestOverridesPayload"`
-	ManifestPayload                ApplicationInstanceManifestPayload           `pulumi:"manifestPayload"`
-	Name                           *string                                      `pulumi:"name"`
-	RuntimeRoleArn                 *string                                      `pulumi:"runtimeRoleArn"`
-	Tags                           []aws.Tag                                    `pulumi:"tags"`
+	// The ID of an application instance to replace with the new instance.
+	ApplicationInstanceIdToReplace *string `pulumi:"applicationInstanceIdToReplace"`
+	// The device's ID.
+	DefaultRuntimeContextDevice string `pulumi:"defaultRuntimeContextDevice"`
+	// A description for the application instance.
+	Description *string `pulumi:"description"`
+	// Setting overrides for the application manifest.
+	ManifestOverridesPayload *ApplicationInstanceManifestOverridesPayload `pulumi:"manifestOverridesPayload"`
+	// The application's manifest document.
+	ManifestPayload ApplicationInstanceManifestPayload `pulumi:"manifestPayload"`
+	// A name for the application instance.
+	Name *string `pulumi:"name"`
+	// The ARN of a runtime role for the application instance.
+	RuntimeRoleArn *string `pulumi:"runtimeRoleArn"`
+	// Tags for the application instance.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationInstance resource.
 type ApplicationInstanceArgs struct {
+	// The ID of an application instance to replace with the new instance.
 	ApplicationInstanceIdToReplace pulumi.StringPtrInput
-	DefaultRuntimeContextDevice    pulumi.StringInput
-	Description                    pulumi.StringPtrInput
-	ManifestOverridesPayload       ApplicationInstanceManifestOverridesPayloadPtrInput
-	ManifestPayload                ApplicationInstanceManifestPayloadInput
-	Name                           pulumi.StringPtrInput
-	RuntimeRoleArn                 pulumi.StringPtrInput
-	Tags                           aws.TagArrayInput
+	// The device's ID.
+	DefaultRuntimeContextDevice pulumi.StringInput
+	// A description for the application instance.
+	Description pulumi.StringPtrInput
+	// Setting overrides for the application manifest.
+	ManifestOverridesPayload ApplicationInstanceManifestOverridesPayloadPtrInput
+	// The application's manifest document.
+	ManifestPayload ApplicationInstanceManifestPayloadInput
+	// A name for the application instance.
+	Name pulumi.StringPtrInput
+	// The ARN of a runtime role for the application instance.
+	RuntimeRoleArn pulumi.StringPtrInput
+	// Tags for the application instance.
+	Tags aws.TagArrayInput
 }
 
 func (ApplicationInstanceArgs) ElementType() reflect.Type {
@@ -150,68 +182,84 @@ func (o ApplicationInstanceOutput) ToApplicationInstanceOutputWithContext(ctx co
 	return o
 }
 
+// The application instance's ID.
 func (o ApplicationInstanceOutput) ApplicationInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.ApplicationInstanceId }).(pulumi.StringOutput)
 }
 
+// The ID of an application instance to replace with the new instance.
 func (o ApplicationInstanceOutput) ApplicationInstanceIdToReplace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.ApplicationInstanceIdToReplace }).(pulumi.StringPtrOutput)
 }
 
+// The application instance's ARN.
 func (o ApplicationInstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The application instance's created time.
 func (o ApplicationInstanceOutput) CreatedTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.IntOutput { return v.CreatedTime }).(pulumi.IntOutput)
 }
 
+// The device's ID.
 func (o ApplicationInstanceOutput) DefaultRuntimeContextDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.DefaultRuntimeContextDevice }).(pulumi.StringOutput)
 }
 
+// The application instance's default runtime context device name.
 func (o ApplicationInstanceOutput) DefaultRuntimeContextDeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.DefaultRuntimeContextDeviceName }).(pulumi.StringOutput)
 }
 
+// A description for the application instance.
 func (o ApplicationInstanceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The application instance's health status.
 func (o ApplicationInstanceOutput) HealthStatus() ApplicationInstanceHealthStatusOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceHealthStatusOutput { return v.HealthStatus }).(ApplicationInstanceHealthStatusOutput)
 }
 
+// The application instance's last updated time.
 func (o ApplicationInstanceOutput) LastUpdatedTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.IntOutput { return v.LastUpdatedTime }).(pulumi.IntOutput)
 }
 
+// Setting overrides for the application manifest.
 func (o ApplicationInstanceOutput) ManifestOverridesPayload() ApplicationInstanceManifestOverridesPayloadPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceManifestOverridesPayloadPtrOutput {
 		return v.ManifestOverridesPayload
 	}).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
 }
 
+// The application's manifest document.
 func (o ApplicationInstanceOutput) ManifestPayload() ApplicationInstanceManifestPayloadOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceManifestPayloadOutput { return v.ManifestPayload }).(ApplicationInstanceManifestPayloadOutput)
 }
 
+// A name for the application instance.
 func (o ApplicationInstanceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of a runtime role for the application instance.
 func (o ApplicationInstanceOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringPtrOutput { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The application instance's status.
 func (o ApplicationInstanceOutput) Status() ApplicationInstanceStatusOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceStatusOutput { return v.Status }).(ApplicationInstanceStatusOutput)
 }
 
+// The application instance's status description.
 func (o ApplicationInstanceOutput) StatusDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.StringOutput { return v.StatusDescription }).(pulumi.StringOutput)
 }
 
+// Tags for the application instance.
 func (o ApplicationInstanceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ApplicationInstance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -65,9 +65,21 @@ namespace Pulumi.AwsNative.InspectorV2
         /// Name of the scan
         /// </summary>
         public readonly string? ScanName;
+        /// <summary>
+        /// The CIS scan configuration's schedule.
+        /// </summary>
         public readonly Outputs.CisScanConfigurationSchedule? Schedule;
+        /// <summary>
+        /// The CIS scan configuration's CIS Benchmark level.
+        /// </summary>
         public readonly Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel? SecurityLevel;
+        /// <summary>
+        /// The CIS scan configuration's tags.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The CIS scan configuration's targets.
+        /// </summary>
         public readonly Outputs.CisScanConfigurationCisTargets? Targets;
 
         [OutputConstructor]

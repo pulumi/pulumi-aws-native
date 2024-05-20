@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultSectionBasedLayoutConfiguration
     {
+        /// <summary>
+        /// Determines the screen canvas size options for a section-based layout.
+        /// </summary>
         public readonly Outputs.DashboardSectionBasedLayoutCanvasSizeOptions CanvasSizeOptions;
 
         [OutputConstructor]

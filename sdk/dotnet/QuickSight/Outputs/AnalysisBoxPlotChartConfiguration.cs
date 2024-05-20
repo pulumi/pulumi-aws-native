@@ -13,16 +13,46 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisBoxPlotChartConfiguration
     {
+        /// <summary>
+        /// The box plot chart options for a box plot visual
+        /// </summary>
         public readonly Outputs.AnalysisBoxPlotOptions? BoxPlotOptions;
+        /// <summary>
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisBoxPlotFieldWells? FieldWells;
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility and sort icon visibility) of a box plot value.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The sort configuration of a `BoxPlotVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisBoxPlotSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
 
         [OutputConstructor]

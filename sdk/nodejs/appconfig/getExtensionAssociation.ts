@@ -16,14 +16,32 @@ export function getExtensionAssociation(args: GetExtensionAssociationArgs, opts?
 }
 
 export interface GetExtensionAssociationArgs {
+    /**
+     * The system-generated ID for the association.
+     */
     id: string;
 }
 
 export interface GetExtensionAssociationResult {
+    /**
+     * The ARN of the extension defined in the association.
+     */
     readonly arn?: string;
+    /**
+     * The ARN of the extension defined in the association.
+     */
     readonly extensionArn?: string;
+    /**
+     * The system-generated ID for the association.
+     */
     readonly id?: string;
+    /**
+     * The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+     */
     readonly parameters?: {[key: string]: string};
+    /**
+     * The ARNs of applications, configuration profiles, or environments defined in the association.
+     */
     readonly resourceArn?: string;
 }
 /**
@@ -34,5 +52,8 @@ export function getExtensionAssociationOutput(args: GetExtensionAssociationOutpu
 }
 
 export interface GetExtensionAssociationOutputArgs {
+    /**
+     * The system-generated ID for the association.
+     */
     id: pulumi.Input<string>;
 }

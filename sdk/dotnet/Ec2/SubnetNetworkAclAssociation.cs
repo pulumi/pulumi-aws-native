@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:SubnetNetworkAclAssociation")]
     public partial class SubnetNetworkAclAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the value of this object's AssociationId property.
+        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 

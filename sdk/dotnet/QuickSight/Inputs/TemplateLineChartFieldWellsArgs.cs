@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateLineChartFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         [Input("lineChartAggregatedFieldWells")]
         public Input<Inputs.TemplateLineChartAggregatedFieldWellsArgs>? LineChartAggregatedFieldWells { get; set; }
 

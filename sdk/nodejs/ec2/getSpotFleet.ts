@@ -19,11 +19,20 @@ export function getSpotFleet(args: GetSpotFleetArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetSpotFleetArgs {
+    /**
+     * The ID of the Spot Fleet.
+     */
     id: string;
 }
 
 export interface GetSpotFleetResult {
+    /**
+     * The ID of the Spot Fleet.
+     */
     readonly id?: string;
+    /**
+     * Describes the configuration of a Spot Fleet request.
+     */
     readonly spotFleetRequestConfigData?: outputs.ec2.SpotFleetRequestConfigData;
 }
 /**
@@ -34,5 +43,8 @@ export function getSpotFleetOutput(args: GetSpotFleetOutputArgs, opts?: pulumi.I
 }
 
 export interface GetSpotFleetOutputArgs {
+    /**
+     * The ID of the Spot Fleet.
+     */
     id: pulumi.Input<string>;
 }

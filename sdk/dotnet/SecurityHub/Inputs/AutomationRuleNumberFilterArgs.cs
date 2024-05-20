@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
     public sealed class AutomationRuleNumberFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The equal-to condition to be applied to a single field when querying for findings.
+        /// </summary>
         [Input("eq")]
         public Input<double>? Eq { get; set; }
 
+        /// <summary>
+        /// The greater-than-equal condition to be applied to a single field when querying for findings.
+        /// </summary>
         [Input("gte")]
         public Input<double>? Gte { get; set; }
 
+        /// <summary>
+        /// The less-than-equal condition to be applied to a single field when querying for findings.
+        /// </summary>
         [Input("lte")]
         public Input<double>? Lte { get; set; }
 

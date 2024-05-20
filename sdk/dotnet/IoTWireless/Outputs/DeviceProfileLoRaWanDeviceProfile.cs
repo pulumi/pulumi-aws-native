@@ -13,24 +13,81 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class DeviceProfileLoRaWanDeviceProfile
     {
+        /// <summary>
+        /// The ClassBTimeout value.
+        /// </summary>
         public readonly int? ClassBTimeout;
+        /// <summary>
+        /// The ClassCTimeout value.
+        /// </summary>
         public readonly int? ClassCTimeout;
+        /// <summary>
+        /// The list of values that make up the FactoryPresetFreqs value. Valid range of values include a minimum value of 1000000 and a maximum value of 16700000.
+        /// </summary>
         public readonly ImmutableArray<int> FactoryPresetFreqsList;
+        /// <summary>
+        /// The MAC version (such as OTAA 1.1 or OTAA 1.0.3) to use with this device profile.
+        /// </summary>
         public readonly string? MacVersion;
+        /// <summary>
+        /// The MaxDutyCycle value.
+        /// </summary>
         public readonly int? MaxDutyCycle;
+        /// <summary>
+        /// The MaxEIRP value.
+        /// </summary>
         public readonly int? MaxEirp;
+        /// <summary>
+        /// The PingSlotDR value.
+        /// </summary>
         public readonly int? PingSlotDr;
+        /// <summary>
+        /// The PingSlotFreq value.
+        /// </summary>
         public readonly int? PingSlotFreq;
+        /// <summary>
+        /// The PingSlotPeriod value.
+        /// </summary>
         public readonly int? PingSlotPeriod;
+        /// <summary>
+        /// The version of regional parameters.
+        /// </summary>
         public readonly string? RegParamsRevision;
+        /// <summary>
+        /// The frequency band (RFRegion) value.
+        /// </summary>
         public readonly string? RfRegion;
+        /// <summary>
+        /// The RXDataRate2 value.
+        /// </summary>
         public readonly int? RxDataRate2;
+        /// <summary>
+        /// The RXDelay1 value.
+        /// </summary>
         public readonly int? RxDelay1;
+        /// <summary>
+        /// The RXDROffset1 value.
+        /// </summary>
         public readonly int? RxDrOffset1;
+        /// <summary>
+        /// The RXFreq2 value.
+        /// </summary>
         public readonly int? RxFreq2;
+        /// <summary>
+        /// The Supports32BitFCnt value.
+        /// </summary>
         public readonly bool? Supports32BitFCnt;
+        /// <summary>
+        /// The SupportsClassB value.
+        /// </summary>
         public readonly bool? SupportsClassB;
+        /// <summary>
+        /// The SupportsClassC value.
+        /// </summary>
         public readonly bool? SupportsClassC;
+        /// <summary>
+        /// The SupportsJoin value.
+        /// </summary>
         public readonly bool? SupportsJoin;
 
         [OutputConstructor]

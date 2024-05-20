@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableAutoScalingSpecification
     {
+        /// <summary>
+        /// The auto scaling settings for the table's read capacity.
+        /// </summary>
         public readonly Outputs.TableAutoScalingSetting? ReadCapacityAutoScaling;
+        /// <summary>
+        /// The auto scaling settings for the table's write capacity.
+        /// </summary>
         public readonly Outputs.TableAutoScalingSetting? WriteCapacityAutoScaling;
 
         [OutputConstructor]

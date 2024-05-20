@@ -34,6 +34,9 @@ export interface GetNetworkInterfaceAttachmentResult {
      * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
      */
     readonly deleteOnTermination?: boolean;
+    /**
+     * Configures ENA Express for the network interface that this action attaches to the instance.
+     */
     readonly enaSrdSpecification?: outputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecification;
 }
 /**

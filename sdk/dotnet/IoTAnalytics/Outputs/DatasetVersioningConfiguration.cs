@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetVersioningConfiguration
     {
+        /// <summary>
+        /// How many versions of dataset contents are kept. The `unlimited` parameter must be `false` .
+        /// </summary>
         public readonly int? MaxVersions;
+        /// <summary>
+        /// If true, unlimited versions of dataset contents are kept.
+        /// </summary>
         public readonly bool? Unlimited;
 
         [OutputConstructor]

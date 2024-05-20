@@ -31,11 +31,17 @@ class GetBridgeSourceResult:
     @property
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> Optional['outputs.BridgeSourceBridgeFlowSource']:
+        """
+        Add a flow source to an existing bridge.
+        """
         return pulumi.get(self, "flow_source")
 
     @property
     @pulumi.getter(name="networkSource")
     def network_source(self) -> Optional['outputs.BridgeSourceBridgeNetworkSource']:
+        """
+        Add a network source to an existing bridge.
+        """
         return pulumi.get(self, "network_source")
 
 

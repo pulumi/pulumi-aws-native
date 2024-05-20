@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDefaultInteractiveLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the default settings of a free-form layout configuration.
+        /// </summary>
         [Input("freeForm")]
         public Input<Inputs.DashboardDefaultFreeFormLayoutConfigurationArgs>? FreeForm { get; set; }
 
+        /// <summary>
+        /// The options that determine the default settings for a grid layout configuration.
+        /// </summary>
         [Input("grid")]
         public Input<Inputs.DashboardDefaultGridLayoutConfigurationArgs>? Grid { get; set; }
 

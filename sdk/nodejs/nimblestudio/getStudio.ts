@@ -19,6 +19,9 @@ export function getStudio(args: GetStudioArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetStudioArgs {
+    /**
+     * The unique identifier for the studio resource.
+     */
     studioId: string;
 }
 
@@ -39,7 +42,13 @@ export interface GetStudioResult {
      * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
      */
     readonly ssoClientId?: string;
+    /**
+     * Configuration of the encryption method that is used for the studio.
+     */
     readonly studioEncryptionConfiguration?: outputs.nimblestudio.StudioEncryptionConfiguration;
+    /**
+     * The unique identifier for the studio resource.
+     */
     readonly studioId?: string;
     /**
      * <p>The address of the web page for the studio.</p>
@@ -58,5 +67,8 @@ export function getStudioOutput(args: GetStudioOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetStudioOutputArgs {
+    /**
+     * The unique identifier for the studio resource.
+     */
     studioId: pulumi.Input<string>;
 }

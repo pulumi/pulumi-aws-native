@@ -35,12 +35,17 @@ class GetRegistryPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the policy.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
+        A resource-based policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -48,11 +53,17 @@ class GetRegistryPolicyResult:
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[str]:
+        """
+        The name of the registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[str]:
+        """
+        The revision ID of the policy.
+        """
         return pulumi.get(self, "revision_id")
 
 
@@ -72,6 +83,9 @@ def get_registry_policy(id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryPolicyResult:
     """
     Resource Type definition for AWS::EventSchemas::RegistryPolicy
+
+
+    :param str id: The ID of the policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -90,5 +104,8 @@ def get_registry_policy_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     Resource Type definition for AWS::EventSchemas::RegistryPolicy
+
+
+    :param str id: The ID of the policy.
     """
     ...

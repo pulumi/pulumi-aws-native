@@ -13,18 +13,61 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTableReplicaSpecification
     {
+        /// <summary>
+        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
+        /// </summary>
         public readonly Outputs.GlobalTableContributorInsightsSpecification? ContributorInsightsSpecification;
+        /// <summary>
+        /// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
+        /// </summary>
         public readonly bool? DeletionProtectionEnabled;
+        /// <summary>
+        /// Defines additional settings for the global secondary indexes of this replica.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> GlobalSecondaryIndexes;
+        /// <summary>
+        /// Defines the Kinesis Data Streams configuration for the specified replica.
+        /// </summary>
         public readonly Outputs.GlobalTableKinesisStreamSpecification? KinesisStreamSpecification;
+        /// <summary>
+        /// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
+        /// </summary>
         public readonly Outputs.GlobalTablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
+        /// <summary>
+        /// Sets read request settings for the replica table.
+        /// </summary>
         public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? ReadOnDemandThroughputSettings;
+        /// <summary>
+        /// Defines read capacity settings for the replica table.
+        /// </summary>
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
+        /// <summary>
+        /// The region in which this replica exists.
+        /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// Represents the DynamoDB Streams configuration for a global table replica.
+        /// </summary>
         public readonly Outputs.GlobalTableReplicaStreamSpecification? ReplicaStreamSpecification;
+        /// <summary>
+        /// A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+        /// 
+        /// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
+        /// </summary>
         public readonly Outputs.GlobalTableResourcePolicy? ResourcePolicy;
+        /// <summary>
+        /// Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
+        /// </summary>
         public readonly Outputs.GlobalTableReplicaSseSpecification? SseSpecification;
+        /// <summary>
+        /// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
+        /// </summary>
         public readonly string? TableClass;
+        /// <summary>
+        /// An array of key-value pairs to apply to this replica.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableTag> Tags;
 
         [OutputConstructor]

@@ -36,21 +36,70 @@ class GetIdentityProviderResult:
     @property
     @pulumi.getter(name="identityProviderArn")
     def identity_provider_arn(self) -> Optional[str]:
+        """
+        The ARN of the identity provider.
+        """
         return pulumi.get(self, "identity_provider_arn")
 
     @property
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> Optional[Mapping[str, str]]:
+        """
+        The identity provider details. The following list describes the provider detail keys for each identity provider type.
+
+        - For Google and Login with Amazon:
+
+        - `client_id`
+        - `client_secret`
+        - `authorize_scopes`
+        - For Facebook:
+
+        - `client_id`
+        - `client_secret`
+        - `authorize_scopes`
+        - `api_version`
+        - For Sign in with Apple:
+
+        - `client_id`
+        - `team_id`
+        - `key_id`
+        - `private_key`
+        - `authorize_scopes`
+        - For OIDC providers:
+
+        - `client_id`
+        - `client_secret`
+        - `attributes_request_method`
+        - `oidc_issuer`
+        - `authorize_scopes`
+        - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+        - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+        - For SAML providers:
+
+        - `MetadataFile` OR `MetadataURL`
+        - `IDPSignout` (boolean) *optional*
+        - `IDPInit` (boolean) *optional*
+        - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+        - `EncryptedResponses` (boolean) *optional*
+        """
         return pulumi.get(self, "identity_provider_details")
 
     @property
     @pulumi.getter(name="identityProviderName")
     def identity_provider_name(self) -> Optional[str]:
+        """
+        The identity provider name.
+        """
         return pulumi.get(self, "identity_provider_name")
 
     @property
     @pulumi.getter(name="identityProviderType")
     def identity_provider_type(self) -> Optional['IdentityProviderType']:
+        """
+        The identity provider type.
+        """
         return pulumi.get(self, "identity_provider_type")
 
 
@@ -70,6 +119,9 @@ def get_identity_provider(identity_provider_arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityProviderResult:
     """
     Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
+
+
+    :param str identity_provider_arn: The ARN of the identity provider.
     """
     __args__ = dict()
     __args__['identityProviderArn'] = identity_provider_arn
@@ -88,5 +140,8 @@ def get_identity_provider_output(identity_provider_arn: Optional[pulumi.Input[st
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
+
+
+    :param str identity_provider_arn: The ARN of the identity provider.
     """
     ...

@@ -26,6 +26,9 @@ export interface GetConnectorArgs {
 }
 
 export interface GetConnectorResult {
+    /**
+     * The connector's compute capacity settings.
+     */
     readonly capacity?: outputs.kafkaconnect.ConnectorCapacity;
     /**
      * Amazon Resource Name for the created Connector.

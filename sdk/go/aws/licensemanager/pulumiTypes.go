@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LicenseBorrowConfiguration struct {
-	AllowEarlyCheckIn      bool `pulumi:"allowEarlyCheckIn"`
-	MaxTimeToLiveInMinutes int  `pulumi:"maxTimeToLiveInMinutes"`
+	// Indicates whether early check-ins are allowed.
+	AllowEarlyCheckIn bool `pulumi:"allowEarlyCheckIn"`
+	// Maximum time for the borrow configuration, in minutes.
+	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 // LicenseBorrowConfigurationInput is an input type that accepts LicenseBorrowConfigurationArgs and LicenseBorrowConfigurationOutput values.
@@ -30,8 +32,10 @@ type LicenseBorrowConfigurationInput interface {
 }
 
 type LicenseBorrowConfigurationArgs struct {
-	AllowEarlyCheckIn      pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
-	MaxTimeToLiveInMinutes pulumi.IntInput  `pulumi:"maxTimeToLiveInMinutes"`
+	// Indicates whether early check-ins are allowed.
+	AllowEarlyCheckIn pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
+	// Maximum time for the borrow configuration, in minutes.
+	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 func (LicenseBorrowConfigurationArgs) ElementType() reflect.Type {
@@ -111,10 +115,12 @@ func (o LicenseBorrowConfigurationOutput) ToLicenseBorrowConfigurationPtrOutputW
 	}).(LicenseBorrowConfigurationPtrOutput)
 }
 
+// Indicates whether early check-ins are allowed.
 func (o LicenseBorrowConfigurationOutput) AllowEarlyCheckIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v LicenseBorrowConfiguration) bool { return v.AllowEarlyCheckIn }).(pulumi.BoolOutput)
 }
 
+// Maximum time for the borrow configuration, in minutes.
 func (o LicenseBorrowConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LicenseBorrowConfiguration) int { return v.MaxTimeToLiveInMinutes }).(pulumi.IntOutput)
 }
@@ -143,6 +149,7 @@ func (o LicenseBorrowConfigurationPtrOutput) Elem() LicenseBorrowConfigurationOu
 	}).(LicenseBorrowConfigurationOutput)
 }
 
+// Indicates whether early check-ins are allowed.
 func (o LicenseBorrowConfigurationPtrOutput) AllowEarlyCheckIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LicenseBorrowConfiguration) *bool {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o LicenseBorrowConfigurationPtrOutput) AllowEarlyCheckIn() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Maximum time for the borrow configuration, in minutes.
 func (o LicenseBorrowConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LicenseBorrowConfiguration) *int {
 		if v == nil {
@@ -162,9 +170,12 @@ func (o LicenseBorrowConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.Int
 }
 
 type LicenseConsumptionConfiguration struct {
-	BorrowConfiguration      *LicenseBorrowConfiguration      `pulumi:"borrowConfiguration"`
+	// Details about a borrow configuration.
+	BorrowConfiguration *LicenseBorrowConfiguration `pulumi:"borrowConfiguration"`
+	// Details about a provisional configuration.
 	ProvisionalConfiguration *LicenseProvisionalConfiguration `pulumi:"provisionalConfiguration"`
-	RenewType                *string                          `pulumi:"renewType"`
+	// Renewal frequency.
+	RenewType *string `pulumi:"renewType"`
 }
 
 // LicenseConsumptionConfigurationInput is an input type that accepts LicenseConsumptionConfigurationArgs and LicenseConsumptionConfigurationOutput values.
@@ -179,9 +190,12 @@ type LicenseConsumptionConfigurationInput interface {
 }
 
 type LicenseConsumptionConfigurationArgs struct {
-	BorrowConfiguration      LicenseBorrowConfigurationPtrInput      `pulumi:"borrowConfiguration"`
+	// Details about a borrow configuration.
+	BorrowConfiguration LicenseBorrowConfigurationPtrInput `pulumi:"borrowConfiguration"`
+	// Details about a provisional configuration.
 	ProvisionalConfiguration LicenseProvisionalConfigurationPtrInput `pulumi:"provisionalConfiguration"`
-	RenewType                pulumi.StringPtrInput                   `pulumi:"renewType"`
+	// Renewal frequency.
+	RenewType pulumi.StringPtrInput `pulumi:"renewType"`
 }
 
 func (LicenseConsumptionConfigurationArgs) ElementType() reflect.Type {
@@ -210,16 +224,19 @@ func (o LicenseConsumptionConfigurationOutput) ToLicenseConsumptionConfiguration
 	return o
 }
 
+// Details about a borrow configuration.
 func (o LicenseConsumptionConfigurationOutput) BorrowConfiguration() LicenseBorrowConfigurationPtrOutput {
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *LicenseBorrowConfiguration { return v.BorrowConfiguration }).(LicenseBorrowConfigurationPtrOutput)
 }
 
+// Details about a provisional configuration.
 func (o LicenseConsumptionConfigurationOutput) ProvisionalConfiguration() LicenseProvisionalConfigurationPtrOutput {
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *LicenseProvisionalConfiguration {
 		return v.ProvisionalConfiguration
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
+// Renewal frequency.
 func (o LicenseConsumptionConfigurationOutput) RenewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *string { return v.RenewType }).(pulumi.StringPtrOutput)
 }
@@ -248,6 +265,7 @@ func (o LicenseConsumptionConfigurationPtrOutput) Elem() LicenseConsumptionConfi
 	}).(LicenseConsumptionConfigurationOutput)
 }
 
+// Details about a borrow configuration.
 func (o LicenseConsumptionConfigurationPtrOutput) BorrowConfiguration() LicenseBorrowConfigurationPtrOutput {
 	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *LicenseBorrowConfiguration {
 		if v == nil {
@@ -257,6 +275,7 @@ func (o LicenseConsumptionConfigurationPtrOutput) BorrowConfiguration() LicenseB
 	}).(LicenseBorrowConfigurationPtrOutput)
 }
 
+// Details about a provisional configuration.
 func (o LicenseConsumptionConfigurationPtrOutput) ProvisionalConfiguration() LicenseProvisionalConfigurationPtrOutput {
 	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *LicenseProvisionalConfiguration {
 		if v == nil {
@@ -266,6 +285,7 @@ func (o LicenseConsumptionConfigurationPtrOutput) ProvisionalConfiguration() Lic
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
+// Renewal frequency.
 func (o LicenseConsumptionConfigurationPtrOutput) RenewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *string {
 		if v == nil {
@@ -276,12 +296,18 @@ func (o LicenseConsumptionConfigurationPtrOutput) RenewType() pulumi.StringPtrOu
 }
 
 type LicenseEntitlement struct {
-	AllowCheckIn *bool   `pulumi:"allowCheckIn"`
-	MaxCount     *int    `pulumi:"maxCount"`
-	Name         string  `pulumi:"name"`
-	Overage      *bool   `pulumi:"overage"`
-	Unit         string  `pulumi:"unit"`
-	Value        *string `pulumi:"value"`
+	// Indicates whether check-ins are allowed.
+	AllowCheckIn *bool `pulumi:"allowCheckIn"`
+	// Maximum entitlement count. Use if the unit is not None.
+	MaxCount *int `pulumi:"maxCount"`
+	// Entitlement name.
+	Name string `pulumi:"name"`
+	// Indicates whether overages are allowed.
+	Overage *bool `pulumi:"overage"`
+	// Entitlement unit.
+	Unit string `pulumi:"unit"`
+	// Entitlement resource. Use only if the unit is None.
+	Value *string `pulumi:"value"`
 }
 
 // LicenseEntitlementInput is an input type that accepts LicenseEntitlementArgs and LicenseEntitlementOutput values.
@@ -296,12 +322,18 @@ type LicenseEntitlementInput interface {
 }
 
 type LicenseEntitlementArgs struct {
-	AllowCheckIn pulumi.BoolPtrInput   `pulumi:"allowCheckIn"`
-	MaxCount     pulumi.IntPtrInput    `pulumi:"maxCount"`
-	Name         pulumi.StringInput    `pulumi:"name"`
-	Overage      pulumi.BoolPtrInput   `pulumi:"overage"`
-	Unit         pulumi.StringInput    `pulumi:"unit"`
-	Value        pulumi.StringPtrInput `pulumi:"value"`
+	// Indicates whether check-ins are allowed.
+	AllowCheckIn pulumi.BoolPtrInput `pulumi:"allowCheckIn"`
+	// Maximum entitlement count. Use if the unit is not None.
+	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
+	// Entitlement name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether overages are allowed.
+	Overage pulumi.BoolPtrInput `pulumi:"overage"`
+	// Entitlement unit.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Entitlement resource. Use only if the unit is None.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (LicenseEntitlementArgs) ElementType() reflect.Type {
@@ -355,26 +387,32 @@ func (o LicenseEntitlementOutput) ToLicenseEntitlementOutputWithContext(ctx cont
 	return o
 }
 
+// Indicates whether check-ins are allowed.
 func (o LicenseEntitlementOutput) AllowCheckIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *bool { return v.AllowCheckIn }).(pulumi.BoolPtrOutput)
 }
 
+// Maximum entitlement count. Use if the unit is not None.
 func (o LicenseEntitlementOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
+// Entitlement name.
 func (o LicenseEntitlementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseEntitlement) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether overages are allowed.
 func (o LicenseEntitlementOutput) Overage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *bool { return v.Overage }).(pulumi.BoolPtrOutput)
 }
 
+// Entitlement unit.
 func (o LicenseEntitlementOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseEntitlement) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// Entitlement resource. Use only if the unit is None.
 func (o LicenseEntitlementOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -400,7 +438,9 @@ func (o LicenseEntitlementArrayOutput) Index(i pulumi.IntInput) LicenseEntitleme
 }
 
 type LicenseIssuerData struct {
-	Name    string  `pulumi:"name"`
+	// Issuer name.
+	Name string `pulumi:"name"`
+	// Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 	SignKey *string `pulumi:"signKey"`
 }
 
@@ -416,7 +456,9 @@ type LicenseIssuerDataInput interface {
 }
 
 type LicenseIssuerDataArgs struct {
-	Name    pulumi.StringInput    `pulumi:"name"`
+	// Issuer name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 	SignKey pulumi.StringPtrInput `pulumi:"signKey"`
 }
 
@@ -446,10 +488,12 @@ func (o LicenseIssuerDataOutput) ToLicenseIssuerDataOutputWithContext(ctx contex
 	return o
 }
 
+// Issuer name.
 func (o LicenseIssuerDataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseIssuerData) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 func (o LicenseIssuerDataOutput) SignKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseIssuerData) *string { return v.SignKey }).(pulumi.StringPtrOutput)
 }
@@ -478,6 +522,7 @@ func (o LicenseIssuerDataPtrOutput) Elem() LicenseIssuerDataOutput {
 	}).(LicenseIssuerDataOutput)
 }
 
+// Issuer name.
 func (o LicenseIssuerDataPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseIssuerData) *string {
 		if v == nil {
@@ -487,6 +532,7 @@ func (o LicenseIssuerDataPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 func (o LicenseIssuerDataPtrOutput) SignKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseIssuerData) *string {
 		if v == nil {
@@ -497,7 +543,9 @@ func (o LicenseIssuerDataPtrOutput) SignKey() pulumi.StringPtrOutput {
 }
 
 type LicenseMetadata struct {
-	Name  string `pulumi:"name"`
+	// The key name.
+	Name string `pulumi:"name"`
+	// The value.
 	Value string `pulumi:"value"`
 }
 
@@ -513,7 +561,9 @@ type LicenseMetadataInput interface {
 }
 
 type LicenseMetadataArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The key name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -568,10 +618,12 @@ func (o LicenseMetadataOutput) ToLicenseMetadataOutputWithContext(ctx context.Co
 	return o
 }
 
+// The key name.
 func (o LicenseMetadataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseMetadata) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value.
 func (o LicenseMetadataOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseMetadata) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -597,6 +649,7 @@ func (o LicenseMetadataArrayOutput) Index(i pulumi.IntInput) LicenseMetadataOutp
 }
 
 type LicenseProvisionalConfiguration struct {
+	// Maximum time for the provisional configuration, in minutes.
 	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
 }
 
@@ -612,6 +665,7 @@ type LicenseProvisionalConfigurationInput interface {
 }
 
 type LicenseProvisionalConfigurationArgs struct {
+	// Maximum time for the provisional configuration, in minutes.
 	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
 }
 
@@ -692,6 +746,7 @@ func (o LicenseProvisionalConfigurationOutput) ToLicenseProvisionalConfiguration
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
+// Maximum time for the provisional configuration, in minutes.
 func (o LicenseProvisionalConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LicenseProvisionalConfiguration) int { return v.MaxTimeToLiveInMinutes }).(pulumi.IntOutput)
 }
@@ -720,6 +775,7 @@ func (o LicenseProvisionalConfigurationPtrOutput) Elem() LicenseProvisionalConfi
 	}).(LicenseProvisionalConfigurationOutput)
 }
 
+// Maximum time for the provisional configuration, in minutes.
 func (o LicenseProvisionalConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LicenseProvisionalConfiguration) *int {
 		if v == nil {

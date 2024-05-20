@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DataQualityJobDefinitionMonitoringResourcesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for the cluster resources used to run the processing job.
+        /// </summary>
         [Input("clusterConfig", required: true)]
         public Input<Inputs.DataQualityJobDefinitionClusterConfigArgs> ClusterConfig { get; set; } = null!;
 

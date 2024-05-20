@@ -36,16 +36,25 @@ class GetDbProxyTargetGroupResult:
     @property
     @pulumi.getter(name="connectionPoolConfigurationInfo")
     def connection_pool_configuration_info(self) -> Optional['outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']:
+        """
+        Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        """
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @property
     @pulumi.getter(name="dbClusterIdentifiers")
     def db_cluster_identifiers(self) -> Optional[Sequence[str]]:
+        """
+        One or more DB cluster identifiers.
+        """
         return pulumi.get(self, "db_cluster_identifiers")
 
     @property
     @pulumi.getter(name="dbInstanceIdentifiers")
     def db_instance_identifiers(self) -> Optional[Sequence[str]]:
+        """
+        One or more DB instance identifiers.
+        """
         return pulumi.get(self, "db_instance_identifiers")
 
     @property

@@ -34,6 +34,9 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    /**
+     * The ID for the account. For example: `abc123` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The ARN of an Amazon CloudWatch role for the current Account.

@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.Sso
         /// The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
         /// </summary>
         public readonly Pulumi.AwsNative.Sso.InstanceStatus? Status;
+        /// <summary>
+        /// Specifies tags to be attached to the instance of IAM Identity Center.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

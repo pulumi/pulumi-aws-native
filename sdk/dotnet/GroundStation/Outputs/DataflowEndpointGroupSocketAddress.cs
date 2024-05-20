@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupSocketAddress
     {
+        /// <summary>
+        /// The name of the endpoint, such as `Endpoint 1` .
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The port of the endpoint, such as `55888` .
+        /// </summary>
         public readonly int? Port;
 
         [OutputConstructor]

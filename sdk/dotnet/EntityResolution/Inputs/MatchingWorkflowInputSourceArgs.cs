@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class MatchingWorkflowInputSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+        /// </summary>
         [Input("applyNormalization")]
         public Input<bool>? ApplyNormalization { get; set; }
 
@@ -21,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("inputSourceArn", required: true)]
         public Input<string> InputSourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
         [Input("schemaArn", required: true)]
         public Input<string> SchemaArn { get; set; } = null!;
 

@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
 
     public sealed class ContainerPortInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The open firewall ports of the container.
+        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
+        /// <summary>
+        /// The protocol name for the open ports.
+        /// 
+        /// *Allowed values* : `HTTP` | `HTTPS` | `TCP` | `UDP`
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 

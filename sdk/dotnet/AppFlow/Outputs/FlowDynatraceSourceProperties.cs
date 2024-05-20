@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDynatraceSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Dynatrace flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

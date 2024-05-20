@@ -23,20 +23,33 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 }
 
 type LookupEndpointArgs struct {
+	// The name of the endpoint.
 	Name string `pulumi:"name"`
 }
 
 type LookupEndpointResult struct {
-	Arn               *string                    `pulumi:"arn"`
-	Description       *string                    `pulumi:"description"`
-	EndpointId        *string                    `pulumi:"endpointId"`
-	EndpointUrl       *string                    `pulumi:"endpointUrl"`
-	EventBuses        []EndpointEventBus         `pulumi:"eventBuses"`
+	// The ARN of the endpoint.
+	Arn *string `pulumi:"arn"`
+	// A description for the endpoint.
+	Description *string `pulumi:"description"`
+	// The ID of the endpoint.
+	EndpointId *string `pulumi:"endpointId"`
+	// The URL of the endpoint.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+	// The event buses being used by the endpoint.
+	//
+	// *Exactly* : `2`
+	EventBuses []EndpointEventBus `pulumi:"eventBuses"`
+	// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig *EndpointReplicationConfig `pulumi:"replicationConfig"`
-	RoleArn           *string                    `pulumi:"roleArn"`
-	RoutingConfig     *EndpointRoutingConfig     `pulumi:"routingConfig"`
-	State             *EndpointStateEnum         `pulumi:"state"`
-	StateReason       *string                    `pulumi:"stateReason"`
+	// The ARN of the role used by event replication for the endpoint.
+	RoleArn *string `pulumi:"roleArn"`
+	// The routing configuration of the endpoint.
+	RoutingConfig *EndpointRoutingConfig `pulumi:"routingConfig"`
+	// The main Region of the endpoint.
+	State *EndpointStateEnum `pulumi:"state"`
+	// The reason the endpoint is in its current state.
+	StateReason *string `pulumi:"stateReason"`
 }
 
 func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
@@ -53,6 +66,7 @@ func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, op
 }
 
 type LookupEndpointOutputArgs struct {
+	// The name of the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -74,42 +88,54 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx 
 	return o
 }
 
+// The ARN of the endpoint.
 func (o LookupEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A description for the endpoint.
 func (o LookupEndpointResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the endpoint.
 func (o LookupEndpointResultOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The URL of the endpoint.
 func (o LookupEndpointResultOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
+// The event buses being used by the endpoint.
+//
+// *Exactly* : `2`
 func (o LookupEndpointResultOutput) EventBuses() EndpointEventBusArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []EndpointEventBus { return v.EventBuses }).(EndpointEventBusArrayOutput)
 }
 
+// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 func (o LookupEndpointResultOutput) ReplicationConfig() EndpointReplicationConfigPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointReplicationConfig { return v.ReplicationConfig }).(EndpointReplicationConfigPtrOutput)
 }
 
+// The ARN of the role used by event replication for the endpoint.
 func (o LookupEndpointResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The routing configuration of the endpoint.
 func (o LookupEndpointResultOutput) RoutingConfig() EndpointRoutingConfigPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointRoutingConfig { return v.RoutingConfig }).(EndpointRoutingConfigPtrOutput)
 }
 
+// The main Region of the endpoint.
 func (o LookupEndpointResultOutput) State() EndpointStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointStateEnum { return v.State }).(EndpointStateEnumPtrOutput)
 }
 
+// The reason the endpoint is in its current state.
 func (o LookupEndpointResultOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.StateReason }).(pulumi.StringPtrOutput)
 }

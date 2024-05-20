@@ -44,8 +44,17 @@ export class Vpc extends pulumi.CustomResource {
      *  You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
      */
     public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    /**
+     * The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
+     */
     public /*out*/ readonly cidrBlockAssociations!: pulumi.Output<string[]>;
+    /**
+     * The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+     */
     public /*out*/ readonly defaultNetworkAcl!: pulumi.Output<string>;
+    /**
+     * The ID of the default security group for the VPC. For example, sg-b178e0d3.
+     */
     public /*out*/ readonly defaultSecurityGroup!: pulumi.Output<string>;
     /**
      * Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).
@@ -73,11 +82,17 @@ export class Vpc extends pulumi.CustomResource {
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
      */
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+     */
     public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
     /**
      * The tags for the VPC.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC.
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**

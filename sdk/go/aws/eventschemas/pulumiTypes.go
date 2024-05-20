@@ -10,17 +10,23 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DiscovererTagsEntry struct {
-	Key   string `pulumi:"key"`
+	// The key of a key-value pair.
+	Key string `pulumi:"key"`
+	// The value of a key-value pair.
 	Value string `pulumi:"value"`
 }
 
 type RegistryTagsEntry struct {
-	Key   string `pulumi:"key"`
+	// The key of a key-value pair.
+	Key string `pulumi:"key"`
+	// The value of a key-value pair.
 	Value string `pulumi:"value"`
 }
 
 type SchemaTagsEntry struct {
-	Key   string `pulumi:"key"`
+	// The key of a key-value pair.
+	Key string `pulumi:"key"`
+	// The value of a key-value pair.
 	Value string `pulumi:"value"`
 }
 

@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineAddAttributes
     {
+        /// <summary>
+        /// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+        /// 
+        /// &gt; The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Attributes;
+        /// <summary>
+        /// The name of the 'addAttributes' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
 
         [OutputConstructor]

@@ -37,6 +37,9 @@ export class Dataset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dataset.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the dataset.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
@@ -54,8 +57,19 @@ export class Dataset extends pulumi.CustomResource {
      * The domain associated with the dataset
      */
     public readonly domain!: pulumi.Output<enums.forecast.DatasetDomain>;
+    /**
+     * A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+     */
     public readonly encryptionConfig!: pulumi.Output<outputs.forecast.EncryptionConfigProperties | undefined>;
+    /**
+     * The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+     */
     public readonly schema!: pulumi.Output<outputs.forecast.SchemaProperties>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -123,7 +137,18 @@ export interface DatasetArgs {
      * The domain associated with the dataset
      */
     domain: pulumi.Input<enums.forecast.DatasetDomain>;
+    /**
+     * A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+     */
     encryptionConfig?: pulumi.Input<inputs.forecast.EncryptionConfigPropertiesArgs>;
+    /**
+     * The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+     */
     schema: pulumi.Input<inputs.forecast.SchemaPropertiesArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Fis.Inputs
     /// </summary>
     public sealed class ExperimentTemplateActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the action.
+        /// </summary>
         [Input("actionId", required: true)]
         public Input<string> ActionId { get; set; } = null!;
 
+        /// <summary>
+        /// A description for the action.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -35,6 +41,10 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
         [Input("startAfter")]
         private InputList<string>? _startAfter;
+
+        /// <summary>
+        /// The name of the action that must be completed before the current action starts.
+        /// </summary>
         public InputList<string> StartAfter
         {
             get => _startAfter ?? (_startAfter = new InputList<string>());

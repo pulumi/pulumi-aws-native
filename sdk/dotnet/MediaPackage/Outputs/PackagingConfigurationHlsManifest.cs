@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// When enabled, an I-Frame only stream will be included in the output.
         /// </summary>
         public readonly bool? IncludeIframeOnlyStream;
+        /// <summary>
+        /// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+        /// </summary>
         public readonly string? ManifestName;
         /// <summary>
         /// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
@@ -33,6 +36,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         /// </summary>
         public readonly bool? RepeatExtXKey;
+        /// <summary>
+        /// Video bitrate limitations for outputs from this packaging configuration.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationStreamSelection? StreamSelection;
 
         [OutputConstructor]

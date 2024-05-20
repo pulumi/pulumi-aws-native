@@ -53,6 +53,9 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      * The URL of the Azure Blob container that was described.
      */
     public readonly azureBlobContainerUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+     */
     public readonly azureBlobSasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobAzureBlobSasConfiguration | undefined>;
     /**
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
@@ -141,6 +144,9 @@ export interface LocationAzureBlobArgs {
      * The URL of the Azure Blob container that was described.
      */
     azureBlobContainerUrl?: pulumi.Input<string>;
+    /**
+     * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+     */
     azureBlobSasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobAzureBlobSasConfigurationArgs>;
     /**
      * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.

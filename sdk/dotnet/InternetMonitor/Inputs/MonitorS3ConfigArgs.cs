@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.InternetMonitor.Inputs
 
     public sealed class MonitorS3ConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket name for internet measurements publishing.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// An optional Amazon S3 bucket prefix for internet measurements publishing.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
+        /// </summary>
         [Input("logDeliveryStatus")]
         public Input<Pulumi.AwsNative.InternetMonitor.MonitorS3ConfigLogDeliveryStatus>? LogDeliveryStatus { get; set; }
 

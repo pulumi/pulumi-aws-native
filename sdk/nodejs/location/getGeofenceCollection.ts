@@ -19,13 +19,38 @@ export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pu
 }
 
 export interface GetGeofenceCollectionArgs {
+    /**
+     * A custom name for the geofence collection.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique geofence collection name.
+     * - No spaces allowed. For example, `ExampleGeofenceCollection` .
+     */
     collectionName: string;
 }
 
 export interface GetGeofenceCollectionResult {
+    /**
+     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+     */
     readonly arn?: string;
+    /**
+     * Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+     */
     readonly collectionArn?: string;
+    /**
+     * The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly createTime?: string;
+    /**
+     * An optional description for the geofence collection.
+     */
     readonly description?: string;
     readonly pricingPlan?: enums.location.GeofenceCollectionPricingPlan;
     /**
@@ -36,6 +61,9 @@ export interface GetGeofenceCollectionResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly updateTime?: string;
 }
 /**
@@ -46,5 +74,14 @@ export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArg
 }
 
 export interface GetGeofenceCollectionOutputArgs {
+    /**
+     * A custom name for the geofence collection.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique geofence collection name.
+     * - No spaces allowed. For example, `ExampleGeofenceCollection` .
+     */
     collectionName: pulumi.Input<string>;
 }

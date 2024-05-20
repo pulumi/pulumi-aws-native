@@ -17,14 +17,19 @@ import (
 type Faq struct {
 	pulumi.CustomResourceState
 
-	Arn   pulumi.StringOutput `pulumi:"arn"`
+	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The identifier for the FAQ. For example:
+	//
+	// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// FAQ description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// FAQ file format
 	FileFormat FaqFileFormatPtrOutput `pulumi:"fileFormat"`
 	// Index ID
-	IndexId      pulumi.StringOutput    `pulumi:"indexId"`
+	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	LanguageCode pulumi.StringPtrOutput `pulumi:"languageCode"`
 	// FAQ name
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -99,7 +104,8 @@ type faqArgs struct {
 	// FAQ file format
 	FileFormat *FaqFileFormat `pulumi:"fileFormat"`
 	// Index ID
-	IndexId      string  `pulumi:"indexId"`
+	IndexId string `pulumi:"indexId"`
+	// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	LanguageCode *string `pulumi:"languageCode"`
 	// FAQ name
 	Name *string `pulumi:"name"`
@@ -118,7 +124,8 @@ type FaqArgs struct {
 	// FAQ file format
 	FileFormat FaqFileFormatPtrInput
 	// Index ID
-	IndexId      pulumi.StringInput
+	IndexId pulumi.StringInput
+	// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 	LanguageCode pulumi.StringPtrInput
 	// FAQ name
 	Name pulumi.StringPtrInput
@@ -167,10 +174,14 @@ func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return o
 }
 
+// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 func (o FaqOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The identifier for the FAQ. For example:
+//
+// `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
 func (o FaqOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -190,6 +201,7 @@ func (o FaqOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
+// The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
 func (o FaqOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringPtrOutput { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }

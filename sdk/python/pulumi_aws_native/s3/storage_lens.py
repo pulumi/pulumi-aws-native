@@ -23,6 +23,7 @@ class StorageLensArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLens resource.
+        :param pulumi.Input['StorageLensConfigurationArgs'] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
@@ -32,6 +33,9 @@ class StorageLensArgs:
     @property
     @pulumi.getter(name="storageLensConfiguration")
     def storage_lens_configuration(self) -> pulumi.Input['StorageLensConfigurationArgs']:
+        """
+        This resource contains the details Amazon S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "storage_lens_configuration")
 
     @storage_lens_configuration.setter
@@ -64,6 +68,7 @@ class StorageLens(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['StorageLensConfigurationArgs']] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
         ...
@@ -136,6 +141,9 @@ class StorageLens(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageLensConfiguration")
     def storage_lens_configuration(self) -> pulumi.Output['outputs.StorageLensConfiguration']:
+        """
+        This resource contains the details Amazon S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "storage_lens_configuration")
 
     @property

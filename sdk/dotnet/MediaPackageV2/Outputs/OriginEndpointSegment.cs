@@ -16,11 +16,17 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointSegment
     {
+        /// <summary>
+        /// Whether to use encryption for the segment.
+        /// </summary>
         public readonly Outputs.OriginEndpointEncryption? Encryption;
         /// <summary>
         /// &lt;p&gt;When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.&lt;/p&gt;
         /// </summary>
         public readonly bool? IncludeIframeOnlyStreams;
+        /// <summary>
+        /// The SCTE-35 configuration associated with the segment.
+        /// </summary>
         public readonly Outputs.OriginEndpointScte? Scte;
         /// <summary>
         /// &lt;p&gt;The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.&lt;/p&gt;

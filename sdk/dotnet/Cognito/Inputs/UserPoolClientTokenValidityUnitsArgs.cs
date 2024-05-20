@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolClientTokenValidityUnitsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
+        /// </summary>
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
 
+        /// <summary>
+        /// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
+        /// </summary>
         [Input("idToken")]
         public Input<string>? IdToken { get; set; }
 
+        /// <summary>
+        /// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
+        /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }
 

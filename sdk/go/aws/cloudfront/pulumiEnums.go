@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of traffic configuration.
 type ContinuousDeploymentPolicyConfigType string
 
 const (
@@ -175,6 +176,7 @@ func (in *continuousDeploymentPolicyConfigTypePtr) ToContinuousDeploymentPolicyC
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyConfigTypePtrOutput)
 }
 
+// The type of traffic configuration.
 type ContinuousDeploymentPolicyTrafficConfigType string
 
 const (
@@ -340,6 +342,7 @@ func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeployment
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
 }
 
+// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus string
 
 const (

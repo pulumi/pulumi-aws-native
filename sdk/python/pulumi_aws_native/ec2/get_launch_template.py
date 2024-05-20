@@ -32,16 +32,27 @@ class GetLaunchTemplateResult:
     @property
     @pulumi.getter(name="defaultVersionNumber")
     def default_version_number(self) -> Optional[str]:
+        """
+        The default version of the launch template, such as 2.
+
+        The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
+        """
         return pulumi.get(self, "default_version_number")
 
     @property
     @pulumi.getter(name="latestVersionNumber")
     def latest_version_number(self) -> Optional[str]:
+        """
+        The latest version of the launch template, such as `5` .
+        """
         return pulumi.get(self, "latest_version_number")
 
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
+        """
+        The ID of the launch template.
+        """
         return pulumi.get(self, "launch_template_id")
 
 
@@ -66,6 +77,9 @@ def get_launch_template(launch_template_id: Optional[str] = None,
 
      A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the ``ImageId`` property, which has no default value. If you do not specify an AMI ID for the launch template ``ImageId`` property, you must specify an AMI ID for the instance ``ImageId`` property.
      For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
+
+
+    :param str launch_template_id: The ID of the launch template.
     """
     __args__ = dict()
     __args__['launchTemplateId'] = launch_template_id
@@ -89,5 +103,8 @@ def get_launch_template_output(launch_template_id: Optional[pulumi.Input[str]] =
 
      A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the ``ImageId`` property, which has no default value. If you do not specify an AMI ID for the launch template ``ImageId`` property, you must specify an AMI ID for the instance ``ImageId`` property.
      For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
+
+
+    :param str launch_template_id: The ID of the launch template.
     """
     ...

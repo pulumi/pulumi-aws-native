@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class ListenerDefaultAction
     {
+        /// <summary>
+        /// Describes an action that returns a custom HTTP response.
+        /// </summary>
         public readonly Outputs.ListenerFixedResponse? FixedResponse;
+        /// <summary>
+        /// Describes a forward action. You can use forward actions to route requests to one or more target groups.
+        /// </summary>
         public readonly Outputs.ListenerForward? Forward;
 
         [OutputConstructor]

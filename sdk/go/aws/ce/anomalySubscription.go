@@ -231,8 +231,9 @@ type AnomalySubscription struct {
 	// Tags to assign to subscription.
 	ResourceTags AnomalySubscriptionResourceTagArrayOutput `pulumi:"resourceTags"`
 	// A list of subscriber
-	Subscribers     AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
-	SubscriptionArn pulumi.StringOutput                      `pulumi:"subscriptionArn"`
+	Subscribers AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
+	// The `AnomalySubscription` Amazon Resource Name (ARN).
+	SubscriptionArn pulumi.StringOutput `pulumi:"subscriptionArn"`
 	// The name of the subscription.
 	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
@@ -390,6 +391,7 @@ func (o AnomalySubscriptionOutput) Subscribers() AnomalySubscriptionSubscriberAr
 	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionSubscriberArrayOutput { return v.Subscribers }).(AnomalySubscriptionSubscriberArrayOutput)
 }
 
+// The `AnomalySubscription` Amazon Resource Name (ARN).
 func (o AnomalySubscriptionOutput) SubscriptionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.SubscriptionArn }).(pulumi.StringOutput)
 }

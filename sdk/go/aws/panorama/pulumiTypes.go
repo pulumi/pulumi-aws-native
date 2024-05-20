@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationInstanceManifestOverridesPayload struct {
+	// The overrides document.
 	PayloadData *string `pulumi:"payloadData"`
 }
 
@@ -29,6 +30,7 @@ type ApplicationInstanceManifestOverridesPayloadInput interface {
 }
 
 type ApplicationInstanceManifestOverridesPayloadArgs struct {
+	// The overrides document.
 	PayloadData pulumi.StringPtrInput `pulumi:"payloadData"`
 }
 
@@ -109,6 +111,7 @@ func (o ApplicationInstanceManifestOverridesPayloadOutput) ToApplicationInstance
 	}).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
 }
 
+// The overrides document.
 func (o ApplicationInstanceManifestOverridesPayloadOutput) PayloadData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInstanceManifestOverridesPayload) *string { return v.PayloadData }).(pulumi.StringPtrOutput)
 }
@@ -137,6 +140,7 @@ func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) Elem() Application
 	}).(ApplicationInstanceManifestOverridesPayloadOutput)
 }
 
+// The overrides document.
 func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) PayloadData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstanceManifestOverridesPayload) *string {
 		if v == nil {
@@ -147,6 +151,7 @@ func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) PayloadData() pulu
 }
 
 type ApplicationInstanceManifestPayload struct {
+	// The application manifest.
 	PayloadData *string `pulumi:"payloadData"`
 }
 
@@ -162,6 +167,7 @@ type ApplicationInstanceManifestPayloadInput interface {
 }
 
 type ApplicationInstanceManifestPayloadArgs struct {
+	// The application manifest.
 	PayloadData pulumi.StringPtrInput `pulumi:"payloadData"`
 }
 
@@ -191,6 +197,7 @@ func (o ApplicationInstanceManifestPayloadOutput) ToApplicationInstanceManifestP
 	return o
 }
 
+// The application manifest.
 func (o ApplicationInstanceManifestPayloadOutput) PayloadData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInstanceManifestPayload) *string { return v.PayloadData }).(pulumi.StringPtrOutput)
 }
@@ -203,11 +210,16 @@ type ApplicationInstanceTag struct {
 }
 
 type PackageStorageLocation struct {
-	BinaryPrefixLocation    *string `pulumi:"binaryPrefixLocation"`
-	Bucket                  *string `pulumi:"bucket"`
+	// The location's binary prefix.
+	BinaryPrefixLocation *string `pulumi:"binaryPrefixLocation"`
+	// The location's bucket.
+	Bucket *string `pulumi:"bucket"`
+	// The location's generated prefix.
 	GeneratedPrefixLocation *string `pulumi:"generatedPrefixLocation"`
-	ManifestPrefixLocation  *string `pulumi:"manifestPrefixLocation"`
-	RepoPrefixLocation      *string `pulumi:"repoPrefixLocation"`
+	// The location's manifest prefix.
+	ManifestPrefixLocation *string `pulumi:"manifestPrefixLocation"`
+	// The location's repo prefix.
+	RepoPrefixLocation *string `pulumi:"repoPrefixLocation"`
 }
 
 // PackageStorageLocationInput is an input type that accepts PackageStorageLocationArgs and PackageStorageLocationOutput values.
@@ -222,11 +234,16 @@ type PackageStorageLocationInput interface {
 }
 
 type PackageStorageLocationArgs struct {
-	BinaryPrefixLocation    pulumi.StringPtrInput `pulumi:"binaryPrefixLocation"`
-	Bucket                  pulumi.StringPtrInput `pulumi:"bucket"`
+	// The location's binary prefix.
+	BinaryPrefixLocation pulumi.StringPtrInput `pulumi:"binaryPrefixLocation"`
+	// The location's bucket.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The location's generated prefix.
 	GeneratedPrefixLocation pulumi.StringPtrInput `pulumi:"generatedPrefixLocation"`
-	ManifestPrefixLocation  pulumi.StringPtrInput `pulumi:"manifestPrefixLocation"`
-	RepoPrefixLocation      pulumi.StringPtrInput `pulumi:"repoPrefixLocation"`
+	// The location's manifest prefix.
+	ManifestPrefixLocation pulumi.StringPtrInput `pulumi:"manifestPrefixLocation"`
+	// The location's repo prefix.
+	RepoPrefixLocation pulumi.StringPtrInput `pulumi:"repoPrefixLocation"`
 }
 
 func (PackageStorageLocationArgs) ElementType() reflect.Type {
@@ -306,22 +323,27 @@ func (o PackageStorageLocationOutput) ToPackageStorageLocationPtrOutputWithConte
 	}).(PackageStorageLocationPtrOutput)
 }
 
+// The location's binary prefix.
 func (o PackageStorageLocationOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.BinaryPrefixLocation }).(pulumi.StringPtrOutput)
 }
 
+// The location's bucket.
 func (o PackageStorageLocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The location's generated prefix.
 func (o PackageStorageLocationOutput) GeneratedPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.GeneratedPrefixLocation }).(pulumi.StringPtrOutput)
 }
 
+// The location's manifest prefix.
 func (o PackageStorageLocationOutput) ManifestPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.ManifestPrefixLocation }).(pulumi.StringPtrOutput)
 }
 
+// The location's repo prefix.
 func (o PackageStorageLocationOutput) RepoPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackageStorageLocation) *string { return v.RepoPrefixLocation }).(pulumi.StringPtrOutput)
 }
@@ -350,6 +372,7 @@ func (o PackageStorageLocationPtrOutput) Elem() PackageStorageLocationOutput {
 	}).(PackageStorageLocationOutput)
 }
 
+// The location's binary prefix.
 func (o PackageStorageLocationPtrOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageStorageLocation) *string {
 		if v == nil {
@@ -359,6 +382,7 @@ func (o PackageStorageLocationPtrOutput) BinaryPrefixLocation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The location's bucket.
 func (o PackageStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageStorageLocation) *string {
 		if v == nil {
@@ -368,6 +392,7 @@ func (o PackageStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The location's generated prefix.
 func (o PackageStorageLocationPtrOutput) GeneratedPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageStorageLocation) *string {
 		if v == nil {
@@ -377,6 +402,7 @@ func (o PackageStorageLocationPtrOutput) GeneratedPrefixLocation() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The location's manifest prefix.
 func (o PackageStorageLocationPtrOutput) ManifestPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageStorageLocation) *string {
 		if v == nil {
@@ -386,6 +412,7 @@ func (o PackageStorageLocationPtrOutput) ManifestPrefixLocation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The location's repo prefix.
 func (o PackageStorageLocationPtrOutput) RepoPrefixLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageStorageLocation) *string {
 		if v == nil {

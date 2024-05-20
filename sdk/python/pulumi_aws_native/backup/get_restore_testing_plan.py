@@ -44,31 +44,51 @@ class GetRestoreTestingPlanResult:
     @property
     @pulumi.getter(name="recoveryPointSelection")
     def recovery_point_selection(self) -> Optional['outputs.RestoreTestingPlanRestoreTestingRecoveryPointSelection']:
+        """
+        The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
+        """
         return pulumi.get(self, "recovery_point_selection")
 
     @property
     @pulumi.getter(name="restoreTestingPlanArn")
     def restore_testing_plan_arn(self) -> Optional[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+        """
         return pulumi.get(self, "restore_testing_plan_arn")
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
+        """
+        A CRON expression in specified timezone when a restore testing plan is executed.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[str]:
+        """
+        Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @property
     @pulumi.getter(name="startWindowHours")
     def start_window_hours(self) -> Optional[int]:
+        """
+        Defaults to 24 hours.
+
+        A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        """
         return pulumi.get(self, "start_window_hours")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
+        """
         return pulumi.get(self, "tags")
 
 
@@ -90,6 +110,9 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestoreTestingPlanResult:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
+
+
+    :param str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name
@@ -110,5 +133,8 @@ def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
+
+
+    :param str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """
     ...

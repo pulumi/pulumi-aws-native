@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     {
         [Input("recoveryMechanisms")]
         private InputList<Inputs.UserPoolRecoveryOptionArgs>? _recoveryMechanisms;
+
+        /// <summary>
+        /// The list of `RecoveryOptionTypes` .
+        /// </summary>
         public InputList<Inputs.UserPoolRecoveryOptionArgs> RecoveryMechanisms
         {
             get => _recoveryMechanisms ?? (_recoveryMechanisms = new InputList<Inputs.UserPoolRecoveryOptionArgs>());

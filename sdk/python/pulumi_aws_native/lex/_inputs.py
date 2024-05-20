@@ -113,6 +113,7 @@ class BotAdvancedRecognitionSettingArgs:
                  audio_recognition_strategy: Optional[pulumi.Input['BotAudioRecognitionStrategy']] = None):
         """
         Provides settings that enable advanced recognition settings for slot values.
+        :param pulumi.Input['BotAudioRecognitionStrategy'] audio_recognition_strategy: Enables using the slot values as a custom vocabulary for recognizing user utterances.
         """
         if audio_recognition_strategy is not None:
             pulumi.set(__self__, "audio_recognition_strategy", audio_recognition_strategy)
@@ -120,6 +121,9 @@ class BotAdvancedRecognitionSettingArgs:
     @property
     @pulumi.getter(name="audioRecognitionStrategy")
     def audio_recognition_strategy(self) -> Optional[pulumi.Input['BotAudioRecognitionStrategy']]:
+        """
+        Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        """
         return pulumi.get(self, "audio_recognition_strategy")
 
     @audio_recognition_strategy.setter
@@ -239,6 +243,8 @@ class BotAliasConversationLogSettingsArgs:
                  text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgs']]]] = None):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
+        :param pulumi.Input[Sequence[pulumi.Input['BotAliasAudioLogSettingArgs']]] audio_log_settings: The Amazon S3 settings for logging audio to an S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgs']]] text_log_settings: The Amazon CloudWatch Logs settings for logging text and metadata.
         """
         if audio_log_settings is not None:
             pulumi.set(__self__, "audio_log_settings", audio_log_settings)
@@ -248,6 +254,9 @@ class BotAliasConversationLogSettingsArgs:
     @property
     @pulumi.getter(name="audioLogSettings")
     def audio_log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasAudioLogSettingArgs']]]]:
+        """
+        The Amazon S3 settings for logging audio to an S3 bucket.
+        """
         return pulumi.get(self, "audio_log_settings")
 
     @audio_log_settings.setter
@@ -257,6 +266,9 @@ class BotAliasConversationLogSettingsArgs:
     @property
     @pulumi.getter(name="textLogSettings")
     def text_log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgs']]]]:
+        """
+        The Amazon CloudWatch Logs settings for logging text and metadata.
+        """
         return pulumi.get(self, "text_log_settings")
 
     @text_log_settings.setter
@@ -911,6 +923,8 @@ class BotConversationLogSettingsArgs:
                  text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]] = None):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
+        :param pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]] audio_log_settings: The Amazon S3 settings for logging audio to an S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]] text_log_settings: The Amazon CloudWatch Logs settings for logging text and metadata.
         """
         if audio_log_settings is not None:
             pulumi.set(__self__, "audio_log_settings", audio_log_settings)
@@ -920,6 +934,9 @@ class BotConversationLogSettingsArgs:
     @property
     @pulumi.getter(name="audioLogSettings")
     def audio_log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]]]:
+        """
+        The Amazon S3 settings for logging audio to an S3 bucket.
+        """
         return pulumi.get(self, "audio_log_settings")
 
     @audio_log_settings.setter
@@ -929,6 +946,9 @@ class BotConversationLogSettingsArgs:
     @property
     @pulumi.getter(name="textLogSettings")
     def text_log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]]:
+        """
+        The Amazon CloudWatch Logs settings for logging text and metadata.
+        """
         return pulumi.get(self, "text_log_settings")
 
     @text_log_settings.setter
@@ -1020,12 +1040,16 @@ class BotCustomVocabularyArgs:
                  custom_vocabulary_items: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]):
         """
         A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
+        :param pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]] custom_vocabulary_items: Specifies a list of words that you expect to be used during a conversation with your bot.
         """
         pulumi.set(__self__, "custom_vocabulary_items", custom_vocabulary_items)
 
     @property
     @pulumi.getter(name="customVocabularyItems")
     def custom_vocabulary_items(self) -> pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]:
+        """
+        Specifies a list of words that you expect to be used during a conversation with your bot.
+        """
         return pulumi.get(self, "custom_vocabulary_items")
 
     @custom_vocabulary_items.setter
@@ -1203,12 +1227,16 @@ class BotDialogCodeHookSettingArgs:
                  enabled: pulumi.Input[bool]):
         """
         Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+        :param pulumi.Input[bool] enabled: Enables the dialog code hook so that it processes user requests.
         """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Enables the dialog code hook so that it processes user requests.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1385,6 +1413,7 @@ class BotExternalSourceSettingArgs:
                  grammar_slot_type_setting: Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']] = None):
         """
         Provides information about the external source of the slot type's definition.
+        :param pulumi.Input['BotGrammarSlotTypeSettingArgs'] grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide.
         """
         if grammar_slot_type_setting is not None:
             pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
@@ -1392,6 +1421,9 @@ class BotExternalSourceSettingArgs:
     @property
     @pulumi.getter(name="grammarSlotTypeSetting")
     def grammar_slot_type_setting(self) -> Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']]:
+        """
+        Settings required for a slot type based on a grammar that you provide.
+        """
         return pulumi.get(self, "grammar_slot_type_setting")
 
     @grammar_slot_type_setting.setter
@@ -1408,7 +1440,10 @@ class BotFulfillmentCodeHookSettingArgs:
                  post_fulfillment_status_specification: Optional[pulumi.Input['BotPostFulfillmentStatusSpecificationArgs']] = None):
         """
         Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
+        :param pulumi.Input[bool] enabled: Indicates whether a Lambda function should be invoked to fulfill a specific intent.
+        :param pulumi.Input['BotFulfillmentUpdatesSpecificationArgs'] fulfillment_updates_specification: Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
         :param pulumi.Input[bool] is_active: Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+        :param pulumi.Input['BotPostFulfillmentStatusSpecificationArgs'] post_fulfillment_status_specification: Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
         """
         pulumi.set(__self__, "enabled", enabled)
         if fulfillment_updates_specification is not None:
@@ -1421,6 +1456,9 @@ class BotFulfillmentCodeHookSettingArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether a Lambda function should be invoked to fulfill a specific intent.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1430,6 +1468,9 @@ class BotFulfillmentCodeHookSettingArgs:
     @property
     @pulumi.getter(name="fulfillmentUpdatesSpecification")
     def fulfillment_updates_specification(self) -> Optional[pulumi.Input['BotFulfillmentUpdatesSpecificationArgs']]:
+        """
+        Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
+        """
         return pulumi.get(self, "fulfillment_updates_specification")
 
     @fulfillment_updates_specification.setter
@@ -1451,6 +1492,9 @@ class BotFulfillmentCodeHookSettingArgs:
     @property
     @pulumi.getter(name="postFulfillmentStatusSpecification")
     def post_fulfillment_status_specification(self) -> Optional[pulumi.Input['BotPostFulfillmentStatusSpecificationArgs']]:
+        """
+        Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
+        """
         return pulumi.get(self, "post_fulfillment_status_specification")
 
     @post_fulfillment_status_specification.setter
@@ -1467,6 +1511,7 @@ class BotFulfillmentStartResponseSpecificationArgs:
         """
         Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
         :param pulumi.Input[int] delay_in_seconds: The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
+        :param pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]] message_groups: 1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
         :param pulumi.Input[bool] allow_interrupt: Determines whether the user can interrupt the start message while it is playing.
         """
         pulumi.set(__self__, "delay_in_seconds", delay_in_seconds)
@@ -1489,6 +1534,9 @@ class BotFulfillmentStartResponseSpecificationArgs:
     @property
     @pulumi.getter(name="messageGroups")
     def message_groups(self) -> pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]:
+        """
+        1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
+        """
         return pulumi.get(self, "message_groups")
 
     @message_groups.setter
@@ -1517,6 +1565,7 @@ class BotFulfillmentUpdateResponseSpecificationArgs:
         """
         Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
         :param pulumi.Input[int] frequency_in_seconds: The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
+        :param pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]] message_groups: 1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.
         :param pulumi.Input[bool] allow_interrupt: Determines whether the user can interrupt an update message while it is playing.
         """
         pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
@@ -1539,6 +1588,9 @@ class BotFulfillmentUpdateResponseSpecificationArgs:
     @property
     @pulumi.getter(name="messageGroups")
     def message_groups(self) -> pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]:
+        """
+        1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.
+        """
         return pulumi.get(self, "message_groups")
 
     @message_groups.setter
@@ -1568,7 +1620,9 @@ class BotFulfillmentUpdatesSpecificationArgs:
         """
         Provides information for updating the user on the progress of fulfilling an intent.
         :param pulumi.Input[bool] active: Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
+        :param pulumi.Input['BotFulfillmentStartResponseSpecificationArgs'] start_response: Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
         :param pulumi.Input[int] timeout_in_seconds: The length of time that the fulfillment Lambda function should run before it times out.
+        :param pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgs'] update_response: Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
         """
         pulumi.set(__self__, "active", active)
         if start_response is not None:
@@ -1593,6 +1647,9 @@ class BotFulfillmentUpdatesSpecificationArgs:
     @property
     @pulumi.getter(name="startResponse")
     def start_response(self) -> Optional[pulumi.Input['BotFulfillmentStartResponseSpecificationArgs']]:
+        """
+        Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
+        """
         return pulumi.get(self, "start_response")
 
     @start_response.setter
@@ -1614,6 +1671,9 @@ class BotFulfillmentUpdatesSpecificationArgs:
     @property
     @pulumi.getter(name="updateResponse")
     def update_response(self) -> Optional[pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgs']]:
+        """
+        Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
+        """
         return pulumi.get(self, "update_response")
 
     @update_response.setter
@@ -1627,6 +1687,7 @@ class BotGrammarSlotTypeSettingArgs:
                  source: Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']] = None):
         """
         Settings required for a slot type based on a grammar that you provide.
+        :param pulumi.Input['BotGrammarSlotTypeSourceArgs'] source: The source of the grammar used to create the slot type.
         """
         if source is not None:
             pulumi.set(__self__, "source", source)
@@ -1634,6 +1695,9 @@ class BotGrammarSlotTypeSettingArgs:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']]:
+        """
+        The source of the grammar used to create the slot type.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -2209,8 +2273,17 @@ class BotIntentArgs:
         Represents an action that the user wants to perform.
         :param pulumi.Input[str] name: The name of the intent.
         :param pulumi.Input[str] description: Description of thr intent.
+        :param pulumi.Input['BotDialogCodeHookSettingArgs'] dialog_code_hook: Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
+        :param pulumi.Input['BotFulfillmentCodeHookSettingArgs'] fulfillment_code_hook: Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
         :param pulumi.Input['BotInitialResponseSettingArgs'] initial_response_setting: Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+        :param pulumi.Input[Sequence[pulumi.Input['BotInputContextArgs']]] input_contexts: A list of contexts that must be active for this intent to be considered by Amazon Lex .
+        :param pulumi.Input['BotIntentClosingSettingArgs'] intent_closing_setting: Sets the response that Amazon Lex sends to the user when the intent is closed.
+        :param pulumi.Input['BotIntentConfirmationSettingArgs'] intent_confirmation_setting: Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
+        :param pulumi.Input['BotKendraConfigurationArgs'] kendra_configuration: Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
+        :param pulumi.Input[Sequence[pulumi.Input['BotOutputContextArgs']]] output_contexts: A list of contexts that the intent activates when it is fulfilled.
+        :param pulumi.Input[str] parent_intent_signature: A unique identifier for the built-in intent to base this intent on.
         :param pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]] sample_utterances: A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        :param pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgs']]] slot_priorities: Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
         :param pulumi.Input[Sequence[pulumi.Input['BotSlotArgs']]] slots: List of slots
         """
         pulumi.set(__self__, "name", name)
@@ -2268,6 +2341,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="dialogCodeHook")
     def dialog_code_hook(self) -> Optional[pulumi.Input['BotDialogCodeHookSettingArgs']]:
+        """
+        Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
+        """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
@@ -2277,6 +2353,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="fulfillmentCodeHook")
     def fulfillment_code_hook(self) -> Optional[pulumi.Input['BotFulfillmentCodeHookSettingArgs']]:
+        """
+        Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
+        """
         return pulumi.get(self, "fulfillment_code_hook")
 
     @fulfillment_code_hook.setter
@@ -2298,6 +2377,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="inputContexts")
     def input_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotInputContextArgs']]]]:
+        """
+        A list of contexts that must be active for this intent to be considered by Amazon Lex .
+        """
         return pulumi.get(self, "input_contexts")
 
     @input_contexts.setter
@@ -2307,6 +2389,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="intentClosingSetting")
     def intent_closing_setting(self) -> Optional[pulumi.Input['BotIntentClosingSettingArgs']]:
+        """
+        Sets the response that Amazon Lex sends to the user when the intent is closed.
+        """
         return pulumi.get(self, "intent_closing_setting")
 
     @intent_closing_setting.setter
@@ -2316,6 +2401,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="intentConfirmationSetting")
     def intent_confirmation_setting(self) -> Optional[pulumi.Input['BotIntentConfirmationSettingArgs']]:
+        """
+        Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
+        """
         return pulumi.get(self, "intent_confirmation_setting")
 
     @intent_confirmation_setting.setter
@@ -2325,6 +2413,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> Optional[pulumi.Input['BotKendraConfigurationArgs']]:
+        """
+        Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
+        """
         return pulumi.get(self, "kendra_configuration")
 
     @kendra_configuration.setter
@@ -2334,6 +2425,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="outputContexts")
     def output_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotOutputContextArgs']]]]:
+        """
+        A list of contexts that the intent activates when it is fulfilled.
+        """
         return pulumi.get(self, "output_contexts")
 
     @output_contexts.setter
@@ -2343,6 +2437,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="parentIntentSignature")
     def parent_intent_signature(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the built-in intent to base this intent on.
+        """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
@@ -2364,6 +2461,9 @@ class BotIntentArgs:
     @property
     @pulumi.getter(name="slotPriorities")
     def slot_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgs']]]]:
+        """
+        Indicates the priority for slots. Amazon Lex prompts the user for slot values in priority order.
+        """
         return pulumi.get(self, "slot_priorities")
 
     @slot_priorities.setter
@@ -2391,6 +2491,8 @@ class BotKendraConfigurationArgs:
                  query_filter_string_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Configuration for searching a Amazon Kendra index specified for the intent.
+        :param pulumi.Input[str] kendra_index: The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
+        :param pulumi.Input[str] query_filter_string: A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
         :param pulumi.Input[bool] query_filter_string_enabled: Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
         """
         pulumi.set(__self__, "kendra_index", kendra_index)
@@ -2402,6 +2504,9 @@ class BotKendraConfigurationArgs:
     @property
     @pulumi.getter(name="kendraIndex")
     def kendra_index(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the `AMAZON.KendraSearchIntent` intent to search. The index must be in the same account and Region as the Amazon Lex bot.
+        """
         return pulumi.get(self, "kendra_index")
 
     @kendra_index.setter
@@ -2411,6 +2516,9 @@ class BotKendraConfigurationArgs:
     @property
     @pulumi.getter(name="queryFilterString")
     def query_filter_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html) .
+        """
         return pulumi.get(self, "query_filter_string")
 
     @query_filter_string.setter
@@ -2442,8 +2550,13 @@ class BotLocaleArgs:
                  voice_settings: Optional[pulumi.Input['BotVoiceSettingsArgs']] = None):
         """
         A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
+        :param pulumi.Input[str] locale_id: The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
+        :param pulumi.Input[float] nlu_confidence_threshold: Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
+        :param pulumi.Input['BotCustomVocabularyArgs'] custom_vocabulary: Specifies a custom vocabulary to use with a specific locale.
+        :param pulumi.Input[str] description: A description of the bot locale. Use this to help identify the bot locale in lists.
         :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: List of intents
         :param pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]] slot_types: List of SlotTypes
+        :param pulumi.Input['BotVoiceSettingsArgs'] voice_settings: Defines settings for using an Amazon Polly voice to communicate with a user.
         """
         pulumi.set(__self__, "locale_id", locale_id)
         pulumi.set(__self__, "nlu_confidence_threshold", nlu_confidence_threshold)
@@ -2461,6 +2574,9 @@ class BotLocaleArgs:
     @property
     @pulumi.getter(name="localeId")
     def locale_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
+        """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
@@ -2470,6 +2586,9 @@ class BotLocaleArgs:
     @property
     @pulumi.getter(name="nluConfidenceThreshold")
     def nlu_confidence_threshold(self) -> pulumi.Input[float]:
+        """
+        Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
+        """
         return pulumi.get(self, "nlu_confidence_threshold")
 
     @nlu_confidence_threshold.setter
@@ -2479,6 +2598,9 @@ class BotLocaleArgs:
     @property
     @pulumi.getter(name="customVocabulary")
     def custom_vocabulary(self) -> Optional[pulumi.Input['BotCustomVocabularyArgs']]:
+        """
+        Specifies a custom vocabulary to use with a specific locale.
+        """
         return pulumi.get(self, "custom_vocabulary")
 
     @custom_vocabulary.setter
@@ -2488,6 +2610,9 @@ class BotLocaleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the bot locale. Use this to help identify the bot locale in lists.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -2521,6 +2646,9 @@ class BotLocaleArgs:
     @property
     @pulumi.getter(name="voiceSettings")
     def voice_settings(self) -> Optional[pulumi.Input['BotVoiceSettingsArgs']]:
+        """
+        Defines settings for using an Amazon Polly voice to communicate with a user.
+        """
         return pulumi.get(self, "voice_settings")
 
     @voice_settings.setter
@@ -2625,6 +2753,11 @@ class BotMultipleValuesSettingArgs:
                  allow_multiple_values: Optional[pulumi.Input[bool]] = None):
         """
         Indicates whether a slot can return multiple values.
+        :param pulumi.Input[bool] allow_multiple_values: Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
+               
+               Multi-value slots are only available in the en-US locale. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException` .
+               
+               If the `allowMutlipleValues` is not set, the default value is `false` .
         """
         if allow_multiple_values is not None:
             pulumi.set(__self__, "allow_multiple_values", allow_multiple_values)
@@ -2632,6 +2765,13 @@ class BotMultipleValuesSettingArgs:
     @property
     @pulumi.getter(name="allowMultipleValues")
     def allow_multiple_values(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether a slot can return multiple values. When `true` , the slot may return more than one value in a response. When `false` , the slot returns only a single value.
+
+        Multi-value slots are only available in the en-US locale. If you set this value to `true` in any other locale, Amazon Lex throws a `ValidationException` .
+
+        If the `allowMutlipleValues` is not set, the default value is `false` .
+        """
         return pulumi.get(self, "allow_multiple_values")
 
     @allow_multiple_values.setter
@@ -3099,7 +3239,10 @@ class BotPromptSpecificationArgs:
                  prompt_attempts_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]]] = None):
         """
         Prompts the user to confirm the intent.
+        :param pulumi.Input[int] max_retries: The maximum number of times the bot tries to elicit a response from the user using this prompt.
+        :param pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]] message_groups_list: A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
         :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
+        :param pulumi.Input['BotMessageSelectionStrategy'] message_selection_strategy: Indicates how a message is selected from a message group among retries.
         :param pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]] prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
         """
         pulumi.set(__self__, "max_retries", max_retries)
@@ -3114,6 +3257,9 @@ class BotPromptSpecificationArgs:
     @property
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> pulumi.Input[int]:
+        """
+        The maximum number of times the bot tries to elicit a response from the user using this prompt.
+        """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
@@ -3123,6 +3269,9 @@ class BotPromptSpecificationArgs:
     @property
     @pulumi.getter(name="messageGroupsList")
     def message_groups_list(self) -> pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]:
+        """
+        A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
+        """
         return pulumi.get(self, "message_groups_list")
 
     @message_groups_list.setter
@@ -3144,6 +3293,9 @@ class BotPromptSpecificationArgs:
     @property
     @pulumi.getter(name="messageSelectionStrategy")
     def message_selection_strategy(self) -> Optional[pulumi.Input['BotMessageSelectionStrategy']]:
+        """
+        Indicates how a message is selected from a message group among retries.
+        """
         return pulumi.get(self, "message_selection_strategy")
 
     @message_selection_strategy.setter
@@ -3170,6 +3322,7 @@ class BotResponseSpecificationArgs:
                  allow_interrupt: Optional[pulumi.Input[bool]] = None):
         """
         A list of message groups that Amazon Lex uses to respond the user input.
+        :param pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]] message_groups_list: A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
         :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
         """
         pulumi.set(__self__, "message_groups_list", message_groups_list)
@@ -3179,6 +3332,9 @@ class BotResponseSpecificationArgs:
     @property
     @pulumi.getter(name="messageGroupsList")
     def message_groups_list(self) -> pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]:
+        """
+        A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
+        """
         return pulumi.get(self, "message_groups_list")
 
     @message_groups_list.setter
@@ -3355,6 +3511,8 @@ class BotSessionAttributeArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+        :param pulumi.Input[str] key: The name of the session attribute.
+        :param pulumi.Input[str] value: The session-specific context information for the session attribute.
         """
         pulumi.set(__self__, "key", key)
         if value is not None:
@@ -3363,6 +3521,9 @@ class BotSessionAttributeArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of the session attribute.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3372,6 +3533,9 @@ class BotSessionAttributeArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The session-specific context information for the session attribute.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3637,6 +3801,19 @@ class BotSlotTypeArgs:
                  value_selection_setting: Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']] = None):
         """
         A custom, extended built-in or a grammar slot type.
+        :param pulumi.Input[str] name: The name of the slot type. A slot type name must be unique withing the account.
+        :param pulumi.Input[str] description: A description of the slot type. Use the description to help identify the slot type in lists.
+        :param pulumi.Input['BotExternalSourceSettingArgs'] external_source_setting: Sets the type of external information used to create the slot type.
+        :param pulumi.Input[str] parent_slot_type_signature: The built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent lot type.
+               
+               Only `AMAZON.AlphaNumeric` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]] slot_type_values: A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
+        :param pulumi.Input['BotSlotValueSelectionSettingArgs'] value_selection_setting: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+               
+               - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+               - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+               
+               If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -3653,6 +3830,9 @@ class BotSlotTypeArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the slot type. A slot type name must be unique withing the account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3662,6 +3842,9 @@ class BotSlotTypeArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the slot type. Use the description to help identify the slot type in lists.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -3671,6 +3854,9 @@ class BotSlotTypeArgs:
     @property
     @pulumi.getter(name="externalSourceSetting")
     def external_source_setting(self) -> Optional[pulumi.Input['BotExternalSourceSettingArgs']]:
+        """
+        Sets the type of external information used to create the slot type.
+        """
         return pulumi.get(self, "external_source_setting")
 
     @external_source_setting.setter
@@ -3680,6 +3866,11 @@ class BotSlotTypeArgs:
     @property
     @pulumi.getter(name="parentSlotTypeSignature")
     def parent_slot_type_signature(self) -> Optional[pulumi.Input[str]]:
+        """
+        The built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent lot type.
+
+        Only `AMAZON.AlphaNumeric` is supported.
+        """
         return pulumi.get(self, "parent_slot_type_signature")
 
     @parent_slot_type_signature.setter
@@ -3689,6 +3880,9 @@ class BotSlotTypeArgs:
     @property
     @pulumi.getter(name="slotTypeValues")
     def slot_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]]]:
+        """
+        A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
+        """
         return pulumi.get(self, "slot_type_values")
 
     @slot_type_values.setter
@@ -3698,6 +3892,14 @@ class BotSlotTypeArgs:
     @property
     @pulumi.getter(name="valueSelectionSetting")
     def value_selection_setting(self) -> Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']]:
+        """
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+
+        - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+        - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+
+        If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+        """
         return pulumi.get(self, "value_selection_setting")
 
     @value_selection_setting.setter
@@ -3815,6 +4017,8 @@ class BotSlotValueOverrideMapArgs:
                  slot_value_override: Optional[pulumi.Input['BotSlotValueOverrideArgs']] = None):
         """
         A map of slot names and their overridden values.
+        :param pulumi.Input[str] slot_name: The name of the slot.
+        :param pulumi.Input['BotSlotValueOverrideArgs'] slot_value_override: The SlotValueOverride object to which the slot name will be mapped.
         """
         if slot_name is not None:
             pulumi.set(__self__, "slot_name", slot_name)
@@ -3824,6 +4028,9 @@ class BotSlotValueOverrideMapArgs:
     @property
     @pulumi.getter(name="slotName")
     def slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the slot.
+        """
         return pulumi.get(self, "slot_name")
 
     @slot_name.setter
@@ -3833,6 +4040,9 @@ class BotSlotValueOverrideMapArgs:
     @property
     @pulumi.getter(name="slotValueOverride")
     def slot_value_override(self) -> Optional[pulumi.Input['BotSlotValueOverrideArgs']]:
+        """
+        The SlotValueOverride object to which the slot name will be mapped.
+        """
         return pulumi.get(self, "slot_value_override")
 
     @slot_value_override.setter
@@ -3927,6 +4137,14 @@ class BotSlotValueSelectionSettingArgs:
                  regex_filter: Optional[pulumi.Input['BotSlotValueRegexFilterArgs']] = None):
         """
         Contains settings used by Amazon Lex to select a slot value.
+        :param pulumi.Input['BotSlotValueResolutionStrategy'] resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+               
+               - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+               - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+               
+               If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+        :param pulumi.Input['BotAdvancedRecognitionSettingArgs'] advanced_recognition_setting: Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+        :param pulumi.Input['BotSlotValueRegexFilterArgs'] regex_filter: A regular expression used to validate the value of a slot.
         """
         pulumi.set(__self__, "resolution_strategy", resolution_strategy)
         if advanced_recognition_setting is not None:
@@ -3937,6 +4155,14 @@ class BotSlotValueSelectionSettingArgs:
     @property
     @pulumi.getter(name="resolutionStrategy")
     def resolution_strategy(self) -> pulumi.Input['BotSlotValueResolutionStrategy']:
+        """
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+
+        - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+        - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+
+        If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+        """
         return pulumi.get(self, "resolution_strategy")
 
     @resolution_strategy.setter
@@ -3946,6 +4172,9 @@ class BotSlotValueSelectionSettingArgs:
     @property
     @pulumi.getter(name="advancedRecognitionSetting")
     def advanced_recognition_setting(self) -> Optional[pulumi.Input['BotAdvancedRecognitionSettingArgs']]:
+        """
+        Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+        """
         return pulumi.get(self, "advanced_recognition_setting")
 
     @advanced_recognition_setting.setter
@@ -3955,6 +4184,9 @@ class BotSlotValueSelectionSettingArgs:
     @property
     @pulumi.getter(name="regexFilter")
     def regex_filter(self) -> Optional[pulumi.Input['BotSlotValueRegexFilterArgs']]:
+        """
+        A regular expression used to validate the value of a slot.
+        """
         return pulumi.get(self, "regex_filter")
 
     @regex_filter.setter
@@ -3997,6 +4229,17 @@ class BotSlotArgs:
                  obfuscation_setting: Optional[pulumi.Input['BotObfuscationSettingArgs']] = None):
         """
         A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
+        :param pulumi.Input[str] name: The name given to the slot.
+        :param pulumi.Input[str] slot_type_name: The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
+        :param pulumi.Input['BotSlotValueElicitationSettingArgs'] value_elicitation_setting: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+               
+               - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+               - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+               
+               If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+        :param pulumi.Input[str] description: The description of the slot.
+        :param pulumi.Input['BotMultipleValuesSettingArgs'] multiple_values_setting: Indicates whether a slot can return multiple values.
+        :param pulumi.Input['BotObfuscationSettingArgs'] obfuscation_setting: Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "slot_type_name", slot_type_name)
@@ -4011,6 +4254,9 @@ class BotSlotArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name given to the slot.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4020,6 +4266,9 @@ class BotSlotArgs:
     @property
     @pulumi.getter(name="slotTypeName")
     def slot_type_name(self) -> pulumi.Input[str]:
+        """
+        The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
+        """
         return pulumi.get(self, "slot_type_name")
 
     @slot_type_name.setter
@@ -4029,6 +4278,14 @@ class BotSlotArgs:
     @property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> pulumi.Input['BotSlotValueElicitationSettingArgs']:
+        """
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+
+        - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+        - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+
+        If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
+        """
         return pulumi.get(self, "value_elicitation_setting")
 
     @value_elicitation_setting.setter
@@ -4038,6 +4295,9 @@ class BotSlotArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the slot.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -4047,6 +4307,9 @@ class BotSlotArgs:
     @property
     @pulumi.getter(name="multipleValuesSetting")
     def multiple_values_setting(self) -> Optional[pulumi.Input['BotMultipleValuesSettingArgs']]:
+        """
+        Indicates whether a slot can return multiple values.
+        """
         return pulumi.get(self, "multiple_values_setting")
 
     @multiple_values_setting.setter
@@ -4056,6 +4319,9 @@ class BotSlotArgs:
     @property
     @pulumi.getter(name="obfuscationSetting")
     def obfuscation_setting(self) -> Optional[pulumi.Input['BotObfuscationSettingArgs']]:
+        """
+        Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
+        """
         return pulumi.get(self, "obfuscation_setting")
 
     @obfuscation_setting.setter
@@ -4095,6 +4361,9 @@ class BotStillWaitingResponseSpecificationArgs:
                  allow_interrupt: Optional[pulumi.Input[bool]] = None):
         """
         StillWaitingResponseSpecification.
+        :param pulumi.Input[int] frequency_in_seconds: How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
+        :param pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]] message_groups_list: One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
+        :param pulumi.Input[int] timeout_in_seconds: If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
         :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
         """
         pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
@@ -4106,6 +4375,9 @@ class BotStillWaitingResponseSpecificationArgs:
     @property
     @pulumi.getter(name="frequencyInSeconds")
     def frequency_in_seconds(self) -> pulumi.Input[int]:
+        """
+        How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
+        """
         return pulumi.get(self, "frequency_in_seconds")
 
     @frequency_in_seconds.setter
@@ -4115,6 +4387,9 @@ class BotStillWaitingResponseSpecificationArgs:
     @property
     @pulumi.getter(name="messageGroupsList")
     def message_groups_list(self) -> pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]:
+        """
+        One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
+        """
         return pulumi.get(self, "message_groups_list")
 
     @message_groups_list.setter
@@ -4124,6 +4399,9 @@ class BotStillWaitingResponseSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> pulumi.Input[int]:
+        """
+        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -4213,6 +4491,9 @@ class BotTestBotAliasSettingsArgs:
                  sentiment_analysis_settings: Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']] = None):
         """
         Configuring the test bot alias settings for a given bot
+        :param pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
+        :param pulumi.Input['BotConversationLogSettingsArgs'] conversation_log_settings: Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
+        :param pulumi.Input[str] description: Specifies a description for the test bot alias.
         :param pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs'] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
         if bot_alias_locale_settings is not None:
@@ -4227,6 +4508,9 @@ class BotTestBotAliasSettingsArgs:
     @property
     @pulumi.getter(name="botAliasLocaleSettings")
     def bot_alias_locale_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]]:
+        """
+        Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
+        """
         return pulumi.get(self, "bot_alias_locale_settings")
 
     @bot_alias_locale_settings.setter
@@ -4236,6 +4520,9 @@ class BotTestBotAliasSettingsArgs:
     @property
     @pulumi.getter(name="conversationLogSettings")
     def conversation_log_settings(self) -> Optional[pulumi.Input['BotConversationLogSettingsArgs']]:
+        """
+        Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
+        """
         return pulumi.get(self, "conversation_log_settings")
 
     @conversation_log_settings.setter
@@ -4245,6 +4532,9 @@ class BotTestBotAliasSettingsArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a description for the test bot alias.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -4497,12 +4787,16 @@ class DataPrivacyPropertiesArgs:
                  child_directed: pulumi.Input[bool]):
         """
         Data privacy setting of the Bot.
+        :param pulumi.Input[bool] child_directed: For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
         """
         pulumi.set(__self__, "child_directed", child_directed)
 
     @property
     @pulumi.getter(name="childDirected")
     def child_directed(self) -> pulumi.Input[bool]:
+        """
+        For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying `true` or `false` in the `childDirected` field. By specifying `true` in the `childDirected` field, you confirm that your use of Amazon Lex *is* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying `false` in the `childDirected` field, you confirm that your use of Amazon Lex *is not* related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the `childDirected` field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the [Amazon Lex FAQ](https://docs.aws.amazon.com/lex/faqs#data-security) .
+        """
         return pulumi.get(self, "child_directed")
 
     @child_directed.setter

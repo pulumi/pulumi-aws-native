@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicCellValueSynonym
     {
+        /// <summary>
+        /// The cell value.
+        /// </summary>
         public readonly string? CellValue;
+        /// <summary>
+        /// Other names or aliases for the cell value.
+        /// </summary>
         public readonly ImmutableArray<string> Synonyms;
 
         [OutputConstructor]

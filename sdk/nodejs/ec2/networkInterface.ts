@@ -41,6 +41,9 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Network interface id.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A connection tracking specification for the network interface.
+     */
     public readonly connectionTrackingSpecification!: pulumi.Output<outputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
     /**
      * A description for the network interface.
@@ -194,6 +197,9 @@ export class NetworkInterface extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInterface resource.
  */
 export interface NetworkInterfaceArgs {
+    /**
+     * A connection tracking specification for the network interface.
+     */
     connectionTrackingSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceConnectionTrackingSpecificationArgs>;
     /**
      * A description for the network interface.

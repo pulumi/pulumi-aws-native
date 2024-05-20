@@ -21,6 +21,11 @@ class MeteredProductArgs:
                  vendor: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MeteredProduct resource.
+        :param pulumi.Input[str] family: The family to which the metered product belongs.
+        :param pulumi.Input[str] license_endpoint_id: The Amazon EC2 identifier of the license endpoint.
+        :param pulumi.Input[int] port: The port on which the metered product should run.
+        :param pulumi.Input[str] product_id: The product ID.
+        :param pulumi.Input[str] vendor: The vendor.
         """
         if family is not None:
             pulumi.set(__self__, "family", family)
@@ -36,6 +41,9 @@ class MeteredProductArgs:
     @property
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The family to which the metered product belongs.
+        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -45,6 +53,9 @@ class MeteredProductArgs:
     @property
     @pulumi.getter(name="licenseEndpointId")
     def license_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon EC2 identifier of the license endpoint.
+        """
         return pulumi.get(self, "license_endpoint_id")
 
     @license_endpoint_id.setter
@@ -54,6 +65,9 @@ class MeteredProductArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the metered product should run.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -63,6 +77,9 @@ class MeteredProductArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The product ID.
+        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -72,6 +89,9 @@ class MeteredProductArgs:
     @property
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
+        """
+        The vendor.
+        """
         return pulumi.get(self, "vendor")
 
     @vendor.setter
@@ -95,6 +115,11 @@ class MeteredProduct(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] family: The family to which the metered product belongs.
+        :param pulumi.Input[str] license_endpoint_id: The Amazon EC2 identifier of the license endpoint.
+        :param pulumi.Input[int] port: The port on which the metered product should run.
+        :param pulumi.Input[str] product_id: The product ID.
+        :param pulumi.Input[str] vendor: The vendor.
         """
         ...
     @overload
@@ -175,30 +200,48 @@ class MeteredProduct(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the metered product.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def family(self) -> pulumi.Output[Optional[str]]:
+        """
+        The family to which the metered product belongs.
+        """
         return pulumi.get(self, "family")
 
     @property
     @pulumi.getter(name="licenseEndpointId")
     def license_endpoint_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon EC2 identifier of the license endpoint.
+        """
         return pulumi.get(self, "license_endpoint_id")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The port on which the metered product should run.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The product ID.
+        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter
     def vendor(self) -> pulumi.Output[Optional[str]]:
+        """
+        The vendor.
+        """
         return pulumi.get(self, "vendor")
 

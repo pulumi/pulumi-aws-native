@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowCustomConnectorSourceProperties
     {
+        /// <summary>
+        /// Custom properties that are required to use the custom connector as a source.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
+        /// <summary>
+        /// The API of the connector application that Amazon AppFlow uses to transfer your data.
+        /// </summary>
         public readonly Outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties? DataTransferApi;
+        /// <summary>
+        /// The entity specified in the custom connector as a source in the flow.
+        /// </summary>
         public readonly string EntityName;
 
         [OutputConstructor]

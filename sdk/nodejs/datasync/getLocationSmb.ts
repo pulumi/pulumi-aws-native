@@ -42,6 +42,9 @@ export interface GetLocationSmbResult {
      * The URL of the SMB location that was described.
      */
     readonly locationUri?: string;
+    /**
+     * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+     */
     readonly mountOptions?: outputs.datasync.LocationSmbMountOptions;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -46,6 +46,9 @@ export interface GetRoomResult {
      * The maximum number of messages per second that can be sent to the room.
      */
     readonly maximumMessageRatePerSecond?: number;
+    /**
+     * Configuration information for optional review of messages.
+     */
     readonly messageReviewHandler?: outputs.ivschat.RoomMessageReviewHandler;
     /**
      * The name of the room. The value does not need to be unique.

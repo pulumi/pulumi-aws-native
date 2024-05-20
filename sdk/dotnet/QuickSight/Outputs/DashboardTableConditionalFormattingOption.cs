@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableConditionalFormattingOption
     {
+        /// <summary>
+        /// The cell conditional formatting option for a table.
+        /// </summary>
         public readonly Outputs.DashboardTableCellConditionalFormatting? Cell;
+        /// <summary>
+        /// The row conditional formatting option for a table.
+        /// </summary>
         public readonly Outputs.DashboardTableRowConditionalFormatting? Row;
 
         [OutputConstructor]

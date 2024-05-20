@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetIamInstanceProfileSpecification
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance profile.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

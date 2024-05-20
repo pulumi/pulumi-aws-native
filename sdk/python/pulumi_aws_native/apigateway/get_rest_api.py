@@ -124,11 +124,17 @@ class GetRestApiResult:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[str]:
+        """
+        The string identifier of the associated RestApi.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="rootResourceId")
     def root_resource_id(self) -> Optional[str]:
+        """
+        The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
+        """
         return pulumi.get(self, "root_resource_id")
 
     @property
@@ -164,6 +170,9 @@ def get_rest_api(rest_api_id: Optional[str] = None,
     """
     The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
      On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+
+
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
     __args__['restApiId'] = rest_api_id
@@ -190,5 +199,8 @@ def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
     """
     The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
      On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+
+
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

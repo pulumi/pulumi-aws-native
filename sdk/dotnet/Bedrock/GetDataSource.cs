@@ -73,12 +73,24 @@ namespace Pulumi.AwsNative.Bedrock
         /// The time at which the data source was created.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The data deletion policy for a data source.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy? DataDeletionPolicy;
+        /// <summary>
+        /// Contains details about how the data source is stored.
+        /// </summary>
         public readonly Outputs.DataSourceConfiguration? DataSourceConfiguration;
         /// <summary>
         /// Identifier for a resource.
         /// </summary>
         public readonly string? DataSourceId;
+        /// <summary>
+        /// The status of the data source. The following statuses are possible:
+        /// 
+        /// - Available – The data source has been created and is ready for ingestion into the knowledge base.
+        /// - Deleting – The data source is being deleted.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceStatus? DataSourceStatus;
         /// <summary>
         /// Description of the Resource.
@@ -92,6 +104,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// The name of the data source.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Contains details about the configuration of the server-side encryption.
+        /// </summary>
         public readonly Outputs.DataSourceServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
         /// <summary>
         /// The time at which the knowledge base was last updated.

@@ -163,12 +163,16 @@ class LocationFSxOntapNfs(dict):
                  mount_options: 'outputs.LocationFSxOntapNfsMountOptions'):
         """
         NFS protocol configuration for FSx ONTAP file system.
+        :param 'LocationFSxOntapNfsMountOptions' mount_options: Specifies how DataSync can access a location using the NFS protocol.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> 'outputs.LocationFSxOntapNfsMountOptions':
+        """
+        Specifies how DataSync can access a location using the NFS protocol.
+        """
         return pulumi.get(self, "mount_options")
 
 
@@ -205,6 +209,8 @@ class LocationFSxOntapProtocol(dict):
                  smb: Optional['outputs.LocationFSxOntapSmb'] = None):
         """
         Configuration settings for NFS or SMB protocol.
+        :param 'LocationFSxOntapNfs' nfs: Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
+        :param 'LocationFSxOntapSmb' smb: Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -214,11 +220,17 @@ class LocationFSxOntapProtocol(dict):
     @property
     @pulumi.getter
     def nfs(self) -> Optional['outputs.LocationFSxOntapNfs']:
+        """
+        Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
+        """
         return pulumi.get(self, "nfs")
 
     @property
     @pulumi.getter
     def smb(self) -> Optional['outputs.LocationFSxOntapSmb']:
+        """
+        Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
+        """
         return pulumi.get(self, "smb")
 
 
@@ -251,6 +263,7 @@ class LocationFSxOntapSmb(dict):
                  domain: Optional[str] = None):
         """
         SMB protocol configuration for FSx ONTAP file system.
+        :param 'LocationFSxOntapSmbMountOptions' mount_options: Specifies how DataSync can access a location using the SMB protocol.
         :param str password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param str user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         :param str domain: The name of the Windows domain that the SMB server belongs to.
@@ -264,6 +277,9 @@ class LocationFSxOntapSmb(dict):
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> 'outputs.LocationFSxOntapSmbMountOptions':
+        """
+        Specifies how DataSync can access a location using the SMB protocol.
+        """
         return pulumi.get(self, "mount_options")
 
     @property
@@ -363,12 +379,16 @@ class LocationFSxOpenZfsNfs(dict):
                  mount_options: 'outputs.LocationFSxOpenZfsMountOptions'):
         """
         FSx OpenZFS file system NFS protocol information
+        :param 'LocationFSxOpenZfsMountOptions' mount_options: Represents the mount options that are available for DataSync to access an NFS location.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> 'outputs.LocationFSxOpenZfsMountOptions':
+        """
+        Represents the mount options that are available for DataSync to access an NFS location.
+        """
         return pulumi.get(self, "mount_options")
 
 
@@ -381,6 +401,7 @@ class LocationFSxOpenZfsProtocol(dict):
                  nfs: Optional['outputs.LocationFSxOpenZfsNfs'] = None):
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
+        :param 'LocationFSxOpenZfsNfs' nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -388,6 +409,9 @@ class LocationFSxOpenZfsProtocol(dict):
     @property
     @pulumi.getter
     def nfs(self) -> Optional['outputs.LocationFSxOpenZfsNfs']:
+        """
+        Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
+        """
         return pulumi.get(self, "nfs")
 
 

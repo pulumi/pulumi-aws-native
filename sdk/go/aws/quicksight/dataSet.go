@@ -17,7 +17,8 @@ type DataSet struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS account ID.
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups DataSetColumnGroupArrayOutput `pulumi:"columnGroups"`
@@ -29,17 +30,24 @@ type DataSet struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes pulumi.Float64Output `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime               pulumi.StringOutput                `pulumi:"createdTime"`
-	DataSetId                 pulumi.StringPtrOutput             `pulumi:"dataSetId"`
-	DataSetRefreshProperties  DataSetRefreshPropertiesPtrOutput  `pulumi:"dataSetRefreshProperties"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+	DataSetId pulumi.StringPtrOutput `pulumi:"dataSetId"`
+	// The refresh properties of a dataset.
+	DataSetRefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"dataSetRefreshProperties"`
+	// The usage configuration to apply to child datasets that reference this dataset as a source.
 	DataSetUsageConfiguration DataSetUsageConfigurationPtrOutput `pulumi:"dataSetUsageConfiguration"`
 	// <p>The parameter declarations of the dataset.</p>
-	DatasetParameters   DataSetDatasetParameterArrayOutput  `pulumi:"datasetParameters"`
-	FieldFolders        DataSetFieldFolderMapOutput         `pulumi:"fieldFolders"`
-	ImportMode          DataSetImportModePtrOutput          `pulumi:"importMode"`
+	DatasetParameters DataSetDatasetParameterArrayOutput `pulumi:"datasetParameters"`
+	// The folder that contains fields and nested subfolders for your dataset.
+	FieldFolders DataSetFieldFolderMapOutput `pulumi:"fieldFolders"`
+	// Indicates whether you want to import the data into SPICE.
+	ImportMode DataSetImportModePtrOutput `pulumi:"importMode"`
+	// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
 	// <p>The last time that this dataset was updated.</p>
-	LastUpdatedTime pulumi.StringOutput          `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap DataSetLogicalTableMapOutput `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -47,9 +55,12 @@ type DataSet struct {
 	//             analyses, and dashboards.</p>
 	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions                        DataSetResourcePermissionArrayOutput               `pulumi:"permissions"`
-	PhysicalTableMap                   DataSetPhysicalTableMapOutput                      `pulumi:"physicalTableMap"`
-	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrOutput          `pulumi:"rowLevelPermissionDataSet"`
+	Permissions DataSetResourcePermissionArrayOutput `pulumi:"permissions"`
+	// Declares the physical tables that are available in the underlying data sources.
+	PhysicalTableMap DataSetPhysicalTableMapOutput `pulumi:"physicalTableMap"`
+	// The row-level security configuration for the data that you want to create.
+	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
+	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -100,6 +111,7 @@ func (DataSetState) ElementType() reflect.Type {
 }
 
 type dataSetArgs struct {
+	// The AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
@@ -107,21 +119,31 @@ type dataSetArgs struct {
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
 	//             </code>.</p>
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
-	DataSetId                  *string                            `pulumi:"dataSetId"`
-	DataSetRefreshProperties   *DataSetRefreshProperties          `pulumi:"dataSetRefreshProperties"`
-	DataSetUsageConfiguration  *DataSetUsageConfiguration         `pulumi:"dataSetUsageConfiguration"`
+	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+	DataSetId *string `pulumi:"dataSetId"`
+	// The refresh properties of a dataset.
+	DataSetRefreshProperties *DataSetRefreshProperties `pulumi:"dataSetRefreshProperties"`
+	// The usage configuration to apply to child datasets that reference this dataset as a source.
+	DataSetUsageConfiguration *DataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
 	// <p>The parameter declarations of the dataset.</p>
-	DatasetParameters   []DataSetDatasetParameter      `pulumi:"datasetParameters"`
-	FieldFolders        map[string]DataSetFieldFolder  `pulumi:"fieldFolders"`
-	ImportMode          *DataSetImportMode             `pulumi:"importMode"`
-	IngestionWaitPolicy *DataSetIngestionWaitPolicy    `pulumi:"ingestionWaitPolicy"`
-	LogicalTableMap     map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
+	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
+	// The folder that contains fields and nested subfolders for your dataset.
+	FieldFolders map[string]DataSetFieldFolder `pulumi:"fieldFolders"`
+	// Indicates whether you want to import the data into SPICE.
+	ImportMode *DataSetImportMode `pulumi:"importMode"`
+	// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+	IngestionWaitPolicy *DataSetIngestionWaitPolicy `pulumi:"ingestionWaitPolicy"`
+	// Configures the combination and transformation of the data from the physical tables.
+	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
 	Name *string `pulumi:"name"`
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions                        []DataSetResourcePermission                `pulumi:"permissions"`
-	PhysicalTableMap                   map[string]DataSetPhysicalTable            `pulumi:"physicalTableMap"`
-	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
+	Permissions []DataSetResourcePermission `pulumi:"permissions"`
+	// Declares the physical tables that are available in the underlying data sources.
+	PhysicalTableMap map[string]DataSetPhysicalTable `pulumi:"physicalTableMap"`
+	// The row-level security configuration for the data that you want to create.
+	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
+	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
@@ -129,6 +151,7 @@ type dataSetArgs struct {
 
 // The set of arguments for constructing a DataSet resource.
 type DataSetArgs struct {
+	// The AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
 	ColumnGroups DataSetColumnGroupArrayInput
@@ -136,21 +159,31 @@ type DataSetArgs struct {
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
 	//             </code>.</p>
 	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
-	DataSetId                  pulumi.StringPtrInput
-	DataSetRefreshProperties   DataSetRefreshPropertiesPtrInput
-	DataSetUsageConfiguration  DataSetUsageConfigurationPtrInput
+	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+	DataSetId pulumi.StringPtrInput
+	// The refresh properties of a dataset.
+	DataSetRefreshProperties DataSetRefreshPropertiesPtrInput
+	// The usage configuration to apply to child datasets that reference this dataset as a source.
+	DataSetUsageConfiguration DataSetUsageConfigurationPtrInput
 	// <p>The parameter declarations of the dataset.</p>
-	DatasetParameters   DataSetDatasetParameterArrayInput
-	FieldFolders        DataSetFieldFolderMapInput
-	ImportMode          DataSetImportModePtrInput
+	DatasetParameters DataSetDatasetParameterArrayInput
+	// The folder that contains fields and nested subfolders for your dataset.
+	FieldFolders DataSetFieldFolderMapInput
+	// Indicates whether you want to import the data into SPICE.
+	ImportMode DataSetImportModePtrInput
+	// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrInput
-	LogicalTableMap     DataSetLogicalTableMapInput
+	// Configures the combination and transformation of the data from the physical tables.
+	LogicalTableMap DataSetLogicalTableMapInput
 	// <p>The display name for the dataset.</p>
 	Name pulumi.StringPtrInput
 	// <p>A list of resource permissions on the dataset.</p>
-	Permissions                        DataSetResourcePermissionArrayInput
-	PhysicalTableMap                   DataSetPhysicalTableMapInput
-	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrInput
+	Permissions DataSetResourcePermissionArrayInput
+	// Declares the physical tables that are available in the underlying data sources.
+	PhysicalTableMap DataSetPhysicalTableMapInput
+	// The row-level security configuration for the data that you want to create.
+	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
+	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags aws.TagArrayInput
@@ -198,6 +231,7 @@ func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AWS account ID.
 func (o DataSetOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
@@ -227,14 +261,17 @@ func (o DataSetOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
 func (o DataSetOutput) DataSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringPtrOutput { return v.DataSetId }).(pulumi.StringPtrOutput)
 }
 
+// The refresh properties of a dataset.
 func (o DataSetOutput) DataSetRefreshProperties() DataSetRefreshPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRefreshPropertiesPtrOutput { return v.DataSetRefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
 }
 
+// The usage configuration to apply to child datasets that reference this dataset as a source.
 func (o DataSetOutput) DataSetUsageConfiguration() DataSetUsageConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetUsageConfigurationPtrOutput { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
 }
@@ -244,14 +281,17 @@ func (o DataSetOutput) DatasetParameters() DataSetDatasetParameterArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetDatasetParameterArrayOutput { return v.DatasetParameters }).(DataSetDatasetParameterArrayOutput)
 }
 
+// The folder that contains fields and nested subfolders for your dataset.
 func (o DataSetOutput) FieldFolders() DataSetFieldFolderMapOutput {
 	return o.ApplyT(func(v *DataSet) DataSetFieldFolderMapOutput { return v.FieldFolders }).(DataSetFieldFolderMapOutput)
 }
 
+// Indicates whether you want to import the data into SPICE.
 func (o DataSetOutput) ImportMode() DataSetImportModePtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetImportModePtrOutput { return v.ImportMode }).(DataSetImportModePtrOutput)
 }
 
+// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 func (o DataSetOutput) IngestionWaitPolicy() DataSetIngestionWaitPolicyPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetIngestionWaitPolicyPtrOutput { return v.IngestionWaitPolicy }).(DataSetIngestionWaitPolicyPtrOutput)
 }
@@ -261,6 +301,7 @@ func (o DataSetOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// Configures the combination and transformation of the data from the physical tables.
 func (o DataSetOutput) LogicalTableMap() DataSetLogicalTableMapOutput {
 	return o.ApplyT(func(v *DataSet) DataSetLogicalTableMapOutput { return v.LogicalTableMap }).(DataSetLogicalTableMapOutput)
 }
@@ -282,14 +323,17 @@ func (o DataSetOutput) Permissions() DataSetResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetResourcePermissionArrayOutput { return v.Permissions }).(DataSetResourcePermissionArrayOutput)
 }
 
+// Declares the physical tables that are available in the underlying data sources.
 func (o DataSetOutput) PhysicalTableMap() DataSetPhysicalTableMapOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapOutput { return v.PhysicalTableMap }).(DataSetPhysicalTableMapOutput)
 }
 
+// The row-level security configuration for the data that you want to create.
 func (o DataSetOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionDataSetPtrOutput { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
 }
 
+// The element you can use to define tags for row-level security.
 func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermissionTagConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionTagConfigurationPtrOutput {
 		return v.RowLevelPermissionTagConfiguration

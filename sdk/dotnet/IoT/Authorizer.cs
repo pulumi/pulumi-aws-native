@@ -15,30 +15,65 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:Authorizer")]
     public partial class Authorizer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the authorizer.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The authorizer's Lambda function ARN.
+        /// </summary>
         [Output("authorizerFunctionArn")]
         public Output<string> AuthorizerFunctionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The authorizer name.
+        /// </summary>
         [Output("authorizerName")]
         public Output<string?> AuthorizerName { get; private set; } = null!;
 
+        /// <summary>
+        /// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        /// </summary>
         [Output("enableCachingForHttp")]
         public Output<bool?> EnableCachingForHttp { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether AWS IoT validates the token signature in an authorization request.
+        /// </summary>
         [Output("signingDisabled")]
         public Output<bool?> SigningDisabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the authorizer.
+        /// 
+        /// Valid values: `ACTIVE` | `INACTIVE`
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.IoT.AuthorizerStatus?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata which can be used to manage the custom authorizer.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The key used to extract the token from the HTTP headers.
+        /// </summary>
         [Output("tokenKeyName")]
         public Output<string?> TokenKeyName { get; private set; } = null!;
 
+        /// <summary>
+        /// The public keys used to validate the token signature returned by your custom authentication service.
+        /// </summary>
         [Output("tokenSigningPublicKeys")]
         public Output<ImmutableDictionary<string, string>?> TokenSigningPublicKeys { get; private set; } = null!;
 
@@ -92,34 +127,68 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authorizer's Lambda function ARN.
+        /// </summary>
         [Input("authorizerFunctionArn", required: true)]
         public Input<string> AuthorizerFunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// The authorizer name.
+        /// </summary>
         [Input("authorizerName")]
         public Input<string>? AuthorizerName { get; set; }
 
+        /// <summary>
+        /// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        /// </summary>
         [Input("enableCachingForHttp")]
         public Input<bool>? EnableCachingForHttp { get; set; }
 
+        /// <summary>
+        /// Specifies whether AWS IoT validates the token signature in an authorization request.
+        /// </summary>
         [Input("signingDisabled")]
         public Input<bool>? SigningDisabled { get; set; }
 
+        /// <summary>
+        /// The status of the authorizer.
+        /// 
+        /// Valid values: `ACTIVE` | `INACTIVE`
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.IoT.AuthorizerStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata which can be used to manage the custom authorizer.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The key used to extract the token from the HTTP headers.
+        /// </summary>
         [Input("tokenKeyName")]
         public Input<string>? TokenKeyName { get; set; }
 
         [Input("tokenSigningPublicKeys")]
         private InputMap<string>? _tokenSigningPublicKeys;
+
+        /// <summary>
+        /// The public keys used to validate the token signature returned by your custom authentication service.
+        /// </summary>
         public InputMap<string> TokenSigningPublicKeys
         {
             get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());

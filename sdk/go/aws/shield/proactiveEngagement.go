@@ -16,6 +16,7 @@ import (
 type ProactiveEngagement struct {
 	pulumi.CustomResourceState
 
+	// The ID of the account that submitted the template.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
 	// To enable proactive engagement, the contact list must include at least one phone number.
@@ -126,6 +127,7 @@ func (o ProactiveEngagementOutput) ToProactiveEngagementOutputWithContext(ctx co
 	return o
 }
 
+// The ID of the account that submitted the template.
 func (o ProactiveEngagementOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProactiveEngagement) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

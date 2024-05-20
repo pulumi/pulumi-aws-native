@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanIntegration
     {
+        /// <summary>
+        /// Information about the PagerDuty service where the response plan creates an incident.
+        /// </summary>
         public readonly Outputs.ResponsePlanPagerDutyConfiguration? PagerDutyConfiguration;
 
         [OutputConstructor]

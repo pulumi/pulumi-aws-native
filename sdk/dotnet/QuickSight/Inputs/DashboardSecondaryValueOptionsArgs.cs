@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSecondaryValueOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the visibility of the secondary value.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

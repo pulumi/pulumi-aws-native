@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Oam.Outputs
     [OutputType]
     public sealed class LinkConfiguration
     {
+        /// <summary>
+        /// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
+        /// </summary>
         public readonly Outputs.LinkFilter? LogGroupConfiguration;
+        /// <summary>
+        /// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
+        /// </summary>
         public readonly Outputs.LinkFilter? MetricConfiguration;
 
         [OutputConstructor]

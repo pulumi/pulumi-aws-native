@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.WorkSpaces
 {
+    /// <summary>
+    /// The association status of the connection alias.
+    /// </summary>
     [EnumType]
     public readonly struct ConnectionAliasAssociationAssociationStatus : IEquatable<ConnectionAliasAssociationAssociationStatus>
     {
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpaces
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The current state of the connection alias, returned as a string.
+    /// </summary>
     [EnumType]
     public readonly struct ConnectionAliasState : IEquatable<ConnectionAliasState>
     {

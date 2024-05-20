@@ -37,12 +37,33 @@ export class Entitlement extends pulumi.CustomResource {
         return obj['__pulumiType'] === Entitlement.__pulumiType;
     }
 
+    /**
+     * Specifies whether to entitle all apps or only selected apps.
+     */
     public readonly appVisibility!: pulumi.Output<string>;
+    /**
+     * The attributes of the entitlement.
+     */
     public readonly attributes!: pulumi.Output<outputs.appstream.EntitlementAttribute[]>;
+    /**
+     * The time when the entitlement was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The description of the entitlement.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The time when the entitlement was last modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * The name of the entitlement.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name of the stack.
+     */
     public readonly stackName!: pulumi.Output<string>;
 
     /**
@@ -92,9 +113,24 @@ export class Entitlement extends pulumi.CustomResource {
  * The set of arguments for constructing a Entitlement resource.
  */
 export interface EntitlementArgs {
+    /**
+     * Specifies whether to entitle all apps or only selected apps.
+     */
     appVisibility: pulumi.Input<string>;
+    /**
+     * The attributes of the entitlement.
+     */
     attributes: pulumi.Input<pulumi.Input<inputs.appstream.EntitlementAttributeArgs>[]>;
+    /**
+     * The description of the entitlement.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the entitlement.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the stack.
+     */
     stackName: pulumi.Input<string>;
 }

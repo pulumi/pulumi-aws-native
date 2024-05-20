@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleAppSyncParameters
     {
+        /// <summary>
+        /// The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.
+        /// 
+        /// For more information, see [Operations](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations) in the *AWS AppSync User Guide* .
+        /// </summary>
         public readonly string GraphQlOperation;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class JobOutputFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents a set of options that define the structure of comma-separated value (CSV) job output.
+        /// </summary>
         [Input("csv")]
         public Input<Inputs.JobCsvOutputOptionsArgs>? Csv { get; set; }
 

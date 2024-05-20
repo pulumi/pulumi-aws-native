@@ -17,6 +17,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? Height;
+        /// <summary>
+        /// The spacing between section content and its top, bottom, left, and right edges.
+        /// 
+        /// There is no padding by default.
+        /// </summary>
         public readonly Outputs.DashboardSpacing? Padding;
 
         [OutputConstructor]

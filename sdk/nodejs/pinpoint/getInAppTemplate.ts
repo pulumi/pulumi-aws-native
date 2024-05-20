@@ -19,21 +19,49 @@ export function getInAppTemplate(args: GetInAppTemplateArgs, opts?: pulumi.Invok
 }
 
 export interface GetInAppTemplateArgs {
+    /**
+     * The name of the in-app message template.
+     */
     templateName: string;
 }
 
 export interface GetInAppTemplateResult {
+    /**
+     * The Amazon Resource Name (ARN) of the message template.
+     */
     readonly arn?: string;
+    /**
+     * An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
+     */
     readonly content?: outputs.pinpoint.InAppTemplateInAppMessageContent[];
     /**
+     * Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
      */
     readonly customConfig?: any;
+    /**
+     * A string that determines the appearance of the in-app message. You can specify one of the following:
+     *
+     * - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+     * - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+     * - `OVERLAYS` – a message that covers entire screen.
+     * - `MOBILE_FEED` – a message that appears in a window in front of the page.
+     * - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+     * - `CAROUSEL` – a scrollable layout of up to five unique messages.
+     */
     readonly layout?: enums.pinpoint.InAppTemplateLayout;
     /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
      */
     readonly tags?: any;
+    /**
+     * An optional description of the in-app template.
+     */
     readonly templateDescription?: string;
 }
 /**
@@ -44,5 +72,8 @@ export function getInAppTemplateOutput(args: GetInAppTemplateOutputArgs, opts?: 
 }
 
 export interface GetInAppTemplateOutputArgs {
+    /**
+     * The name of the in-app message template.
+     */
     templateName: pulumi.Input<string>;
 }

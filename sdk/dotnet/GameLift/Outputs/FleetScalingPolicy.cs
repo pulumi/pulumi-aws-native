@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
         /// </summary>
         public readonly int? EvaluationPeriods;
+        /// <summary>
+        /// The fleet location.
+        /// </summary>
         public readonly string? Location;
         /// <summary>
         /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.

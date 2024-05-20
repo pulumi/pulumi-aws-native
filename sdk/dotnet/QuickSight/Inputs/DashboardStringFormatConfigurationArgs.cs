@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardStringFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         [Input("nullValueFormatConfiguration")]
         public Input<Inputs.DashboardNullValueFormatConfigurationArgs>? NullValueFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The formatting configuration for numeric strings.
+        /// </summary>
         [Input("numericFormatConfiguration")]
         public Input<Inputs.DashboardNumericFormatConfigurationArgs>? NumericFormatConfiguration { get; set; }
 

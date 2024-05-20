@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class ComputeEnvironmentUpdatePolicy
     {
+        /// <summary>
+        /// Specifies the job timeout (in minutes) when the compute environment infrastructure is updated. The default value is 30.
+        /// </summary>
         public readonly int? JobExecutionTimeoutMinutes;
+        /// <summary>
+        /// Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        /// </summary>
         public readonly bool? TerminateJobsOnUpdate;
 
         [OutputConstructor]

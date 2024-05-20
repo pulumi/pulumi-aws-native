@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableConditionalFormattingOption
     {
+        /// <summary>
+        /// The cell conditional formatting option for a pivot table.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableCellConditionalFormatting? Cell;
 
         [OutputConstructor]

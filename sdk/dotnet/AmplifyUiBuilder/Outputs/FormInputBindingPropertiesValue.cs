@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormInputBindingPropertiesValue
     {
+        /// <summary>
+        /// Describes the properties to customize with data at runtime.
+        /// </summary>
         public readonly Outputs.FormInputBindingPropertiesValueProperties? BindingProperties;
+        /// <summary>
+        /// The property type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

@@ -24,6 +24,9 @@ export interface GetSecurityPolicyArgs {
      * The name of the policy
      */
     name: string;
+    /**
+     * The type of security policy. Can be either `encryption` or `network` .
+     */
     type: enums.opensearchserverless.SecurityPolicyType;
 }
 
@@ -49,5 +52,8 @@ export interface GetSecurityPolicyOutputArgs {
      * The name of the policy
      */
     name: pulumi.Input<string>;
+    /**
+     * The type of security policy. Can be either `encryption` or `network` .
+     */
     type: pulumi.Input<enums.opensearchserverless.SecurityPolicyType>;
 }

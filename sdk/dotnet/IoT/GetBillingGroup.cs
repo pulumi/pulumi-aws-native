@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetBillingGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the billing group.
+        /// </summary>
         [Input("billingGroupName", required: true)]
         public string BillingGroupName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetBillingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the billing group.
+        /// </summary>
         [Input("billingGroupName", required: true)]
         public Input<string> BillingGroupName { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetBillingGroupResult
     {
+        /// <summary>
+        /// The ARN of the billing group.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The properties of the billing group.
+        /// </summary>
         public readonly Outputs.BillingGroupPropertiesProperties? BillingGroupProperties;
+        /// <summary>
+        /// The ID of the billing group.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

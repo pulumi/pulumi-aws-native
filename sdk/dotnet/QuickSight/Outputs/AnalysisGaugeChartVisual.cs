@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGaugeChartVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisGaugeChartConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The conditional formatting of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisGaugeChartConditionalFormatting? ConditionalFormatting;
+        /// <summary>
+        /// The subtitle that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

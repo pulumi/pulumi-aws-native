@@ -15,8 +15,15 @@ var _ = internal.GetEnvOrDefault
 
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfiguration struct {
+	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+	//
+	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 	AutomaticTerminationMode *LaunchProfileAutomaticTerminationMode `pulumi:"automaticTerminationMode"`
-	ClipboardMode            LaunchProfileStreamingClipboardMode    `pulumi:"clipboardMode"`
+	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
+	ClipboardMode LaunchProfileStreamingClipboardMode `pulumi:"clipboardMode"`
 	// <p>The EC2 instance types that users can select from when launching a streaming session
 	//             with this launch profile.</p>
 	Ec2InstanceTypes []LaunchProfileStreamingInstanceType `pulumi:"ec2InstanceTypes"`
@@ -41,13 +48,19 @@ type LaunchProfileStreamConfiguration struct {
 	//             If the time that a session stays in the <code>READY</code> state exceeds the
 	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
 	//             stopped (instead of terminated).</p>
-	MaxStoppedSessionLengthInMinutes *float64                                        `pulumi:"maxStoppedSessionLengthInMinutes"`
-	SessionBackup                    *LaunchProfileStreamConfigurationSessionBackup  `pulumi:"sessionBackup"`
-	SessionPersistenceMode           *LaunchProfileSessionPersistenceMode            `pulumi:"sessionPersistenceMode"`
-	SessionStorage                   *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
+	MaxStoppedSessionLengthInMinutes *float64 `pulumi:"maxStoppedSessionLengthInMinutes"`
+	// Information about the streaming session backup.
+	SessionBackup *LaunchProfileStreamConfigurationSessionBackup `pulumi:"sessionBackup"`
+	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+	SessionPersistenceMode *LaunchProfileSessionPersistenceMode `pulumi:"sessionPersistenceMode"`
+	// The upload storage for a streaming session.
+	SessionStorage *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
 	// <p>The streaming images that users can select from when launching a streaming session
 	//             with this launch profile.</p>
-	StreamingImageIds   []string                          `pulumi:"streamingImageIds"`
+	StreamingImageIds []string `pulumi:"streamingImageIds"`
+	// Custom volume configuration for the root volumes that are attached to streaming sessions.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 	VolumeConfiguration *LaunchProfileVolumeConfiguration `pulumi:"volumeConfiguration"`
 }
 
@@ -64,8 +77,15 @@ type LaunchProfileStreamConfigurationInput interface {
 
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationArgs struct {
+	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+	//
+	// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 	AutomaticTerminationMode LaunchProfileAutomaticTerminationModePtrInput `pulumi:"automaticTerminationMode"`
-	ClipboardMode            LaunchProfileStreamingClipboardModeInput      `pulumi:"clipboardMode"`
+	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
+	ClipboardMode LaunchProfileStreamingClipboardModeInput `pulumi:"clipboardMode"`
 	// <p>The EC2 instance types that users can select from when launching a streaming session
 	//             with this launch profile.</p>
 	Ec2InstanceTypes LaunchProfileStreamingInstanceTypeArrayInput `pulumi:"ec2InstanceTypes"`
@@ -90,13 +110,19 @@ type LaunchProfileStreamConfigurationArgs struct {
 	//             If the time that a session stays in the <code>READY</code> state exceeds the
 	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
 	//             stopped (instead of terminated).</p>
-	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput                                 `pulumi:"maxStoppedSessionLengthInMinutes"`
-	SessionBackup                    LaunchProfileStreamConfigurationSessionBackupPtrInput  `pulumi:"sessionBackup"`
-	SessionPersistenceMode           LaunchProfileSessionPersistenceModePtrInput            `pulumi:"sessionPersistenceMode"`
-	SessionStorage                   LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
+	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxStoppedSessionLengthInMinutes"`
+	// Information about the streaming session backup.
+	SessionBackup LaunchProfileStreamConfigurationSessionBackupPtrInput `pulumi:"sessionBackup"`
+	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+	SessionPersistenceMode LaunchProfileSessionPersistenceModePtrInput `pulumi:"sessionPersistenceMode"`
+	// The upload storage for a streaming session.
+	SessionStorage LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
 	// <p>The streaming images that users can select from when launching a streaming session
 	//             with this launch profile.</p>
-	StreamingImageIds   pulumi.StringArrayInput                  `pulumi:"streamingImageIds"`
+	StreamingImageIds pulumi.StringArrayInput `pulumi:"streamingImageIds"`
+	// Custom volume configuration for the root volumes that are attached to streaming sessions.
+	//
+	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 	VolumeConfiguration LaunchProfileVolumeConfigurationPtrInput `pulumi:"volumeConfiguration"`
 }
 
@@ -127,12 +153,19 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 	return o
 }
 
+// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+//
+// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+//
+// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileAutomaticTerminationMode {
 		return v.AutomaticTerminationMode
 	}).(LaunchProfileAutomaticTerminationModePtrOutput)
 }
 
+// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
 func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() LaunchProfileStreamingClipboardModeOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) LaunchProfileStreamingClipboardMode { return v.ClipboardMode }).(LaunchProfileStreamingClipboardModeOutput)
 }
@@ -176,18 +209,21 @@ func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
+// Information about the streaming session backup.
 func (o LaunchProfileStreamConfigurationOutput) SessionBackup() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionBackup {
 		return v.SessionBackup
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
+// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 func (o LaunchProfileStreamConfigurationOutput) SessionPersistenceMode() LaunchProfileSessionPersistenceModePtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileSessionPersistenceMode {
 		return v.SessionPersistenceMode
 	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
+// The upload storage for a streaming session.
 func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
 		return v.SessionStorage
@@ -201,6 +237,9 @@ func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.Strin
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
 
+// Custom volume configuration for the root volumes that are attached to streaming sessions.
+//
+// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 func (o LaunchProfileStreamConfigurationOutput) VolumeConfiguration() LaunchProfileVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileVolumeConfiguration {
 		return v.VolumeConfiguration
@@ -231,6 +270,12 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamCon
 	}).(LaunchProfileStreamConfigurationOutput)
 }
 
+// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+//
+// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+//
+// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
 func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileAutomaticTerminationMode {
 		if v == nil {
@@ -240,6 +285,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() La
 	}).(LaunchProfileAutomaticTerminationModePtrOutput)
 }
 
+// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
 func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() LaunchProfileStreamingClipboardModePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamingClipboardMode {
 		if v == nil {
@@ -301,6 +347,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Information about the streaming session backup.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionBackup() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionBackup {
 		if v == nil {
@@ -310,6 +357,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionBackup() LaunchProfile
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
+// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() LaunchProfileSessionPersistenceModePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileSessionPersistenceMode {
 		if v == nil {
@@ -319,6 +367,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() Laun
 	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
+// The upload storage for a streaming session.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
 		if v == nil {
@@ -340,6 +389,9 @@ func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// Custom volume configuration for the root volumes that are attached to streaming sessions.
+//
+// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
 func (o LaunchProfileStreamConfigurationPtrOutput) VolumeConfiguration() LaunchProfileVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileVolumeConfiguration {
 		if v == nil {
@@ -355,8 +407,11 @@ func (o LaunchProfileStreamConfigurationPtrOutput) VolumeConfiguration() LaunchP
 type LaunchProfileStreamConfigurationSessionBackup struct {
 	// <p>The maximum number of backups that each streaming session created from this launch
 	//             profile can have.</p>
-	MaxBackupsToRetain *float64                        `pulumi:"maxBackupsToRetain"`
-	Mode               *LaunchProfileSessionBackupMode `pulumi:"mode"`
+	MaxBackupsToRetain *float64 `pulumi:"maxBackupsToRetain"`
+	// Specifies how artists sessions are backed up.
+	//
+	// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
+	Mode *LaunchProfileSessionBackupMode `pulumi:"mode"`
 }
 
 // LaunchProfileStreamConfigurationSessionBackupInput is an input type that accepts LaunchProfileStreamConfigurationSessionBackupArgs and LaunchProfileStreamConfigurationSessionBackupOutput values.
@@ -376,8 +431,11 @@ type LaunchProfileStreamConfigurationSessionBackupInput interface {
 type LaunchProfileStreamConfigurationSessionBackupArgs struct {
 	// <p>The maximum number of backups that each streaming session created from this launch
 	//             profile can have.</p>
-	MaxBackupsToRetain pulumi.Float64PtrInput                 `pulumi:"maxBackupsToRetain"`
-	Mode               LaunchProfileSessionBackupModePtrInput `pulumi:"mode"`
+	MaxBackupsToRetain pulumi.Float64PtrInput `pulumi:"maxBackupsToRetain"`
+	// Specifies how artists sessions are backed up.
+	//
+	// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
+	Mode LaunchProfileSessionBackupModePtrInput `pulumi:"mode"`
 }
 
 func (LaunchProfileStreamConfigurationSessionBackupArgs) ElementType() reflect.Type {
@@ -467,6 +525,9 @@ func (o LaunchProfileStreamConfigurationSessionBackupOutput) MaxBackupsToRetain(
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *float64 { return v.MaxBackupsToRetain }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies how artists sessions are backed up.
+//
+// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
 func (o LaunchProfileStreamConfigurationSessionBackupOutput) Mode() LaunchProfileSessionBackupModePtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *LaunchProfileSessionBackupMode { return v.Mode }).(LaunchProfileSessionBackupModePtrOutput)
 }
@@ -507,6 +568,9 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) MaxBackupsToReta
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies how artists sessions are backed up.
+//
+// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Mode() LaunchProfileSessionBackupModePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionBackup) *LaunchProfileSessionBackupMode {
 		if v == nil {
@@ -521,7 +585,8 @@ type LaunchProfileStreamConfigurationSessionStorage struct {
 	// <p>Allows artists to upload files to their workstations. The only valid option is
 	//                 <code>UPLOAD</code>.</p>
 	Mode []LaunchProfileStreamingSessionStorageMode `pulumi:"mode"`
-	Root *LaunchProfileStreamingSessionStorageRoot  `pulumi:"root"`
+	// The configuration for the upload storage root of the streaming session.
+	Root *LaunchProfileStreamingSessionStorageRoot `pulumi:"root"`
 }
 
 // LaunchProfileStreamConfigurationSessionStorageInput is an input type that accepts LaunchProfileStreamConfigurationSessionStorageArgs and LaunchProfileStreamConfigurationSessionStorageOutput values.
@@ -540,7 +605,8 @@ type LaunchProfileStreamConfigurationSessionStorageArgs struct {
 	// <p>Allows artists to upload files to their workstations. The only valid option is
 	//                 <code>UPLOAD</code>.</p>
 	Mode LaunchProfileStreamingSessionStorageModeArrayInput `pulumi:"mode"`
-	Root LaunchProfileStreamingSessionStorageRootPtrInput   `pulumi:"root"`
+	// The configuration for the upload storage root of the streaming session.
+	Root LaunchProfileStreamingSessionStorageRootPtrInput `pulumi:"root"`
 }
 
 func (LaunchProfileStreamConfigurationSessionStorageArgs) ElementType() reflect.Type {
@@ -630,6 +696,7 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() LaunchProfi
 	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
 }
 
+// The configuration for the upload storage root of the streaming session.
 func (o LaunchProfileStreamConfigurationSessionStorageOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
 		return v.Root
@@ -672,6 +739,7 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() LaunchPr
 	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
 }
 
+// The configuration for the upload storage root of the streaming session.
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
 		if v == nil {
@@ -1057,7 +1125,8 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Throughput() pulumi.Float64Pt
 // <p>TODO</p>
 type StreamingImageEncryptionConfiguration struct {
 	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
-	KeyArn  *string                                      `pulumi:"keyArn"`
+	KeyArn *string `pulumi:"keyArn"`
+	// The type of KMS key that is used to encrypt studio data.
 	KeyType StreamingImageEncryptionConfigurationKeyType `pulumi:"keyType"`
 }
 
@@ -1081,6 +1150,7 @@ func (o StreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOu
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationOutput) KeyType() StreamingImageEncryptionConfigurationKeyTypeOutput {
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) StreamingImageEncryptionConfigurationKeyType {
 		return v.KeyType
@@ -1121,6 +1191,7 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() StreamingImageEncryptionConfigurationKeyTypePtrOutput {
 	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *StreamingImageEncryptionConfigurationKeyType {
 		if v == nil {
@@ -2172,9 +2243,11 @@ func (o StudioComponentConfiguration3PropertiesPtrOutput) SharedFileSystemConfig
 type StudioComponentInitializationScript struct {
 	// <p>The version number of the protocol that is used by the launch profile. The only valid
 	//             version is "2021-03-31".</p>
-	LaunchProfileProtocolVersion *string                                        `pulumi:"launchProfileProtocolVersion"`
-	Platform                     *StudioComponentLaunchProfilePlatform          `pulumi:"platform"`
-	RunContext                   *StudioComponentInitializationScriptRunContext `pulumi:"runContext"`
+	LaunchProfileProtocolVersion *string `pulumi:"launchProfileProtocolVersion"`
+	// The platform of the initialization script, either Windows or Linux.
+	Platform *StudioComponentLaunchProfilePlatform `pulumi:"platform"`
+	// The method to use when running the initialization script.
+	RunContext *StudioComponentInitializationScriptRunContext `pulumi:"runContext"`
 	// <p>The initialization script.</p>
 	Script *string `pulumi:"script"`
 }
@@ -2194,9 +2267,11 @@ type StudioComponentInitializationScriptInput interface {
 type StudioComponentInitializationScriptArgs struct {
 	// <p>The version number of the protocol that is used by the launch profile. The only valid
 	//             version is "2021-03-31".</p>
-	LaunchProfileProtocolVersion pulumi.StringPtrInput                                 `pulumi:"launchProfileProtocolVersion"`
-	Platform                     StudioComponentLaunchProfilePlatformPtrInput          `pulumi:"platform"`
-	RunContext                   StudioComponentInitializationScriptRunContextPtrInput `pulumi:"runContext"`
+	LaunchProfileProtocolVersion pulumi.StringPtrInput `pulumi:"launchProfileProtocolVersion"`
+	// The platform of the initialization script, either Windows or Linux.
+	Platform StudioComponentLaunchProfilePlatformPtrInput `pulumi:"platform"`
+	// The method to use when running the initialization script.
+	RunContext StudioComponentInitializationScriptRunContextPtrInput `pulumi:"runContext"`
 	// <p>The initialization script.</p>
 	Script pulumi.StringPtrInput `pulumi:"script"`
 }
@@ -2260,10 +2335,12 @@ func (o StudioComponentInitializationScriptOutput) LaunchProfileProtocolVersion(
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.LaunchProfileProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
+// The platform of the initialization script, either Windows or Linux.
 func (o StudioComponentInitializationScriptOutput) Platform() StudioComponentLaunchProfilePlatformPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *StudioComponentLaunchProfilePlatform { return v.Platform }).(StudioComponentLaunchProfilePlatformPtrOutput)
 }
 
+// The method to use when running the initialization script.
 func (o StudioComponentInitializationScriptOutput) RunContext() StudioComponentInitializationScriptRunContextPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *StudioComponentInitializationScriptRunContext {
 		return v.RunContext
@@ -2787,7 +2864,8 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive
 // <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfiguration struct {
 	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
-	KeyArn  *string                              `pulumi:"keyArn"`
+	KeyArn *string `pulumi:"keyArn"`
+	// The type of KMS key that is used to encrypt studio data.
 	KeyType StudioEncryptionConfigurationKeyType `pulumi:"keyType"`
 }
 
@@ -2805,7 +2883,8 @@ type StudioEncryptionConfigurationInput interface {
 // <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfigurationArgs struct {
 	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
-	KeyArn  pulumi.StringPtrInput                     `pulumi:"keyArn"`
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+	// The type of KMS key that is used to encrypt studio data.
 	KeyType StudioEncryptionConfigurationKeyTypeInput `pulumi:"keyType"`
 }
 
@@ -2892,6 +2971,7 @@ func (o StudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationOutput) KeyType() StudioEncryptionConfigurationKeyTypeOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) StudioEncryptionConfigurationKeyType { return v.KeyType }).(StudioEncryptionConfigurationKeyTypeOutput)
 }
@@ -2930,6 +3010,7 @@ func (o StudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationPtrOutput) KeyType() StudioEncryptionConfigurationKeyTypePtrOutput {
 	return o.ApplyT(func(v *StudioEncryptionConfiguration) *StudioEncryptionConfigurationKeyType {
 		if v == nil {

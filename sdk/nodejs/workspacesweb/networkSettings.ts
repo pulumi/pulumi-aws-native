@@ -37,11 +37,35 @@ export class NetworkSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkSettings.__pulumiType;
     }
 
+    /**
+     * A list of web portal ARNs that this network settings is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * The ARN of the network settings.
+     */
     public /*out*/ readonly networkSettingsArn!: pulumi.Output<string>;
+    /**
+     * One or more security groups used to control access from streaming instances to your VPC.
+     *
+     * *Pattern* : `^[\w+\-]+$`
+     */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
+    /**
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+     *
+     * *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * The tags to add to the network settings resource. A tag is a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The VPC that streaming instances will connect to.
+     *
+     * *Pattern* : `^vpc-[0-9a-z]*$`
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -87,8 +111,26 @@ export class NetworkSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkSettings resource.
  */
 export interface NetworkSettingsArgs {
+    /**
+     * One or more security groups used to control access from streaming instances to your VPC.
+     *
+     * *Pattern* : `^[\w+\-]+$`
+     */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+     *
+     * *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to add to the network settings resource. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The VPC that streaming instances will connect to.
+     *
+     * *Pattern* : `^vpc-[0-9a-z]*$`
+     */
     vpcId: pulumi.Input<string>;
 }

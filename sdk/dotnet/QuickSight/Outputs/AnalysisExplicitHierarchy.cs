@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisExplicitHierarchy
     {
+        /// <summary>
+        /// The list of columns that define the explicit hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisColumnIdentifier> Columns;
+        /// <summary>
+        /// The option that determines the drill down filters for the explicit hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDrillDownFilter> DrillDownFilters;
+        /// <summary>
+        /// The hierarchy ID of the explicit hierarchy.
+        /// </summary>
         public readonly string HierarchyId;
 
         [OutputConstructor]

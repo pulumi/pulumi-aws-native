@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you send a message to a Lambda function.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
 

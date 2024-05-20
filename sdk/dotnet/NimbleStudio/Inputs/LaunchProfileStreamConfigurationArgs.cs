@@ -15,9 +15,20 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// </summary>
     public sealed class LaunchProfileStreamConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+        /// 
+        /// - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
+        /// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
+        /// 
+        /// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
+        /// </summary>
         [Input("automaticTerminationMode")]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileAutomaticTerminationMode>? AutomaticTerminationMode { get; set; }
 
+        /// <summary>
+        /// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
+        /// </summary>
         [Input("clipboardMode", required: true)]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode> ClipboardMode { get; set; } = null!;
 
@@ -64,12 +75,21 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         [Input("maxStoppedSessionLengthInMinutes")]
         public Input<double>? MaxStoppedSessionLengthInMinutes { get; set; }
 
+        /// <summary>
+        /// Information about the streaming session backup.
+        /// </summary>
         [Input("sessionBackup")]
         public Input<Inputs.LaunchProfileStreamConfigurationSessionBackupArgs>? SessionBackup { get; set; }
 
+        /// <summary>
+        /// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+        /// </summary>
         [Input("sessionPersistenceMode")]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode>? SessionPersistenceMode { get; set; }
 
+        /// <summary>
+        /// The upload storage for a streaming session.
+        /// </summary>
         [Input("sessionStorage")]
         public Input<Inputs.LaunchProfileStreamConfigurationSessionStorageArgs>? SessionStorage { get; set; }
 
@@ -86,6 +106,11 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
             set => _streamingImageIds = value;
         }
 
+        /// <summary>
+        /// Custom volume configuration for the root volumes that are attached to streaming sessions.
+        /// 
+        /// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
+        /// </summary>
         [Input("volumeConfiguration")]
         public Input<Inputs.LaunchProfileVolumeConfigurationArgs>? VolumeConfiguration { get; set; }
 

@@ -26,6 +26,7 @@ func LookupResolver(ctx *pulumi.Context, args *LookupResolverArgs, opts ...pulum
 }
 
 type LookupResolverArgs struct {
+	// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
 	ResolverArn string `pulumi:"resolverArn"`
 }
 
@@ -49,7 +50,8 @@ type LookupResolverResult struct {
 	// The request mapping template.
 	//  Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
-	ResolverArn            *string `pulumi:"resolverArn"`
+	// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+	ResolverArn *string `pulumi:"resolverArn"`
 	// The response mapping template.
 	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
 	// Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
@@ -72,6 +74,7 @@ func LookupResolverOutput(ctx *pulumi.Context, args LookupResolverOutputArgs, op
 }
 
 type LookupResolverOutputArgs struct {
+	// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
 	ResolverArn pulumi.StringInput `pulumi:"resolverArn"`
 }
 
@@ -137,6 +140,7 @@ func (o LookupResolverResultOutput) RequestMappingTemplate() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
 func (o LookupResolverResultOutput) ResolverArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResolverArn }).(pulumi.StringPtrOutput)
 }

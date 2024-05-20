@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleAssetPropertyTimestampArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+        /// </summary>
         [Input("offsetInNanos")]
         public Input<string>? OffsetInNanos { get; set; }
 
+        /// <summary>
+        /// A string that contains the time in seconds since epoch. Accepts substitution templates.
+        /// </summary>
         [Input("timeInSeconds", required: true)]
         public Input<string> TimeInSeconds { get; set; } = null!;
 

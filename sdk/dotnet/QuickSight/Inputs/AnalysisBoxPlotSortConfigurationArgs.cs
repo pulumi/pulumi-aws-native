@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("categorySort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of a group by fields.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The pagination configuration of a table visual or box plot.
+        /// </summary>
         [Input("paginationConfiguration")]
         public Input<Inputs.AnalysisPaginationConfigurationArgs>? PaginationConfiguration { get; set; }
 

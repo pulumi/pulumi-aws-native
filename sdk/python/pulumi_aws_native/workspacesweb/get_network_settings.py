@@ -42,31 +42,55 @@ class GetNetworkSettingsResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that this network settings is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="networkSettingsArn")
     def network_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the network settings.
+        """
         return pulumi.get(self, "network_settings_arn")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        One or more security groups used to control access from streaming instances to your VPC.
+
+        *Pattern* : `^[\\w+\\-]+$`
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+
+        *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the network settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
+        """
+        The VPC that streaming instances will connect to.
+
+        *Pattern* : `^vpc-[0-9a-z]*$`
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -88,6 +112,9 @@ def get_network_settings(network_settings_arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSettingsResult:
     """
     Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
+
+
+    :param str network_settings_arn: The ARN of the network settings.
     """
     __args__ = dict()
     __args__['networkSettingsArn'] = network_settings_arn
@@ -108,5 +135,8 @@ def get_network_settings_output(network_settings_arn: Optional[pulumi.Input[str]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
+
+
+    :param str network_settings_arn: The ARN of the network settings.
     """
     ...

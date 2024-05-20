@@ -23,6 +23,11 @@ class EntitlementArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Entitlement resource.
+        :param pulumi.Input[str] app_visibility: Specifies whether to entitle all apps or only selected apps.
+        :param pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]] attributes: The attributes of the entitlement.
+        :param pulumi.Input[str] stack_name: The name of the stack.
+        :param pulumi.Input[str] description: The description of the entitlement.
+        :param pulumi.Input[str] name: The name of the entitlement.
         """
         pulumi.set(__self__, "app_visibility", app_visibility)
         pulumi.set(__self__, "attributes", attributes)
@@ -35,6 +40,9 @@ class EntitlementArgs:
     @property
     @pulumi.getter(name="appVisibility")
     def app_visibility(self) -> pulumi.Input[str]:
+        """
+        Specifies whether to entitle all apps or only selected apps.
+        """
         return pulumi.get(self, "app_visibility")
 
     @app_visibility.setter
@@ -44,6 +52,9 @@ class EntitlementArgs:
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]]:
+        """
+        The attributes of the entitlement.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -53,6 +64,9 @@ class EntitlementArgs:
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Input[str]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -62,6 +76,9 @@ class EntitlementArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the entitlement.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -71,6 +88,9 @@ class EntitlementArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the entitlement.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -94,6 +114,11 @@ class Entitlement(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_visibility: Specifies whether to entitle all apps or only selected apps.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntitlementAttributeArgs']]]] attributes: The attributes of the entitlement.
+        :param pulumi.Input[str] description: The description of the entitlement.
+        :param pulumi.Input[str] name: The name of the entitlement.
+        :param pulumi.Input[str] stack_name: The name of the stack.
         """
         ...
     @overload
@@ -182,35 +207,56 @@ class Entitlement(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appVisibility")
     def app_visibility(self) -> pulumi.Output[str]:
+        """
+        Specifies whether to entitle all apps or only selected apps.
+        """
         return pulumi.get(self, "app_visibility")
 
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Sequence['outputs.EntitlementAttribute']]:
+        """
+        The attributes of the entitlement.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the entitlement was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the entitlement.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The time when the entitlement was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the entitlement.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[str]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 

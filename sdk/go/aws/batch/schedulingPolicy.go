@@ -15,7 +15,9 @@ import (
 type SchedulingPolicy struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput                      `pulumi:"arn"`
+	// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The fair share policy of the scheduling policy.
 	FairsharePolicy SchedulingPolicyFairsharePolicyPtrOutput `pulumi:"fairsharePolicy"`
 	// Name of Scheduling Policy.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -68,6 +70,7 @@ func (SchedulingPolicyState) ElementType() reflect.Type {
 }
 
 type schedulingPolicyArgs struct {
+	// The fair share policy of the scheduling policy.
 	FairsharePolicy *SchedulingPolicyFairsharePolicy `pulumi:"fairsharePolicy"`
 	// Name of Scheduling Policy.
 	Name *string `pulumi:"name"`
@@ -77,6 +80,7 @@ type schedulingPolicyArgs struct {
 
 // The set of arguments for constructing a SchedulingPolicy resource.
 type SchedulingPolicyArgs struct {
+	// The fair share policy of the scheduling policy.
 	FairsharePolicy SchedulingPolicyFairsharePolicyPtrInput
 	// Name of Scheduling Policy.
 	Name pulumi.StringPtrInput
@@ -121,10 +125,12 @@ func (o SchedulingPolicyOutput) ToSchedulingPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
 func (o SchedulingPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The fair share policy of the scheduling policy.
 func (o SchedulingPolicyOutput) FairsharePolicy() SchedulingPolicyFairsharePolicyPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) SchedulingPolicyFairsharePolicyPtrOutput { return v.FairsharePolicy }).(SchedulingPolicyFairsharePolicyPtrOutput)
 }

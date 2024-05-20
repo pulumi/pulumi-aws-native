@@ -29,11 +29,17 @@ class GetUserPoolUiCustomizationAttachmentResult:
     @property
     @pulumi.getter
     def css(self) -> Optional[str]:
+        """
+        The CSS values in the UI customization.
+        """
         return pulumi.get(self, "css")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "id")
 
 
@@ -51,6 +57,9 @@ def get_user_pool_ui_customization_attachment(id: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolUiCustomizationAttachmentResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
+
+
+    :param str id: The resource ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -67,5 +76,8 @@ def get_user_pool_ui_customization_attachment_output(id: Optional[pulumi.Input[s
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolUiCustomizationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
+
+
+    :param str id: The resource ID.
     """
     ...

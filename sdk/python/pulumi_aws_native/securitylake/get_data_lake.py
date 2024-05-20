@@ -51,16 +51,25 @@ class GetDataLakeResult:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.DataLakeEncryptionConfiguration']:
+        """
+        Provides encryption details of the Amazon Security Lake object.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional['outputs.DataLakeLifecycleConfiguration']:
+        """
+        You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
+        """
         return pulumi.get(self, "lifecycle_configuration")
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional['outputs.DataLakeReplicationConfiguration']:
+        """
+        Provides replication details of Amazon Security Lake object.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @property
@@ -74,6 +83,9 @@ class GetDataLakeResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+        """
         return pulumi.get(self, "tags")
 
 

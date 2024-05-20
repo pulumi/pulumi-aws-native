@@ -24,15 +24,21 @@ func LookupPackage(ctx *pulumi.Context, args *LookupPackageArgs, opts ...pulumi.
 }
 
 type LookupPackageArgs struct {
+	// The package's ID.
 	PackageId string `pulumi:"packageId"`
 }
 
 type LookupPackageResult struct {
-	Arn             *string                 `pulumi:"arn"`
-	CreatedTime     *int                    `pulumi:"createdTime"`
-	PackageId       *string                 `pulumi:"packageId"`
+	// The package's ARN.
+	Arn *string `pulumi:"arn"`
+	// When the package was created.
+	CreatedTime *int `pulumi:"createdTime"`
+	// The package's ID.
+	PackageId *string `pulumi:"packageId"`
+	// A storage location.
 	StorageLocation *PackageStorageLocation `pulumi:"storageLocation"`
-	Tags            []aws.Tag               `pulumi:"tags"`
+	// Tags for the package.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts ...pulumi.InvokeOption) LookupPackageResultOutput {
@@ -49,6 +55,7 @@ func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts
 }
 
 type LookupPackageOutputArgs struct {
+	// The package's ID.
 	PackageId pulumi.StringInput `pulumi:"packageId"`
 }
 
@@ -70,22 +77,27 @@ func (o LookupPackageResultOutput) ToLookupPackageResultOutputWithContext(ctx co
 	return o
 }
 
+// The package's ARN.
 func (o LookupPackageResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPackageResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// When the package was created.
 func (o LookupPackageResultOutput) CreatedTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPackageResult) *int { return v.CreatedTime }).(pulumi.IntPtrOutput)
 }
 
+// The package's ID.
 func (o LookupPackageResultOutput) PackageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPackageResult) *string { return v.PackageId }).(pulumi.StringPtrOutput)
 }
 
+// A storage location.
 func (o LookupPackageResultOutput) StorageLocation() PackageStorageLocationPtrOutput {
 	return o.ApplyT(func(v LookupPackageResult) *PackageStorageLocation { return v.StorageLocation }).(PackageStorageLocationPtrOutput)
 }
 
+// Tags for the package.
 func (o LookupPackageResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPackageResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

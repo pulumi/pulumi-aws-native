@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:Farm")]
     public partial class Farm : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the farm.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the farm that helps identify what the farm is used for.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the farm.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The farm ID.
+        /// </summary>
         [Output("farmId")]
         public Output<string> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN for the KMS key.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
@@ -79,12 +94,21 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class FarmArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the farm that helps identify what the farm is used for.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the farm.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN for the KMS key.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

@@ -92,6 +92,16 @@ export const RuleGroupForwardedIpConfigurationFallbackBehavior = {
     NoMatch: "NO_MATCH",
 } as const;
 
+/**
+ * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+ *
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ *
+ * You can specify the following fallback behaviors:
+ *
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ */
 export type RuleGroupForwardedIpConfigurationFallbackBehavior = (typeof RuleGroupForwardedIpConfigurationFallbackBehavior)[keyof typeof RuleGroupForwardedIpConfigurationFallbackBehavior];
 
 export const RuleGroupIpSetForwardedIpConfigurationFallbackBehavior = {
@@ -99,6 +109,16 @@ export const RuleGroupIpSetForwardedIpConfigurationFallbackBehavior = {
     NoMatch: "NO_MATCH",
 } as const;
 
+/**
+ * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+ *
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ *
+ * You can specify the following fallback behaviors:
+ *
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ */
 export type RuleGroupIpSetForwardedIpConfigurationFallbackBehavior = (typeof RuleGroupIpSetForwardedIpConfigurationFallbackBehavior)[keyof typeof RuleGroupIpSetForwardedIpConfigurationFallbackBehavior];
 
 export const RuleGroupIpSetForwardedIpConfigurationPosition = {
@@ -107,6 +127,15 @@ export const RuleGroupIpSetForwardedIpConfigurationPosition = {
     Any: "ANY",
 } as const;
 
+/**
+ * The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+ *
+ * The options for this setting are the following:
+ *
+ * - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+ * - LAST - Inspect the last IP address in the list of IP addresses in the header.
+ * - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+ */
 export type RuleGroupIpSetForwardedIpConfigurationPosition = (typeof RuleGroupIpSetForwardedIpConfigurationPosition)[keyof typeof RuleGroupIpSetForwardedIpConfigurationPosition];
 
 export const RuleGroupJa3FingerprintFallbackBehavior = {
@@ -114,6 +143,14 @@ export const RuleGroupJa3FingerprintFallbackBehavior = {
     NoMatch: "NO_MATCH",
 } as const;
 
+/**
+ * The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+ *
+ * You can specify the following fallback behaviors:
+ *
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ */
 export type RuleGroupJa3FingerprintFallbackBehavior = (typeof RuleGroupJa3FingerprintFallbackBehavior)[keyof typeof RuleGroupJa3FingerprintFallbackBehavior];
 
 export const RuleGroupJsonMatchScope = {
@@ -176,6 +213,28 @@ export const RuleGroupRateBasedStatementAggregateKeyType = {
     CustomKeys: "CUSTOM_KEYS",
 } as const;
 
+/**
+ * Setting that indicates how to aggregate the request counts.
+ *
+ * > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+ *
+ * - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+ *
+ * With this option, you must configure the `ScopeDownStatement` property.
+ * - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+ *
+ * With this option, you must specify the aggregate keys in the `CustomKeys` property.
+ *
+ * To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+ * - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+ *
+ * With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+ *
+ * To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+ * - `IP` - Aggregate the request counts on the IP address from the web request origin.
+ *
+ * To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+ */
 export type RuleGroupRateBasedStatementAggregateKeyType = (typeof RuleGroupRateBasedStatementAggregateKeyType)[keyof typeof RuleGroupRateBasedStatementAggregateKeyType];
 
 export const RuleGroupResponseContentType = {
@@ -218,6 +277,9 @@ export const RuleGroupSizeConstraintStatementComparisonOperator = {
     Gt: "GT",
 } as const;
 
+/**
+ * The operator to use to compare the request part to the size setting.
+ */
 export type RuleGroupSizeConstraintStatementComparisonOperator = (typeof RuleGroupSizeConstraintStatementComparisonOperator)[keyof typeof RuleGroupSizeConstraintStatementComparisonOperator];
 
 export const RuleGroupTextTransformationType = {
@@ -254,6 +316,9 @@ export const WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = {
     Targeted: "TARGETED",
 } as const;
 
+/**
+ * The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
+ */
 export type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel = (typeof WebAclAwsManagedRulesBotControlRuleSetInspectionLevel)[keyof typeof WebAclAwsManagedRulesBotControlRuleSetInspectionLevel];
 
 export const WebAclBodyParsingFallbackBehavior = {
@@ -272,6 +337,16 @@ export const WebAclForwardedIpConfigurationFallbackBehavior = {
     NoMatch: "NO_MATCH",
 } as const;
 
+/**
+ * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+ *
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ *
+ * You can specify the following fallback behaviors:
+ *
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ */
 export type WebAclForwardedIpConfigurationFallbackBehavior = (typeof WebAclForwardedIpConfigurationFallbackBehavior)[keyof typeof WebAclForwardedIpConfigurationFallbackBehavior];
 
 export const WebAclIpSetForwardedIpConfigurationFallbackBehavior = {
@@ -279,6 +354,16 @@ export const WebAclIpSetForwardedIpConfigurationFallbackBehavior = {
     NoMatch: "NO_MATCH",
 } as const;
 
+/**
+ * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+ *
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ *
+ * You can specify the following fallback behaviors:
+ *
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ */
 export type WebAclIpSetForwardedIpConfigurationFallbackBehavior = (typeof WebAclIpSetForwardedIpConfigurationFallbackBehavior)[keyof typeof WebAclIpSetForwardedIpConfigurationFallbackBehavior];
 
 export const WebAclIpSetForwardedIpConfigurationPosition = {
@@ -287,6 +372,15 @@ export const WebAclIpSetForwardedIpConfigurationPosition = {
     Any: "ANY",
 } as const;
 
+/**
+ * The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+ *
+ * The options for this setting are the following:
+ *
+ * - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+ * - LAST - Inspect the last IP address in the list of IP addresses in the header.
+ * - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
+ */
 export type WebAclIpSetForwardedIpConfigurationPosition = (typeof WebAclIpSetForwardedIpConfigurationPosition)[keyof typeof WebAclIpSetForwardedIpConfigurationPosition];
 
 export const WebAclJa3FingerprintFallbackBehavior = {
@@ -294,6 +388,14 @@ export const WebAclJa3FingerprintFallbackBehavior = {
     NoMatch: "NO_MATCH",
 } as const;
 
+/**
+ * The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+ *
+ * You can specify the following fallback behaviors:
+ *
+ * - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+ * - `NO_MATCH` - Treat the web request as not matching the rule statement.
+ */
 export type WebAclJa3FingerprintFallbackBehavior = (typeof WebAclJa3FingerprintFallbackBehavior)[keyof typeof WebAclJa3FingerprintFallbackBehavior];
 
 export const WebAclJsonMatchScope = {
@@ -319,6 +421,9 @@ export const WebAclManagedRuleGroupConfigPayloadType = {
     FormEncoded: "FORM_ENCODED",
 } as const;
 
+/**
+ * > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
+ */
 export type WebAclManagedRuleGroupConfigPayloadType = (typeof WebAclManagedRuleGroupConfigPayloadType)[keyof typeof WebAclManagedRuleGroupConfigPayloadType];
 
 export const WebAclMapMatchScope = {
@@ -363,6 +468,28 @@ export const WebAclRateBasedStatementAggregateKeyType = {
     CustomKeys: "CUSTOM_KEYS",
 } as const;
 
+/**
+ * Setting that indicates how to aggregate the request counts.
+ *
+ * > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+ *
+ * - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+ *
+ * With this option, you must configure the `ScopeDownStatement` property.
+ * - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+ *
+ * With this option, you must specify the aggregate keys in the `CustomKeys` property.
+ *
+ * To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+ * - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+ *
+ * With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+ *
+ * To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+ * - `IP` - Aggregate the request counts on the IP address from the web request origin.
+ *
+ * To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
+ */
 export type WebAclRateBasedStatementAggregateKeyType = (typeof WebAclRateBasedStatementAggregateKeyType)[keyof typeof WebAclRateBasedStatementAggregateKeyType];
 
 export const WebAclRequestInspectionAcfpPayloadType = {
@@ -370,6 +497,9 @@ export const WebAclRequestInspectionAcfpPayloadType = {
     FormEncoded: "FORM_ENCODED",
 } as const;
 
+/**
+ * The payload type for your account creation endpoint, either JSON or form encoded.
+ */
 export type WebAclRequestInspectionAcfpPayloadType = (typeof WebAclRequestInspectionAcfpPayloadType)[keyof typeof WebAclRequestInspectionAcfpPayloadType];
 
 export const WebAclRequestInspectionPayloadType = {
@@ -377,6 +507,9 @@ export const WebAclRequestInspectionPayloadType = {
     FormEncoded: "FORM_ENCODED",
 } as const;
 
+/**
+ * The payload type for your login endpoint, either JSON or form encoded.
+ */
 export type WebAclRequestInspectionPayloadType = (typeof WebAclRequestInspectionPayloadType)[keyof typeof WebAclRequestInspectionPayloadType];
 
 export const WebAclResponseContentType = {
@@ -419,6 +552,9 @@ export const WebAclSizeConstraintStatementComparisonOperator = {
     Gt: "GT",
 } as const;
 
+/**
+ * The operator to use to compare the request part to the size setting.
+ */
 export type WebAclSizeConstraintStatementComparisonOperator = (typeof WebAclSizeConstraintStatementComparisonOperator)[keyof typeof WebAclSizeConstraintStatementComparisonOperator];
 
 export const WebAclSizeInspectionLimit = {

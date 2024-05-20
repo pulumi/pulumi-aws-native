@@ -86,6 +86,9 @@ class LoggingConfigurationDestinationConfiguration(dict):
                  s3: Optional['outputs.LoggingConfigurationS3DestinationConfiguration'] = None):
         """
         Destination configuration for IVS Chat logging.
+        :param 'LoggingConfigurationCloudWatchLogsDestinationConfiguration' cloud_watch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationFirehoseDestinationConfiguration' firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationS3DestinationConfiguration' s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
@@ -97,16 +100,25 @@ class LoggingConfigurationDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> Optional['outputs.LoggingConfigurationCloudWatchLogsDestinationConfiguration']:
+        """
+        An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "cloud_watch_logs")
 
     @property
     @pulumi.getter
     def firehose(self) -> Optional['outputs.LoggingConfigurationFirehoseDestinationConfiguration']:
+        """
+        An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "firehose")
 
     @property
     @pulumi.getter
     def s3(self) -> Optional['outputs.LoggingConfigurationS3DestinationConfiguration']:
+        """
+        An Amazon S3 destination configuration where chat activity will be logged.
+        """
         return pulumi.get(self, "s3")
 
 

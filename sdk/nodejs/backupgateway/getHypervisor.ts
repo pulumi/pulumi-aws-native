@@ -16,11 +16,20 @@ export function getHypervisor(args: GetHypervisorArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetHypervisorArgs {
+    /**
+     * Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+     */
     hypervisorArn: string;
 }
 
 export interface GetHypervisorResult {
+    /**
+     * The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+     */
     readonly host?: string;
+    /**
+     * Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+     */
     readonly hypervisorArn?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getHypervisorOutput(args: GetHypervisorOutputArgs, opts?: pulumi
 }
 
 export interface GetHypervisorOutputArgs {
+    /**
+     * Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+     */
     hypervisorArn: pulumi.Input<string>;
 }

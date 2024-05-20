@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSankeyDiagramSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit on the number of destination nodes that are displayed in a sankey diagram.
+        /// </summary>
         [Input("destinationItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? DestinationItemsLimit { get; set; }
 
+        /// <summary>
+        /// The limit on the number of source nodes that are displayed in a sankey diagram.
+        /// </summary>
         [Input("sourceItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? SourceItemsLimit { get; set; }
 
         [Input("weightSort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _weightSort;
+
+        /// <summary>
+        /// The sort configuration of the weight fields.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> WeightSort
         {
             get => _weightSort ?? (_weightSort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

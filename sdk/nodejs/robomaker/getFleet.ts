@@ -16,11 +16,20 @@ export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetFleetArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+     */
     arn: string;
 }
 
 export interface GetFleetResult {
+    /**
+     * The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+     */
     readonly arn?: string;
+    /**
+     * The list of all tags added to the fleet.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -31,5 +40,8 @@ export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetFleetOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+     */
     arn: pulumi.Input<string>;
 }

@@ -17,15 +17,35 @@ import (
 type Map struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput     `pulumi:"arn"`
-	Configuration MapConfigurationOutput  `pulumi:"configuration"`
-	CreateTime    pulumi.StringOutput     `pulumi:"createTime"`
-	Description   pulumi.StringPtrOutput  `pulumi:"description"`
-	MapArn        pulumi.StringOutput     `pulumi:"mapArn"`
-	MapName       pulumi.StringOutput     `pulumi:"mapName"`
-	PricingPlan   MapPricingPlanPtrOutput `pulumi:"pricingPlan"`
+	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+	Configuration MapConfigurationOutput `pulumi:"configuration"`
+	// The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	// An optional description for the map resource.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+	MapArn pulumi.StringOutput `pulumi:"mapArn"`
+	// The name for the map resource.
+	//
+	// Requirements:
+	//
+	// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique map resource name.
+	// - No spaces allowed. For example, `ExampleMap` .
+	MapName pulumi.StringOutput `pulumi:"mapName"`
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan MapPricingPlanPtrOutput `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -77,20 +97,44 @@ func (MapState) ElementType() reflect.Type {
 }
 
 type mapArgs struct {
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 	Configuration MapConfiguration `pulumi:"configuration"`
-	Description   *string          `pulumi:"description"`
-	MapName       *string          `pulumi:"mapName"`
-	PricingPlan   *MapPricingPlan  `pulumi:"pricingPlan"`
+	// An optional description for the map resource.
+	Description *string `pulumi:"description"`
+	// The name for the map resource.
+	//
+	// Requirements:
+	//
+	// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique map resource name.
+	// - No spaces allowed. For example, `ExampleMap` .
+	MapName *string `pulumi:"mapName"`
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan *MapPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Map resource.
 type MapArgs struct {
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 	Configuration MapConfigurationInput
-	Description   pulumi.StringPtrInput
-	MapName       pulumi.StringPtrInput
-	PricingPlan   MapPricingPlanPtrInput
+	// An optional description for the map resource.
+	Description pulumi.StringPtrInput
+	// The name for the map resource.
+	//
+	// Requirements:
+	//
+	// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique map resource name.
+	// - No spaces allowed. For example, `ExampleMap` .
+	MapName pulumi.StringPtrInput
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan MapPricingPlanPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -132,30 +176,49 @@ func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
 func (o MapOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 func (o MapOutput) Configuration() MapConfigurationOutput {
 	return o.ApplyT(func(v *Map) MapConfigurationOutput { return v.Configuration }).(MapConfigurationOutput)
 }
 
+// The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o MapOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
+// An optional description for the map resource.
 func (o MapOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
 func (o MapOutput) MapArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapArn }).(pulumi.StringOutput)
 }
 
+// The name for the map resource.
+//
+// Requirements:
+//
+// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+// - Must be a unique map resource name.
+// - No spaces allowed. For example, `ExampleMap` .
 func (o MapOutput) MapName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapName }).(pulumi.StringOutput)
 }
 
+// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+//
+// *Allowed Values* : `RequestBasedUsage`
 func (o MapOutput) PricingPlan() MapPricingPlanPtrOutput {
 	return o.ApplyT(func(v *Map) MapPricingPlanPtrOutput { return v.PricingPlan }).(MapPricingPlanPtrOutput)
 }
@@ -165,6 +228,7 @@ func (o MapOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Map) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o MapOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

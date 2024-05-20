@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionBasicAuthParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password associated with the user name to use for Basic authorization.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// The user name to use for Basic authorization.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

@@ -144,6 +144,9 @@ class CampaignDialerConfig(dict):
                  progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None):
         """
         The possible types of dialer config parameters
+        :param 'CampaignAgentlessDialerConfig' agentless_dialer_config: The configuration of the agentless dialer.
+        :param 'CampaignPredictiveDialerConfig' predictive_dialer_config: The configuration of the predictive dialer.
+        :param 'CampaignProgressiveDialerConfig' progressive_dialer_config: The configuration of the progressive dialer.
         """
         if agentless_dialer_config is not None:
             pulumi.set(__self__, "agentless_dialer_config", agentless_dialer_config)
@@ -155,16 +158,25 @@ class CampaignDialerConfig(dict):
     @property
     @pulumi.getter(name="agentlessDialerConfig")
     def agentless_dialer_config(self) -> Optional['outputs.CampaignAgentlessDialerConfig']:
+        """
+        The configuration of the agentless dialer.
+        """
         return pulumi.get(self, "agentless_dialer_config")
 
     @property
     @pulumi.getter(name="predictiveDialerConfig")
     def predictive_dialer_config(self) -> Optional['outputs.CampaignPredictiveDialerConfig']:
+        """
+        The configuration of the predictive dialer.
+        """
         return pulumi.get(self, "predictive_dialer_config")
 
     @property
     @pulumi.getter(name="progressiveDialerConfig")
     def progressive_dialer_config(self) -> Optional['outputs.CampaignProgressiveDialerConfig']:
+        """
+        The configuration of the progressive dialer.
+        """
         return pulumi.get(self, "progressive_dialer_config")
 
 
@@ -204,6 +216,7 @@ class CampaignOutboundCallConfig(dict):
         """
         The configuration used for outbound calls.
         :param str connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
+        :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: Whether answering machine detection has been enabled.
         :param str connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
         :param str connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
@@ -226,6 +239,9 @@ class CampaignOutboundCallConfig(dict):
     @property
     @pulumi.getter(name="answerMachineDetectionConfig")
     def answer_machine_detection_config(self) -> Optional['outputs.CampaignAnswerMachineDetectionConfig']:
+        """
+        Whether answering machine detection has been enabled.
+        """
         return pulumi.get(self, "answer_machine_detection_config")
 
     @property

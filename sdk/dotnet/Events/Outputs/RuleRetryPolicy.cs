@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleRetryPolicy
     {
+        /// <summary>
+        /// The maximum amount of time, in seconds, to continue to make retry attempts.
+        /// </summary>
         public readonly int? MaximumEventAgeInSeconds;
+        /// <summary>
+        /// The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
+        /// </summary>
         public readonly int? MaximumRetryAttempts;
 
         [OutputConstructor]

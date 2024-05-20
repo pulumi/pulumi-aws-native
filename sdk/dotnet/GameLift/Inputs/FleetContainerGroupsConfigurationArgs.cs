@@ -15,6 +15,17 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class FleetContainerGroupsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
+        /// 
+        /// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
+        /// 
+        /// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+        /// 
+        /// As a best practice, double the minimum number of connection ports.
+        /// 
+        /// &gt; Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
+        /// </summary>
         [Input("connectionPortRange", required: true)]
         public Input<Inputs.FleetConnectionPortRangeArgs> ConnectionPortRange { get; set; } = null!;
 

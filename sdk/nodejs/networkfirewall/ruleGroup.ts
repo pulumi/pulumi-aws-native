@@ -37,13 +37,40 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
+    /**
+     * The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+     */
     public readonly capacity!: pulumi.Output<number>;
+    /**
+     * A description of the rule group.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An object that defines the rule group rules.
+     */
     public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroup | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
+    /**
+     * The unique ID of the `RuleGroup` resource.
+     */
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
+    /**
+     * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+     */
     public readonly ruleGroupName!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+     * stateless rules. If it is stateful, it contains stateful rules.
+     */
     public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupTypeEnum>;
 
     /**
@@ -92,10 +119,31 @@ export class RuleGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
+    /**
+     * The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+     */
     capacity: pulumi.Input<number>;
+    /**
+     * A description of the rule group.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * An object that defines the rule group rules.
+     */
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs>;
+    /**
+     * The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+     */
     ruleGroupName?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+     * stateless rules. If it is stateful, it contains stateful rules.
+     */
     type: pulumi.Input<enums.networkfirewall.RuleGroupTypeEnum>;
 }

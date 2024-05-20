@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicDataAggregation
     {
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicTimeGranularity? DatasetRowDateGranularity;
+        /// <summary>
+        /// The column name for the default date.
+        /// </summary>
         public readonly string? DefaultDateColumnName;
 
         [OutputConstructor]

@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// </summary>
     public sealed class ServiceCodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for building and running the service from a source code repository.
+        /// 
+        /// &gt; `CodeConfiguration` is required only for `CreateService` request.
+        /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.ServiceCodeConfigurationArgs>? CodeConfiguration { get; set; }
 
@@ -24,6 +29,9 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         [Input("repositoryUrl", required: true)]
         public Input<string> RepositoryUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The version that should be used within the source code repository.
+        /// </summary>
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;
 

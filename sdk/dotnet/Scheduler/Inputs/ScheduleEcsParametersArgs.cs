@@ -45,9 +45,15 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         [Input("group")]
         public Input<string>? Group { get; set; }
 
+        /// <summary>
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
+        /// </summary>
         [Input("launchType")]
         public Input<Pulumi.AwsNative.Scheduler.ScheduleLaunchType>? LaunchType { get; set; }
 
+        /// <summary>
+        /// This structure specifies the network configuration for an ECS task.
+        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ScheduleNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
@@ -81,6 +87,9 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the Amazon ECS [`TagResource`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
+        /// </summary>
         [Input("propagateTags")]
         public Input<Pulumi.AwsNative.Scheduler.SchedulePropagateTags>? PropagateTags { get; set; }
 

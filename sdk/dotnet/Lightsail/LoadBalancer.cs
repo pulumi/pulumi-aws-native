@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 

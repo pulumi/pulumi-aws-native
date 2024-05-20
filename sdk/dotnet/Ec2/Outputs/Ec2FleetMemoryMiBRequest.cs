@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class Ec2FleetMemoryMiBRequest
     {
+        /// <summary>
+        /// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum amount of memory, in MiB. To specify no minimum limit, specify `0` .
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

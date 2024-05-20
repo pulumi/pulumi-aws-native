@@ -62,11 +62,19 @@ export class StreamingImage extends pulumi.CustomResource {
      * <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
+    /**
+     * The unique identifier for the streaming image resource.
+     */
     public /*out*/ readonly streamingImageId!: pulumi.Output<string>;
     /**
      * <p>The studioId. </p>
      */
     public readonly studioId!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -135,5 +143,10 @@ export interface StreamingImageArgs {
      * <p>The studioId. </p>
      */
     studioId: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

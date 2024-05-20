@@ -14,13 +14,18 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ExperimentMetricGoalObject struct {
+	// `INCREASE` means that a variation with a higher number for this metric is performing better.
+	//
+	// `DECREASE` means that a variation with a lower number for this metric is performing better.
 	DesiredChange ExperimentMetricGoalObjectDesiredChange `pulumi:"desiredChange"`
 	// The JSON path to reference the entity id in the event.
 	EntityIdKey string `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
 	EventPattern *string `pulumi:"eventPattern"`
-	MetricName   string  `pulumi:"metricName"`
-	UnitLabel    *string `pulumi:"unitLabel"`
+	// A name for the metric. It can include up to 255 characters.
+	MetricName string `pulumi:"metricName"`
+	// A label for the units that the metric is measuring.
+	UnitLabel *string `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
 	ValueKey string `pulumi:"valueKey"`
 }
@@ -37,13 +42,18 @@ type ExperimentMetricGoalObjectInput interface {
 }
 
 type ExperimentMetricGoalObjectArgs struct {
+	// `INCREASE` means that a variation with a higher number for this metric is performing better.
+	//
+	// `DECREASE` means that a variation with a lower number for this metric is performing better.
 	DesiredChange ExperimentMetricGoalObjectDesiredChangeInput `pulumi:"desiredChange"`
 	// The JSON path to reference the entity id in the event.
 	EntityIdKey pulumi.StringInput `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
 	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
-	MetricName   pulumi.StringInput    `pulumi:"metricName"`
-	UnitLabel    pulumi.StringPtrInput `pulumi:"unitLabel"`
+	// A name for the metric. It can include up to 255 characters.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// A label for the units that the metric is measuring.
+	UnitLabel pulumi.StringPtrInput `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
 	ValueKey pulumi.StringInput `pulumi:"valueKey"`
 }
@@ -99,6 +109,9 @@ func (o ExperimentMetricGoalObjectOutput) ToExperimentMetricGoalObjectOutputWith
 	return o
 }
 
+// `INCREASE` means that a variation with a higher number for this metric is performing better.
+//
+// `DECREASE` means that a variation with a lower number for this metric is performing better.
 func (o ExperimentMetricGoalObjectOutput) DesiredChange() ExperimentMetricGoalObjectDesiredChangeOutput {
 	return o.ApplyT(func(v ExperimentMetricGoalObject) ExperimentMetricGoalObjectDesiredChange { return v.DesiredChange }).(ExperimentMetricGoalObjectDesiredChangeOutput)
 }
@@ -113,10 +126,12 @@ func (o ExperimentMetricGoalObjectOutput) EventPattern() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ExperimentMetricGoalObject) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
+// A name for the metric. It can include up to 255 characters.
 func (o ExperimentMetricGoalObjectOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentMetricGoalObject) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// A label for the units that the metric is measuring.
 func (o ExperimentMetricGoalObjectOutput) UnitLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentMetricGoalObject) *string { return v.UnitLabel }).(pulumi.StringPtrOutput)
 }
@@ -147,8 +162,10 @@ func (o ExperimentMetricGoalObjectArrayOutput) Index(i pulumi.IntInput) Experime
 }
 
 type ExperimentOnlineAbConfigObject struct {
-	ControlTreatmentName *string                       `pulumi:"controlTreatmentName"`
-	TreatmentWeights     []ExperimentTreatmentToWeight `pulumi:"treatmentWeights"`
+	// The name of the variation that is to be the default variation that the other variations are compared to.
+	ControlTreatmentName *string `pulumi:"controlTreatmentName"`
+	// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
+	TreatmentWeights []ExperimentTreatmentToWeight `pulumi:"treatmentWeights"`
 }
 
 // ExperimentOnlineAbConfigObjectInput is an input type that accepts ExperimentOnlineAbConfigObjectArgs and ExperimentOnlineAbConfigObjectOutput values.
@@ -163,8 +180,10 @@ type ExperimentOnlineAbConfigObjectInput interface {
 }
 
 type ExperimentOnlineAbConfigObjectArgs struct {
-	ControlTreatmentName pulumi.StringPtrInput                 `pulumi:"controlTreatmentName"`
-	TreatmentWeights     ExperimentTreatmentToWeightArrayInput `pulumi:"treatmentWeights"`
+	// The name of the variation that is to be the default variation that the other variations are compared to.
+	ControlTreatmentName pulumi.StringPtrInput `pulumi:"controlTreatmentName"`
+	// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
+	TreatmentWeights ExperimentTreatmentToWeightArrayInput `pulumi:"treatmentWeights"`
 }
 
 func (ExperimentOnlineAbConfigObjectArgs) ElementType() reflect.Type {
@@ -193,10 +212,12 @@ func (o ExperimentOnlineAbConfigObjectOutput) ToExperimentOnlineAbConfigObjectOu
 	return o
 }
 
+// The name of the variation that is to be the default variation that the other variations are compared to.
 func (o ExperimentOnlineAbConfigObjectOutput) ControlTreatmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) *string { return v.ControlTreatmentName }).(pulumi.StringPtrOutput)
 }
 
+// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
 func (o ExperimentOnlineAbConfigObjectOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight { return v.TreatmentWeights }).(ExperimentTreatmentToWeightArrayOutput)
 }
@@ -225,6 +246,7 @@ func (o ExperimentOnlineAbConfigObjectPtrOutput) Elem() ExperimentOnlineAbConfig
 	}).(ExperimentOnlineAbConfigObjectOutput)
 }
 
+// The name of the variation that is to be the default variation that the other variations are compared to.
 func (o ExperimentOnlineAbConfigObjectPtrOutput) ControlTreatmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) *string {
 		if v == nil {
@@ -234,6 +256,7 @@ func (o ExperimentOnlineAbConfigObjectPtrOutput) ControlTreatmentName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
 func (o ExperimentOnlineAbConfigObjectPtrOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
 	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight {
 		if v == nil {
@@ -446,10 +469,14 @@ type ExperimentTag struct {
 }
 
 type ExperimentTreatmentObject struct {
-	Description   *string `pulumi:"description"`
-	Feature       string  `pulumi:"feature"`
-	TreatmentName string  `pulumi:"treatmentName"`
-	Variation     string  `pulumi:"variation"`
+	// The description of the treatment.
+	Description *string `pulumi:"description"`
+	// The name of the feature for this experiment.
+	Feature string `pulumi:"feature"`
+	// A name for this treatment. It can include up to 127 characters.
+	TreatmentName string `pulumi:"treatmentName"`
+	// The name of the variation to use for this treatment.
+	Variation string `pulumi:"variation"`
 }
 
 // ExperimentTreatmentObjectInput is an input type that accepts ExperimentTreatmentObjectArgs and ExperimentTreatmentObjectOutput values.
@@ -464,10 +491,14 @@ type ExperimentTreatmentObjectInput interface {
 }
 
 type ExperimentTreatmentObjectArgs struct {
-	Description   pulumi.StringPtrInput `pulumi:"description"`
-	Feature       pulumi.StringInput    `pulumi:"feature"`
-	TreatmentName pulumi.StringInput    `pulumi:"treatmentName"`
-	Variation     pulumi.StringInput    `pulumi:"variation"`
+	// The description of the treatment.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the feature for this experiment.
+	Feature pulumi.StringInput `pulumi:"feature"`
+	// A name for this treatment. It can include up to 127 characters.
+	TreatmentName pulumi.StringInput `pulumi:"treatmentName"`
+	// The name of the variation to use for this treatment.
+	Variation pulumi.StringInput `pulumi:"variation"`
 }
 
 func (ExperimentTreatmentObjectArgs) ElementType() reflect.Type {
@@ -521,18 +552,22 @@ func (o ExperimentTreatmentObjectOutput) ToExperimentTreatmentObjectOutputWithCo
 	return o
 }
 
+// The description of the treatment.
 func (o ExperimentTreatmentObjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTreatmentObject) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the feature for this experiment.
 func (o ExperimentTreatmentObjectOutput) Feature() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTreatmentObject) string { return v.Feature }).(pulumi.StringOutput)
 }
 
+// A name for this treatment. It can include up to 127 characters.
 func (o ExperimentTreatmentObjectOutput) TreatmentName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTreatmentObject) string { return v.TreatmentName }).(pulumi.StringOutput)
 }
 
+// The name of the variation to use for this treatment.
 func (o ExperimentTreatmentObjectOutput) Variation() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTreatmentObject) string { return v.Variation }).(pulumi.StringOutput)
 }
@@ -558,8 +593,10 @@ func (o ExperimentTreatmentObjectArrayOutput) Index(i pulumi.IntInput) Experimen
 }
 
 type ExperimentTreatmentToWeight struct {
-	SplitWeight int    `pulumi:"splitWeight"`
-	Treatment   string `pulumi:"treatment"`
+	// The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+	SplitWeight int `pulumi:"splitWeight"`
+	// The name of the treatment.
+	Treatment string `pulumi:"treatment"`
 }
 
 // ExperimentTreatmentToWeightInput is an input type that accepts ExperimentTreatmentToWeightArgs and ExperimentTreatmentToWeightOutput values.
@@ -574,8 +611,10 @@ type ExperimentTreatmentToWeightInput interface {
 }
 
 type ExperimentTreatmentToWeightArgs struct {
-	SplitWeight pulumi.IntInput    `pulumi:"splitWeight"`
-	Treatment   pulumi.StringInput `pulumi:"treatment"`
+	// The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+	SplitWeight pulumi.IntInput `pulumi:"splitWeight"`
+	// The name of the treatment.
+	Treatment pulumi.StringInput `pulumi:"treatment"`
 }
 
 func (ExperimentTreatmentToWeightArgs) ElementType() reflect.Type {
@@ -629,10 +668,12 @@ func (o ExperimentTreatmentToWeightOutput) ToExperimentTreatmentToWeightOutputWi
 	return o
 }
 
+// The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
 func (o ExperimentTreatmentToWeightOutput) SplitWeight() pulumi.IntOutput {
 	return o.ApplyT(func(v ExperimentTreatmentToWeight) int { return v.SplitWeight }).(pulumi.IntOutput)
 }
 
+// The name of the treatment.
 func (o ExperimentTreatmentToWeightOutput) Treatment() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTreatmentToWeight) string { return v.Treatment }).(pulumi.StringOutput)
 }
@@ -658,7 +699,9 @@ func (o ExperimentTreatmentToWeightArrayOutput) Index(i pulumi.IntInput) Experim
 }
 
 type FeatureEntityOverride struct {
-	EntityId  *string `pulumi:"entityId"`
+	// The entity ID to be served the variation specified in `Variation` .
+	EntityId *string `pulumi:"entityId"`
+	// The name of the variation to serve to the user session that matches the `EntityId` .
 	Variation *string `pulumi:"variation"`
 }
 
@@ -674,7 +717,9 @@ type FeatureEntityOverrideInput interface {
 }
 
 type FeatureEntityOverrideArgs struct {
-	EntityId  pulumi.StringPtrInput `pulumi:"entityId"`
+	// The entity ID to be served the variation specified in `Variation` .
+	EntityId pulumi.StringPtrInput `pulumi:"entityId"`
+	// The name of the variation to serve to the user session that matches the `EntityId` .
 	Variation pulumi.StringPtrInput `pulumi:"variation"`
 }
 
@@ -729,10 +774,12 @@ func (o FeatureEntityOverrideOutput) ToFeatureEntityOverrideOutputWithContext(ct
 	return o
 }
 
+// The entity ID to be served the variation specified in `Variation` .
 func (o FeatureEntityOverrideOutput) EntityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureEntityOverride) *string { return v.EntityId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the variation to serve to the user session that matches the `EntityId` .
 func (o FeatureEntityOverrideOutput) Variation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureEntityOverride) *string { return v.Variation }).(pulumi.StringPtrOutput)
 }
@@ -766,11 +813,16 @@ type FeatureTag struct {
 }
 
 type FeatureVariationObject struct {
-	BooleanValue  *bool    `pulumi:"booleanValue"`
-	DoubleValue   *float64 `pulumi:"doubleValue"`
-	LongValue     *float64 `pulumi:"longValue"`
-	StringValue   *string  `pulumi:"stringValue"`
-	VariationName *string  `pulumi:"variationName"`
+	// The value assigned to this variation, if the variation type is boolean.
+	BooleanValue *bool `pulumi:"booleanValue"`
+	// The value assigned to this variation, if the variation type is a double.
+	DoubleValue *float64 `pulumi:"doubleValue"`
+	// The value assigned to this variation, if the variation type is a long.
+	LongValue *float64 `pulumi:"longValue"`
+	// The value assigned to this variation, if the variation type is a string.
+	StringValue *string `pulumi:"stringValue"`
+	// A name for the variation. It can include up to 127 characters.
+	VariationName *string `pulumi:"variationName"`
 }
 
 // FeatureVariationObjectInput is an input type that accepts FeatureVariationObjectArgs and FeatureVariationObjectOutput values.
@@ -785,11 +837,16 @@ type FeatureVariationObjectInput interface {
 }
 
 type FeatureVariationObjectArgs struct {
-	BooleanValue  pulumi.BoolPtrInput    `pulumi:"booleanValue"`
-	DoubleValue   pulumi.Float64PtrInput `pulumi:"doubleValue"`
-	LongValue     pulumi.Float64PtrInput `pulumi:"longValue"`
-	StringValue   pulumi.StringPtrInput  `pulumi:"stringValue"`
-	VariationName pulumi.StringPtrInput  `pulumi:"variationName"`
+	// The value assigned to this variation, if the variation type is boolean.
+	BooleanValue pulumi.BoolPtrInput `pulumi:"booleanValue"`
+	// The value assigned to this variation, if the variation type is a double.
+	DoubleValue pulumi.Float64PtrInput `pulumi:"doubleValue"`
+	// The value assigned to this variation, if the variation type is a long.
+	LongValue pulumi.Float64PtrInput `pulumi:"longValue"`
+	// The value assigned to this variation, if the variation type is a string.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+	// A name for the variation. It can include up to 127 characters.
+	VariationName pulumi.StringPtrInput `pulumi:"variationName"`
 }
 
 func (FeatureVariationObjectArgs) ElementType() reflect.Type {
@@ -843,22 +900,27 @@ func (o FeatureVariationObjectOutput) ToFeatureVariationObjectOutputWithContext(
 	return o
 }
 
+// The value assigned to this variation, if the variation type is boolean.
 func (o FeatureVariationObjectOutput) BooleanValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeatureVariationObject) *bool { return v.BooleanValue }).(pulumi.BoolPtrOutput)
 }
 
+// The value assigned to this variation, if the variation type is a double.
 func (o FeatureVariationObjectOutput) DoubleValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FeatureVariationObject) *float64 { return v.DoubleValue }).(pulumi.Float64PtrOutput)
 }
 
+// The value assigned to this variation, if the variation type is a long.
 func (o FeatureVariationObjectOutput) LongValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FeatureVariationObject) *float64 { return v.LongValue }).(pulumi.Float64PtrOutput)
 }
 
+// The value assigned to this variation, if the variation type is a string.
 func (o FeatureVariationObjectOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationObject) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
+// A name for the variation. It can include up to 127 characters.
 func (o FeatureVariationObjectOutput) VariationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationObject) *string { return v.VariationName }).(pulumi.StringPtrOutput)
 }
@@ -1059,10 +1121,14 @@ func (o LaunchExecutionStatusObjectPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type LaunchGroupObject struct {
+	// A description of the launch group.
 	Description *string `pulumi:"description"`
-	Feature     string  `pulumi:"feature"`
-	GroupName   string  `pulumi:"groupName"`
-	Variation   string  `pulumi:"variation"`
+	// The feature that this launch is using.
+	Feature string `pulumi:"feature"`
+	// A name for this launch group. It can include up to 127 characters.
+	GroupName string `pulumi:"groupName"`
+	// The feature variation to use for this launch group.
+	Variation string `pulumi:"variation"`
 }
 
 // LaunchGroupObjectInput is an input type that accepts LaunchGroupObjectArgs and LaunchGroupObjectOutput values.
@@ -1077,10 +1143,14 @@ type LaunchGroupObjectInput interface {
 }
 
 type LaunchGroupObjectArgs struct {
+	// A description of the launch group.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Feature     pulumi.StringInput    `pulumi:"feature"`
-	GroupName   pulumi.StringInput    `pulumi:"groupName"`
-	Variation   pulumi.StringInput    `pulumi:"variation"`
+	// The feature that this launch is using.
+	Feature pulumi.StringInput `pulumi:"feature"`
+	// A name for this launch group. It can include up to 127 characters.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// The feature variation to use for this launch group.
+	Variation pulumi.StringInput `pulumi:"variation"`
 }
 
 func (LaunchGroupObjectArgs) ElementType() reflect.Type {
@@ -1134,18 +1204,22 @@ func (o LaunchGroupObjectOutput) ToLaunchGroupObjectOutputWithContext(ctx contex
 	return o
 }
 
+// A description of the launch group.
 func (o LaunchGroupObjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchGroupObject) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The feature that this launch is using.
 func (o LaunchGroupObjectOutput) Feature() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchGroupObject) string { return v.Feature }).(pulumi.StringOutput)
 }
 
+// A name for this launch group. It can include up to 127 characters.
 func (o LaunchGroupObjectOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchGroupObject) string { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// The feature variation to use for this launch group.
 func (o LaunchGroupObjectOutput) Variation() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchGroupObject) string { return v.Variation }).(pulumi.StringOutput)
 }
@@ -1171,8 +1245,12 @@ func (o LaunchGroupObjectArrayOutput) Index(i pulumi.IntInput) LaunchGroupObject
 }
 
 type LaunchGroupToWeight struct {
-	GroupName   string `pulumi:"groupName"`
-	SplitWeight int    `pulumi:"splitWeight"`
+	// The name of the launch group. It can include up to 127 characters.
+	GroupName string `pulumi:"groupName"`
+	// The portion of launch traffic to allocate to this launch group.
+	//
+	// This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
+	SplitWeight int `pulumi:"splitWeight"`
 }
 
 // LaunchGroupToWeightInput is an input type that accepts LaunchGroupToWeightArgs and LaunchGroupToWeightOutput values.
@@ -1187,8 +1265,12 @@ type LaunchGroupToWeightInput interface {
 }
 
 type LaunchGroupToWeightArgs struct {
-	GroupName   pulumi.StringInput `pulumi:"groupName"`
-	SplitWeight pulumi.IntInput    `pulumi:"splitWeight"`
+	// The name of the launch group. It can include up to 127 characters.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// The portion of launch traffic to allocate to this launch group.
+	//
+	// This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
+	SplitWeight pulumi.IntInput `pulumi:"splitWeight"`
 }
 
 func (LaunchGroupToWeightArgs) ElementType() reflect.Type {
@@ -1242,10 +1324,14 @@ func (o LaunchGroupToWeightOutput) ToLaunchGroupToWeightOutputWithContext(ctx co
 	return o
 }
 
+// The name of the launch group. It can include up to 127 characters.
 func (o LaunchGroupToWeightOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchGroupToWeight) string { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// The portion of launch traffic to allocate to this launch group.
+//
+// This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
 func (o LaunchGroupToWeightOutput) SplitWeight() pulumi.IntOutput {
 	return o.ApplyT(func(v LaunchGroupToWeight) int { return v.SplitWeight }).(pulumi.IntOutput)
 }
@@ -1275,8 +1361,10 @@ type LaunchMetricDefinitionObject struct {
 	EntityIdKey string `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
 	EventPattern *string `pulumi:"eventPattern"`
-	MetricName   string  `pulumi:"metricName"`
-	UnitLabel    *string `pulumi:"unitLabel"`
+	// A name for the metric. It can include up to 255 characters.
+	MetricName string `pulumi:"metricName"`
+	// A label for the units that the metric is measuring.
+	UnitLabel *string `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
 	ValueKey string `pulumi:"valueKey"`
 }
@@ -1297,8 +1385,10 @@ type LaunchMetricDefinitionObjectArgs struct {
 	EntityIdKey pulumi.StringInput `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
 	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
-	MetricName   pulumi.StringInput    `pulumi:"metricName"`
-	UnitLabel    pulumi.StringPtrInput `pulumi:"unitLabel"`
+	// A name for the metric. It can include up to 255 characters.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// A label for the units that the metric is measuring.
+	UnitLabel pulumi.StringPtrInput `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
 	ValueKey pulumi.StringInput `pulumi:"valueKey"`
 }
@@ -1364,10 +1454,12 @@ func (o LaunchMetricDefinitionObjectOutput) EventPattern() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LaunchMetricDefinitionObject) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
+// A name for the metric. It can include up to 255 characters.
 func (o LaunchMetricDefinitionObjectOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchMetricDefinitionObject) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// A label for the units that the metric is measuring.
 func (o LaunchMetricDefinitionObjectOutput) UnitLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchMetricDefinitionObject) *string { return v.UnitLabel }).(pulumi.StringPtrOutput)
 }
@@ -1398,9 +1490,12 @@ func (o LaunchMetricDefinitionObjectArrayOutput) Index(i pulumi.IntInput) Launch
 }
 
 type LaunchSegmentOverride struct {
-	EvaluationOrder int                   `pulumi:"evaluationOrder"`
-	Segment         string                `pulumi:"segment"`
-	Weights         []LaunchGroupToWeight `pulumi:"weights"`
+	// A number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+	EvaluationOrder int `pulumi:"evaluationOrder"`
+	// The ARN of the segment to use for this override.
+	Segment string `pulumi:"segment"`
+	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	Weights []LaunchGroupToWeight `pulumi:"weights"`
 }
 
 // LaunchSegmentOverrideInput is an input type that accepts LaunchSegmentOverrideArgs and LaunchSegmentOverrideOutput values.
@@ -1415,9 +1510,12 @@ type LaunchSegmentOverrideInput interface {
 }
 
 type LaunchSegmentOverrideArgs struct {
-	EvaluationOrder pulumi.IntInput               `pulumi:"evaluationOrder"`
-	Segment         pulumi.StringInput            `pulumi:"segment"`
-	Weights         LaunchGroupToWeightArrayInput `pulumi:"weights"`
+	// A number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+	EvaluationOrder pulumi.IntInput `pulumi:"evaluationOrder"`
+	// The ARN of the segment to use for this override.
+	Segment pulumi.StringInput `pulumi:"segment"`
+	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	Weights LaunchGroupToWeightArrayInput `pulumi:"weights"`
 }
 
 func (LaunchSegmentOverrideArgs) ElementType() reflect.Type {
@@ -1471,14 +1569,17 @@ func (o LaunchSegmentOverrideOutput) ToLaunchSegmentOverrideOutputWithContext(ct
 	return o
 }
 
+// A number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
 func (o LaunchSegmentOverrideOutput) EvaluationOrder() pulumi.IntOutput {
 	return o.ApplyT(func(v LaunchSegmentOverride) int { return v.EvaluationOrder }).(pulumi.IntOutput)
 }
 
+// The ARN of the segment to use for this override.
 func (o LaunchSegmentOverrideOutput) Segment() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchSegmentOverride) string { return v.Segment }).(pulumi.StringOutput)
 }
 
+// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
 func (o LaunchSegmentOverrideOutput) Weights() LaunchGroupToWeightArrayOutput {
 	return o.ApplyT(func(v LaunchSegmentOverride) []LaunchGroupToWeight { return v.Weights }).(LaunchGroupToWeightArrayOutput)
 }
@@ -1504,9 +1605,14 @@ func (o LaunchSegmentOverrideArrayOutput) Index(i pulumi.IntInput) LaunchSegment
 }
 
 type LaunchStepConfig struct {
-	GroupWeights     []LaunchGroupToWeight   `pulumi:"groupWeights"`
+	// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
+	GroupWeights []LaunchGroupToWeight `pulumi:"groupWeights"`
+	// An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+	//
+	// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
 	SegmentOverrides []LaunchSegmentOverride `pulumi:"segmentOverrides"`
-	StartTime        string                  `pulumi:"startTime"`
+	// The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
+	StartTime string `pulumi:"startTime"`
 }
 
 // LaunchStepConfigInput is an input type that accepts LaunchStepConfigArgs and LaunchStepConfigOutput values.
@@ -1521,9 +1627,14 @@ type LaunchStepConfigInput interface {
 }
 
 type LaunchStepConfigArgs struct {
-	GroupWeights     LaunchGroupToWeightArrayInput   `pulumi:"groupWeights"`
+	// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
+	GroupWeights LaunchGroupToWeightArrayInput `pulumi:"groupWeights"`
+	// An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+	//
+	// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
 	SegmentOverrides LaunchSegmentOverrideArrayInput `pulumi:"segmentOverrides"`
-	StartTime        pulumi.StringInput              `pulumi:"startTime"`
+	// The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
 func (LaunchStepConfigArgs) ElementType() reflect.Type {
@@ -1577,14 +1688,19 @@ func (o LaunchStepConfigOutput) ToLaunchStepConfigOutputWithContext(ctx context.
 	return o
 }
 
+// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
 func (o LaunchStepConfigOutput) GroupWeights() LaunchGroupToWeightArrayOutput {
 	return o.ApplyT(func(v LaunchStepConfig) []LaunchGroupToWeight { return v.GroupWeights }).(LaunchGroupToWeightArrayOutput)
 }
 
+// An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+//
+// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
 func (o LaunchStepConfigOutput) SegmentOverrides() LaunchSegmentOverrideArrayOutput {
 	return o.ApplyT(func(v LaunchStepConfig) []LaunchSegmentOverride { return v.SegmentOverrides }).(LaunchSegmentOverrideArrayOutput)
 }
 
+// The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
 func (o LaunchStepConfigOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchStepConfig) string { return v.StartTime }).(pulumi.StringOutput)
 }
@@ -1618,7 +1734,9 @@ type LaunchTag struct {
 }
 
 type ProjectAppConfigResourceObject struct {
+	// The ID of the AWS AppConfig application to use for client-side evaluation.
 	ApplicationId string `pulumi:"applicationId"`
+	// The ID of the AWS AppConfig environment to use for client-side evaluation.
 	EnvironmentId string `pulumi:"environmentId"`
 }
 
@@ -1634,7 +1752,9 @@ type ProjectAppConfigResourceObjectInput interface {
 }
 
 type ProjectAppConfigResourceObjectArgs struct {
+	// The ID of the AWS AppConfig application to use for client-side evaluation.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The ID of the AWS AppConfig environment to use for client-side evaluation.
 	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
 }
 
@@ -1715,10 +1835,12 @@ func (o ProjectAppConfigResourceObjectOutput) ToProjectAppConfigResourceObjectPt
 	}).(ProjectAppConfigResourceObjectPtrOutput)
 }
 
+// The ID of the AWS AppConfig application to use for client-side evaluation.
 func (o ProjectAppConfigResourceObjectOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectAppConfigResourceObject) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The ID of the AWS AppConfig environment to use for client-side evaluation.
 func (o ProjectAppConfigResourceObjectOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectAppConfigResourceObject) string { return v.EnvironmentId }).(pulumi.StringOutput)
 }
@@ -1747,6 +1869,7 @@ func (o ProjectAppConfigResourceObjectPtrOutput) Elem() ProjectAppConfigResource
 	}).(ProjectAppConfigResourceObjectOutput)
 }
 
+// The ID of the AWS AppConfig application to use for client-side evaluation.
 func (o ProjectAppConfigResourceObjectPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectAppConfigResourceObject) *string {
 		if v == nil {
@@ -1756,6 +1879,7 @@ func (o ProjectAppConfigResourceObjectPtrOutput) ApplicationId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the AWS AppConfig environment to use for client-side evaluation.
 func (o ProjectAppConfigResourceObjectPtrOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectAppConfigResourceObject) *string {
 		if v == nil {
@@ -1767,8 +1891,10 @@ func (o ProjectAppConfigResourceObjectPtrOutput) EnvironmentId() pulumi.StringPt
 
 // Destinations for data.
 type ProjectDataDeliveryObject struct {
-	LogGroup *string               `pulumi:"logGroup"`
-	S3       *ProjectS3Destination `pulumi:"s3"`
+	// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
+	LogGroup *string `pulumi:"logGroup"`
+	// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+	S3 *ProjectS3Destination `pulumi:"s3"`
 }
 
 // ProjectDataDeliveryObjectInput is an input type that accepts ProjectDataDeliveryObjectArgs and ProjectDataDeliveryObjectOutput values.
@@ -1784,8 +1910,10 @@ type ProjectDataDeliveryObjectInput interface {
 
 // Destinations for data.
 type ProjectDataDeliveryObjectArgs struct {
-	LogGroup pulumi.StringPtrInput        `pulumi:"logGroup"`
-	S3       ProjectS3DestinationPtrInput `pulumi:"s3"`
+	// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+	S3 ProjectS3DestinationPtrInput `pulumi:"s3"`
 }
 
 func (ProjectDataDeliveryObjectArgs) ElementType() reflect.Type {
@@ -1866,10 +1994,12 @@ func (o ProjectDataDeliveryObjectOutput) ToProjectDataDeliveryObjectPtrOutputWit
 	}).(ProjectDataDeliveryObjectPtrOutput)
 }
 
+// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
 func (o ProjectDataDeliveryObjectOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryObject) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
 
+// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
 func (o ProjectDataDeliveryObjectOutput) S3() ProjectS3DestinationPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryObject) *ProjectS3Destination { return v.S3 }).(ProjectS3DestinationPtrOutput)
 }
@@ -1898,6 +2028,7 @@ func (o ProjectDataDeliveryObjectPtrOutput) Elem() ProjectDataDeliveryObjectOutp
 	}).(ProjectDataDeliveryObjectOutput)
 }
 
+// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
 func (o ProjectDataDeliveryObjectPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryObject) *string {
 		if v == nil {
@@ -1907,6 +2038,7 @@ func (o ProjectDataDeliveryObjectPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
 func (o ProjectDataDeliveryObjectPtrOutput) S3() ProjectS3DestinationPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryObject) *ProjectS3Destination {
 		if v == nil {
@@ -1917,8 +2049,10 @@ func (o ProjectDataDeliveryObjectPtrOutput) S3() ProjectS3DestinationPtrOutput {
 }
 
 type ProjectS3Destination struct {
-	BucketName string  `pulumi:"bucketName"`
-	Prefix     *string `pulumi:"prefix"`
+	// The name of the bucket in which Evidently stores evaluation events.
+	BucketName string `pulumi:"bucketName"`
+	// The bucket prefix in which Evidently stores evaluation events.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // ProjectS3DestinationInput is an input type that accepts ProjectS3DestinationArgs and ProjectS3DestinationOutput values.
@@ -1933,8 +2067,10 @@ type ProjectS3DestinationInput interface {
 }
 
 type ProjectS3DestinationArgs struct {
-	BucketName pulumi.StringInput    `pulumi:"bucketName"`
-	Prefix     pulumi.StringPtrInput `pulumi:"prefix"`
+	// The name of the bucket in which Evidently stores evaluation events.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The bucket prefix in which Evidently stores evaluation events.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (ProjectS3DestinationArgs) ElementType() reflect.Type {
@@ -2014,10 +2150,12 @@ func (o ProjectS3DestinationOutput) ToProjectS3DestinationPtrOutputWithContext(c
 	}).(ProjectS3DestinationPtrOutput)
 }
 
+// The name of the bucket in which Evidently stores evaluation events.
 func (o ProjectS3DestinationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectS3Destination) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The bucket prefix in which Evidently stores evaluation events.
 func (o ProjectS3DestinationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectS3Destination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2046,6 +2184,7 @@ func (o ProjectS3DestinationPtrOutput) Elem() ProjectS3DestinationOutput {
 	}).(ProjectS3DestinationOutput)
 }
 
+// The name of the bucket in which Evidently stores evaluation events.
 func (o ProjectS3DestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectS3Destination) *string {
 		if v == nil {
@@ -2055,6 +2194,7 @@ func (o ProjectS3DestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The bucket prefix in which Evidently stores evaluation events.
 func (o ProjectS3DestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectS3Destination) *string {
 		if v == nil {

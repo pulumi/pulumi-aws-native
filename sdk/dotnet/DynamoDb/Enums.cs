@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.DynamoDb
 {
+    /// <summary>
+    /// The precision for the time and date that the stream was created.
+    /// </summary>
     [EnumType]
     public readonly struct GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision : IEquatable<GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision>
     {

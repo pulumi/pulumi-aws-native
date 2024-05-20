@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class GetComponentVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the component version.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class GetComponentVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the component version.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,28 @@ namespace Pulumi.AwsNative.GreengrassV2
     [OutputType]
     public sealed class GetComponentVersionResult
     {
+        /// <summary>
+        /// The ARN of the component version.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The name of the component.
+        /// </summary>
         public readonly string? ComponentName;
+        /// <summary>
+        /// The version of the component.
+        /// </summary>
         public readonly string? ComponentVersionValue;
+        /// <summary>
+        /// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        /// 
+        /// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+        /// 
+        /// ```json
+        /// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        /// }
+        /// ```
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

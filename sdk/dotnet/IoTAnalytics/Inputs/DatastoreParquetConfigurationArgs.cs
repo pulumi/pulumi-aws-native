@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastoreParquetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information needed to define a schema.
+        /// </summary>
         [Input("schemaDefinition")]
         public Input<Inputs.DatastoreSchemaDefinitionArgs>? SchemaDefinition { get; set; }
 

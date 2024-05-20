@@ -15,30 +15,64 @@ namespace Pulumi.AwsNative.Timestream
     [AwsNativeResourceType("aws-native:timestream:ScheduledQuery")]
     public partial class ScheduledQuery : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The `ARN` of the scheduled query.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+        /// 
+        /// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+        /// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+        /// </summary>
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+        /// </summary>
         [Output("errorReportConfiguration")]
         public Output<Outputs.ScheduledQueryErrorReportConfiguration> ErrorReportConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+        /// 
+        /// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
+        /// </summary>
         [Output("notificationConfiguration")]
         public Output<Outputs.ScheduledQueryNotificationConfiguration> NotificationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+        /// 
+        /// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+        /// </summary>
         [Output("queryString")]
         public Output<string> QueryString { get; private set; } = null!;
 
+        /// <summary>
+        /// Schedule configuration.
+        /// </summary>
         [Output("scheduleConfiguration")]
         public Output<Outputs.ScheduledQueryScheduleConfiguration> ScheduleConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN for the IAM role that Timestream will assume when running the scheduled query.
+        /// </summary>
         [Output("scheduledQueryExecutionRoleArn")]
         public Output<string> ScheduledQueryExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the query. Scheduled query names must be unique within each Region.
+        /// </summary>
         [Output("scheduledQueryName")]
         public Output<string?> ScheduledQueryName { get; private set; } = null!;
 
@@ -90,9 +124,15 @@ namespace Pulumi.AwsNative.Timestream
         [Output("sqTargetConfiguration")]
         public Output<string> SqTargetConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs to label the scheduled query.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Scheduled query target store configuration.
+        /// </summary>
         [Output("targetConfiguration")]
         public Output<Outputs.ScheduledQueryTargetConfiguration?> TargetConfiguration { get; private set; } = null!;
 
@@ -153,38 +193,76 @@ namespace Pulumi.AwsNative.Timestream
 
     public sealed class ScheduledQueryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+        /// 
+        /// - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
+        /// - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+        /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
+        /// <summary>
+        /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+        /// </summary>
         [Input("errorReportConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryErrorReportConfigurationArgs> ErrorReportConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+        /// 
+        /// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
+        /// </summary>
         [Input("notificationConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryNotificationConfigurationArgs> NotificationConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+        /// 
+        /// The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+        /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
 
+        /// <summary>
+        /// Schedule configuration.
+        /// </summary>
         [Input("scheduleConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryScheduleConfigurationArgs> ScheduleConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN for the IAM role that Timestream will assume when running the scheduled query.
+        /// </summary>
         [Input("scheduledQueryExecutionRoleArn", required: true)]
         public Input<string> ScheduledQueryExecutionRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// A name for the query. Scheduled query names must be unique within each Region.
+        /// </summary>
         [Input("scheduledQueryName")]
         public Input<string>? ScheduledQueryName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs to label the scheduled query.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Scheduled query target store configuration.
+        /// </summary>
         [Input("targetConfiguration")]
         public Input<Inputs.ScheduledQueryTargetConfigurationArgs>? TargetConfiguration { get; set; }
 

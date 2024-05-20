@@ -37,10 +37,25 @@ export class BackupPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupPlan.__pulumiType;
     }
 
+    /**
+     * Uniquely identifies the backup plan to be associated with the selection of resources.
+     */
     public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanResourceType>;
+    /**
+     * An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+     */
     public /*out*/ readonly backupPlanArn!: pulumi.Output<string>;
+    /**
+     * Uniquely identifies a backup plan.
+     */
     public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
+    /**
+     * The tags to assign to the backup plan.
+     */
     public readonly backupPlanTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+     */
     public /*out*/ readonly versionId!: pulumi.Output<string>;
 
     /**
@@ -78,6 +93,12 @@ export class BackupPlan extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupPlan resource.
  */
 export interface BackupPlanArgs {
+    /**
+     * Uniquely identifies the backup plan to be associated with the selection of resources.
+     */
     backupPlan: pulumi.Input<inputs.backup.BackupPlanResourceTypeArgs>;
+    /**
+     * The tags to assign to the backup plan.
+     */
     backupPlanTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

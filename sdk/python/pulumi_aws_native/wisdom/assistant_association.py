@@ -25,6 +25,10 @@ class AssistantAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AssistantAssociation resource.
+        :param pulumi.Input[str] assistant_id: The identifier of the Wisdom assistant.
+        :param pulumi.Input['AssistantAssociationAssociationDataArgs'] association: The identifier of the associated resource.
+        :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "assistant_id", assistant_id)
         pulumi.set(__self__, "association", association)
@@ -35,6 +39,9 @@ class AssistantAssociationArgs:
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Wisdom assistant.
+        """
         return pulumi.get(self, "assistant_id")
 
     @assistant_id.setter
@@ -44,6 +51,9 @@ class AssistantAssociationArgs:
     @property
     @pulumi.getter
     def association(self) -> pulumi.Input['AssistantAssociationAssociationDataArgs']:
+        """
+        The identifier of the associated resource.
+        """
         return pulumi.get(self, "association")
 
     @association.setter
@@ -53,6 +63,9 @@ class AssistantAssociationArgs:
     @property
     @pulumi.getter(name="associationType")
     def association_type(self) -> pulumi.Input['AssistantAssociationAssociationType']:
+        """
+        The type of association.
+        """
         return pulumi.get(self, "association_type")
 
     @association_type.setter
@@ -62,6 +75,9 @@ class AssistantAssociationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -84,6 +100,10 @@ class AssistantAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assistant_id: The identifier of the Wisdom assistant.
+        :param pulumi.Input[pulumi.InputType['AssistantAssociationAssociationDataArgs']] association: The identifier of the associated resource.
+        :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -171,35 +191,56 @@ class AssistantAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Wisdom assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantAssociationArn")
     def assistant_association_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the assistant association.
+        """
         return pulumi.get(self, "assistant_association_arn")
 
     @property
     @pulumi.getter(name="assistantAssociationId")
     def assistant_association_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the association.
+        """
         return pulumi.get(self, "assistant_association_id")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Wisdom assistant.
+        """
         return pulumi.get(self, "assistant_id")
 
     @property
     @pulumi.getter
     def association(self) -> pulumi.Output['outputs.AssistantAssociationAssociationData']:
+        """
+        The identifier of the associated resource.
+        """
         return pulumi.get(self, "association")
 
     @property
     @pulumi.getter(name="associationType")
     def association_type(self) -> pulumi.Output['AssistantAssociationAssociationType']:
+        """
+        The type of association.
+        """
         return pulumi.get(self, "association_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 

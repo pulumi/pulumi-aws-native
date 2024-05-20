@@ -58,6 +58,11 @@ class GetKeyResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+
+        For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -93,6 +98,11 @@ class GetKeyResult:
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
+        """
+        The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+
+        For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "key_id")
 
     @property
@@ -236,6 +246,11 @@ def get_key(key_id: Optional[str] = None,
      You cannot use the ``AWS::KMS::Key`` resource to specify a KMS key with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) or a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
       *Regions*
       KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
+
+
+    :param str key_id: The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+           
+           For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
     """
     __args__ = dict()
     __args__['keyId'] = key_id
@@ -270,5 +285,10 @@ def get_key_output(key_id: Optional[pulumi.Input[str]] = None,
      You cannot use the ``AWS::KMS::Key`` resource to specify a KMS key with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) or a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
       *Regions*
       KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
+
+
+    :param str key_id: The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+           
+           For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
     """
     ...

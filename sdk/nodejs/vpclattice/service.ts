@@ -37,16 +37,54 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type of IAM policy.
+     *
+     * - `NONE` : The resource does not use an IAM policy. This is the default.
+     * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+     */
     public readonly authType!: pulumi.Output<enums.vpclattice.ServiceAuthType | undefined>;
+    /**
+     * The ID of the service.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the certificate.
+     */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
+    /**
+     * The date and time that the service was created, specified in ISO-8601 format.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The custom domain name of the service.
+     */
     public readonly customDomainName!: pulumi.Output<string | undefined>;
+    /**
+     * The DNS information of the service.
+     */
     public readonly dnsEntry!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry | undefined>;
+    /**
+     * The date and time that the service was last updated, specified in ISO-8601 format.
+     */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    /**
+     * The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     *
+     * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the service.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceStatus>;
+    /**
+     * The tags for the service.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -95,10 +133,33 @@ export class Service extends pulumi.CustomResource {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * The type of IAM policy.
+     *
+     * - `NONE` : The resource does not use an IAM policy. This is the default.
+     * - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+     */
     authType?: pulumi.Input<enums.vpclattice.ServiceAuthType>;
+    /**
+     * The Amazon Resource Name (ARN) of the certificate.
+     */
     certificateArn?: pulumi.Input<string>;
+    /**
+     * The custom domain name of the service.
+     */
     customDomainName?: pulumi.Input<string>;
+    /**
+     * The DNS information of the service.
+     */
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceDnsEntryArgs>;
+    /**
+     * The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     *
+     * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The tags for the service.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -24,16 +24,24 @@ func LookupFhirDatastore(ctx *pulumi.Context, args *LookupFhirDatastoreArgs, opt
 }
 
 type LookupFhirDatastoreArgs struct {
+	// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
 	DatastoreId string `pulumi:"datastoreId"`
 }
 
 type LookupFhirDatastoreResult struct {
-	CreatedAt         *FhirDatastoreCreatedAt       `pulumi:"createdAt"`
-	DatastoreArn      *string                       `pulumi:"datastoreArn"`
-	DatastoreEndpoint *string                       `pulumi:"datastoreEndpoint"`
-	DatastoreId       *string                       `pulumi:"datastoreId"`
-	DatastoreStatus   *FhirDatastoreDatastoreStatus `pulumi:"datastoreStatus"`
-	Tags              []aws.Tag                     `pulumi:"tags"`
+	CreatedAt *FhirDatastoreCreatedAt `pulumi:"createdAt"`
+	// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+	DatastoreArn *string `pulumi:"datastoreArn"`
+	// The endpoint for the created Data Store.
+	DatastoreEndpoint *string `pulumi:"datastoreEndpoint"`
+	// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+	DatastoreId *string `pulumi:"datastoreId"`
+	// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+	DatastoreStatus *FhirDatastoreDatastoreStatus `pulumi:"datastoreStatus"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFhirDatastoreOutput(ctx *pulumi.Context, args LookupFhirDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupFhirDatastoreResultOutput {
@@ -50,6 +58,7 @@ func LookupFhirDatastoreOutput(ctx *pulumi.Context, args LookupFhirDatastoreOutp
 }
 
 type LookupFhirDatastoreOutputArgs struct {
+	// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
 	DatastoreId pulumi.StringInput `pulumi:"datastoreId"`
 }
 
@@ -75,22 +84,29 @@ func (o LookupFhirDatastoreResultOutput) CreatedAt() FhirDatastoreCreatedAtPtrOu
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreCreatedAt { return v.CreatedAt }).(FhirDatastoreCreatedAtPtrOutput)
 }
 
+// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
 func (o LookupFhirDatastoreResultOutput) DatastoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *string { return v.DatastoreArn }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint for the created Data Store.
 func (o LookupFhirDatastoreResultOutput) DatastoreEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *string { return v.DatastoreEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
 func (o LookupFhirDatastoreResultOutput) DatastoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *string { return v.DatastoreId }).(pulumi.StringPtrOutput)
 }
 
+// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
 func (o LookupFhirDatastoreResultOutput) DatastoreStatus() FhirDatastoreDatastoreStatusPtrOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) *FhirDatastoreDatastoreStatus { return v.DatastoreStatus }).(FhirDatastoreDatastoreStatusPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupFhirDatastoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFhirDatastoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IvsChat
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
+        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.LoggingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
@@ -93,6 +96,9 @@ namespace Pulumi.AwsNative.IvsChat
 
     public sealed class LoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
+        /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.LoggingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 

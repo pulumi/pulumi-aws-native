@@ -16,10 +16,18 @@ import (
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
-	AwsId          pulumi.StringOutput                            `pulumi:"awsId"`
-	IdentityPoolId pulumi.StringOutput                            `pulumi:"identityPoolId"`
-	RoleMappings   IdentityPoolRoleAttachmentRoleMappingMapOutput `pulumi:"roleMappings"`
-	Roles          pulumi.StringMapOutput                         `pulumi:"roles"`
+	// The resource ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// An identity pool ID in the format `REGION:GUID` .
+	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
+	// How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+	//
+	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+	//
+	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+	RoleMappings IdentityPoolRoleAttachmentRoleMappingMapOutput `pulumi:"roleMappings"`
+	// The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+	Roles pulumi.StringMapOutput `pulumi:"roles"`
 }
 
 // NewIdentityPoolRoleAttachment registers a new resource with the given unique name, arguments, and options.
@@ -69,16 +77,30 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 }
 
 type identityPoolRoleAttachmentArgs struct {
-	IdentityPoolId string                                           `pulumi:"identityPoolId"`
-	RoleMappings   map[string]IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
-	Roles          map[string]string                                `pulumi:"roles"`
+	// An identity pool ID in the format `REGION:GUID` .
+	IdentityPoolId string `pulumi:"identityPoolId"`
+	// How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+	//
+	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+	//
+	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+	RoleMappings map[string]IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
+	// The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+	Roles map[string]string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a IdentityPoolRoleAttachment resource.
 type IdentityPoolRoleAttachmentArgs struct {
+	// An identity pool ID in the format `REGION:GUID` .
 	IdentityPoolId pulumi.StringInput
-	RoleMappings   IdentityPoolRoleAttachmentRoleMappingMapInput
-	Roles          pulumi.StringMapInput
+	// How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+	//
+	// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+	//
+	// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+	RoleMappings IdentityPoolRoleAttachmentRoleMappingMapInput
+	// The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+	Roles pulumi.StringMapInput
 }
 
 func (IdentityPoolRoleAttachmentArgs) ElementType() reflect.Type {
@@ -118,20 +140,28 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 	return o
 }
 
+// The resource ID.
 func (o IdentityPoolRoleAttachmentOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// An identity pool ID in the format `REGION:GUID` .
 func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
+// How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+//
+// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+//
+// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
 func (o IdentityPoolRoleAttachmentOutput) RoleMappings() IdentityPoolRoleAttachmentRoleMappingMapOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) IdentityPoolRoleAttachmentRoleMappingMapOutput {
 		return v.RoleMappings
 	}).(IdentityPoolRoleAttachmentRoleMappingMapOutput)
 }
 
+// The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
 func (o IdentityPoolRoleAttachmentOutput) Roles() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringMapOutput { return v.Roles }).(pulumi.StringMapOutput)
 }

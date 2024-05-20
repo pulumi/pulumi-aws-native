@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class ServiceNetworkServiceAssociationDnsEntryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The domain name of the service.
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// The ID of the hosted zone.
+        /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreRetentionPeriod
     {
+        /// <summary>
+        /// The number of days that message data is kept. The `unlimited` parameter must be false.
+        /// </summary>
         public readonly int? NumberOfDays;
+        /// <summary>
+        /// If true, message data is kept indefinitely.
+        /// </summary>
         public readonly bool? Unlimited;
 
         [OutputConstructor]

@@ -26,6 +26,18 @@ class DatastoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Datastore resource.
+        :param pulumi.Input[str] datastore_name: The name of the data store.
+        :param pulumi.Input['DatastorePartitionsArgs'] datastore_partitions: Information about the partition dimensions in a data store.
+        :param pulumi.Input['DatastoreStorageArgs'] datastore_storage: Where data store data is stored.
+        :param pulumi.Input['DatastoreFileFormatConfigurationArgs'] file_format_configuration: Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+               
+               The default file format is JSON. You can specify only one format.
+               
+               You can't change the file format after you create the data store.
+        :param pulumi.Input['DatastoreRetentionPeriodArgs'] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the data store.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         if datastore_name is not None:
             pulumi.set(__self__, "datastore_name", datastore_name)
@@ -43,6 +55,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the data store.
+        """
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
@@ -52,6 +67,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="datastorePartitions")
     def datastore_partitions(self) -> Optional[pulumi.Input['DatastorePartitionsArgs']]:
+        """
+        Information about the partition dimensions in a data store.
+        """
         return pulumi.get(self, "datastore_partitions")
 
     @datastore_partitions.setter
@@ -61,6 +79,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="datastoreStorage")
     def datastore_storage(self) -> Optional[pulumi.Input['DatastoreStorageArgs']]:
+        """
+        Where data store data is stored.
+        """
         return pulumi.get(self, "datastore_storage")
 
     @datastore_storage.setter
@@ -70,6 +91,13 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="fileFormatConfiguration")
     def file_format_configuration(self) -> Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']]:
+        """
+        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+
+        The default file format is JSON. You can specify only one format.
+
+        You can't change the file format after you create the data store.
+        """
         return pulumi.get(self, "file_format_configuration")
 
     @file_format_configuration.setter
@@ -79,6 +107,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input['DatastoreRetentionPeriodArgs']]:
+        """
+        How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -88,6 +119,11 @@ class DatastoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Metadata which can be used to manage the data store.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -180,6 +216,18 @@ class Datastore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] datastore_name: The name of the data store.
+        :param pulumi.Input[pulumi.InputType['DatastorePartitionsArgs']] datastore_partitions: Information about the partition dimensions in a data store.
+        :param pulumi.Input[pulumi.InputType['DatastoreStorageArgs']] datastore_storage: Where data store data is stored.
+        :param pulumi.Input[pulumi.InputType['DatastoreFileFormatConfigurationArgs']] file_format_configuration: Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+               
+               The default file format is JSON. You can specify only one format.
+               
+               You can't change the file format after you create the data store.
+        :param pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the data store.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -336,30 +384,54 @@ class Datastore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the data store.
+        """
         return pulumi.get(self, "datastore_name")
 
     @property
     @pulumi.getter(name="datastorePartitions")
     def datastore_partitions(self) -> pulumi.Output[Optional['outputs.DatastorePartitions']]:
+        """
+        Information about the partition dimensions in a data store.
+        """
         return pulumi.get(self, "datastore_partitions")
 
     @property
     @pulumi.getter(name="datastoreStorage")
     def datastore_storage(self) -> pulumi.Output[Optional['outputs.DatastoreStorage']]:
+        """
+        Where data store data is stored.
+        """
         return pulumi.get(self, "datastore_storage")
 
     @property
     @pulumi.getter(name="fileFormatConfiguration")
     def file_format_configuration(self) -> pulumi.Output[Optional['outputs.DatastoreFileFormatConfiguration']]:
+        """
+        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+
+        The default file format is JSON. You can specify only one format.
+
+        You can't change the file format after you create the data store.
+        """
         return pulumi.get(self, "file_format_configuration")
 
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional['outputs.DatastoreRetentionPeriod']]:
+        """
+        How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Metadata which can be used to manage the data store.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

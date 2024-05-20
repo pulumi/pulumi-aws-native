@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class RulesetThreshold
     {
+        /// <summary>
+        /// The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataBrew.RulesetThresholdType? Type;
+        /// <summary>
+        /// Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataBrew.RulesetThresholdUnit? Unit;
+        /// <summary>
+        /// The value of a threshold.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableFieldCustomTextContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The font configuration of the custom text content for the table URL link content.
+        /// </summary>
         [Input("fontConfiguration", required: true)]
         public Input<Inputs.DashboardFontConfigurationArgs> FontConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The string value of the custom text content for the table URL link content.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

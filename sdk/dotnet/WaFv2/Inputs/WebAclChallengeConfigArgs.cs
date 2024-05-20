@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
     public sealed class WebAclChallengeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
+        /// </summary>
         [Input("immunityTimeProperty")]
         public Input<Inputs.WebAclImmunityTimePropertyArgs>? ImmunityTimeProperty { get; set; }
 

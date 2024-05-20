@@ -54,6 +54,15 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[str]:
+        """
+        For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+
+        Example load balancer URL:
+
+        Example instance IP address:
+
+        `192.0.2.0`
+        """
         return pulumi.get(self, "endpoint_url")
 
     @property

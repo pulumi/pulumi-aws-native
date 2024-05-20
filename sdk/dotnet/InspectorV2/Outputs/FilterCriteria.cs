@@ -13,36 +13,129 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
     [OutputType]
     public sealed class FilterCriteria
     {
+        /// <summary>
+        /// Details of the AWS account IDs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> AwsAccountId;
+        /// <summary>
+        /// Details of the component IDs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> ComponentId;
+        /// <summary>
+        /// Details of the component types used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> ComponentType;
+        /// <summary>
+        /// Details of the Amazon EC2 instance image IDs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> Ec2InstanceImageId;
+        /// <summary>
+        /// Details of the Amazon EC2 instance subnet IDs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> Ec2InstanceSubnetId;
+        /// <summary>
+        /// Details of the Amazon EC2 instance VPC IDs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> Ec2InstanceVpcId;
+        /// <summary>
+        /// Details of the Amazon ECR image architecture types used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageArchitecture;
+        /// <summary>
+        /// Details of the Amazon ECR image hashes used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageHash;
+        /// <summary>
+        /// Details on the Amazon ECR image push date and time used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterDateFilter> EcrImagePushedAt;
+        /// <summary>
+        /// Details on the Amazon ECR registry used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageRegistry;
+        /// <summary>
+        /// Details on the name of the Amazon ECR repository used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageRepositoryName;
+        /// <summary>
+        /// The tags attached to the Amazon ECR container image.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> EcrImageTags;
+        /// <summary>
+        /// Details on the finding ARNs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> FindingArn;
+        /// <summary>
+        /// Details on the finding status types used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> FindingStatus;
+        /// <summary>
+        /// Details on the finding types used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> FindingType;
+        /// <summary>
+        /// Details on the date and time a finding was first seen used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterDateFilter> FirstObservedAt;
+        /// <summary>
+        /// The Amazon Inspector score to filter on.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterNumberFilter> InspectorScore;
+        /// <summary>
+        /// Details on the date and time a finding was last seen used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterDateFilter> LastObservedAt;
+        /// <summary>
+        /// Details on network protocol used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> NetworkProtocol;
+        /// <summary>
+        /// Details on the port ranges used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterPortRangeFilter> PortRange;
+        /// <summary>
+        /// Details on the related vulnerabilities used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> RelatedVulnerabilities;
+        /// <summary>
+        /// Details on the resource IDs used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> ResourceId;
+        /// <summary>
+        /// Details on the resource tags used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterMapFilter> ResourceTags;
+        /// <summary>
+        /// Details on the resource types used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> ResourceType;
+        /// <summary>
+        /// Details on the severity used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> Severity;
+        /// <summary>
+        /// Details on the finding title used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> Title;
+        /// <summary>
+        /// Details on the date and time a finding was last updated at used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterDateFilter> UpdatedAt;
+        /// <summary>
+        /// Details on the vendor severity used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> VendorSeverity;
+        /// <summary>
+        /// Details on the vulnerability ID used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> VulnerabilityId;
+        /// <summary>
+        /// Details on the vulnerability score to filter findings by.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterStringFilter> VulnerabilitySource;
+        /// <summary>
+        /// Details on the vulnerable packages used to filter findings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FilterPackageFilter> VulnerablePackages;
 
         [OutputConstructor]

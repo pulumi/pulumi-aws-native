@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclChallengeConfig
     {
+        /// <summary>
+        /// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
+        /// </summary>
         public readonly Outputs.WebAclImmunityTimeProperty? ImmunityTimeProperty;
 
         [OutputConstructor]

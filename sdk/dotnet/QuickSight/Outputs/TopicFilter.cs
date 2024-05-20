@@ -13,16 +13,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicFilter
     {
+        /// <summary>
+        /// The category filter that is associated with this filter.
+        /// </summary>
         public readonly Outputs.TopicCategoryFilter? CategoryFilter;
+        /// <summary>
+        /// The date range filter.
+        /// </summary>
         public readonly Outputs.TopicDateRangeFilter? DateRangeFilter;
+        /// <summary>
+        /// The class of the filter. Valid values for this structure are `ENFORCED_VALUE_FILTER` , `CONDITIONAL_VALUE_FILTER` , and `NAMED_VALUE_FILTER` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicFilterClass? FilterClass;
+        /// <summary>
+        /// A description of the filter used to select items for a topic.
+        /// </summary>
         public readonly string? FilterDescription;
+        /// <summary>
+        /// The name of the filter.
+        /// </summary>
         public readonly string FilterName;
+        /// <summary>
+        /// The other names or aliases for the filter.
+        /// </summary>
         public readonly ImmutableArray<string> FilterSynonyms;
+        /// <summary>
+        /// The type of the filter. Valid values for this structure are `CATEGORY_FILTER` , `NUMERIC_EQUALITY_FILTER` , `NUMERIC_RANGE_FILTER` , `DATE_RANGE_FILTER` , and `RELATIVE_DATE_FILTER` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNamedFilterType? FilterType;
+        /// <summary>
+        /// The numeric equality filter.
+        /// </summary>
         public readonly Outputs.TopicNumericEqualityFilter? NumericEqualityFilter;
+        /// <summary>
+        /// The numeric range filter.
+        /// </summary>
         public readonly Outputs.TopicNumericRangeFilter? NumericRangeFilter;
+        /// <summary>
+        /// The name of the field that the filter operates on.
+        /// </summary>
         public readonly string OperandFieldName;
+        /// <summary>
+        /// The relative date filter.
+        /// </summary>
         public readonly Outputs.TopicRelativeDateFilter? RelativeDateFilter;
 
         [OutputConstructor]

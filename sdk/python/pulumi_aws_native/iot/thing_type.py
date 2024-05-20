@@ -24,7 +24,12 @@ class ThingTypeArgs:
                  thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingType resource.
+        :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
+               
+               Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] thing_type_name: The name of the thing type.
+        :param pulumi.Input['ThingTypePropertiesPropertiesArgs'] thing_type_properties: The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
         """
         if deprecate_thing_type is not None:
             pulumi.set(__self__, "deprecate_thing_type", deprecate_thing_type)
@@ -38,6 +43,11 @@ class ThingTypeArgs:
     @property
     @pulumi.getter(name="deprecateThingType")
     def deprecate_thing_type(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Deprecates a thing type. You can not associate new things with deprecated thing type.
+
+        Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+        """
         return pulumi.get(self, "deprecate_thing_type")
 
     @deprecate_thing_type.setter
@@ -59,6 +69,9 @@ class ThingTypeArgs:
     @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the thing type.
+        """
         return pulumi.get(self, "thing_type_name")
 
     @thing_type_name.setter
@@ -68,6 +81,9 @@ class ThingTypeArgs:
     @property
     @pulumi.getter(name="thingTypeProperties")
     def thing_type_properties(self) -> Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']]:
+        """
+        The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        """
         return pulumi.get(self, "thing_type_properties")
 
     @thing_type_properties.setter
@@ -90,7 +106,12 @@ class ThingType(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] deprecate_thing_type: Deprecates a thing type. You can not associate new things with deprecated thing type.
+               
+               Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] thing_type_name: The name of the thing type.
+        :param pulumi.Input[pulumi.InputType['ThingTypePropertiesPropertiesArgs']] thing_type_properties: The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
         """
         ...
     @overload
@@ -170,16 +191,27 @@ class ThingType(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The thing type arn.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The thing type id.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deprecateThingType")
     def deprecate_thing_type(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Deprecates a thing type. You can not associate new things with deprecated thing type.
+
+        Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+        """
         return pulumi.get(self, "deprecate_thing_type")
 
     @property
@@ -193,10 +225,16 @@ class ThingType(pulumi.CustomResource):
     @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the thing type.
+        """
         return pulumi.get(self, "thing_type_name")
 
     @property
     @pulumi.getter(name="thingTypeProperties")
     def thing_type_properties(self) -> pulumi.Output[Optional['outputs.ThingTypePropertiesProperties']]:
+        """
+        The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        """
         return pulumi.get(self, "thing_type_properties")
 

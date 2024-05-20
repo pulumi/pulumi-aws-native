@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentConfigTimeBasedLinear
     {
+        /// <summary>
+        /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        /// </summary>
         public readonly int LinearInterval;
+        /// <summary>
+        /// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        /// </summary>
         public readonly int LinearPercentage;
 
         [OutputConstructor]

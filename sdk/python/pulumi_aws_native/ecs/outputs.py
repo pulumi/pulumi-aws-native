@@ -113,6 +113,18 @@ class CapacityProviderAutoScalingGroupProvider(dict):
                  managed_draining: Optional['CapacityProviderAutoScalingGroupProviderManagedDraining'] = None,
                  managed_scaling: Optional['outputs.CapacityProviderManagedScaling'] = None,
                  managed_termination_protection: Optional['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection'] = None):
+        """
+        :param str auto_scaling_group_arn: The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
+        :param 'CapacityProviderAutoScalingGroupProviderManagedDraining' managed_draining: The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
+        :param 'CapacityProviderManagedScaling' managed_scaling: The managed scaling settings for the Auto Scaling group capacity provider.
+        :param 'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection' managed_termination_protection: The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+               
+               > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work. 
+               
+               When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+               
+               When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
+        """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_draining is not None:
             pulumi.set(__self__, "managed_draining", managed_draining)
@@ -124,21 +136,39 @@ class CapacityProviderAutoScalingGroupProvider(dict):
     @property
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
+        """
         return pulumi.get(self, "auto_scaling_group_arn")
 
     @property
     @pulumi.getter(name="managedDraining")
     def managed_draining(self) -> Optional['CapacityProviderAutoScalingGroupProviderManagedDraining']:
+        """
+        The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
+        """
         return pulumi.get(self, "managed_draining")
 
     @property
     @pulumi.getter(name="managedScaling")
     def managed_scaling(self) -> Optional['outputs.CapacityProviderManagedScaling']:
+        """
+        The managed scaling settings for the Auto Scaling group capacity provider.
+        """
         return pulumi.get(self, "managed_scaling")
 
     @property
     @pulumi.getter(name="managedTerminationProtection")
     def managed_termination_protection(self) -> Optional['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection']:
+        """
+        The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+
+        > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work. 
+
+        When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+
+        When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
+        """
         return pulumi.get(self, "managed_termination_protection")
 
 
@@ -178,6 +208,15 @@ class CapacityProviderManagedScaling(dict):
                  target_capacity: Optional[int] = None):
         """
         The managed scaling settings for the Auto Scaling group capacity provider.
+        :param int instance_warmup_period: The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
+        :param int maximum_scaling_step_size: The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
+        :param int minimum_scaling_step_size: The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+               
+               When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+               
+               If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
+        :param 'CapacityProviderManagedScalingStatus' status: Determines whether to use managed scaling for the capacity provider.
+        :param int target_capacity: The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
         """
         if instance_warmup_period is not None:
             pulumi.set(__self__, "instance_warmup_period", instance_warmup_period)
@@ -193,26 +232,45 @@ class CapacityProviderManagedScaling(dict):
     @property
     @pulumi.getter(name="instanceWarmupPeriod")
     def instance_warmup_period(self) -> Optional[int]:
+        """
+        The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
+        """
         return pulumi.get(self, "instance_warmup_period")
 
     @property
     @pulumi.getter(name="maximumScalingStepSize")
     def maximum_scaling_step_size(self) -> Optional[int]:
+        """
+        The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
+        """
         return pulumi.get(self, "maximum_scaling_step_size")
 
     @property
     @pulumi.getter(name="minimumScalingStepSize")
     def minimum_scaling_step_size(self) -> Optional[int]:
+        """
+        The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+
+        When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+
+        If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
+        """
         return pulumi.get(self, "minimum_scaling_step_size")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['CapacityProviderManagedScalingStatus']:
+        """
+        Determines whether to use managed scaling for the capacity provider.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="targetCapacity")
     def target_capacity(self) -> Optional[int]:
+        """
+        The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
+        """
         return pulumi.get(self, "target_capacity")
 
 
@@ -5232,6 +5290,9 @@ class TaskSetNetworkConfiguration(dict):
                  aws_vpc_configuration: Optional['outputs.TaskSetAwsVpcConfiguration'] = None):
         """
         An object representing the network configuration for a task or service.
+        :param 'TaskSetAwsVpcConfiguration' aws_vpc_configuration: The VPC subnets and security groups that are associated with a task.
+               
+               > All specified subnets and security groups must be from the same VPC.
         """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
@@ -5239,6 +5300,11 @@ class TaskSetNetworkConfiguration(dict):
     @property
     @pulumi.getter(name="awsVpcConfiguration")
     def aws_vpc_configuration(self) -> Optional['outputs.TaskSetAwsVpcConfiguration']:
+        """
+        The VPC subnets and security groups that are associated with a task.
+
+        > All specified subnets and security groups must be from the same VPC.
+        """
         return pulumi.get(self, "aws_vpc_configuration")
 
 

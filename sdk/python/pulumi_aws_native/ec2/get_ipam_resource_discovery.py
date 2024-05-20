@@ -52,6 +52,9 @@ class GetIpamResourceDiscoveryResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The resource discovery description.
+        """
         return pulumi.get(self, "description")
 
     @property

@@ -30,6 +30,8 @@ class GetIdentityPoolPrincipalTagResult:
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[Any]:
         """
+        A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "principal_tags")
@@ -37,6 +39,9 @@ class GetIdentityPoolPrincipalTagResult:
     @property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> Optional[bool]:
+        """
+        Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+        """
         return pulumi.get(self, "use_defaults")
 
 
@@ -55,6 +60,10 @@ def get_identity_pool_principal_tag(identity_pool_id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolPrincipalTagResult:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
+
+
+    :param str identity_pool_id: The identity pool that you want to associate with this principal tag map.
+    :param str identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
     """
     __args__ = dict()
     __args__['identityPoolId'] = identity_pool_id
@@ -73,5 +82,9 @@ def get_identity_pool_principal_tag_output(identity_pool_id: Optional[pulumi.Inp
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolPrincipalTagResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
+
+
+    :param str identity_pool_id: The identity pool that you want to associate with this principal tag map.
+    :param str identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
     """
     ...

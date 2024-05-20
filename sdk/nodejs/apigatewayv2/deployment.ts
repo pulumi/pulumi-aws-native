@@ -38,6 +38,9 @@ export class Deployment extends pulumi.CustomResource {
      * The API identifier.
      */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The deployment ID.
+     */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
      * The description for the deployment resource.

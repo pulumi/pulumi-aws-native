@@ -23,10 +23,12 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	ConnectorArn string `pulumi:"connectorArn"`
 }
 
 type LookupConnectorResult struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	ConnectorArn *string `pulumi:"connectorArn"`
 }
 
@@ -44,6 +46,7 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 }
 
 type LookupConnectorOutputArgs struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	ConnectorArn pulumi.StringInput `pulumi:"connectorArn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 func (o LookupConnectorResultOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
 }

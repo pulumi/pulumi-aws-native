@@ -51,16 +51,54 @@ namespace Pulumi.AwsNative.DocDbElastic
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// The number of days for which automatic snapshots are retained.
+        /// </summary>
         public readonly int? BackupRetentionPeriod;
         public readonly string? ClusterArn;
+        /// <summary>
+        /// The URL used to connect to the elastic cluster.
+        /// </summary>
         public readonly string? ClusterEndpoint;
+        /// <summary>
+        /// The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+        /// </summary>
         public readonly string? PreferredBackupWindow;
+        /// <summary>
+        /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        /// 
+        /// *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+        /// 
+        /// *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+        /// 
+        /// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+        /// 
+        /// *Constraints* : Minimum 30-minute window.
+        /// </summary>
         public readonly string? PreferredMaintenanceWindow;
+        /// <summary>
+        /// The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+        /// </summary>
         public readonly int? ShardCapacity;
+        /// <summary>
+        /// The number of shards assigned to the elastic cluster. Maximum is 32.
+        /// </summary>
         public readonly int? ShardCount;
+        /// <summary>
+        /// The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+        /// </summary>
         public readonly int? ShardInstanceCount;
+        /// <summary>
+        /// The Amazon EC2 subnet IDs for the new elastic cluster.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The tags to be assigned to the new elastic cluster.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// A list of EC2 VPC security groups to associate with the new elastic cluster.
+        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]

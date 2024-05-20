@@ -37,21 +37,86 @@ export class CapacityReservation extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityReservation.__pulumiType;
     }
 
+    /**
+     * The Availability Zone in which to create the Capacity Reservation.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+     */
     public /*out*/ readonly availableInstanceCount!: pulumi.Output<number>;
+    /**
+     * The ID of the Capacity Reservation.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+     */
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    /**
+     * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+     *
+     * You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+     *
+     * If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+     */
     public readonly endDate!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+     *
+     * - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+     * - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+     */
     public readonly endDateType!: pulumi.Output<string | undefined>;
+    /**
+     * *Deprecated.*
+     */
     public readonly ephemeralStorage!: pulumi.Output<boolean | undefined>;
+    /**
+     * The number of instances for which to reserve capacity.
+     *
+     * Valid range: 1 - 1000
+     */
     public readonly instanceCount!: pulumi.Output<number>;
+    /**
+     * Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+     *
+     * - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+     * - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+     *
+     * Default: `open`
+     */
     public readonly instanceMatchCriteria!: pulumi.Output<string | undefined>;
+    /**
+     * The type of operating system for which to reserve capacity.
+     */
     public readonly instancePlatform!: pulumi.Output<string>;
+    /**
+     * The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+     */
     public readonly instanceType!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     */
     public readonly outPostArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+     */
     public readonly placementGroupArn!: pulumi.Output<string | undefined>;
+    /**
+     * The tags to apply to the Capacity Reservation during launch.
+     */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationTagSpecification[] | undefined>;
+    /**
+     * Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+     *
+     * - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+     * - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+     */
     public readonly tenancy!: pulumi.Output<string | undefined>;
+    /**
+     * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+     */
     public /*out*/ readonly totalInstanceCount!: pulumi.Output<number>;
 
     /**
@@ -122,17 +187,73 @@ export class CapacityReservation extends pulumi.CustomResource {
  * The set of arguments for constructing a CapacityReservation resource.
  */
 export interface CapacityReservationArgs {
+    /**
+     * The Availability Zone in which to create the Capacity Reservation.
+     */
     availabilityZone: pulumi.Input<string>;
+    /**
+     * Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+     */
     ebsOptimized?: pulumi.Input<boolean>;
+    /**
+     * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+     *
+     * You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+     *
+     * If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+     */
     endDate?: pulumi.Input<string>;
+    /**
+     * Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+     *
+     * - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+     * - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+     */
     endDateType?: pulumi.Input<string>;
+    /**
+     * *Deprecated.*
+     */
     ephemeralStorage?: pulumi.Input<boolean>;
+    /**
+     * The number of instances for which to reserve capacity.
+     *
+     * Valid range: 1 - 1000
+     */
     instanceCount: pulumi.Input<number>;
+    /**
+     * Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+     *
+     * - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+     * - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+     *
+     * Default: `open`
+     */
     instanceMatchCriteria?: pulumi.Input<string>;
+    /**
+     * The type of operating system for which to reserve capacity.
+     */
     instancePlatform: pulumi.Input<string>;
+    /**
+     * The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+     */
     instanceType: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     */
     outPostArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+     */
     placementGroupArn?: pulumi.Input<string>;
+    /**
+     * The tags to apply to the Capacity Reservation during launch.
+     */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationTagSpecificationArgs>[]>;
+    /**
+     * Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+     *
+     * - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+     * - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+     */
     tenancy?: pulumi.Input<string>;
 }

@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the authentication mode to use. Below is an example of the possible JSON values:
+        /// 
+        /// ```
+        /// { Passwords: ["*****", "******"] // If Type is password.
+        /// }
+        /// ```
+        /// </summary>
         [Output("authenticationMode")]
         public Output<Outputs.AuthenticationModeProperties?> AuthenticationMode { get; private set; } = null!;
 
@@ -129,6 +137,14 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
+        /// <summary>
+        /// Specifies the authentication mode to use. Below is an example of the possible JSON values:
+        /// 
+        /// ```
+        /// { Passwords: ["*****", "******"] // If Type is password.
+        /// }
+        /// ```
+        /// </summary>
         [Input("authenticationMode")]
         public Input<Inputs.AuthenticationModePropertiesArgs>? AuthenticationMode { get; set; }
 

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class MultiplexprogramMultiplexProgramSettings
     {
+        /// <summary>
+        /// Indicates which pipeline is preferred by the multiplex for program ingest.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.MultiplexprogramPreferredChannelPipeline? PreferredChannelPipeline;
         /// <summary>
         /// Unique program number.

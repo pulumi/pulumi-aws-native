@@ -455,7 +455,9 @@ func (o CapabilityS3LocationArrayOutput) Index(i pulumi.IntInput) CapabilityS3Lo
 }
 
 type CapabilityTag struct {
-	Key   string `pulumi:"key"`
+	// Specifies the name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name that you create.
 	Value string `pulumi:"value"`
 }
 
@@ -557,12 +559,16 @@ func (o CapabilityX12DetailsPtrOutput) Version() CapabilityX12VersionPtrOutput {
 }
 
 type PartnershipTag struct {
-	Key   string `pulumi:"key"`
+	// Specifies the name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name that you create.
 	Value string `pulumi:"value"`
 }
 
 type ProfileTag struct {
-	Key   string `pulumi:"key"`
+	// Specifies the name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name that you create.
 	Value string `pulumi:"value"`
 }
 
@@ -653,7 +659,9 @@ func (o TransformerEdiTypePropertiesPtrOutput) X12Details() TransformerX12Detail
 }
 
 type TransformerTag struct {
-	Key   string `pulumi:"key"`
+	// Specifies the name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name that you create.
 	Value string `pulumi:"value"`
 }
 

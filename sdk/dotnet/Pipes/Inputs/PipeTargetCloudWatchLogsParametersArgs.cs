@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeTargetCloudWatchLogsParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the log stream.
+        /// </summary>
         [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }
 
+        /// <summary>
+        /// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        /// </summary>
         [Input("timestamp")]
         public Input<string>? Timestamp { get; set; }
 

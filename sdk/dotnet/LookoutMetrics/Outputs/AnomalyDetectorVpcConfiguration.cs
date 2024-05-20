@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorVpcConfiguration
     {
+        /// <summary>
+        /// An array of strings containing the list of security groups.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIdList;
+        /// <summary>
+        /// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIdList;
 
         [OutputConstructor]

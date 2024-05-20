@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Ssm
     [OutputType]
     public sealed class GetAssociationResult
     {
+        /// <summary>
+        /// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+        /// </summary>
         public readonly bool? ApplyOnlyAtCronInterval;
         /// <summary>
         /// Unique identifier of the association.
@@ -66,8 +69,17 @@ namespace Pulumi.AwsNative.Ssm
         /// The name of the association.
         /// </summary>
         public readonly string? AssociationName;
+        /// <summary>
+        /// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        /// </summary>
         public readonly string? AutomationTargetParameterName;
+        /// <summary>
+        /// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        /// </summary>
         public readonly ImmutableArray<string> CalendarNames;
+        /// <summary>
+        /// The severity level that is assigned to the association.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ssm.AssociationComplianceSeverity? ComplianceSeverity;
         /// <summary>
         /// The version of the SSM document to associate with the target.
@@ -77,12 +89,25 @@ namespace Pulumi.AwsNative.Ssm
         /// The ID of the instance that the SSM document is associated with.
         /// </summary>
         public readonly string? InstanceId;
+        /// <summary>
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+        /// 
+        /// If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
+        /// </summary>
         public readonly string? MaxConcurrency;
+        /// <summary>
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+        /// 
+        /// Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+        /// </summary>
         public readonly string? MaxErrors;
         /// <summary>
         /// The name of the SSM document.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
+        /// </summary>
         public readonly Outputs.AssociationInstanceAssociationOutputLocation? OutputLocation;
         /// <summary>
         /// Parameter values that the SSM document uses at runtime.
@@ -92,7 +117,17 @@ namespace Pulumi.AwsNative.Ssm
         /// A Cron or Rate expression that specifies when the association is applied to the target.
         /// </summary>
         public readonly string? ScheduleExpression;
+        /// <summary>
+        /// Number of days to wait after the scheduled day to run an association.
+        /// </summary>
         public readonly int? ScheduleOffset;
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+        /// 
+        /// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+        /// 
+        /// By default, all associations use `AUTO` mode.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ssm.AssociationSyncCompliance? SyncCompliance;
         /// <summary>
         /// The targets that the SSM document sends commands to.

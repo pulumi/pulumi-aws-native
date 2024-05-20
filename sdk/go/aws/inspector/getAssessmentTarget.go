@@ -23,11 +23,14 @@ func LookupAssessmentTarget(ctx *pulumi.Context, args *LookupAssessmentTargetArg
 }
 
 type LookupAssessmentTargetArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupAssessmentTargetResult struct {
-	Arn              *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+	Arn *string `pulumi:"arn"`
+	// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
 	ResourceGroupArn *string `pulumi:"resourceGroupArn"`
 }
 
@@ -45,6 +48,7 @@ func LookupAssessmentTargetOutput(ctx *pulumi.Context, args LookupAssessmentTarg
 }
 
 type LookupAssessmentTargetOutputArgs struct {
+	// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupAssessmentTargetResultOutput) ToLookupAssessmentTargetResultOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
 func (o LookupAssessmentTargetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentTargetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
 func (o LookupAssessmentTargetResultOutput) ResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentTargetResult) *string { return v.ResourceGroupArn }).(pulumi.StringPtrOutput)
 }

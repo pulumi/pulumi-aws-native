@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Backup.Inputs
     {
         [Input("stringEquals")]
         private InputList<Inputs.RestoreTestingSelectionKeyValueArgs>? _stringEquals;
+
+        /// <summary>
+        /// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
+        /// </summary>
         public InputList<Inputs.RestoreTestingSelectionKeyValueArgs> StringEquals
         {
             get => _stringEquals ?? (_stringEquals = new InputList<Inputs.RestoreTestingSelectionKeyValueArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
         [Input("stringNotEquals")]
         private InputList<Inputs.RestoreTestingSelectionKeyValueArgs>? _stringNotEquals;
+
+        /// <summary>
+        /// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
+        /// </summary>
         public InputList<Inputs.RestoreTestingSelectionKeyValueArgs> StringNotEquals
         {
             get => _stringNotEquals ?? (_stringNotEquals = new InputList<Inputs.RestoreTestingSelectionKeyValueArgs>());

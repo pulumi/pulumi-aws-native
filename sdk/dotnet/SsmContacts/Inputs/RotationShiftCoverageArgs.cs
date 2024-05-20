@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SsmContacts.Inputs
             set => _coverageTimes = value;
         }
 
+        /// <summary>
+        /// A list of days on which the schedule is active.
+        /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<Pulumi.AwsNative.SsmContacts.RotationDayOfWeek> DayOfWeek { get; set; } = null!;
 

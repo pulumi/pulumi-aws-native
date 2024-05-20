@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastorePartitions
     {
+        /// <summary>
+        /// A list of partition dimensions in a data store.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatastorePartition> Partitions;
 
         [OutputConstructor]

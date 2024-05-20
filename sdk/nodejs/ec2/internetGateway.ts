@@ -51,6 +51,9 @@ export class InternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === InternetGateway.__pulumiType;
     }
 
+    /**
+     * The ID of the internet gateway.
+     */
     public /*out*/ readonly internetGatewayId!: pulumi.Output<string>;
     /**
      * Any tags to assign to the internet gateway.

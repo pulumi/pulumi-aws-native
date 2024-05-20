@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of data that the data source is converted into for the knowledge base.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Contains details about the embeddings model that'sused to convert the data source.
+        /// </summary>
         [Input("vectorKnowledgeBaseConfiguration", required: true)]
         public Input<Inputs.KnowledgeBaseVectorKnowledgeBaseConfigurationArgs> VectorKnowledgeBaseConfiguration { get; set; } = null!;
 

@@ -49,6 +49,7 @@ import (
 type InternetGateway struct {
 	pulumi.CustomResourceState
 
+	// The ID of the internet gateway.
 	InternetGatewayId pulumi.StringOutput `pulumi:"internetGatewayId"`
 	// Any tags to assign to the internet gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -141,6 +142,7 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+// The ID of the internet gateway.
 func (o InternetGatewayOutput) InternetGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.InternetGatewayId }).(pulumi.StringOutput)
 }

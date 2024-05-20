@@ -16,10 +16,16 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetConnectorArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+     */
     connectorArn: string;
 }
 
 export interface GetConnectorResult {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+     */
     readonly connectorArn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
 }
 
 export interface GetConnectorOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+     */
     connectorArn: pulumi.Input<string>;
 }

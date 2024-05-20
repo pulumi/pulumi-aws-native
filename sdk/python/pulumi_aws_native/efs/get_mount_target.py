@@ -29,6 +29,11 @@ class GetMountTargetResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the Amazon EFS file system that the mount target provides access to.
+
+        Example: `fs-0123456789111222a`
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -54,6 +59,11 @@ def get_mount_target(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMountTargetResult:
     """
     The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
+
+
+    :param str id: The ID of the Amazon EFS file system that the mount target provides access to.
+           
+           Example: `fs-0123456789111222a`
     """
     __args__ = dict()
     __args__['id'] = id
@@ -70,5 +80,10 @@ def get_mount_target_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMountTargetResult]:
     """
     The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
+
+
+    :param str id: The ID of the Amazon EFS file system that the mount target provides access to.
+           
+           Example: `fs-0123456789111222a`
     """
     ...

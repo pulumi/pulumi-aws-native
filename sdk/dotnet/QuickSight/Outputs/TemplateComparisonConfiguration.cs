@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateComparisonConfiguration
     {
+        /// <summary>
+        /// The format of the comparison.
+        /// </summary>
         public readonly Outputs.TemplateComparisonFormatConfiguration? ComparisonFormat;
+        /// <summary>
+        /// The method of the comparison. Choose from the following options:
+        /// 
+        /// - `DIFFERENCE`
+        /// - `PERCENT_DIFFERENCE`
+        /// - `PERCENT`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateComparisonMethod? ComparisonMethod;
 
         [OutputConstructor]

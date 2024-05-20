@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetLateDataRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The information needed to configure the late data rule.
+        /// </summary>
         [Input("ruleConfiguration", required: true)]
         public Input<Inputs.DatasetLateDataRuleConfigurationArgs> RuleConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the late data rule.
+        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 

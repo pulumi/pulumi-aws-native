@@ -99,8 +99,9 @@ type Project struct {
 	// Role arn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Sample
-	Sample ProjectSamplePtrOutput       `pulumi:"sample"`
-	Tags   aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Sample ProjectSamplePtrOutput `pulumi:"sample"`
+	// Metadata tags that have been applied to the project.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -166,8 +167,9 @@ type projectArgs struct {
 	// Role arn
 	RoleArn string `pulumi:"roleArn"`
 	// Sample
-	Sample *ProjectSample      `pulumi:"sample"`
-	Tags   []aws.CreateOnlyTag `pulumi:"tags"`
+	Sample *ProjectSample `pulumi:"sample"`
+	// Metadata tags that have been applied to the project.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -182,7 +184,8 @@ type ProjectArgs struct {
 	RoleArn pulumi.StringInput
 	// Sample
 	Sample ProjectSamplePtrInput
-	Tags   aws.CreateOnlyTagArrayInput
+	// Metadata tags that have been applied to the project.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -247,6 +250,7 @@ func (o ProjectOutput) Sample() ProjectSamplePtrOutput {
 	return o.ApplyT(func(v *Project) ProjectSamplePtrOutput { return v.Sample }).(ProjectSamplePtrOutput)
 }
 
+// Metadata tags that have been applied to the project.
 func (o ProjectOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Project) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

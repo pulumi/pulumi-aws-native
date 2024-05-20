@@ -37,20 +37,64 @@ export class ApiKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiKey.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
+     * Updates the description for the API key resource.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+     */
     public readonly expireTime!: pulumi.Output<string | undefined>;
+    /**
+     * ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+     *
+     * Valid values: `true` , or `false` .
+     *
+     * > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+     */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+     * Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+     */
     public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+     */
     public /*out*/ readonly keyArn!: pulumi.Output<string>;
+    /**
+     * A custom name for the API key resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique API key name.
+     * - No spaces allowed. For example, `ExampleAPIKey` .
+     */
     public readonly keyName!: pulumi.Output<string>;
+    /**
+     * Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+     */
     public readonly noExpiry!: pulumi.Output<boolean | undefined>;
+    /**
+     * The API key restrictions for the API key resource.
+     */
     public readonly restrictions!: pulumi.Output<outputs.location.ApiKeyRestrictions>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -104,12 +148,44 @@ export class ApiKey extends pulumi.CustomResource {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
+    /**
+     * Updates the description for the API key resource.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+     */
     expireTime?: pulumi.Input<string>;
+    /**
+     * ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
+     *
+     * Valid values: `true` , or `false` .
+     *
+     * > This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.
+     */
     forceDelete?: pulumi.Input<boolean>;
+    /**
+     * The boolean flag to be included for updating `ExpireTime` or Restrictions details.
+     * Must be set to `true` to update an API key resource that has been used in the past 7 days. `False` if force update is not preferred.
+     */
     forceUpdate?: pulumi.Input<boolean>;
+    /**
+     * A custom name for the API key resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique API key name.
+     * - No spaces allowed. For example, `ExampleAPIKey` .
+     */
     keyName?: pulumi.Input<string>;
+    /**
+     * Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
+     */
     noExpiry?: pulumi.Input<boolean>;
+    /**
+     * The API key restrictions for the API key resource.
+     */
     restrictions: pulumi.Input<inputs.location.ApiKeyRestrictionsArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

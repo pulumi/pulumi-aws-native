@@ -60,6 +60,13 @@ class EncryptionConfigPropertiesArgs:
     def __init__(__self__, *,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+               
+               Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+        """
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if role_arn is not None:
@@ -68,6 +75,9 @@ class EncryptionConfigPropertiesArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -77,6 +87,11 @@ class EncryptionConfigPropertiesArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+
+        Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -88,12 +103,19 @@ class EncryptionConfigPropertiesArgs:
 class SchemaPropertiesArgs:
     def __init__(__self__, *,
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]] = None):
+        """
+        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]] attributes: An array of attributes specifying the name and type of each field in a dataset.
+        """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]]:
+        """
+        An array of attributes specifying the name and type of each field in a dataset.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter

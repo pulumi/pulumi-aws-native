@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCustomActionFilterOperation
     {
+        /// <summary>
+        /// The configuration that chooses the fields to be filtered.
+        /// </summary>
         public readonly Outputs.AnalysisFilterOperationSelectedFieldsConfiguration SelectedFieldsConfiguration;
+        /// <summary>
+        /// The configuration that chooses the target visuals to be filtered.
+        /// </summary>
         public readonly Outputs.AnalysisFilterOperationTargetVisualsConfiguration TargetVisualsConfiguration;
 
         [OutputConstructor]

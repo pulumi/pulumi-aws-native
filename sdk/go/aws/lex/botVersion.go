@@ -16,10 +16,14 @@ import (
 type BotVersion struct {
 	pulumi.CustomResourceState
 
-	BotId                         pulumi.StringOutput                      `pulumi:"botId"`
-	BotVersion                    pulumi.StringOutput                      `pulumi:"botVersion"`
+	// The unique identifier of the bot.
+	BotId pulumi.StringOutput `pulumi:"botId"`
+	// The version of the bot.
+	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
+	// Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	BotVersionLocaleSpecification BotVersionLocaleSpecificationArrayOutput `pulumi:"botVersionLocaleSpecification"`
-	Description                   pulumi.StringPtrOutput                   `pulumi:"description"`
+	// The description of the version.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 }
 
 // NewBotVersion registers a new resource with the given unique name, arguments, and options.
@@ -72,16 +76,22 @@ func (BotVersionState) ElementType() reflect.Type {
 }
 
 type botVersionArgs struct {
-	BotId                         string                          `pulumi:"botId"`
+	// The unique identifier of the bot.
+	BotId string `pulumi:"botId"`
+	// Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	BotVersionLocaleSpecification []BotVersionLocaleSpecification `pulumi:"botVersionLocaleSpecification"`
-	Description                   *string                         `pulumi:"description"`
+	// The description of the version.
+	Description *string `pulumi:"description"`
 }
 
 // The set of arguments for constructing a BotVersion resource.
 type BotVersionArgs struct {
-	BotId                         pulumi.StringInput
+	// The unique identifier of the bot.
+	BotId pulumi.StringInput
+	// Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	BotVersionLocaleSpecification BotVersionLocaleSpecificationArrayInput
-	Description                   pulumi.StringPtrInput
+	// The description of the version.
+	Description pulumi.StringPtrInput
 }
 
 func (BotVersionArgs) ElementType() reflect.Type {
@@ -121,18 +131,22 @@ func (o BotVersionOutput) ToBotVersionOutputWithContext(ctx context.Context) Bot
 	return o
 }
 
+// The unique identifier of the bot.
 func (o BotVersionOutput) BotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotVersion) pulumi.StringOutput { return v.BotId }).(pulumi.StringOutput)
 }
 
+// The version of the bot.
 func (o BotVersionOutput) BotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotVersion) pulumi.StringOutput { return v.BotVersion }).(pulumi.StringOutput)
 }
 
+// Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 func (o BotVersionOutput) BotVersionLocaleSpecification() BotVersionLocaleSpecificationArrayOutput {
 	return o.ApplyT(func(v *BotVersion) BotVersionLocaleSpecificationArrayOutput { return v.BotVersionLocaleSpecification }).(BotVersionLocaleSpecificationArrayOutput)
 }
 
+// The description of the version.
 func (o BotVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

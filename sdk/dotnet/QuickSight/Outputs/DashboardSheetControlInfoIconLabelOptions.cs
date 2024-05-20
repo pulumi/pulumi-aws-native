@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetControlInfoIconLabelOptions
     {
+        /// <summary>
+        /// The text content of info icon.
+        /// </summary>
         public readonly string? InfoIconText;
+        /// <summary>
+        /// The visibility configuration of info icon label options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

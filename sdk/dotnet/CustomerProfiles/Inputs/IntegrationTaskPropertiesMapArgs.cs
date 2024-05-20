@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationTaskPropertiesMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The task property key.
+        /// </summary>
         [Input("operatorPropertyKey", required: true)]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationOperatorPropertiesKeys> OperatorPropertyKey { get; set; } = null!;
 
+        /// <summary>
+        /// The task property value.
+        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 

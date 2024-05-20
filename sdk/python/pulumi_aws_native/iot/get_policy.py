@@ -36,17 +36,25 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The name of this policy.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[Any]:
         """
+        The JSON document that describes the policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
@@ -73,6 +81,9 @@ def get_policy(id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Resource Type definition for AWS::IoT::Policy
+
+
+    :param str id: The name of this policy.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -91,5 +102,8 @@ def get_policy_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Resource Type definition for AWS::IoT::Policy
+
+
+    :param str id: The name of this policy.
     """
     ...

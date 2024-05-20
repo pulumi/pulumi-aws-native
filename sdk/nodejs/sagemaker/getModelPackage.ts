@@ -19,22 +19,74 @@ export function getModelPackage(args: GetModelPackageArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetModelPackageArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the model package.
+     */
     modelPackageArn: string;
 }
 
 export interface GetModelPackageResult {
+    /**
+     * An array of additional Inference Specification objects.
+     */
     readonly additionalInferenceSpecifications?: outputs.sagemaker.ModelPackageAdditionalInferenceSpecificationDefinition[];
+    /**
+     * A description provided when the model approval is set.
+     */
     readonly approvalDescription?: string;
+    /**
+     * Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+     */
     readonly certifyForMarketplace?: boolean;
+    /**
+     * The time that the model package was created.
+     */
     readonly creationTime?: string;
+    /**
+     * The metadata properties for the model package.
+     */
     readonly customerMetadataProperties?: outputs.sagemaker.ModelPackageCustomerMetadataProperties;
+    /**
+     * The last time the model package was modified.
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * The approval status of the model. This can be one of the following values.
+     *
+     * - `APPROVED` - The model is approved
+     * - `REJECTED` - The model is rejected.
+     * - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+     */
     readonly modelApprovalStatus?: enums.sagemaker.ModelPackageModelApprovalStatus;
+    /**
+     * The Amazon Resource Name (ARN) of the model package.
+     */
     readonly modelPackageArn?: string;
+    /**
+     * The name of the model.
+     */
     readonly modelPackageName?: string;
+    /**
+     * The status of the model package. This can be one of the following values.
+     *
+     * - `PENDING` - The model package creation is pending.
+     * - `IN_PROGRESS` - The model package is in the process of being created.
+     * - `COMPLETED` - The model package was successfully created.
+     * - `FAILED` - The model package creation failed.
+     * - `DELETING` - The model package is in the process of being deleted.
+     */
     readonly modelPackageStatus?: enums.sagemaker.ModelPackageStatus;
+    /**
+     * Specifies the validation and image scan statuses of the model package.
+     */
     readonly modelPackageStatusDetails?: outputs.sagemaker.ModelPackageStatusDetails;
+    /**
+     * The version number of a versioned model.
+     */
     readonly modelPackageVersion?: number;
+    /**
+     * Indicates if you want to skip model validation.
+     */
     readonly skipModelValidation?: enums.sagemaker.ModelPackageSkipModelValidation;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -49,5 +101,8 @@ export function getModelPackageOutput(args: GetModelPackageOutputArgs, opts?: pu
 }
 
 export interface GetModelPackageOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the model package.
+     */
     modelPackageArn: pulumi.Input<string>;
 }

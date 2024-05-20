@@ -16,11 +16,20 @@ export function getAssessmentTarget(args: GetAssessmentTargetArgs, opts?: pulumi
 }
 
 export interface GetAssessmentTargetArgs {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+     */
     arn: string;
 }
 
 export interface GetAssessmentTargetResult {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+     */
     readonly arn?: string;
+    /**
+     * The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+     */
     readonly resourceGroupArn?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getAssessmentTargetOutput(args: GetAssessmentTargetOutputArgs, o
 }
 
 export interface GetAssessmentTargetOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+     */
     arn: pulumi.Input<string>;
 }

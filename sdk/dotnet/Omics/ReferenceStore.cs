@@ -39,12 +39,21 @@ namespace Pulumi.AwsNative.Omics
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Output("referenceStoreId")]
         public Output<string> ReferenceStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// Server-side encryption (SSE) settings for the store.
+        /// </summary>
         [Output("sseConfig")]
         public Output<Outputs.ReferenceStoreSseConfig?> SseConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the store.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -112,11 +121,18 @@ namespace Pulumi.AwsNative.Omics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Server-side encryption (SSE) settings for the store.
+        /// </summary>
         [Input("sseConfig")]
         public Input<Inputs.ReferenceStoreSseConfigArgs>? SseConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags for the store.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

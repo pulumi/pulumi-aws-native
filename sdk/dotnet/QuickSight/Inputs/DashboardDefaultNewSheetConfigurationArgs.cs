@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDefaultNewSheetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the default settings for interactive layout configuration.
+        /// </summary>
         [Input("interactiveLayoutConfiguration")]
         public Input<Inputs.DashboardDefaultInteractiveLayoutConfigurationArgs>? InteractiveLayoutConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the default settings for a paginated layout configuration.
+        /// </summary>
         [Input("paginatedLayoutConfiguration")]
         public Input<Inputs.DashboardDefaultPaginatedLayoutConfigurationArgs>? PaginatedLayoutConfiguration { get; set; }
 
+        /// <summary>
+        /// The option that determines the sheet content type.
+        /// </summary>
         [Input("sheetContentType")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardSheetContentType>? SheetContentType { get; set; }
 

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanDynamicSsmParameter
     {
+        /// <summary>
+        /// The key parameter to use when running the Systems Manager Automation runbook.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The dynamic parameter value.
+        /// </summary>
         public readonly Outputs.ResponsePlanDynamicSsmParameterValue Value;
 
         [OutputConstructor]

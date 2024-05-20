@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisLocalNavigationConfiguration
     {
+        /// <summary>
+        /// The sheet that is targeted for navigation in the same analysis.
+        /// </summary>
         public readonly string TargetSheetId;
 
         [OutputConstructor]

@@ -16,10 +16,16 @@ export function getAssessmentTemplate(args: GetAssessmentTemplateArgs, opts?: pu
 }
 
 export interface GetAssessmentTemplateArgs {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+     */
     arn: string;
 }
 
 export interface GetAssessmentTemplateResult {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+     */
     readonly arn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArg
 }
 
 export interface GetAssessmentTemplateOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+     */
     arn: pulumi.Input<string>;
 }

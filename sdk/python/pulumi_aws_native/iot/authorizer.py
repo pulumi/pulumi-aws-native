@@ -27,6 +27,22 @@ class AuthorizerArgs:
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
+        :param pulumi.Input[str] authorizer_function_arn: The authorizer's Lambda function ARN.
+        :param pulumi.Input[str] authorizer_name: The authorizer name.
+        :param pulumi.Input[bool] enable_caching_for_http: When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request.
+        :param pulumi.Input['AuthorizerStatus'] status: The status of the authorizer.
+               
+               Valid values: `ACTIVE` | `INACTIVE`
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the custom authorizer.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        :param pulumi.Input[str] token_key_name: The key used to extract the token from the HTTP headers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to validate the token signature returned by your custom authentication service.
         """
         pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
         if authorizer_name is not None:
@@ -47,6 +63,9 @@ class AuthorizerArgs:
     @property
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> pulumi.Input[str]:
+        """
+        The authorizer's Lambda function ARN.
+        """
         return pulumi.get(self, "authorizer_function_arn")
 
     @authorizer_function_arn.setter
@@ -56,6 +75,9 @@ class AuthorizerArgs:
     @property
     @pulumi.getter(name="authorizerName")
     def authorizer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorizer name.
+        """
         return pulumi.get(self, "authorizer_name")
 
     @authorizer_name.setter
@@ -65,6 +87,9 @@ class AuthorizerArgs:
     @property
     @pulumi.getter(name="enableCachingForHttp")
     def enable_caching_for_http(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        """
         return pulumi.get(self, "enable_caching_for_http")
 
     @enable_caching_for_http.setter
@@ -74,6 +99,9 @@ class AuthorizerArgs:
     @property
     @pulumi.getter(name="signingDisabled")
     def signing_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether AWS IoT validates the token signature in an authorization request.
+        """
         return pulumi.get(self, "signing_disabled")
 
     @signing_disabled.setter
@@ -83,6 +111,11 @@ class AuthorizerArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['AuthorizerStatus']]:
+        """
+        The status of the authorizer.
+
+        Valid values: `ACTIVE` | `INACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -92,6 +125,15 @@ class AuthorizerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Metadata which can be used to manage the custom authorizer.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,6 +143,9 @@ class AuthorizerArgs:
     @property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key used to extract the token from the HTTP headers.
+        """
         return pulumi.get(self, "token_key_name")
 
     @token_key_name.setter
@@ -110,6 +155,9 @@ class AuthorizerArgs:
     @property
     @pulumi.getter(name="tokenSigningPublicKeys")
     def token_signing_public_keys(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The public keys used to validate the token signature returned by your custom authentication service.
+        """
         return pulumi.get(self, "token_signing_public_keys")
 
     @token_signing_public_keys.setter
@@ -136,6 +184,22 @@ class Authorizer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorizer_function_arn: The authorizer's Lambda function ARN.
+        :param pulumi.Input[str] authorizer_name: The authorizer name.
+        :param pulumi.Input[bool] enable_caching_for_http: When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request.
+        :param pulumi.Input['AuthorizerStatus'] status: The status of the authorizer.
+               
+               Valid values: `ACTIVE` | `INACTIVE`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the custom authorizer.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        :param pulumi.Input[str] token_key_name: The key used to extract the token from the HTTP headers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to validate the token signature returned by your custom authentication service.
         """
         ...
     @overload
@@ -227,45 +291,80 @@ class Authorizer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the authorizer.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> pulumi.Output[str]:
+        """
+        The authorizer's Lambda function ARN.
+        """
         return pulumi.get(self, "authorizer_function_arn")
 
     @property
     @pulumi.getter(name="authorizerName")
     def authorizer_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authorizer name.
+        """
         return pulumi.get(self, "authorizer_name")
 
     @property
     @pulumi.getter(name="enableCachingForHttp")
     def enable_caching_for_http(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        """
         return pulumi.get(self, "enable_caching_for_http")
 
     @property
     @pulumi.getter(name="signingDisabled")
     def signing_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether AWS IoT validates the token signature in an authorization request.
+        """
         return pulumi.get(self, "signing_disabled")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['AuthorizerStatus']]:
+        """
+        The status of the authorizer.
+
+        Valid values: `ACTIVE` | `INACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Metadata which can be used to manage the custom authorizer.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The key used to extract the token from the HTTP headers.
+        """
         return pulumi.get(self, "token_key_name")
 
     @property
     @pulumi.getter(name="tokenSigningPublicKeys")
     def token_signing_public_keys(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The public keys used to validate the token signature returned by your custom authentication service.
+        """
         return pulumi.get(self, "token_signing_public_keys")
 

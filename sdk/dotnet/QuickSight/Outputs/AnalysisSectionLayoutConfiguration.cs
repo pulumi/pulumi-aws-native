@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSectionLayoutConfiguration
     {
+        /// <summary>
+        /// The free-form layout configuration of a section.
+        /// </summary>
         public readonly Outputs.AnalysisFreeFormSectionLayoutConfiguration FreeFormLayout;
 
         [OutputConstructor]

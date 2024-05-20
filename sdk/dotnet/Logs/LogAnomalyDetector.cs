@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Logs
         [Output("anomalyDetectorStatus")]
         public Output<string> AnomalyDetectorStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+        /// </summary>
         [Output("anomalyVisibilityTime")]
         public Output<double?> AnomalyVisibilityTime { get; private set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.Logs
         [Output("evaluationFrequency")]
         public Output<Pulumi.AwsNative.Logs.LogAnomalyDetectorEvaluationFrequency?> EvaluationFrequency { get; private set; } = null!;
 
+        /// <summary>
+        /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+        /// </summary>
         [Output("filterPattern")]
         public Output<string?> FilterPattern { get; private set; } = null!;
 
@@ -126,6 +132,9 @@ namespace Pulumi.AwsNative.Logs
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+        /// </summary>
         [Input("anomalyVisibilityTime")]
         public Input<double>? AnomalyVisibilityTime { get; set; }
 
@@ -141,6 +150,9 @@ namespace Pulumi.AwsNative.Logs
         [Input("evaluationFrequency")]
         public Input<Pulumi.AwsNative.Logs.LogAnomalyDetectorEvaluationFrequency>? EvaluationFrequency { get; set; }
 
+        /// <summary>
+        /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+        /// </summary>
         [Input("filterPattern")]
         public Input<string>? FilterPattern { get; set; }
 

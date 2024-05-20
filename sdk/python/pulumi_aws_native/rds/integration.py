@@ -28,6 +28,9 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
         :param pulumi.Input[str] target_arn: The ARN of the Redshift data warehouse to use as the target for replication.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+               
+               You can only include this parameter if you specify the `KMSKeyId` parameter.
         :param pulumi.Input[str] data_filter: The data filter for the integration.
         :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_name: The name of the integration.
@@ -76,6 +79,11 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+
+        You can only include this parameter if you specify the `KMSKeyId` parameter.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -162,6 +170,9 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+               
+               You can only include this parameter if you specify the `KMSKeyId` parameter.
         :param pulumi.Input[str] data_filter: The data filter for the integration.
         :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_name: The name of the integration.
@@ -264,11 +275,19 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+
+        You can only include this parameter if you specify the `KMSKeyId` parameter.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The time when the integration was created, in Universal Coordinated Time (UTC).
+        """
         return pulumi.get(self, "create_time")
 
     @property

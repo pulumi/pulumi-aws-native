@@ -73,6 +73,9 @@ class GetServerlessCacheResult:
     @property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional['outputs.ServerlessCacheCacheUsageLimits']:
+        """
+        The cache usage limit for the serverless cache.
+        """
         return pulumi.get(self, "cache_usage_limits")
 
     @property
@@ -102,6 +105,9 @@ class GetServerlessCacheResult:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional['outputs.ServerlessCacheEndpoint']:
+        """
+        Represents the information required for client programs to connect to a cache node. This value is read-only.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -115,6 +121,9 @@ class GetServerlessCacheResult:
     @property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> Optional['outputs.ServerlessCacheEndpoint']:
+        """
+        Represents the information required for client programs to connect to a cache node. This value is read-only.
+        """
         return pulumi.get(self, "reader_endpoint")
 
     @property

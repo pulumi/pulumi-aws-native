@@ -40,26 +40,41 @@ class GetProjectResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultJobTimeoutMinutes")
     def default_job_timeout_minutes(self) -> Optional[int]:
+        """
+        Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+        """
         return pulumi.get(self, "default_job_timeout_minutes")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The project's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.ProjectVpcConfig']:
+        """
+        The VPC security groups and subnets that are attached to a project.
+        """
         return pulumi.get(self, "vpc_config")
 
 
@@ -80,6 +95,9 @@ def get_project(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     AWS::DeviceFarm::Project creates a new Device Farm Project
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -99,5 +117,8 @@ def get_project_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     AWS::DeviceFarm::Project creates a new Device Farm Project
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     ...

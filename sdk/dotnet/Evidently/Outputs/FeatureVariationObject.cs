@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class FeatureVariationObject
     {
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is boolean.
+        /// </summary>
         public readonly bool? BooleanValue;
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is a double.
+        /// </summary>
         public readonly double? DoubleValue;
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is a long.
+        /// </summary>
         public readonly double? LongValue;
+        /// <summary>
+        /// The value assigned to this variation, if the variation type is a string.
+        /// </summary>
         public readonly string? StringValue;
+        /// <summary>
+        /// A name for the variation. It can include up to 127 characters.
+        /// </summary>
         public readonly string? VariationName;
 
         [OutputConstructor]

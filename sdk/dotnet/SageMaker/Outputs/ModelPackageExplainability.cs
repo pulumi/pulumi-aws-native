@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageExplainability
     {
+        /// <summary>
+        /// The explainability report for a model.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Report;
 
         [OutputConstructor]

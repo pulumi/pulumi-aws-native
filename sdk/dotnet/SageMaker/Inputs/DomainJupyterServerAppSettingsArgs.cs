@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainJupyterServerAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainResourceSpecArgs>? DefaultResourceSpec { get; set; }
 

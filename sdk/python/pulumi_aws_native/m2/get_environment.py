@@ -69,6 +69,9 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> Optional['outputs.EnvironmentHighAvailabilityConfig']:
+        """
+        Defines the details of a high availability configuration.
+        """
         return pulumi.get(self, "high_availability_config")
 
     @property

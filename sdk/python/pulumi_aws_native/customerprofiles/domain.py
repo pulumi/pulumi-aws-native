@@ -32,6 +32,8 @@ class DomainArgs:
         :param pulumi.Input[str] dead_letter_queue_url: The URL of the SQS dead letter queue
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input['DomainMatchingArgs'] matching: The process of matching duplicate profiles.
+        :param pulumi.Input['DomainRuleBasedMatchingArgs'] rule_based_matching: The process of matching duplicate profiles using Rule-Based matching.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the domain
         """
         pulumi.set(__self__, "default_expiration_days", default_expiration_days)
@@ -99,6 +101,9 @@ class DomainArgs:
     @property
     @pulumi.getter
     def matching(self) -> Optional[pulumi.Input['DomainMatchingArgs']]:
+        """
+        The process of matching duplicate profiles.
+        """
         return pulumi.get(self, "matching")
 
     @matching.setter
@@ -108,6 +113,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
+        """
+        The process of matching duplicate profiles using Rule-Based matching.
+        """
         return pulumi.get(self, "rule_based_matching")
 
     @rule_based_matching.setter
@@ -149,6 +157,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] default_encryption_key: The default encryption key
         :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[pulumi.InputType['DomainMatchingArgs']] matching: The process of matching duplicate profiles.
+        :param pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']] rule_based_matching: The process of matching duplicate profiles using Rule-Based matching.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the domain
         """
         ...
@@ -290,11 +300,17 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def matching(self) -> pulumi.Output[Optional['outputs.DomainMatching']]:
+        """
+        The process of matching duplicate profiles.
+        """
         return pulumi.get(self, "matching")
 
     @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> pulumi.Output[Optional['outputs.DomainRuleBasedMatching']]:
+        """
+        The process of matching duplicate profiles using Rule-Based matching.
+        """
         return pulumi.get(self, "rule_based_matching")
 
     @property

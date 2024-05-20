@@ -25,6 +25,8 @@ class SamplingRuleInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
+        :param pulumi.Input['SamplingRuleArgs'] sampling_rule: The sampling rule to be created or updated.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
@@ -49,6 +51,9 @@ class SamplingRuleInitArgs:
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
+        """
+        The sampling rule to be created or updated.
+        """
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
@@ -76,6 +81,9 @@ class SamplingRuleInitArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,6 +107,8 @@ class SamplingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['SamplingRuleArgs']] sampling_rule: The sampling rule to be created or updated.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -179,6 +189,9 @@ class SamplingRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[str]:
+        """
+        The sampling rule ARN that was created or updated.
+        """
         return pulumi.get(self, "rule_arn")
 
     @property
@@ -189,6 +202,9 @@ class SamplingRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> pulumi.Output[Optional['outputs.SamplingRule']]:
+        """
+        The sampling rule to be created or updated.
+        """
         return pulumi.get(self, "sampling_rule")
 
     @property
@@ -204,5 +220,8 @@ class SamplingRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

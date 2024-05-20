@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("conditionalFormattingOptions")]
         private InputList<Inputs.AnalysisKpiConditionalFormattingOptionArgs>? _conditionalFormattingOptions;
+
+        /// <summary>
+        /// The conditional formatting options of a KPI visual.
+        /// </summary>
         public InputList<Inputs.AnalysisKpiConditionalFormattingOptionArgs> ConditionalFormattingOptions
         {
             get => _conditionalFormattingOptions ?? (_conditionalFormattingOptions = new InputList<Inputs.AnalysisKpiConditionalFormattingOptionArgs>());

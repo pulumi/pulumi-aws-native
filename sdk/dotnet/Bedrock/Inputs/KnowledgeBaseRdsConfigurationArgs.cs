@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         [Input("fieldMapping", required: true)]
         public Input<Inputs.KnowledgeBaseRdsFieldMappingArgs> FieldMapping { get; set; } = null!;
 

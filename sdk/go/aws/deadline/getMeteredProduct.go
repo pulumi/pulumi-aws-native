@@ -23,13 +23,18 @@ func LookupMeteredProduct(ctx *pulumi.Context, args *LookupMeteredProductArgs, o
 }
 
 type LookupMeteredProductArgs struct {
+	// The Amazon Resource Name (ARN) of the metered product.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupMeteredProductResult struct {
-	Arn    *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the metered product.
+	Arn *string `pulumi:"arn"`
+	// The family to which the metered product belongs.
 	Family *string `pulumi:"family"`
-	Port   *int    `pulumi:"port"`
+	// The port on which the metered product should run.
+	Port *int `pulumi:"port"`
+	// The vendor.
 	Vendor *string `pulumi:"vendor"`
 }
 
@@ -47,6 +52,7 @@ func LookupMeteredProductOutput(ctx *pulumi.Context, args LookupMeteredProductOu
 }
 
 type LookupMeteredProductOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the metered product.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68,18 +74,22 @@ func (o LookupMeteredProductResultOutput) ToLookupMeteredProductResultOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the metered product.
 func (o LookupMeteredProductResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMeteredProductResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The family to which the metered product belongs.
 func (o LookupMeteredProductResultOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMeteredProductResult) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
+// The port on which the metered product should run.
 func (o LookupMeteredProductResultOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupMeteredProductResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The vendor.
 func (o LookupMeteredProductResultOutput) Vendor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMeteredProductResult) *string { return v.Vendor }).(pulumi.StringPtrOutput)
 }

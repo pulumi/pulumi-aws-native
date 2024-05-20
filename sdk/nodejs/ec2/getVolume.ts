@@ -26,6 +26,9 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetVolumeArgs {
+    /**
+     * The ID of the volume.
+     */
     volumeId: string;
 }
 
@@ -97,6 +100,9 @@ export interface GetVolumeResult {
      *  Valid Range: Minimum value of 125. Maximum value of 1000.
      */
     readonly throughput?: number;
+    /**
+     * The ID of the volume.
+     */
     readonly volumeId?: string;
     /**
      * The volume type. This parameter can be one of the following values:
@@ -126,5 +132,8 @@ export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetVolumeOutputArgs {
+    /**
+     * The ID of the volume.
+     */
     volumeId: pulumi.Input<string>;
 }

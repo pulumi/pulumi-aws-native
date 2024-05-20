@@ -20,14 +20,38 @@ export function getConfiguredTableAssociation(args: GetConfiguredTableAssociatio
 }
 
 export interface GetConfiguredTableAssociationArgs {
+    /**
+     * Returns the unique identifier of the specified configured table association.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     configuredTableAssociationIdentifier: string;
+    /**
+     * The unique ID for the membership this configured table association belongs to.
+     */
     membershipIdentifier: string;
 }
 
 export interface GetConfiguredTableAssociationResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified configured table association.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     readonly arn?: string;
+    /**
+     * Returns the unique identifier of the specified configured table association.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     readonly configuredTableAssociationIdentifier?: string;
+    /**
+     * A description of the configured table association.
+     */
     readonly description?: string;
+    /**
+     * The service will assume this role to access catalog metadata and query the table.
+     */
     readonly roleArn?: string;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -42,6 +66,14 @@ export function getConfiguredTableAssociationOutput(args: GetConfiguredTableAsso
 }
 
 export interface GetConfiguredTableAssociationOutputArgs {
+    /**
+     * Returns the unique identifier of the specified configured table association.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     configuredTableAssociationIdentifier: pulumi.Input<string>;
+    /**
+     * The unique ID for the membership this configured table association belongs to.
+     */
     membershipIdentifier: pulumi.Input<string>;
 }

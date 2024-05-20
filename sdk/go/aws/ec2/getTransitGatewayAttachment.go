@@ -24,15 +24,19 @@ func LookupTransitGatewayAttachment(ctx *pulumi.Context, args *LookupTransitGate
 }
 
 type LookupTransitGatewayAttachmentArgs struct {
+	// The ID of the attachment.
 	Id string `pulumi:"id"`
 }
 
 type LookupTransitGatewayAttachmentResult struct {
+	// The ID of the attachment.
 	Id *string `pulumi:"id"`
 	// The options for the transit gateway vpc attachment.
-	Options   *OptionsProperties `pulumi:"options"`
-	SubnetIds []string           `pulumi:"subnetIds"`
-	Tags      []aws.Tag          `pulumi:"tags"`
+	Options *OptionsProperties `pulumi:"options"`
+	// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The tags for the attachment.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTransitGatewayAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayAttachmentResultOutput {
@@ -49,6 +53,7 @@ func LookupTransitGatewayAttachmentOutput(ctx *pulumi.Context, args LookupTransi
 }
 
 type LookupTransitGatewayAttachmentOutputArgs struct {
+	// The ID of the attachment.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,6 +75,7 @@ func (o LookupTransitGatewayAttachmentResultOutput) ToLookupTransitGatewayAttach
 	return o
 }
 
+// The ID of the attachment.
 func (o LookupTransitGatewayAttachmentResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -79,10 +85,12 @@ func (o LookupTransitGatewayAttachmentResultOutput) Options() OptionsPropertiesP
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) *OptionsProperties { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
+// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 func (o LookupTransitGatewayAttachmentResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the attachment.
 func (o LookupTransitGatewayAttachmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

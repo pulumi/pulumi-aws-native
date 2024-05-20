@@ -30,11 +30,19 @@ class GetActivityResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the ARN of the resource.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -52,6 +60,9 @@ def get_activity(arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityResult:
     """
     Resource schema for Activity
+
+
+    :param str arn: Returns the ARN of the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -68,5 +79,8 @@ def get_activity_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityResult]:
     """
     Resource schema for Activity
+
+
+    :param str arn: Returns the ARN of the resource.
     """
     ...

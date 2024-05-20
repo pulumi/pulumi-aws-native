@@ -12,20 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePivotTableCellConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID of the cell for conditional formatting.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The scope of the cell for conditional formatting.
+        /// </summary>
         [Input("scope")]
         public Input<Inputs.TemplatePivotTableConditionalFormattingScopeArgs>? Scope { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.TemplatePivotTableConditionalFormattingScopeArgs>? _scopes;
+
+        /// <summary>
+        /// A list of cell scopes for conditional formatting.
+        /// </summary>
         public InputList<Inputs.TemplatePivotTableConditionalFormattingScopeArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.TemplatePivotTableConditionalFormattingScopeArgs>());
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// The text format of the cell for conditional formatting.
+        /// </summary>
         [Input("textFormat")]
         public Input<Inputs.TemplateTextConditionalFormatArgs>? TextFormat { get; set; }
 

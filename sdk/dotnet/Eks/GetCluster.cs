@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Eks
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// The access configuration for the cluster.
+        /// </summary>
         public readonly Outputs.ClusterAccessConfig? AccessConfig;
         /// <summary>
         /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
@@ -82,11 +85,17 @@ namespace Pulumi.AwsNative.Eks
         /// The unique ID given to your cluster.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The logging configuration for your cluster.
+        /// </summary>
         public readonly Outputs.Logging? Logging;
         /// <summary>
         /// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
         /// </summary>
         public readonly string? OpenIdConnectIssuerUrl;
+        /// <summary>
+        /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+        /// </summary>
         public readonly Outputs.ClusterResourcesVpcConfig? ResourcesVpcConfig;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

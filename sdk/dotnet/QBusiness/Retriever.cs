@@ -15,36 +15,69 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:Retriever")]
     public partial class Retriever : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application using the retriever.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides information on how the retriever used for your Amazon Q Business application is configured.
+        /// </summary>
         [Output("configuration")]
         public Output<Union<Outputs.RetrieverConfiguration0Properties, Outputs.RetrieverConfiguration1Properties>> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the retriever was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of your retriever.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
+        /// </summary>
         [Output("retrieverArn")]
         public Output<string> RetrieverArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the retriever used by your Amazon Q Business application.
+        /// </summary>
         [Output("retrieverId")]
         public Output<string> RetrieverId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of your retriever.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QBusiness.RetrieverStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of your retriever.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.QBusiness.RetrieverType> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the retriever was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -98,26 +131,45 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class RetrieverArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application using the retriever.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Provides information on how the retriever used for your Amazon Q Business application is configured.
+        /// </summary>
         [Input("configuration", required: true)]
         public InputUnion<Inputs.RetrieverConfiguration0PropertiesArgs, Inputs.RetrieverConfiguration1PropertiesArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// The name of your retriever.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of your retriever.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QBusiness.RetrieverType> Type { get; set; } = null!;
 

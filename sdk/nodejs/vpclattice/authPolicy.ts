@@ -38,10 +38,18 @@ export class AuthPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The auth policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     */
     public readonly resourceIdentifier!: pulumi.Output<string>;
+    /**
+     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+     */
     public /*out*/ readonly state!: pulumi.Output<enums.vpclattice.AuthPolicyState>;
 
     /**
@@ -81,8 +89,13 @@ export class AuthPolicy extends pulumi.CustomResource {
  */
 export interface AuthPolicyArgs {
     /**
+     * The auth policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
      */
     policy: any;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     */
     resourceIdentifier: pulumi.Input<string>;
 }

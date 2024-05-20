@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Message.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// Type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardErrorType? Type;
         /// <summary>
         /// &lt;p&gt;Lists the violated entities that caused the dashboard error.&lt;/p&gt;

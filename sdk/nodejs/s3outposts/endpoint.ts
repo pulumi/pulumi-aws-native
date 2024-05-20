@@ -77,6 +77,9 @@ export class Endpoint extends pulumi.CustomResource {
      * The ID of the security group to use with the endpoint.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
+    /**
+     * The status of the endpoint.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.s3outposts.EndpointStatus>;
     /**
      * The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.

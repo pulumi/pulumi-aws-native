@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNumericalDimensionField
     {
+        /// <summary>
+        /// The column that is used in the `NumericalDimensionField` .
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The format configuration of the field.
+        /// </summary>
         public readonly Outputs.AnalysisNumberFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         public readonly string? HierarchyId;
 
         [OutputConstructor]

@@ -55,6 +55,9 @@ class GetContainerResult:
     @property
     @pulumi.getter(name="containerArn")
     def container_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the container.
+        """
         return pulumi.get(self, "container_arn")
 
     @property

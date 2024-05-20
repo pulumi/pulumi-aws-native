@@ -53,7 +53,13 @@ export class TaskSet extends pulumi.CustomResource {
      * The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
      */
     public readonly launchType!: pulumi.Output<enums.ecs.TaskSetLaunchType | undefined>;
+    /**
+     * A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+     */
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
+    /**
+     * The network configuration for the task set.
+     */
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
     /**
      * The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
@@ -71,6 +77,19 @@ export class TaskSet extends pulumi.CustomResource {
      * The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistry[] | undefined>;
+    /**
+     * The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+     *
+     * The following basic restrictions apply to tags:
+     *
+     * - Maximum number of tags per resource - 50
+     * - For each resource, each tag key must be unique, and each tag key can have only one value.
+     * - Maximum key length - 128 Unicode characters in UTF-8
+     * - Maximum value length - 256 Unicode characters in UTF-8
+     * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+     * - Tag keys and values are case-sensitive.
+     * - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
@@ -146,7 +165,13 @@ export interface TaskSetArgs {
      * The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
      */
     launchType?: pulumi.Input<enums.ecs.TaskSetLaunchType>;
+    /**
+     * A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+     */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancerArgs>[]>;
+    /**
+     * The network configuration for the task set.
+     */
     networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfigurationArgs>;
     /**
      * The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
@@ -164,6 +189,19 @@ export interface TaskSetArgs {
      * The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
      */
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetServiceRegistryArgs>[]>;
+    /**
+     * The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+     *
+     * The following basic restrictions apply to tags:
+     *
+     * - Maximum number of tags per resource - 50
+     * - For each resource, each tag key must be unique, and each tag key can have only one value.
+     * - Maximum key length - 128 Unicode characters in UTF-8
+     * - Maximum value length - 256 Unicode characters in UTF-8
+     * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+     * - Tag keys and values are case-sensitive.
+     * - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.

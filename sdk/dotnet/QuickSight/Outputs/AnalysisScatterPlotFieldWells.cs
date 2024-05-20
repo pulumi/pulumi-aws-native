@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScatterPlotFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.
+        /// </summary>
         public readonly Outputs.AnalysisScatterPlotCategoricallyAggregatedFieldWells? ScatterPlotCategoricallyAggregatedFieldWells;
+        /// <summary>
+        /// The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are unaggregated.
+        /// </summary>
         public readonly Outputs.AnalysisScatterPlotUnaggregatedFieldWells? ScatterPlotUnaggregatedFieldWells;
 
         [OutputConstructor]

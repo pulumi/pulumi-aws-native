@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetContentDeliveryRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination to which dataset contents are delivered.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.DatasetContentDeliveryRuleDestinationArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the dataset content delivery rules entry.
+        /// </summary>
         [Input("entryName")]
         public Input<string>? EntryName { get; set; }
 

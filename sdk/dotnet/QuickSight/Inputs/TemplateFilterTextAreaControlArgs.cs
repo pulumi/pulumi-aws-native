@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFilterTextAreaControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The delimiter that is used to separate the lines in text.
+        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.TemplateTextAreaControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 
+        /// <summary>
+        /// The ID of the `FilterTextAreaControl` .
+        /// </summary>
         [Input("filterControlId", required: true)]
         public Input<string> FilterControlId { get; set; } = null!;
 
+        /// <summary>
+        /// The source filter ID of the `FilterTextAreaControl` .
+        /// </summary>
         [Input("sourceFilterId", required: true)]
         public Input<string> SourceFilterId { get; set; } = null!;
 
+        /// <summary>
+        /// The title of the `FilterTextAreaControl` .
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

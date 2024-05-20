@@ -14,12 +14,27 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("seedUrls", required: true)]
         private InputList<string>? _seedUrls;
+
+        /// <summary>
+        /// The list of seed or starting point URLs of the websites you want to crawl.
+        /// 
+        /// The list can include a maximum of 100 seed URLs.
+        /// </summary>
         public InputList<string> SeedUrls
         {
             get => _seedUrls ?? (_seedUrls = new InputList<string>());
             set => _seedUrls = value;
         }
 
+        /// <summary>
+        /// You can choose one of the following modes:
+        /// 
+        /// - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+        /// - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+        /// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+        /// 
+        /// The default mode is set to `HOST_ONLY` .
+        /// </summary>
         [Input("webCrawlerMode")]
         public Input<Pulumi.AwsNative.Kendra.DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode>? WebCrawlerMode { get; set; }
 

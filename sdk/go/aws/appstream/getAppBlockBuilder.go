@@ -23,20 +23,33 @@ func LookupAppBlockBuilder(ctx *pulumi.Context, args *LookupAppBlockBuilderArgs,
 }
 
 type LookupAppBlockBuilderArgs struct {
+	// The name of the app block builder.
 	Name string `pulumi:"name"`
 }
 
 type LookupAppBlockBuilderResult struct {
-	AccessEndpoints             []AppBlockBuilderAccessEndpoint `pulumi:"accessEndpoints"`
-	Arn                         *string                         `pulumi:"arn"`
-	CreatedTime                 *string                         `pulumi:"createdTime"`
-	Description                 *string                         `pulumi:"description"`
-	DisplayName                 *string                         `pulumi:"displayName"`
-	EnableDefaultInternetAccess *bool                           `pulumi:"enableDefaultInternetAccess"`
-	IamRoleArn                  *string                         `pulumi:"iamRoleArn"`
-	InstanceType                *string                         `pulumi:"instanceType"`
-	Platform                    *string                         `pulumi:"platform"`
-	VpcConfig                   *AppBlockBuilderVpcConfig       `pulumi:"vpcConfig"`
+	// The access endpoints of the app block builder.
+	AccessEndpoints []AppBlockBuilderAccessEndpoint `pulumi:"accessEndpoints"`
+	// The ARN of the app block builder.
+	Arn *string `pulumi:"arn"`
+	// The time when the app block builder was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The description of the app block builder.
+	Description *string `pulumi:"description"`
+	// The display name of the app block builder.
+	DisplayName *string `pulumi:"displayName"`
+	// Indicates whether default internet access is enabled for the app block builder.
+	EnableDefaultInternetAccess *bool `pulumi:"enableDefaultInternetAccess"`
+	// The ARN of the IAM role that is applied to the app block builder.
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The instance type of the app block builder.
+	InstanceType *string `pulumi:"instanceType"`
+	// The platform of the app block builder.
+	//
+	// *Allowed values* : `WINDOWS_SERVER_2019`
+	Platform *string `pulumi:"platform"`
+	// The VPC configuration for the app block builder.
+	VpcConfig *AppBlockBuilderVpcConfig `pulumi:"vpcConfig"`
 }
 
 func LookupAppBlockBuilderOutput(ctx *pulumi.Context, args LookupAppBlockBuilderOutputArgs, opts ...pulumi.InvokeOption) LookupAppBlockBuilderResultOutput {
@@ -53,6 +66,7 @@ func LookupAppBlockBuilderOutput(ctx *pulumi.Context, args LookupAppBlockBuilder
 }
 
 type LookupAppBlockBuilderOutputArgs struct {
+	// The name of the app block builder.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -74,42 +88,54 @@ func (o LookupAppBlockBuilderResultOutput) ToLookupAppBlockBuilderResultOutputWi
 	return o
 }
 
+// The access endpoints of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) AccessEndpoints() AppBlockBuilderAccessEndpointArrayOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) []AppBlockBuilderAccessEndpoint { return v.AccessEndpoints }).(AppBlockBuilderAccessEndpointArrayOutput)
 }
 
+// The ARN of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The time when the app block builder was created.
 func (o LookupAppBlockBuilderResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The description of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether default internet access is enabled for the app block builder.
 func (o LookupAppBlockBuilderResultOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *bool { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
+// The ARN of the IAM role that is applied to the app block builder.
 func (o LookupAppBlockBuilderResultOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The instance type of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The platform of the app block builder.
+//
+// *Allowed values* : `WINDOWS_SERVER_2019`
 func (o LookupAppBlockBuilderResultOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
+// The VPC configuration for the app block builder.
 func (o LookupAppBlockBuilderResultOutput) VpcConfig() AppBlockBuilderVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *AppBlockBuilderVpcConfig { return v.VpcConfig }).(AppBlockBuilderVpcConfigPtrOutput)
 }

@@ -46,26 +46,47 @@ class GetMapResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description for the map resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> Optional[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        """
         return pulumi.get(self, "map_arn")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> Optional['MapPricingPlan']:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @property
@@ -79,6 +100,9 @@ class GetMapResult:
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -101,6 +125,15 @@ def get_map(map_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMapResult:
     """
     Definition of AWS::Location::Map Resource Type
+
+
+    :param str map_name: The name for the map resource.
+           
+           Requirements:
+           
+           - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique map resource name.
+           - No spaces allowed. For example, `ExampleMap` .
     """
     __args__ = dict()
     __args__['mapName'] = map_name
@@ -122,5 +155,14 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
     """
     Definition of AWS::Location::Map Resource Type
+
+
+    :param str map_name: The name for the map resource.
+           
+           Requirements:
+           
+           - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique map resource name.
+           - No spaces allowed. For example, `ExampleMap` .
     """
     ...

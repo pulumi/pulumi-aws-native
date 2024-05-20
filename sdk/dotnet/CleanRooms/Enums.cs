@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CleanRooms
 {
+    /// <summary>
+    /// The type of parameter.
+    /// </summary>
     [EnumType]
     public readonly struct AnalysisTemplateAnalysisParameterType : IEquatable<AnalysisTemplateAnalysisParameterType>
     {
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.CleanRooms
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The format of the analysis template.
+    /// </summary>
     [EnumType]
     public readonly struct AnalysisTemplateFormat : IEquatable<AnalysisTemplateFormat>
     {
@@ -406,6 +412,11 @@ namespace Pulumi.AwsNative.CleanRooms
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// How often the privacy budget refreshes.
+    /// 
+    /// &gt; If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+    /// </summary>
     [EnumType]
     public readonly struct PrivacyBudgetTemplateAutoRefresh : IEquatable<PrivacyBudgetTemplateAutoRefresh>
     {
@@ -434,6 +445,9 @@ namespace Pulumi.AwsNative.CleanRooms
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the type of the privacy budget template.
+    /// </summary>
     [EnumType]
     public readonly struct PrivacyBudgetTemplatePrivacyBudgetType : IEquatable<PrivacyBudgetTemplatePrivacyBudgetType>
     {

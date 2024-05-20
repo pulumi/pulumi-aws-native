@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolStringAttributeConstraints
     {
+        /// <summary>
+        /// The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
+        /// </summary>
         public readonly string? MaxLength;
+        /// <summary>
+        /// The minimum length.
+        /// </summary>
         public readonly string? MinLength;
 
         [OutputConstructor]

@@ -37,11 +37,33 @@ export class ServiceAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceAction.__pulumiType;
     }
 
+    /**
+     * The language code.
+     *
+     * - `en` - English (default)
+     * - `jp` - Japanese
+     * - `zh` - Chinese
+     */
     public readonly acceptLanguage!: pulumi.Output<enums.servicecatalog.ServiceActionAcceptLanguage | undefined>;
+    /**
+     * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A map that defines the self-service action.
+     */
     public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
+    /**
+     * The self-service action definition type. For example, `SSM_AUTOMATION` .
+     */
     public readonly definitionType!: pulumi.Output<enums.servicecatalog.ServiceActionDefinitionType>;
+    /**
+     * The self-service action description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The self-service action name.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -84,9 +106,28 @@ export class ServiceAction extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceAction resource.
  */
 export interface ServiceActionArgs {
+    /**
+     * The language code.
+     *
+     * - `en` - English (default)
+     * - `jp` - Japanese
+     * - `zh` - Chinese
+     */
     acceptLanguage?: pulumi.Input<enums.servicecatalog.ServiceActionAcceptLanguage>;
+    /**
+     * A map that defines the self-service action.
+     */
     definition: pulumi.Input<pulumi.Input<inputs.servicecatalog.ServiceActionDefinitionParameterArgs>[]>;
+    /**
+     * The self-service action definition type. For example, `SSM_AUTOMATION` .
+     */
     definitionType: pulumi.Input<enums.servicecatalog.ServiceActionDefinitionType>;
+    /**
+     * The self-service action description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The self-service action name.
+     */
     name?: pulumi.Input<string>;
 }

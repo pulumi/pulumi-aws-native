@@ -37,18 +37,69 @@ export class Ec2Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ec2Fleet.__pulumiType;
     }
 
+    /**
+     * Reserved.
+     */
     public readonly context!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+     *
+     * Supported only for fleets of type `maintain` .
+     */
     public readonly excessCapacityTerminationPolicy!: pulumi.Output<enums.ec2.Ec2FleetExcessCapacityTerminationPolicy | undefined>;
+    /**
+     * The ID of the EC2 Fleet.
+     */
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
+    /**
+     * The configuration for the EC2 Fleet.
+     */
     public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.Ec2FleetFleetLaunchTemplateConfigRequest[]>;
+    /**
+     * Describes the configuration of On-Demand Instances in an EC2 Fleet.
+     */
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.Ec2FleetOnDemandOptionsRequest | undefined>;
+    /**
+     * Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
+     */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
+    /**
+     * Describes the configuration of Spot Instances in an EC2 Fleet.
+     */
     public readonly spotOptions!: pulumi.Output<outputs.ec2.Ec2FleetSpotOptionsRequest | undefined>;
+    /**
+     * The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+     *
+     * If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+     *
+     * If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
+     */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.Ec2FleetTagSpecification[] | undefined>;
+    /**
+     * The number of units to request.
+     */
     public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.Ec2FleetTargetCapacitySpecificationRequest>;
+    /**
+     * Indicates whether running instances should be terminated when the EC2 Fleet expires.
+     */
     public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
+    /**
+     * The fleet type. The default value is `maintain` .
+     *
+     * - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+     * - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+     * - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+     *
+     * For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+     */
     public readonly type!: pulumi.Output<enums.ec2.Ec2FleetType | undefined>;
+    /**
+     * The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
+     */
     public readonly validFrom!: pulumi.Output<string | undefined>;
+    /**
+     * The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     */
     public readonly validUntil!: pulumi.Output<string | undefined>;
 
     /**
@@ -107,16 +158,64 @@ export class Ec2Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a Ec2Fleet resource.
  */
 export interface Ec2FleetArgs {
+    /**
+     * Reserved.
+     */
     context?: pulumi.Input<string>;
+    /**
+     * Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+     *
+     * Supported only for fleets of type `maintain` .
+     */
     excessCapacityTerminationPolicy?: pulumi.Input<enums.ec2.Ec2FleetExcessCapacityTerminationPolicy>;
+    /**
+     * The configuration for the EC2 Fleet.
+     */
     launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.Ec2FleetFleetLaunchTemplateConfigRequestArgs>[]>;
+    /**
+     * Describes the configuration of On-Demand Instances in an EC2 Fleet.
+     */
     onDemandOptions?: pulumi.Input<inputs.ec2.Ec2FleetOnDemandOptionsRequestArgs>;
+    /**
+     * Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
+     */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
+    /**
+     * Describes the configuration of Spot Instances in an EC2 Fleet.
+     */
     spotOptions?: pulumi.Input<inputs.ec2.Ec2FleetSpotOptionsRequestArgs>;
+    /**
+     * The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+     *
+     * If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+     *
+     * If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
+     */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.Ec2FleetTagSpecificationArgs>[]>;
+    /**
+     * The number of units to request.
+     */
     targetCapacitySpecification: pulumi.Input<inputs.ec2.Ec2FleetTargetCapacitySpecificationRequestArgs>;
+    /**
+     * Indicates whether running instances should be terminated when the EC2 Fleet expires.
+     */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
+    /**
+     * The fleet type. The default value is `maintain` .
+     *
+     * - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+     * - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+     * - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+     *
+     * For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+     */
     type?: pulumi.Input<enums.ec2.Ec2FleetType>;
+    /**
+     * The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
+     */
     validFrom?: pulumi.Input<string>;
+    /**
+     * The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+     */
     validUntil?: pulumi.Input<string>;
 }

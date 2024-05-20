@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkInterfaceResult
     {
+        /// <summary>
+        /// A connection tracking specification for the network interface.
+        /// </summary>
         public readonly Outputs.NetworkInterfaceConnectionTrackingSpecification? ConnectionTrackingSpecification;
         /// <summary>
         /// A description for the network interface.

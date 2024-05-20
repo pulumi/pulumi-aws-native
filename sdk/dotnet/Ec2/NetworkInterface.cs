@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A connection tracking specification for the network interface.
+        /// </summary>
         [Output("connectionTrackingSpecification")]
         public Output<Outputs.NetworkInterfaceConnectionTrackingSpecification?> ConnectionTrackingSpecification { get; private set; } = null!;
 
@@ -195,6 +198,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A connection tracking specification for the network interface.
+        /// </summary>
         [Input("connectionTrackingSpecification")]
         public Input<Inputs.NetworkInterfaceConnectionTrackingSpecificationArgs>? ConnectionTrackingSpecification { get; set; }
 

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardNumericSeparatorConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the decimal separator.
+        /// </summary>
         [Input("decimalSeparator")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardNumericSeparatorSymbol>? DecimalSeparator { get; set; }
 
+        /// <summary>
+        /// The options that determine the thousands separator configuration.
+        /// </summary>
         [Input("thousandsSeparator")]
         public Input<Inputs.DashboardThousandSeparatorOptionsArgs>? ThousandsSeparator { get; set; }
 

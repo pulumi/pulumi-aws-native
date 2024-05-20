@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcEndpointServiceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the endpoint service.
+        /// </summary>
         [Input("serviceId", required: true)]
         public string ServiceId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcEndpointServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the endpoint service.
+        /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcEndpointServiceResult
     {
+        /// <summary>
+        /// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+        /// </summary>
         public readonly bool? AcceptanceRequired;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+        /// </summary>
         public readonly ImmutableArray<string> GatewayLoadBalancerArns;
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the Network Load Balancers.
+        /// </summary>
         public readonly ImmutableArray<string> NetworkLoadBalancerArns;
+        /// <summary>
+        /// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+        /// </summary>
         public readonly string? PayerResponsibility;
+        /// <summary>
+        /// The ID of the endpoint service.
+        /// </summary>
         public readonly string? ServiceId;
 
         [OutputConstructor]

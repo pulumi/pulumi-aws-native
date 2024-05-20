@@ -24,22 +24,34 @@ func LookupTransitGateway(ctx *pulumi.Context, args *LookupTransitGatewayArgs, o
 }
 
 type LookupTransitGatewayArgs struct {
+	// The ID of the transit gateway.
 	Id string `pulumi:"id"`
 }
 
 type LookupTransitGatewayResult struct {
-	AssociationDefaultRouteTableId *string   `pulumi:"associationDefaultRouteTableId"`
-	AutoAcceptSharedAttachments    *string   `pulumi:"autoAcceptSharedAttachments"`
-	DefaultRouteTableAssociation   *string   `pulumi:"defaultRouteTableAssociation"`
-	DefaultRouteTablePropagation   *string   `pulumi:"defaultRouteTablePropagation"`
-	Description                    *string   `pulumi:"description"`
-	DnsSupport                     *string   `pulumi:"dnsSupport"`
-	Id                             *string   `pulumi:"id"`
-	PropagationDefaultRouteTableId *string   `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           []aws.Tag `pulumi:"tags"`
-	TransitGatewayArn              *string   `pulumi:"transitGatewayArn"`
-	TransitGatewayCidrBlocks       []string  `pulumi:"transitGatewayCidrBlocks"`
-	VpnEcmpSupport                 *string   `pulumi:"vpnEcmpSupport"`
+	// The ID of the default association route table.
+	AssociationDefaultRouteTableId *string `pulumi:"associationDefaultRouteTableId"`
+	// Enable or disable automatic acceptance of attachment requests. Disabled by default.
+	AutoAcceptSharedAttachments *string `pulumi:"autoAcceptSharedAttachments"`
+	// Enable or disable automatic association with the default association route table. Enabled by default.
+	DefaultRouteTableAssociation *string `pulumi:"defaultRouteTableAssociation"`
+	// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+	DefaultRouteTablePropagation *string `pulumi:"defaultRouteTablePropagation"`
+	// The description of the transit gateway.
+	Description *string `pulumi:"description"`
+	// Enable or disable DNS support. Enabled by default.
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// The ID of the transit gateway.
+	Id *string `pulumi:"id"`
+	// The ID of the default propagation route table.
+	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
+	// The tags for the transit gateway.
+	Tags              []aws.Tag `pulumi:"tags"`
+	TransitGatewayArn *string   `pulumi:"transitGatewayArn"`
+	// The transit gateway CIDR blocks.
+	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
+	// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
 
 func LookupTransitGatewayOutput(ctx *pulumi.Context, args LookupTransitGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayResultOutput {
@@ -56,6 +68,7 @@ func LookupTransitGatewayOutput(ctx *pulumi.Context, args LookupTransitGatewayOu
 }
 
 type LookupTransitGatewayOutputArgs struct {
+	// The ID of the transit gateway.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -77,38 +90,47 @@ func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutputWith
 	return o
 }
 
+// The ID of the default association route table.
 func (o LookupTransitGatewayResultOutput) AssociationDefaultRouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.AssociationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable automatic acceptance of attachment requests. Disabled by default.
 func (o LookupTransitGatewayResultOutput) AutoAcceptSharedAttachments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.AutoAcceptSharedAttachments }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable automatic association with the default association route table. Enabled by default.
 func (o LookupTransitGatewayResultOutput) DefaultRouteTableAssociation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.DefaultRouteTableAssociation }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
 func (o LookupTransitGatewayResultOutput) DefaultRouteTablePropagation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.DefaultRouteTablePropagation }).(pulumi.StringPtrOutput)
 }
 
+// The description of the transit gateway.
 func (o LookupTransitGatewayResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Enable or disable DNS support. Enabled by default.
 func (o LookupTransitGatewayResultOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the transit gateway.
 func (o LookupTransitGatewayResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the default propagation route table.
 func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the transit gateway.
 func (o LookupTransitGatewayResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -117,10 +139,12 @@ func (o LookupTransitGatewayResultOutput) TransitGatewayArn() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.TransitGatewayArn }).(pulumi.StringPtrOutput)
 }
 
+// The transit gateway CIDR blocks.
 func (o LookupTransitGatewayResultOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) []string { return v.TransitGatewayCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
 func (o LookupTransitGatewayResultOutput) VpnEcmpSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.VpnEcmpSupport }).(pulumi.StringPtrOutput)
 }

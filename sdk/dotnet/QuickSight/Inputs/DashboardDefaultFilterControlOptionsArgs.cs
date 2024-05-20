@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDefaultFilterControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default options that correspond to the filter control type of a `DateTimePicker` .
+        /// </summary>
         [Input("defaultDateTimePickerOptions")]
         public Input<Inputs.DashboardDefaultDateTimePickerControlOptionsArgs>? DefaultDateTimePickerOptions { get; set; }
 
+        /// <summary>
+        /// The default options that correspond to the `Dropdown` filter control type.
+        /// </summary>
         [Input("defaultDropdownOptions")]
         public Input<Inputs.DashboardDefaultFilterDropDownControlOptionsArgs>? DefaultDropdownOptions { get; set; }
 
+        /// <summary>
+        /// The default options that correspond to the `List` filter control type.
+        /// </summary>
         [Input("defaultListOptions")]
         public Input<Inputs.DashboardDefaultFilterListControlOptionsArgs>? DefaultListOptions { get; set; }
 
+        /// <summary>
+        /// The default options that correspond to the `RelativeDateTime` filter control type.
+        /// </summary>
         [Input("defaultRelativeDateTimeOptions")]
         public Input<Inputs.DashboardDefaultRelativeDateTimeControlOptionsArgs>? DefaultRelativeDateTimeOptions { get; set; }
 
+        /// <summary>
+        /// The default options that correspond to the `Slider` filter control type.
+        /// </summary>
         [Input("defaultSliderOptions")]
         public Input<Inputs.DashboardDefaultSliderControlOptionsArgs>? DefaultSliderOptions { get; set; }
 
+        /// <summary>
+        /// The default options that correspond to the `TextArea` filter control type.
+        /// </summary>
         [Input("defaultTextAreaOptions")]
         public Input<Inputs.DashboardDefaultTextAreaControlOptionsArgs>? DefaultTextAreaOptions { get; set; }
 
+        /// <summary>
+        /// The default options that correspond to the `TextField` filter control type.
+        /// </summary>
         [Input("defaultTextFieldOptions")]
         public Input<Inputs.DashboardDefaultTextFieldControlOptionsArgs>? DefaultTextFieldOptions { get; set; }
 

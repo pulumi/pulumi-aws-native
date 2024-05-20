@@ -16,12 +16,22 @@ import (
 type ServiceAction struct {
 	pulumi.CustomResourceState
 
-	AcceptLanguage ServiceActionAcceptLanguagePtrOutput        `pulumi:"acceptLanguage"`
-	AwsId          pulumi.StringOutput                         `pulumi:"awsId"`
-	Definition     ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
-	DefinitionType ServiceActionDefinitionTypeOutput           `pulumi:"definitionType"`
-	Description    pulumi.StringPtrOutput                      `pulumi:"description"`
-	Name           pulumi.StringOutput                         `pulumi:"name"`
+	// The language code.
+	//
+	// - `en` - English (default)
+	// - `jp` - Japanese
+	// - `zh` - Chinese
+	AcceptLanguage ServiceActionAcceptLanguagePtrOutput `pulumi:"acceptLanguage"`
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A map that defines the self-service action.
+	Definition ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
+	// The self-service action definition type. For example, `SSM_AUTOMATION` .
+	DefinitionType ServiceActionDefinitionTypeOutput `pulumi:"definitionType"`
+	// The self-service action description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The self-service action name.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewServiceAction registers a new resource with the given unique name, arguments, and options.
@@ -70,20 +80,38 @@ func (ServiceActionState) ElementType() reflect.Type {
 }
 
 type serviceActionArgs struct {
-	AcceptLanguage *ServiceActionAcceptLanguage       `pulumi:"acceptLanguage"`
-	Definition     []ServiceActionDefinitionParameter `pulumi:"definition"`
-	DefinitionType ServiceActionDefinitionType        `pulumi:"definitionType"`
-	Description    *string                            `pulumi:"description"`
-	Name           *string                            `pulumi:"name"`
+	// The language code.
+	//
+	// - `en` - English (default)
+	// - `jp` - Japanese
+	// - `zh` - Chinese
+	AcceptLanguage *ServiceActionAcceptLanguage `pulumi:"acceptLanguage"`
+	// A map that defines the self-service action.
+	Definition []ServiceActionDefinitionParameter `pulumi:"definition"`
+	// The self-service action definition type. For example, `SSM_AUTOMATION` .
+	DefinitionType ServiceActionDefinitionType `pulumi:"definitionType"`
+	// The self-service action description.
+	Description *string `pulumi:"description"`
+	// The self-service action name.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ServiceAction resource.
 type ServiceActionArgs struct {
+	// The language code.
+	//
+	// - `en` - English (default)
+	// - `jp` - Japanese
+	// - `zh` - Chinese
 	AcceptLanguage ServiceActionAcceptLanguagePtrInput
-	Definition     ServiceActionDefinitionParameterArrayInput
+	// A map that defines the self-service action.
+	Definition ServiceActionDefinitionParameterArrayInput
+	// The self-service action definition type. For example, `SSM_AUTOMATION` .
 	DefinitionType ServiceActionDefinitionTypeInput
-	Description    pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
+	// The self-service action description.
+	Description pulumi.StringPtrInput
+	// The self-service action name.
+	Name pulumi.StringPtrInput
 }
 
 func (ServiceActionArgs) ElementType() reflect.Type {
@@ -123,26 +151,36 @@ func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The language code.
+//
+// - `en` - English (default)
+// - `jp` - Japanese
+// - `zh` - Chinese
 func (o ServiceActionOutput) AcceptLanguage() ServiceActionAcceptLanguagePtrOutput {
 	return o.ApplyT(func(v *ServiceAction) ServiceActionAcceptLanguagePtrOutput { return v.AcceptLanguage }).(ServiceActionAcceptLanguagePtrOutput)
 }
 
+// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
 func (o ServiceActionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A map that defines the self-service action.
 func (o ServiceActionOutput) Definition() ServiceActionDefinitionParameterArrayOutput {
 	return o.ApplyT(func(v *ServiceAction) ServiceActionDefinitionParameterArrayOutput { return v.Definition }).(ServiceActionDefinitionParameterArrayOutput)
 }
 
+// The self-service action definition type. For example, `SSM_AUTOMATION` .
 func (o ServiceActionOutput) DefinitionType() ServiceActionDefinitionTypeOutput {
 	return o.ApplyT(func(v *ServiceAction) ServiceActionDefinitionTypeOutput { return v.DefinitionType }).(ServiceActionDefinitionTypeOutput)
 }
 
+// The self-service action description.
 func (o ServiceActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The self-service action name.
 func (o ServiceActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

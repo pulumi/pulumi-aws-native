@@ -19,14 +19,40 @@ export function getCaCertificate(args: GetCaCertificateArgs, opts?: pulumi.Invok
 }
 
 export interface GetCaCertificateArgs {
+    /**
+     * The CA certificate ID.
+     */
     id: string;
 }
 
 export interface GetCaCertificateResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+     *
+     * `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+     *
+     * A value similar to the following is returned:
+     *
+     * `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+     */
     readonly arn?: string;
+    /**
+     * Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
+     */
     readonly autoRegistrationStatus?: enums.iot.CaCertificateAutoRegistrationStatus;
+    /**
+     * The CA certificate ID.
+     */
     readonly id?: string;
+    /**
+     * Information about the registration configuration.
+     */
     readonly registrationConfig?: outputs.iot.CaCertificateRegistrationConfig;
+    /**
+     * The status of the CA certificate.
+     *
+     * Valid values are "ACTIVE" and "INACTIVE".
+     */
     readonly status?: enums.iot.CaCertificateStatus;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -41,5 +67,8 @@ export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: 
 }
 
 export interface GetCaCertificateOutputArgs {
+    /**
+     * The CA certificate ID.
+     */
     id: pulumi.Input<string>;
 }

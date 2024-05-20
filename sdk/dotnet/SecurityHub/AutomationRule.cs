@@ -885,12 +885,23 @@ namespace Pulumi.AwsNative.SecurityHub
     [AwsNativeResourceType("aws-native:securityhub:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationRulesAction>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// A timestamp that indicates when the rule was created.
+        /// 
+        /// Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
+        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
@@ -900,18 +911,33 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("criteria")]
         public Output<Outputs.AutomationRulesFindingFilters?> Criteria { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        /// </summary>
         [Output("isTerminal")]
         public Output<bool?> IsTerminal { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+        /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
 
+        /// <summary>
+        /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        /// </summary>
         [Output("ruleOrder")]
         public Output<int?> RuleOrder { get; private set; } = null!;
 
@@ -921,9 +947,17 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("ruleStatus")]
         public Output<Pulumi.AwsNative.SecurityHub.AutomationRuleRuleStatus?> RuleStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// User-defined tags associated with an automation rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A timestamp that indicates when the rule was most recently updated.
+        /// 
+        /// Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -974,6 +1008,10 @@ namespace Pulumi.AwsNative.SecurityHub
     {
         [Input("actions")]
         private InputList<Inputs.AutomationRulesActionArgs>? _actions;
+
+        /// <summary>
+        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        /// </summary>
         public InputList<Inputs.AutomationRulesActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AutomationRulesActionArgs>());
@@ -986,15 +1024,27 @@ namespace Pulumi.AwsNative.SecurityHub
         [Input("criteria")]
         public Input<Inputs.AutomationRulesFindingFiltersArgs>? Criteria { get; set; }
 
+        /// <summary>
+        /// A description of the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
+        /// <summary>
+        /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        /// </summary>
         [Input("ruleOrder")]
         public Input<int>? RuleOrder { get; set; }
 
@@ -1006,6 +1056,10 @@ namespace Pulumi.AwsNative.SecurityHub
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// User-defined tags associated with an automation rule.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

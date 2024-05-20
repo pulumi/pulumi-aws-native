@@ -57,6 +57,9 @@ export class LayerVersion extends pulumi.CustomResource {
      * The name or Amazon Resource Name (ARN) of the layer.
      */
     public readonly layerName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the layer version.
+     */
     public /*out*/ readonly layerVersionArn!: pulumi.Output<string>;
     /**
      * The layer's software license.

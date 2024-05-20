@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("defaultActions")]
         public Output<ImmutableArray<Outputs.ListenerAction>> DefaultActions { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 

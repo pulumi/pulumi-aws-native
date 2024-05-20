@@ -160,6 +160,9 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The `arn` of the database.
+        """
         return pulumi.get(self, "arn")
 
     @property

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeSourceSqsQueueParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of records to include in each batch.
+        /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
+        /// <summary>
+        /// The maximum length of a time to wait for events.
+        /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 

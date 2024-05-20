@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTotalAggregationFunction
     {
+        /// <summary>
+        /// A built in aggregation function for total values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSimpleTotalAggregationFunction? SimpleTotalAggregationFunction;
 
         [OutputConstructor]

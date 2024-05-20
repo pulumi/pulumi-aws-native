@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateVisualCustomActionOperation
     {
+        /// <summary>
+        /// The filter operation that filters data included in a visual or in an entire sheet.
+        /// </summary>
         public readonly Outputs.TemplateCustomActionFilterOperation? FilterOperation;
+        /// <summary>
+        /// The navigation operation that navigates between different sheets in the same analysis.
+        /// </summary>
         public readonly Outputs.TemplateCustomActionNavigationOperation? NavigationOperation;
+        /// <summary>
+        /// The set parameter operation that sets parameters in custom action.
+        /// </summary>
         public readonly Outputs.TemplateCustomActionSetParametersOperation? SetParametersOperation;
+        /// <summary>
+        /// The URL operation that opens a link to another webpage.
+        /// </summary>
         public readonly Outputs.TemplateCustomActionUrlOperation? UrlOperation;
 
         [OutputConstructor]

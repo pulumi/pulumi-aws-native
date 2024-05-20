@@ -40,6 +40,14 @@ class DomainAdvancedSecurityOptionsInputArgs:
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
                  master_user_options: Optional[pulumi.Input['DomainMasterUserOptionsArgs']] = None,
                  saml_options: Optional[pulumi.Input['DomainSamlOptionsArgs']] = None):
+        """
+        :param pulumi.Input[str] anonymous_auth_disable_date: Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+        :param pulumi.Input[bool] anonymous_auth_enabled: True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+        :param pulumi.Input[bool] enabled: True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+        :param pulumi.Input[bool] internal_user_database_enabled: True to enable the internal user database.
+        :param pulumi.Input['DomainMasterUserOptionsArgs'] master_user_options: Specifies information about the master user.
+        :param pulumi.Input['DomainSamlOptionsArgs'] saml_options: Container for information about the SAML configuration for OpenSearch Dashboards.
+        """
         if anonymous_auth_disable_date is not None:
             pulumi.set(__self__, "anonymous_auth_disable_date", anonymous_auth_disable_date)
         if anonymous_auth_enabled is not None:
@@ -56,6 +64,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter(name="anonymousAuthDisableDate")
     def anonymous_auth_disable_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+        """
         return pulumi.get(self, "anonymous_auth_disable_date")
 
     @anonymous_auth_disable_date.setter
@@ -65,6 +76,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter(name="anonymousAuthEnabled")
     def anonymous_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+        """
         return pulumi.get(self, "anonymous_auth_enabled")
 
     @anonymous_auth_enabled.setter
@@ -74,6 +88,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -83,6 +100,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter(name="internalUserDatabaseEnabled")
     def internal_user_database_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True to enable the internal user database.
+        """
         return pulumi.get(self, "internal_user_database_enabled")
 
     @internal_user_database_enabled.setter
@@ -92,6 +112,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter(name="masterUserOptions")
     def master_user_options(self) -> Optional[pulumi.Input['DomainMasterUserOptionsArgs']]:
+        """
+        Specifies information about the master user.
+        """
         return pulumi.get(self, "master_user_options")
 
     @master_user_options.setter
@@ -101,6 +124,9 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @property
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsArgs']]:
+        """
+        Container for information about the SAML configuration for OpenSearch Dashboards.
+        """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
@@ -123,6 +149,20 @@ class DomainClusterConfigArgs:
                  warm_type: Optional[pulumi.Input[str]] = None,
                  zone_awareness_config: Optional[pulumi.Input['DomainZoneAwarenessConfigArgs']] = None,
                  zone_awareness_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['DomainColdStorageOptionsArgs'] cold_storage_options: Container for cold storage configuration options.
+        :param pulumi.Input[int] dedicated_master_count: The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
+        :param pulumi.Input[bool] dedicated_master_enabled: Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
+        :param pulumi.Input[str] dedicated_master_type: The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+        :param pulumi.Input[int] instance_count: The number of data nodes (instances) to use in the OpenSearch Service domain.
+        :param pulumi.Input[str] instance_type: The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+        :param pulumi.Input[bool] multi_az_with_standby_enabled: Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
+        :param pulumi.Input[int] warm_count: The number of warm nodes in the cluster.
+        :param pulumi.Input[bool] warm_enabled: Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
+        :param pulumi.Input[str] warm_type: The instance type for the cluster's warm nodes.
+        :param pulumi.Input['DomainZoneAwarenessConfigArgs'] zone_awareness_config: Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
+        :param pulumi.Input[bool] zone_awareness_enabled: Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
+        """
         if cold_storage_options is not None:
             pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
@@ -151,6 +191,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="coldStorageOptions")
     def cold_storage_options(self) -> Optional[pulumi.Input['DomainColdStorageOptionsArgs']]:
+        """
+        Container for cold storage configuration options.
+        """
         return pulumi.get(self, "cold_storage_options")
 
     @cold_storage_options.setter
@@ -160,6 +203,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="dedicatedMasterCount")
     def dedicated_master_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
+        """
         return pulumi.get(self, "dedicated_master_count")
 
     @dedicated_master_count.setter
@@ -169,6 +215,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="dedicatedMasterEnabled")
     def dedicated_master_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
+        """
         return pulumi.get(self, "dedicated_master_enabled")
 
     @dedicated_master_enabled.setter
@@ -178,6 +227,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="dedicatedMasterType")
     def dedicated_master_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+        """
         return pulumi.get(self, "dedicated_master_type")
 
     @dedicated_master_type.setter
@@ -187,6 +239,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of data nodes (instances) to use in the OpenSearch Service domain.
+        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -196,6 +251,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -205,6 +263,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="multiAzWithStandbyEnabled")
     def multi_az_with_standby_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
+        """
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @multi_az_with_standby_enabled.setter
@@ -214,6 +275,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="warmCount")
     def warm_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of warm nodes in the cluster.
+        """
         return pulumi.get(self, "warm_count")
 
     @warm_count.setter
@@ -223,6 +287,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="warmEnabled")
     def warm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
+        """
         return pulumi.get(self, "warm_enabled")
 
     @warm_enabled.setter
@@ -232,6 +299,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="warmType")
     def warm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type for the cluster's warm nodes.
+        """
         return pulumi.get(self, "warm_type")
 
     @warm_type.setter
@@ -241,6 +311,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="zoneAwarenessConfig")
     def zone_awareness_config(self) -> Optional[pulumi.Input['DomainZoneAwarenessConfigArgs']]:
+        """
+        Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
+        """
         return pulumi.get(self, "zone_awareness_config")
 
     @zone_awareness_config.setter
@@ -250,6 +323,9 @@ class DomainClusterConfigArgs:
     @property
     @pulumi.getter(name="zoneAwarenessEnabled")
     def zone_awareness_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable zone awareness for the OpenSearch Service domain. When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
+        """
         return pulumi.get(self, "zone_awareness_enabled")
 
     @zone_awareness_enabled.setter
@@ -264,6 +340,18 @@ class DomainCognitoOptionsArgs:
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+        :param pulumi.Input[str] identity_pool_id: The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+               
+               Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        :param pulumi.Input[str] role_arn: The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+               
+               Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        :param pulumi.Input[str] user_pool_id: The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+               
+               Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if identity_pool_id is not None:
@@ -276,6 +364,9 @@ class DomainCognitoOptionsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -285,6 +376,11 @@ class DomainCognitoOptionsArgs:
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+
+        Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -294,6 +390,11 @@ class DomainCognitoOptionsArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+
+        Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -303,6 +404,11 @@ class DomainCognitoOptionsArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+
+        Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -314,12 +420,18 @@ class DomainCognitoOptionsArgs:
 class DomainColdStorageOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -335,6 +447,13 @@ class DomainEbsOptionsArgs:
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] ebs_enabled: Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
+        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
+        :param pulumi.Input[int] throughput: The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
+        :param pulumi.Input[int] volume_size: The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input[str] volume_type: The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
+        """
         if ebs_enabled is not None:
             pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
@@ -349,6 +468,9 @@ class DomainEbsOptionsArgs:
     @property
     @pulumi.getter(name="ebsEnabled")
     def ebs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
+        """
         return pulumi.get(self, "ebs_enabled")
 
     @ebs_enabled.setter
@@ -358,6 +480,9 @@ class DomainEbsOptionsArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports. This property applies only to the `gp3` and provisioned IOPS EBS volume types.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -367,6 +492,9 @@ class DomainEbsOptionsArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput (in MiB/s) of the EBS volumes attached to data nodes. Applies only to the `gp3` volume type.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -376,6 +504,9 @@ class DomainEbsOptionsArgs:
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size (in GiB) of the EBS volume for each data node. The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
+        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -385,6 +516,9 @@ class DomainEbsOptionsArgs:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EBS volume type to use with the OpenSearch Service domain. If you choose `gp3` , you must also specify values for `Iops` and `Throughput` . For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -397,6 +531,16 @@ class DomainEncryptionAtRestOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+               
+               If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        :param pulumi.Input[str] kms_key_id: The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+               
+               You can also use `keyAlias` as a value.
+               
+               If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if kms_key_id is not None:
@@ -405,6 +549,11 @@ class DomainEncryptionAtRestOptionsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+
+        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -414,6 +563,13 @@ class DomainEncryptionAtRestOptionsArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
+
+        You can also use `keyAlias` as a value.
+
+        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -429,6 +585,16 @@ class DomainEndpointOptionsArgs:
                  custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  enforce_https: Optional[pulumi.Input[bool]] = None,
                  tls_security_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] custom_endpoint: The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
+        :param pulumi.Input[str] custom_endpoint_certificate_arn: The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+        :param pulumi.Input[bool] custom_endpoint_enabled: True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
+        :param pulumi.Input[bool] enforce_https: True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        :param pulumi.Input[str] tls_security_policy: The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+               
+               - `Policy-Min-TLS-1-0-2019-07`
+               - `Policy-Min-TLS-1-2-2019-07`
+        """
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
@@ -443,6 +609,9 @@ class DomainEndpointOptionsArgs:
     @property
     @pulumi.getter(name="customEndpoint")
     def custom_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.
+        """
         return pulumi.get(self, "custom_endpoint")
 
     @custom_endpoint.setter
@@ -452,6 +621,9 @@ class DomainEndpointOptionsArgs:
     @property
     @pulumi.getter(name="customEndpointCertificateArn")
     def custom_endpoint_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.
+        """
         return pulumi.get(self, "custom_endpoint_certificate_arn")
 
     @custom_endpoint_certificate_arn.setter
@@ -461,6 +633,9 @@ class DomainEndpointOptionsArgs:
     @property
     @pulumi.getter(name="customEndpointEnabled")
     def custom_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True to enable a custom endpoint for the domain. If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
+        """
         return pulumi.get(self, "custom_endpoint_enabled")
 
     @custom_endpoint_enabled.setter
@@ -470,6 +645,9 @@ class DomainEndpointOptionsArgs:
     @property
     @pulumi.getter(name="enforceHttps")
     def enforce_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True to require that all traffic to the domain arrive over HTTPS. Required if you enable fine-grained access control in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        """
         return pulumi.get(self, "enforce_https")
 
     @enforce_https.setter
@@ -479,6 +657,12 @@ class DomainEndpointOptionsArgs:
     @property
     @pulumi.getter(name="tlsSecurityPolicy")
     def tls_security_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:
+
+        - `Policy-Min-TLS-1-0-2019-07`
+        - `Policy-Min-TLS-1-2-2019-07`
+        """
         return pulumi.get(self, "tls_security_policy")
 
     @tls_security_policy.setter
@@ -491,12 +675,19 @@ class DomainIdpArgs:
     def __init__(__self__, *,
                  entity_id: pulumi.Input[str],
                  metadata_content: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] entity_id: The unique entity ID of the application in the SAML identity provider.
+        :param pulumi.Input[str] metadata_content: The metadata of the SAML application, in XML format.
+        """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "metadata_content", metadata_content)
 
     @property
     @pulumi.getter(name="entityId")
     def entity_id(self) -> pulumi.Input[str]:
+        """
+        The unique entity ID of the application in the SAML identity provider.
+        """
         return pulumi.get(self, "entity_id")
 
     @entity_id.setter
@@ -506,6 +697,9 @@ class DomainIdpArgs:
     @property
     @pulumi.getter(name="metadataContent")
     def metadata_content(self) -> pulumi.Input[str]:
+        """
+        The metadata of the SAML application, in XML format.
+        """
         return pulumi.get(self, "metadata_content")
 
     @metadata_content.setter
@@ -548,6 +742,15 @@ class DomainMasterUserOptionsArgs:
                  master_user_arn: Optional[pulumi.Input[str]] = None,
                  master_user_name: Optional[pulumi.Input[str]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] master_user_arn: Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        :param pulumi.Input[str] master_user_name: Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+               
+               If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+        :param pulumi.Input[str] master_user_password: Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+               
+               If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+        """
         if master_user_arn is not None:
             pulumi.set(__self__, "master_user_arn", master_user_arn)
         if master_user_name is not None:
@@ -558,6 +761,9 @@ class DomainMasterUserOptionsArgs:
     @property
     @pulumi.getter(name="masterUserArn")
     def master_user_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) for the master user. The ARN can point to an IAM user or role. This property is required for Amazon Cognito to work, and it must match the role configured for Cognito. Only specify if `InternalUserDatabaseEnabled` is false in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        """
         return pulumi.get(self, "master_user_arn")
 
     @master_user_arn.setter
@@ -567,6 +773,11 @@ class DomainMasterUserOptionsArgs:
     @property
     @pulumi.getter(name="masterUserName")
     def master_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+
+        If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+        """
         return pulumi.get(self, "master_user_name")
 
     @master_user_name.setter
@@ -576,6 +787,11 @@ class DomainMasterUserOptionsArgs:
     @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for the master user. Only specify if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+
+        If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
+        """
         return pulumi.get(self, "master_user_password")
 
     @master_user_password.setter
@@ -587,12 +803,18 @@ class DomainMasterUserOptionsArgs:
 class DomainNodeToNodeEncryptionOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -605,6 +827,10 @@ class DomainOffPeakWindowOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  off_peak_window: Optional[pulumi.Input['DomainOffPeakWindowArgs']] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specifies whether off-peak window settings are enabled for the domain.
+        :param pulumi.Input['DomainOffPeakWindowArgs'] off_peak_window: Off-peak window settings for the domain.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if off_peak_window is not None:
@@ -613,6 +839,9 @@ class DomainOffPeakWindowOptionsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether off-peak window settings are enabled for the domain.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -622,6 +851,9 @@ class DomainOffPeakWindowOptionsArgs:
     @property
     @pulumi.getter(name="offPeakWindow")
     def off_peak_window(self) -> Optional[pulumi.Input['DomainOffPeakWindowArgs']]:
+        """
+        Off-peak window settings for the domain.
+        """
         return pulumi.get(self, "off_peak_window")
 
     @off_peak_window.setter
@@ -633,12 +865,18 @@ class DomainOffPeakWindowOptionsArgs:
 class DomainOffPeakWindowArgs:
     def __init__(__self__, *,
                  window_start_time: Optional[pulumi.Input['DomainWindowStartTimeArgs']] = None):
+        """
+        :param pulumi.Input['DomainWindowStartTimeArgs'] window_start_time: The desired start time for an off-peak maintenance window.
+        """
         if window_start_time is not None:
             pulumi.set(__self__, "window_start_time", window_start_time)
 
     @property
     @pulumi.getter(name="windowStartTime")
     def window_start_time(self) -> Optional[pulumi.Input['DomainWindowStartTimeArgs']]:
+        """
+        The desired start time for an off-peak maintenance window.
+        """
         return pulumi.get(self, "window_start_time")
 
     @window_start_time.setter
@@ -656,6 +894,15 @@ class DomainSamlOptionsArgs:
                  roles_key: Optional[pulumi.Input[str]] = None,
                  session_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  subject_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: True to enable SAML authentication for a domain.
+        :param pulumi.Input['DomainIdpArgs'] idp: The SAML Identity Provider's information.
+        :param pulumi.Input[str] master_backend_role: The backend role that the SAML master user is mapped to.
+        :param pulumi.Input[str] master_user_name: The SAML master user name, which is stored in the domain's internal user database.
+        :param pulumi.Input[str] roles_key: Element of the SAML assertion to use for backend roles. Default is `roles` .
+        :param pulumi.Input[int] session_timeout_minutes: The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
+        :param pulumi.Input[str] subject_key: Element of the SAML assertion to use for the user name. Default is `NameID` .
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if idp is not None:
@@ -674,6 +921,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True to enable SAML authentication for a domain.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -683,6 +933,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter
     def idp(self) -> Optional[pulumi.Input['DomainIdpArgs']]:
+        """
+        The SAML Identity Provider's information.
+        """
         return pulumi.get(self, "idp")
 
     @idp.setter
@@ -692,6 +945,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter(name="masterBackendRole")
     def master_backend_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The backend role that the SAML master user is mapped to.
+        """
         return pulumi.get(self, "master_backend_role")
 
     @master_backend_role.setter
@@ -701,6 +957,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter(name="masterUserName")
     def master_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAML master user name, which is stored in the domain's internal user database.
+        """
         return pulumi.get(self, "master_user_name")
 
     @master_user_name.setter
@@ -710,6 +969,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter(name="rolesKey")
     def roles_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Element of the SAML assertion to use for backend roles. Default is `roles` .
+        """
         return pulumi.get(self, "roles_key")
 
     @roles_key.setter
@@ -719,6 +981,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter(name="sessionTimeoutMinutes")
     def session_timeout_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
+        """
         return pulumi.get(self, "session_timeout_minutes")
 
     @session_timeout_minutes.setter
@@ -728,6 +993,9 @@ class DomainSamlOptionsArgs:
     @property
     @pulumi.getter(name="subjectKey")
     def subject_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Element of the SAML assertion to use for the user name. Default is `NameID` .
+        """
         return pulumi.get(self, "subject_key")
 
     @subject_key.setter
@@ -739,12 +1007,18 @@ class DomainSamlOptionsArgs:
 class DomainSnapshotOptionsArgs:
     def __init__(__self__, *,
                  automated_snapshot_start_hour: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] automated_snapshot_start_hour: The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
+        """
         if automated_snapshot_start_hour is not None:
             pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
     def automated_snapshot_start_hour(self) -> Optional[pulumi.Input[int]]:
+        """
+        The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
+        """
         return pulumi.get(self, "automated_snapshot_start_hour")
 
     @automated_snapshot_start_hour.setter
@@ -756,12 +1030,18 @@ class DomainSnapshotOptionsArgs:
 class DomainSoftwareUpdateOptionsArgs:
     def __init__(__self__, *,
                  auto_software_update_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] auto_software_update_enabled: Specifies whether automatic service software updates are enabled for the domain.
+        """
         if auto_software_update_enabled is not None:
             pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
 
     @property
     @pulumi.getter(name="autoSoftwareUpdateEnabled")
     def auto_software_update_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether automatic service software updates are enabled for the domain.
+        """
         return pulumi.get(self, "auto_software_update_enabled")
 
     @auto_software_update_enabled.setter
@@ -774,6 +1054,12 @@ class DomainVpcOptionsArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+               
+               If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
+        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -782,6 +1068,9 @@ class DomainVpcOptionsArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of security group IDs that are associated with the VPC endpoints for the domain. If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -791,6 +1080,11 @@ class DomainVpcOptionsArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Provide one subnet ID for each Availability Zone that your domain uses. For example, you must specify three subnet IDs for a three-AZ domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+
+        If you specify more than one subnet, you must also configure `ZoneAwarenessEnabled` and `ZoneAwarenessConfig` within [ClusterConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html) , otherwise you'll see the error "You must specify exactly one subnet" during template creation.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -803,12 +1097,19 @@ class DomainWindowStartTimeArgs:
     def __init__(__self__, *,
                  hours: pulumi.Input[int],
                  minutes: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hours: The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+        :param pulumi.Input[int] minutes: The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
+        """
         pulumi.set(__self__, "hours", hours)
         pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
     def hours(self) -> pulumi.Input[int]:
+        """
+        The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, 17 refers to 5:00 P.M. UTC. The minimum value is 0 and the maximum value is 23.
+        """
         return pulumi.get(self, "hours")
 
     @hours.setter
@@ -818,6 +1119,9 @@ class DomainWindowStartTimeArgs:
     @property
     @pulumi.getter
     def minutes(self) -> pulumi.Input[int]:
+        """
+        The start minute of the window, in UTC. The minimum value is 0 and the maximum value is 59.
+        """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
@@ -829,12 +1133,22 @@ class DomainWindowStartTimeArgs:
 class DomainZoneAwarenessConfigArgs:
     def __init__(__self__, *,
                  availability_zone_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] availability_zone_count: If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+               
+               Valid values are `2` and `3` . Default is 2.
+        """
         if availability_zone_count is not None:
             pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")
     def availability_zone_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
+
+        Valid values are `2` and `3` . Default is 2.
+        """
         return pulumi.get(self, "availability_zone_count")
 
     @availability_zone_count.setter

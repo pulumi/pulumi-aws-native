@@ -232,9 +232,12 @@ func (o AnomalySubscriptionResourceTagArrayOutput) Index(i pulumi.IntInput) Anom
 }
 
 type AnomalySubscriptionSubscriber struct {
-	Address string                               `pulumi:"address"`
-	Status  *AnomalySubscriptionSubscriberStatus `pulumi:"status"`
-	Type    AnomalySubscriptionSubscriberType    `pulumi:"type"`
+	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+	Address string `pulumi:"address"`
+	// Indicates if the subscriber accepts the notifications.
+	Status *AnomalySubscriptionSubscriberStatus `pulumi:"status"`
+	// The notification delivery channel.
+	Type AnomalySubscriptionSubscriberType `pulumi:"type"`
 }
 
 // AnomalySubscriptionSubscriberInput is an input type that accepts AnomalySubscriptionSubscriberArgs and AnomalySubscriptionSubscriberOutput values.
@@ -249,9 +252,12 @@ type AnomalySubscriptionSubscriberInput interface {
 }
 
 type AnomalySubscriptionSubscriberArgs struct {
-	Address pulumi.StringInput                          `pulumi:"address"`
-	Status  AnomalySubscriptionSubscriberStatusPtrInput `pulumi:"status"`
-	Type    AnomalySubscriptionSubscriberTypeInput      `pulumi:"type"`
+	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+	Address pulumi.StringInput `pulumi:"address"`
+	// Indicates if the subscriber accepts the notifications.
+	Status AnomalySubscriptionSubscriberStatusPtrInput `pulumi:"status"`
+	// The notification delivery channel.
+	Type AnomalySubscriptionSubscriberTypeInput `pulumi:"type"`
 }
 
 func (AnomalySubscriptionSubscriberArgs) ElementType() reflect.Type {
@@ -305,14 +311,17 @@ func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutp
 	return o
 }
 
+// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
 func (o AnomalySubscriptionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalySubscriptionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }
 
+// Indicates if the subscriber accepts the notifications.
 func (o AnomalySubscriptionSubscriberOutput) Status() AnomalySubscriptionSubscriberStatusPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionSubscriber) *AnomalySubscriptionSubscriberStatus { return v.Status }).(AnomalySubscriptionSubscriberStatusPtrOutput)
 }
 
+// The notification delivery channel.
 func (o AnomalySubscriptionSubscriberOutput) Type() AnomalySubscriptionSubscriberTypeOutput {
 	return o.ApplyT(func(v AnomalySubscriptionSubscriber) AnomalySubscriptionSubscriberType { return v.Type }).(AnomalySubscriptionSubscriberTypeOutput)
 }

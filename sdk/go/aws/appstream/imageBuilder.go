@@ -17,20 +17,70 @@ import (
 type ImageBuilder struct {
 	pulumi.CustomResourceState
 
-	AccessEndpoints             ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
-	AppstreamAgentVersion       pulumi.StringPtrOutput                `pulumi:"appstreamAgentVersion"`
-	Description                 pulumi.StringPtrOutput                `pulumi:"description"`
-	DisplayName                 pulumi.StringPtrOutput                `pulumi:"displayName"`
-	DomainJoinInfo              ImageBuilderDomainJoinInfoPtrOutput   `pulumi:"domainJoinInfo"`
-	EnableDefaultInternetAccess pulumi.BoolPtrOutput                  `pulumi:"enableDefaultInternetAccess"`
-	IamRoleArn                  pulumi.StringPtrOutput                `pulumi:"iamRoleArn"`
-	ImageArn                    pulumi.StringPtrOutput                `pulumi:"imageArn"`
-	ImageName                   pulumi.StringPtrOutput                `pulumi:"imageName"`
-	InstanceType                pulumi.StringOutput                   `pulumi:"instanceType"`
-	Name                        pulumi.StringOutput                   `pulumi:"name"`
-	StreamingUrl                pulumi.StringOutput                   `pulumi:"streamingUrl"`
-	Tags                        aws.TagArrayOutput                    `pulumi:"tags"`
-	VpcConfig                   ImageBuilderVpcConfigPtrOutput        `pulumi:"vpcConfig"`
+	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
+	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	AppstreamAgentVersion pulumi.StringPtrOutput `pulumi:"appstreamAgentVersion"`
+	// The description to display.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The image builder name to display.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+	DomainJoinInfo ImageBuilderDomainJoinInfoPtrOutput `pulumi:"domainJoinInfo"`
+	// Enables or disables default internet access for the image builder.
+	EnableDefaultInternetAccess pulumi.BoolPtrOutput `pulumi:"enableDefaultInternetAccess"`
+	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+	//
+	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
+	// The ARN of the public, private, or shared image to use.
+	ImageArn pulumi.StringPtrOutput `pulumi:"imageArn"`
+	// The name of the image used to create the image builder.
+	ImageName pulumi.StringPtrOutput `pulumi:"imageName"`
+	// The instance type to use when launching the image builder. The following instance types are available:
+	//
+	// - stream.standard.small
+	// - stream.standard.medium
+	// - stream.standard.large
+	// - stream.compute.large
+	// - stream.compute.xlarge
+	// - stream.compute.2xlarge
+	// - stream.compute.4xlarge
+	// - stream.compute.8xlarge
+	// - stream.memory.large
+	// - stream.memory.xlarge
+	// - stream.memory.2xlarge
+	// - stream.memory.4xlarge
+	// - stream.memory.8xlarge
+	// - stream.memory.z1d.large
+	// - stream.memory.z1d.xlarge
+	// - stream.memory.z1d.2xlarge
+	// - stream.memory.z1d.3xlarge
+	// - stream.memory.z1d.6xlarge
+	// - stream.memory.z1d.12xlarge
+	// - stream.graphics-design.large
+	// - stream.graphics-design.xlarge
+	// - stream.graphics-design.2xlarge
+	// - stream.graphics-design.4xlarge
+	// - stream.graphics-desktop.2xlarge
+	// - stream.graphics.g4dn.xlarge
+	// - stream.graphics.g4dn.2xlarge
+	// - stream.graphics.g4dn.4xlarge
+	// - stream.graphics.g4dn.8xlarge
+	// - stream.graphics.g4dn.12xlarge
+	// - stream.graphics.g4dn.16xlarge
+	// - stream.graphics-pro.4xlarge
+	// - stream.graphics-pro.8xlarge
+	// - stream.graphics-pro.16xlarge
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// A unique name for the image builder.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The URL to start an image builder streaming session, returned as a string.
+	StreamingUrl pulumi.StringOutput `pulumi:"streamingUrl"`
+	// An array of key-value pairs.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC configuration for the image builder. You can specify only one subnet.
+	VpcConfig ImageBuilderVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewImageBuilder registers a new resource with the given unique name, arguments, and options.
@@ -76,36 +126,134 @@ func (ImageBuilderState) ElementType() reflect.Type {
 }
 
 type imageBuilderArgs struct {
-	AccessEndpoints             []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
-	AppstreamAgentVersion       *string                      `pulumi:"appstreamAgentVersion"`
-	Description                 *string                      `pulumi:"description"`
-	DisplayName                 *string                      `pulumi:"displayName"`
-	DomainJoinInfo              *ImageBuilderDomainJoinInfo  `pulumi:"domainJoinInfo"`
-	EnableDefaultInternetAccess *bool                        `pulumi:"enableDefaultInternetAccess"`
-	IamRoleArn                  *string                      `pulumi:"iamRoleArn"`
-	ImageArn                    *string                      `pulumi:"imageArn"`
-	ImageName                   *string                      `pulumi:"imageName"`
-	InstanceType                string                       `pulumi:"instanceType"`
-	Name                        *string                      `pulumi:"name"`
-	Tags                        []aws.Tag                    `pulumi:"tags"`
-	VpcConfig                   *ImageBuilderVpcConfig       `pulumi:"vpcConfig"`
+	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
+	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
+	// The description to display.
+	Description *string `pulumi:"description"`
+	// The image builder name to display.
+	DisplayName *string `pulumi:"displayName"`
+	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+	DomainJoinInfo *ImageBuilderDomainJoinInfo `pulumi:"domainJoinInfo"`
+	// Enables or disables default internet access for the image builder.
+	EnableDefaultInternetAccess *bool `pulumi:"enableDefaultInternetAccess"`
+	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+	//
+	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The ARN of the public, private, or shared image to use.
+	ImageArn *string `pulumi:"imageArn"`
+	// The name of the image used to create the image builder.
+	ImageName *string `pulumi:"imageName"`
+	// The instance type to use when launching the image builder. The following instance types are available:
+	//
+	// - stream.standard.small
+	// - stream.standard.medium
+	// - stream.standard.large
+	// - stream.compute.large
+	// - stream.compute.xlarge
+	// - stream.compute.2xlarge
+	// - stream.compute.4xlarge
+	// - stream.compute.8xlarge
+	// - stream.memory.large
+	// - stream.memory.xlarge
+	// - stream.memory.2xlarge
+	// - stream.memory.4xlarge
+	// - stream.memory.8xlarge
+	// - stream.memory.z1d.large
+	// - stream.memory.z1d.xlarge
+	// - stream.memory.z1d.2xlarge
+	// - stream.memory.z1d.3xlarge
+	// - stream.memory.z1d.6xlarge
+	// - stream.memory.z1d.12xlarge
+	// - stream.graphics-design.large
+	// - stream.graphics-design.xlarge
+	// - stream.graphics-design.2xlarge
+	// - stream.graphics-design.4xlarge
+	// - stream.graphics-desktop.2xlarge
+	// - stream.graphics.g4dn.xlarge
+	// - stream.graphics.g4dn.2xlarge
+	// - stream.graphics.g4dn.4xlarge
+	// - stream.graphics.g4dn.8xlarge
+	// - stream.graphics.g4dn.12xlarge
+	// - stream.graphics.g4dn.16xlarge
+	// - stream.graphics-pro.4xlarge
+	// - stream.graphics-pro.8xlarge
+	// - stream.graphics-pro.16xlarge
+	InstanceType string `pulumi:"instanceType"`
+	// A unique name for the image builder.
+	Name *string `pulumi:"name"`
+	// An array of key-value pairs.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC configuration for the image builder. You can specify only one subnet.
+	VpcConfig *ImageBuilderVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a ImageBuilder resource.
 type ImageBuilderArgs struct {
-	AccessEndpoints             ImageBuilderAccessEndpointArrayInput
-	AppstreamAgentVersion       pulumi.StringPtrInput
-	Description                 pulumi.StringPtrInput
-	DisplayName                 pulumi.StringPtrInput
-	DomainJoinInfo              ImageBuilderDomainJoinInfoPtrInput
+	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+	AccessEndpoints ImageBuilderAccessEndpointArrayInput
+	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	AppstreamAgentVersion pulumi.StringPtrInput
+	// The description to display.
+	Description pulumi.StringPtrInput
+	// The image builder name to display.
+	DisplayName pulumi.StringPtrInput
+	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+	DomainJoinInfo ImageBuilderDomainJoinInfoPtrInput
+	// Enables or disables default internet access for the image builder.
 	EnableDefaultInternetAccess pulumi.BoolPtrInput
-	IamRoleArn                  pulumi.StringPtrInput
-	ImageArn                    pulumi.StringPtrInput
-	ImageName                   pulumi.StringPtrInput
-	InstanceType                pulumi.StringInput
-	Name                        pulumi.StringPtrInput
-	Tags                        aws.TagArrayInput
-	VpcConfig                   ImageBuilderVpcConfigPtrInput
+	// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+	//
+	// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+	IamRoleArn pulumi.StringPtrInput
+	// The ARN of the public, private, or shared image to use.
+	ImageArn pulumi.StringPtrInput
+	// The name of the image used to create the image builder.
+	ImageName pulumi.StringPtrInput
+	// The instance type to use when launching the image builder. The following instance types are available:
+	//
+	// - stream.standard.small
+	// - stream.standard.medium
+	// - stream.standard.large
+	// - stream.compute.large
+	// - stream.compute.xlarge
+	// - stream.compute.2xlarge
+	// - stream.compute.4xlarge
+	// - stream.compute.8xlarge
+	// - stream.memory.large
+	// - stream.memory.xlarge
+	// - stream.memory.2xlarge
+	// - stream.memory.4xlarge
+	// - stream.memory.8xlarge
+	// - stream.memory.z1d.large
+	// - stream.memory.z1d.xlarge
+	// - stream.memory.z1d.2xlarge
+	// - stream.memory.z1d.3xlarge
+	// - stream.memory.z1d.6xlarge
+	// - stream.memory.z1d.12xlarge
+	// - stream.graphics-design.large
+	// - stream.graphics-design.xlarge
+	// - stream.graphics-design.2xlarge
+	// - stream.graphics-design.4xlarge
+	// - stream.graphics-desktop.2xlarge
+	// - stream.graphics.g4dn.xlarge
+	// - stream.graphics.g4dn.2xlarge
+	// - stream.graphics.g4dn.4xlarge
+	// - stream.graphics.g4dn.8xlarge
+	// - stream.graphics.g4dn.12xlarge
+	// - stream.graphics.g4dn.16xlarge
+	// - stream.graphics-pro.4xlarge
+	// - stream.graphics-pro.8xlarge
+	// - stream.graphics-pro.16xlarge
+	InstanceType pulumi.StringInput
+	// A unique name for the image builder.
+	Name pulumi.StringPtrInput
+	// An array of key-value pairs.
+	Tags aws.TagArrayInput
+	// The VPC configuration for the image builder. You can specify only one subnet.
+	VpcConfig ImageBuilderVpcConfigPtrInput
 }
 
 func (ImageBuilderArgs) ElementType() reflect.Type {
@@ -145,58 +293,108 @@ func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
 }
 
+// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.AppstreamAgentVersion }).(pulumi.StringPtrOutput)
 }
 
+// The description to display.
 func (o ImageBuilderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The image builder name to display.
 func (o ImageBuilderOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
 func (o ImageBuilderOutput) DomainJoinInfo() ImageBuilderDomainJoinInfoPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderDomainJoinInfoPtrOutput { return v.DomainJoinInfo }).(ImageBuilderDomainJoinInfoPtrOutput)
 }
 
+// Enables or disables default internet access for the image builder.
 func (o ImageBuilderOutput) EnableDefaultInternetAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.BoolPtrOutput { return v.EnableDefaultInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
+// The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+//
+// For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
 func (o ImageBuilderOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the public, private, or shared image to use.
 func (o ImageBuilderOutput) ImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.ImageArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the image used to create the image builder.
 func (o ImageBuilderOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.ImageName }).(pulumi.StringPtrOutput)
 }
 
+// The instance type to use when launching the image builder. The following instance types are available:
+//
+// - stream.standard.small
+// - stream.standard.medium
+// - stream.standard.large
+// - stream.compute.large
+// - stream.compute.xlarge
+// - stream.compute.2xlarge
+// - stream.compute.4xlarge
+// - stream.compute.8xlarge
+// - stream.memory.large
+// - stream.memory.xlarge
+// - stream.memory.2xlarge
+// - stream.memory.4xlarge
+// - stream.memory.8xlarge
+// - stream.memory.z1d.large
+// - stream.memory.z1d.xlarge
+// - stream.memory.z1d.2xlarge
+// - stream.memory.z1d.3xlarge
+// - stream.memory.z1d.6xlarge
+// - stream.memory.z1d.12xlarge
+// - stream.graphics-design.large
+// - stream.graphics-design.xlarge
+// - stream.graphics-design.2xlarge
+// - stream.graphics-design.4xlarge
+// - stream.graphics-desktop.2xlarge
+// - stream.graphics.g4dn.xlarge
+// - stream.graphics.g4dn.2xlarge
+// - stream.graphics.g4dn.4xlarge
+// - stream.graphics.g4dn.8xlarge
+// - stream.graphics.g4dn.12xlarge
+// - stream.graphics.g4dn.16xlarge
+// - stream.graphics-pro.4xlarge
+// - stream.graphics-pro.8xlarge
+// - stream.graphics-pro.16xlarge
 func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// A unique name for the image builder.
 func (o ImageBuilderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The URL to start an image builder streaming session, returned as a string.
 func (o ImageBuilderOutput) StreamingUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.StreamingUrl }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs.
 func (o ImageBuilderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ImageBuilder) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC configuration for the image builder. You can specify only one subnet.
 func (o ImageBuilderOutput) VpcConfig() ImageBuilderVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderVpcConfigPtrOutput { return v.VpcConfig }).(ImageBuilderVpcConfigPtrOutput)
 }

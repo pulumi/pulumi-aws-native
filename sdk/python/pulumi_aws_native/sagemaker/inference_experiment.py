@@ -34,13 +34,19 @@ class InferenceExperimentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InferenceExperiment resource.
+        :param pulumi.Input[str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]] model_variants: An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
         :param pulumi.Input['InferenceExperimentType'] type: The type of the inference experiment that you want to run.
+        :param pulumi.Input['InferenceExperimentDataStorageConfigArgs'] data_storage_config: The Amazon S3 location and configuration for storing inference request and response data.
         :param pulumi.Input[str] description: The description of the inference experiment.
         :param pulumi.Input['InferenceExperimentDesiredState'] desired_state: The desired state of the experiment after starting or stopping operation.
         :param pulumi.Input[str] kms_key: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name for the inference experiment.
+        :param pulumi.Input['InferenceExperimentScheduleArgs'] schedule: The duration for which the inference experiment ran or will run.
+               
+               The maximum duration that you can set for an inference experiment is 30 days.
+        :param pulumi.Input['InferenceExperimentShadowModeConfigArgs'] shadow_mode_config: The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
         :param pulumi.Input[str] status_reason: The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -70,6 +76,9 @@ class InferenceExperimentArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The name of the endpoint.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -115,6 +124,9 @@ class InferenceExperimentArgs:
     @property
     @pulumi.getter(name="dataStorageConfig")
     def data_storage_config(self) -> Optional[pulumi.Input['InferenceExperimentDataStorageConfigArgs']]:
+        """
+        The Amazon S3 location and configuration for storing inference request and response data.
+        """
         return pulumi.get(self, "data_storage_config")
 
     @data_storage_config.setter
@@ -172,6 +184,11 @@ class InferenceExperimentArgs:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['InferenceExperimentScheduleArgs']]:
+        """
+        The duration for which the inference experiment ran or will run.
+
+        The maximum duration that you can set for an inference experiment is 30 days.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -181,6 +198,9 @@ class InferenceExperimentArgs:
     @property
     @pulumi.getter(name="shadowModeConfig")
     def shadow_mode_config(self) -> Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']]:
+        """
+        The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
+        """
         return pulumi.get(self, "shadow_mode_config")
 
     @shadow_mode_config.setter
@@ -236,12 +256,18 @@ class InferenceExperiment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['InferenceExperimentDataStorageConfigArgs']] data_storage_config: The Amazon S3 location and configuration for storing inference request and response data.
         :param pulumi.Input[str] description: The description of the inference experiment.
         :param pulumi.Input['InferenceExperimentDesiredState'] desired_state: The desired state of the experiment after starting or stopping operation.
+        :param pulumi.Input[str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[str] kms_key: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InferenceExperimentModelVariantConfigArgs']]]] model_variants: An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
         :param pulumi.Input[str] name: The name for the inference experiment.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
+        :param pulumi.Input[pulumi.InputType['InferenceExperimentScheduleArgs']] schedule: The duration for which the inference experiment ran or will run.
+               
+               The maximum duration that you can set for an inference experiment is 30 days.
+        :param pulumi.Input[pulumi.InputType['InferenceExperimentShadowModeConfigArgs']] shadow_mode_config: The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
         :param pulumi.Input[str] status_reason: The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['InferenceExperimentType'] type: The type of the inference experiment that you want to run.
@@ -381,6 +407,9 @@ class InferenceExperiment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataStorageConfig")
     def data_storage_config(self) -> pulumi.Output[Optional['outputs.InferenceExperimentDataStorageConfig']]:
+        """
+        The Amazon S3 location and configuration for storing inference request and response data.
+        """
         return pulumi.get(self, "data_storage_config")
 
     @property
@@ -407,6 +436,9 @@ class InferenceExperiment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Output[str]:
+        """
+        The name of the endpoint.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @property
@@ -452,11 +484,19 @@ class InferenceExperiment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.InferenceExperimentSchedule']]:
+        """
+        The duration for which the inference experiment ran or will run.
+
+        The maximum duration that you can set for an inference experiment is 30 days.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="shadowModeConfig")
     def shadow_mode_config(self) -> pulumi.Output[Optional['outputs.InferenceExperimentShadowModeConfig']]:
+        """
+        The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
+        """
         return pulumi.get(self, "shadow_mode_config")
 
     @property

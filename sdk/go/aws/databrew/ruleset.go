@@ -23,7 +23,10 @@ type Ruleset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of the data quality rules in the ruleset
 	Rules RulesetRuleArrayOutput `pulumi:"rules"`
-	Tags  aws.TagArrayOutput     `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -85,7 +88,10 @@ type rulesetArgs struct {
 	Name *string `pulumi:"name"`
 	// List of the data quality rules in the ruleset
 	Rules []RulesetRule `pulumi:"rules"`
-	Tags  []aws.Tag     `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -98,7 +104,10 @@ type RulesetArgs struct {
 	Name pulumi.StringPtrInput
 	// List of the data quality rules in the ruleset
 	Rules RulesetRuleArrayInput
-	Tags  aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn pulumi.StringInput
 }
@@ -155,6 +164,9 @@ func (o RulesetOutput) Rules() RulesetRuleArrayOutput {
 	return o.ApplyT(func(v *Ruleset) RulesetRuleArrayOutput { return v.Rules }).(RulesetRuleArrayOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o RulesetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Ruleset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

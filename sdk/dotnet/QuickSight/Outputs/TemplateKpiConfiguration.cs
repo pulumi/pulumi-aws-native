@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateKpiConfiguration
     {
+        /// <summary>
+        /// The field well configuration of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiFieldWells? FieldWells;
+        /// <summary>
+        /// The options that determine the presentation of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiOptions? KpiOptions;
+        /// <summary>
+        /// The sort configuration of a KPI visual.
+        /// </summary>
         public readonly Outputs.TemplateKpiSortConfiguration? SortConfiguration;
 
         [OutputConstructor]

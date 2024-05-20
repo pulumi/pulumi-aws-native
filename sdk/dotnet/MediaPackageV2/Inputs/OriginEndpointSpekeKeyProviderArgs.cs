@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _drmSystems = value;
         }
 
+        /// <summary>
+        /// The encryption contract configuration associated with the SPEKE key provider.
+        /// </summary>
         [Input("encryptionContractConfiguration", required: true)]
         public Input<Inputs.OriginEndpointEncryptionContractConfigurationArgs> EncryptionContractConfiguration { get; set; } = null!;
 

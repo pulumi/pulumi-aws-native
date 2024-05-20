@@ -38,9 +38,13 @@ type LookupRegexPatternSetResult struct {
 	// Description of the entity.
 	Description *string `pulumi:"description"`
 	// Id of the RegexPatternSet
-	Id                    *string   `pulumi:"id"`
-	RegularExpressionList []string  `pulumi:"regularExpressionList"`
-	Tags                  []aws.Tag `pulumi:"tags"`
+	Id *string `pulumi:"id"`
+	// The regular expression patterns in the set.
+	RegularExpressionList []string `pulumi:"regularExpressionList"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSetOutputArgs, opts ...pulumi.InvokeOption) LookupRegexPatternSetResultOutput {
@@ -98,10 +102,14 @@ func (o LookupRegexPatternSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The regular expression patterns in the set.
 func (o LookupRegexPatternSetResultOutput) RegularExpressionList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) []string { return v.RegularExpressionList }).(pulumi.StringArrayOutput)
 }
 
+// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+//
+// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 func (o LookupRegexPatternSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRegexPatternSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

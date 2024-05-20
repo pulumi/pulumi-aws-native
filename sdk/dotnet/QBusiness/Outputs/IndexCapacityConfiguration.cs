@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class IndexCapacityConfiguration
     {
+        /// <summary>
+        /// The number of storage units configured for an Amazon Q Business index.
+        /// </summary>
         public readonly double? Units;
 
         [OutputConstructor]

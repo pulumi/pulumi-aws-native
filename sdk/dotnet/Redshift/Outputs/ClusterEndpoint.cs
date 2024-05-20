@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Redshift.Outputs
     [OutputType]
     public sealed class ClusterEndpoint
     {
+        /// <summary>
+        /// The DNS address of the cluster. This property is read only.
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// The port that the database engine is listening on. This property is read only.
+        /// </summary>
         public readonly string? Port;
 
         [OutputConstructor]

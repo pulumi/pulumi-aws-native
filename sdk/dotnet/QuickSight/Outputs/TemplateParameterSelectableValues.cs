@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateParameterSelectableValues
     {
+        /// <summary>
+        /// The column identifier that fetches values from the data set.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier? LinkToDataSetColumn;
+        /// <summary>
+        /// The values that are used in `ParameterSelectableValues` .
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

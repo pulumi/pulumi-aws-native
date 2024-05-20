@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class ProjectDataDeliveryObject
     {
+        /// <summary>
+        /// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
+        /// </summary>
         public readonly string? LogGroup;
+        /// <summary>
+        /// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+        /// </summary>
         public readonly Outputs.ProjectS3Destination? S3;
 
         [OutputConstructor]

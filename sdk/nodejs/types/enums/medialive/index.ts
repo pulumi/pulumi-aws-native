@@ -14,6 +14,9 @@ export const MultiplexState = {
     Deleted: "DELETED",
 } as const;
 
+/**
+ * The current state of the multiplex.
+ */
 export type MultiplexState = (typeof MultiplexState)[keyof typeof MultiplexState];
 
 export const MultiplexprogramPreferredChannelPipeline = {

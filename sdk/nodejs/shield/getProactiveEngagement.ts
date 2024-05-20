@@ -19,10 +19,16 @@ export function getProactiveEngagement(args: GetProactiveEngagementArgs, opts?: 
 }
 
 export interface GetProactiveEngagementArgs {
+    /**
+     * The ID of the account that submitted the template.
+     */
     accountId: string;
 }
 
 export interface GetProactiveEngagementResult {
+    /**
+     * The ID of the account that submitted the template.
+     */
     readonly accountId?: string;
     /**
      * A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
@@ -43,5 +49,8 @@ export function getProactiveEngagementOutput(args: GetProactiveEngagementOutputA
 }
 
 export interface GetProactiveEngagementOutputArgs {
+    /**
+     * The ID of the account that submitted the template.
+     */
     accountId: pulumi.Input<string>;
 }

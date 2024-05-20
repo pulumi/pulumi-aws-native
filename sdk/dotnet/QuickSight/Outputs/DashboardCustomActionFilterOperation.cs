@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCustomActionFilterOperation
     {
+        /// <summary>
+        /// The configuration that chooses the fields to be filtered.
+        /// </summary>
         public readonly Outputs.DashboardFilterOperationSelectedFieldsConfiguration SelectedFieldsConfiguration;
+        /// <summary>
+        /// The configuration that chooses the target visuals to be filtered.
+        /// </summary>
         public readonly Outputs.DashboardFilterOperationTargetVisualsConfiguration TargetVisualsConfiguration;
 
         [OutputConstructor]

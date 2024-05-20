@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGridLayoutElement
     {
+        /// <summary>
+        /// The column index for the upper left corner of an element.
+        /// </summary>
         public readonly double? ColumnIndex;
+        /// <summary>
+        /// The width of a grid element expressed as a number of grid columns.
+        /// </summary>
         public readonly double ColumnSpan;
+        /// <summary>
+        /// A unique identifier for an element within a grid layout.
+        /// </summary>
         public readonly string ElementId;
+        /// <summary>
+        /// The type of element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisLayoutElementType ElementType;
+        /// <summary>
+        /// The row index for the upper left corner of an element.
+        /// </summary>
         public readonly double? RowIndex;
+        /// <summary>
+        /// The height of a grid element expressed as a number of grid rows.
+        /// </summary>
         public readonly double RowSpan;
 
         [OutputConstructor]

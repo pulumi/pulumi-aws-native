@@ -26,6 +26,9 @@ export interface GetAnalyzerArgs {
 }
 
 export interface GetAnalyzerResult {
+    /**
+     * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+     */
     readonly archiveRules?: outputs.accessanalyzer.AnalyzerArchiveRule[];
     /**
      * Amazon Resource Name (ARN) of the analyzer

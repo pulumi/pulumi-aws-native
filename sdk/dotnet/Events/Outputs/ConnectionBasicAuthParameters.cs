@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionBasicAuthParameters
     {
+        /// <summary>
+        /// The password associated with the user name to use for Basic authorization.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The user name to use for Basic authorization.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

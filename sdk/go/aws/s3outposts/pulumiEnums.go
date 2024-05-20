@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 type BucketRuleStatus string
 
 const (
@@ -341,6 +342,7 @@ func (in *endpointAccessTypePtr) ToEndpointAccessTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointAccessTypePtrOutput)
 }
 
+// The status of the endpoint.
 type EndpointStatus string
 
 const (

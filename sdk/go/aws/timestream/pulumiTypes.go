@@ -15,7 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type DatabaseTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive.
+	Key *string `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value *string `pulumi:"value"`
 }
 
@@ -1100,6 +1102,7 @@ func (o ScheduledQueryDimensionMappingArrayOutput) Index(i pulumi.IntInput) Sche
 
 // Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfiguration struct {
+	// The S3 configuration for the error reports.
 	S3Configuration ScheduledQueryS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -1116,6 +1119,7 @@ type ScheduledQueryErrorReportConfigurationInput interface {
 
 // Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfigurationArgs struct {
+	// The S3 configuration for the error reports.
 	S3Configuration ScheduledQueryS3ConfigurationInput `pulumi:"s3Configuration"`
 }
 
@@ -1146,6 +1150,7 @@ func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorRepor
 	return o
 }
 
+// The S3 configuration for the error reports.
 func (o ScheduledQueryErrorReportConfigurationOutput) S3Configuration() ScheduledQueryS3ConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryErrorReportConfiguration) ScheduledQueryS3Configuration { return v.S3Configuration }).(ScheduledQueryS3ConfigurationOutput)
 }
@@ -1388,8 +1393,10 @@ func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) Index(i pulumi.In
 
 // Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 type ScheduledQueryMultiMeasureMappings struct {
+	// Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
 	MultiMeasureAttributeMappings []ScheduledQueryMultiMeasureAttributeMapping `pulumi:"multiMeasureAttributeMappings"`
-	TargetMultiMeasureName        *string                                      `pulumi:"targetMultiMeasureName"`
+	// The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
+	TargetMultiMeasureName *string `pulumi:"targetMultiMeasureName"`
 }
 
 // ScheduledQueryMultiMeasureMappingsInput is an input type that accepts ScheduledQueryMultiMeasureMappingsArgs and ScheduledQueryMultiMeasureMappingsOutput values.
@@ -1405,8 +1412,10 @@ type ScheduledQueryMultiMeasureMappingsInput interface {
 
 // Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 type ScheduledQueryMultiMeasureMappingsArgs struct {
+	// Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
 	MultiMeasureAttributeMappings ScheduledQueryMultiMeasureAttributeMappingArrayInput `pulumi:"multiMeasureAttributeMappings"`
-	TargetMultiMeasureName        pulumi.StringPtrInput                                `pulumi:"targetMultiMeasureName"`
+	// The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
+	TargetMultiMeasureName pulumi.StringPtrInput `pulumi:"targetMultiMeasureName"`
 }
 
 func (ScheduledQueryMultiMeasureMappingsArgs) ElementType() reflect.Type {
@@ -1487,12 +1496,14 @@ func (o ScheduledQueryMultiMeasureMappingsOutput) ToScheduledQueryMultiMeasureMa
 	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
 }
 
+// Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
 func (o ScheduledQueryMultiMeasureMappingsOutput) MultiMeasureAttributeMappings() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryMultiMeasureMappings) []ScheduledQueryMultiMeasureAttributeMapping {
 		return v.MultiMeasureAttributeMappings
 	}).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
 }
 
+// The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
 func (o ScheduledQueryMultiMeasureMappingsOutput) TargetMultiMeasureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryMultiMeasureMappings) *string { return v.TargetMultiMeasureName }).(pulumi.StringPtrOutput)
 }
@@ -1521,6 +1532,7 @@ func (o ScheduledQueryMultiMeasureMappingsPtrOutput) Elem() ScheduledQueryMultiM
 	}).(ScheduledQueryMultiMeasureMappingsOutput)
 }
 
+// Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
 func (o ScheduledQueryMultiMeasureMappingsPtrOutput) MultiMeasureAttributeMappings() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryMultiMeasureMappings) []ScheduledQueryMultiMeasureAttributeMapping {
 		if v == nil {
@@ -1530,6 +1542,7 @@ func (o ScheduledQueryMultiMeasureMappingsPtrOutput) MultiMeasureAttributeMappin
 	}).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
 }
 
+// The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
 func (o ScheduledQueryMultiMeasureMappingsPtrOutput) TargetMultiMeasureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryMultiMeasureMappings) *string {
 		if v == nil {
@@ -1541,6 +1554,7 @@ func (o ScheduledQueryMultiMeasureMappingsPtrOutput) TargetMultiMeasureName() pu
 
 // Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfiguration struct {
+	// Details on SNS configuration.
 	SnsConfiguration ScheduledQuerySnsConfiguration `pulumi:"snsConfiguration"`
 }
 
@@ -1557,6 +1571,7 @@ type ScheduledQueryNotificationConfigurationInput interface {
 
 // Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfigurationArgs struct {
+	// Details on SNS configuration.
 	SnsConfiguration ScheduledQuerySnsConfigurationInput `pulumi:"snsConfiguration"`
 }
 
@@ -1587,6 +1602,7 @@ func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificat
 	return o
 }
 
+// Details on SNS configuration.
 func (o ScheduledQueryNotificationConfigurationOutput) SnsConfiguration() ScheduledQuerySnsConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryNotificationConfiguration) ScheduledQuerySnsConfiguration {
 		return v.SnsConfiguration
@@ -1595,9 +1611,12 @@ func (o ScheduledQueryNotificationConfigurationOutput) SnsConfiguration() Schedu
 
 // Details on S3 location for error reports that result from running a query.
 type ScheduledQueryS3Configuration struct {
-	BucketName       string                          `pulumi:"bucketName"`
+	// Name of the S3 bucket under which error reports will be created.
+	BucketName string `pulumi:"bucketName"`
+	// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
 	EncryptionOption *ScheduledQueryEncryptionOption `pulumi:"encryptionOption"`
-	ObjectKeyPrefix  *string                         `pulumi:"objectKeyPrefix"`
+	// Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
+	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
 }
 
 // ScheduledQueryS3ConfigurationInput is an input type that accepts ScheduledQueryS3ConfigurationArgs and ScheduledQueryS3ConfigurationOutput values.
@@ -1613,9 +1632,12 @@ type ScheduledQueryS3ConfigurationInput interface {
 
 // Details on S3 location for error reports that result from running a query.
 type ScheduledQueryS3ConfigurationArgs struct {
-	BucketName       pulumi.StringInput                     `pulumi:"bucketName"`
+	// Name of the S3 bucket under which error reports will be created.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
 	EncryptionOption ScheduledQueryEncryptionOptionPtrInput `pulumi:"encryptionOption"`
-	ObjectKeyPrefix  pulumi.StringPtrInput                  `pulumi:"objectKeyPrefix"`
+	// Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
+	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
 }
 
 func (ScheduledQueryS3ConfigurationArgs) ElementType() reflect.Type {
@@ -1645,20 +1667,24 @@ func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutp
 	return o
 }
 
+// Name of the S3 bucket under which error reports will be created.
 func (o ScheduledQueryS3ConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
 func (o ScheduledQueryS3ConfigurationOutput) EncryptionOption() ScheduledQueryEncryptionOptionPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryS3Configuration) *ScheduledQueryEncryptionOption { return v.EncryptionOption }).(ScheduledQueryEncryptionOptionPtrOutput)
 }
 
+// Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
 func (o ScheduledQueryS3ConfigurationOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryS3Configuration) *string { return v.ObjectKeyPrefix }).(pulumi.StringPtrOutput)
 }
 
 // Configuration for when the scheduled query is executed.
 type ScheduledQueryScheduleConfiguration struct {
+	// An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -1675,6 +1701,7 @@ type ScheduledQueryScheduleConfigurationInput interface {
 
 // Configuration for when the scheduled query is executed.
 type ScheduledQueryScheduleConfigurationArgs struct {
+	// An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -1705,12 +1732,14 @@ func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfi
 	return o
 }
 
+// An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
 func (o ScheduledQueryScheduleConfigurationOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryScheduleConfiguration) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
 // SNS configuration for notification upon scheduled query execution.
 type ScheduledQuerySnsConfiguration struct {
+	// SNS topic ARN that the scheduled query status notifications will be sent to.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -1727,6 +1756,7 @@ type ScheduledQuerySnsConfigurationInput interface {
 
 // SNS configuration for notification upon scheduled query execution.
 type ScheduledQuerySnsConfigurationArgs struct {
+	// SNS topic ARN that the scheduled query status notifications will be sent to.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1757,6 +1787,7 @@ func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationOu
 	return o
 }
 
+// SNS topic ARN that the scheduled query status notifications will be sent to.
 func (o ScheduledQuerySnsConfigurationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQuerySnsConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1769,6 +1800,7 @@ type ScheduledQueryTag struct {
 
 // Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfiguration struct {
+	// Configuration needed to write data into the Timestream database and table.
 	TimestreamConfiguration ScheduledQueryTimestreamConfiguration `pulumi:"timestreamConfiguration"`
 }
 
@@ -1785,6 +1817,7 @@ type ScheduledQueryTargetConfigurationInput interface {
 
 // Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfigurationArgs struct {
+	// Configuration needed to write data into the Timestream database and table.
 	TimestreamConfiguration ScheduledQueryTimestreamConfigurationInput `pulumi:"timestreamConfiguration"`
 }
 
@@ -1866,6 +1899,7 @@ func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigura
 	}).(ScheduledQueryTargetConfigurationPtrOutput)
 }
 
+// Configuration needed to write data into the Timestream database and table.
 func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) ScheduledQueryTimestreamConfiguration {
 		return v.TimestreamConfiguration
@@ -1896,6 +1930,7 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) Elem() ScheduledQueryTargetC
 	}).(ScheduledQueryTargetConfigurationOutput)
 }
 
+// Configuration needed to write data into the Timestream database and table.
 func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfiguration) *ScheduledQueryTimestreamConfiguration {
 		if v == nil {
@@ -1907,13 +1942,20 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() Sc
 
 // Configuration needed to write data into the Timestream database and table.
 type ScheduledQueryTimestreamConfiguration struct {
-	DatabaseName         string                              `pulumi:"databaseName"`
-	DimensionMappings    []ScheduledQueryDimensionMapping    `pulumi:"dimensionMappings"`
-	MeasureNameColumn    *string                             `pulumi:"measureNameColumn"`
+	// Name of Timestream database to which the query result will be written.
+	DatabaseName string `pulumi:"databaseName"`
+	// This is to allow mapping column(s) from the query result to the dimension in the destination table.
+	DimensionMappings []ScheduledQueryDimensionMapping `pulumi:"dimensionMappings"`
+	// Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
+	MeasureNameColumn *string `pulumi:"measureNameColumn"`
+	// Specifies how to map measures to multi-measure records.
 	MixedMeasureMappings []ScheduledQueryMixedMeasureMapping `pulumi:"mixedMeasureMappings"`
+	// Multi-measure mappings.
 	MultiMeasureMappings *ScheduledQueryMultiMeasureMappings `pulumi:"multiMeasureMappings"`
-	TableName            string                              `pulumi:"tableName"`
-	TimeColumn           string                              `pulumi:"timeColumn"`
+	// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+	TableName string `pulumi:"tableName"`
+	// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+	TimeColumn string `pulumi:"timeColumn"`
 }
 
 // ScheduledQueryTimestreamConfigurationInput is an input type that accepts ScheduledQueryTimestreamConfigurationArgs and ScheduledQueryTimestreamConfigurationOutput values.
@@ -1929,13 +1971,20 @@ type ScheduledQueryTimestreamConfigurationInput interface {
 
 // Configuration needed to write data into the Timestream database and table.
 type ScheduledQueryTimestreamConfigurationArgs struct {
-	DatabaseName         pulumi.StringInput                          `pulumi:"databaseName"`
-	DimensionMappings    ScheduledQueryDimensionMappingArrayInput    `pulumi:"dimensionMappings"`
-	MeasureNameColumn    pulumi.StringPtrInput                       `pulumi:"measureNameColumn"`
+	// Name of Timestream database to which the query result will be written.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// This is to allow mapping column(s) from the query result to the dimension in the destination table.
+	DimensionMappings ScheduledQueryDimensionMappingArrayInput `pulumi:"dimensionMappings"`
+	// Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
+	MeasureNameColumn pulumi.StringPtrInput `pulumi:"measureNameColumn"`
+	// Specifies how to map measures to multi-measure records.
 	MixedMeasureMappings ScheduledQueryMixedMeasureMappingArrayInput `pulumi:"mixedMeasureMappings"`
-	MultiMeasureMappings ScheduledQueryMultiMeasureMappingsPtrInput  `pulumi:"multiMeasureMappings"`
-	TableName            pulumi.StringInput                          `pulumi:"tableName"`
-	TimeColumn           pulumi.StringInput                          `pulumi:"timeColumn"`
+	// Multi-measure mappings.
+	MultiMeasureMappings ScheduledQueryMultiMeasureMappingsPtrInput `pulumi:"multiMeasureMappings"`
+	// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+	TimeColumn pulumi.StringInput `pulumi:"timeColumn"`
 }
 
 func (ScheduledQueryTimestreamConfigurationArgs) ElementType() reflect.Type {
@@ -2016,36 +2065,43 @@ func (o ScheduledQueryTimestreamConfigurationOutput) ToScheduledQueryTimestreamC
 	}).(ScheduledQueryTimestreamConfigurationPtrOutput)
 }
 
+// Name of Timestream database to which the query result will be written.
 func (o ScheduledQueryTimestreamConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// This is to allow mapping column(s) from the query result to the dimension in the destination table.
 func (o ScheduledQueryTimestreamConfigurationOutput) DimensionMappings() ScheduledQueryDimensionMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) []ScheduledQueryDimensionMapping {
 		return v.DimensionMappings
 	}).(ScheduledQueryDimensionMappingArrayOutput)
 }
 
+// Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
 func (o ScheduledQueryTimestreamConfigurationOutput) MeasureNameColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) *string { return v.MeasureNameColumn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how to map measures to multi-measure records.
 func (o ScheduledQueryTimestreamConfigurationOutput) MixedMeasureMappings() ScheduledQueryMixedMeasureMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) []ScheduledQueryMixedMeasureMapping {
 		return v.MixedMeasureMappings
 	}).(ScheduledQueryMixedMeasureMappingArrayOutput)
 }
 
+// Multi-measure mappings.
 func (o ScheduledQueryTimestreamConfigurationOutput) MultiMeasureMappings() ScheduledQueryMultiMeasureMappingsPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) *ScheduledQueryMultiMeasureMappings {
 		return v.MultiMeasureMappings
 	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
 }
 
+// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
 func (o ScheduledQueryTimestreamConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
 func (o ScheduledQueryTimestreamConfigurationOutput) TimeColumn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) string { return v.TimeColumn }).(pulumi.StringOutput)
 }
@@ -2074,6 +2130,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) Elem() ScheduledQueryTim
 	}).(ScheduledQueryTimestreamConfigurationOutput)
 }
 
+// Name of Timestream database to which the query result will be written.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
 		if v == nil {
@@ -2083,6 +2140,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) DatabaseName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// This is to allow mapping column(s) from the query result to the dimension in the destination table.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) DimensionMappings() ScheduledQueryDimensionMappingArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) []ScheduledQueryDimensionMapping {
 		if v == nil {
@@ -2092,6 +2150,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) DimensionMappings() Sche
 	}).(ScheduledQueryDimensionMappingArrayOutput)
 }
 
+// Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) MeasureNameColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
 		if v == nil {
@@ -2101,6 +2160,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) MeasureNameColumn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies how to map measures to multi-measure records.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) MixedMeasureMappings() ScheduledQueryMixedMeasureMappingArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) []ScheduledQueryMixedMeasureMapping {
 		if v == nil {
@@ -2110,6 +2170,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) MixedMeasureMappings() S
 	}).(ScheduledQueryMixedMeasureMappingArrayOutput)
 }
 
+// Multi-measure mappings.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) MultiMeasureMappings() ScheduledQueryMultiMeasureMappingsPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *ScheduledQueryMultiMeasureMappings {
 		if v == nil {
@@ -2119,6 +2180,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) MultiMeasureMappings() S
 	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
 }
 
+// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
 		if v == nil {
@@ -2128,6 +2190,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) TableName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) TimeColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *string {
 		if v == nil {
@@ -2139,6 +2202,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) TimeColumn() pulumi.Stri
 
 // A Schema specifies the expected data model of the table.
 type SchemaProperties struct {
+	// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
 	CompositePartitionKey []TablePartitionKey `pulumi:"compositePartitionKey"`
 }
 
@@ -2155,6 +2219,7 @@ type SchemaPropertiesInput interface {
 
 // A Schema specifies the expected data model of the table.
 type SchemaPropertiesArgs struct {
+	// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
 	CompositePartitionKey TablePartitionKeyArrayInput `pulumi:"compositePartitionKey"`
 }
 
@@ -2236,6 +2301,7 @@ func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutputWithContext(ctx conte
 	}).(SchemaPropertiesPtrOutput)
 }
 
+// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
 func (o SchemaPropertiesOutput) CompositePartitionKey() TablePartitionKeyArrayOutput {
 	return o.ApplyT(func(v SchemaProperties) []TablePartitionKey { return v.CompositePartitionKey }).(TablePartitionKeyArrayOutput)
 }
@@ -2264,6 +2330,7 @@ func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
 	}).(SchemaPropertiesOutput)
 }
 
+// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
 func (o SchemaPropertiesPtrOutput) CompositePartitionKey() TablePartitionKeyArrayOutput {
 	return o.ApplyT(func(v *SchemaProperties) []TablePartitionKey {
 		if v == nil {
@@ -2384,7 +2451,9 @@ func (o TablePartitionKeyArrayOutput) Index(i pulumi.IntInput) TablePartitionKey
 
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type TableTag struct {
-	Key   *string `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive.
+	Key *string `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value *string `pulumi:"value"`
 }
 

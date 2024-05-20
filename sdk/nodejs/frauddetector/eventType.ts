@@ -49,8 +49,17 @@ export class EventType extends pulumi.CustomResource {
      * The description of the event type.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The event type entity types.
+     */
     public readonly entityTypes!: pulumi.Output<outputs.frauddetector.EventTypeEntityType[]>;
+    /**
+     * The event type event variables.
+     */
     public readonly eventVariables!: pulumi.Output<outputs.frauddetector.EventTypeEventVariable[]>;
+    /**
+     * The event type labels.
+     */
     public readonly labels!: pulumi.Output<outputs.frauddetector.EventTypeLabel[]>;
     /**
      * The time when the event type was last updated.
@@ -120,8 +129,17 @@ export interface EventTypeArgs {
      * The description of the event type.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The event type entity types.
+     */
     entityTypes: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeEntityTypeArgs>[]>;
+    /**
+     * The event type event variables.
+     */
     eventVariables: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeEventVariableArgs>[]>;
+    /**
+     * The event type labels.
+     */
     labels: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeLabelArgs>[]>;
     /**
      * The name for the event type

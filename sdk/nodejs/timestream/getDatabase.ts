@@ -26,6 +26,9 @@ export interface GetDatabaseArgs {
 }
 
 export interface GetDatabaseResult {
+    /**
+     * The `arn` of the database.
+     */
     readonly arn?: string;
     /**
      * The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.

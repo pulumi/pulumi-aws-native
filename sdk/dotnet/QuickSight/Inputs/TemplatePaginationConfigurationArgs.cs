@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePaginationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates the page number.
+        /// </summary>
         [Input("pageNumber", required: true)]
         public Input<double> PageNumber { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates how many items render in one page.
+        /// </summary>
         [Input("pageSize", required: true)]
         public Input<double> PageSize { get; set; } = null!;
 

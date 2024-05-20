@@ -61,8 +61,17 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The Amazon Resource Number (ARN) of the bridge.
         /// </summary>
         public readonly string? BridgeArn;
+        /// <summary>
+        /// The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.BridgeStateEnum? BridgeState;
+        /// <summary>
+        /// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        /// </summary>
         public readonly Outputs.BridgeEgressGatewayBridge? EgressGatewayBridge;
+        /// <summary>
+        /// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        /// </summary>
         public readonly Outputs.BridgeIngressGatewayBridge? IngressGatewayBridge;
         /// <summary>
         /// The name of the bridge.
@@ -76,6 +85,9 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The placement Amazon Resource Number (ARN) of the bridge.
         /// </summary>
         public readonly string? PlacementArn;
+        /// <summary>
+        /// The settings for source failover.
+        /// </summary>
         public readonly Outputs.BridgeFailoverConfig? SourceFailoverConfig;
         /// <summary>
         /// The sources on this bridge.

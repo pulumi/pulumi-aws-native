@@ -17,11 +17,24 @@ export function getSecurityKey(args: GetSecurityKeyArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetSecurityKeyArgs {
+    /**
+     * An `AssociationId` is automatically generated when a storage config is associated with an instance.
+     */
     associationId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     instanceId: string;
 }
 
 export interface GetSecurityKeyResult {
+    /**
+     * An `AssociationId` is automatically generated when a storage config is associated with an instance.
+     */
     readonly associationId?: string;
 }
 /**
@@ -32,6 +45,16 @@ export function getSecurityKeyOutput(args: GetSecurityKeyOutputArgs, opts?: pulu
 }
 
 export interface GetSecurityKeyOutputArgs {
+    /**
+     * An `AssociationId` is automatically generated when a storage config is associated with an instance.
+     */
     associationId: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     instanceId: pulumi.Input<string>;
 }

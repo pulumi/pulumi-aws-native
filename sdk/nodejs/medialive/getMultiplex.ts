@@ -54,6 +54,9 @@ export interface GetMultiplexResult {
      * The number of programs in the multiplex.
      */
     readonly programCount?: number;
+    /**
+     * The current state of the multiplex.
+     */
     readonly state?: enums.medialive.MultiplexState;
     /**
      * A collection of key-value pairs.

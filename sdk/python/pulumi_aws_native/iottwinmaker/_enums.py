@@ -59,6 +59,9 @@ class ComponentTypeStatusErrorPropertiesCode(str, Enum):
 
 
 class ComponentTypeStatusState(str, Enum):
+    """
+    The component type status state.
+    """
     CREATING = "CREATING"
     UPDATING = "UPDATING"
     DELETING = "DELETING"

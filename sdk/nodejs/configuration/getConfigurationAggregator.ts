@@ -26,11 +26,17 @@ export interface GetConfigurationAggregatorArgs {
 }
 
 export interface GetConfigurationAggregatorResult {
+    /**
+     * Provides a list of source accounts and regions to be aggregated.
+     */
     readonly accountAggregationSources?: outputs.configuration.ConfigurationAggregatorAccountAggregationSource[];
     /**
      * The Amazon Resource Name (ARN) of the aggregator.
      */
     readonly configurationAggregatorArn?: string;
+    /**
+     * Provides an organization and list of regions to be aggregated.
+     */
     readonly organizationAggregationSource?: outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource;
     /**
      * The tags for the configuration aggregator.

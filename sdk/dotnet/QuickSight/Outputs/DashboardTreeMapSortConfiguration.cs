@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTreeMapSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of groups that are displayed.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? TreeMapGroupItemsLimitConfiguration;
+        /// <summary>
+        /// The sort configuration of group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> TreeMapSort;
 
         [OutputConstructor]

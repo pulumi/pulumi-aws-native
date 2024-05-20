@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotDialogCodeHookSetting
     {
+        /// <summary>
+        /// Enables the dialog code hook so that it processes user requests.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("awsService")]
         public Output<Pulumi.AwsNative.Ec2.IpamPoolAwsService?> AwsService { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the IPAM pool.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -132,6 +135,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("sourceIpamPoolId")]
         public Output<string?> SourceIpamPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource used to provision CIDRs to a resource planning pool.
+        /// </summary>
         [Output("sourceResource")]
         public Output<Outputs.IpamPoolSourceResource?> SourceResource { get; private set; } = null!;
 
@@ -257,6 +263,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("awsService")]
         public Input<Pulumi.AwsNative.Ec2.IpamPoolAwsService>? AwsService { get; set; }
 
+        /// <summary>
+        /// The description of the IPAM pool.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -302,6 +311,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("sourceIpamPoolId")]
         public Input<string>? SourceIpamPoolId { get; set; }
 
+        /// <summary>
+        /// The resource used to provision CIDRs to a resource planning pool.
+        /// </summary>
         [Input("sourceResource")]
         public Input<Inputs.IpamPoolSourceResourceArgs>? SourceResource { get; set; }
 

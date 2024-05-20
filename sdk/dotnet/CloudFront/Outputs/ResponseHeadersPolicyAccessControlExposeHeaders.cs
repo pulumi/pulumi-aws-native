@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyAccessControlExposeHeaders
     {
+        /// <summary>
+        /// The list of HTTP headers. You can specify `*` to expose all headers.
+        /// </summary>
         public readonly ImmutableArray<string> Items;
 
         [OutputConstructor]

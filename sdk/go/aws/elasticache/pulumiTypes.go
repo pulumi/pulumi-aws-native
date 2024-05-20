@@ -13,6 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Specifies the authentication mode to use. Below is an example of the possible JSON values:
 type AuthenticationModeProperties struct {
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
@@ -31,6 +32,7 @@ type AuthenticationModePropertiesInput interface {
 	ToAuthenticationModePropertiesOutputWithContext(context.Context) AuthenticationModePropertiesOutput
 }
 
+// Specifies the authentication mode to use. Below is an example of the possible JSON values:
 type AuthenticationModePropertiesArgs struct {
 	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
@@ -91,6 +93,7 @@ func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesPtrOutput)
 }
 
+// Specifies the authentication mode to use. Below is an example of the possible JSON values:
 type AuthenticationModePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationModePropertiesOutput) ElementType() reflect.Type {
@@ -508,13 +511,17 @@ func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi
 }
 
 type ParameterGroupTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. May not be null.
+	Key string `pulumi:"key"`
+	// The tag's value. May be null.
 	Value string `pulumi:"value"`
 }
 
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimits struct {
-	DataStorage   *ServerlessCacheDataStorage   `pulumi:"dataStorage"`
+	// The maximum data storage limit in the cache, expressed in Gigabytes.
+	DataStorage *ServerlessCacheDataStorage `pulumi:"dataStorage"`
+	// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 	EcpuPerSecond *ServerlessCacheEcpuPerSecond `pulumi:"ecpuPerSecond"`
 }
 
@@ -531,7 +538,9 @@ type ServerlessCacheCacheUsageLimitsInput interface {
 
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimitsArgs struct {
-	DataStorage   ServerlessCacheDataStoragePtrInput   `pulumi:"dataStorage"`
+	// The maximum data storage limit in the cache, expressed in Gigabytes.
+	DataStorage ServerlessCacheDataStoragePtrInput `pulumi:"dataStorage"`
+	// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 	EcpuPerSecond ServerlessCacheEcpuPerSecondPtrInput `pulumi:"ecpuPerSecond"`
 }
 
@@ -613,10 +622,12 @@ func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimits
 	}).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
 
+// The maximum data storage limit in the cache, expressed in Gigabytes.
 func (o ServerlessCacheCacheUsageLimitsOutput) DataStorage() ServerlessCacheDataStoragePtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheDataStorage { return v.DataStorage }).(ServerlessCacheDataStoragePtrOutput)
 }
 
+// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 func (o ServerlessCacheCacheUsageLimitsOutput) EcpuPerSecond() ServerlessCacheEcpuPerSecondPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheEcpuPerSecond { return v.EcpuPerSecond }).(ServerlessCacheEcpuPerSecondPtrOutput)
 }
@@ -645,6 +656,7 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) Elem() ServerlessCacheCacheUsa
 	}).(ServerlessCacheCacheUsageLimitsOutput)
 }
 
+// The maximum data storage limit in the cache, expressed in Gigabytes.
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheDataStoragePtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) *ServerlessCacheDataStorage {
 		if v == nil {
@@ -654,6 +666,7 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheD
 	}).(ServerlessCacheDataStoragePtrOutput)
 }
 
+// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSecond() ServerlessCacheEcpuPerSecondPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) *ServerlessCacheEcpuPerSecond {
 		if v == nil {
@@ -1169,7 +1182,9 @@ type ServerlessCacheTag struct {
 
 // A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. May not be null.
+	Key string `pulumi:"key"`
+	// The tag's value. May be null.
 	Value string `pulumi:"value"`
 }
 

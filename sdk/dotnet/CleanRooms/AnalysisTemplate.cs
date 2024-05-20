@@ -21,36 +21,76 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("analysisParameters")]
         public Output<ImmutableArray<Outputs.AnalysisTemplateAnalysisParameter>> AnalysisParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the identifier for the analysis template.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        /// </summary>
         [Output("analysisTemplateIdentifier")]
         public Output<string> AnalysisTemplateIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the analysis template.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique ARN for the analysis template’s associated collaboration.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Output("collaborationArn")]
         public Output<string> CollaborationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique ID for the associated collaboration of the analysis template.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the analysis template.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The format of the analysis template.
+        /// </summary>
         [Output("format")]
         public Output<Pulumi.AwsNative.CleanRooms.AnalysisTemplateFormat> Format { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("membershipArn")]
         public Output<string> MembershipArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Output("membershipIdentifier")]
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the analysis template.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("schema")]
         public Output<Outputs.AnalysisTemplateAnalysisSchema> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// The source of the analysis template.
+        /// </summary>
         [Output("source")]
         public Output<Outputs.AnalysisTemplateAnalysisSource> Source { get; private set; } = null!;
 
@@ -125,18 +165,33 @@ namespace Pulumi.AwsNative.CleanRooms
             set => _analysisParameters = value;
         }
 
+        /// <summary>
+        /// The description of the analysis template.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The format of the analysis template.
+        /// </summary>
         [Input("format", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.AnalysisTemplateFormat> Format { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the analysis template.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The source of the analysis template.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.AnalysisTemplateAnalysisSourceArgs> Source { get; set; } = null!;
 

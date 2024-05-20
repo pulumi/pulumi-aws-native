@@ -34,9 +34,21 @@ export class TargetAccountConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TargetAccountConfiguration.__pulumiType;
     }
 
+    /**
+     * The AWS account ID of the target account.
+     */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * The description of the target account.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the experiment template.
+     */
     public readonly experimentTemplateId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role for the target account.
+     */
     public readonly roleArn!: pulumi.Output<string>;
 
     /**
@@ -80,8 +92,20 @@ export class TargetAccountConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a TargetAccountConfiguration resource.
  */
 export interface TargetAccountConfigurationArgs {
+    /**
+     * The AWS account ID of the target account.
+     */
     accountId: pulumi.Input<string>;
+    /**
+     * The description of the target account.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the experiment template.
+     */
     experimentTemplateId: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role for the target account.
+     */
     roleArn: pulumi.Input<string>;
 }

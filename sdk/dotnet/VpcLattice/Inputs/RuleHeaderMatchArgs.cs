@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class RuleHeaderMatchArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the match is case sensitive.
+        /// </summary>
         [Input("caseSensitive")]
         public Input<bool>? CaseSensitive { get; set; }
 
+        /// <summary>
+        /// The header match type.
+        /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RuleHeaderMatchTypeArgs> Match { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the header.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

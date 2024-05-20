@@ -23,10 +23,12 @@ func LookupSubnetRouteTableAssociation(ctx *pulumi.Context, args *LookupSubnetRo
 }
 
 type LookupSubnetRouteTableAssociationArgs struct {
+	// The ID of the subnet route table association.
 	Id string `pulumi:"id"`
 }
 
 type LookupSubnetRouteTableAssociationResult struct {
+	// The ID of the subnet route table association.
 	Id *string `pulumi:"id"`
 }
 
@@ -44,6 +46,7 @@ func LookupSubnetRouteTableAssociationOutput(ctx *pulumi.Context, args LookupSub
 }
 
 type LookupSubnetRouteTableAssociationOutputArgs struct {
+	// The ID of the subnet route table association.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupSubnetRouteTableAssociationResultOutput) ToLookupSubnetRouteTableA
 	return o
 }
 
+// The ID of the subnet route table association.
 func (o LookupSubnetRouteTableAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetRouteTableAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

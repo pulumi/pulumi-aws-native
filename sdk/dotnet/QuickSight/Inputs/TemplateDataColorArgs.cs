@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDataColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color that is applied to the data value.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// The data value that the color is applied to.
+        /// </summary>
         [Input("dataValue")]
         public Input<double>? DataValue { get; set; }
 

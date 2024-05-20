@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterConfigurationInfo
     {
+        /// <summary>
+        /// ARN of the configuration to use.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The revision of the configuration to use.
+        /// </summary>
         public readonly int Revision;
 
         [OutputConstructor]

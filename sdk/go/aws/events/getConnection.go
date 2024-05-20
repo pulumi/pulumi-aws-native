@@ -29,7 +29,10 @@ type LookupConnectionArgs struct {
 
 type LookupConnectionResult struct {
 	// The arn of the connection resource.
-	Arn               *string                      `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The type of authorization to use for the connection.
+	//
+	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 	AuthorizationType *ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -78,6 +81,9 @@ func (o LookupConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The type of authorization to use for the connection.
+//
+// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 func (o LookupConnectionResultOutput) AuthorizationType() ConnectionAuthorizationTypePtrOutput {
 	return o.ApplyT(func(v LookupConnectionResult) *ConnectionAuthorizationType { return v.AuthorizationType }).(ConnectionAuthorizationTypePtrOutput)
 }

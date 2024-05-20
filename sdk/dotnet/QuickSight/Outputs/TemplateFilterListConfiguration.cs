@@ -13,9 +13,27 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilterListConfiguration
     {
+        /// <summary>
+        /// The list of category values for the filter.
+        /// </summary>
         public readonly ImmutableArray<string> CategoryValues;
+        /// <summary>
+        /// The match operator that is used to determine if a filter should be applied.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateCategoryFilterMatchOperator MatchOperator;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterNullOption? NullOption;
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateCategoryFilterSelectAllOptions? SelectAllOptions;
 
         [OutputConstructor]

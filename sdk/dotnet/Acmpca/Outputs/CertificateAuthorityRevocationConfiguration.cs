@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityRevocationConfiguration
     {
+        /// <summary>
+        /// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+        /// </summary>
         public readonly Outputs.CertificateAuthorityCrlConfiguration? CrlConfiguration;
+        /// <summary>
+        /// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
+        /// </summary>
         public readonly Outputs.CertificateAuthorityOcspConfiguration? OcspConfiguration;
 
         [OutputConstructor]

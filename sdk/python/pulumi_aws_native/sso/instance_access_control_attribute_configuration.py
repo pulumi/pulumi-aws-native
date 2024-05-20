@@ -22,6 +22,7 @@ class InstanceAccessControlAttributeConfigurationArgs:
         """
         The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
         :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]] access_control_attributes: Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
         :param pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs'] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -45,6 +46,9 @@ class InstanceAccessControlAttributeConfigurationArgs:
     @property
     @pulumi.getter(name="accessControlAttributes")
     def access_control_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]:
+        """
+        Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        """
         return pulumi.get(self, "access_control_attributes")
 
     @access_control_attributes.setter
@@ -112,6 +116,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] access_control_attributes: Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
         :param pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
         """
@@ -222,6 +227,9 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessControlAttributes")
     def access_control_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']]]:
+        """
+        Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+        """
         return pulumi.get(self, "access_control_attributes")
 
     @property

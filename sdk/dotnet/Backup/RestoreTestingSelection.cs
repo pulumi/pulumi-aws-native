@@ -15,27 +15,55 @@ namespace Pulumi.AwsNative.Backup
     [AwsNativeResourceType("aws-native:backup:RestoreTestingSelection")]
     public partial class RestoreTestingSelection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+        /// </summary>
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+        /// </summary>
         [Output("protectedResourceArns")]
         public Output<ImmutableArray<string>> ProtectedResourceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
+        /// </summary>
         [Output("protectedResourceConditions")]
         public Output<Outputs.RestoreTestingSelectionProtectedResourceConditions?> ProtectedResourceConditions { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+        /// </summary>
         [Output("protectedResourceType")]
         public Output<string> ProtectedResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+        /// 
+        /// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+        /// </summary>
         [Output("restoreMetadataOverrides")]
         public Output<ImmutableDictionary<string, string>?> RestoreMetadataOverrides { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique string that is the name of the restore testing plan.
+        /// 
+        /// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+        /// </summary>
         [Output("restoreTestingPlanName")]
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the restore testing selection that belongs to the related restore testing plan.
+        /// </summary>
         [Output("restoreTestingSelectionName")]
         public Output<string> RestoreTestingSelectionName { get; private set; } = null!;
 
+        /// <summary>
+        /// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+        /// </summary>
         [Output("validationWindowHours")]
         public Output<int?> ValidationWindowHours { get; private set; } = null!;
 
@@ -90,37 +118,67 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class RestoreTestingSelectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+        /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
         [Input("protectedResourceArns")]
         private InputList<string>? _protectedResourceArns;
+
+        /// <summary>
+        /// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+        /// </summary>
         public InputList<string> ProtectedResourceArns
         {
             get => _protectedResourceArns ?? (_protectedResourceArns = new InputList<string>());
             set => _protectedResourceArns = value;
         }
 
+        /// <summary>
+        /// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
+        /// </summary>
         [Input("protectedResourceConditions")]
         public Input<Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs>? ProtectedResourceConditions { get; set; }
 
+        /// <summary>
+        /// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
+        /// </summary>
         [Input("protectedResourceType", required: true)]
         public Input<string> ProtectedResourceType { get; set; } = null!;
 
         [Input("restoreMetadataOverrides")]
         private InputMap<string>? _restoreMetadataOverrides;
+
+        /// <summary>
+        /// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+        /// 
+        /// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+        /// </summary>
         public InputMap<string> RestoreMetadataOverrides
         {
             get => _restoreMetadataOverrides ?? (_restoreMetadataOverrides = new InputMap<string>());
             set => _restoreMetadataOverrides = value;
         }
 
+        /// <summary>
+        /// Unique string that is the name of the restore testing plan.
+        /// 
+        /// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+        /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the restore testing selection that belongs to the related restore testing plan.
+        /// </summary>
         [Input("restoreTestingSelectionName")]
         public Input<string>? RestoreTestingSelectionName { get; set; }
 
+        /// <summary>
+        /// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+        /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }
 

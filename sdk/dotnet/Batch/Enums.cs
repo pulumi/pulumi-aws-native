@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Batch
 {
+    /// <summary>
+    /// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
+    /// </summary>
     [EnumType]
     public readonly struct JobQueueJobStateTimeLimitActionAction : IEquatable<JobQueueJobStateTimeLimitActionAction>
     {
@@ -34,6 +37,9 @@ namespace Pulumi.AwsNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
+    /// </summary>
     [EnumType]
     public readonly struct JobQueueJobStateTimeLimitActionState : IEquatable<JobQueueJobStateTimeLimitActionState>
     {
@@ -61,6 +67,9 @@ namespace Pulumi.AwsNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
+    /// </summary>
     [EnumType]
     public readonly struct JobQueueState : IEquatable<JobQueueState>
     {

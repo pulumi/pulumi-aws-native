@@ -29,6 +29,19 @@ class FeatureArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Feature resource.
+        :param pulumi.Input[str] project: The name or ARN of the project that is to contain the new feature.
+        :param pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]] variations: An array of structures that contain the configuration of the feature's different variations.
+               
+               Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
+        :param pulumi.Input[str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+               
+               This variation must also be listed in the `Variations` structure.
+               
+               If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        :param pulumi.Input[str] description: An optional description of the feature.
+        :param pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+        :param pulumi.Input['FeatureEvaluationStrategy'] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        :param pulumi.Input[str] name: The name for the feature. It can include up to 127 characters.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "project", project)
@@ -49,6 +62,9 @@ class FeatureArgs:
     @property
     @pulumi.getter
     def project(self) -> pulumi.Input[str]:
+        """
+        The name or ARN of the project that is to contain the new feature.
+        """
         return pulumi.get(self, "project")
 
     @project.setter
@@ -58,6 +74,11 @@ class FeatureArgs:
     @property
     @pulumi.getter
     def variations(self) -> pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]]:
+        """
+        An array of structures that contain the configuration of the feature's different variations.
+
+        Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -67,6 +88,13 @@ class FeatureArgs:
     @property
     @pulumi.getter(name="defaultVariation")
     def default_variation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+
+        This variation must also be listed in the `Variations` structure.
+
+        If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        """
         return pulumi.get(self, "default_variation")
 
     @default_variation.setter
@@ -76,6 +104,9 @@ class FeatureArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the feature.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -85,6 +116,9 @@ class FeatureArgs:
     @property
     @pulumi.getter(name="entityOverrides")
     def entity_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]]:
+        """
+        Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+        """
         return pulumi.get(self, "entity_overrides")
 
     @entity_overrides.setter
@@ -94,6 +128,9 @@ class FeatureArgs:
     @property
     @pulumi.getter(name="evaluationStrategy")
     def evaluation_strategy(self) -> Optional[pulumi.Input['FeatureEvaluationStrategy']]:
+        """
+        Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        """
         return pulumi.get(self, "evaluation_strategy")
 
     @evaluation_strategy.setter
@@ -103,6 +140,9 @@ class FeatureArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the feature. It can include up to 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -141,7 +181,20 @@ class Feature(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+               
+               This variation must also be listed in the `Variations` structure.
+               
+               If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        :param pulumi.Input[str] description: An optional description of the feature.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureEntityOverrideArgs']]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+        :param pulumi.Input['FeatureEvaluationStrategy'] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        :param pulumi.Input[str] name: The name for the feature. It can include up to 127 characters.
+        :param pulumi.Input[str] project: The name or ARN of the project that is to contain the new feature.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureVariationObjectArgs']]]] variations: An array of structures that contain the configuration of the feature's different variations.
+               
+               Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
         """
         ...
     @overload
@@ -235,36 +288,61 @@ class Feature(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultVariation")
     def default_variation(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+
+        This variation must also be listed in the `Variations` structure.
+
+        If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+        """
         return pulumi.get(self, "default_variation")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description of the feature.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="entityOverrides")
     def entity_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.FeatureEntityOverride']]]:
+        """
+        Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+        """
         return pulumi.get(self, "entity_overrides")
 
     @property
     @pulumi.getter(name="evaluationStrategy")
     def evaluation_strategy(self) -> pulumi.Output[Optional['FeatureEvaluationStrategy']]:
+        """
+        Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        """
         return pulumi.get(self, "evaluation_strategy")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the feature. It can include up to 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def project(self) -> pulumi.Output[str]:
+        """
+        The name or ARN of the project that is to contain the new feature.
+        """
         return pulumi.get(self, "project")
 
     @property
@@ -278,5 +356,10 @@ class Feature(pulumi.CustomResource):
     @property
     @pulumi.getter
     def variations(self) -> pulumi.Output[Sequence['outputs.FeatureVariationObject']]:
+        """
+        An array of structures that contain the configuration of the feature's different variations.
+
+        Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
+        """
         return pulumi.get(self, "variations")
 

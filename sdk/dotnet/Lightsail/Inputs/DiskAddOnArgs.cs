@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         [Input("addOnType", required: true)]
         public Input<string> AddOnType { get; set; } = null!;
 
+        /// <summary>
+        /// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
+        /// </summary>
         [Input("autoSnapshotAddOnRequest")]
         public Input<Inputs.DiskAutoSnapshotAddOnArgs>? AutoSnapshotAddOnRequest { get; set; }
 

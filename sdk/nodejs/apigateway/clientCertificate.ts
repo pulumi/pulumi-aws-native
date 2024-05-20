@@ -37,6 +37,9 @@ export class ClientCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClientCertificate.__pulumiType;
     }
 
+    /**
+     * The ID for the client certificate. For example: `abc123` .
+     */
     public /*out*/ readonly clientCertificateId!: pulumi.Output<string>;
     /**
      * The description of the client certificate.

@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ViewIncludedProperty struct {
+	// The name of the property that is included in this view.
 	Name string `pulumi:"name"`
 }
 
@@ -29,6 +30,7 @@ type ViewIncludedPropertyInput interface {
 }
 
 type ViewIncludedPropertyArgs struct {
+	// The name of the property that is included in this view.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -83,6 +85,7 @@ func (o ViewIncludedPropertyOutput) ToViewIncludedPropertyOutputWithContext(ctx 
 	return o
 }
 
+// The name of the property that is included in this view.
 func (o ViewIncludedPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewIncludedProperty) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -108,6 +111,11 @@ func (o ViewIncludedPropertyArrayOutput) Index(i pulumi.IntInput) ViewIncludedPr
 }
 
 type ViewSearchFilter struct {
+	// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+	//
+	// For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	FilterString string `pulumi:"filterString"`
 }
 
@@ -123,6 +131,11 @@ type ViewSearchFilterInput interface {
 }
 
 type ViewSearchFilterArgs struct {
+	// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+	//
+	// For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	FilterString pulumi.StringInput `pulumi:"filterString"`
 }
 
@@ -203,6 +216,11 @@ func (o ViewSearchFilterOutput) ToViewSearchFilterPtrOutputWithContext(ctx conte
 	}).(ViewSearchFilterPtrOutput)
 }
 
+// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+//
+// For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+//
+// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 func (o ViewSearchFilterOutput) FilterString() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewSearchFilter) string { return v.FilterString }).(pulumi.StringOutput)
 }
@@ -231,6 +249,11 @@ func (o ViewSearchFilterPtrOutput) Elem() ViewSearchFilterOutput {
 	}).(ViewSearchFilterOutput)
 }
 
+// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a Search operation.
+//
+// For information about the supported syntax, see [Search query reference](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+//
+// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 func (o ViewSearchFilterPtrOutput) FilterString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ViewSearchFilter) *string {
 		if v == nil {

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateRadarChartSortConfiguration
     {
+        /// <summary>
+        /// The category items limit for a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The category sort options of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
+        /// <summary>
+        /// The color items limit of a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? ColorItemsLimit;
+        /// <summary>
+        /// The color sort configuration of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> ColorSort;
 
         [OutputConstructor]

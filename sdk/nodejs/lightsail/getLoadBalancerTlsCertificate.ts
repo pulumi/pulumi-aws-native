@@ -36,6 +36,9 @@ export interface GetLoadBalancerTlsCertificateResult {
      * When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
      */
     readonly isAttached?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+     */
     readonly loadBalancerTlsCertificateArn?: string;
     /**
      * The validation status of the SSL/TLS certificate.

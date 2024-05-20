@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class PipelineFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An expression that looks like an SQL WHERE clause that must return a Boolean value.
+        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the 'filter' activity.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         [Input("next")]
         public Input<string>? Next { get; set; }
 

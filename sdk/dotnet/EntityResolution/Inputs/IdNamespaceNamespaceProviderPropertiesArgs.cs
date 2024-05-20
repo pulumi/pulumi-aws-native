@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
             set => _providerConfiguration = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the provider service.
+        /// </summary>
         [Input("providerServiceArn", required: true)]
         public Input<string> ProviderServiceArn { get; set; } = null!;
 

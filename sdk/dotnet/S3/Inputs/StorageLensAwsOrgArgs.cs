@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensAwsOrgArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This resource contains the ARN of the AWS Organization.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 

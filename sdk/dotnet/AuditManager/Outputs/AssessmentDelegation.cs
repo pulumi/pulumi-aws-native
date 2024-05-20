@@ -16,16 +16,61 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
     [OutputType]
     public sealed class AssessmentDelegation
     {
+        /// <summary>
+        /// The identifier for the assessment that's associated with the delegation.
+        /// </summary>
         public readonly string? AssessmentId;
+        /// <summary>
+        /// The name of the assessment that's associated with the delegation.
+        /// </summary>
         public readonly string? AssessmentName;
+        /// <summary>
+        /// The comment that's related to the delegation.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// The identifier for the control set that's associated with the delegation.
+        /// </summary>
         public readonly string? ControlSetId;
+        /// <summary>
+        /// The user or role that created the delegation.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`
+        /// </summary>
         public readonly string? CreatedBy;
+        /// <summary>
+        /// Specifies when the delegation was created.
+        /// </summary>
         public readonly double? CreationTime;
+        /// <summary>
+        /// The unique identifier for the delegation.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies when the delegation was last updated.
+        /// </summary>
         public readonly double? LastUpdated;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The type of customer persona.
+        /// 
+        /// &gt; In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+        /// &gt; 
+        /// &gt; In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+        /// &gt; 
+        /// &gt; In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        /// </summary>
         public readonly Pulumi.AwsNative.AuditManager.AssessmentRoleType? RoleType;
+        /// <summary>
+        /// The status of the delegation.
+        /// </summary>
         public readonly Pulumi.AwsNative.AuditManager.AssessmentDelegationStatus? Status;
 
         [OutputConstructor]

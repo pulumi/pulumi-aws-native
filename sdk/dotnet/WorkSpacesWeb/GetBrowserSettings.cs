@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetBrowserSettingsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the browser settings.
+        /// </summary>
         [Input("browserSettingsArn", required: true)]
         public string BrowserSettingsArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetBrowserSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the browser settings.
+        /// </summary>
         [Input("browserSettingsArn", required: true)]
         public Input<string> BrowserSettingsArn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetBrowserSettingsResult
     {
+        /// <summary>
+        /// A list of web portal ARNs that the browser settings resource is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        /// <summary>
+        /// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+        /// </summary>
         public readonly string? BrowserPolicy;
+        /// <summary>
+        /// The ARN of the browser settings.
+        /// </summary>
         public readonly string? BrowserSettingsArn;
+        /// <summary>
+        /// The tags to add to the browser settings resource. A tag is a key-value pair.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

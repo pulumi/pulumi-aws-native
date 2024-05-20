@@ -29,14 +29,27 @@ type LookupAppMonitorArgs struct {
 }
 
 type LookupAppMonitorResult struct {
+	// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+	//
+	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
 	AppMonitorConfiguration *AppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
-	CustomEvents            *AppMonitorCustomEvents  `pulumi:"customEvents"`
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
+	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
 	Domain *string `pulumi:"domain"`
 	// The unique ID of the new app monitor.
-	Id   *string   `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Assigns one or more tags (key-value pairs) to the app monitor.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	//
+	// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+	//
+	// You can associate as many as 50 tags with an app monitor.
+	//
+	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -76,10 +89,14 @@ func (o LookupAppMonitorResultOutput) ToLookupAppMonitorResultOutputWithContext(
 	return o
 }
 
+// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+//
+// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
 func (o LookupAppMonitorResultOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorConfiguration { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
 }
 
+// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
 func (o LookupAppMonitorResultOutput) CustomEvents() AppMonitorCustomEventsPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorCustomEvents { return v.CustomEvents }).(AppMonitorCustomEventsPtrOutput)
 }
@@ -99,6 +116,15 @@ func (o LookupAppMonitorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Assigns one or more tags (key-value pairs) to the app monitor.
+//
+// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+//
+// Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+//
+// You can associate as many as 50 tags with an app monitor.
+//
+// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
 func (o LookupAppMonitorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

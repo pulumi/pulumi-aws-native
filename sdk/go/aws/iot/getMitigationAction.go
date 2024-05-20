@@ -29,10 +29,14 @@ type LookupMitigationActionArgs struct {
 }
 
 type LookupMitigationActionResult struct {
-	ActionParams        *MitigationActionActionParams `pulumi:"actionParams"`
-	MitigationActionArn *string                       `pulumi:"mitigationActionArn"`
-	MitigationActionId  *string                       `pulumi:"mitigationActionId"`
-	RoleArn             *string                       `pulumi:"roleArn"`
+	// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
+	ActionParams *MitigationActionActionParams `pulumi:"actionParams"`
+	// The Amazon Resource Name (ARN) of the mitigation action.
+	MitigationActionArn *string `pulumi:"mitigationActionArn"`
+	// The ID of the mitigation action.
+	MitigationActionId *string `pulumi:"mitigationActionId"`
+	// The IAM role ARN used to apply this mitigation action.
+	RoleArn *string `pulumi:"roleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -73,18 +77,22 @@ func (o LookupMitigationActionResultOutput) ToLookupMitigationActionResultOutput
 	return o
 }
 
+// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 func (o LookupMitigationActionResultOutput) ActionParams() MitigationActionActionParamsPtrOutput {
 	return o.ApplyT(func(v LookupMitigationActionResult) *MitigationActionActionParams { return v.ActionParams }).(MitigationActionActionParamsPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the mitigation action.
 func (o LookupMitigationActionResultOutput) MitigationActionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMitigationActionResult) *string { return v.MitigationActionArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the mitigation action.
 func (o LookupMitigationActionResultOutput) MitigationActionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMitigationActionResult) *string { return v.MitigationActionId }).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN used to apply this mitigation action.
 func (o LookupMitigationActionResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMitigationActionResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

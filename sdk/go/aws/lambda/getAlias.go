@@ -27,11 +27,15 @@ type LookupAliasArgs struct {
 }
 
 type LookupAliasResult struct {
-	Description                  *string                                   `pulumi:"description"`
-	FunctionVersion              *string                                   `pulumi:"functionVersion"`
-	Id                           *string                                   `pulumi:"id"`
+	// A description of the alias.
+	Description *string `pulumi:"description"`
+	// The function version that the alias invokes.
+	FunctionVersion *string `pulumi:"functionVersion"`
+	Id              *string `pulumi:"id"`
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig *AliasProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
-	RoutingConfig                *AliasRoutingConfiguration                `pulumi:"routingConfig"`
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+	RoutingConfig *AliasRoutingConfiguration `pulumi:"routingConfig"`
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
@@ -69,10 +73,12 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
+// A description of the alias.
 func (o LookupAliasResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The function version that the alias invokes.
 func (o LookupAliasResultOutput) FunctionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.FunctionVersion }).(pulumi.StringPtrOutput)
 }
@@ -81,12 +87,14 @@ func (o LookupAliasResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 func (o LookupAliasResultOutput) ProvisionedConcurrencyConfig() AliasProvisionedConcurrencyConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *AliasProvisionedConcurrencyConfiguration {
 		return v.ProvisionedConcurrencyConfig
 	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
+// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 func (o LookupAliasResultOutput) RoutingConfig() AliasRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *AliasRoutingConfiguration { return v.RoutingConfig }).(AliasRoutingConfigurationPtrOutput)
 }

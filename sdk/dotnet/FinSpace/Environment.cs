@@ -105,6 +105,9 @@ namespace Pulumi.AwsNative.FinSpace
         [Output("federationMode")]
         public Output<Pulumi.AwsNative.FinSpace.EnvironmentFederationMode?> FederationMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information when authentication mode is FEDERATED.
+        /// </summary>
         [Output("federationParameters")]
         public Output<Outputs.EnvironmentFederationParameters?> FederationParameters { get; private set; } = null!;
 
@@ -132,6 +135,9 @@ namespace Pulumi.AwsNative.FinSpace
         [Output("status")]
         public Output<Pulumi.AwsNative.FinSpace.EnvironmentStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for the superuser.
+        /// </summary>
         [Output("superuserParameters")]
         public Output<Outputs.EnvironmentSuperuserParameters?> SuperuserParameters { get; private set; } = null!;
 
@@ -218,6 +224,9 @@ namespace Pulumi.AwsNative.FinSpace
         [Input("federationMode")]
         public Input<Pulumi.AwsNative.FinSpace.EnvironmentFederationMode>? FederationMode { get; set; }
 
+        /// <summary>
+        /// Configuration information when authentication mode is FEDERATED.
+        /// </summary>
         [Input("federationParameters")]
         public Input<Inputs.EnvironmentFederationParametersArgs>? FederationParameters { get; set; }
 
@@ -233,6 +242,9 @@ namespace Pulumi.AwsNative.FinSpace
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Configuration information for the superuser.
+        /// </summary>
         [Input("superuserParameters")]
         public Input<Inputs.EnvironmentSuperuserParametersArgs>? SuperuserParameters { get; set; }
 

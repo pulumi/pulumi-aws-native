@@ -17,7 +17,8 @@ type ApiMapping struct {
 	pulumi.CustomResourceState
 
 	// The identifier of the API.
-	ApiId        pulumi.StringOutput `pulumi:"apiId"`
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The API mapping resource ID.
 	ApiMappingId pulumi.StringOutput `pulumi:"apiMappingId"`
 	// The API mapping key.
 	ApiMappingKey pulumi.StringPtrOutput `pulumi:"apiMappingKey"`
@@ -144,6 +145,7 @@ func (o ApiMappingOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The API mapping resource ID.
 func (o ApiMappingOutput) ApiMappingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiMappingId }).(pulumi.StringOutput)
 }

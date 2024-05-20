@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class InstanceStorageConfigKinesisVideoStreamConfig
     {
+        /// <summary>
+        /// The encryption configuration.
+        /// </summary>
         public readonly Outputs.InstanceStorageConfigEncryptionConfig EncryptionConfig;
+        /// <summary>
+        /// The prefix of the video stream.
+        /// </summary>
         public readonly string Prefix;
+        /// <summary>
+        /// The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+        /// 
+        /// The default value is 0, indicating that the stream does not persist data.
+        /// </summary>
         public readonly double RetentionPeriodHours;
 
         [OutputConstructor]

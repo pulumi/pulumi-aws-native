@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("customValues", required: true)]
         public Input<Inputs.TemplateCustomParameterValuesArgs> CustomValues { get; set; } = null!;
 
+        /// <summary>
+        /// Includes the null value in custom action parameter values.
+        /// </summary>
         [Input("includeNullValue")]
         public Input<bool>? IncludeNullValue { get; set; }
 

@@ -296,6 +296,7 @@ class WorkflowS3FileLocationArgs:
                  s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None):
         """
         Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+        :param pulumi.Input['WorkflowS3InputFileLocationArgs'] s3_file_location: Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
         """
         if s3_file_location is not None:
             pulumi.set(__self__, "s3_file_location", s3_file_location)
@@ -303,6 +304,9 @@ class WorkflowS3FileLocationArgs:
     @property
     @pulumi.getter(name="s3FileLocation")
     def s3_file_location(self) -> Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]:
+        """
+        Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
+        """
         return pulumi.get(self, "s3_file_location")
 
     @s3_file_location.setter

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateWaterfallChartOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This option determines the total bar label of a waterfall visual.
+        /// </summary>
         [Input("totalBarLabel")]
         public Input<string>? TotalBarLabel { get; set; }
 

@@ -30,10 +30,13 @@ type LookupOidcProviderArgs struct {
 
 type LookupOidcProviderResult struct {
 	// Amazon Resource Name (ARN) of the OIDC provider
-	Arn            *string   `pulumi:"arn"`
-	ClientIdList   []string  `pulumi:"clientIdList"`
-	Tags           []aws.Tag `pulumi:"tags"`
-	ThumbprintList []string  `pulumi:"thumbprintList"`
+	Arn *string `pulumi:"arn"`
+	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	ClientIdList []string `pulumi:"clientIdList"`
+	// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	Tags []aws.Tag `pulumi:"tags"`
+	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+	ThumbprintList []string `pulumi:"thumbprintList"`
 }
 
 func LookupOidcProviderOutput(ctx *pulumi.Context, args LookupOidcProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOidcProviderResultOutput {
@@ -77,14 +80,17 @@ func (o LookupOidcProviderResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOidcProviderResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 func (o LookupOidcProviderResultOutput) ClientIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOidcProviderResult) []string { return v.ClientIdList }).(pulumi.StringArrayOutput)
 }
 
+// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 func (o LookupOidcProviderResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupOidcProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 func (o LookupOidcProviderResultOutput) ThumbprintList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOidcProviderResult) []string { return v.ThumbprintList }).(pulumi.StringArrayOutput)
 }

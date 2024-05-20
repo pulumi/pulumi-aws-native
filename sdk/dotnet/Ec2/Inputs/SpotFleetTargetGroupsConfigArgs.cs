@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     {
         [Input("targetGroups", required: true)]
         private InputList<Inputs.SpotFleetTargetGroupArgs>? _targetGroups;
+
+        /// <summary>
+        /// One or more target groups.
+        /// </summary>
         public InputList<Inputs.SpotFleetTargetGroupArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.SpotFleetTargetGroupArgs>());

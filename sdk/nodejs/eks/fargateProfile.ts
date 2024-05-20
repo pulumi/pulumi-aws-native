@@ -37,6 +37,9 @@ export class FargateProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === FargateProfile.__pulumiType;
     }
 
+    /**
+     * The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the Cluster
@@ -50,7 +53,13 @@ export class FargateProfile extends pulumi.CustomResource {
      * The IAM policy arn for pods
      */
     public readonly podExecutionRoleArn!: pulumi.Output<string>;
+    /**
+     * The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
+     */
     public readonly selectors!: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
+    /**
+     * The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+     */
     public readonly subnets!: pulumi.Output<string[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -116,7 +125,13 @@ export interface FargateProfileArgs {
      * The IAM policy arn for pods
      */
     podExecutionRoleArn: pulumi.Input<string>;
+    /**
+     * The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
+     */
     selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelectorArgs>[]>;
+    /**
+     * The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+     */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of key-value pairs to apply to this resource.

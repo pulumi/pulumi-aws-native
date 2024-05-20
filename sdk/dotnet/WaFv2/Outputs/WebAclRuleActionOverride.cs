@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRuleActionOverride
     {
+        /// <summary>
+        /// The override action to use, in place of the configured action of the rule in the rule group.
+        /// </summary>
         public readonly Outputs.WebAclRuleAction ActionToUse;
+        /// <summary>
+        /// The name of the rule to override.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

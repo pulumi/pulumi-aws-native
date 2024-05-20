@@ -15,7 +15,9 @@ import (
 type ServicePrincipalName struct {
 	pulumi.CustomResourceState
 
-	ConnectorArn             pulumi.StringPtrOutput `pulumi:"connectorArn"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn pulumi.StringPtrOutput `pulumi:"connectorArn"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn pulumi.StringPtrOutput `pulumi:"directoryRegistrationArn"`
 }
 
@@ -64,13 +66,17 @@ func (ServicePrincipalNameState) ElementType() reflect.Type {
 }
 
 type servicePrincipalNameArgs struct {
-	ConnectorArn             *string `pulumi:"connectorArn"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn *string `pulumi:"connectorArn"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn *string `pulumi:"directoryRegistrationArn"`
 }
 
 // The set of arguments for constructing a ServicePrincipalName resource.
 type ServicePrincipalNameArgs struct {
-	ConnectorArn             pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn pulumi.StringPtrInput
 }
 
@@ -111,10 +117,12 @@ func (o ServicePrincipalNameOutput) ToServicePrincipalNameOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 func (o ServicePrincipalNameOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalName) pulumi.StringPtrOutput { return v.ConnectorArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 func (o ServicePrincipalNameOutput) DirectoryRegistrationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalName) pulumi.StringPtrOutput { return v.DirectoryRegistrationArn }).(pulumi.StringPtrOutput)
 }

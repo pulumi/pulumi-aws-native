@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("programCount")]
         public Output<int> ProgramCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The current state of the multiplex.
+        /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.MediaLive.MultiplexState> State { get; private set; } = null!;
 

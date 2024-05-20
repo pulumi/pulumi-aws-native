@@ -31,6 +31,8 @@ class GetAuthPolicyResult:
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
+        The auth policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -38,6 +40,9 @@ class GetAuthPolicyResult:
     @property
     @pulumi.getter
     def state(self) -> Optional['AuthPolicyState']:
+        """
+        The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+        """
         return pulumi.get(self, "state")
 
 
@@ -55,6 +60,9 @@ def get_auth_policy(resource_identifier: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthPolicyResult:
     """
     Creates or updates the auth policy.
+
+
+    :param str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
@@ -71,5 +79,8 @@ def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[str]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
     Creates or updates the auth policy.
+
+
+    :param str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
     """
     ...

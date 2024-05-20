@@ -223,6 +223,8 @@ class AlarmModelAlarmCapabilities(dict):
                  initialization_configuration: Optional['outputs.AlarmModelInitializationConfiguration'] = None):
         """
         Contains the configuration information of alarm state changes
+        :param 'AlarmModelAcknowledgeFlow' acknowledge_flow: Specifies whether to get notified for alarm state changes.
+        :param 'AlarmModelInitializationConfiguration' initialization_configuration: Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
         """
         if acknowledge_flow is not None:
             pulumi.set(__self__, "acknowledge_flow", acknowledge_flow)
@@ -232,11 +234,17 @@ class AlarmModelAlarmCapabilities(dict):
     @property
     @pulumi.getter(name="acknowledgeFlow")
     def acknowledge_flow(self) -> Optional['outputs.AlarmModelAcknowledgeFlow']:
+        """
+        Specifies whether to get notified for alarm state changes.
+        """
         return pulumi.get(self, "acknowledge_flow")
 
     @property
     @pulumi.getter(name="initializationConfiguration")
     def initialization_configuration(self) -> Optional['outputs.AlarmModelInitializationConfiguration']:
+        """
+        Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
+        """
         return pulumi.get(self, "initialization_configuration")
 
 
@@ -266,6 +274,7 @@ class AlarmModelAlarmEventActions(dict):
                  alarm_actions: Optional[Sequence['outputs.AlarmModelAlarmAction']] = None):
         """
         Contains information about one or more alarm actions.
+        :param Sequence['AlarmModelAlarmAction'] alarm_actions: Specifies one or more supported actions to receive notifications when the alarm state changes.
         """
         if alarm_actions is not None:
             pulumi.set(__self__, "alarm_actions", alarm_actions)
@@ -273,6 +282,9 @@ class AlarmModelAlarmEventActions(dict):
     @property
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> Optional[Sequence['outputs.AlarmModelAlarmAction']]:
+        """
+        Specifies one or more supported actions to receive notifications when the alarm state changes.
+        """
         return pulumi.get(self, "alarm_actions")
 
 
@@ -302,6 +314,7 @@ class AlarmModelAlarmRule(dict):
                  simple_rule: Optional['outputs.AlarmModelSimpleRule'] = None):
         """
         Defines when your alarm is invoked.
+        :param 'AlarmModelSimpleRule' simple_rule: A rule that compares an input property value to a threshold value with a comparison operator.
         """
         if simple_rule is not None:
             pulumi.set(__self__, "simple_rule", simple_rule)
@@ -309,6 +322,9 @@ class AlarmModelAlarmRule(dict):
     @property
     @pulumi.getter(name="simpleRule")
     def simple_rule(self) -> Optional['outputs.AlarmModelSimpleRule']:
+        """
+        A rule that compares an input property value to a threshold value with a comparison operator.
+        """
         return pulumi.get(self, "simple_rule")
 
 
@@ -1339,6 +1355,19 @@ class DetectorModelAction(dict):
                  sqs: Optional['outputs.DetectorModelSqs'] = None):
         """
         The actions to be performed.
+        :param 'DetectorModelClearTimer' clear_timer: Information needed to clear the timer.
+        :param 'DetectorModelDynamoDBv2' dynamo_d_bv2: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        :param 'DetectorModelDynamoDb' dynamo_db: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        :param 'DetectorModelFirehose' firehose: Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        :param 'DetectorModelIotEvents' iot_events: Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+        :param 'DetectorModelIotSiteWise' iot_site_wise: Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+        :param 'DetectorModelIotTopicPublish' iot_topic_publish: Publishes an MQTT message with the given topic to the AWS IoT message broker.
+        :param 'DetectorModelLambda' lambda_: Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+        :param 'DetectorModelResetTimer' reset_timer: Information needed to reset the timer.
+        :param 'DetectorModelSetTimer' set_timer: Information needed to set the timer.
+        :param 'DetectorModelSetVariable' set_variable: Sets a variable to a specified value.
+        :param 'DetectorModelSns' sns: Sends an Amazon SNS message.
+        :param 'DetectorModelSqs' sqs: Sends an Amazon SNS message.
         """
         if clear_timer is not None:
             pulumi.set(__self__, "clear_timer", clear_timer)
@@ -1370,66 +1399,105 @@ class DetectorModelAction(dict):
     @property
     @pulumi.getter(name="clearTimer")
     def clear_timer(self) -> Optional['outputs.DetectorModelClearTimer']:
+        """
+        Information needed to clear the timer.
+        """
         return pulumi.get(self, "clear_timer")
 
     @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.DetectorModelDynamoDBv2']:
+        """
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        """
         return pulumi.get(self, "dynamo_d_bv2")
 
     @property
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional['outputs.DetectorModelDynamoDb']:
+        """
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        """
         return pulumi.get(self, "dynamo_db")
 
     @property
     @pulumi.getter
     def firehose(self) -> Optional['outputs.DetectorModelFirehose']:
+        """
+        Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        """
         return pulumi.get(self, "firehose")
 
     @property
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional['outputs.DetectorModelIotEvents']:
+        """
+        Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+        """
         return pulumi.get(self, "iot_events")
 
     @property
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional['outputs.DetectorModelIotSiteWise']:
+        """
+        Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+        """
         return pulumi.get(self, "iot_site_wise")
 
     @property
     @pulumi.getter(name="iotTopicPublish")
     def iot_topic_publish(self) -> Optional['outputs.DetectorModelIotTopicPublish']:
+        """
+        Publishes an MQTT message with the given topic to the AWS IoT message broker.
+        """
         return pulumi.get(self, "iot_topic_publish")
 
     @property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.DetectorModelLambda']:
+        """
+        Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+        """
         return pulumi.get(self, "lambda_")
 
     @property
     @pulumi.getter(name="resetTimer")
     def reset_timer(self) -> Optional['outputs.DetectorModelResetTimer']:
+        """
+        Information needed to reset the timer.
+        """
         return pulumi.get(self, "reset_timer")
 
     @property
     @pulumi.getter(name="setTimer")
     def set_timer(self) -> Optional['outputs.DetectorModelSetTimer']:
+        """
+        Information needed to set the timer.
+        """
         return pulumi.get(self, "set_timer")
 
     @property
     @pulumi.getter(name="setVariable")
     def set_variable(self) -> Optional['outputs.DetectorModelSetVariable']:
+        """
+        Sets a variable to a specified value.
+        """
         return pulumi.get(self, "set_variable")
 
     @property
     @pulumi.getter
     def sns(self) -> Optional['outputs.DetectorModelSns']:
+        """
+        Sends an Amazon SNS message.
+        """
         return pulumi.get(self, "sns")
 
     @property
     @pulumi.getter
     def sqs(self) -> Optional['outputs.DetectorModelSqs']:
+        """
+        Sends an Amazon SNS message.
+        """
         return pulumi.get(self, "sqs")
 
 
@@ -1497,7 +1565,9 @@ class DetectorModelAssetPropertyValue(dict):
                  timestamp: Optional['outputs.DetectorModelAssetPropertyTimestamp'] = None):
         """
         A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+        :param 'DetectorModelAssetPropertyVariant' value: The value to send to an asset property.
         :param str quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        :param 'DetectorModelAssetPropertyTimestamp' timestamp: The timestamp associated with the asset property value. The default is the current event time.
         """
         pulumi.set(__self__, "value", value)
         if quality is not None:
@@ -1508,6 +1578,9 @@ class DetectorModelAssetPropertyValue(dict):
     @property
     @pulumi.getter
     def value(self) -> 'outputs.DetectorModelAssetPropertyVariant':
+        """
+        The value to send to an asset property.
+        """
         return pulumi.get(self, "value")
 
     @property
@@ -1521,6 +1594,9 @@ class DetectorModelAssetPropertyValue(dict):
     @property
     @pulumi.getter
     def timestamp(self) -> Optional['outputs.DetectorModelAssetPropertyTimestamp']:
+        """
+        The timestamp associated with the asset property value. The default is the current event time.
+        """
         return pulumi.get(self, "timestamp")
 
 
@@ -1632,12 +1708,16 @@ class DetectorModelClearTimer(dict):
                  timer_name: str):
         """
         Information needed to clear the timer.
+        :param str timer_name: The name of the timer to clear.
         """
         pulumi.set(__self__, "timer_name", timer_name)
 
     @property
     @pulumi.getter(name="timerName")
     def timer_name(self) -> str:
+        """
+        The name of the timer to clear.
+        """
         return pulumi.get(self, "timer_name")
 
 
@@ -1723,6 +1803,9 @@ class DetectorModelDynamoDBv2(dict):
 
         You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
         :param str table_name: The name of the DynamoDB table.
+        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
+               
+               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
         """
         pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
@@ -1739,6 +1822,11 @@ class DetectorModelDynamoDBv2(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        Information needed to configure the payload.
+
+        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        """
         return pulumi.get(self, "payload")
 
 
@@ -1810,6 +1898,9 @@ class DetectorModelDynamoDb(dict):
                * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
                
                If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
+               
+               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
         :param str payload_field: The name of the DynamoDB column that receives the action payload.
                
                If you don't specify this parameter, the name of the DynamoDB column is `payload`.
@@ -1898,6 +1989,11 @@ class DetectorModelDynamoDb(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        Information needed to configure the payload.
+
+        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        """
         return pulumi.get(self, "payload")
 
     @property
@@ -2033,6 +2129,7 @@ class DetectorModelFirehose(dict):
         """
         Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
         :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
         :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
@@ -2052,6 +2149,9 @@ class DetectorModelFirehose(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+        """
         return pulumi.get(self, "payload")
 
     @property
@@ -2091,6 +2191,7 @@ class DetectorModelIotEvents(dict):
         """
         Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
         :param str input_name: The name of the AWS IoT Events input where the data is sent.
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to an AWS IoT Events input.
         """
         pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
@@ -2107,6 +2208,9 @@ class DetectorModelIotEvents(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        You can configure the action payload when you send a message to an AWS IoT Events input.
+        """
         return pulumi.get(self, "payload")
 
 
@@ -2148,6 +2252,7 @@ class DetectorModelIotSiteWise(dict):
                  property_id: Optional[str] = None):
         """
         Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+        :param 'DetectorModelAssetPropertyValue' property_value: The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
         :param str asset_id: The ID of the asset that has the specified property. You can specify an expression.
         :param str entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
         :param str property_alias: The alias of the asset property. You can also specify an expression.
@@ -2166,6 +2271,9 @@ class DetectorModelIotSiteWise(dict):
     @property
     @pulumi.getter(name="propertyValue")
     def property_value(self) -> 'outputs.DetectorModelAssetPropertyValue':
+        """
+        The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
+        """
         return pulumi.get(self, "property_value")
 
     @property
@@ -2229,6 +2337,7 @@ class DetectorModelIotTopicPublish(dict):
         """
         Information required to publish the MQTT message through the AWS IoT message broker.
         :param str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you publish a message to an AWS IoT Core topic.
         """
         pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
@@ -2245,6 +2354,9 @@ class DetectorModelIotTopicPublish(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        You can configure the action payload when you publish a message to an AWS IoT Core topic.
+        """
         return pulumi.get(self, "payload")
 
 
@@ -2272,6 +2384,7 @@ class DetectorModelLambda(dict):
                  payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         :param str function_arn: The ARN of the Lambda function that is executed.
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to a Lambda function.
         """
         pulumi.set(__self__, "function_arn", function_arn)
         if payload is not None:
@@ -2288,6 +2401,9 @@ class DetectorModelLambda(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        You can configure the action payload when you send a message to a Lambda function.
+        """
         return pulumi.get(self, "payload")
 
 
@@ -2625,6 +2741,7 @@ class DetectorModelSns(dict):
         """
         Information required to publish the Amazon SNS message.
         :param str target_arn: The ARN of the Amazon SNS target where the message is sent.
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message as an Amazon SNS push notification.
         """
         pulumi.set(__self__, "target_arn", target_arn)
         if payload is not None:
@@ -2641,6 +2758,9 @@ class DetectorModelSns(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        You can configure the action payload when you send a message as an Amazon SNS push notification.
+        """
         return pulumi.get(self, "payload")
 
 
@@ -2671,6 +2791,7 @@ class DetectorModelSqs(dict):
                  use_base64: Optional[bool] = None):
         """
         :param str queue_url: The URL of the SQS queue where the data is written.
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to an Amazon SQS queue.
         :param bool use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
         """
         pulumi.set(__self__, "queue_url", queue_url)
@@ -2690,6 +2811,9 @@ class DetectorModelSqs(dict):
     @property
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
+        """
+        You can configure the action payload when you send a message to an Amazon SQS queue.
+        """
         return pulumi.get(self, "payload")
 
     @property
@@ -2737,6 +2861,9 @@ class DetectorModelState(dict):
         """
         Information that defines a state of a detector.
         :param str state_name: The name of the state.
+        :param 'DetectorModelOnEnter' on_enter: When entering this state, perform these `actions` if the `condition` is TRUE.
+        :param 'DetectorModelOnExit' on_exit: When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+        :param 'DetectorModelOnInput' on_input: When an input is received and the `condition` is TRUE, perform the specified `actions` .
         """
         pulumi.set(__self__, "state_name", state_name)
         if on_enter is not None:
@@ -2757,16 +2884,25 @@ class DetectorModelState(dict):
     @property
     @pulumi.getter(name="onEnter")
     def on_enter(self) -> Optional['outputs.DetectorModelOnEnter']:
+        """
+        When entering this state, perform these `actions` if the `condition` is TRUE.
+        """
         return pulumi.get(self, "on_enter")
 
     @property
     @pulumi.getter(name="onExit")
     def on_exit(self) -> Optional['outputs.DetectorModelOnExit']:
+        """
+        When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+        """
         return pulumi.get(self, "on_exit")
 
     @property
     @pulumi.getter(name="onInput")
     def on_input(self) -> Optional['outputs.DetectorModelOnInput']:
+        """
+        When an input is received and the `condition` is TRUE, perform the specified `actions` .
+        """
         return pulumi.get(self, "on_input")
 
 

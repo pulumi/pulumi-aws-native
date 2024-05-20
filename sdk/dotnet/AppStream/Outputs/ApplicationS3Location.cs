@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class ApplicationS3Location
     {
+        /// <summary>
+        /// The S3 bucket of the S3 object.
+        /// </summary>
         public readonly string S3Bucket;
+        /// <summary>
+        /// The S3 key of the S3 object.
+        /// </summary>
         public readonly string S3Key;
 
         [OutputConstructor]

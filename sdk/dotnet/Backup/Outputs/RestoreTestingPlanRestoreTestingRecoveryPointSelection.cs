@@ -13,10 +13,27 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class RestoreTestingPlanRestoreTestingRecoveryPointSelection
     {
+        /// <summary>
+        /// Acceptable values include "LATEST_WITHIN_WINDOW" or "RANDOM_WITHIN_WINDOW"
+        /// </summary>
         public readonly Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm Algorithm;
+        /// <summary>
+        /// Accepted values include specific ARNs or list of selectors. Defaults to empty list if not listed.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludeVaults;
+        /// <summary>
+        /// Accepted values include wildcard ["*"] or by specific ARNs or ARN wilcard replacement ["arn:aws:backup:us-west-2:123456789012:backup-vault:asdf", ...] ["arn:aws:backup:*:*:backup-vault:asdf-*", ...]
+        /// </summary>
         public readonly ImmutableArray<string> IncludeVaults;
+        /// <summary>
+        /// These are the types of recovery points.
+        /// 
+        /// Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingRecoveryPointType> RecoveryPointTypes;
+        /// <summary>
+        /// Accepted values are integers from 1 to 365.
+        /// </summary>
         public readonly int? SelectionWindowDays;
 
         [OutputConstructor]

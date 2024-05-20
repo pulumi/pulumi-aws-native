@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableCellImageSizingConfiguration
     {
+        /// <summary>
+        /// The cell scaling configuration of the sizing options for the table image configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTableCellImageScalingConfiguration? TableCellImageScalingConfiguration;
 
         [OutputConstructor]

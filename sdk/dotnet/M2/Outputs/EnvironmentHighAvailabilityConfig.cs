@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.M2.Outputs
     [OutputType]
     public sealed class EnvironmentHighAvailabilityConfig
     {
+        /// <summary>
+        /// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
+        /// </summary>
         public readonly int DesiredCapacity;
 
         [OutputConstructor]

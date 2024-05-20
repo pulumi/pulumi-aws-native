@@ -118,6 +118,13 @@ class DbClusterArgs:
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] publicly_accessible: A value that indicates whether the DB cluster is publicly accessible.
+        :param pulumi.Input['DbClusterReadEndpointArgs'] read_endpoint: This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+               
+               - `CreateDBInstance`
+               - `DescribeDBInstances`
+               - `DeleteDBInstance`
+               
+               For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
@@ -745,6 +752,15 @@ class DbClusterArgs:
     @property
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> Optional[pulumi.Input['DbClusterReadEndpointArgs']]:
+        """
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+
+        - `CreateDBInstance`
+        - `DescribeDBInstances`
+        - `DeleteDBInstance`
+
+        For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+        """
         return pulumi.get(self, "read_endpoint")
 
     @read_endpoint.setter
@@ -1022,6 +1038,13 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] publicly_accessible: A value that indicates whether the DB cluster is publicly accessible.
+        :param pulumi.Input[pulumi.InputType['DbClusterReadEndpointArgs']] read_endpoint: This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+               
+               - `CreateDBInstance`
+               - `DescribeDBInstances`
+               - `DeleteDBInstance`
+               
+               For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
@@ -1627,6 +1650,15 @@ class DbCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> pulumi.Output[Optional['outputs.DbClusterReadEndpoint']]:
+        """
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+
+        - `CreateDBInstance`
+        - `DescribeDBInstances`
+        - `DeleteDBInstance`
+
+        For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+        """
         return pulumi.get(self, "read_endpoint")
 
     @property

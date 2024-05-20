@@ -172,6 +172,7 @@ import (
 type SimulationApplication struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the simulation application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The current revision id.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
@@ -187,7 +188,8 @@ type SimulationApplication struct {
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteOutput `pulumi:"simulationSoftwareSuite"`
 	// The sources of the simulation application.
 	Sources SimulationApplicationSourceConfigArrayOutput `pulumi:"sources"`
-	Tags    pulumi.StringMapOutput                       `pulumi:"tags"`
+	// A map that contains tag keys and tag values that are attached to the simulation application.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSimulationApplication registers a new resource with the given unique name, arguments, and options.
@@ -254,7 +256,8 @@ type simulationApplicationArgs struct {
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
 	// The sources of the simulation application.
 	Sources []SimulationApplicationSourceConfig `pulumi:"sources"`
-	Tags    map[string]string                   `pulumi:"tags"`
+	// A map that contains tag keys and tag values that are attached to the simulation application.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SimulationApplication resource.
@@ -273,7 +276,8 @@ type SimulationApplicationArgs struct {
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteInput
 	// The sources of the simulation application.
 	Sources SimulationApplicationSourceConfigArrayInput
-	Tags    pulumi.StringMapInput
+	// A map that contains tag keys and tag values that are attached to the simulation application.
+	Tags pulumi.StringMapInput
 }
 
 func (SimulationApplicationArgs) ElementType() reflect.Type {
@@ -313,6 +317,7 @@ func (o SimulationApplicationOutput) ToSimulationApplicationOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the simulation application.
 func (o SimulationApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimulationApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -356,6 +361,7 @@ func (o SimulationApplicationOutput) Sources() SimulationApplicationSourceConfig
 	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationSourceConfigArrayOutput { return v.Sources }).(SimulationApplicationSourceConfigArrayOutput)
 }
 
+// A map that contains tag keys and tag values that are attached to the simulation application.
 func (o SimulationApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SimulationApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

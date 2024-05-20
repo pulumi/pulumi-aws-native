@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SystemsManagerSap
     [AwsNativeResourceType("aws-native:systemsmanagersap:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the application.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the application.
+        /// </summary>
         [Output("applicationType")]
         public Output<Pulumi.AwsNative.SystemsManagerSap.ApplicationType> ApplicationType { get; private set; } = null!;
 
@@ -27,15 +33,27 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The credentials of the SAP application.
+        /// </summary>
         [Output("credentials")]
         public Output<ImmutableArray<Outputs.ApplicationCredential>> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon EC2 instances on which your SAP application is running.
+        /// </summary>
         [Output("instances")]
         public Output<ImmutableArray<string>> Instances { get; private set; } = null!;
 
+        /// <summary>
+        /// The SAP instance number of the application.
+        /// </summary>
         [Output("sapInstanceNumber")]
         public Output<string?> SapInstanceNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// The System ID of the application.
+        /// </summary>
         [Output("sid")]
         public Output<string?> Sid { get; private set; } = null!;
 
@@ -97,14 +115,24 @@ namespace Pulumi.AwsNative.SystemsManagerSap
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the application.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the application.
+        /// </summary>
         [Input("applicationType", required: true)]
         public Input<Pulumi.AwsNative.SystemsManagerSap.ApplicationType> ApplicationType { get; set; } = null!;
 
         [Input("credentials")]
         private InputList<Inputs.ApplicationCredentialArgs>? _credentials;
+
+        /// <summary>
+        /// The credentials of the SAP application.
+        /// </summary>
         public InputList<Inputs.ApplicationCredentialArgs> Credentials
         {
             get => _credentials ?? (_credentials = new InputList<Inputs.ApplicationCredentialArgs>());
@@ -113,15 +141,25 @@ namespace Pulumi.AwsNative.SystemsManagerSap
 
         [Input("instances")]
         private InputList<string>? _instances;
+
+        /// <summary>
+        /// The Amazon EC2 instances on which your SAP application is running.
+        /// </summary>
         public InputList<string> Instances
         {
             get => _instances ?? (_instances = new InputList<string>());
             set => _instances = value;
         }
 
+        /// <summary>
+        /// The SAP instance number of the application.
+        /// </summary>
         [Input("sapInstanceNumber")]
         public Input<string>? SapInstanceNumber { get; set; }
 
+        /// <summary>
+        /// The System ID of the application.
+        /// </summary>
         [Input("sid")]
         public Input<string>? Sid { get; set; }
 

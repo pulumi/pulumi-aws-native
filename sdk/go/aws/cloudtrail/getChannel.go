@@ -23,14 +23,17 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
+	// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
 	ChannelArn string `pulumi:"channelArn"`
 }
 
 type LookupChannelResult struct {
+	// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
 	ChannelArn *string `pulumi:"channelArn"`
 	// One or more resources to which events arriving through a channel are logged and stored.
 	Destinations []ChannelDestination `pulumi:"destinations"`
-	Name         *string              `pulumi:"name"`
+	// The name of the channel.
+	Name *string `pulumi:"name"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -47,6 +50,7 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 }
 
 type LookupChannelOutputArgs struct {
+	// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
 	ChannelArn pulumi.StringInput `pulumi:"channelArn"`
 }
 
@@ -68,6 +72,7 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx co
 	return o
 }
 
+// `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
 func (o LookupChannelResultOutput) ChannelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ChannelArn }).(pulumi.StringPtrOutput)
 }
@@ -77,6 +82,7 @@ func (o LookupChannelResultOutput) Destinations() ChannelDestinationArrayOutput 
 	return o.ApplyT(func(v LookupChannelResult) []ChannelDestination { return v.Destinations }).(ChannelDestinationArrayOutput)
 }
 
+// The name of the channel.
 func (o LookupChannelResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

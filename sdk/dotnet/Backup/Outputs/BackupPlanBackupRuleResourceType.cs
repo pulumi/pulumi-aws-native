@@ -13,15 +13,47 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupPlanBackupRuleResourceType
     {
+        /// <summary>
+        /// A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
+        /// </summary>
         public readonly double? CompletionWindowMinutes;
+        /// <summary>
+        /// An array of CopyAction objects, which contains the details of the copy operation.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanCopyActionResourceType> CopyActions;
+        /// <summary>
+        /// Enables continuous backup and point-in-time restores (PITR).
+        /// </summary>
         public readonly bool? EnableContinuousBackup;
+        /// <summary>
+        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
+        /// </summary>
         public readonly Outputs.BackupPlanLifecycleResourceType? Lifecycle;
+        /// <summary>
+        /// The tags to assign to the resources.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
+        /// <summary>
+        /// A display name for a backup rule.
+        /// </summary>
         public readonly string RuleName;
+        /// <summary>
+        /// A CRON expression specifying when AWS Backup initiates a backup job.
+        /// </summary>
         public readonly string? ScheduleExpression;
+        /// <summary>
+        /// This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        /// </summary>
         public readonly string? ScheduleExpressionTimezone;
+        /// <summary>
+        /// An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
+        /// 
+        /// If this value is included, it must be at least 60 minutes to avoid errors.
+        /// </summary>
         public readonly double? StartWindowMinutes;
+        /// <summary>
+        /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
+        /// </summary>
         public readonly string TargetBackupVault;
 
         [OutputConstructor]

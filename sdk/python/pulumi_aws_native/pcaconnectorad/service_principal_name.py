@@ -18,6 +18,8 @@ class ServicePrincipalNameArgs:
                  directory_registration_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServicePrincipalName resource.
+        :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        :param pulumi.Input[str] directory_registration_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         """
         if connector_arn is not None:
             pulumi.set(__self__, "connector_arn", connector_arn)
@@ -27,6 +29,9 @@ class ServicePrincipalNameArgs:
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        """
         return pulumi.get(self, "connector_arn")
 
     @connector_arn.setter
@@ -36,6 +41,9 @@ class ServicePrincipalNameArgs:
     @property
     @pulumi.getter(name="directoryRegistrationArn")
     def directory_registration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        """
         return pulumi.get(self, "directory_registration_arn")
 
     @directory_registration_arn.setter
@@ -56,6 +64,8 @@ class ServicePrincipalName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        :param pulumi.Input[str] directory_registration_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         """
         ...
     @overload
@@ -125,10 +135,16 @@ class ServicePrincipalName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        """
         return pulumi.get(self, "connector_arn")
 
     @property
     @pulumi.getter(name="directoryRegistrationArn")
     def directory_registration_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        """
         return pulumi.get(self, "directory_registration_arn")
 

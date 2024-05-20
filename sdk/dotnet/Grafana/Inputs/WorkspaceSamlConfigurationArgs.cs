@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Grafana.Inputs
             set => _allowedOrganizations = value;
         }
 
+        /// <summary>
+        /// A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
+        /// </summary>
         [Input("assertionAttributes")]
         public Input<Inputs.WorkspaceAssertionAttributesArgs>? AssertionAttributes { get; set; }
 
+        /// <summary>
+        /// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
+        /// </summary>
         [Input("idpMetadata", required: true)]
         public Input<Inputs.WorkspaceIdpMetadataArgs> IdpMetadata { get; set; } = null!;
 
@@ -39,6 +45,9 @@ namespace Pulumi.AwsNative.Grafana.Inputs
         [Input("loginValidityDuration")]
         public Input<double>? LoginValidityDuration { get; set; }
 
+        /// <summary>
+        /// A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
+        /// </summary>
         [Input("roleValues")]
         public Input<Inputs.WorkspaceRoleValuesArgs>? RoleValues { get; set; }
 

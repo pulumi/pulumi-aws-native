@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.CloudTrail
 
     public sealed class GetTrailArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the name of the trail. The name must meet the following requirements:
+        /// 
+        /// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+        /// - Start with a letter or number, and end with a letter or number
+        /// - Be between 3 and 128 characters
+        /// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+        /// - Not be in IP address format (for example, 192.168.5.4)
+        /// </summary>
         [Input("trailName", required: true)]
         public string TrailName { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.CloudTrail
 
     public sealed class GetTrailInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Specifies the name of the trail. The name must meet the following requirements:
+        /// 
+        /// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+        /// - Start with a letter or number, and end with a letter or number
+        /// - Be between 3 and 128 characters
+        /// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+        /// - Not be in IP address format (for example, 192.168.5.4)
+        /// </summary>
         [Input("trailName", required: true)]
         public Input<string> TrailName { get; set; } = null!;
 
@@ -55,6 +73,9 @@ namespace Pulumi.AwsNative.CloudTrail
         /// The advanced event selectors that were used to select events for the data store.
         /// </summary>
         public readonly ImmutableArray<Outputs.TrailAdvancedEventSelector> AdvancedEventSelectors;
+        /// <summary>
+        /// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -104,11 +125,17 @@ namespace Pulumi.AwsNative.CloudTrail
         /// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         /// </summary>
         public readonly string? S3KeyPrefix;
+        /// <summary>
+        /// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        /// </summary>
         public readonly string? SnsTopicArn;
         /// <summary>
         /// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
         /// </summary>
         public readonly string? SnsTopicName;
+        /// <summary>
+        /// A custom set of tags (key-value pairs) for this trail.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

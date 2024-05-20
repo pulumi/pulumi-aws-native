@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// A name for Redshift DataAPI statement which can be used as filter of ListStatement.
         /// </summary>
         public readonly string? StatementName;
+        /// <summary>
+        /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        /// </summary>
         public readonly bool? WithEvent;
 
         [OutputConstructor]

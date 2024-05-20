@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardNegativeValueConfiguration
     {
+        /// <summary>
+        /// Determines the display mode of the negative value configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardNegativeValueDisplayMode DisplayMode;
 
         [OutputConstructor]

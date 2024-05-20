@@ -111,6 +111,9 @@ export class Volume extends pulumi.CustomResource {
      *  Valid Range: Minimum value of 125. Maximum value of 1000.
      */
     public readonly throughput!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the volume.
+     */
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The volume type. This parameter can be one of the following values:

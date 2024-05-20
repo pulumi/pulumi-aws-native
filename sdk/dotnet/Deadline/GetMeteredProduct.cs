@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetMeteredProductArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the metered product.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetMeteredProductInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the metered product.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetMeteredProductResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the metered product.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The family to which the metered product belongs.
+        /// </summary>
         public readonly string? Family;
+        /// <summary>
+        /// The port on which the metered product should run.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The vendor.
+        /// </summary>
         public readonly string? Vendor;
 
         [OutputConstructor]

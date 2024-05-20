@@ -37,18 +37,57 @@ export class WebExperience extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebExperience.__pulumiType;
     }
 
+    /**
+     * The identifier of the Amazon Q Business web experience.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The Unix timestamp when the Amazon Q Business application was last updated.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
+     */
     public /*out*/ readonly defaultEndpoint!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the service role attached to your web experience.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Determines whether sample prompts are enabled in the web experience for an end user.
+     */
     public readonly samplePromptsControlMode!: pulumi.Output<enums.qbusiness.WebExperienceSamplePromptsControlMode | undefined>;
+    /**
+     * The status of your Amazon Q Business web experience.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.WebExperienceStatus>;
+    /**
+     * A subtitle to personalize your Amazon Q Business web experience.
+     */
     public readonly subtitle!: pulumi.Output<string | undefined>;
+    /**
+     * A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The title for your Amazon Q Business web experience.
+     */
     public readonly title!: pulumi.Output<string | undefined>;
+    /**
+     * The Unix timestamp when your Amazon Q Business web experience was updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
+     */
     public /*out*/ readonly webExperienceArn!: pulumi.Output<string>;
+    /**
+     * The identifier of your Amazon Q Business web experience.
+     */
     public /*out*/ readonly webExperienceId!: pulumi.Output<string>;
+    /**
+     * A message in an Amazon Q Business web experience.
+     */
     public readonly welcomeMessage!: pulumi.Output<string | undefined>;
 
     /**
@@ -104,11 +143,32 @@ export class WebExperience extends pulumi.CustomResource {
  * The set of arguments for constructing a WebExperience resource.
  */
 export interface WebExperienceArgs {
+    /**
+     * The identifier of the Amazon Q Business web experience.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the service role attached to your web experience.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Determines whether sample prompts are enabled in the web experience for an end user.
+     */
     samplePromptsControlMode?: pulumi.Input<enums.qbusiness.WebExperienceSamplePromptsControlMode>;
+    /**
+     * A subtitle to personalize your Amazon Q Business web experience.
+     */
     subtitle?: pulumi.Input<string>;
+    /**
+     * A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The title for your Amazon Q Business web experience.
+     */
     title?: pulumi.Input<string>;
+    /**
+     * A message in an Amazon Q Business web experience.
+     */
     welcomeMessage?: pulumi.Input<string>;
 }

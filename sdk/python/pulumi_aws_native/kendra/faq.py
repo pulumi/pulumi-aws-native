@@ -34,6 +34,7 @@ class FaqArgs:
         :param pulumi.Input['FaqS3PathArgs'] s3_path: FAQ S3 path
         :param pulumi.Input[str] description: FAQ description
         :param pulumi.Input['FaqFileFormat'] file_format: FAQ file format
+        :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
         :param pulumi.Input[str] name: FAQ name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for labeling the FAQ
         """
@@ -114,6 +115,9 @@ class FaqArgs:
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -167,6 +171,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] description: FAQ description
         :param pulumi.Input['FaqFileFormat'] file_format: FAQ file format
         :param pulumi.Input[str] index_id: Index ID
+        :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
         :param pulumi.Input[str] name: FAQ name
         :param pulumi.Input[str] role_arn: FAQ role ARN
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: FAQ S3 path
@@ -268,11 +273,19 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/faq/f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the FAQ. For example:
+
+        `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -302,6 +315,9 @@ class Faq(pulumi.CustomResource):
     @property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[Optional[str]]:
+        """
+        The code for a language. This shows a supported language for the FAQ document as part of the summary information for FAQs. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        """
         return pulumi.get(self, "language_code")
 
     @property

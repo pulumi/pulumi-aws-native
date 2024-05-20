@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisAttributeAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The built-in aggregation functions for attributes.
+        /// 
+        /// - `UNIQUE_VALUE` : Returns the unique value for a field, aggregated by the dimension fields.
+        /// </summary>
         [Input("simpleAttributeAggregation")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSimpleAttributeAggregationFunction>? SimpleAttributeAggregation { get; set; }
 
+        /// <summary>
+        /// Used by the `UNIQUE_VALUE` aggregation function. If there are multiple values for the field used by the aggregation, the value for this property will be returned instead. Defaults to '*'.
+        /// </summary>
         [Input("valueForMultipleValues")]
         public Input<string>? ValueForMultipleValues { get; set; }
 

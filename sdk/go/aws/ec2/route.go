@@ -22,7 +22,8 @@ type Route struct {
 	// The ID of the carrier gateway.
 	//  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrOutput `pulumi:"carrierGatewayId"`
-	CidrBlock        pulumi.StringOutput    `pulumi:"cidrBlock"`
+	// The IPv4 CIDR block.
+	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// The Amazon Resource Name (ARN) of the core network.
 	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
@@ -215,6 +216,7 @@ func (o RouteOutput) CarrierGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.CarrierGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 CIDR block.
 func (o RouteOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
 }

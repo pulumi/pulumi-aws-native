@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeTileStyle
     {
+        /// <summary>
+        /// The border around a tile.
+        /// </summary>
         public readonly Outputs.ThemeBorderStyle? Border;
 
         [OutputConstructor]

@@ -23,14 +23,16 @@ type EndpointGroup struct {
 	// The name of the AWS Region where the endpoint group is located
 	EndpointGroupRegion pulumi.StringOutput `pulumi:"endpointGroupRegion"`
 	// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
-	HealthCheckIntervalSeconds pulumi.IntPtrOutput    `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckPath            pulumi.StringPtrOutput `pulumi:"healthCheckPath"`
+	HealthCheckIntervalSeconds pulumi.IntPtrOutput `pulumi:"healthCheckIntervalSeconds"`
+	// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+	HealthCheckPath pulumi.StringPtrOutput `pulumi:"healthCheckPath"`
 	// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckPort pulumi.IntPtrOutput `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckProtocol EndpointGroupHealthCheckProtocolPtrOutput `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener
-	ListenerArn   pulumi.StringOutput                  `pulumi:"listenerArn"`
+	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
+	// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 	PortOverrides EndpointGroupPortOverrideArrayOutput `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
 	ThresholdCount pulumi.IntPtrOutput `pulumi:"thresholdCount"`
@@ -94,14 +96,16 @@ type endpointGroupArgs struct {
 	// The name of the AWS Region where the endpoint group is located
 	EndpointGroupRegion string `pulumi:"endpointGroupRegion"`
 	// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
-	HealthCheckIntervalSeconds *int    `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckPath            *string `pulumi:"healthCheckPath"`
+	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
+	// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckProtocol *EndpointGroupHealthCheckProtocol `pulumi:"healthCheckProtocol"`
 	// The Amazon Resource Name (ARN) of the listener
-	ListenerArn   string                      `pulumi:"listenerArn"`
+	ListenerArn string `pulumi:"listenerArn"`
+	// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
 	ThresholdCount *int `pulumi:"thresholdCount"`
@@ -117,13 +121,15 @@ type EndpointGroupArgs struct {
 	EndpointGroupRegion pulumi.StringInput
 	// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
-	HealthCheckPath            pulumi.StringPtrInput
+	// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+	HealthCheckPath pulumi.StringPtrInput
 	// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckPort pulumi.IntPtrInput
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckProtocol EndpointGroupHealthCheckProtocolPtrInput
 	// The Amazon Resource Name (ARN) of the listener
-	ListenerArn   pulumi.StringInput
+	ListenerArn pulumi.StringInput
+	// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 	PortOverrides EndpointGroupPortOverrideArrayInput
 	// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
 	ThresholdCount pulumi.IntPtrInput
@@ -188,6 +194,7 @@ func (o EndpointGroupOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.IntPtrOutput { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
 func (o EndpointGroupOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringPtrOutput { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
@@ -207,6 +214,7 @@ func (o EndpointGroupOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
+// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 func (o EndpointGroupOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
 	return o.ApplyT(func(v *EndpointGroup) EndpointGroupPortOverrideArrayOutput { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
 }

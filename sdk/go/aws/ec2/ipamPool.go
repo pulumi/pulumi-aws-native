@@ -32,8 +32,9 @@ type IpamPool struct {
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
 	AutoImport pulumi.BoolPtrOutput `pulumi:"autoImport"`
 	// Limits which service in Amazon Web Services that the pool can be used in.
-	AwsService  IpamPoolAwsServicePtrOutput `pulumi:"awsService"`
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
+	AwsService IpamPoolAwsServicePtrOutput `pulumi:"awsService"`
+	// The description of the IPAM pool.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IPAM this pool is a part of.
 	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
 	// Id of the IPAM Pool.
@@ -55,8 +56,9 @@ type IpamPool struct {
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable pulumi.BoolPtrOutput `pulumi:"publiclyAdvertisable"`
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-	SourceIpamPoolId pulumi.StringPtrOutput          `pulumi:"sourceIpamPoolId"`
-	SourceResource   IpamPoolSourceResourcePtrOutput `pulumi:"sourceResource"`
+	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
+	// The resource used to provision CIDRs to a resource planning pool.
+	SourceResource IpamPoolSourceResourcePtrOutput `pulumi:"sourceResource"`
 	// The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
 	State IpamPoolStateEnumOutput `pulumi:"state"`
 	// An explanation of how the pool arrived at it current state.
@@ -135,8 +137,9 @@ type ipamPoolArgs struct {
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
 	AutoImport *bool `pulumi:"autoImport"`
 	// Limits which service in Amazon Web Services that the pool can be used in.
-	AwsService  *IpamPoolAwsService `pulumi:"awsService"`
-	Description *string             `pulumi:"description"`
+	AwsService *IpamPoolAwsService `pulumi:"awsService"`
+	// The description of the IPAM pool.
+	Description *string `pulumi:"description"`
 	// The Id of the scope this pool is a part of.
 	IpamScopeId string `pulumi:"ipamScopeId"`
 	// The region of this pool. If not set, this will default to "None" which will disable non-custom allocations. If the locale has been specified for the source pool, this value must match.
@@ -148,8 +151,9 @@ type ipamPoolArgs struct {
 	// Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
-	SourceIpamPoolId *string                 `pulumi:"sourceIpamPoolId"`
-	SourceResource   *IpamPoolSourceResource `pulumi:"sourceResource"`
+	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
+	// The resource used to provision CIDRs to a resource planning pool.
+	SourceResource *IpamPoolSourceResource `pulumi:"sourceResource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -169,7 +173,8 @@ type IpamPoolArgs struct {
 	// Determines what to do if IPAM discovers resources that haven't been assigned an allocation. If set to true, an allocation will be made automatically.
 	AutoImport pulumi.BoolPtrInput
 	// Limits which service in Amazon Web Services that the pool can be used in.
-	AwsService  IpamPoolAwsServicePtrInput
+	AwsService IpamPoolAwsServicePtrInput
+	// The description of the IPAM pool.
 	Description pulumi.StringPtrInput
 	// The Id of the scope this pool is a part of.
 	IpamScopeId pulumi.StringInput
@@ -183,7 +188,8 @@ type IpamPoolArgs struct {
 	PubliclyAdvertisable pulumi.BoolPtrInput
 	// The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.
 	SourceIpamPoolId pulumi.StringPtrInput
-	SourceResource   IpamPoolSourceResourcePtrInput
+	// The resource used to provision CIDRs to a resource planning pool.
+	SourceResource IpamPoolSourceResourcePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -265,6 +271,7 @@ func (o IpamPoolOutput) AwsService() IpamPoolAwsServicePtrOutput {
 	return o.ApplyT(func(v *IpamPool) IpamPoolAwsServicePtrOutput { return v.AwsService }).(IpamPoolAwsServicePtrOutput)
 }
 
+// The description of the IPAM pool.
 func (o IpamPoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -324,6 +331,7 @@ func (o IpamPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamPool) pulumi.StringPtrOutput { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
 }
 
+// The resource used to provision CIDRs to a resource planning pool.
 func (o IpamPoolOutput) SourceResource() IpamPoolSourceResourcePtrOutput {
 	return o.ApplyT(func(v *IpamPool) IpamPoolSourceResourcePtrOutput { return v.SourceResource }).(IpamPoolSourceResourcePtrOutput)
 }

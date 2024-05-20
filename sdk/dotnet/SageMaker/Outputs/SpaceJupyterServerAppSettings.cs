@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceJupyterServerAppSettings
     {
+        /// <summary>
+        /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+        /// </summary>
         public readonly Outputs.SpaceResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]

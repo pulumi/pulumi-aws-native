@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
     [OutputType]
     public sealed class ComponentTypeStatus
     {
+        /// <summary>
+        /// The component type error.
+        /// </summary>
         public readonly Union<object, Outputs.ComponentTypeStatusErrorProperties>? Error;
+        /// <summary>
+        /// The component type status state.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoTTwinMaker.ComponentTypeStatusState? State;
 
         [OutputConstructor]

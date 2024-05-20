@@ -39,26 +39,41 @@ class GetQueueEnvironmentResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the queue environment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> Optional[int]:
+        """
+        The queue environment's priority.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="queueEnvironmentId")
     def queue_environment_id(self) -> Optional[str]:
+        """
+        The queue environment ID.
+        """
         return pulumi.get(self, "queue_environment_id")
 
     @property
     @pulumi.getter
     def template(self) -> Optional[str]:
+        """
+        A JSON or YAML template the describes the processing environment for the queue.
+        """
         return pulumi.get(self, "template")
 
     @property
     @pulumi.getter(name="templateType")
     def template_type(self) -> Optional['QueueEnvironmentEnvironmentTemplateType']:
+        """
+        Specifies whether the template for the queue environment is JSON or YAML.
+        """
         return pulumi.get(self, "template_type")
 
 
@@ -81,6 +96,11 @@ def get_queue_environment(farm_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueEnvironmentResult:
     """
     Definition of AWS::Deadline::QueueEnvironment Resource Type
+
+
+    :param str farm_id: The identifier assigned to the farm that contains the queue.
+    :param str queue_environment_id: The queue environment ID.
+    :param str queue_id: The unique identifier of the queue that contains the environment.
     """
     __args__ = dict()
     __args__['farmId'] = farm_id
@@ -104,5 +124,10 @@ def get_queue_environment_output(farm_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueEnvironmentResult]:
     """
     Definition of AWS::Deadline::QueueEnvironment Resource Type
+
+
+    :param str farm_id: The identifier assigned to the farm that contains the queue.
+    :param str queue_environment_id: The queue environment ID.
+    :param str queue_id: The unique identifier of the queue that contains the environment.
     """
     ...

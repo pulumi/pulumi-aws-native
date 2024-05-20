@@ -114,6 +114,9 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the account. For example: `abc123` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property

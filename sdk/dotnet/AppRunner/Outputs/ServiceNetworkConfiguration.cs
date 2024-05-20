@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceNetworkConfiguration
     {
+        /// <summary>
+        /// Network configuration settings for outbound message traffic.
+        /// </summary>
         public readonly Outputs.ServiceEgressConfiguration? EgressConfiguration;
+        /// <summary>
+        /// Network configuration settings for inbound message traffic.
+        /// </summary>
         public readonly Outputs.ServiceIngressConfiguration? IngressConfiguration;
         /// <summary>
         /// App Runner service endpoint IP address type

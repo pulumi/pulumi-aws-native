@@ -25,6 +25,15 @@ class GeofenceCollectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GeofenceCollection resource.
+        :param pulumi.Input[str] collection_name: A custom name for the geofence collection.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+               - Must be a unique geofence collection name.
+               - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        :param pulumi.Input[str] description: An optional description for the geofence collection.
+        :param pulumi.Input[str] kms_key_id: A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
         :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -44,6 +53,15 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom name for the geofence collection.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        - Must be a unique geofence collection name.
+        - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
@@ -53,6 +71,9 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description for the geofence collection.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -62,6 +83,9 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -119,6 +143,15 @@ class GeofenceCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] collection_name: A custom name for the geofence collection.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+               - Must be a unique geofence collection name.
+               - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        :param pulumi.Input[str] description: An optional description for the geofence collection.
+        :param pulumi.Input[str] kms_key_id: A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
         :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -210,31 +243,59 @@ class GeofenceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collectionArn")
     def collection_arn(self) -> pulumi.Output[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        """
         return pulumi.get(self, "collection_arn")
 
     @property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> pulumi.Output[str]:
+        """
+        A custom name for the geofence collection.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        - Must be a unique geofence collection name.
+        - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        """
         return pulumi.get(self, "collection_name")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description for the geofence collection.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
@@ -261,5 +322,8 @@ class GeofenceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 

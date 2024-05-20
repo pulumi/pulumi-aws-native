@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// The ARN of the Lambda function that is executed.
         /// </summary>
         public readonly string FunctionArn;
+        /// <summary>
+        /// You can configure the action payload when you send a message to a Lambda function.
+        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
 
         [OutputConstructor]

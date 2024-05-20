@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetMissionProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetMissionProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,6 +69,9 @@ namespace Pulumi.AwsNative.GroundStation
     [OutputType]
     public sealed class GetMissionProfileResult
     {
+        /// <summary>
+        /// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Post-pass time needed after the contact.
@@ -66,7 +81,13 @@ namespace Pulumi.AwsNative.GroundStation
         /// Pre-pass time needed before the contact.
         /// </summary>
         public readonly int? ContactPrePassDurationSeconds;
+        /// <summary>
+        /// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MissionProfileDataflowEdge> DataflowEdges;
+        /// <summary>
+        /// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
@@ -76,6 +97,9 @@ namespace Pulumi.AwsNative.GroundStation
         /// A name used to identify a mission profile.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The region of the mission profile.
+        /// </summary>
         public readonly string? Region;
         /// <summary>
         /// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
@@ -85,7 +109,13 @@ namespace Pulumi.AwsNative.GroundStation
         /// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         /// </summary>
         public readonly string? StreamsKmsRole;
+        /// <summary>
+        /// Tags assigned to the mission profile.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+        /// </summary>
         public readonly string? TrackingConfigArn;
 
         [OutputConstructor]

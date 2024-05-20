@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class IndexServerSideEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

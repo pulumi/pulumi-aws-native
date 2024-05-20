@@ -25,10 +25,12 @@ class ResiliencyPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
+        :param pulumi.Input['ResiliencyPolicyPolicyMapArgs'] policy: The resiliency policy.
         :param pulumi.Input['ResiliencyPolicyTier'] tier: Resiliency Policy Tier.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
         :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "tier", tier)
@@ -44,6 +46,9 @@ class ResiliencyPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input['ResiliencyPolicyPolicyMapArgs']:
+        """
+        The resiliency policy.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -101,6 +106,9 @@ class ResiliencyPolicyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -126,8 +134,10 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
+        :param pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']] policy: The resiliency policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
         :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
         :param pulumi.Input['ResiliencyPolicyTier'] tier: Resiliency Policy Tier.
         """
         ...
@@ -222,6 +232,9 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.ResiliencyPolicyPolicyMap']:
+        """
+        The resiliency policy.
+        """
         return pulumi.get(self, "policy")
 
     @property
@@ -251,6 +264,9 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -24,18 +24,27 @@ func LookupCapability(ctx *pulumi.Context, args *LookupCapabilityArgs, opts ...p
 }
 
 type LookupCapabilityArgs struct {
+	// Returns a system-assigned unique identifier for the capability.
 	CapabilityId string `pulumi:"capabilityId"`
 }
 
 type LookupCapabilityResult struct {
-	CapabilityArn         *string                            `pulumi:"capabilityArn"`
-	CapabilityId          *string                            `pulumi:"capabilityId"`
-	Configuration         *CapabilityConfigurationProperties `pulumi:"configuration"`
-	CreatedAt             *string                            `pulumi:"createdAt"`
-	InstructionsDocuments []CapabilityS3Location             `pulumi:"instructionsDocuments"`
-	ModifiedAt            *string                            `pulumi:"modifiedAt"`
-	Name                  *string                            `pulumi:"name"`
-	Tags                  []aws.Tag                          `pulumi:"tags"`
+	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+	CapabilityArn *string `pulumi:"capabilityArn"`
+	// Returns a system-assigned unique identifier for the capability.
+	CapabilityId *string `pulumi:"capabilityId"`
+	// Specifies a structure that contains the details for a capability.
+	Configuration *CapabilityConfigurationProperties `pulumi:"configuration"`
+	// Returns a timestamp for creation date and time of the capability.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+	InstructionsDocuments []CapabilityS3Location `pulumi:"instructionsDocuments"`
+	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The display name of the capability.
+	Name *string `pulumi:"name"`
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCapabilityOutput(ctx *pulumi.Context, args LookupCapabilityOutputArgs, opts ...pulumi.InvokeOption) LookupCapabilityResultOutput {
@@ -52,6 +61,7 @@ func LookupCapabilityOutput(ctx *pulumi.Context, args LookupCapabilityOutputArgs
 }
 
 type LookupCapabilityOutputArgs struct {
+	// Returns a system-assigned unique identifier for the capability.
 	CapabilityId pulumi.StringInput `pulumi:"capabilityId"`
 }
 
@@ -73,34 +83,42 @@ func (o LookupCapabilityResultOutput) ToLookupCapabilityResultOutputWithContext(
 	return o
 }
 
+// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 func (o LookupCapabilityResultOutput) CapabilityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CapabilityArn }).(pulumi.StringPtrOutput)
 }
 
+// Returns a system-assigned unique identifier for the capability.
 func (o LookupCapabilityResultOutput) CapabilityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CapabilityId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a structure that contains the details for a capability.
 func (o LookupCapabilityResultOutput) Configuration() CapabilityConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *CapabilityConfigurationProperties { return v.Configuration }).(CapabilityConfigurationPropertiesPtrOutput)
 }
 
+// Returns a timestamp for creation date and time of the capability.
 func (o LookupCapabilityResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 func (o LookupCapabilityResultOutput) InstructionsDocuments() CapabilityS3LocationArrayOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) []CapabilityS3Location { return v.InstructionsDocuments }).(CapabilityS3LocationArrayOutput)
 }
 
+// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 func (o LookupCapabilityResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the capability.
 func (o LookupCapabilityResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 func (o LookupCapabilityResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

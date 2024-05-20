@@ -54,51 +54,81 @@ class GetProfileResult:
     @property
     @pulumi.getter(name="durationSeconds")
     def duration_seconds(self) -> Optional[float]:
+        """
+        The number of seconds vended session credentials will be valid for
+        """
         return pulumi.get(self, "duration_seconds")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        The enabled status of the resource.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The customer specified name of the resource.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="profileArn")
     def profile_arn(self) -> Optional[str]:
+        """
+        The ARN of the profile.
+        """
         return pulumi.get(self, "profile_arn")
 
     @property
     @pulumi.getter(name="profileId")
     def profile_id(self) -> Optional[str]:
+        """
+        The unique primary identifier of the Profile
+        """
         return pulumi.get(self, "profile_id")
 
     @property
     @pulumi.getter(name="requireInstanceProperties")
     def require_instance_properties(self) -> Optional[bool]:
+        """
+        Specifies whether instance properties are required in CreateSession requests with this profile.
+        """
         return pulumi.get(self, "require_instance_properties")
 
     @property
     @pulumi.getter(name="roleArns")
     def role_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        """
         return pulumi.get(self, "role_arns")
 
     @property
     @pulumi.getter(name="sessionPolicy")
     def session_policy(self) -> Optional[str]:
+        """
+        A session policy that will applied to the trust boundary of the vended session credentials.
+        """
         return pulumi.get(self, "session_policy")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of Tags.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -124,6 +154,9 @@ def get_profile(profile_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
     Definition of AWS::RolesAnywhere::Profile Resource Type
+
+
+    :param str profile_id: The unique primary identifier of the Profile
     """
     __args__ = dict()
     __args__['profileId'] = profile_id
@@ -148,5 +181,8 @@ def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
     Definition of AWS::RolesAnywhere::Profile Resource Type
+
+
+    :param str profile_id: The unique primary identifier of the Profile
     """
     ...

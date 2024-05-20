@@ -33,16 +33,25 @@ class GetKeyGroupResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier for the key group.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> Optional['outputs.KeyGroupConfig']:
+        """
+        The key group configuration.
+        """
         return pulumi.get(self, "key_group_config")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the key group was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
 
@@ -61,6 +70,9 @@ def get_key_group(id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyGroupResult:
     """
     Resource Type definition for AWS::CloudFront::KeyGroup
+
+
+    :param str id: The identifier for the key group.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_key_group_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyGroupResult]:
     """
     Resource Type definition for AWS::CloudFront::KeyGroup
+
+
+    :param str id: The identifier for the key group.
     """
     ...

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDataPathValue
     {
+        /// <summary>
+        /// The type configuration of the field.
+        /// </summary>
         public readonly Outputs.AnalysisDataPathType? DataPathType;
+        /// <summary>
+        /// The field ID of the field that needs to be sorted.
+        /// </summary>
         public readonly string? FieldId;
+        /// <summary>
+        /// The actual value of the field that needs to be sorted.
+        /// </summary>
         public readonly string? FieldValue;
 
         [OutputConstructor]

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
         /// </summary>
         public readonly string CredentialsSecretArn;
+        /// <summary>
+        /// Contains the names of the fields to which to map information about the vector store.
+        /// </summary>
         public readonly Outputs.KnowledgeBasePineconeFieldMapping FieldMapping;
         /// <summary>
         /// The namespace to be used to write new data to your database.

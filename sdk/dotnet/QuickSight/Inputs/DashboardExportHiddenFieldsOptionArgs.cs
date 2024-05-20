@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardExportHiddenFieldsOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of the export hidden fields options of a dashbaord.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 

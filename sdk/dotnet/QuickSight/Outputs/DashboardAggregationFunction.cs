@@ -13,9 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAggregationFunction
     {
+        /// <summary>
+        /// Aggregation for attributes.
+        /// </summary>
         public readonly Outputs.DashboardAttributeAggregationFunction? AttributeAggregationFunction;
+        /// <summary>
+        /// Aggregation for categorical values.
+        /// 
+        /// - `COUNT` : Aggregate by the total number of values, including duplicates.
+        /// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardCategoricalAggregationFunction? CategoricalAggregationFunction;
+        /// <summary>
+        /// Aggregation for date values.
+        /// 
+        /// - `COUNT` : Aggregate by the total number of values, including duplicates.
+        /// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+        /// - `MIN` : Select the smallest date value.
+        /// - `MAX` : Select the largest date value.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardDateAggregationFunction? DateAggregationFunction;
+        /// <summary>
+        /// Aggregation for numerical values.
+        /// </summary>
         public readonly Outputs.DashboardNumericalAggregationFunction? NumericalAggregationFunction;
 
         [OutputConstructor]

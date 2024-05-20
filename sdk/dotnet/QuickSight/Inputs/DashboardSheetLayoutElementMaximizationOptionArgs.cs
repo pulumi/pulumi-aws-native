@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardSheetLayoutElementMaximizationOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of the sheet layout maximization options of a dashbaord.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 

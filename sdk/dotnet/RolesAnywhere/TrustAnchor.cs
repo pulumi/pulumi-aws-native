@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [AwsNativeResourceType("aws-native:rolesanywhere:TrustAnchor")]
     public partial class TrustAnchor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether the trust anchor is enabled.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the trust anchor.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of notification settings to be associated to the trust anchor.
+        /// </summary>
         [Output("notificationSettings")]
         public Output<ImmutableArray<Outputs.TrustAnchorNotificationSetting>> NotificationSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The trust anchor type and its related certificate data.
+        /// </summary>
         [Output("source")]
         public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to attach to the trust anchor.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the trust anchor.
+        /// </summary>
         [Output("trustAnchorArn")]
         public Output<string> TrustAnchorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the trust anchor.
+        /// </summary>
         [Output("trustAnchorId")]
         public Output<string> TrustAnchorId { get; private set; } = null!;
 
@@ -81,25 +102,42 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class TrustAnchorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the trust anchor is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the trust anchor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationSettings")]
         private InputList<Inputs.TrustAnchorNotificationSettingArgs>? _notificationSettings;
+
+        /// <summary>
+        /// A list of notification settings to be associated to the trust anchor.
+        /// </summary>
         public InputList<Inputs.TrustAnchorNotificationSettingArgs> NotificationSettings
         {
             get => _notificationSettings ?? (_notificationSettings = new InputList<Inputs.TrustAnchorNotificationSettingArgs>());
             set => _notificationSettings = value;
         }
 
+        /// <summary>
+        /// The trust anchor type and its related certificate data.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.TrustAnchorSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to attach to the trust anchor.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("architecture")]
         public Output<Pulumi.AwsNative.RoboMaker.RobotArchitecture> Architecture { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the robot.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -123,6 +129,10 @@ namespace Pulumi.AwsNative.RoboMaker
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the robot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

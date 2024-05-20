@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class AliasRoutingConfiguration
     {
+        /// <summary>
+        /// The second version, and the percentage of traffic that's routed to it.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AliasVersionWeight> AdditionalVersionWeights;
 
         [OutputConstructor]

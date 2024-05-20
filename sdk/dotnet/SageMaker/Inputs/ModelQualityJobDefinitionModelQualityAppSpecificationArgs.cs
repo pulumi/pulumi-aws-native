@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("postAnalyticsProcessorSourceUri")]
         public Input<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
+        /// <summary>
+        /// The machine learning problem type of the model that the monitoring job monitors.
+        /// </summary>
         [Input("problemType", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.ModelQualityJobDefinitionProblemType> ProblemType { get; set; } = null!;
 

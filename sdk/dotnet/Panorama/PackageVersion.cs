@@ -15,39 +15,75 @@ namespace Pulumi.AwsNative.Panorama
     [AwsNativeResourceType("aws-native:panorama:PackageVersion")]
     public partial class PackageVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether the package version is the latest version.
+        /// </summary>
         [Output("isLatestPatch")]
         public Output<bool> IsLatestPatch { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to mark the new version as the latest version.
+        /// </summary>
         [Output("markLatest")]
         public Output<bool?> MarkLatest { get; private set; } = null!;
 
+        /// <summary>
+        /// An owner account.
+        /// </summary>
         [Output("ownerAccount")]
         public Output<string?> OwnerAccount { get; private set; } = null!;
 
+        /// <summary>
+        /// The package version's ARN.
+        /// </summary>
         [Output("packageArn")]
         public Output<string> PackageArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A package ID.
+        /// </summary>
         [Output("packageId")]
         public Output<string> PackageId { get; private set; } = null!;
 
+        /// <summary>
+        /// The package version's name.
+        /// </summary>
         [Output("packageName")]
         public Output<string> PackageName { get; private set; } = null!;
 
+        /// <summary>
+        /// A package version.
+        /// </summary>
         [Output("packageVersion")]
         public Output<string> PackageVersionValue { get; private set; } = null!;
 
+        /// <summary>
+        /// A patch version.
+        /// </summary>
         [Output("patchVersion")]
         public Output<string> PatchVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The package version's registered time.
+        /// </summary>
         [Output("registeredTime")]
         public Output<int> RegisteredTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The package version's status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Panorama.PackageVersionStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The package version's status description.
+        /// </summary>
         [Output("statusDescription")]
         public Output<string> StatusDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// If the version was marked latest, the new version to maker as latest.
+        /// </summary>
         [Output("updatedLatestPatchVersion")]
         public Output<string?> UpdatedLatestPatchVersion { get; private set; } = null!;
 
@@ -103,21 +139,39 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class PackageVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to mark the new version as the latest version.
+        /// </summary>
         [Input("markLatest")]
         public Input<bool>? MarkLatest { get; set; }
 
+        /// <summary>
+        /// An owner account.
+        /// </summary>
         [Input("ownerAccount")]
         public Input<string>? OwnerAccount { get; set; }
 
+        /// <summary>
+        /// A package ID.
+        /// </summary>
         [Input("packageId", required: true)]
         public Input<string> PackageId { get; set; } = null!;
 
+        /// <summary>
+        /// A package version.
+        /// </summary>
         [Input("packageVersion", required: true)]
         public Input<string> PackageVersionValue { get; set; } = null!;
 
+        /// <summary>
+        /// A patch version.
+        /// </summary>
         [Input("patchVersion", required: true)]
         public Input<string> PatchVersion { get; set; } = null!;
 
+        /// <summary>
+        /// If the version was marked latest, the new version to maker as latest.
+        /// </summary>
         [Input("updatedLatestPatchVersion")]
         public Input<string>? UpdatedLatestPatchVersion { get; set; }
 

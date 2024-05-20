@@ -48,7 +48,19 @@ export class ApprovedOrigin extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApprovedOrigin.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * Domain name to be added to the allow-list of the instance.
+     *
+     * *Maximum* : `267`
+     */
     public readonly origin!: pulumi.Output<string>;
 
     /**
@@ -85,6 +97,18 @@ export class ApprovedOrigin extends pulumi.CustomResource {
  * The set of arguments for constructing a ApprovedOrigin resource.
  */
 export interface ApprovedOriginArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * Domain name to be added to the allow-list of the instance.
+     *
+     * *Maximum* : `267`
+     */
     origin: pulumi.Input<string>;
 }

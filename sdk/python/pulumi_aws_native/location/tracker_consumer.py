@@ -18,6 +18,16 @@ class TrackerConsumerArgs:
                  tracker_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a TrackerConsumer resource.
+        :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+               
+               - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+        :param pulumi.Input[str] tracker_name: The name for the tracker resource.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+               - Must be a unique tracker resource name.
+               - No spaces allowed. For example, `ExampleTracker` .
         """
         pulumi.set(__self__, "consumer_arn", consumer_arn)
         pulumi.set(__self__, "tracker_name", tracker_name)
@@ -25,6 +35,11 @@ class TrackerConsumerArgs:
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+        """
         return pulumi.get(self, "consumer_arn")
 
     @consumer_arn.setter
@@ -34,6 +49,15 @@ class TrackerConsumerArgs:
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Input[str]:
+        """
+        The name for the tracker resource.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        - Must be a unique tracker resource name.
+        - No spaces allowed. For example, `ExampleTracker` .
+        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -54,6 +78,16 @@ class TrackerConsumer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+               
+               - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+        :param pulumi.Input[str] tracker_name: The name for the tracker resource.
+               
+               Requirements:
+               
+               - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+               - Must be a unique tracker resource name.
+               - No spaces allowed. For example, `ExampleTracker` .
         """
         ...
     @overload
@@ -127,10 +161,24 @@ class TrackerConsumer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+        """
         return pulumi.get(self, "consumer_arn")
 
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Output[str]:
+        """
+        The name for the tracker resource.
+
+        Requirements:
+
+        - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        - Must be a unique tracker resource name.
+        - No spaces allowed. For example, `ExampleTracker` .
+        """
         return pulumi.get(self, "tracker_name")
 

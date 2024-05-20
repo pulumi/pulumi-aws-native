@@ -34,8 +34,10 @@ type LookupDomainNameResult struct {
 	DomainNameConfigurations []DomainNameConfiguration `pulumi:"domainNameConfigurations"`
 	// The mutual TLS authentication configuration for a custom domain name.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	RegionalDomainName      *string                            `pulumi:"regionalDomainName"`
-	RegionalHostedZoneId    *string                            `pulumi:"regionalHostedZoneId"`
+	// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+	RegionalDomainName *string `pulumi:"regionalDomainName"`
+	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+	RegionalHostedZoneId *string `pulumi:"regionalHostedZoneId"`
 	// The collection of tags associated with a domain name.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -86,10 +88,12 @@ func (o LookupDomainNameResultOutput) MutualTlsAuthentication() DomainNameMutual
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameMutualTlsAuthentication { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
+// The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
 func (o LookupDomainNameResultOutput) RegionalDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalDomainName }).(pulumi.StringPtrOutput)
 }
 
+// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 func (o LookupDomainNameResultOutput) RegionalHostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.RegionalHostedZoneId }).(pulumi.StringPtrOutput)
 }

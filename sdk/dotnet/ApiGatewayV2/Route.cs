@@ -71,6 +71,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("requestParameters")]
         public Output<ImmutableArray<Outputs.RouteParameterConstraints>> RequestParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
 

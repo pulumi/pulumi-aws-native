@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
     [OutputType]
     public sealed class AssessmentAwsAccount
     {
+        /// <summary>
+        /// The email address that's associated with the AWS account .
+        /// </summary>
         public readonly string? EmailAddress;
+        /// <summary>
+        /// The identifier for the AWS account .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The name of the AWS account .
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

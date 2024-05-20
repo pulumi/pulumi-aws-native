@@ -26,7 +26,8 @@ type LookupRouteResponseArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`
 	// The route ID.
-	RouteId         string `pulumi:"routeId"`
+	RouteId string `pulumi:"routeId"`
+	// The route response ID.
 	RouteResponseId string `pulumi:"routeResponseId"`
 }
 
@@ -39,7 +40,8 @@ type LookupRouteResponseResult struct {
 	ResponseModels interface{} `pulumi:"responseModels"`
 	// The route response parameters.
 	ResponseParameters map[string]RouteResponseParameterConstraints `pulumi:"responseParameters"`
-	RouteResponseId    *string                                      `pulumi:"routeResponseId"`
+	// The route response ID.
+	RouteResponseId *string `pulumi:"routeResponseId"`
 	// The route response key.
 	RouteResponseKey *string `pulumi:"routeResponseKey"`
 }
@@ -61,7 +63,8 @@ type LookupRouteResponseOutputArgs struct {
 	// The API identifier.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The route ID.
-	RouteId         pulumi.StringInput `pulumi:"routeId"`
+	RouteId pulumi.StringInput `pulumi:"routeId"`
+	// The route response ID.
 	RouteResponseId pulumi.StringInput `pulumi:"routeResponseId"`
 }
 
@@ -102,6 +105,7 @@ func (o LookupRouteResponseResultOutput) ResponseParameters() RouteResponseParam
 	}).(RouteResponseParameterConstraintsMapOutput)
 }
 
+// The route response ID.
 func (o LookupRouteResponseResultOutput) RouteResponseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResponseResult) *string { return v.RouteResponseId }).(pulumi.StringPtrOutput)
 }

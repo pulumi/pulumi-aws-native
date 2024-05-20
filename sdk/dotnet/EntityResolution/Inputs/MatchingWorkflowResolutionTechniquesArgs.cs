@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class MatchingWorkflowResolutionTechniquesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The properties of the provider service.
+        /// </summary>
         [Input("providerProperties")]
         public Input<Inputs.MatchingWorkflowProviderPropertiesArgs>? ProviderProperties { get; set; }
 
+        /// <summary>
+        /// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+        /// </summary>
         [Input("resolutionType")]
         public Input<Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionTechniquesResolutionType>? ResolutionType { get; set; }
 
+        /// <summary>
+        /// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+        /// </summary>
         [Input("ruleBasedProperties")]
         public Input<Inputs.MatchingWorkflowRuleBasedPropertiesArgs>? RuleBasedProperties { get; set; }
 

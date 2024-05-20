@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DestinationDetailsProperties
     {
+        /// <summary>
+        /// The status of enabling the Kinesis stream as a destination for export.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.EventStreamStatus Status;
+        /// <summary>
+        /// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+        /// </summary>
         public readonly string Uri;
 
         [OutputConstructor]

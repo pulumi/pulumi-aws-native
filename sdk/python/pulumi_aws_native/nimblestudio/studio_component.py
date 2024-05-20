@@ -32,11 +32,19 @@ class StudioComponentArgs:
         """
         The set of arguments for constructing a StudioComponent resource.
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
+        :param pulumi.Input['StudioComponentType'] type: The type of the studio component.
+        :param pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']] configuration: The configuration of the studio component, based on component type.
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: <p>Initialization scripts for studio components.</p>
         :param pulumi.Input[str] name: <p>The name for the studio component.</p>
+        :param pulumi.Input[str] runtime_role_arn: An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
         :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: <p>Parameters for the studio component scripts.</p>
+        :param pulumi.Input[str] secure_initialization_role_arn: An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+        :param pulumi.Input['StudioComponentSubtype'] subtype: The specific subtype of a studio component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "studio_id", studio_id)
         pulumi.set(__self__, "type", type)
@@ -76,6 +84,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['StudioComponentType']:
+        """
+        The type of the studio component.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -85,6 +96,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]]:
+        """
+        The configuration of the studio component, based on component type.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -142,6 +156,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="runtimeRoleArn")
     def runtime_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
+        """
         return pulumi.get(self, "runtime_role_arn")
 
     @runtime_role_arn.setter
@@ -163,6 +180,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="secureInitializationRoleArn")
     def secure_initialization_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+        """
         return pulumi.get(self, "secure_initialization_role_arn")
 
     @secure_initialization_role_arn.setter
@@ -172,6 +192,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input['StudioComponentSubtype']]:
+        """
+        The specific subtype of a studio component.
+        """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
@@ -181,6 +204,11 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -211,12 +239,20 @@ class StudioComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[pulumi.InputType['StudioComponentConfiguration0PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration1PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration2PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration3PropertiesArgs']]] configuration: The configuration of the studio component, based on component type.
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]] initialization_scripts: <p>Initialization scripts for studio components.</p>
         :param pulumi.Input[str] name: <p>The name for the studio component.</p>
+        :param pulumi.Input[str] runtime_role_arn: An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]] script_parameters: <p>Parameters for the studio component scripts.</p>
+        :param pulumi.Input[str] secure_initialization_role_arn: An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
+        :param pulumi.Input['StudioComponentSubtype'] subtype: The specific subtype of a studio component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        :param pulumi.Input['StudioComponentType'] type: The type of the studio component.
         """
         ...
     @overload
@@ -322,6 +358,9 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The configuration of the studio component, based on component type.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -359,6 +398,9 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="runtimeRoleArn")
     def runtime_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
+        """
         return pulumi.get(self, "runtime_role_arn")
 
     @property
@@ -372,11 +414,17 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="secureInitializationRoleArn")
     def secure_initialization_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+        """
         return pulumi.get(self, "secure_initialization_role_arn")
 
     @property
     @pulumi.getter(name="studioComponentId")
     def studio_component_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the studio component resource.
+        """
         return pulumi.get(self, "studio_component_id")
 
     @property
@@ -390,15 +438,26 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional['StudioComponentSubtype']]:
+        """
+        The specific subtype of a studio component.
+        """
         return pulumi.get(self, "subtype")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['StudioComponentType']:
+        """
+        The type of the studio component.
+        """
         return pulumi.get(self, "type")
 

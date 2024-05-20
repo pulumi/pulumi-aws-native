@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorCsvFormatDescriptor
     {
+        /// <summary>
+        /// The character set in which the source CSV file is written.
+        /// </summary>
         public readonly string? Charset;
+        /// <summary>
+        /// Whether or not the source CSV file contains a header.
+        /// </summary>
         public readonly bool? ContainsHeader;
+        /// <summary>
+        /// The character used to delimit the source CSV file.
+        /// </summary>
         public readonly string? Delimiter;
+        /// <summary>
+        /// The level of compression of the source CSV file.
+        /// </summary>
         public readonly Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorCsvFormatDescriptorFileCompression? FileCompression;
+        /// <summary>
+        /// A list of the source CSV file's headers, if any.
+        /// </summary>
         public readonly ImmutableArray<string> HeaderList;
+        /// <summary>
+        /// The character used as a quote character.
+        /// </summary>
         public readonly string? QuoteSymbol;
 
         [OutputConstructor]

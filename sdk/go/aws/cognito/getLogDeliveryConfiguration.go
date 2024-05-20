@@ -23,11 +23,14 @@ func LookupLogDeliveryConfiguration(ctx *pulumi.Context, args *LookupLogDelivery
 }
 
 type LookupLogDeliveryConfigurationArgs struct {
+	// A user pool ID, for example `us-east-1_EXAMPLE` .
 	Id string `pulumi:"id"`
 }
 
 type LookupLogDeliveryConfigurationResult struct {
-	Id                *string                                    `pulumi:"id"`
+	// A user pool ID, for example `us-east-1_EXAMPLE` .
+	Id *string `pulumi:"id"`
+	// The detailed activity logging destination of a user pool.
 	LogConfigurations []LogDeliveryConfigurationLogConfiguration `pulumi:"logConfigurations"`
 }
 
@@ -45,6 +48,7 @@ func LookupLogDeliveryConfigurationOutput(ctx *pulumi.Context, args LookupLogDel
 }
 
 type LookupLogDeliveryConfigurationOutputArgs struct {
+	// A user pool ID, for example `us-east-1_EXAMPLE` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupLogDeliveryConfigurationResultOutput) ToLookupLogDeliveryConfigura
 	return o
 }
 
+// A user pool ID, for example `us-east-1_EXAMPLE` .
 func (o LookupLogDeliveryConfigurationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogDeliveryConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The detailed activity logging destination of a user pool.
 func (o LookupLogDeliveryConfigurationResultOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupLogDeliveryConfigurationResult) []LogDeliveryConfigurationLogConfiguration {
 		return v.LogConfigurations

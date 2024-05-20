@@ -29,11 +29,17 @@ class GetMemberResult:
     @property
     @pulumi.getter
     def email(self) -> Optional[str]:
+        """
+        The email address associated with the member account.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+        """
         return pulumi.get(self, "status")
 
 
@@ -52,6 +58,10 @@ def get_member(detector_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMemberResult:
     """
     Resource Type definition for AWS::GuardDuty::Member
+
+
+    :param str detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
+    :param str member_id: The AWS account ID of the account to designate as a member.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
@@ -70,5 +80,9 @@ def get_member_output(detector_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberResult]:
     """
     Resource Type definition for AWS::GuardDuty::Member
+
+
+    :param str detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
+    :param str member_id: The AWS account ID of the account to designate as a member.
     """
     ...

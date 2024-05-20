@@ -13,8 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateLineChartLineStyleSettings
     {
+        /// <summary>
+        /// Interpolation style for line series.
+        /// 
+        /// - `LINEAR` : Show as default, linear style.
+        /// - `SMOOTH` : Show as a smooth curve.
+        /// - `STEPPED` : Show steps in line.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLineInterpolation? LineInterpolation;
+        /// <summary>
+        /// Line style for line series.
+        /// 
+        /// - `SOLID` : Show as a solid line.
+        /// - `DOTTED` : Show as a dotted line.
+        /// - `DASHED` : Show as a dashed line.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLineChartLineStyle? LineStyle;
+        /// <summary>
+        /// Configuration option that determines whether to show the line for the series.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? LineVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px

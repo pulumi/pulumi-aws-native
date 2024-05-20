@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardBarChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The category (y-axis) field well of a bar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Category;
+        /// <summary>
+        /// The color (group/color) field well of a bar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Colors;
+        /// <summary>
+        /// The small multiples field well of a bar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> SmallMultiples;
+        /// <summary>
+        /// The value field wells of a bar chart. Values are aggregated by category.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Values;
 
         [OutputConstructor]

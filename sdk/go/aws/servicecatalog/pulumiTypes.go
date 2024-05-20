@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CloudFormationProvisionedProductProvisioningParameter struct {
-	Key   string `pulumi:"key"`
+	// The parameter key.
+	Key string `pulumi:"key"`
+	// The parameter value.
 	Value string `pulumi:"value"`
 }
 
@@ -30,7 +32,9 @@ type CloudFormationProvisionedProductProvisioningParameterInput interface {
 }
 
 type CloudFormationProvisionedProductProvisioningParameterArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The parameter key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The parameter value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -85,10 +89,12 @@ func (o CloudFormationProvisionedProductProvisioningParameterOutput) ToCloudForm
 	return o
 }
 
+// The parameter key.
 func (o CloudFormationProvisionedProductProvisioningParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The parameter value.
 func (o CloudFormationProvisionedProductProvisioningParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -114,13 +120,64 @@ func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) Index(
 }
 
 type CloudFormationProvisionedProductProvisioningPreferences struct {
-	StackSetAccounts                   []string                                                                      `pulumi:"stackSetAccounts"`
-	StackSetFailureToleranceCount      *int                                                                          `pulumi:"stackSetFailureToleranceCount"`
-	StackSetFailureTolerancePercentage *int                                                                          `pulumi:"stackSetFailureTolerancePercentage"`
-	StackSetMaxConcurrencyCount        *int                                                                          `pulumi:"stackSetMaxConcurrencyCount"`
-	StackSetMaxConcurrencyPercentage   *int                                                                          `pulumi:"stackSetMaxConcurrencyPercentage"`
-	StackSetOperationType              *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType `pulumi:"stackSetOperationType"`
-	StackSetRegions                    []string                                                                      `pulumi:"stackSetRegions"`
+	// One or more AWS accounts where the provisioned product will be available.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
+	StackSetAccounts []string `pulumi:"stackSetAccounts"`
+	// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+	//
+	// The default value is `0` if no value is specified.
+	StackSetFailureToleranceCount *int `pulumi:"stackSetFailureToleranceCount"`
+	// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+	//
+	// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+	StackSetFailureTolerancePercentage *int `pulumi:"stackSetFailureTolerancePercentage"`
+	// The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
+	//
+	// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+	StackSetMaxConcurrencyCount *int `pulumi:"stackSetMaxConcurrencyCount"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	//
+	// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
+	//
+	// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+	StackSetMaxConcurrencyPercentage *int `pulumi:"stackSetMaxConcurrencyPercentage"`
+	// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+	// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+	// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
+	StackSetOperationType *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType `pulumi:"stackSetOperationType"`
+	// One or more AWS Regions where the provisioned product will be available.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+	StackSetRegions []string `pulumi:"stackSetRegions"`
 }
 
 // CloudFormationProvisionedProductProvisioningPreferencesInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesArgs and CloudFormationProvisionedProductProvisioningPreferencesOutput values.
@@ -135,13 +192,64 @@ type CloudFormationProvisionedProductProvisioningPreferencesInput interface {
 }
 
 type CloudFormationProvisionedProductProvisioningPreferencesArgs struct {
-	StackSetAccounts                   pulumi.StringArrayInput                                                              `pulumi:"stackSetAccounts"`
-	StackSetFailureToleranceCount      pulumi.IntPtrInput                                                                   `pulumi:"stackSetFailureToleranceCount"`
-	StackSetFailureTolerancePercentage pulumi.IntPtrInput                                                                   `pulumi:"stackSetFailureTolerancePercentage"`
-	StackSetMaxConcurrencyCount        pulumi.IntPtrInput                                                                   `pulumi:"stackSetMaxConcurrencyCount"`
-	StackSetMaxConcurrencyPercentage   pulumi.IntPtrInput                                                                   `pulumi:"stackSetMaxConcurrencyPercentage"`
-	StackSetOperationType              CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrInput `pulumi:"stackSetOperationType"`
-	StackSetRegions                    pulumi.StringArrayInput                                                              `pulumi:"stackSetRegions"`
+	// One or more AWS accounts where the provisioned product will be available.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
+	StackSetAccounts pulumi.StringArrayInput `pulumi:"stackSetAccounts"`
+	// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+	//
+	// The default value is `0` if no value is specified.
+	StackSetFailureToleranceCount pulumi.IntPtrInput `pulumi:"stackSetFailureToleranceCount"`
+	// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+	//
+	// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+	StackSetFailureTolerancePercentage pulumi.IntPtrInput `pulumi:"stackSetFailureTolerancePercentage"`
+	// The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
+	//
+	// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+	StackSetMaxConcurrencyCount pulumi.IntPtrInput `pulumi:"stackSetMaxConcurrencyCount"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	//
+	// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
+	//
+	// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+	StackSetMaxConcurrencyPercentage pulumi.IntPtrInput `pulumi:"stackSetMaxConcurrencyPercentage"`
+	// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+	// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+	// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
+	StackSetOperationType CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrInput `pulumi:"stackSetOperationType"`
+	// One or more AWS Regions where the provisioned product will be available.
+	//
+	// Applicable only to a `CFN_STACKSET` provisioned product type.
+	//
+	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+	//
+	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+	StackSetRegions pulumi.StringArrayInput `pulumi:"stackSetRegions"`
 }
 
 func (CloudFormationProvisionedProductProvisioningPreferencesArgs) ElementType() reflect.Type {
@@ -221,40 +329,91 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) ToCloudFo
 	}).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
 }
 
+// One or more AWS accounts where the provisioned product will be available.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+//
+// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) []string { return v.StackSetAccounts }).(pulumi.StringArrayOutput)
 }
 
+// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+//
+// The default value is `0` if no value is specified.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetFailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetFailureToleranceCount
 	}).(pulumi.IntPtrOutput)
 }
 
+// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+//
+// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetFailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetFailureTolerancePercentage
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
+//
+// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetMaxConcurrencyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetMaxConcurrencyCount
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum percentage of accounts in which to perform this operation at one time.
+//
+// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
+//
+// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetMaxConcurrencyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetMaxConcurrencyPercentage
 	}).(pulumi.IntPtrOutput)
 }
 
+// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetOperationType() CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType {
 		return v.StackSetOperationType
 	}).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
+// One or more AWS Regions where the provisioned product will be available.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+//
+// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) []string { return v.StackSetRegions }).(pulumi.StringArrayOutput)
 }
@@ -283,6 +442,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) Elem()
 	}).(CloudFormationProvisionedProductProvisioningPreferencesOutput)
 }
 
+// One or more AWS accounts where the provisioned product will be available.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+//
+// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) []string {
 		if v == nil {
@@ -292,6 +458,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.StringArrayOutput)
 }
 
+// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+//
+// The default value is `0` if no value is specified.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetFailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -301,6 +474,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
+// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+//
+// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetFailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -310,6 +490,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
+//
+// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetMaxConcurrencyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -319,6 +506,15 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum percentage of accounts in which to perform this operation at one time.
+//
+// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
+//
+// Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetMaxConcurrencyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -328,6 +524,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
+// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetOperationType() CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType {
 		if v == nil {
@@ -337,6 +540,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
+// One or more AWS Regions where the provisioned product will be available.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+//
+// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) []string {
 		if v == nil {
@@ -347,12 +557,16 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 }
 
 type CloudFormationProvisionedProductTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The value for this key.
 	Value string `pulumi:"value"`
 }
 
 type ServiceActionDefinitionParameter struct {
-	Key   string `pulumi:"key"`
+	// The parameter key.
+	Key string `pulumi:"key"`
+	// The value of the parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -368,7 +582,9 @@ type ServiceActionDefinitionParameterInput interface {
 }
 
 type ServiceActionDefinitionParameterArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The parameter key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -423,10 +639,12 @@ func (o ServiceActionDefinitionParameterOutput) ToServiceActionDefinitionParamet
 	return o
 }
 
+// The parameter key.
 func (o ServiceActionDefinitionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinitionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the parameter.
 func (o ServiceActionDefinitionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinitionParameter) string { return v.Value }).(pulumi.StringOutput)
 }

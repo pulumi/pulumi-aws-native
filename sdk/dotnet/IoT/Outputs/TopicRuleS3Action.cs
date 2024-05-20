@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleS3Action
     {
+        /// <summary>
+        /// The Amazon S3 bucket.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.TopicRuleCannedAccessControlList? CannedAcl;
+        /// <summary>
+        /// The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The ARN of the IAM role that grants access.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainSamlOptions
     {
+        /// <summary>
+        /// True to enable SAML authentication for a domain.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The SAML Identity Provider's information.
+        /// </summary>
         public readonly Outputs.DomainIdp? Idp;
+        /// <summary>
+        /// The backend role that the SAML master user is mapped to.
+        /// </summary>
         public readonly string? MasterBackendRole;
+        /// <summary>
+        /// The SAML master user name, which is stored in the domain's internal user database.
+        /// </summary>
         public readonly string? MasterUserName;
+        /// <summary>
+        /// Element of the SAML assertion to use for backend roles. Default is `roles` .
+        /// </summary>
         public readonly string? RolesKey;
+        /// <summary>
+        /// The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
+        /// </summary>
         public readonly int? SessionTimeoutMinutes;
+        /// <summary>
+        /// Element of the SAML assertion to use for the user name. Default is `NameID` .
+        /// </summary>
         public readonly string? SubjectKey;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ControlTower.Inputs
 
     public sealed class EnabledBaselineParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string denoting the parameter key.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// A low-level `Document` object of any type (for example, a Java Object).
+        /// </summary>
         [Input("value")]
         public object? Value { get; set; }
 

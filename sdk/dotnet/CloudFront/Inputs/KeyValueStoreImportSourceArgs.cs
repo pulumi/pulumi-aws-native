@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class KeyValueStoreImportSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the import source for the key value store.
+        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The source type of the import source for the key value store.
+        /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
 

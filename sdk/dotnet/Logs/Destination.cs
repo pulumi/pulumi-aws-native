@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Logs
     [AwsNativeResourceType("aws-native:logs:Destination")]
     public partial class Destination : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

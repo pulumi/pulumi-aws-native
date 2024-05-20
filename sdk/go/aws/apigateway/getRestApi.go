@@ -26,6 +26,7 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 }
 
 type LookupRestApiArgs struct {
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -47,9 +48,11 @@ type LookupRestApiResult struct {
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-	Policy         interface{} `pulumi:"policy"`
-	RestApiId      *string     `pulumi:"restApiId"`
-	RootResourceId *string     `pulumi:"rootResourceId"`
+	Policy interface{} `pulumi:"policy"`
+	// The string identifier of the associated RestApi.
+	RestApiId *string `pulumi:"restApiId"`
+	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
+	RootResourceId *string `pulumi:"rootResourceId"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -68,6 +71,7 @@ func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts
 }
 
 type LookupRestApiOutputArgs struct {
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
@@ -131,10 +135,12 @@ func (o LookupRestApiResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRestApiResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The string identifier of the associated RestApi.
 func (o LookupRestApiResultOutput) RestApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RestApiId }).(pulumi.StringPtrOutput)
 }
 
+// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RootResourceId }).(pulumi.StringPtrOutput)
 }

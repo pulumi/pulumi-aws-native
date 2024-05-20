@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class OriginEndpointMssEncryptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters for the SPEKE key provider.
+        /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 

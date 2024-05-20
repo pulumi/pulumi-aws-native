@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SsmContacts.Inputs
         [Input("dayOfMonth", required: true)]
         public Input<int> DayOfMonth { get; set; } = null!;
 
+        /// <summary>
+        /// The time of day when a monthly recurring on-call shift rotation begins.
+        /// </summary>
         [Input("handOffTime", required: true)]
         public Input<string> HandOffTime { get; set; } = null!;
 

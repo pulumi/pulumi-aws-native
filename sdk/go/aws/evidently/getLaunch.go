@@ -24,18 +24,25 @@ func LookupLaunch(ctx *pulumi.Context, args *LookupLaunchArgs, opts ...pulumi.In
 }
 
 type LookupLaunchArgs struct {
+	// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
 	Arn string `pulumi:"arn"`
 }
 
 type LookupLaunchResult struct {
-	Arn         *string `pulumi:"arn"`
+	// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+	Arn *string `pulumi:"arn"`
+	// An optional description for the launch.
 	Description *string `pulumi:"description"`
 	// Start or Stop Launch Launch. Default is not started.
-	ExecutionStatus       *LaunchExecutionStatusObject   `pulumi:"executionStatus"`
-	Groups                []LaunchGroupObject            `pulumi:"groups"`
-	MetricMonitors        []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
-	RandomizationSalt     *string                        `pulumi:"randomizationSalt"`
-	ScheduledSplitsConfig []LaunchStepConfig             `pulumi:"scheduledSplitsConfig"`
+	ExecutionStatus *LaunchExecutionStatusObject `pulumi:"executionStatus"`
+	// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+	Groups []LaunchGroupObject `pulumi:"groups"`
+	// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+	MetricMonitors []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
+	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+	RandomizationSalt *string `pulumi:"randomizationSalt"`
+	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+	ScheduledSplitsConfig []LaunchStepConfig `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -54,6 +61,7 @@ func LookupLaunchOutput(ctx *pulumi.Context, args LookupLaunchOutputArgs, opts .
 }
 
 type LookupLaunchOutputArgs struct {
+	// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -75,10 +83,12 @@ func (o LookupLaunchResultOutput) ToLookupLaunchResultOutputWithContext(ctx cont
 	return o
 }
 
+// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
 func (o LookupLaunchResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An optional description for the launch.
 func (o LookupLaunchResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -88,18 +98,22 @@ func (o LookupLaunchResultOutput) ExecutionStatus() LaunchExecutionStatusObjectP
 	return o.ApplyT(func(v LookupLaunchResult) *LaunchExecutionStatusObject { return v.ExecutionStatus }).(LaunchExecutionStatusObjectPtrOutput)
 }
 
+// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
 func (o LookupLaunchResultOutput) Groups() LaunchGroupObjectArrayOutput {
 	return o.ApplyT(func(v LookupLaunchResult) []LaunchGroupObject { return v.Groups }).(LaunchGroupObjectArrayOutput)
 }
 
+// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
 func (o LookupLaunchResultOutput) MetricMonitors() LaunchMetricDefinitionObjectArrayOutput {
 	return o.ApplyT(func(v LookupLaunchResult) []LaunchMetricDefinitionObject { return v.MetricMonitors }).(LaunchMetricDefinitionObjectArrayOutput)
 }
 
+// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
 func (o LookupLaunchResultOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchResult) *string { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
 }
 
+// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
 func (o LookupLaunchResultOutput) ScheduledSplitsConfig() LaunchStepConfigArrayOutput {
 	return o.ApplyT(func(v LookupLaunchResult) []LaunchStepConfig { return v.ScheduledSplitsConfig }).(LaunchStepConfigArrayOutput)
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentFormBindingElement
     {
+        /// <summary>
+        /// The name of the component to retrieve a value from.
+        /// </summary>
         public readonly string Element;
+        /// <summary>
+        /// The property to retrieve a value from.
+        /// </summary>
         public readonly string Property;
 
         [OutputConstructor]

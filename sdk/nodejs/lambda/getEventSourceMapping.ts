@@ -27,6 +27,9 @@ export function getEventSourceMapping(args: GetEventSourceMappingArgs, opts?: pu
 }
 
 export interface GetEventSourceMappingArgs {
+    /**
+     * The event source mapping's ID.
+     */
     id: string;
 }
 
@@ -79,6 +82,9 @@ export interface GetEventSourceMappingResult {
      *  Valid Values: ``ReportBatchItemFailures``
      */
     readonly functionResponseTypes?: enums.lambda.EventSourceMappingFunctionResponseTypesItem[];
+    /**
+     * The event source mapping's ID.
+     */
     readonly id?: string;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
@@ -137,5 +143,8 @@ export function getEventSourceMappingOutput(args: GetEventSourceMappingOutputArg
 }
 
 export interface GetEventSourceMappingOutputArgs {
+    /**
+     * The event source mapping's ID.
+     */
     id: pulumi.Input<string>;
 }

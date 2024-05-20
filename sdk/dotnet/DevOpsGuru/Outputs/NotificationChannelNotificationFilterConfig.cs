@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
     [OutputType]
     public sealed class NotificationChannelNotificationFilterConfig
     {
+        /// <summary>
+        /// The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.DevOpsGuru.NotificationChannelNotificationMessageType> MessageTypes;
+        /// <summary>
+        /// The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.DevOpsGuru.NotificationChannelInsightSeverity> Severities;
 
         [OutputConstructor]

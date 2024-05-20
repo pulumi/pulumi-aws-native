@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class FormStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The spacing for the horizontal gap.
+        /// </summary>
         [Input("horizontalGap")]
         public InputUnion<Inputs.FormStyleConfig0PropertiesArgs, Inputs.FormStyleConfig1PropertiesArgs>? HorizontalGap { get; set; }
 
+        /// <summary>
+        /// The size of the outer padding for the form.
+        /// </summary>
         [Input("outerPadding")]
         public InputUnion<Inputs.FormStyleConfig0PropertiesArgs, Inputs.FormStyleConfig1PropertiesArgs>? OuterPadding { get; set; }
 
+        /// <summary>
+        /// The spacing for the vertical gap.
+        /// </summary>
         [Input("verticalGap")]
         public InputUnion<Inputs.FormStyleConfig0PropertiesArgs, Inputs.FormStyleConfig1PropertiesArgs>? VerticalGap { get; set; }
 

@@ -30,6 +30,9 @@ export interface GetSchemaResult {
      * Amazon Resource Name for the Schema.
      */
     readonly arn?: string;
+    /**
+     * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
+     */
     readonly checkpointVersion?: outputs.glue.SchemaVersion;
     /**
      * Compatibility setting for the schema.

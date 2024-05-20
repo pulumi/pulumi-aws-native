@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class AliasProvisionedConcurrencyConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of provisioned concurrency to allocate for the alias.
+        /// </summary>
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
 

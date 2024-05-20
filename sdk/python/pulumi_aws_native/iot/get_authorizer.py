@@ -46,36 +46,65 @@ class GetAuthorizerResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the authorizer.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authorizerFunctionArn")
     def authorizer_function_arn(self) -> Optional[str]:
+        """
+        The authorizer's Lambda function ARN.
+        """
         return pulumi.get(self, "authorizer_function_arn")
 
     @property
     @pulumi.getter(name="enableCachingForHttp")
     def enable_caching_for_http(self) -> Optional[bool]:
+        """
+        When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        """
         return pulumi.get(self, "enable_caching_for_http")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['AuthorizerStatus']:
+        """
+        The status of the authorizer.
+
+        Valid values: `ACTIVE` | `INACTIVE`
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata which can be used to manage the custom authorizer.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> Optional[str]:
+        """
+        The key used to extract the token from the HTTP headers.
+        """
         return pulumi.get(self, "token_key_name")
 
     @property
     @pulumi.getter(name="tokenSigningPublicKeys")
     def token_signing_public_keys(self) -> Optional[Mapping[str, str]]:
+        """
+        The public keys used to validate the token signature returned by your custom authentication service.
+        """
         return pulumi.get(self, "token_signing_public_keys")
 
 
@@ -98,6 +127,9 @@ def get_authorizer(authorizer_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizerResult:
     """
     Creates an authorizer.
+
+
+    :param str authorizer_name: The authorizer name.
     """
     __args__ = dict()
     __args__['authorizerName'] = authorizer_name
@@ -119,5 +151,8 @@ def get_authorizer_output(authorizer_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Creates an authorizer.
+
+
+    :param str authorizer_name: The authorizer name.
     """
     ...

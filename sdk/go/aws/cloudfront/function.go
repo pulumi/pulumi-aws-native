@@ -16,13 +16,25 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
-	AutoPublish      pulumi.BoolPtrOutput      `pulumi:"autoPublish"`
-	FunctionArn      pulumi.StringOutput       `pulumi:"functionArn"`
-	FunctionCode     pulumi.StringOutput       `pulumi:"functionCode"`
-	FunctionConfig   FunctionConfigOutput      `pulumi:"functionConfig"`
+	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+	AutoPublish pulumi.BoolPtrOutput `pulumi:"autoPublish"`
+	// The ARN of the function. For example:
+	//
+	// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+	//
+	// To get the function ARN, use the following syntax:
+	//
+	// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
+	// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+	FunctionCode pulumi.StringOutput `pulumi:"functionCode"`
+	// Contains configuration information about a CloudFront function.
+	FunctionConfig FunctionConfigOutput `pulumi:"functionConfig"`
+	// Contains metadata about a CloudFront function.
 	FunctionMetadata FunctionMetadataPtrOutput `pulumi:"functionMetadata"`
-	Name             pulumi.StringOutput       `pulumi:"name"`
-	Stage            pulumi.StringOutput       `pulumi:"stage"`
+	// A name to identify the function.
+	Name  pulumi.StringOutput `pulumi:"name"`
+	Stage pulumi.StringOutput `pulumi:"stage"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -71,20 +83,30 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	AutoPublish      *bool             `pulumi:"autoPublish"`
-	FunctionCode     string            `pulumi:"functionCode"`
-	FunctionConfig   FunctionConfig    `pulumi:"functionConfig"`
+	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+	AutoPublish *bool `pulumi:"autoPublish"`
+	// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+	FunctionCode string `pulumi:"functionCode"`
+	// Contains configuration information about a CloudFront function.
+	FunctionConfig FunctionConfig `pulumi:"functionConfig"`
+	// Contains metadata about a CloudFront function.
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
-	Name             *string           `pulumi:"name"`
+	// A name to identify the function.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	AutoPublish      pulumi.BoolPtrInput
-	FunctionCode     pulumi.StringInput
-	FunctionConfig   FunctionConfigInput
+	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+	AutoPublish pulumi.BoolPtrInput
+	// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+	FunctionCode pulumi.StringInput
+	// Contains configuration information about a CloudFront function.
+	FunctionConfig FunctionConfigInput
+	// Contains metadata about a CloudFront function.
 	FunctionMetadata FunctionMetadataPtrInput
-	Name             pulumi.StringPtrInput
+	// A name to identify the function.
+	Name pulumi.StringPtrInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -124,26 +146,38 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
+// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
 func (o FunctionOutput) AutoPublish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.AutoPublish }).(pulumi.BoolPtrOutput)
 }
 
+// The ARN of the function. For example:
+//
+// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+//
+// To get the function ARN, use the following syntax:
+//
+// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
 func (o FunctionOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
+// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
 func (o FunctionOutput) FunctionCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionCode }).(pulumi.StringOutput)
 }
 
+// Contains configuration information about a CloudFront function.
 func (o FunctionOutput) FunctionConfig() FunctionConfigOutput {
 	return o.ApplyT(func(v *Function) FunctionConfigOutput { return v.FunctionConfig }).(FunctionConfigOutput)
 }
 
+// Contains metadata about a CloudFront function.
 func (o FunctionOutput) FunctionMetadata() FunctionMetadataPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionMetadataPtrOutput { return v.FunctionMetadata }).(FunctionMetadataPtrOutput)
 }
 
+// A name to identify the function.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

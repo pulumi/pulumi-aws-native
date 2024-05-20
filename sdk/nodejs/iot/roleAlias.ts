@@ -37,10 +37,27 @@ export class RoleAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleAlias.__pulumiType;
     }
 
+    /**
+     * The number of seconds for which the credential is valid.
+     */
     public readonly credentialDurationSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The role alias.
+     */
     public readonly roleAlias!: pulumi.Output<string | undefined>;
+    /**
+     * The role alias ARN.
+     */
     public /*out*/ readonly roleAliasArn!: pulumi.Output<string>;
+    /**
+     * The role ARN.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -80,8 +97,22 @@ export class RoleAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a RoleAlias resource.
  */
 export interface RoleAliasArgs {
+    /**
+     * The number of seconds for which the credential is valid.
+     */
     credentialDurationSeconds?: pulumi.Input<number>;
+    /**
+     * The role alias.
+     */
     roleAlias?: pulumi.Input<string>;
+    /**
+     * The role ARN.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

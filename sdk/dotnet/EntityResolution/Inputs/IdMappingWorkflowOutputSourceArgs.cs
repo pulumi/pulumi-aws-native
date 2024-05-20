@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class IdMappingWorkflowOutputSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
 

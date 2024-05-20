@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class WirelessDeviceSessionKeysAbpV10xArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AppSKey value.
+        /// </summary>
         [Input("appSKey", required: true)]
         public Input<string> AppSKey { get; set; } = null!;
 
+        /// <summary>
+        /// The NwkKey value.
+        /// </summary>
         [Input("nwkSKey", required: true)]
         public Input<string> NwkSKey { get; set; } = null!;
 

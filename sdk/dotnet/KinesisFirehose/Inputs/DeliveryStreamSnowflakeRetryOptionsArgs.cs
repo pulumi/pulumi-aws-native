@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSnowflakeRetryOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// the time period where Firehose will retry sending data to the chosen HTTP endpoint.
+        /// </summary>
         [Input("durationInSeconds")]
         public Input<int>? DurationInSeconds { get; set; }
 

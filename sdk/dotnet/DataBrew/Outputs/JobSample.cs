@@ -16,7 +16,18 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobSample
     {
+        /// <summary>
+        /// A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
+        /// 
+        /// - FULL_DATASET - The profile job is run on the entire dataset.
+        /// - CUSTOM_ROWS - The profile job is run on the number of rows specified in the `Size` parameter.
+        /// </summary>
         public readonly Pulumi.AwsNative.DataBrew.JobSampleMode? Mode;
+        /// <summary>
+        /// The `Size` parameter is only required when the mode is CUSTOM_ROWS. The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
+        /// 
+        /// Long.MAX_VALUE = 9223372036854775807
+        /// </summary>
         public readonly int? Size;
 
         [OutputConstructor]

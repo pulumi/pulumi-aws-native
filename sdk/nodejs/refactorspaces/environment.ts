@@ -37,15 +37,33 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the environment.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description of the environment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier of the environment.
+     */
     public /*out*/ readonly environmentIdentifier!: pulumi.Output<string>;
+    /**
+     * The name of the environment.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The network fabric type of the environment.
+     */
     public readonly networkFabricType!: pulumi.Output<enums.refactorspaces.EnvironmentNetworkFabricType>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the AWS Transit Gateway set up by the environment.
+     */
     public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
 
     /**
@@ -89,8 +107,17 @@ export class Environment extends pulumi.CustomResource {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * A description of the environment.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the environment.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The network fabric type of the environment.
+     */
     networkFabricType: pulumi.Input<enums.refactorspaces.EnvironmentNetworkFabricType>;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.

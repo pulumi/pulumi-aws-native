@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.VoiceId
     [AwsNativeResourceType("aws-native:voiceid:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description of the domain.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the domain.
+        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the domain.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+        /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.DomainServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -75,17 +90,30 @@ namespace Pulumi.AwsNative.VoiceId
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the domain.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name for the domain.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+        /// </summary>
         [Input("serverSideEncryptionConfiguration", required: true)]
         public Input<Inputs.DomainServerSideEncryptionConfigurationArgs> ServerSideEncryptionConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

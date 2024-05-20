@@ -15,27 +15,48 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:InferenceComponent")]
     public partial class InferenceComponent : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time when the inference component was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+        /// </summary>
         [Output("endpointArn")]
         public Output<string?> EndpointArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the endpoint that hosts the inference component.
+        /// </summary>
         [Output("endpointName")]
         public Output<string> EndpointName { get; private set; } = null!;
 
         [Output("failureReason")]
         public Output<string> FailureReason { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the inference component.
+        /// </summary>
         [Output("inferenceComponentArn")]
         public Output<string> InferenceComponentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the inference component.
+        /// </summary>
         [Output("inferenceComponentName")]
         public Output<string?> InferenceComponentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the inference component.
+        /// </summary>
         [Output("inferenceComponentStatus")]
         public Output<Pulumi.AwsNative.SageMaker.InferenceComponentStatus> InferenceComponentStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the inference component was last updated.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
@@ -48,6 +69,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the production variant that hosts the inference component.
+        /// </summary>
         [Output("variantName")]
         public Output<string> VariantName { get; private set; } = null!;
 
@@ -96,12 +120,21 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class InferenceComponentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+        /// </summary>
         [Input("endpointArn")]
         public Input<string>? EndpointArn { get; set; }
 
+        /// <summary>
+        /// The name of the endpoint that hosts the inference component.
+        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the inference component.
+        /// </summary>
         [Input("inferenceComponentName")]
         public Input<string>? InferenceComponentName { get; set; }
 
@@ -119,6 +152,9 @@ namespace Pulumi.AwsNative.SageMaker
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the production variant that hosts the inference component.
+        /// </summary>
         [Input("variantName", required: true)]
         public Input<string> VariantName { get; set; } = null!;
 

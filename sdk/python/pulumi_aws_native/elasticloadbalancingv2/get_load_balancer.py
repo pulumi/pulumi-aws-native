@@ -61,11 +61,17 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> Optional[str]:
+        """
+        The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
+        """
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
+        """
+        The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+        """
         return pulumi.get(self, "dns_name")
 
     @property
@@ -87,6 +93,9 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property
@@ -100,11 +109,17 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="loadBalancerFullName")
     def load_balancer_full_name(self) -> Optional[str]:
+        """
+        The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+        """
         return pulumi.get(self, "load_balancer_full_name")
 
     @property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[str]:
+        """
+        The name of the load balancer. For example, `my-load-balancer` .
+        """
         return pulumi.get(self, "load_balancer_name")
 
     @property
@@ -174,6 +189,9 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
     Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
+
+
+    :param str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
     """
     __args__ = dict()
     __args__['loadBalancerArn'] = load_balancer_arn
@@ -200,5 +218,8 @@ def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
+
+
+    :param str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
     """
     ...

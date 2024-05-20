@@ -126,6 +126,9 @@ class GetLocationHdfsResult:
     @property
     @pulumi.getter(name="qopConfiguration")
     def qop_configuration(self) -> Optional['outputs.LocationHdfsQopConfiguration']:
+        """
+        The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
+        """
         return pulumi.get(self, "qop_configuration")
 
     @property

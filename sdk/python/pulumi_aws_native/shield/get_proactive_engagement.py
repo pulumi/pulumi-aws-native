@@ -34,6 +34,9 @@ class GetProactiveEngagementResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        The ID of the account that submitted the template.
+        """
         return pulumi.get(self, "account_id")
 
     @property
@@ -70,6 +73,9 @@ def get_proactive_engagement(account_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProactiveEngagementResult:
     """
     Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
+
+
+    :param str account_id: The ID of the account that submitted the template.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -87,5 +93,8 @@ def get_proactive_engagement_output(account_id: Optional[pulumi.Input[str]] = No
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveEngagementResult]:
     """
     Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
+
+
+    :param str account_id: The ID of the account that submitted the template.
     """
     ...

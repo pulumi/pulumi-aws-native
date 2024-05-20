@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.DataBrew
     [OutputType]
     public sealed class GetJobResult
     {
+        /// <summary>
+        /// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobDataCatalogOutput> DataCatalogOutputs;
+        /// <summary>
+        /// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobDatabaseOutput> DatabaseOutputs;
         /// <summary>
         /// Dataset name
@@ -91,6 +97,9 @@ namespace Pulumi.AwsNative.DataBrew
         /// Output location
         /// </summary>
         public readonly Outputs.JobOutputLocation? OutputLocation;
+        /// <summary>
+        /// One or more artifacts that represent output from running the job.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobOutput> Outputs;
         /// <summary>
         /// Profile Job configuration
@@ -100,6 +109,9 @@ namespace Pulumi.AwsNative.DataBrew
         /// Project name
         /// </summary>
         public readonly string? ProjectName;
+        /// <summary>
+        /// A series of data transformation steps that the job runs.
+        /// </summary>
         public readonly Outputs.JobRecipe? Recipe;
         /// <summary>
         /// Role arn

@@ -18,15 +18,17 @@ type ServerlessCache struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Serverless Cache.
-	Arn              pulumi.StringOutput                      `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
 	// The creation time of the Serverless Cache.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime pulumi.StringPtrOutput `pulumi:"dailySnapshotTime"`
 	// The description of the Serverless Cache.
-	Description pulumi.StringPtrOutput           `pulumi:"description"`
-	Endpoint    ServerlessCacheEndpointPtrOutput `pulumi:"endpoint"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	Endpoint ServerlessCacheEndpointPtrOutput `pulumi:"endpoint"`
 	// The engine name of the Serverless Cache.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The final snapshot name which is taken before Serverless Cache is deleted.
@@ -36,8 +38,9 @@ type ServerlessCache struct {
 	// The ID of the KMS key used to encrypt the cluster.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The major engine version of the Serverless Cache.
-	MajorEngineVersion pulumi.StringPtrOutput           `pulumi:"majorEngineVersion"`
-	ReaderEndpoint     ServerlessCacheEndpointPtrOutput `pulumi:"readerEndpoint"`
+	MajorEngineVersion pulumi.StringPtrOutput `pulumi:"majorEngineVersion"`
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	ReaderEndpoint ServerlessCacheEndpointPtrOutput `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The name of the Serverless Cache. This value must be unique.
@@ -108,12 +111,14 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 }
 
 type serverlessCacheArgs struct {
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// The description of the Serverless Cache.
-	Description *string                  `pulumi:"description"`
-	Endpoint    *ServerlessCacheEndpoint `pulumi:"endpoint"`
+	Description *string `pulumi:"description"`
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	Endpoint *ServerlessCacheEndpoint `pulumi:"endpoint"`
 	// The engine name of the Serverless Cache.
 	Engine string `pulumi:"engine"`
 	// The final snapshot name which is taken before Serverless Cache is deleted.
@@ -121,8 +126,9 @@ type serverlessCacheArgs struct {
 	// The ID of the KMS key used to encrypt the cluster.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The major engine version of the Serverless Cache.
-	MajorEngineVersion *string                  `pulumi:"majorEngineVersion"`
-	ReaderEndpoint     *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
+	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	ReaderEndpoint *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The name of the Serverless Cache. This value must be unique.
@@ -141,12 +147,14 @@ type serverlessCacheArgs struct {
 
 // The set of arguments for constructing a ServerlessCache resource.
 type ServerlessCacheArgs struct {
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime pulumi.StringPtrInput
 	// The description of the Serverless Cache.
 	Description pulumi.StringPtrInput
-	Endpoint    ServerlessCacheEndpointPtrInput
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	Endpoint ServerlessCacheEndpointPtrInput
 	// The engine name of the Serverless Cache.
 	Engine pulumi.StringInput
 	// The final snapshot name which is taken before Serverless Cache is deleted.
@@ -155,7 +163,8 @@ type ServerlessCacheArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The major engine version of the Serverless Cache.
 	MajorEngineVersion pulumi.StringPtrInput
-	ReaderEndpoint     ServerlessCacheEndpointPtrInput
+	// Represents the information required for client programs to connect to a cache node. This value is read-only.
+	ReaderEndpoint ServerlessCacheEndpointPtrInput
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The name of the Serverless Cache. This value must be unique.
@@ -214,6 +223,7 @@ func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The cache usage limit for the serverless cache.
 func (o ServerlessCacheOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheCacheUsageLimitsPtrOutput { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
@@ -233,6 +243,7 @@ func (o ServerlessCacheOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Represents the information required for client programs to connect to a cache node. This value is read-only.
 func (o ServerlessCacheOutput) Endpoint() ServerlessCacheEndpointPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointPtrOutput { return v.Endpoint }).(ServerlessCacheEndpointPtrOutput)
 }
@@ -262,6 +273,7 @@ func (o ServerlessCacheOutput) MajorEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringPtrOutput { return v.MajorEngineVersion }).(pulumi.StringPtrOutput)
 }
 
+// Represents the information required for client programs to connect to a cache node. This value is read-only.
 func (o ServerlessCacheOutput) ReaderEndpoint() ServerlessCacheEndpointPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointPtrOutput { return v.ReaderEndpoint }).(ServerlessCacheEndpointPtrOutput)
 }

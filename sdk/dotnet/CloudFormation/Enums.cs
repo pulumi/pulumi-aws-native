@@ -456,6 +456,9 @@ namespace Pulumi.AwsNative.CloudFormation
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Current status of the stack.
+    /// </summary>
     [EnumType]
     public readonly struct StackStatus : IEquatable<StackStatus>
     {

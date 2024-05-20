@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.SystemsManagerSap
 {
+    /// <summary>
+    /// The type of the application credentials.
+    /// </summary>
     [EnumType]
     public readonly struct ApplicationCredentialCredentialType : IEquatable<ApplicationCredentialCredentialType>
     {
@@ -34,6 +37,9 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of the application.
+    /// </summary>
     [EnumType]
     public readonly struct ApplicationType : IEquatable<ApplicationType>
     {

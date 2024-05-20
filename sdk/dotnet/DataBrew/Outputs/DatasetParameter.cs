@@ -17,8 +17,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// Add the value of this parameter as a column in a dataset.
         /// </summary>
         public readonly bool? CreateColumn;
+        /// <summary>
+        /// Additional parameter options such as a format and a timezone. Required for datetime parameters.
+        /// </summary>
         public readonly Outputs.DatasetDatetimeOptions? DatetimeOptions;
+        /// <summary>
+        /// The optional filter expression structure to apply additional matching criteria to the parameter.
+        /// </summary>
         public readonly Outputs.DatasetFilterExpression? Filter;
+        /// <summary>
+        /// The name of the parameter that is used in the dataset's Amazon S3 path.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Parameter type

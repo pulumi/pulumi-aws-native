@@ -34,6 +34,9 @@ export interface GetLogAnomalyDetectorResult {
      * Current status of detector.
      */
     readonly anomalyDetectorStatus?: string;
+    /**
+     * The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+     */
     readonly anomalyVisibilityTime?: number;
     /**
      * When detector was created.
@@ -47,6 +50,9 @@ export interface GetLogAnomalyDetectorResult {
      * How often log group is evaluated
      */
     readonly evaluationFrequency?: enums.logs.LogAnomalyDetectorEvaluationFrequency;
+    /**
+     * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+     */
     readonly filterPattern?: string;
     /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.

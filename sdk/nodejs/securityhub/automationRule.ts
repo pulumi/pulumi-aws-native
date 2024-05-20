@@ -597,23 +597,57 @@ export class AutomationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutomationRule.__pulumiType;
     }
 
+    /**
+     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+     */
     public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRulesAction[] | undefined>;
+    /**
+     * A timestamp that indicates when the rule was created.
+     *
+     * Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
+     */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
      * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
     public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRulesFindingFilters | undefined>;
+    /**
+     * A description of the rule.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+     */
     public readonly isTerminal!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+     */
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
+    /**
+     * The name of the rule.
+     */
     public readonly ruleName!: pulumi.Output<string | undefined>;
+    /**
+     * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+     */
     public readonly ruleOrder!: pulumi.Output<number | undefined>;
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     public readonly ruleStatus!: pulumi.Output<enums.securityhub.AutomationRuleRuleStatus | undefined>;
+    /**
+     * User-defined tags associated with an automation rule.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A timestamp that indicates when the rule was most recently updated.
+     *
+     * Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -662,18 +696,36 @@ export class AutomationRule extends pulumi.CustomResource {
  * The set of arguments for constructing a AutomationRule resource.
  */
 export interface AutomationRuleArgs {
+    /**
+     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+     */
     actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRulesActionArgs>[]>;
     /**
      * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
     criteria?: pulumi.Input<inputs.securityhub.AutomationRulesFindingFiltersArgs>;
+    /**
+     * A description of the rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+     */
     isTerminal?: pulumi.Input<boolean>;
+    /**
+     * The name of the rule.
+     */
     ruleName?: pulumi.Input<string>;
+    /**
+     * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+     */
     ruleOrder?: pulumi.Input<number>;
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleRuleStatus>;
+    /**
+     * User-defined tags associated with an automation rule.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

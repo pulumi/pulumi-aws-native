@@ -15,6 +15,7 @@ import (
 type Grant struct {
 	pulumi.CustomResourceState
 
+	// Allowed operations for the grant.
 	AllowedOperations pulumi.StringArrayOutput `pulumi:"allowedOperations"`
 	// Arn of the grant.
 	GrantArn pulumi.StringOutput `pulumi:"grantArn"`
@@ -23,9 +24,17 @@ type Grant struct {
 	// Home region for the created grant.
 	HomeRegion pulumi.StringPtrOutput `pulumi:"homeRegion"`
 	// License Arn for the grant.
-	LicenseArn pulumi.StringPtrOutput   `pulumi:"licenseArn"`
+	LicenseArn pulumi.StringPtrOutput `pulumi:"licenseArn"`
+	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+	//
+	// - An AWS account, which includes only the account specified.
+	//
+	// - An organizational unit (OU), which includes all accounts in the OU.
+	//
+	// - An organization, which will include all accounts across your organization.
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
-	Status     pulumi.StringPtrOutput   `pulumi:"status"`
+	// Granted license status.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The version of the grant.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -70,19 +79,29 @@ func (GrantState) ElementType() reflect.Type {
 }
 
 type grantArgs struct {
+	// Allowed operations for the grant.
 	AllowedOperations []string `pulumi:"allowedOperations"`
 	// Name for the created Grant.
 	GrantName *string `pulumi:"grantName"`
 	// Home region for the created grant.
 	HomeRegion *string `pulumi:"homeRegion"`
 	// License Arn for the grant.
-	LicenseArn *string  `pulumi:"licenseArn"`
+	LicenseArn *string `pulumi:"licenseArn"`
+	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+	//
+	// - An AWS account, which includes only the account specified.
+	//
+	// - An organizational unit (OU), which includes all accounts in the OU.
+	//
+	// - An organization, which will include all accounts across your organization.
 	Principals []string `pulumi:"principals"`
-	Status     *string  `pulumi:"status"`
+	// Granted license status.
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Grant resource.
 type GrantArgs struct {
+	// Allowed operations for the grant.
 	AllowedOperations pulumi.StringArrayInput
 	// Name for the created Grant.
 	GrantName pulumi.StringPtrInput
@@ -90,8 +109,16 @@ type GrantArgs struct {
 	HomeRegion pulumi.StringPtrInput
 	// License Arn for the grant.
 	LicenseArn pulumi.StringPtrInput
+	// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+	//
+	// - An AWS account, which includes only the account specified.
+	//
+	// - An organizational unit (OU), which includes all accounts in the OU.
+	//
+	// - An organization, which will include all accounts across your organization.
 	Principals pulumi.StringArrayInput
-	Status     pulumi.StringPtrInput
+	// Granted license status.
+	Status pulumi.StringPtrInput
 }
 
 func (GrantArgs) ElementType() reflect.Type {
@@ -131,6 +158,7 @@ func (o GrantOutput) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return o
 }
 
+// Allowed operations for the grant.
 func (o GrantOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Grant) pulumi.StringArrayOutput { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
@@ -155,10 +183,18 @@ func (o GrantOutput) LicenseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.LicenseArn }).(pulumi.StringPtrOutput)
 }
 
+// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+//
+// - An AWS account, which includes only the account specified.
+//
+// - An organizational unit (OU), which includes all accounts in the OU.
+//
+// - An organization, which will include all accounts across your organization.
 func (o GrantOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Grant) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
 }
 
+// Granted license status.
 func (o GrantOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grant) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

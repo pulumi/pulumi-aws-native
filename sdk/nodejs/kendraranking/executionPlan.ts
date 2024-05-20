@@ -37,7 +37,13 @@ export class ExecutionPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExecutionPlan.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the rescore execution plan.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The identifier of the rescore execution plan.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Capacity units
@@ -47,6 +53,9 @@ export class ExecutionPlan extends pulumi.CustomResource {
      * A description for the execution plan
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the rescore execution plan.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Tags for labeling the execution plan
@@ -95,6 +104,9 @@ export interface ExecutionPlanArgs {
      * A description for the execution plan
      */
     description?: pulumi.Input<string>;
+    /**
+     * A name for the rescore execution plan.
+     */
     name?: pulumi.Input<string>;
     /**
      * Tags for labeling the execution plan

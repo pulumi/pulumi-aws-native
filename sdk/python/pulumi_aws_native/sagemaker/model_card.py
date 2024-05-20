@@ -28,10 +28,12 @@ class ModelCardArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelCard resource.
+        :param pulumi.Input['ModelCardContentArgs'] content: The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         :param pulumi.Input['ModelCardStatus'] model_card_status: The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
         :param pulumi.Input['ModelCardUserContextArgs'] created_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input['ModelCardUserContextArgs'] last_modified_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[str] model_card_name: The unique name of the model card.
+        :param pulumi.Input['ModelCardSecurityConfigArgs'] security_config: The security configuration used to protect model card data.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs used to manage metadata for model cards.
         """
         pulumi.set(__self__, "content", content)
@@ -50,6 +52,9 @@ class ModelCardArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input['ModelCardContentArgs']:
+        """
+        The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -107,6 +112,9 @@ class ModelCardArgs:
     @property
     @pulumi.getter(name="securityConfig")
     def security_config(self) -> Optional[pulumi.Input['ModelCardSecurityConfigArgs']]:
+        """
+        The security configuration used to protect model card data.
+        """
         return pulumi.get(self, "security_config")
 
     @security_config.setter
@@ -144,10 +152,12 @@ class ModelCard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ModelCardContentArgs']] content: The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         :param pulumi.Input[pulumi.InputType['ModelCardUserContextArgs']] created_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[pulumi.InputType['ModelCardUserContextArgs']] last_modified_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[str] model_card_name: The unique name of the model card.
         :param pulumi.Input['ModelCardStatus'] model_card_status: The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
+        :param pulumi.Input[pulumi.InputType['ModelCardSecurityConfigArgs']] security_config: The security configuration used to protect model card data.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs used to manage metadata for model cards.
         """
         ...
@@ -247,6 +257,9 @@ class ModelCard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output['outputs.ModelCardContent']:
+        """
+        The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        """
         return pulumi.get(self, "content")
 
     @property
@@ -324,6 +337,9 @@ class ModelCard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="securityConfig")
     def security_config(self) -> pulumi.Output[Optional['outputs.ModelCardSecurityConfig']]:
+        """
+        The security configuration used to protect model card data.
+        """
         return pulumi.get(self, "security_config")
 
     @property

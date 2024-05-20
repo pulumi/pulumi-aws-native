@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisInsightVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
+        /// <summary>
+        /// The dataset that is used in the insight visual.
+        /// </summary>
         public readonly string DataSetIdentifier;
+        /// <summary>
+        /// The configuration of an insight visual.
+        /// </summary>
         public readonly Outputs.AnalysisInsightConfiguration? InsightConfiguration;
+        /// <summary>
+        /// The subtitle that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

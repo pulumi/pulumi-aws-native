@@ -24,17 +24,25 @@ func LookupPrivacyBudgetTemplate(ctx *pulumi.Context, args *LookupPrivacyBudgetT
 }
 
 type LookupPrivacyBudgetTemplateArgs struct {
-	MembershipIdentifier            string `pulumi:"membershipIdentifier"`
+	// The identifier for a membership resource.
+	MembershipIdentifier string `pulumi:"membershipIdentifier"`
+	// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
 	PrivacyBudgetTemplateIdentifier string `pulumi:"privacyBudgetTemplateIdentifier"`
 }
 
 type LookupPrivacyBudgetTemplateResult struct {
-	Arn                             *string               `pulumi:"arn"`
-	CollaborationArn                *string               `pulumi:"collaborationArn"`
-	CollaborationIdentifier         *string               `pulumi:"collaborationIdentifier"`
-	MembershipArn                   *string               `pulumi:"membershipArn"`
-	Parameters                      *ParametersProperties `pulumi:"parameters"`
-	PrivacyBudgetTemplateIdentifier *string               `pulumi:"privacyBudgetTemplateIdentifier"`
+	// The ARN of the privacy budget template.
+	Arn *string `pulumi:"arn"`
+	// The ARN of the collaboration that contains this privacy budget template.
+	CollaborationArn *string `pulumi:"collaborationArn"`
+	// The unique ID of the collaboration that contains this privacy budget template.
+	CollaborationIdentifier *string `pulumi:"collaborationIdentifier"`
+	// The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+	MembershipArn *string `pulumi:"membershipArn"`
+	// Specifies the epislon and noise parameters for the privacy budget template.
+	Parameters *ParametersProperties `pulumi:"parameters"`
+	// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+	PrivacyBudgetTemplateIdentifier *string `pulumi:"privacyBudgetTemplateIdentifier"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -53,7 +61,9 @@ func LookupPrivacyBudgetTemplateOutput(ctx *pulumi.Context, args LookupPrivacyBu
 }
 
 type LookupPrivacyBudgetTemplateOutputArgs struct {
-	MembershipIdentifier            pulumi.StringInput `pulumi:"membershipIdentifier"`
+	// The identifier for a membership resource.
+	MembershipIdentifier pulumi.StringInput `pulumi:"membershipIdentifier"`
+	// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
 	PrivacyBudgetTemplateIdentifier pulumi.StringInput `pulumi:"privacyBudgetTemplateIdentifier"`
 }
 
@@ -75,26 +85,32 @@ func (o LookupPrivacyBudgetTemplateResultOutput) ToLookupPrivacyBudgetTemplateRe
 	return o
 }
 
+// The ARN of the privacy budget template.
 func (o LookupPrivacyBudgetTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrivacyBudgetTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the collaboration that contains this privacy budget template.
 func (o LookupPrivacyBudgetTemplateResultOutput) CollaborationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrivacyBudgetTemplateResult) *string { return v.CollaborationArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the collaboration that contains this privacy budget template.
 func (o LookupPrivacyBudgetTemplateResultOutput) CollaborationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrivacyBudgetTemplateResult) *string { return v.CollaborationIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the member who created the privacy budget template.
 func (o LookupPrivacyBudgetTemplateResultOutput) MembershipArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrivacyBudgetTemplateResult) *string { return v.MembershipArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the epislon and noise parameters for the privacy budget template.
 func (o LookupPrivacyBudgetTemplateResultOutput) Parameters() ParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupPrivacyBudgetTemplateResult) *ParametersProperties { return v.Parameters }).(ParametersPropertiesPtrOutput)
 }
 
+// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
 func (o LookupPrivacyBudgetTemplateResultOutput) PrivacyBudgetTemplateIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrivacyBudgetTemplateResult) *string { return v.PrivacyBudgetTemplateIdentifier }).(pulumi.StringPtrOutput)
 }

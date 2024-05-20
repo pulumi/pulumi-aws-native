@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,27 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetProjectResult
     {
+        /// <summary>
+        /// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+        /// 
+        /// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+        /// 
+        /// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
+        /// </summary>
         public readonly Outputs.ProjectAppConfigResourceObject? AppConfigResource;
+        /// <summary>
+        /// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+        /// 
+        /// You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
+        /// </summary>
         public readonly Outputs.ProjectDataDeliveryObject? DataDelivery;
+        /// <summary>
+        /// An optional description of the project.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

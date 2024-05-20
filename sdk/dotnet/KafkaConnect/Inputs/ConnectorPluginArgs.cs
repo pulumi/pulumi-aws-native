@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorPluginArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about a custom plugin.
+        /// </summary>
         [Input("customPlugin", required: true)]
         public Input<Inputs.ConnectorCustomPluginArgs> CustomPlugin { get; set; } = null!;
 

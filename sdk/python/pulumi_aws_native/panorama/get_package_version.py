@@ -45,36 +45,57 @@ class GetPackageVersionResult:
     @property
     @pulumi.getter(name="isLatestPatch")
     def is_latest_patch(self) -> Optional[bool]:
+        """
+        Whether the package version is the latest version.
+        """
         return pulumi.get(self, "is_latest_patch")
 
     @property
     @pulumi.getter(name="markLatest")
     def mark_latest(self) -> Optional[bool]:
+        """
+        Whether to mark the new version as the latest version.
+        """
         return pulumi.get(self, "mark_latest")
 
     @property
     @pulumi.getter(name="packageArn")
     def package_arn(self) -> Optional[str]:
+        """
+        The package version's ARN.
+        """
         return pulumi.get(self, "package_arn")
 
     @property
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[str]:
+        """
+        The package version's name.
+        """
         return pulumi.get(self, "package_name")
 
     @property
     @pulumi.getter(name="registeredTime")
     def registered_time(self) -> Optional[int]:
+        """
+        The package version's registered time.
+        """
         return pulumi.get(self, "registered_time")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['PackageVersionStatus']:
+        """
+        The package version's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusDescription")
     def status_description(self) -> Optional[str]:
+        """
+        The package version's status description.
+        """
         return pulumi.get(self, "status_description")
 
 
@@ -99,6 +120,11 @@ def get_package_version(package_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageVersionResult:
     """
     Schema for PackageVersion Resource Type
+
+
+    :param str package_id: A package ID.
+    :param str package_version: A package version.
+    :param str patch_version: A patch version.
     """
     __args__ = dict()
     __args__['packageId'] = package_id
@@ -124,5 +150,10 @@ def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageVersionResult]:
     """
     Schema for PackageVersion Resource Type
+
+
+    :param str package_id: A package ID.
+    :param str package_version: A package version.
+    :param str patch_version: A patch version.
     """
     ...

@@ -155,15 +155,33 @@ export class ConfigurationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSet.__pulumiType;
     }
 
+    /**
+     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     */
     public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * The name of the configuration set.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * An object that represents the reputation settings for the configuration set.
+     */
     public readonly reputationOptions!: pulumi.Output<outputs.ses.ConfigurationSetReputationOptions | undefined>;
+    /**
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     */
     public readonly sendingOptions!: pulumi.Output<outputs.ses.ConfigurationSetSendingOptions | undefined>;
+    /**
+     * An object that contains information about the suppression list preferences for your account.
+     */
     public readonly suppressionOptions!: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
+    /**
+     * The name of the custom open and click tracking domain associated with the configuration set.
+     */
     public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
+    /**
+     * The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+     */
     public readonly vdmOptions!: pulumi.Output<outputs.ses.ConfigurationSetVdmOptions | undefined>;
 
     /**
@@ -204,14 +222,32 @@ export class ConfigurationSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationSet resource.
  */
 export interface ConfigurationSetArgs {
+    /**
+     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     */
     deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptionsArgs>;
     /**
      * The name of the configuration set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An object that represents the reputation settings for the configuration set.
+     */
     reputationOptions?: pulumi.Input<inputs.ses.ConfigurationSetReputationOptionsArgs>;
+    /**
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     */
     sendingOptions?: pulumi.Input<inputs.ses.ConfigurationSetSendingOptionsArgs>;
+    /**
+     * An object that contains information about the suppression list preferences for your account.
+     */
     suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs>;
+    /**
+     * The name of the custom open and click tracking domain associated with the configuration set.
+     */
     trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptionsArgs>;
+    /**
+     * The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+     */
     vdmOptions?: pulumi.Input<inputs.ses.ConfigurationSetVdmOptionsArgs>;
 }

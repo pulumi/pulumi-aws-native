@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeTileLayoutStyle
     {
+        /// <summary>
+        /// The gutter settings that apply between tiles.
+        /// </summary>
         public readonly Outputs.ThemeGutterStyle? Gutter;
+        /// <summary>
+        /// The margin settings that apply around the outside edge of sheets.
+        /// </summary>
         public readonly Outputs.ThemeMarginStyle? Margin;
 
         [OutputConstructor]

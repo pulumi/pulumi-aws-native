@@ -18,21 +18,45 @@ namespace Pulumi.AwsNative.Lambda
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the alias.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or ARN of the Lambda function.
+        /// 
+        /// **Name formats** - *Function name* - `MyFunction` .
+        /// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+        /// - *Partial ARN* - `123456789012:function:MyFunction` .
+        /// 
+        /// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The function version that the alias invokes.
+        /// </summary>
         [Output("functionVersion")]
         public Output<string> FunctionVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the alias.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
+        /// </summary>
         [Output("provisionedConcurrencyConfig")]
         public Output<Outputs.AliasProvisionedConcurrencyConfiguration?> ProvisionedConcurrencyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+        /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.AliasRoutingConfiguration?> RoutingConfig { get; private set; } = null!;
 
@@ -86,21 +110,45 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the alias.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name or ARN of the Lambda function.
+        /// 
+        /// **Name formats** - *Function name* - `MyFunction` .
+        /// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+        /// - *Partial ARN* - `123456789012:function:MyFunction` .
+        /// 
+        /// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
+        /// <summary>
+        /// The function version that the alias invokes.
+        /// </summary>
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the alias.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
+        /// </summary>
         [Input("provisionedConcurrencyConfig")]
         public Input<Inputs.AliasProvisionedConcurrencyConfigurationArgs>? ProvisionedConcurrencyConfig { get; set; }
 
+        /// <summary>
+        /// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+        /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigurationArgs>? RoutingConfig { get; set; }
 

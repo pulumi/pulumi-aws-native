@@ -723,9 +723,15 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The string identifier of the associated RestApi.
+        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
+        /// </summary>
         [Output("rootResourceId")]
         public Output<string> RootResourceId { get; private set; } = null!;
 

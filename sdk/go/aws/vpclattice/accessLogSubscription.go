@@ -17,13 +17,20 @@ import (
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput    `pulumi:"arn"`
-	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
-	DestinationArn     pulumi.StringOutput    `pulumi:"destinationArn"`
-	ResourceArn        pulumi.StringOutput    `pulumi:"resourceArn"`
-	ResourceId         pulumi.StringOutput    `pulumi:"resourceId"`
+	// The Amazon Resource Name (ARN) of the access log subscription.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the access log subscription.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
+	// The Amazon Resource Name (ARN) of the access log subscription.
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// The ID of the service network or service.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The ID or Amazon Resource Name (ARN) of the service network or service.
 	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
-	Tags               aws.TagArrayOutput     `pulumi:"tags"`
+	// The tags for the access log subscription.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -73,16 +80,22 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 }
 
 type accessLogSubscriptionArgs struct {
-	DestinationArn     string    `pulumi:"destinationArn"`
-	ResourceIdentifier *string   `pulumi:"resourceIdentifier"`
-	Tags               []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+	DestinationArn string `pulumi:"destinationArn"`
+	// The ID or Amazon Resource Name (ARN) of the service network or service.
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
+	// The tags for the access log subscription.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessLogSubscription resource.
 type AccessLogSubscriptionArgs struct {
-	DestinationArn     pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+	DestinationArn pulumi.StringInput
+	// The ID or Amazon Resource Name (ARN) of the service network or service.
 	ResourceIdentifier pulumi.StringPtrInput
-	Tags               aws.TagArrayInput
+	// The tags for the access log subscription.
+	Tags aws.TagArrayInput
 }
 
 func (AccessLogSubscriptionArgs) ElementType() reflect.Type {
@@ -122,30 +135,37 @@ func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the access log subscription.
 func (o AccessLogSubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the access log subscription.
 func (o AccessLogSubscriptionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
 func (o AccessLogSubscriptionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the access log subscription.
 func (o AccessLogSubscriptionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
+// The ID of the service network or service.
 func (o AccessLogSubscriptionOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The ID or Amazon Resource Name (ARN) of the service network or service.
 func (o AccessLogSubscriptionOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the access log subscription.
 func (o AccessLogSubscriptionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

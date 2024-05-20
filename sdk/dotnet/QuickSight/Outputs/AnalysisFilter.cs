@@ -13,12 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilter
     {
+        /// <summary>
+        /// A `CategoryFilter` filters text values.
+        /// 
+        /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly Outputs.AnalysisCategoryFilter? CategoryFilter;
+        /// <summary>
+        /// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
+        /// </summary>
         public readonly Outputs.AnalysisNumericEqualityFilter? NumericEqualityFilter;
+        /// <summary>
+        /// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
+        /// </summary>
         public readonly Outputs.AnalysisNumericRangeFilter? NumericRangeFilter;
+        /// <summary>
+        /// A `RelativeDatesFilter` filters date values that are relative to a given date.
+        /// </summary>
         public readonly Outputs.AnalysisRelativeDatesFilter? RelativeDatesFilter;
+        /// <summary>
+        /// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
+        /// </summary>
         public readonly Outputs.AnalysisTimeEqualityFilter? TimeEqualityFilter;
+        /// <summary>
+        /// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
+        /// </summary>
         public readonly Outputs.AnalysisTimeRangeFilter? TimeRangeFilter;
+        /// <summary>
+        /// A `TopBottomFilter` filters data to the top or bottom values for a given column.
+        /// </summary>
         public readonly Outputs.AnalysisTopBottomFilter? TopBottomFilter;
 
         [OutputConstructor]

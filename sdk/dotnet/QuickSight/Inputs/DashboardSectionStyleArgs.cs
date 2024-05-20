@@ -18,6 +18,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The spacing between section content and its top, bottom, left, and right edges.
+        /// 
+        /// There is no padding by default.
+        /// </summary>
         [Input("padding")]
         public Input<Inputs.DashboardSpacingArgs>? Padding { get; set; }
 

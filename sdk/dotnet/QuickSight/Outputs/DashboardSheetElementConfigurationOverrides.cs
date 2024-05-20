@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetElementConfigurationOverrides
     {
+        /// <summary>
+        /// Determines whether or not the overrides are visible. Choose one of the following options:
+        /// 
+        /// - `VISIBLE`
+        /// - `HIDDEN`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

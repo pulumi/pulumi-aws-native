@@ -14,15 +14,27 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("attributes", required: true)]
         private InputMap<string>? _attributes;
+
+        /// <summary>
+        /// A list of 1-50 "AttributeNameMapping" objects that map an existing attribute to a new attribute.
+        /// 
+        /// &gt; The existing attributes remain in the message, so if you want to remove the originals, use "RemoveAttributeActivity".
+        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// The name of the 'addAttributes' activity.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         [Input("next")]
         public Input<string>? Next { get; set; }
 

@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     {
         [Input("applicationArns")]
         private InputList<string>? _applicationArns;
+
+        /// <summary>
+        /// The ARNs of the Amazon SNS platform applications that could be used by clients.
+        /// </summary>
         public InputList<string> ApplicationArns
         {
             get => _applicationArns ?? (_applicationArns = new InputList<string>());
             set => _applicationArns = value;
         }
 
+        /// <summary>
+        /// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

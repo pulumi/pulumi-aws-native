@@ -15,9 +15,22 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// </summary>
     public sealed class TableEncryptionSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption at rest options for the table.
+        /// 
+        /// - *AWS owned key* (default) - `AWS_OWNED_KMS_KEY`
+        /// - *Customer managed key* - `CUSTOMER_MANAGED_KMS_KEY`
+        /// 
+        /// &gt; If you choose `CUSTOMER_MANAGED_KMS_KEY` , a `kms_key_identifier` in the format of a key ARN is required.
+        /// 
+        /// Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
+        /// </summary>
         [Input("encryptionType", required: true)]
         public Input<Pulumi.AwsNative.Cassandra.TableEncryptionType> EncryptionType { get; set; } = null!;
 
+        /// <summary>
+        /// Requires a `kms_key_identifier` in the format of a key ARN.
+        /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 

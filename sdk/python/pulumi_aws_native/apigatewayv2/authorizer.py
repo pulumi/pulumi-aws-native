@@ -352,6 +352,9 @@ class Authorizer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Output[str]:
+        """
+        The authorizer ID.
+        """
         return pulumi.get(self, "authorizer_id")
 
     @property

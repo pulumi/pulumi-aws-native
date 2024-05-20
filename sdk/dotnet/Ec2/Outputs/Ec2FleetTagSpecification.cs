@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class Ec2FleetTagSpecification
     {
+        /// <summary>
+        /// The type of resource to tag.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.Ec2FleetTagSpecificationResourceType? ResourceType;
+        /// <summary>
+        /// The tags to apply to the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.Ec2FleetTag> Tags;
 
         [OutputConstructor]

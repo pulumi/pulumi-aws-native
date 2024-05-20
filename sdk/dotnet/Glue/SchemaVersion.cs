@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:SchemaVersion")]
     public partial class SchemaVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The schema that includes the schema version.
+        /// </summary>
         [Output("schema")]
         public Output<Outputs.SchemaVersionSchema> Schema { get; private set; } = null!;
 
@@ -80,6 +83,9 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class SchemaVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The schema that includes the schema version.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.SchemaVersionSchemaArgs> Schema { get; set; } = null!;
 

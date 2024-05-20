@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRulePutItemInput
     {
+        /// <summary>
+        /// The table where the message data will be written.
+        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

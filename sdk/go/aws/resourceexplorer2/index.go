@@ -74,10 +74,18 @@ import (
 type Index struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput    `pulumi:"arn"`
-	IndexState IndexStateEnumOutput   `pulumi:"indexState"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	Type       IndexTypeOutput        `pulumi:"type"`
+	// The ARN of the new index for the AWS Region . For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Indicates the current state of the index. For example:
+	//
+	// `CREATING`
+	IndexState IndexStateEnumOutput `pulumi:"indexState"`
+	// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+	Type IndexTypeOutput `pulumi:"type"`
 }
 
 // NewIndex registers a new resource with the given unique name, arguments, and options.
@@ -123,13 +131,17 @@ func (IndexState) ElementType() reflect.Type {
 }
 
 type indexArgs struct {
+	// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
 	Tags map[string]string `pulumi:"tags"`
-	Type IndexType         `pulumi:"type"`
+	// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+	Type IndexType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Index resource.
 type IndexArgs struct {
+	// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
 	Tags pulumi.StringMapInput
+	// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
 	Type IndexTypeInput
 }
 
@@ -170,18 +182,26 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return o
 }
 
+// The ARN of the new index for the AWS Region . For example:
+//
+// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Indicates the current state of the index. For example:
+//
+// `CREATING`
 func (o IndexOutput) IndexState() IndexStateEnumOutput {
 	return o.ApplyT(func(v *Index) IndexStateEnumOutput { return v.IndexState }).(IndexStateEnumOutput)
 }
 
+// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
 func (o IndexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
 func (o IndexOutput) Type() IndexTypeOutput {
 	return o.ApplyT(func(v *Index) IndexTypeOutput { return v.Type }).(IndexTypeOutput)
 }

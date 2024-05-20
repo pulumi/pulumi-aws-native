@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
     public sealed class IpAccessSettingsIpRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the IP rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

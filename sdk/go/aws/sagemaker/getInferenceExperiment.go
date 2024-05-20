@@ -32,7 +32,8 @@ type LookupInferenceExperimentResult struct {
 	// The Amazon Resource Name (ARN) of the inference experiment.
 	Arn *string `pulumi:"arn"`
 	// The timestamp at which you created the inference experiment.
-	CreationTime      *string                               `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
+	// The Amazon S3 location and configuration for storing inference request and response data.
 	DataStorageConfig *InferenceExperimentDataStorageConfig `pulumi:"dataStorageConfig"`
 	// The description of the inference experiment.
 	Description *string `pulumi:"description"`
@@ -42,9 +43,13 @@ type LookupInferenceExperimentResult struct {
 	// The timestamp at which you last modified the inference experiment.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// An array of ModelVariantConfig objects. Each ModelVariantConfig object in the array describes the infrastructure configuration for the corresponding variant.
-	ModelVariants    []InferenceExperimentModelVariantConfig `pulumi:"modelVariants"`
-	Schedule         *InferenceExperimentSchedule            `pulumi:"schedule"`
-	ShadowModeConfig *InferenceExperimentShadowModeConfig    `pulumi:"shadowModeConfig"`
+	ModelVariants []InferenceExperimentModelVariantConfig `pulumi:"modelVariants"`
+	// The duration for which the inference experiment ran or will run.
+	//
+	// The maximum duration that you can set for an inference experiment is 30 days.
+	Schedule *InferenceExperimentSchedule `pulumi:"schedule"`
+	// The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
+	ShadowModeConfig *InferenceExperimentShadowModeConfig `pulumi:"shadowModeConfig"`
 	// The status of the inference experiment.
 	Status *InferenceExperimentStatus `pulumi:"status"`
 	// The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
@@ -99,6 +104,7 @@ func (o LookupInferenceExperimentResultOutput) CreationTime() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 location and configuration for storing inference request and response data.
 func (o LookupInferenceExperimentResultOutput) DataStorageConfig() InferenceExperimentDataStorageConfigPtrOutput {
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentDataStorageConfig {
 		return v.DataStorageConfig
@@ -133,10 +139,14 @@ func (o LookupInferenceExperimentResultOutput) ModelVariants() InferenceExperime
 	}).(InferenceExperimentModelVariantConfigArrayOutput)
 }
 
+// The duration for which the inference experiment ran or will run.
+//
+// The maximum duration that you can set for an inference experiment is 30 days.
 func (o LookupInferenceExperimentResultOutput) Schedule() InferenceExperimentSchedulePtrOutput {
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentSchedule { return v.Schedule }).(InferenceExperimentSchedulePtrOutput)
 }
 
+// The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
 func (o LookupInferenceExperimentResultOutput) ShadowModeConfig() InferenceExperimentShadowModeConfigPtrOutput {
 	return o.ApplyT(func(v LookupInferenceExperimentResult) *InferenceExperimentShadowModeConfig {
 		return v.ShadowModeConfig

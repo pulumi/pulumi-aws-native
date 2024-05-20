@@ -38,11 +38,14 @@ class ServerlessCacheArgs:
         """
         The set of arguments for constructing a ServerlessCache resource.
         :param pulumi.Input[str] engine: The engine name of the Serverless Cache.
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: The cache usage limit for the serverless cache.
         :param pulumi.Input[str] daily_snapshot_time: The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
         :param pulumi.Input[str] description: The description of the Serverless Cache.
+        :param pulumi.Input['ServerlessCacheEndpointArgs'] endpoint: Represents the information required for client programs to connect to a cache node. This value is read-only.
         :param pulumi.Input[str] final_snapshot_name: The final snapshot name which is taken before Serverless Cache is deleted.
         :param pulumi.Input[str] kms_key_id: The ID of the KMS key used to encrypt the cluster.
         :param pulumi.Input[str] major_engine_version: The major engine version of the Serverless Cache.
+        :param pulumi.Input['ServerlessCacheEndpointArgs'] reader_endpoint: Represents the information required for client programs to connect to a cache node. This value is read-only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this Serverless Cache.
         :param pulumi.Input[str] serverless_cache_name: The name of the Serverless Cache. This value must be unique.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restore: The ARN's of snapshot to restore Serverless Cache.
@@ -98,6 +101,9 @@ class ServerlessCacheArgs:
     @property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
+        """
+        The cache usage limit for the serverless cache.
+        """
         return pulumi.get(self, "cache_usage_limits")
 
     @cache_usage_limits.setter
@@ -131,6 +137,9 @@ class ServerlessCacheArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input['ServerlessCacheEndpointArgs']]:
+        """
+        Represents the information required for client programs to connect to a cache node. This value is read-only.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -176,6 +185,9 @@ class ServerlessCacheArgs:
     @property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> Optional[pulumi.Input['ServerlessCacheEndpointArgs']]:
+        """
+        Represents the information required for client programs to connect to a cache node. This value is read-only.
+        """
         return pulumi.get(self, "reader_endpoint")
 
     @reader_endpoint.setter
@@ -294,12 +306,15 @@ class ServerlessCache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']] cache_usage_limits: The cache usage limit for the serverless cache.
         :param pulumi.Input[str] daily_snapshot_time: The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
         :param pulumi.Input[str] description: The description of the Serverless Cache.
+        :param pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']] endpoint: Represents the information required for client programs to connect to a cache node. This value is read-only.
         :param pulumi.Input[str] engine: The engine name of the Serverless Cache.
         :param pulumi.Input[str] final_snapshot_name: The final snapshot name which is taken before Serverless Cache is deleted.
         :param pulumi.Input[str] kms_key_id: The ID of the KMS key used to encrypt the cluster.
         :param pulumi.Input[str] major_engine_version: The major engine version of the Serverless Cache.
+        :param pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']] reader_endpoint: Represents the information required for client programs to connect to a cache node. This value is read-only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this Serverless Cache.
         :param pulumi.Input[str] serverless_cache_name: The name of the Serverless Cache. This value must be unique.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restore: The ARN's of snapshot to restore Serverless Cache.
@@ -436,6 +451,9 @@ class ServerlessCache(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> pulumi.Output[Optional['outputs.ServerlessCacheCacheUsageLimits']]:
+        """
+        The cache usage limit for the serverless cache.
+        """
         return pulumi.get(self, "cache_usage_limits")
 
     @property
@@ -465,6 +483,9 @@ class ServerlessCache(pulumi.CustomResource):
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[Optional['outputs.ServerlessCacheEndpoint']]:
+        """
+        Represents the information required for client programs to connect to a cache node. This value is read-only.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -510,6 +531,9 @@ class ServerlessCache(pulumi.CustomResource):
     @property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> pulumi.Output[Optional['outputs.ServerlessCacheEndpoint']]:
+        """
+        Represents the information required for client programs to connect to a cache node. This value is read-only.
+        """
         return pulumi.get(self, "reader_endpoint")
 
     @property

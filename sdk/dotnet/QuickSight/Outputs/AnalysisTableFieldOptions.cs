@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableFieldOptions
     {
+        /// <summary>
+        /// The order of the field IDs that are configured as field options for a table visual.
+        /// </summary>
         public readonly ImmutableArray<string> Order;
+        /// <summary>
+        /// The settings for the pinned columns of a table visual.
+        /// </summary>
         public readonly Outputs.AnalysisTablePinnedFieldOptions? PinnedFieldOptions;
+        /// <summary>
+        /// The field options to be configured to a table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisTableFieldOption> SelectedFieldOptions;
 
         [OutputConstructor]

@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+        /// </summary>
         [Input("imageArn", required: true)]
         public string ImageArn { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+        /// </summary>
         [Input("imageArn", required: true)]
         public Input<string> ImageArn { get; set; } = null!;
 
@@ -51,9 +69,35 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetImageResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image.
+        /// 
+        /// *Type* : String
+        /// 
+        /// *Length Constraints* : Maximum length of 256.
+        /// 
+        /// *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+        /// </summary>
         public readonly string? ImageArn;
+        /// <summary>
+        /// The description of the image.
+        /// </summary>
         public readonly string? ImageDescription;
+        /// <summary>
+        /// The display name of the image.
+        /// 
+        /// *Length Constraints* : Minimum length of 1. Maximum length of 128.
+        /// 
+        /// *Pattern* : `^\S(.*\S)?$`
+        /// </summary>
         public readonly string? ImageDisplayName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        /// 
+        /// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+        /// 
+        /// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+        /// </summary>
         public readonly string? ImageRoleArn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

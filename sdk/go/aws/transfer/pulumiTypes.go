@@ -812,6 +812,7 @@ func (o WorkflowInputFileLocationPtrOutput) S3FileLocation() WorkflowS3InputFile
 
 // Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
 type WorkflowS3FileLocation struct {
+	// Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
 	S3FileLocation *WorkflowS3InputFileLocation `pulumi:"s3FileLocation"`
 }
 
@@ -828,6 +829,7 @@ type WorkflowS3FileLocationInput interface {
 
 // Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
 type WorkflowS3FileLocationArgs struct {
+	// Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
 	S3FileLocation WorkflowS3InputFileLocationPtrInput `pulumi:"s3FileLocation"`
 }
 
@@ -909,6 +911,7 @@ func (o WorkflowS3FileLocationOutput) ToWorkflowS3FileLocationPtrOutputWithConte
 	}).(WorkflowS3FileLocationPtrOutput)
 }
 
+// Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
 func (o WorkflowS3FileLocationOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowS3FileLocation) *WorkflowS3InputFileLocation { return v.S3FileLocation }).(WorkflowS3InputFileLocationPtrOutput)
 }
@@ -937,6 +940,7 @@ func (o WorkflowS3FileLocationPtrOutput) Elem() WorkflowS3FileLocationOutput {
 	}).(WorkflowS3FileLocationOutput)
 }
 
+// Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
 func (o WorkflowS3FileLocationPtrOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
 	return o.ApplyT(func(v *WorkflowS3FileLocation) *WorkflowS3InputFileLocation {
 		if v == nil {

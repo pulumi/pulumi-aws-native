@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DomainServerSideEncryptionConfiguration struct {
+	// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -29,6 +30,7 @@ type DomainServerSideEncryptionConfigurationInput interface {
 }
 
 type DomainServerSideEncryptionConfigurationArgs struct {
+	// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -58,12 +60,15 @@ func (o DomainServerSideEncryptionConfigurationOutput) ToDomainServerSideEncrypt
 	return o
 }
 
+// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
 func (o DomainServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainServerSideEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
 type DomainTag struct {
-	Key   string `pulumi:"key"`
+	// The first part of a key:value pair that forms a tag associated with a given resource. For example, in the tag 'Department':'Sales', the key is 'Department'.
+	Key string `pulumi:"key"`
+	// The second part of a key:value pair that forms a tag associated with a given resource. For example, in the tag 'Department':'Sales', the value is 'Sales'.
 	Value string `pulumi:"value"`
 }
 

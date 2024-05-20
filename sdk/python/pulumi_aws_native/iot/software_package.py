@@ -155,6 +155,9 @@ class SoftwarePackage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="packageArn")
     def package_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the package.
+        """
         return pulumi.get(self, "package_arn")
 
     @property

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineLogDestination
     {
+        /// <summary>
+        /// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        /// </summary>
         public readonly Outputs.StateMachineCloudWatchLogsLogGroup? CloudWatchLogsLogGroup;
 
         [OutputConstructor]

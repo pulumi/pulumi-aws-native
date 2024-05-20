@@ -14,6 +14,21 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("items", required: true)]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// The list of HTTP methods. Valid values are:
+        /// 
+        /// - `GET`
+        /// - `DELETE`
+        /// - `HEAD`
+        /// - `OPTIONS`
+        /// - `PATCH`
+        /// - `POST`
+        /// - `PUT`
+        /// - `ALL`
+        /// 
+        /// `ALL` is a special value that includes all of the listed HTTP methods.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());

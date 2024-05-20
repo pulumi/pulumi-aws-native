@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateReferenceLineValueLabelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The format configuration of the value label.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.TemplateNumericFormatConfigurationArgs>? FormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The relative position of the value label. Choose one of the following options:
+        /// 
+        /// - `BEFORE_CUSTOM_LABEL`
+        /// - `AFTER_CUSTOM_LABEL`
+        /// </summary>
         [Input("relativePosition")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateReferenceLineValueLabelRelativePosition>? RelativePosition { get; set; }
 

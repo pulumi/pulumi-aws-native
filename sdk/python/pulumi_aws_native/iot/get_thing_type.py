@@ -36,16 +36,27 @@ class GetThingTypeResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The thing type arn.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deprecateThingType")
     def deprecate_thing_type(self) -> Optional[bool]:
+        """
+        Deprecates a thing type. You can not associate new things with deprecated thing type.
+
+        Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+        """
         return pulumi.get(self, "deprecate_thing_type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The thing type id.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -73,6 +84,9 @@ def get_thing_type(thing_type_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThingTypeResult:
     """
     Resource Type definition for AWS::IoT::ThingType
+
+
+    :param str thing_type_name: The name of the thing type.
     """
     __args__ = dict()
     __args__['thingTypeName'] = thing_type_name
@@ -91,5 +105,8 @@ def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingTypeResult]:
     """
     Resource Type definition for AWS::IoT::ThingType
+
+
+    :param str thing_type_name: The name of the thing type.
     """
     ...

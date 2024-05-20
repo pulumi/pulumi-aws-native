@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ram
     [AwsNativeResourceType("aws-native:ram:Permission")]
     public partial class Permission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the new permission.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -30,6 +33,12 @@ namespace Pulumi.AwsNative.Ram
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of managed permission. This can be one of the following values:
+        /// 
+        /// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+        /// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
+        /// </summary>
         [Output("permissionType")]
         public Output<string> PermissionType { get; private set; } = null!;
 
@@ -47,6 +56,9 @@ namespace Pulumi.AwsNative.Ram
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a list of one or more tag key and value pairs to attach to the permission.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -129,6 +141,10 @@ namespace Pulumi.AwsNative.Ram
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies a list of one or more tag key and value pairs to attach to the permission.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

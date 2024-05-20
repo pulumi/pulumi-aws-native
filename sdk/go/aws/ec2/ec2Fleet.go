@@ -16,19 +16,44 @@ import (
 type Ec2Fleet struct {
 	pulumi.CustomResourceState
 
-	Context                          pulumi.StringPtrOutput                              `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  Ec2FleetExcessCapacityTerminationPolicyPtrOutput    `pulumi:"excessCapacityTerminationPolicy"`
-	FleetId                          pulumi.StringOutput                                 `pulumi:"fleetId"`
-	LaunchTemplateConfigs            Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput `pulumi:"launchTemplateConfigs"`
-	OnDemandOptions                  Ec2FleetOnDemandOptionsRequestPtrOutput             `pulumi:"onDemandOptions"`
-	ReplaceUnhealthyInstances        pulumi.BoolPtrOutput                                `pulumi:"replaceUnhealthyInstances"`
-	SpotOptions                      Ec2FleetSpotOptionsRequestPtrOutput                 `pulumi:"spotOptions"`
-	TagSpecifications                Ec2FleetTagSpecificationArrayOutput                 `pulumi:"tagSpecifications"`
-	TargetCapacitySpecification      Ec2FleetTargetCapacitySpecificationRequestOutput    `pulumi:"targetCapacitySpecification"`
-	TerminateInstancesWithExpiration pulumi.BoolPtrOutput                                `pulumi:"terminateInstancesWithExpiration"`
-	Type                             Ec2FleetTypePtrOutput                               `pulumi:"type"`
-	ValidFrom                        pulumi.StringPtrOutput                              `pulumi:"validFrom"`
-	ValidUntil                       pulumi.StringPtrOutput                              `pulumi:"validUntil"`
+	// Reserved.
+	Context pulumi.StringPtrOutput `pulumi:"context"`
+	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
+	ExcessCapacityTerminationPolicy Ec2FleetExcessCapacityTerminationPolicyPtrOutput `pulumi:"excessCapacityTerminationPolicy"`
+	// The ID of the EC2 Fleet.
+	FleetId pulumi.StringOutput `pulumi:"fleetId"`
+	// The configuration for the EC2 Fleet.
+	LaunchTemplateConfigs Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput `pulumi:"launchTemplateConfigs"`
+	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
+	OnDemandOptions Ec2FleetOnDemandOptionsRequestPtrOutput `pulumi:"onDemandOptions"`
+	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
+	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
+	// Describes the configuration of Spot Instances in an EC2 Fleet.
+	SpotOptions Ec2FleetSpotOptionsRequestPtrOutput `pulumi:"spotOptions"`
+	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	//
+	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+	//
+	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
+	TagSpecifications Ec2FleetTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
+	// The number of units to request.
+	TargetCapacitySpecification Ec2FleetTargetCapacitySpecificationRequestOutput `pulumi:"targetCapacitySpecification"`
+	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
+	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
+	// The fleet type. The default value is `maintain` .
+	//
+	// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+	// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+	// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+	//
+	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+	Type Ec2FleetTypePtrOutput `pulumi:"type"`
+	// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
+	ValidFrom pulumi.StringPtrOutput `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil pulumi.StringPtrOutput `pulumi:"validUntil"`
 }
 
 // NewEc2Fleet registers a new resource with the given unique name, arguments, and options.
@@ -89,34 +114,82 @@ func (Ec2FleetState) ElementType() reflect.Type {
 }
 
 type ec2FleetArgs struct {
-	Context                          *string                                    `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  *Ec2FleetExcessCapacityTerminationPolicy   `pulumi:"excessCapacityTerminationPolicy"`
-	LaunchTemplateConfigs            []Ec2FleetFleetLaunchTemplateConfigRequest `pulumi:"launchTemplateConfigs"`
-	OnDemandOptions                  *Ec2FleetOnDemandOptionsRequest            `pulumi:"onDemandOptions"`
-	ReplaceUnhealthyInstances        *bool                                      `pulumi:"replaceUnhealthyInstances"`
-	SpotOptions                      *Ec2FleetSpotOptionsRequest                `pulumi:"spotOptions"`
-	TagSpecifications                []Ec2FleetTagSpecification                 `pulumi:"tagSpecifications"`
-	TargetCapacitySpecification      Ec2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
-	TerminateInstancesWithExpiration *bool                                      `pulumi:"terminateInstancesWithExpiration"`
-	Type                             *Ec2FleetType                              `pulumi:"type"`
-	ValidFrom                        *string                                    `pulumi:"validFrom"`
-	ValidUntil                       *string                                    `pulumi:"validUntil"`
+	// Reserved.
+	Context *string `pulumi:"context"`
+	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
+	ExcessCapacityTerminationPolicy *Ec2FleetExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
+	// The configuration for the EC2 Fleet.
+	LaunchTemplateConfigs []Ec2FleetFleetLaunchTemplateConfigRequest `pulumi:"launchTemplateConfigs"`
+	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
+	OnDemandOptions *Ec2FleetOnDemandOptionsRequest `pulumi:"onDemandOptions"`
+	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
+	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
+	// Describes the configuration of Spot Instances in an EC2 Fleet.
+	SpotOptions *Ec2FleetSpotOptionsRequest `pulumi:"spotOptions"`
+	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	//
+	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+	//
+	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
+	TagSpecifications []Ec2FleetTagSpecification `pulumi:"tagSpecifications"`
+	// The number of units to request.
+	TargetCapacitySpecification Ec2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
+	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
+	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
+	// The fleet type. The default value is `maintain` .
+	//
+	// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+	// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+	// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+	//
+	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+	Type *Ec2FleetType `pulumi:"type"`
+	// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
+	ValidFrom *string `pulumi:"validFrom"`
+	// The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 // The set of arguments for constructing a Ec2Fleet resource.
 type Ec2FleetArgs struct {
-	Context                          pulumi.StringPtrInput
-	ExcessCapacityTerminationPolicy  Ec2FleetExcessCapacityTerminationPolicyPtrInput
-	LaunchTemplateConfigs            Ec2FleetFleetLaunchTemplateConfigRequestArrayInput
-	OnDemandOptions                  Ec2FleetOnDemandOptionsRequestPtrInput
-	ReplaceUnhealthyInstances        pulumi.BoolPtrInput
-	SpotOptions                      Ec2FleetSpotOptionsRequestPtrInput
-	TagSpecifications                Ec2FleetTagSpecificationArrayInput
-	TargetCapacitySpecification      Ec2FleetTargetCapacitySpecificationRequestInput
+	// Reserved.
+	Context pulumi.StringPtrInput
+	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
+	ExcessCapacityTerminationPolicy Ec2FleetExcessCapacityTerminationPolicyPtrInput
+	// The configuration for the EC2 Fleet.
+	LaunchTemplateConfigs Ec2FleetFleetLaunchTemplateConfigRequestArrayInput
+	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
+	OnDemandOptions Ec2FleetOnDemandOptionsRequestPtrInput
+	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
+	ReplaceUnhealthyInstances pulumi.BoolPtrInput
+	// Describes the configuration of Spot Instances in an EC2 Fleet.
+	SpotOptions Ec2FleetSpotOptionsRequestPtrInput
+	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+	//
+	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+	//
+	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
+	TagSpecifications Ec2FleetTagSpecificationArrayInput
+	// The number of units to request.
+	TargetCapacitySpecification Ec2FleetTargetCapacitySpecificationRequestInput
+	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
-	Type                             Ec2FleetTypePtrInput
-	ValidFrom                        pulumi.StringPtrInput
-	ValidUntil                       pulumi.StringPtrInput
+	// The fleet type. The default value is `maintain` .
+	//
+	// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+	// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+	// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+	//
+	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
+	Type Ec2FleetTypePtrInput
+	// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
+	ValidFrom pulumi.StringPtrInput
+	// The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+	ValidUntil pulumi.StringPtrInput
 }
 
 func (Ec2FleetArgs) ElementType() reflect.Type {
@@ -156,58 +229,83 @@ func (o Ec2FleetOutput) ToEc2FleetOutputWithContext(ctx context.Context) Ec2Flee
 	return o
 }
 
+// Reserved.
 func (o Ec2FleetOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+//
+// Supported only for fleets of type `maintain` .
 func (o Ec2FleetOutput) ExcessCapacityTerminationPolicy() Ec2FleetExcessCapacityTerminationPolicyPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetExcessCapacityTerminationPolicyPtrOutput {
 		return v.ExcessCapacityTerminationPolicy
 	}).(Ec2FleetExcessCapacityTerminationPolicyPtrOutput)
 }
 
+// The ID of the EC2 Fleet.
 func (o Ec2FleetOutput) FleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
 }
 
+// The configuration for the EC2 Fleet.
 func (o Ec2FleetOutput) LaunchTemplateConfigs() Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput { return v.LaunchTemplateConfigs }).(Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput)
 }
 
+// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 func (o Ec2FleetOutput) OnDemandOptions() Ec2FleetOnDemandOptionsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetOnDemandOptionsRequestPtrOutput { return v.OnDemandOptions }).(Ec2FleetOnDemandOptionsRequestPtrOutput)
 }
 
+// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.BoolPtrOutput { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
 }
 
+// Describes the configuration of Spot Instances in an EC2 Fleet.
 func (o Ec2FleetOutput) SpotOptions() Ec2FleetSpotOptionsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetSpotOptionsRequestPtrOutput { return v.SpotOptions }).(Ec2FleetSpotOptionsRequestPtrOutput)
 }
 
+// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
+//
+// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+//
+// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
 func (o Ec2FleetOutput) TagSpecifications() Ec2FleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetTagSpecificationArrayOutput { return v.TagSpecifications }).(Ec2FleetTagSpecificationArrayOutput)
 }
 
+// The number of units to request.
 func (o Ec2FleetOutput) TargetCapacitySpecification() Ec2FleetTargetCapacitySpecificationRequestOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetTargetCapacitySpecificationRequestOutput {
 		return v.TargetCapacitySpecification
 	}).(Ec2FleetTargetCapacitySpecificationRequestOutput)
 }
 
+// Indicates whether running instances should be terminated when the EC2 Fleet expires.
 func (o Ec2FleetOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.BoolPtrOutput { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
 }
 
+// The fleet type. The default value is `maintain` .
+//
+// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+//
+// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
 func (o Ec2FleetOutput) Type() Ec2FleetTypePtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetTypePtrOutput { return v.Type }).(Ec2FleetTypePtrOutput)
 }
 
+// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). The default is to start fulfilling the request immediately.
 func (o Ec2FleetOutput) ValidFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.StringPtrOutput { return v.ValidFrom }).(pulumi.StringPtrOutput)
 }
 
+// The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
 func (o Ec2FleetOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.StringPtrOutput { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }

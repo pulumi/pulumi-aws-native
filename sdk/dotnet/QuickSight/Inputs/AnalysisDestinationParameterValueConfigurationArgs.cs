@@ -12,18 +12,30 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDestinationParameterValueConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
+        /// </summary>
         [Input("customValuesConfiguration")]
         public Input<Inputs.AnalysisCustomValuesConfigurationArgs>? CustomValuesConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration that selects all options.
+        /// </summary>
         [Input("selectAllValueOptions")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSelectAllValueOptions>? SelectAllValueOptions { get; set; }
 
         [Input("sourceColumn")]
         public Input<Inputs.AnalysisColumnIdentifierArgs>? SourceColumn { get; set; }
 
+        /// <summary>
+        /// The source field ID of the destination parameter.
+        /// </summary>
         [Input("sourceField")]
         public Input<string>? SourceField { get; set; }
 
+        /// <summary>
+        /// The source parameter name of the destination parameter.
+        /// </summary>
         [Input("sourceParameterName")]
         public Input<string>? SourceParameterName { get; set; }
 

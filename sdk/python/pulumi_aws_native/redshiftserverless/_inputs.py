@@ -21,6 +21,11 @@ class NamespaceSnapshotCopyConfigurationArgs:
                  destination_region: pulumi.Input[str],
                  destination_kms_key_id: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_period: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] destination_region: The destination AWS Region to copy snapshots to.
+        :param pulumi.Input[str] destination_kms_key_id: The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
+        :param pulumi.Input[int] snapshot_retention_period: The retention period of snapshots that are copied to the destination AWS Region .
+        """
         pulumi.set(__self__, "destination_region", destination_region)
         if destination_kms_key_id is not None:
             pulumi.set(__self__, "destination_kms_key_id", destination_kms_key_id)
@@ -30,6 +35,9 @@ class NamespaceSnapshotCopyConfigurationArgs:
     @property
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[str]:
+        """
+        The destination AWS Region to copy snapshots to.
+        """
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
@@ -39,6 +47,9 @@ class NamespaceSnapshotCopyConfigurationArgs:
     @property
     @pulumi.getter(name="destinationKmsKeyId")
     def destination_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
+        """
         return pulumi.get(self, "destination_kms_key_id")
 
     @destination_kms_key_id.setter
@@ -48,6 +59,9 @@ class NamespaceSnapshotCopyConfigurationArgs:
     @property
     @pulumi.getter(name="snapshotRetentionPeriod")
     def snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period of snapshots that are copied to the destination AWS Region .
+        """
         return pulumi.get(self, "snapshot_retention_period")
 
     @snapshot_retention_period.setter
@@ -60,6 +74,10 @@ class WorkgroupConfigParameterArgs:
     def __init__(__self__, *,
                  parameter_key: Optional[pulumi.Input[str]] = None,
                  parameter_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] parameter_key: The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+        :param pulumi.Input[str] parameter_value: The value of the parameter to set.
+        """
         if parameter_key is not None:
             pulumi.set(__self__, "parameter_key", parameter_key)
         if parameter_value is not None:
@@ -68,6 +86,9 @@ class WorkgroupConfigParameterArgs:
     @property
     @pulumi.getter(name="parameterKey")
     def parameter_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+        """
         return pulumi.get(self, "parameter_key")
 
     @parameter_key.setter
@@ -77,6 +98,9 @@ class WorkgroupConfigParameterArgs:
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the parameter to set.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter

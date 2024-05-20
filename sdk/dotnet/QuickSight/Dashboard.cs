@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account where you want to create the dashboard.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -30,9 +33,19 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the dashboard, also added to the IAM policy.
+        /// </summary>
         [Output("dashboardId")]
         public Output<string> DashboardId { get; private set; } = null!;
 
+        /// <summary>
+        /// Options for publishing the dashboard when you create it:
+        /// 
+        /// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+        /// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+        /// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+        /// </summary>
         [Output("dashboardPublishOptions")]
         public Output<Outputs.DashboardPublishOptions?> DashboardPublishOptions { get; private set; } = null!;
 
@@ -51,36 +64,70 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+        /// </summary>
         [Output("linkEntities")]
         public Output<ImmutableArray<string>> LinkEntities { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that contains the link sharing configurations that you want to apply overrides to.
+        /// </summary>
         [Output("linkSharingConfiguration")]
         public Output<Outputs.DashboardLinkSharingConfiguration?> LinkSharingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the dashboard.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
+        /// </summary>
         [Output("parameters")]
         public Output<Outputs.DashboardParameters?> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+        /// 
+        /// To specify no permissions, omit the permissions list.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DashboardResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+        /// 
+        /// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+        /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.DashboardSourceEntity?> SourceEntity { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Output("validationStrategy")]
         public Output<Outputs.DashboardValidationStrategy?> ValidationStrategy { get; private set; } = null!;
 
         [Output("version")]
         public Output<Outputs.DashboardVersion> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the first version of the dashboard being created.
+        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -134,12 +181,25 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class DashboardArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AWS account where you want to create the dashboard.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the dashboard, also added to the IAM policy.
+        /// </summary>
         [Input("dashboardId", required: true)]
         public Input<string> DashboardId { get; set; } = null!;
 
+        /// <summary>
+        /// Options for publishing the dashboard when you create it:
+        /// 
+        /// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+        /// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+        /// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+        /// </summary>
         [Input("dashboardPublishOptions")]
         public Input<Inputs.DashboardPublishOptionsArgs>? DashboardPublishOptions { get; set; }
 
@@ -148,46 +208,83 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("linkEntities")]
         private InputList<string>? _linkEntities;
+
+        /// <summary>
+        /// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+        /// </summary>
         public InputList<string> LinkEntities
         {
             get => _linkEntities ?? (_linkEntities = new InputList<string>());
             set => _linkEntities = value;
         }
 
+        /// <summary>
+        /// A structure that contains the link sharing configurations that you want to apply overrides to.
+        /// </summary>
         [Input("linkSharingConfiguration")]
         public Input<Inputs.DashboardLinkSharingConfigurationArgs>? LinkSharingConfiguration { get; set; }
 
+        /// <summary>
+        /// The display name of the dashboard.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
+        /// </summary>
         [Input("parameters")]
         public Input<Inputs.DashboardParametersArgs>? Parameters { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.DashboardResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+        /// 
+        /// To specify no permissions, omit the permissions list.
+        /// </summary>
         public InputList<Inputs.DashboardResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.DashboardResourcePermissionArgs>());
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+        /// 
+        /// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+        /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.DashboardSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
 
+        /// <summary>
+        /// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        /// </summary>
         [Input("validationStrategy")]
         public Input<Inputs.DashboardValidationStrategyArgs>? ValidationStrategy { get; set; }
 
+        /// <summary>
+        /// A description for the first version of the dashboard being created.
+        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

@@ -15,24 +15,49 @@ namespace Pulumi.AwsNative.CleanRooms
     [AwsNativeResourceType("aws-native:cleanrooms:ConfiguredTableAssociation")]
     public partial class ConfiguredTableAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified configured table association.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique identifier of the specified configured table association.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         [Output("configuredTableAssociationIdentifier")]
         public Output<string> ConfiguredTableAssociationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+        /// </summary>
         [Output("configuredTableIdentifier")]
         public Output<string> ConfiguredTableIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the configured table association.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the membership this configured table association belongs to.
+        /// </summary>
         [Output("membershipIdentifier")]
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The service will assume this role to access catalog metadata and query the table.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -93,18 +118,33 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class ConfiguredTableAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+        /// </summary>
         [Input("configuredTableIdentifier", required: true)]
         public Input<string> ConfiguredTableIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the configured table association.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The unique ID for the membership this configured table association belongs to.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The service will assume this role to access catalog metadata and query the table.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

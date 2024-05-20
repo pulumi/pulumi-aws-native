@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateCategoricalDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The column that is used in the `CategoricalDimensionField` .
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The format configuration of the field.
+        /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.TemplateStringFormatConfigurationArgs>? FormatConfiguration { get; set; }
 
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         [Input("hierarchyId")]
         public Input<string>? HierarchyId { get; set; }
 

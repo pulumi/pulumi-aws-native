@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDefaultDateTimePickerControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.AnalysisDateTimePickerControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 
+        /// <summary>
+        /// The date time picker type of the `DefaultDateTimePickerControlOptions` . Choose one of the following options:
+        /// 
+        /// - `SINGLE_VALUED` : The filter condition is a fixed date.
+        /// - `DATE_RANGE` : The filter condition is a date time range.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSheetControlDateTimePickerType>? Type { get; set; }
 

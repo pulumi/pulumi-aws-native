@@ -15,24 +15,49 @@ namespace Pulumi.AwsNative.GuardDuty
     [AwsNativeResourceType("aws-native:guardduty:Filter")]
     public partial class Filter : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the action that is to be applied to the findings that match the filter.
+        /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        /// </summary>
         [Output("detectorId")]
         public Output<string?> DetectorId { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the criteria to be used in the filter for querying findings.
+        /// </summary>
         [Output("findingCriteria")]
         public Output<Outputs.FilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+        /// 
+        /// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        /// </summary>
         [Output("rank")]
         public Output<int?> Rank { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -86,26 +111,52 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the action that is to be applied to the findings that match the filter.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
+        /// <summary>
+        /// Represents the criteria to be used in the filter for querying findings.
+        /// </summary>
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+        /// 
+        /// By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

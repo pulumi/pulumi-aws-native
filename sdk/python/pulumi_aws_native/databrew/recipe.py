@@ -24,8 +24,10 @@ class RecipeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Recipe resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]] steps: A list of steps that are defined by the recipe.
         :param pulumi.Input[str] description: Description of the recipe
         :param pulumi.Input[str] name: Recipe name
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the recipe.
         """
         pulumi.set(__self__, "steps", steps)
         if description is not None:
@@ -38,6 +40,9 @@ class RecipeArgs:
     @property
     @pulumi.getter
     def steps(self) -> pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]]:
+        """
+        A list of steps that are defined by the recipe.
+        """
         return pulumi.get(self, "steps")
 
     @steps.setter
@@ -71,6 +76,9 @@ class RecipeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Metadata tags that have been applied to the recipe.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -127,6 +135,8 @@ class Recipe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the recipe
         :param pulumi.Input[str] name: Recipe name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]] steps: A list of steps that are defined by the recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the recipe.
         """
         ...
     @overload
@@ -252,10 +262,16 @@ class Recipe(pulumi.CustomResource):
     @property
     @pulumi.getter
     def steps(self) -> pulumi.Output[Sequence['outputs.RecipeStep']]:
+        """
+        A list of steps that are defined by the recipe.
+        """
         return pulumi.get(self, "steps")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Metadata tags that have been applied to the recipe.
+        """
         return pulumi.get(self, "tags")
 

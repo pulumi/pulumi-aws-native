@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Signer
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The time unit for signature validity: DAYS | MONTHS | YEARS.
+    /// </summary>
     [EnumType]
     public readonly struct SigningProfileSignatureValidityPeriodType : IEquatable<SigningProfileSignatureValidityPeriodType>
     {

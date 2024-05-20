@@ -41,11 +41,17 @@ export class BridgeSource extends pulumi.CustomResource {
      * The Amazon Resource Number (ARN) of the bridge.
      */
     public readonly bridgeArn!: pulumi.Output<string>;
+    /**
+     * Add a flow source to an existing bridge.
+     */
     public readonly flowSource!: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeFlowSource | undefined>;
     /**
      * The name of the source.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Add a network source to an existing bridge.
+     */
     public readonly networkSource!: pulumi.Output<outputs.mediaconnect.BridgeSourceBridgeNetworkSource | undefined>;
 
     /**
@@ -87,10 +93,16 @@ export interface BridgeSourceArgs {
      * The Amazon Resource Number (ARN) of the bridge.
      */
     bridgeArn: pulumi.Input<string>;
+    /**
+     * Add a flow source to an existing bridge.
+     */
     flowSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeFlowSourceArgs>;
     /**
      * The name of the source.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Add a network source to an existing bridge.
+     */
     networkSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeNetworkSourceArgs>;
 }

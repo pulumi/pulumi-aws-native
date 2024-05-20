@@ -34,6 +34,14 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
                  lt: Optional[pulumi.Input[int]] = None,
                  lte: Optional[pulumi.Input[int]] = None,
                  neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] eq: The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        :param pulumi.Input[int] gt: The value for the specified property is greater than the specified value.
+        :param pulumi.Input[int] gte: The value for the specified property is greater than or equal to the specified value.
+        :param pulumi.Input[int] lt: The value for the specified property is less than the specified value.
+        :param pulumi.Input[int] lte: The value for the specified property is less than or equal to the specified value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] neq: The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if gt is not None:
@@ -50,6 +58,9 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
     @property
     @pulumi.getter
     def eq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
         return pulumi.get(self, "eq")
 
     @eq.setter
@@ -59,6 +70,9 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
     @property
     @pulumi.getter
     def gt(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value for the specified property is greater than the specified value.
+        """
         return pulumi.get(self, "gt")
 
     @gt.setter
@@ -68,6 +82,9 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value for the specified property is greater than or equal to the specified value.
+        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -77,6 +94,9 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
     @property
     @pulumi.getter
     def lt(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value for the specified property is less than the specified value.
+        """
         return pulumi.get(self, "lt")
 
     @lt.setter
@@ -86,6 +106,9 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value for the specified property is less than or equal to the specified value.
+        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -95,6 +118,9 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
     @property
     @pulumi.getter
     def neq(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
         return pulumi.get(self, "neq")
 
     @neq.setter
@@ -106,12 +132,18 @@ class FindingsFilterCriterionAdditionalPropertiesArgs:
 class FindingsFilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterion: Optional[pulumi.Input[Mapping[str, pulumi.Input['FindingsFilterCriterionAdditionalPropertiesArgs']]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input['FindingsFilterCriterionAdditionalPropertiesArgs']]] criterion: Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+        """
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
     def criterion(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FindingsFilterCriterionAdditionalPropertiesArgs']]]]:
+        """
+        Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+        """
         return pulumi.get(self, "criterion")
 
     @criterion.setter

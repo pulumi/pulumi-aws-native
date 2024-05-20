@@ -54,6 +54,9 @@ class GetResiliencyPolicyResult:
     @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ResiliencyPolicyPolicyMap']:
+        """
+        The resiliency policy.
+        """
         return pulumi.get(self, "policy")
 
     @property
@@ -83,6 +86,9 @@ class GetResiliencyPolicyResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -39,7 +39,8 @@ type LookupInstanceResult struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
 	Status *InstanceStatus `pulumi:"status"`
-	Tags   []aws.Tag       `pulumi:"tags"`
+	// Specifies tags to be attached to the instance of IAM Identity Center.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -103,6 +104,7 @@ func (o LookupInstanceResultOutput) Status() InstanceStatusPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceStatus { return v.Status }).(InstanceStatusPtrOutput)
 }
 
+// Specifies tags to be attached to the instance of IAM Identity Center.
 func (o LookupInstanceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

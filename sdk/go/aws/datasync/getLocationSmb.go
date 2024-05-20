@@ -36,7 +36,8 @@ type LookupLocationSmbResult struct {
 	// The Amazon Resource Name (ARN) of the SMB location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the SMB location that was described.
-	LocationUri  *string                  `pulumi:"locationUri"`
+	LocationUri *string `pulumi:"locationUri"`
+	// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 	MountOptions *LocationSmbMountOptions `pulumi:"mountOptions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -100,6 +101,7 @@ func (o LookupLocationSmbResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationSmbResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 func (o LookupLocationSmbResultOutput) MountOptions() LocationSmbMountOptionsPtrOutput {
 	return o.ApplyT(func(v LookupLocationSmbResult) *LocationSmbMountOptions { return v.MountOptions }).(LocationSmbMountOptionsPtrOutput)
 }

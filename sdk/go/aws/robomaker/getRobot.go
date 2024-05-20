@@ -23,11 +23,14 @@ func LookupRobot(ctx *pulumi.Context, args *LookupRobotArgs, opts ...pulumi.Invo
 }
 
 type LookupRobotArgs struct {
+	// The Amazon Resource Name (ARN) of the robot.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupRobotResult struct {
-	Arn  *string           `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the robot.
+	Arn *string `pulumi:"arn"`
+	// A map that contains tag keys and tag values that are attached to the robot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -45,6 +48,7 @@ func LookupRobotOutput(ctx *pulumi.Context, args LookupRobotOutputArgs, opts ...
 }
 
 type LookupRobotOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the robot.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupRobotResultOutput) ToLookupRobotResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the robot.
 func (o LookupRobotResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRobotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A map that contains tag keys and tag values that are attached to the robot.
 func (o LookupRobotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRobotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

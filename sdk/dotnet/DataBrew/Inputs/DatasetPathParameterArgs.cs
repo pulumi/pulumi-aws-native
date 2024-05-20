@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetPathParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path parameter definition.
+        /// </summary>
         [Input("datasetParameter", required: true)]
         public Input<Inputs.DatasetParameterArgs> DatasetParameter { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the path parameter.
+        /// </summary>
         [Input("pathParameterName", required: true)]
         public Input<string> PathParameterName { get; set; } = null!;
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     [OutputType]
     public sealed class DocumentClassifierDocuments
     {
+        /// <summary>
+        /// The S3 URI location of the training documents specified in the S3Uri CSV file.
+        /// </summary>
         public readonly string S3Uri;
+        /// <summary>
+        /// The S3 URI location of the test documents included in the TestS3Uri CSV file. This field is not required if you do not specify a test CSV file.
+        /// </summary>
         public readonly string? TestS3Uri;
 
         [OutputConstructor]

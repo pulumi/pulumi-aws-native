@@ -20,14 +20,30 @@ export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetIpSetArgs {
+    /**
+     * The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+     */
     detectorId: string;
     id: string;
 }
 
 export interface GetIpSetResult {
     readonly id?: string;
+    /**
+     * The URI of the file that contains the IPSet.
+     */
     readonly location?: string;
+    /**
+     * The user-friendly name to identify the IPSet.
+     *
+     * Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
+     */
     readonly name?: string;
+    /**
+     * The tags to be added to a new IP set resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,6 +54,9 @@ export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetIpSetOutputArgs {
+    /**
+     * The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+     */
     detectorId: pulumi.Input<string>;
     id: pulumi.Input<string>;
 }

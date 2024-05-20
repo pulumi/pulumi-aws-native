@@ -53,6 +53,9 @@ export class EndpointGroup extends pulumi.CustomResource {
      * The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
      */
     public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+     */
     public readonly healthCheckPath!: pulumi.Output<string | undefined>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
@@ -66,6 +69,9 @@ export class EndpointGroup extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the listener
      */
     public readonly listenerArn!: pulumi.Output<string>;
+    /**
+     * Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+     */
     public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of the endpoint to unhealthy.
@@ -140,6 +146,9 @@ export interface EndpointGroupArgs {
      * The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
      */
     healthCheckIntervalSeconds?: pulumi.Input<number>;
+    /**
+     * If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+     */
     healthCheckPath?: pulumi.Input<string>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
@@ -153,6 +162,9 @@ export interface EndpointGroupArgs {
      * The Amazon Resource Name (ARN) of the listener
      */
     listenerArn: pulumi.Input<string>;
+    /**
+     * Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+     */
     portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverrideArgs>[]>;
     /**
      * The number of consecutive health checks required to set the state of the endpoint to unhealthy.

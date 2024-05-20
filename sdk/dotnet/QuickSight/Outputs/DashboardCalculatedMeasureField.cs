@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCalculatedMeasureField
     {
+        /// <summary>
+        /// The expression in the table calculation.
+        /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
 
         [OutputConstructor]

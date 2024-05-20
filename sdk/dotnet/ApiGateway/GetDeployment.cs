@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDeploymentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the deployment. For example: `abc123` .
+        /// </summary>
         [Input("deploymentId", required: true)]
         public string DeploymentId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the deployment. For example: `abc123` .
+        /// </summary>
         [Input("deploymentId", required: true)]
         public Input<string> DeploymentId { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetDeploymentResult
     {
+        /// <summary>
+        /// The ID for the deployment. For example: `abc123` .
+        /// </summary>
         public readonly string? DeploymentId;
         /// <summary>
         /// The description for the Deployment resource to create.

@@ -30,7 +30,8 @@ type LookupDefaultViewAssociationArgs struct {
 type LookupDefaultViewAssociationResult struct {
 	// The AWS principal that the default view is associated with, used as the unique identifier for this resource.
 	AssociatedAwsPrincipal *string `pulumi:"associatedAwsPrincipal"`
-	ViewArn                *string `pulumi:"viewArn"`
+	// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+	ViewArn *string `pulumi:"viewArn"`
 }
 
 func LookupDefaultViewAssociationOutput(ctx *pulumi.Context, args LookupDefaultViewAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDefaultViewAssociationResultOutput {
@@ -74,6 +75,7 @@ func (o LookupDefaultViewAssociationResultOutput) AssociatedAwsPrincipal() pulum
 	return o.ApplyT(func(v LookupDefaultViewAssociationResult) *string { return v.AssociatedAwsPrincipal }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
 func (o LookupDefaultViewAssociationResultOutput) ViewArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDefaultViewAssociationResult) *string { return v.ViewArn }).(pulumi.StringPtrOutput)
 }

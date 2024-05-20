@@ -32,16 +32,25 @@ class GetAssistantAssociationResult:
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Wisdom assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantAssociationArn")
     def assistant_association_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the assistant association.
+        """
         return pulumi.get(self, "assistant_association_arn")
 
     @property
     @pulumi.getter(name="assistantAssociationId")
     def assistant_association_id(self) -> Optional[str]:
+        """
+        The ID of the association.
+        """
         return pulumi.get(self, "assistant_association_id")
 
 
@@ -61,6 +70,10 @@ def get_assistant_association(assistant_association_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssistantAssociationResult:
     """
     Definition of AWS::Wisdom::AssistantAssociation Resource Type
+
+
+    :param str assistant_association_id: The ID of the association.
+    :param str assistant_id: The identifier of the Wisdom assistant.
     """
     __args__ = dict()
     __args__['assistantAssociationId'] = assistant_association_id
@@ -80,5 +93,9 @@ def get_assistant_association_output(assistant_association_id: Optional[pulumi.I
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantAssociationResult]:
     """
     Definition of AWS::Wisdom::AssistantAssociation Resource Type
+
+
+    :param str assistant_association_id: The ID of the association.
+    :param str assistant_id: The identifier of the Wisdom assistant.
     """
     ...

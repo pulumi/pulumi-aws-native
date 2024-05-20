@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainUserSettings
     {
+        /// <summary>
+        /// The Code Editor application settings.
+        /// </summary>
         public readonly Outputs.DomainCodeEditorAppSettings? CodeEditorAppSettings;
+        /// <summary>
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DomainCustomFileSystemConfig> CustomFileSystemConfigs;
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations.
+        /// </summary>
         public readonly Outputs.DomainCustomPosixUserConfig? CustomPosixUserConfig;
         /// <summary>
         /// Defines which Amazon SageMaker application users are directed to by default.
@@ -27,6 +36,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The execution role for the user.
         /// </summary>
         public readonly string ExecutionRole;
+        /// <summary>
+        /// The settings for the JupyterLab application.
+        /// </summary>
         public readonly Outputs.DomainJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
         /// The Jupyter server's app settings.
@@ -36,7 +48,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The kernel gateway app settings.
         /// </summary>
         public readonly Outputs.DomainKernelGatewayAppSettings? KernelGatewayAppSettings;
+        /// <summary>
+        /// A collection of settings that configure the `RSessionGateway` app.
+        /// </summary>
         public readonly Outputs.DomainRSessionAppSettings? RSessionAppSettings;
+        /// <summary>
+        /// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+        /// </summary>
         public readonly Outputs.DomainRStudioServerProAppSettings? RStudioServerProAppSettings;
         /// <summary>
         /// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -46,6 +64,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The sharing settings.
         /// </summary>
         public readonly Outputs.DomainSharingSettings? SharingSettings;
+        /// <summary>
+        /// The storage settings for a space.
+        /// </summary>
         public readonly Outputs.DomainDefaultSpaceStorageSettings? SpaceStorageSettings;
         /// <summary>
         /// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.

@@ -45,7 +45,34 @@ class ModelPackageArgs:
                  validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None):
         """
         The set of arguments for constructing a ModelPackage resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]] additional_inference_specifications: An array of additional Inference Specification objects.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]] additional_inference_specifications_to_add: An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+        :param pulumi.Input[str] approval_description: A description provided when the model approval is set.
+        :param pulumi.Input[bool] certify_for_marketplace: Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+        :param pulumi.Input[str] client_token: A unique token that guarantees that the call to this API is idempotent.
+        :param pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs'] customer_metadata_properties: The metadata properties for the model package.
+        :param pulumi.Input[str] domain: The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+        :param pulumi.Input['ModelPackageDriftCheckBaselinesArgs'] drift_check_baselines: Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageInferenceSpecificationArgs'] inference_specification: Defines how to perform inference generation after a training job is run.
+        :param pulumi.Input[str] last_modified_time: The last time the model package was modified.
+        :param pulumi.Input['ModelPackageMetadataPropertiesArgs'] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
+        :param pulumi.Input['ModelPackageModelApprovalStatus'] model_approval_status: The approval status of the model. This can be one of the following values.
+               
+               - `APPROVED` - The model is approved
+               - `REJECTED` - The model is rejected.
+               - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        :param pulumi.Input['ModelPackageModelMetricsArgs'] model_metrics: Metrics for the model.
+        :param pulumi.Input[str] model_package_description: The description of the model package.
+        :param pulumi.Input[str] model_package_group_name: The model group to which the model belongs.
+        :param pulumi.Input[str] model_package_name: The name of the model.
+        :param pulumi.Input['ModelPackageStatusDetailsArgs'] model_package_status_details: Specifies the validation and image scan statuses of the model package.
+        :param pulumi.Input[int] model_package_version: The version number of a versioned model.
+        :param pulumi.Input[str] sample_payload_url: The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        :param pulumi.Input['ModelPackageSkipModelValidation'] skip_model_validation: Indicates if you want to skip model validation.
+        :param pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs'] source_algorithm_specification: A list of algorithms that were used to create a model package.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] task: The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+        :param pulumi.Input['ModelPackageValidationSpecificationArgs'] validation_specification: Specifies batch transform jobs that SageMaker runs to validate your model package.
         """
         if additional_inference_specifications is not None:
             pulumi.set(__self__, "additional_inference_specifications", additional_inference_specifications)
@@ -99,6 +126,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="additionalInferenceSpecifications")
     def additional_inference_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]:
+        """
+        An array of additional Inference Specification objects.
+        """
         return pulumi.get(self, "additional_inference_specifications")
 
     @additional_inference_specifications.setter
@@ -108,6 +138,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="additionalInferenceSpecificationsToAdd")
     def additional_inference_specifications_to_add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]]:
+        """
+        An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+        """
         return pulumi.get(self, "additional_inference_specifications_to_add")
 
     @additional_inference_specifications_to_add.setter
@@ -117,6 +150,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="approvalDescription")
     def approval_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description provided when the model approval is set.
+        """
         return pulumi.get(self, "approval_description")
 
     @approval_description.setter
@@ -126,6 +162,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="certifyForMarketplace")
     def certify_for_marketplace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+        """
         return pulumi.get(self, "certify_for_marketplace")
 
     @certify_for_marketplace.setter
@@ -135,6 +174,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique token that guarantees that the call to this API is idempotent.
+        """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
@@ -144,6 +186,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="customerMetadataProperties")
     def customer_metadata_properties(self) -> Optional[pulumi.Input['ModelPackageCustomerMetadataPropertiesArgs']]:
+        """
+        The metadata properties for the model package.
+        """
         return pulumi.get(self, "customer_metadata_properties")
 
     @customer_metadata_properties.setter
@@ -153,6 +198,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -162,6 +210,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="driftCheckBaselines")
     def drift_check_baselines(self) -> Optional[pulumi.Input['ModelPackageDriftCheckBaselinesArgs']]:
+        """
+        Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        """
         return pulumi.get(self, "drift_check_baselines")
 
     @drift_check_baselines.setter
@@ -171,6 +222,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="inferenceSpecification")
     def inference_specification(self) -> Optional[pulumi.Input['ModelPackageInferenceSpecificationArgs']]:
+        """
+        Defines how to perform inference generation after a training job is run.
+        """
         return pulumi.get(self, "inference_specification")
 
     @inference_specification.setter
@@ -180,6 +234,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last time the model package was modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
@@ -189,6 +246,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="metadataProperties")
     def metadata_properties(self) -> Optional[pulumi.Input['ModelPackageMetadataPropertiesArgs']]:
+        """
+        Metadata properties of the tracking entity, trial, or trial component.
+        """
         return pulumi.get(self, "metadata_properties")
 
     @metadata_properties.setter
@@ -198,6 +258,13 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelApprovalStatus")
     def model_approval_status(self) -> Optional[pulumi.Input['ModelPackageModelApprovalStatus']]:
+        """
+        The approval status of the model. This can be one of the following values.
+
+        - `APPROVED` - The model is approved
+        - `REJECTED` - The model is rejected.
+        - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        """
         return pulumi.get(self, "model_approval_status")
 
     @model_approval_status.setter
@@ -207,6 +274,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelMetrics")
     def model_metrics(self) -> Optional[pulumi.Input['ModelPackageModelMetricsArgs']]:
+        """
+        Metrics for the model.
+        """
         return pulumi.get(self, "model_metrics")
 
     @model_metrics.setter
@@ -216,6 +286,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelPackageDescription")
     def model_package_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the model package.
+        """
         return pulumi.get(self, "model_package_description")
 
     @model_package_description.setter
@@ -225,6 +298,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The model group to which the model belongs.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @model_package_group_name.setter
@@ -234,6 +310,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the model.
+        """
         return pulumi.get(self, "model_package_name")
 
     @model_package_name.setter
@@ -243,6 +322,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelPackageStatusDetails")
     def model_package_status_details(self) -> Optional[pulumi.Input['ModelPackageStatusDetailsArgs']]:
+        """
+        Specifies the validation and image scan statuses of the model package.
+        """
         return pulumi.get(self, "model_package_status_details")
 
     @model_package_status_details.setter
@@ -252,6 +334,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="modelPackageVersion")
     def model_package_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of a versioned model.
+        """
         return pulumi.get(self, "model_package_version")
 
     @model_package_version.setter
@@ -261,6 +346,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="samplePayloadUrl")
     def sample_payload_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
         return pulumi.get(self, "sample_payload_url")
 
     @sample_payload_url.setter
@@ -270,6 +358,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="skipModelValidation")
     def skip_model_validation(self) -> Optional[pulumi.Input['ModelPackageSkipModelValidation']]:
+        """
+        Indicates if you want to skip model validation.
+        """
         return pulumi.get(self, "skip_model_validation")
 
     @skip_model_validation.setter
@@ -279,6 +370,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="sourceAlgorithmSpecification")
     def source_algorithm_specification(self) -> Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']]:
+        """
+        A list of algorithms that were used to create a model package.
+        """
         return pulumi.get(self, "source_algorithm_specification")
 
     @source_algorithm_specification.setter
@@ -300,6 +394,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter
     def task(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+        """
         return pulumi.get(self, "task")
 
     @task.setter
@@ -309,6 +406,9 @@ class ModelPackageArgs:
     @property
     @pulumi.getter(name="validationSpecification")
     def validation_specification(self) -> Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']]:
+        """
+        Specifies batch transform jobs that SageMaker runs to validate your model package.
+        """
         return pulumi.get(self, "validation_specification")
 
     @validation_specification.setter
@@ -351,7 +451,34 @@ class ModelPackage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] additional_inference_specifications: An array of additional Inference Specification objects.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageAdditionalInferenceSpecificationDefinitionArgs']]]] additional_inference_specifications_to_add: An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+        :param pulumi.Input[str] approval_description: A description provided when the model approval is set.
+        :param pulumi.Input[bool] certify_for_marketplace: Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+        :param pulumi.Input[str] client_token: A unique token that guarantees that the call to this API is idempotent.
+        :param pulumi.Input[pulumi.InputType['ModelPackageCustomerMetadataPropertiesArgs']] customer_metadata_properties: The metadata properties for the model package.
+        :param pulumi.Input[str] domain: The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+        :param pulumi.Input[pulumi.InputType['ModelPackageDriftCheckBaselinesArgs']] drift_check_baselines: Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input[pulumi.InputType['ModelPackageInferenceSpecificationArgs']] inference_specification: Defines how to perform inference generation after a training job is run.
+        :param pulumi.Input[str] last_modified_time: The last time the model package was modified.
+        :param pulumi.Input[pulumi.InputType['ModelPackageMetadataPropertiesArgs']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
+        :param pulumi.Input['ModelPackageModelApprovalStatus'] model_approval_status: The approval status of the model. This can be one of the following values.
+               
+               - `APPROVED` - The model is approved
+               - `REJECTED` - The model is rejected.
+               - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        :param pulumi.Input[pulumi.InputType['ModelPackageModelMetricsArgs']] model_metrics: Metrics for the model.
+        :param pulumi.Input[str] model_package_description: The description of the model package.
+        :param pulumi.Input[str] model_package_group_name: The model group to which the model belongs.
+        :param pulumi.Input[str] model_package_name: The name of the model.
+        :param pulumi.Input[pulumi.InputType['ModelPackageStatusDetailsArgs']] model_package_status_details: Specifies the validation and image scan statuses of the model package.
+        :param pulumi.Input[int] model_package_version: The version number of a versioned model.
+        :param pulumi.Input[str] sample_payload_url: The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        :param pulumi.Input['ModelPackageSkipModelValidation'] skip_model_validation: Indicates if you want to skip model validation.
+        :param pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']] source_algorithm_specification: A list of algorithms that were used to create a model package.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] task: The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+        :param pulumi.Input[pulumi.InputType['ModelPackageValidationSpecificationArgs']] validation_specification: Specifies batch transform jobs that SageMaker runs to validate your model package.
         """
         ...
     @overload
@@ -493,121 +620,203 @@ class ModelPackage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalInferenceSpecifications")
     def additional_inference_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.ModelPackageAdditionalInferenceSpecificationDefinition']]]:
+        """
+        An array of additional Inference Specification objects.
+        """
         return pulumi.get(self, "additional_inference_specifications")
 
     @property
     @pulumi.getter(name="additionalInferenceSpecificationsToAdd")
     def additional_inference_specifications_to_add(self) -> pulumi.Output[Optional[Sequence['outputs.ModelPackageAdditionalInferenceSpecificationDefinition']]]:
+        """
+        An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.
+        """
         return pulumi.get(self, "additional_inference_specifications_to_add")
 
     @property
     @pulumi.getter(name="approvalDescription")
     def approval_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description provided when the model approval is set.
+        """
         return pulumi.get(self, "approval_description")
 
     @property
     @pulumi.getter(name="certifyForMarketplace")
     def certify_for_marketplace(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+        """
         return pulumi.get(self, "certify_for_marketplace")
 
     @property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        A unique token that guarantees that the call to this API is idempotent.
+        """
         return pulumi.get(self, "client_token")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time that the model package was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="customerMetadataProperties")
     def customer_metadata_properties(self) -> pulumi.Output[Optional['outputs.ModelPackageCustomerMetadataProperties']]:
+        """
+        The metadata properties for the model package.
+        """
         return pulumi.get(self, "customer_metadata_properties")
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="driftCheckBaselines")
     def drift_check_baselines(self) -> pulumi.Output[Optional['outputs.ModelPackageDriftCheckBaselines']]:
+        """
+        Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        """
         return pulumi.get(self, "drift_check_baselines")
 
     @property
     @pulumi.getter(name="inferenceSpecification")
     def inference_specification(self) -> pulumi.Output[Optional['outputs.ModelPackageInferenceSpecification']]:
+        """
+        Defines how to perform inference generation after a training job is run.
+        """
         return pulumi.get(self, "inference_specification")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The last time the model package was modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="metadataProperties")
     def metadata_properties(self) -> pulumi.Output[Optional['outputs.ModelPackageMetadataProperties']]:
+        """
+        Metadata properties of the tracking entity, trial, or trial component.
+        """
         return pulumi.get(self, "metadata_properties")
 
     @property
     @pulumi.getter(name="modelApprovalStatus")
     def model_approval_status(self) -> pulumi.Output[Optional['ModelPackageModelApprovalStatus']]:
+        """
+        The approval status of the model. This can be one of the following values.
+
+        - `APPROVED` - The model is approved
+        - `REJECTED` - The model is rejected.
+        - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        """
         return pulumi.get(self, "model_approval_status")
 
     @property
     @pulumi.getter(name="modelMetrics")
     def model_metrics(self) -> pulumi.Output[Optional['outputs.ModelPackageModelMetrics']]:
+        """
+        Metrics for the model.
+        """
         return pulumi.get(self, "model_metrics")
 
     @property
     @pulumi.getter(name="modelPackageArn")
     def model_package_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the model package.
+        """
         return pulumi.get(self, "model_package_arn")
 
     @property
     @pulumi.getter(name="modelPackageDescription")
     def model_package_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the model package.
+        """
         return pulumi.get(self, "model_package_description")
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
     def model_package_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The model group to which the model belongs.
+        """
         return pulumi.get(self, "model_package_group_name")
 
     @property
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the model.
+        """
         return pulumi.get(self, "model_package_name")
 
     @property
     @pulumi.getter(name="modelPackageStatus")
     def model_package_status(self) -> pulumi.Output['ModelPackageStatus']:
+        """
+        The status of the model package. This can be one of the following values.
+
+        - `PENDING` - The model package creation is pending.
+        - `IN_PROGRESS` - The model package is in the process of being created.
+        - `COMPLETED` - The model package was successfully created.
+        - `FAILED` - The model package creation failed.
+        - `DELETING` - The model package is in the process of being deleted.
+        """
         return pulumi.get(self, "model_package_status")
 
     @property
     @pulumi.getter(name="modelPackageStatusDetails")
     def model_package_status_details(self) -> pulumi.Output[Optional['outputs.ModelPackageStatusDetails']]:
+        """
+        Specifies the validation and image scan statuses of the model package.
+        """
         return pulumi.get(self, "model_package_status_details")
 
     @property
     @pulumi.getter(name="modelPackageVersion")
     def model_package_version(self) -> pulumi.Output[Optional[int]]:
+        """
+        The version number of a versioned model.
+        """
         return pulumi.get(self, "model_package_version")
 
     @property
     @pulumi.getter(name="samplePayloadUrl")
     def sample_payload_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
         return pulumi.get(self, "sample_payload_url")
 
     @property
     @pulumi.getter(name="skipModelValidation")
     def skip_model_validation(self) -> pulumi.Output[Optional['ModelPackageSkipModelValidation']]:
+        """
+        Indicates if you want to skip model validation.
+        """
         return pulumi.get(self, "skip_model_validation")
 
     @property
     @pulumi.getter(name="sourceAlgorithmSpecification")
     def source_algorithm_specification(self) -> pulumi.Output[Optional['outputs.ModelPackageSourceAlgorithmSpecification']]:
+        """
+        A list of algorithms that were used to create a model package.
+        """
         return pulumi.get(self, "source_algorithm_specification")
 
     @property
@@ -621,10 +830,16 @@ class ModelPackage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def task(self) -> pulumi.Output[Optional[str]]:
+        """
+        The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.
+        """
         return pulumi.get(self, "task")
 
     @property
     @pulumi.getter(name="validationSpecification")
     def validation_specification(self) -> pulumi.Output[Optional['outputs.ModelPackageValidationSpecification']]:
+        """
+        Specifies batch transform jobs that SageMaker runs to validate your model package.
+        """
         return pulumi.get(self, "validation_specification")
 

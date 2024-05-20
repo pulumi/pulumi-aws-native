@@ -41,12 +41,17 @@ class GetAttributeGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) that specifies the attribute group across services.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
         """
+        A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attributes")
@@ -62,6 +67,9 @@ class GetAttributeGroupResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The globally unique attribute group identifier of the attribute group.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -75,6 +83,9 @@ class GetAttributeGroupResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value pairs you can use to associate with the attribute group.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -96,6 +107,9 @@ def get_attribute_group(id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttributeGroupResult:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
+
+
+    :param str id: The globally unique attribute group identifier of the attribute group.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -116,5 +130,8 @@ def get_attribute_group_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
+
+
+    :param str id: The globally unique attribute group identifier of the attribute group.
     """
     ...

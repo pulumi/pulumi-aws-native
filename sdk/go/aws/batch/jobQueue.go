@@ -16,13 +16,22 @@ import (
 type JobQueue struct {
 	pulumi.CustomResourceState
 
-	ComputeEnvironmentOrder  JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrder"`
-	JobQueueArn              pulumi.StringOutput                        `pulumi:"jobQueueArn"`
-	JobQueueName             pulumi.StringPtrOutput                     `pulumi:"jobQueueName"`
+	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+	//
+	// > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
+	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrder"`
+	// Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
+	JobQueueArn pulumi.StringOutput `pulumi:"jobQueueArn"`
+	// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	JobQueueName pulumi.StringPtrOutput `pulumi:"jobQueueName"`
+	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayOutput `pulumi:"jobStateTimeLimitActions"`
-	Priority                 pulumi.IntOutput                           `pulumi:"priority"`
-	SchedulingPolicyArn      pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
-	State                    JobQueueStateEnumPtrOutput                 `pulumi:"state"`
+	// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
+	SchedulingPolicyArn pulumi.StringPtrOutput `pulumi:"schedulingPolicyArn"`
+	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
+	State JobQueueStateEnumPtrOutput `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -78,24 +87,40 @@ func (JobQueueState) ElementType() reflect.Type {
 }
 
 type jobQueueArgs struct {
-	ComputeEnvironmentOrder  []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
-	JobQueueName             *string                           `pulumi:"jobQueueName"`
+	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+	//
+	// > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
+	ComputeEnvironmentOrder []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
+	// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	JobQueueName *string `pulumi:"jobQueueName"`
+	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
-	Priority                 int                               `pulumi:"priority"`
-	SchedulingPolicyArn      *string                           `pulumi:"schedulingPolicyArn"`
-	State                    *JobQueueStateEnum                `pulumi:"state"`
+	// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+	Priority int `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
+	SchedulingPolicyArn *string `pulumi:"schedulingPolicyArn"`
+	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
+	State *JobQueueStateEnum `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
 type JobQueueArgs struct {
-	ComputeEnvironmentOrder  JobQueueComputeEnvironmentOrderArrayInput
-	JobQueueName             pulumi.StringPtrInput
+	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+	//
+	// > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
+	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayInput
+	// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	JobQueueName pulumi.StringPtrInput
+	// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
-	Priority                 pulumi.IntInput
-	SchedulingPolicyArn      pulumi.StringPtrInput
-	State                    JobQueueStateEnumPtrInput
+	// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+	Priority pulumi.IntInput
+	// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
+	SchedulingPolicyArn pulumi.StringPtrInput
+	// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
+	State JobQueueStateEnumPtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapInput
 }
@@ -137,30 +162,39 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 	return o
 }
 
+// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the `VALID` state before you can associate them with a job queue. You can associate up to three compute environments with a job queue. All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
+//
+// > All compute environments that are associated with a job queue must share the same architecture. AWS Batch doesn't support mixing compute environment architecture types in a single job queue.
 func (o JobQueueOutput) ComputeEnvironmentOrder() JobQueueComputeEnvironmentOrderArrayOutput {
 	return o.ApplyT(func(v *JobQueue) JobQueueComputeEnvironmentOrderArrayOutput { return v.ComputeEnvironmentOrder }).(JobQueueComputeEnvironmentOrderArrayOutput)
 }
 
+// Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
 func (o JobQueueOutput) JobQueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.JobQueueArn }).(pulumi.StringOutput)
 }
 
+// The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 func (o JobQueueOutput) JobQueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.JobQueueName }).(pulumi.StringPtrOutput)
 }
 
+// The set of actions that AWS Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. AWS Batch will perform each action after `maxTimeSeconds` has passed.
 func (o JobQueueOutput) JobStateTimeLimitActions() JobQueueJobStateTimeLimitActionArrayOutput {
 	return o.ApplyT(func(v *JobQueue) JobQueueJobStateTimeLimitActionArrayOutput { return v.JobStateTimeLimitActions }).(JobQueueJobStateTimeLimitActionArrayOutput)
 }
 
+// The priority of the job queue. Job queues with a higher priority (or a higher integer value for the `priority` parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order. For example, a job queue with a priority value of `10` is given scheduling preference over a job queue with a priority value of `1` . All of the compute environments must be either EC2 ( `EC2` or `SPOT` ) or Fargate ( `FARGATE` or `FARGATE_SPOT` ); EC2 and Fargate compute environments can't be mixed.
 func (o JobQueueOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of the scheduling policy. The format is `aws: *Partition* :batch: *Region* : *Account* :scheduling-policy/ *Name*` . For example, `aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy` .
 func (o JobQueueOutput) SchedulingPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.SchedulingPolicyArn }).(pulumi.StringPtrOutput)
 }
 
+// The state of the job queue. If the job queue state is `ENABLED` , it is able to accept jobs. If the job queue state is `DISABLED` , new jobs can't be added to the queue, but jobs already in the queue can finish.
 func (o JobQueueOutput) State() JobQueueStateEnumPtrOutput {
 	return o.ApplyT(func(v *JobQueue) JobQueueStateEnumPtrOutput { return v.State }).(JobQueueStateEnumPtrOutput)
 }

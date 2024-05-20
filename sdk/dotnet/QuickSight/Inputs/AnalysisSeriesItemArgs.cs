@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSeriesItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data field series item configuration of a line chart.
+        /// </summary>
         [Input("dataFieldSeriesItem")]
         public Input<Inputs.AnalysisDataFieldSeriesItemArgs>? DataFieldSeriesItem { get; set; }
 
+        /// <summary>
+        /// The field series item configuration of a line chart.
+        /// </summary>
         [Input("fieldSeriesItem")]
         public Input<Inputs.AnalysisFieldSeriesItemArgs>? FieldSeriesItem { get; set; }
 

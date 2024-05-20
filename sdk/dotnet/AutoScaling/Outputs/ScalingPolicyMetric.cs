@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyMetric
     {
+        /// <summary>
+        /// The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+        /// 
+        /// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyMetricDimension> Dimensions;
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// The namespace of the metric. For more information, see the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

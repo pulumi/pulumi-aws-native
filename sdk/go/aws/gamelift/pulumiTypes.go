@@ -1556,6 +1556,12 @@ func (o FleetAnywhereConfigurationPtrOutput) Cost() pulumi.StringPtrOutput {
 
 // Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfiguration struct {
+	// Indicates whether a TLS/SSL certificate is generated for a fleet.
+	//
+	// Valid values include:
+	//
+	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 	CertificateType FleetCertificateConfigurationCertificateType `pulumi:"certificateType"`
 }
 
@@ -1572,6 +1578,12 @@ type FleetCertificateConfigurationInput interface {
 
 // Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfigurationArgs struct {
+	// Indicates whether a TLS/SSL certificate is generated for a fleet.
+	//
+	// Valid values include:
+	//
+	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 	CertificateType FleetCertificateConfigurationCertificateTypeInput `pulumi:"certificateType"`
 }
 
@@ -1653,6 +1665,12 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 	}).(FleetCertificateConfigurationPtrOutput)
 }
 
+// Indicates whether a TLS/SSL certificate is generated for a fleet.
+//
+// Valid values include:
+//
+// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 func (o FleetCertificateConfigurationOutput) CertificateType() FleetCertificateConfigurationCertificateTypeOutput {
 	return o.ApplyT(func(v FleetCertificateConfiguration) FleetCertificateConfigurationCertificateType {
 		return v.CertificateType
@@ -1683,6 +1701,12 @@ func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigura
 	}).(FleetCertificateConfigurationOutput)
 }
 
+// Indicates whether a TLS/SSL certificate is generated for a fleet.
+//
+// Valid values include:
+//
+// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 func (o FleetCertificateConfigurationPtrOutput) CertificateType() FleetCertificateConfigurationCertificateTypePtrOutput {
 	return o.ApplyT(func(v *FleetCertificateConfiguration) *FleetCertificateConfigurationCertificateType {
 		if v == nil {
@@ -1853,6 +1877,15 @@ func (o FleetConnectionPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
 
 // Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
 type FleetContainerGroupsConfiguration struct {
+	// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
+	//
+	// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
+	//
+	// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+	//
+	// As a best practice, double the minimum number of connection ports.
+	//
+	// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 	ConnectionPortRange FleetConnectionPortRange `pulumi:"connectionPortRange"`
 	// The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
 	ContainerGroupDefinitionNames []string                         `pulumi:"containerGroupDefinitionNames"`
@@ -1872,6 +1905,15 @@ type FleetContainerGroupsConfigurationInput interface {
 
 // Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
 type FleetContainerGroupsConfigurationArgs struct {
+	// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
+	//
+	// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
+	//
+	// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+	//
+	// As a best practice, double the minimum number of connection ports.
+	//
+	// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 	ConnectionPortRange FleetConnectionPortRangeInput `pulumi:"connectionPortRange"`
 	// The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
 	ContainerGroupDefinitionNames pulumi.StringArrayInput                 `pulumi:"containerGroupDefinitionNames"`
@@ -1956,6 +1998,15 @@ func (o FleetContainerGroupsConfigurationOutput) ToFleetContainerGroupsConfigura
 	}).(FleetContainerGroupsConfigurationPtrOutput)
 }
 
+// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
+//
+// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
+//
+// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+//
+// As a best practice, double the minimum number of connection ports.
+//
+// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 func (o FleetContainerGroupsConfigurationOutput) ConnectionPortRange() FleetConnectionPortRangeOutput {
 	return o.ApplyT(func(v FleetContainerGroupsConfiguration) FleetConnectionPortRange { return v.ConnectionPortRange }).(FleetConnectionPortRangeOutput)
 }
@@ -1995,6 +2046,15 @@ func (o FleetContainerGroupsConfigurationPtrOutput) Elem() FleetContainerGroupsC
 	}).(FleetContainerGroupsConfigurationOutput)
 }
 
+// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
+//
+// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
+//
+// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+//
+// As a best practice, double the minimum number of connection ports.
+//
+// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 func (o FleetContainerGroupsConfigurationPtrOutput) ConnectionPortRange() FleetConnectionPortRangePtrOutput {
 	return o.ApplyT(func(v *FleetContainerGroupsConfiguration) *FleetConnectionPortRange {
 		if v == nil {
@@ -2489,7 +2549,11 @@ func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfiguration struct {
-	Location         string                 `pulumi:"location"`
+	// An AWS Region code, such as `us-west-2` .
+	Location string `pulumi:"location"`
+	// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+	//
+	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity *FleetLocationCapacity `pulumi:"locationCapacity"`
 }
 
@@ -2506,7 +2570,11 @@ type FleetLocationConfigurationInput interface {
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfigurationArgs struct {
-	Location         pulumi.StringInput            `pulumi:"location"`
+	// An AWS Region code, such as `us-west-2` .
+	Location pulumi.StringInput `pulumi:"location"`
+	// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+	//
+	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity FleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
 }
 
@@ -2562,10 +2630,14 @@ func (o FleetLocationConfigurationOutput) ToFleetLocationConfigurationOutputWith
 	return o
 }
 
+// An AWS Region code, such as `us-west-2` .
 func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+//
+// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 func (o FleetLocationConfigurationOutput) LocationCapacity() FleetLocationCapacityPtrOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) *FleetLocationCapacity { return v.LocationCapacity }).(FleetLocationCapacityPtrOutput)
 }
@@ -2950,8 +3022,9 @@ type FleetScalingPolicy struct {
 	// Comparison operator to use when measuring a metric against the threshold value.
 	ComparisonOperator *FleetScalingPolicyComparisonOperator `pulumi:"comparisonOperator"`
 	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
-	EvaluationPeriods *int    `pulumi:"evaluationPeriods"`
-	Location          *string `pulumi:"location"`
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// The fleet location.
+	Location *string `pulumi:"location"`
 	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
 	MetricName FleetScalingPolicyMetricName `pulumi:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
@@ -2988,8 +3061,9 @@ type FleetScalingPolicyArgs struct {
 	// Comparison operator to use when measuring a metric against the threshold value.
 	ComparisonOperator FleetScalingPolicyComparisonOperatorPtrInput `pulumi:"comparisonOperator"`
 	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
-	EvaluationPeriods pulumi.IntPtrInput    `pulumi:"evaluationPeriods"`
-	Location          pulumi.StringPtrInput `pulumi:"location"`
+	EvaluationPeriods pulumi.IntPtrInput `pulumi:"evaluationPeriods"`
+	// The fleet location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
 	MetricName FleetScalingPolicyMetricNameInput `pulumi:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
@@ -3072,6 +3146,7 @@ func (o FleetScalingPolicyOutput) EvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetScalingPolicy) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
 }
 
+// The fleet location.
 func (o FleetScalingPolicyOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetScalingPolicy) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -3413,7 +3488,9 @@ func (o FleetTargetConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput
 
 // Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupAutoScalingPolicy struct {
-	EstimatedInstanceWarmup     *float64                                   `pulumi:"estimatedInstanceWarmup"`
+	// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+	EstimatedInstanceWarmup *float64 `pulumi:"estimatedInstanceWarmup"`
+	// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -3430,7 +3507,9 @@ type GameServerGroupAutoScalingPolicyInput interface {
 
 // Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupAutoScalingPolicyArgs struct {
-	EstimatedInstanceWarmup     pulumi.Float64PtrInput                          `pulumi:"estimatedInstanceWarmup"`
+	// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+	EstimatedInstanceWarmup pulumi.Float64PtrInput `pulumi:"estimatedInstanceWarmup"`
+	// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfigurationInput `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -3512,10 +3591,12 @@ func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPoli
 	}).(GameServerGroupAutoScalingPolicyPtrOutput)
 }
 
+// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
 func (o GameServerGroupAutoScalingPolicyOutput) EstimatedInstanceWarmup() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *float64 { return v.EstimatedInstanceWarmup }).(pulumi.Float64PtrOutput)
 }
 
+// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 func (o GameServerGroupAutoScalingPolicyOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationOutput {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) GameServerGroupTargetTrackingConfiguration {
 		return v.TargetTrackingConfiguration
@@ -3546,6 +3627,7 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) Elem() GameServerGroupAutoSca
 	}).(GameServerGroupAutoScalingPolicyOutput)
 }
 
+// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
 func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *float64 {
 		if v == nil {
@@ -3555,6 +3637,7 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 func (o GameServerGroupAutoScalingPolicyPtrOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *GameServerGroupTargetTrackingConfiguration {
 		if v == nil {
@@ -3669,9 +3752,12 @@ func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) G
 
 // The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupLaunchTemplate struct {
-	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
+	// A unique identifier for an existing Amazon EC2 launch template.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// A readable identifier for an existing Amazon EC2 launch template.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	Version            *string `pulumi:"version"`
+	// The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
+	Version *string `pulumi:"version"`
 }
 
 // GameServerGroupLaunchTemplateInput is an input type that accepts GameServerGroupLaunchTemplateArgs and GameServerGroupLaunchTemplateOutput values.
@@ -3687,9 +3773,12 @@ type GameServerGroupLaunchTemplateInput interface {
 
 // The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupLaunchTemplateArgs struct {
-	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// A unique identifier for an existing Amazon EC2 launch template.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// A readable identifier for an existing Amazon EC2 launch template.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	Version            pulumi.StringPtrInput `pulumi:"version"`
+	// The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GameServerGroupLaunchTemplateArgs) ElementType() reflect.Type {
@@ -3770,14 +3859,17 @@ func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrO
 	}).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
+// A unique identifier for an existing Amazon EC2 launch template.
 func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
+// A readable identifier for an existing Amazon EC2 launch template.
 func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+// The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
 func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -3806,6 +3898,7 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemp
 	}).(GameServerGroupLaunchTemplateOutput)
 }
 
+// A unique identifier for an existing Amazon EC2 launch template.
 func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -3815,6 +3908,7 @@ func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// A readable identifier for an existing Amazon EC2 launch template.
 func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -3824,6 +3918,7 @@ func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
 func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -3842,6 +3937,7 @@ type GameServerGroupTag struct {
 
 // Settings for a target-based scaling policy applied to Auto Scaling group.
 type GameServerGroupTargetTrackingConfiguration struct {
+	// Desired value to use with a game server group target-based scaling policy.
 	TargetValue float64 `pulumi:"targetValue"`
 }
 
@@ -3858,6 +3954,7 @@ type GameServerGroupTargetTrackingConfigurationInput interface {
 
 // Settings for a target-based scaling policy applied to Auto Scaling group.
 type GameServerGroupTargetTrackingConfigurationArgs struct {
+	// Desired value to use with a game server group target-based scaling policy.
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
@@ -3939,6 +4036,7 @@ func (o GameServerGroupTargetTrackingConfigurationOutput) ToGameServerGroupTarge
 	}).(GameServerGroupTargetTrackingConfigurationPtrOutput)
 }
 
+// Desired value to use with a game server group target-based scaling policy.
 func (o GameServerGroupTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v GameServerGroupTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -3967,6 +4065,7 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) Elem() GameServerGr
 	}).(GameServerGroupTargetTrackingConfigurationOutput)
 }
 
+// Desired value to use with a game server group target-based scaling policy.
 func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GameServerGroupTargetTrackingConfiguration) *float64 {
 		if v == nil {
@@ -3978,6 +4077,7 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulum
 
 // A fleet or alias designated in a game session queue.
 type GameSessionQueueDestination struct {
+	// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
 	DestinationArn *string `pulumi:"destinationArn"`
 }
 
@@ -3994,6 +4094,7 @@ type GameSessionQueueDestinationInput interface {
 
 // A fleet or alias designated in a game session queue.
 type GameSessionQueueDestinationArgs struct {
+	// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
 	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
 }
 
@@ -4049,6 +4150,7 @@ func (o GameSessionQueueDestinationOutput) ToGameSessionQueueDestinationOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
 func (o GameSessionQueueDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameSessionQueueDestination) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
@@ -4074,6 +4176,7 @@ func (o GameSessionQueueDestinationArrayOutput) Index(i pulumi.IntInput) GameSes
 }
 
 type GameSessionQueueFilterConfiguration struct {
+	// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
 	AllowedLocations []string `pulumi:"allowedLocations"`
 }
 
@@ -4089,6 +4192,7 @@ type GameSessionQueueFilterConfigurationInput interface {
 }
 
 type GameSessionQueueFilterConfigurationArgs struct {
+	// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
 	AllowedLocations pulumi.StringArrayInput `pulumi:"allowedLocations"`
 }
 
@@ -4169,6 +4273,7 @@ func (o GameSessionQueueFilterConfigurationOutput) ToGameSessionQueueFilterConfi
 	}).(GameSessionQueueFilterConfigurationPtrOutput)
 }
 
+// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
 func (o GameSessionQueueFilterConfigurationOutput) AllowedLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GameSessionQueueFilterConfiguration) []string { return v.AllowedLocations }).(pulumi.StringArrayOutput)
 }
@@ -4197,6 +4302,7 @@ func (o GameSessionQueueFilterConfigurationPtrOutput) Elem() GameSessionQueueFil
 	}).(GameSessionQueueFilterConfigurationOutput)
 }
 
+// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
 func (o GameSessionQueueFilterConfigurationPtrOutput) AllowedLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueueFilterConfiguration) []string {
 		if v == nil {
@@ -4316,7 +4422,14 @@ func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GameSessionQueuePriorityConfiguration struct {
-	LocationOrder []string                            `pulumi:"locationOrder"`
+	// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
+	LocationOrder []string `pulumi:"locationOrder"`
+	// The recommended sequence to use when prioritizing where to place new game sessions. Each type can only be listed once.
+	//
+	// - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
+	// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
+	// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
+	// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
 	PriorityOrder []GameSessionQueuePriorityOrderItem `pulumi:"priorityOrder"`
 }
 
@@ -4332,7 +4445,14 @@ type GameSessionQueuePriorityConfigurationInput interface {
 }
 
 type GameSessionQueuePriorityConfigurationArgs struct {
-	LocationOrder pulumi.StringArrayInput                     `pulumi:"locationOrder"`
+	// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
+	LocationOrder pulumi.StringArrayInput `pulumi:"locationOrder"`
+	// The recommended sequence to use when prioritizing where to place new game sessions. Each type can only be listed once.
+	//
+	// - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
+	// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
+	// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
+	// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
 	PriorityOrder GameSessionQueuePriorityOrderItemArrayInput `pulumi:"priorityOrder"`
 }
 
@@ -4413,10 +4533,17 @@ func (o GameSessionQueuePriorityConfigurationOutput) ToGameSessionQueuePriorityC
 	}).(GameSessionQueuePriorityConfigurationPtrOutput)
 }
 
+// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
 func (o GameSessionQueuePriorityConfigurationOutput) LocationOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []string { return v.LocationOrder }).(pulumi.StringArrayOutput)
 }
 
+// The recommended sequence to use when prioritizing where to place new game sessions. Each type can only be listed once.
+//
+// - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
+// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
+// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
+// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
 func (o GameSessionQueuePriorityConfigurationOutput) PriorityOrder() GameSessionQueuePriorityOrderItemArrayOutput {
 	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []GameSessionQueuePriorityOrderItem {
 		return v.PriorityOrder
@@ -4447,6 +4574,7 @@ func (o GameSessionQueuePriorityConfigurationPtrOutput) Elem() GameSessionQueueP
 	}).(GameSessionQueuePriorityConfigurationOutput)
 }
 
+// The prioritization order to use for fleet locations, when the `PriorityOrder` property includes `LOCATION` . Locations are identified by AWS Region codes such as `us-west-2` . Each location can only be listed once.
 func (o GameSessionQueuePriorityConfigurationPtrOutput) LocationOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) []string {
 		if v == nil {
@@ -4456,6 +4584,12 @@ func (o GameSessionQueuePriorityConfigurationPtrOutput) LocationOrder() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// The recommended sequence to use when prioritizing where to place new game sessions. Each type can only be listed once.
+//
+// - `LATENCY` -- FleetIQ prioritizes locations where the average player latency (provided in each game session request) is lowest.
+// - `COST` -- FleetIQ prioritizes destinations with the lowest current hosting costs. Cost is evaluated based on the location, instance type, and fleet type (Spot or On-Demand) for each destination in the queue.
+// - `DESTINATION` -- FleetIQ prioritizes based on the order that destinations are listed in the queue configuration.
+// - `LOCATION` -- FleetIQ prioritizes based on the provided order of locations, as defined in `LocationOrder` .
 func (o GameSessionQueuePriorityConfigurationPtrOutput) PriorityOrder() GameSessionQueuePriorityOrderItemArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) []GameSessionQueuePriorityOrderItem {
 		if v == nil {

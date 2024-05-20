@@ -17,6 +17,9 @@ export function getRegistryPolicy(args: GetRegistryPolicyArgs, opts?: pulumi.Inv
 }
 
 export interface GetRegistryPolicyArgs {
+    /**
+     * The account ID of the private registry the policy is associated with.
+     */
     registryId: string;
 }
 
@@ -27,6 +30,9 @@ export interface GetRegistryPolicyResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
      */
     readonly policyText?: any;
+    /**
+     * The account ID of the private registry the policy is associated with.
+     */
     readonly registryId?: string;
 }
 /**
@@ -38,5 +44,8 @@ export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?
 }
 
 export interface GetRegistryPolicyOutputArgs {
+    /**
+     * The account ID of the private registry the policy is associated with.
+     */
     registryId: pulumi.Input<string>;
 }

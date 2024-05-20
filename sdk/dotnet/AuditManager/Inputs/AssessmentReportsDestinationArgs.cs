@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// </summary>
     public sealed class AssessmentReportsDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination bucket where Audit Manager stores assessment reports.
+        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
+        /// <summary>
+        /// The destination type, such as Amazon S3.
+        /// </summary>
         [Input("destinationType")]
         public Input<Pulumi.AwsNative.AuditManager.AssessmentReportDestinationType>? DestinationType { get; set; }
 

@@ -12,24 +12,47 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFunnelChartDataLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility of the category labels within the data labels.
+        /// </summary>
         [Input("categoryLabelVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? CategoryLabelVisibility { get; set; }
 
+        /// <summary>
+        /// The color of the data label text.
+        /// </summary>
         [Input("labelColor")]
         public Input<string>? LabelColor { get; set; }
 
+        /// <summary>
+        /// The font configuration for the data labels.
+        /// 
+        /// Only the `FontSize` attribute of the font configuration is used for data labels.
+        /// </summary>
         [Input("labelFontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? LabelFontConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines the style of the metric labels.
+        /// </summary>
         [Input("measureDataLabelStyle")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateFunnelChartMeasureDataLabelStyle>? MeasureDataLabelStyle { get; set; }
 
+        /// <summary>
+        /// The visibility of the measure labels within the data labels.
+        /// </summary>
         [Input("measureLabelVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? MeasureLabelVisibility { get; set; }
 
+        /// <summary>
+        /// Determines the positioning of the data label relative to a section of the funnel.
+        /// </summary>
         [Input("position")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateDataLabelPosition>? Position { get; set; }
 
+        /// <summary>
+        /// The visibility option that determines if data labels are displayed.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

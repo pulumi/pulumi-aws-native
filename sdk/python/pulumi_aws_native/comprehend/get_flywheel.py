@@ -40,26 +40,41 @@ class GetFlywheelResult:
     @property
     @pulumi.getter(name="activeModelArn")
     def active_model_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Number (ARN) of the active model version.
+        """
         return pulumi.get(self, "active_model_arn")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the flywheel.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @property
     @pulumi.getter(name="dataSecurityConfig")
     def data_security_config(self) -> Optional['outputs.FlywheelDataSecurityConfig']:
+        """
+        Data security configuration.
+        """
         return pulumi.get(self, "data_security_config")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -80,6 +95,9 @@ def get_flywheel(arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlywheelResult:
     """
     The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the flywheel.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -99,5 +117,8 @@ def get_flywheel_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlywheelResult]:
     """
     The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the flywheel.
     """
     ...

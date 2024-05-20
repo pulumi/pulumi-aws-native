@@ -24,7 +24,8 @@ func LookupSecurityPolicy(ctx *pulumi.Context, args *LookupSecurityPolicyArgs, o
 
 type LookupSecurityPolicyArgs struct {
 	// The name of the policy
-	Name string             `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The type of security policy. Can be either `encryption` or `network` .
 	Type SecurityPolicyType `pulumi:"type"`
 }
 
@@ -50,7 +51,8 @@ func LookupSecurityPolicyOutput(ctx *pulumi.Context, args LookupSecurityPolicyOu
 
 type LookupSecurityPolicyOutputArgs struct {
 	// The name of the policy
-	Name pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of security policy. Can be either `encryption` or `network` .
 	Type SecurityPolicyTypeInput `pulumi:"type"`
 }
 

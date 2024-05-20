@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableInlineVisualizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the inline visualization of the data bars within a chart.
+        /// </summary>
         [Input("dataBars")]
         public Input<Inputs.DashboardDataBarsOptionsArgs>? DataBars { get; set; }
 

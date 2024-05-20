@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAxisDisplayMinMaxRange
     {
+        /// <summary>
+        /// The maximum setup for an axis display range.
+        /// </summary>
         public readonly double? Maximum;
+        /// <summary>
+        /// The minimum setup for an axis display range.
+        /// </summary>
         public readonly double? Minimum;
 
         [OutputConstructor]

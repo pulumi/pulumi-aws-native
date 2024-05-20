@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentMutationActionSetStateParameter
     {
+        /// <summary>
+        /// The name of the component that is being modified.
+        /// </summary>
         public readonly string ComponentName;
+        /// <summary>
+        /// The name of the component property to apply the state configuration to.
+        /// </summary>
         public readonly string Property;
+        /// <summary>
+        /// The state configuration to assign to the property.
+        /// </summary>
         public readonly Outputs.ComponentProperty Set;
 
         [OutputConstructor]

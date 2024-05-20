@@ -77,6 +77,9 @@ class GetAssetResult:
     @property
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> Optional[Sequence['outputs.AssetHierarchy']]:
+        """
+        A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
+        """
         return pulumi.get(self, "asset_hierarchies")
 
     @property
@@ -106,6 +109,11 @@ class GetAssetResult:
     @property
     @pulumi.getter(name="assetProperties")
     def asset_properties(self) -> Optional[Sequence['outputs.AssetProperty']]:
+        """
+        The list of asset properties for the asset.
+
+        This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
+        """
         return pulumi.get(self, "asset_properties")
 
     @property

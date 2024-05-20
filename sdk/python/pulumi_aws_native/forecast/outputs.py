@@ -69,6 +69,9 @@ class DatasetAttributesItemProperties(dict):
 
 @pulumi.output_type
 class EncryptionConfigProperties(dict):
+    """
+    A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,6 +94,13 @@ class EncryptionConfigProperties(dict):
     def __init__(__self__, *,
                  kms_key_arn: Optional[str] = None,
                  role_arn: Optional[str] = None):
+        """
+        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        :param str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key.
+        :param str role_arn: The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+               
+               Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+        """
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if role_arn is not None:
@@ -99,24 +109,42 @@ class EncryptionConfigProperties(dict):
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+
+        Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+        """
         return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type
 class SchemaProperties(dict):
+    """
+    The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+    """
     def __init__(__self__, *,
                  attributes: Optional[Sequence['outputs.DatasetAttributesItemProperties']] = None):
+        """
+        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        :param Sequence['DatasetAttributesItemProperties'] attributes: An array of attributes specifying the name and type of each field in a dataset.
+        """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.DatasetAttributesItemProperties']]:
+        """
+        An array of attributes specifying the name and type of each field in a dataset.
+        """
         return pulumi.get(self, "attributes")
 
 

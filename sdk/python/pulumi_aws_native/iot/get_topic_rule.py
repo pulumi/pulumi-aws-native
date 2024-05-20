@@ -35,16 +35,31 @@ class GetTopicRuleResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Metadata which can be used to manage the topic rule.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> Optional['outputs.TopicRulePayload']:
+        """
+        The rule payload.
+        """
         return pulumi.get(self, "topic_rule_payload")
 
 
@@ -63,6 +78,11 @@ def get_topic_rule(rule_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicRuleResult:
     """
     Resource Type definition for AWS::IoT::TopicRule
+
+
+    :param str rule_name: The name of the rule.
+           
+           *Pattern* : `[a-zA-Z0-9:_-]+`
     """
     __args__ = dict()
     __args__['ruleName'] = rule_name
@@ -80,5 +100,10 @@ def get_topic_rule_output(rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicRuleResult]:
     """
     Resource Type definition for AWS::IoT::TopicRule
+
+
+    :param str rule_name: The name of the rule.
+           
+           *Pattern* : `[a-zA-Z0-9:_-]+`
     """
     ...

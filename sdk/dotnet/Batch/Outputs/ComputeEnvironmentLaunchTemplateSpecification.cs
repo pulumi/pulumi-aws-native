@@ -13,8 +13,23 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class ComputeEnvironmentLaunchTemplateSpecification
     {
+        /// <summary>
+        /// The ID of the launch template.
+        /// </summary>
         public readonly string? LaunchTemplateId;
+        /// <summary>
+        /// The name of the launch template.
+        /// </summary>
         public readonly string? LaunchTemplateName;
+        /// <summary>
+        /// The version number of the launch template, `$Latest` , or `$Default` .
+        /// 
+        /// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+        /// 
+        /// &gt; If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . 
+        /// 
+        /// Default: `$Default` .
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

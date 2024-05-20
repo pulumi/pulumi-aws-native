@@ -19,19 +19,52 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetQueueArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the queue.
+     */
     arn: string;
 }
 
 export interface GetQueueResult {
+    /**
+     * The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+     */
     readonly allowedStorageProfileIds?: string[];
+    /**
+     * The Amazon Resource Name (ARN) of the queue.
+     */
     readonly arn?: string;
+    /**
+     * The default action taken on a queue summary if a budget wasn't configured.
+     */
     readonly defaultBudgetAction?: enums.deadline.QueueDefaultQueueBudgetAction;
+    /**
+     * A description of the queue that helps identify what the queue is used for.
+     */
     readonly description?: string;
+    /**
+     * The display name of the queue summary to update.
+     */
     readonly displayName?: string;
+    /**
+     * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+     */
     readonly jobAttachmentSettings?: outputs.deadline.QueueJobAttachmentSettings;
+    /**
+     * Identifies the user for a job.
+     */
     readonly jobRunAsUser?: outputs.deadline.QueueJobRunAsUser;
+    /**
+     * The queue ID.
+     */
     readonly queueId?: string;
+    /**
+     * The file system location that the queue uses.
+     */
     readonly requiredFileSystemLocationNames?: string[];
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+     */
     readonly roleArn?: string;
 }
 /**
@@ -42,5 +75,8 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetQueueOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the queue.
+     */
     arn: pulumi.Input<string>;
 }

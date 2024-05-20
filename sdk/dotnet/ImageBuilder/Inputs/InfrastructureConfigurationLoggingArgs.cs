@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class InfrastructureConfigurationLoggingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 logging configuration.
+        /// </summary>
         [Input("s3Logs")]
         public Input<Inputs.InfrastructureConfigurationS3LogsArgs>? S3Logs { get; set; }
 

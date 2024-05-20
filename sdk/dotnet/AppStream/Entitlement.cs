@@ -15,24 +15,45 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:Entitlement")]
     public partial class Entitlement : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies whether to entitle all apps or only selected apps.
+        /// </summary>
         [Output("appVisibility")]
         public Output<string> AppVisibility { get; private set; } = null!;
 
+        /// <summary>
+        /// The attributes of the entitlement.
+        /// </summary>
         [Output("attributes")]
         public Output<ImmutableArray<Outputs.EntitlementAttribute>> Attributes { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the entitlement was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the entitlement.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the entitlement was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the entitlement.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
 
@@ -86,23 +107,39 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class EntitlementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether to entitle all apps or only selected apps.
+        /// </summary>
         [Input("appVisibility", required: true)]
         public Input<string> AppVisibility { get; set; } = null!;
 
         [Input("attributes", required: true)]
         private InputList<Inputs.EntitlementAttributeArgs>? _attributes;
+
+        /// <summary>
+        /// The attributes of the entitlement.
+        /// </summary>
         public InputList<Inputs.EntitlementAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.EntitlementAttributeArgs>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// The description of the entitlement.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the entitlement.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;
 

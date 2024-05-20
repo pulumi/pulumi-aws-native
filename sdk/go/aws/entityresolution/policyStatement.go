@@ -16,12 +16,22 @@ import (
 type PolicyStatement struct {
 	pulumi.CustomResourceState
 
-	Action      pulumi.StringArrayOutput                `pulumi:"action"`
-	Arn         pulumi.StringOutput                     `pulumi:"arn"`
-	Condition   pulumi.StringPtrOutput                  `pulumi:"condition"`
-	Effect      PolicyStatementStatementEffectPtrOutput `pulumi:"effect"`
-	Principal   pulumi.StringArrayOutput                `pulumi:"principal"`
-	StatementId pulumi.StringOutput                     `pulumi:"statementId"`
+	// The action that the principal can use on the resource.
+	//
+	// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+	Action pulumi.StringArrayOutput `pulumi:"action"`
+	// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A set of condition keys that you can use in key policies.
+	Condition pulumi.StringPtrOutput `pulumi:"condition"`
+	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+	//
+	// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+	Effect PolicyStatementStatementEffectPtrOutput `pulumi:"effect"`
+	// The AWS service or AWS account that can access the resource defined as ARN.
+	Principal pulumi.StringArrayOutput `pulumi:"principal"`
+	// A statement identifier that differentiates the statement from others in the same policy.
+	StatementId pulumi.StringOutput `pulumi:"statementId"`
 }
 
 // NewPolicyStatement registers a new resource with the given unique name, arguments, and options.
@@ -75,21 +85,41 @@ func (PolicyStatementState) ElementType() reflect.Type {
 }
 
 type policyStatementArgs struct {
-	Action      []string                        `pulumi:"action"`
-	Arn         string                          `pulumi:"arn"`
-	Condition   *string                         `pulumi:"condition"`
-	Effect      *PolicyStatementStatementEffect `pulumi:"effect"`
-	Principal   []string                        `pulumi:"principal"`
-	StatementId string                          `pulumi:"statementId"`
+	// The action that the principal can use on the resource.
+	//
+	// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+	Action []string `pulumi:"action"`
+	// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+	Arn string `pulumi:"arn"`
+	// A set of condition keys that you can use in key policies.
+	Condition *string `pulumi:"condition"`
+	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+	//
+	// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+	Effect *PolicyStatementStatementEffect `pulumi:"effect"`
+	// The AWS service or AWS account that can access the resource defined as ARN.
+	Principal []string `pulumi:"principal"`
+	// A statement identifier that differentiates the statement from others in the same policy.
+	StatementId string `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a PolicyStatement resource.
 type PolicyStatementArgs struct {
-	Action      pulumi.StringArrayInput
-	Arn         pulumi.StringInput
-	Condition   pulumi.StringPtrInput
-	Effect      PolicyStatementStatementEffectPtrInput
-	Principal   pulumi.StringArrayInput
+	// The action that the principal can use on the resource.
+	//
+	// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+	Action pulumi.StringArrayInput
+	// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+	Arn pulumi.StringInput
+	// A set of condition keys that you can use in key policies.
+	Condition pulumi.StringPtrInput
+	// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+	//
+	// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+	Effect PolicyStatementStatementEffectPtrInput
+	// The AWS service or AWS account that can access the resource defined as ARN.
+	Principal pulumi.StringArrayInput
+	// A statement identifier that differentiates the statement from others in the same policy.
 	StatementId pulumi.StringInput
 }
 
@@ -130,26 +160,36 @@ func (o PolicyStatementOutput) ToPolicyStatementOutputWithContext(ctx context.Co
 	return o
 }
 
+// The action that the principal can use on the resource.
+//
+// For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
 func (o PolicyStatementOutput) Action() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyStatement) pulumi.StringArrayOutput { return v.Action }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
 func (o PolicyStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStatement) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A set of condition keys that you can use in key policies.
 func (o PolicyStatementOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStatement) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+//
+// > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
 func (o PolicyStatementOutput) Effect() PolicyStatementStatementEffectPtrOutput {
 	return o.ApplyT(func(v *PolicyStatement) PolicyStatementStatementEffectPtrOutput { return v.Effect }).(PolicyStatementStatementEffectPtrOutput)
 }
 
+// The AWS service or AWS account that can access the resource defined as ARN.
 func (o PolicyStatementOutput) Principal() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyStatement) pulumi.StringArrayOutput { return v.Principal }).(pulumi.StringArrayOutput)
 }
 
+// A statement identifier that differentiates the statement from others in the same policy.
 func (o PolicyStatementOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStatement) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }

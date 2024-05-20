@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Shield
 
     public sealed class GetProactiveEngagementArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Shield
 
     public sealed class GetProactiveEngagementInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Shield
     [OutputType]
     public sealed class GetProactiveEngagementResult
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         public readonly string? AccountId;
         /// <summary>
         /// A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.

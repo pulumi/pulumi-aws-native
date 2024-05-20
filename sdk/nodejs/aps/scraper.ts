@@ -45,16 +45,25 @@ export class Scraper extends pulumi.CustomResource {
      * Scraper ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+     */
     public readonly destination!: pulumi.Output<outputs.aps.ScraperDestination>;
     /**
      * IAM role ARN for the scraper.
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The configuration in use by the scraper.
+     */
     public readonly scrapeConfiguration!: pulumi.Output<outputs.aps.ScraperScrapeConfiguration>;
     /**
      * Required to identify a specific scraper.
      */
     public /*out*/ readonly scraperId!: pulumi.Output<string>;
+    /**
+     * The Amazon EKS cluster from which the scraper collects metrics.
+     */
     public readonly source!: pulumi.Output<outputs.aps.ScraperSource>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -114,8 +123,17 @@ export interface ScraperArgs {
      * Scraper alias.
      */
     alias?: pulumi.Input<string>;
+    /**
+     * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+     */
     destination: pulumi.Input<inputs.aps.ScraperDestinationArgs>;
+    /**
+     * The configuration in use by the scraper.
+     */
     scrapeConfiguration: pulumi.Input<inputs.aps.ScraperScrapeConfigurationArgs>;
+    /**
+     * The Amazon EKS cluster from which the scraper collects metrics.
+     */
     source: pulumi.Input<inputs.aps.ScraperSourceArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

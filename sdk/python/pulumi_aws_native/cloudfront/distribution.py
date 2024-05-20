@@ -142,6 +142,9 @@ class Distribution(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -155,6 +158,9 @@ class Distribution(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+        """
         return pulumi.get(self, "domain_name")
 
     @property

@@ -62,61 +62,123 @@ class GetDeliveryStreamResult:
     @property
     @pulumi.getter(name="amazonOpenSearchServerlessDestinationConfiguration")
     def amazon_open_search_serverless_destination_configuration(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration']:
+        """
+        Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+        """
         return pulumi.get(self, "amazon_open_search_serverless_destination_configuration")
 
     @property
     @pulumi.getter(name="amazonopensearchserviceDestinationConfiguration")
     def amazonopensearchservice_destination_configuration(self) -> Optional['outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration']:
+        """
+        The destination in Amazon OpenSearch Service. You can specify only one destination.
+        """
         return pulumi.get(self, "amazonopensearchservice_destination_configuration")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deliveryStreamEncryptionConfigurationInput")
     def delivery_stream_encryption_configuration_input(self) -> Optional['outputs.DeliveryStreamEncryptionConfigurationInput']:
+        """
+        Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+        """
         return pulumi.get(self, "delivery_stream_encryption_configuration_input")
 
     @property
     @pulumi.getter(name="elasticsearchDestinationConfiguration")
     def elasticsearch_destination_configuration(self) -> Optional['outputs.DeliveryStreamElasticsearchDestinationConfiguration']:
+        """
+        An Amazon ES destination for the delivery stream.
+
+        Conditional. You must specify only one destination configuration.
+
+        If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+        """
         return pulumi.get(self, "elasticsearch_destination_configuration")
 
     @property
     @pulumi.getter(name="extendedS3DestinationConfiguration")
     def extended_s3_destination_configuration(self) -> Optional['outputs.DeliveryStreamExtendedS3DestinationConfiguration']:
+        """
+        An Amazon S3 destination for the delivery stream.
+
+        Conditional. You must specify only one destination configuration.
+
+        If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+        """
         return pulumi.get(self, "extended_s3_destination_configuration")
 
     @property
     @pulumi.getter(name="httpEndpointDestinationConfiguration")
     def http_endpoint_destination_configuration(self) -> Optional['outputs.DeliveryStreamHttpEndpointDestinationConfiguration']:
+        """
+        Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
+        """
         return pulumi.get(self, "http_endpoint_destination_configuration")
 
     @property
     @pulumi.getter(name="redshiftDestinationConfiguration")
     def redshift_destination_configuration(self) -> Optional['outputs.DeliveryStreamRedshiftDestinationConfiguration']:
+        """
+        An Amazon Redshift destination for the delivery stream.
+
+        Conditional. You must specify only one destination configuration.
+
+        If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+        """
         return pulumi.get(self, "redshift_destination_configuration")
 
     @property
     @pulumi.getter(name="s3DestinationConfiguration")
     def s3_destination_configuration(self) -> Optional['outputs.DeliveryStreamS3DestinationConfiguration']:
+        """
+        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+
+        Conditional. You must specify only one destination configuration.
+
+        If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+        """
         return pulumi.get(self, "s3_destination_configuration")
 
     @property
     @pulumi.getter(name="snowflakeDestinationConfiguration")
     def snowflake_destination_configuration(self) -> Optional['outputs.DeliveryStreamSnowflakeDestinationConfiguration']:
+        """
+        Configure Snowflake destination
+        """
         return pulumi.get(self, "snowflake_destination_configuration")
 
     @property
     @pulumi.getter(name="splunkDestinationConfiguration")
     def splunk_destination_configuration(self) -> Optional['outputs.DeliveryStreamSplunkDestinationConfiguration']:
+        """
+        The configuration of a destination in Splunk for the delivery stream.
+        """
         return pulumi.get(self, "splunk_destination_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+
+        You can specify up to 50 tags when creating a delivery stream.
+
+        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+
+        *AccessDeniedException*
+
+        User: arn:aws:sts::x:assumed-role/x/x is not authorized to perform: firehose:TagDeliveryStream on resource: arn:aws:firehose:us-east-1:x:deliverystream/x with an explicit deny in an identity-based policy.
+
+        For an example IAM policy, see [Tag example.](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples)
+        """
         return pulumi.get(self, "tags")
 
 
@@ -144,6 +206,9 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeliveryStreamResult:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
+
+
+    :param str delivery_stream_name: The name of the delivery stream.
     """
     __args__ = dict()
     __args__['deliveryStreamName'] = delivery_stream_name
@@ -170,5 +235,8 @@ def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryStreamResult]:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
+
+
+    :param str delivery_stream_name: The name of the delivery stream.
     """
     ...

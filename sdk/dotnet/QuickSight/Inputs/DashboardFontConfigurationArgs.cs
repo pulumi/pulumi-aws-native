@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFontConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color of the text.
+        /// </summary>
         [Input("fontColor")]
         public Input<string>? FontColor { get; set; }
 
+        /// <summary>
+        /// Determines the appearance of decorative lines on the text.
+        /// </summary>
         [Input("fontDecoration")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardFontDecoration>? FontDecoration { get; set; }
 
+        /// <summary>
+        /// The option that determines the text display size.
+        /// </summary>
         [Input("fontSize")]
         public Input<Inputs.DashboardFontSizeArgs>? FontSize { get; set; }
 
+        /// <summary>
+        /// Determines the text display face that is inherited by the given font family.
+        /// </summary>
         [Input("fontStyle")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardFontStyle>? FontStyle { get; set; }
 
+        /// <summary>
+        /// The option that determines the text display weight, or boldness.
+        /// </summary>
         [Input("fontWeight")]
         public Input<Inputs.DashboardFontWeightArgs>? FontWeight { get; set; }
 

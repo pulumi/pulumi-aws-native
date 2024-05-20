@@ -15,8 +15,12 @@ import (
 type Alias struct {
 	pulumi.CustomResourceState
 
-	AliasName pulumi.StringOutput    `pulumi:"aliasName"`
-	KeyArn    pulumi.StringPtrOutput `pulumi:"keyArn"`
+	// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+	//
+	// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+	AliasName pulumi.StringOutput `pulumi:"aliasName"`
+	// The `KeyARN` of the key associated with the alias.
+	KeyArn pulumi.StringPtrOutput `pulumi:"keyArn"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -63,14 +67,22 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
+	// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+	//
+	// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
 	AliasName *string `pulumi:"aliasName"`
-	KeyArn    *string `pulumi:"keyArn"`
+	// The `KeyARN` of the key associated with the alias.
+	KeyArn *string `pulumi:"keyArn"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
+	// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+	//
+	// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
 	AliasName pulumi.StringPtrInput
-	KeyArn    pulumi.StringPtrInput
+	// The `KeyARN` of the key associated with the alias.
+	KeyArn pulumi.StringPtrInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {
@@ -110,10 +122,14 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
+// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+//
+// > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
 func (o AliasOutput) AliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.AliasName }).(pulumi.StringOutput)
 }
 
+// The `KeyARN` of the key associated with the alias.
 func (o AliasOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.KeyArn }).(pulumi.StringPtrOutput)
 }

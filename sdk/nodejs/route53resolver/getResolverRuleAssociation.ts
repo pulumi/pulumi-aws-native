@@ -16,10 +16,16 @@ export function getResolverRuleAssociation(args: GetResolverRuleAssociationArgs,
 }
 
 export interface GetResolverRuleAssociationArgs {
+    /**
+     * The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+     */
     resolverRuleAssociationId: string;
 }
 
 export interface GetResolverRuleAssociationResult {
+    /**
+     * The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+     */
     readonly resolverRuleAssociationId?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getResolverRuleAssociationOutput(args: GetResolverRuleAssociatio
 }
 
 export interface GetResolverRuleAssociationOutputArgs {
+    /**
+     * The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+     */
     resolverRuleAssociationId: pulumi.Input<string>;
 }

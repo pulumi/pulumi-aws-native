@@ -28,8 +28,10 @@ type LookupVdmAttributesArgs struct {
 }
 
 type LookupVdmAttributesResult struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes *VdmAttributesDashboardAttributes `pulumi:"dashboardAttributes"`
-	GuardianAttributes  *VdmAttributesGuardianAttributes  `pulumi:"guardianAttributes"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianAttributes *VdmAttributesGuardianAttributes `pulumi:"guardianAttributes"`
 	// Unique identifier for this resource
 	VdmAttributesResourceId *string `pulumi:"vdmAttributesResourceId"`
 }
@@ -70,10 +72,12 @@ func (o LookupVdmAttributesResultOutput) ToLookupVdmAttributesResultOutputWithCo
 	return o
 }
 
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 func (o LookupVdmAttributesResultOutput) DashboardAttributes() VdmAttributesDashboardAttributesPtrOutput {
 	return o.ApplyT(func(v LookupVdmAttributesResult) *VdmAttributesDashboardAttributes { return v.DashboardAttributes }).(VdmAttributesDashboardAttributesPtrOutput)
 }
 
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 func (o LookupVdmAttributesResultOutput) GuardianAttributes() VdmAttributesGuardianAttributesPtrOutput {
 	return o.ApplyT(func(v LookupVdmAttributesResult) *VdmAttributesGuardianAttributes { return v.GuardianAttributes }).(VdmAttributesGuardianAttributesPtrOutput)
 }

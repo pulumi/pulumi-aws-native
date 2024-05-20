@@ -19,15 +19,36 @@ export function getAccessLogSubscription(args: GetAccessLogSubscriptionArgs, opt
 }
 
 export interface GetAccessLogSubscriptionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the access log subscription.
+     */
     arn: string;
 }
 
 export interface GetAccessLogSubscriptionResult {
+    /**
+     * The Amazon Resource Name (ARN) of the access log subscription.
+     */
     readonly arn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+     */
     readonly destinationArn?: string;
+    /**
+     * The ID of the access log subscription.
+     */
     readonly id?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the access log subscription.
+     */
     readonly resourceArn?: string;
+    /**
+     * The ID of the service network or service.
+     */
     readonly resourceId?: string;
+    /**
+     * The tags for the access log subscription.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +59,8 @@ export function getAccessLogSubscriptionOutput(args: GetAccessLogSubscriptionOut
 }
 
 export interface GetAccessLogSubscriptionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the access log subscription.
+     */
     arn: pulumi.Input<string>;
 }

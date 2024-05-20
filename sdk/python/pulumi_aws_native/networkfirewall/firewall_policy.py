@@ -25,6 +25,12 @@ class FirewallPolicyInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
+        :param pulumi.Input['FirewallPolicyArgs'] firewall_policy: The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        :param pulumi.Input[str] description: A description of the firewall policy.
+        :param pulumi.Input[str] firewall_policy_name: The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "firewall_policy", firewall_policy)
         if description is not None:
@@ -37,6 +43,9 @@ class FirewallPolicyInitArgs:
     @property
     @pulumi.getter(name="firewallPolicy")
     def firewall_policy(self) -> pulumi.Input['FirewallPolicyArgs']:
+        """
+        The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        """
         return pulumi.get(self, "firewall_policy")
 
     @firewall_policy.setter
@@ -46,6 +55,9 @@ class FirewallPolicyInitArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the firewall policy.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -55,6 +67,9 @@ class FirewallPolicyInitArgs:
     @property
     @pulumi.getter(name="firewallPolicyName")
     def firewall_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+        """
         return pulumi.get(self, "firewall_policy_name")
 
     @firewall_policy_name.setter
@@ -64,6 +79,11 @@ class FirewallPolicyInitArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -86,6 +106,12 @@ class FirewallPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the firewall policy.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyArgs']] firewall_policy: The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        :param pulumi.Input[str] firewall_policy_name: The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -167,30 +193,50 @@ class FirewallPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the firewall policy.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="firewallPolicy")
     def firewall_policy(self) -> pulumi.Output['outputs.FirewallPolicy']:
+        """
+        The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+        """
         return pulumi.get(self, "firewall_policy")
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @property
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the `FirewallPolicy` resource.
+        """
         return pulumi.get(self, "firewall_policy_id")
 
     @property
     @pulumi.getter(name="firewallPolicyName")
     def firewall_policy_name(self) -> pulumi.Output[str]:
+        """
+        The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+        """
         return pulumi.get(self, "firewall_policy_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

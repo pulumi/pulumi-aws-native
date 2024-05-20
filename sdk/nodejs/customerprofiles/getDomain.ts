@@ -46,7 +46,13 @@ export interface GetDomainResult {
      * The time of this integration got last updated at
      */
     readonly lastUpdatedAt?: string;
+    /**
+     * The process of matching duplicate profiles.
+     */
     readonly matching?: outputs.customerprofiles.DomainMatching;
+    /**
+     * The process of matching duplicate profiles using Rule-Based matching.
+     */
     readonly ruleBasedMatching?: outputs.customerprofiles.DomainRuleBasedMatching;
     readonly stats?: outputs.customerprofiles.DomainStats;
     /**

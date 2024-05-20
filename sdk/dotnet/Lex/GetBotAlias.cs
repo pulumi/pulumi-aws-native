@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotAliasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot alias.
+        /// </summary>
         [Input("botAliasId", required: true)]
         public string BotAliasId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("botId", required: true)]
         public string BotId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot alias.
+        /// </summary>
         [Input("botAliasId", required: true)]
         public Input<string> BotAliasId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
@@ -57,13 +69,37 @@ namespace Pulumi.AwsNative.Lex
     [OutputType]
     public sealed class GetBotAliasResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot alias.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The unique identifier of the bot alias.
+        /// </summary>
         public readonly string? BotAliasId;
+        /// <summary>
+        /// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotAliasLocaleSettingsItem> BotAliasLocaleSettings;
+        /// <summary>
+        /// The name of the bot alias.
+        /// </summary>
         public readonly string? BotAliasName;
+        /// <summary>
+        /// The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lex.BotAliasStatus? BotAliasStatus;
+        /// <summary>
+        /// The version of the bot that the bot alias references.
+        /// </summary>
         public readonly string? BotVersion;
+        /// <summary>
+        /// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
+        /// </summary>
         public readonly Outputs.BotAliasConversationLogSettings? ConversationLogSettings;
+        /// <summary>
+        /// The description of the bot alias.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.

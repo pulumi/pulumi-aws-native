@@ -17,8 +17,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? Height;
+        /// <summary>
+        /// The positions for the legend. Choose one of the following options:
+        /// 
+        /// - `AUTO`
+        /// - `RIGHT`
+        /// - `BOTTOM`
+        /// - `LEFT`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLegendPosition? Position;
+        /// <summary>
+        /// The custom title for the legend.
+        /// </summary>
         public readonly Outputs.TemplateLabelOptions? Title;
+        /// <summary>
+        /// Determines whether or not the legend is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px

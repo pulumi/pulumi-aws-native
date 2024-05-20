@@ -145,9 +145,13 @@ func (o AccessPointAwsLambdaOutput) FunctionPayload() pulumi.StringPtrOutput {
 
 // Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfiguration struct {
-	AllowedFeatures              []string                                 `pulumi:"allowedFeatures"`
-	CloudWatchMetricsEnabled     *bool                                    `pulumi:"cloudWatchMetricsEnabled"`
-	SupportingAccessPoint        string                                   `pulumi:"supportingAccessPoint"`
+	// A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+	AllowedFeatures []string `pulumi:"allowedFeatures"`
+	// A container for whether the CloudWatch metrics configuration is enabled.
+	CloudWatchMetricsEnabled *bool `pulumi:"cloudWatchMetricsEnabled"`
+	// Standard access point associated with the Object Lambda Access Point.
+	SupportingAccessPoint string `pulumi:"supportingAccessPoint"`
+	// A container for transformation configurations for an Object Lambda Access Point.
 	TransformationConfigurations []AccessPointTransformationConfiguration `pulumi:"transformationConfigurations"`
 }
 
@@ -164,9 +168,13 @@ type AccessPointObjectLambdaConfigurationInput interface {
 
 // Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfigurationArgs struct {
-	AllowedFeatures              pulumi.StringArrayInput                          `pulumi:"allowedFeatures"`
-	CloudWatchMetricsEnabled     pulumi.BoolPtrInput                              `pulumi:"cloudWatchMetricsEnabled"`
-	SupportingAccessPoint        pulumi.StringInput                               `pulumi:"supportingAccessPoint"`
+	// A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
+	AllowedFeatures pulumi.StringArrayInput `pulumi:"allowedFeatures"`
+	// A container for whether the CloudWatch metrics configuration is enabled.
+	CloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchMetricsEnabled"`
+	// Standard access point associated with the Object Lambda Access Point.
+	SupportingAccessPoint pulumi.StringInput `pulumi:"supportingAccessPoint"`
+	// A container for transformation configurations for an Object Lambda Access Point.
 	TransformationConfigurations AccessPointTransformationConfigurationArrayInput `pulumi:"transformationConfigurations"`
 }
 
@@ -197,18 +205,22 @@ func (o AccessPointObjectLambdaConfigurationOutput) ToAccessPointObjectLambdaCon
 	return o
 }
 
+// A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
 func (o AccessPointObjectLambdaConfigurationOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) []string { return v.AllowedFeatures }).(pulumi.StringArrayOutput)
 }
 
+// A container for whether the CloudWatch metrics configuration is enabled.
 func (o AccessPointObjectLambdaConfigurationOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) *bool { return v.CloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Standard access point associated with the Object Lambda Access Point.
 func (o AccessPointObjectLambdaConfigurationOutput) SupportingAccessPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) string { return v.SupportingAccessPoint }).(pulumi.StringOutput)
 }
 
+// A container for transformation configurations for an Object Lambda Access Point.
 func (o AccessPointObjectLambdaConfigurationOutput) TransformationConfigurations() AccessPointTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) []AccessPointTransformationConfiguration {
 		return v.TransformationConfigurations
@@ -239,6 +251,7 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) Elem() AccessPointObjectL
 	}).(AccessPointObjectLambdaConfigurationOutput)
 }
 
+// A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
 func (o AccessPointObjectLambdaConfigurationPtrOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) []string {
 		if v == nil {
@@ -248,6 +261,7 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) AllowedFeatures() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// A container for whether the CloudWatch metrics configuration is enabled.
 func (o AccessPointObjectLambdaConfigurationPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) *bool {
 		if v == nil {
@@ -257,6 +271,7 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) CloudWatchMetricsEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Standard access point associated with the Object Lambda Access Point.
 func (o AccessPointObjectLambdaConfigurationPtrOutput) SupportingAccessPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) *string {
 		if v == nil {
@@ -266,6 +281,7 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) SupportingAccessPoint() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// A container for transformation configurations for an Object Lambda Access Point.
 func (o AccessPointObjectLambdaConfigurationPtrOutput) TransformationConfigurations() AccessPointTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) []AccessPointTransformationConfiguration {
 		if v == nil {
@@ -461,7 +477,9 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBucket
 
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfiguration struct {
-	Actions               []string                                                              `pulumi:"actions"`
+	// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+	Actions []string `pulumi:"actions"`
+	// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 	ContentTransformation AccessPointTransformationConfigurationContentTransformationProperties `pulumi:"contentTransformation"`
 }
 
@@ -478,7 +496,9 @@ type AccessPointTransformationConfigurationInput interface {
 
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfigurationArgs struct {
-	Actions               pulumi.StringArrayInput                                                    `pulumi:"actions"`
+	// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 	ContentTransformation AccessPointTransformationConfigurationContentTransformationPropertiesInput `pulumi:"contentTransformation"`
 }
 
@@ -534,10 +554,12 @@ func (o AccessPointTransformationConfigurationOutput) ToAccessPointTransformatio
 	return o
 }
 
+// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
 func (o AccessPointTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 func (o AccessPointTransformationConfigurationOutput) ContentTransformation() AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
 	return o.ApplyT(func(v AccessPointTransformationConfiguration) AccessPointTransformationConfigurationContentTransformationProperties {
 		return v.ContentTransformation
@@ -564,10 +586,12 @@ func (o AccessPointTransformationConfigurationArrayOutput) Index(i pulumi.IntInp
 	}).(AccessPointTransformationConfigurationOutput)
 }
 
+// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 type AccessPointTransformationConfigurationContentTransformation0Properties struct {
 	AwsLambda AccessPointAwsLambda `pulumi:"awsLambda"`
 }
 
+// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 type AccessPointTransformationConfigurationContentTransformationProperties struct {
 	AwsLambda AccessPointAwsLambda `pulumi:"awsLambda"`
 }
@@ -583,6 +607,7 @@ type AccessPointTransformationConfigurationContentTransformationPropertiesInput 
 	ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(context.Context) AccessPointTransformationConfigurationContentTransformationPropertiesOutput
 }
 
+// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 type AccessPointTransformationConfigurationContentTransformationPropertiesArgs struct {
 	AwsLambda AccessPointAwsLambdaInput `pulumi:"awsLambda"`
 }
@@ -599,6 +624,7 @@ func (i AccessPointTransformationConfigurationContentTransformationPropertiesArg
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTransformationConfigurationContentTransformationPropertiesOutput)
 }
 
+// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
 type AccessPointTransformationConfigurationContentTransformationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ElementType() reflect.Type {

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAccessScopeThroughResourcesStatementRequest
     {
+        /// <summary>
+        /// The resource statement.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAccessScopeResourceStatementRequest? ResourceStatement;
 
         [OutputConstructor]

@@ -30,6 +30,11 @@ export interface GetConnectionResult {
      * The arn of the connection resource.
      */
     readonly arn?: string;
+    /**
+     * The type of authorization to use for the connection.
+     *
+     * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+     */
     readonly authorizationType?: enums.events.ConnectionAuthorizationType;
     /**
      * Description of the connection.

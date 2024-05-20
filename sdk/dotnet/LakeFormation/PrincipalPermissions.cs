@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("principal")]
         public Output<Outputs.PrincipalPermissionsDataLakePrincipal> Principal { get; private set; } = null!;
 
+        /// <summary>
+        /// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+        /// </summary>
         [Output("principalIdentifier")]
         public Output<string> PrincipalIdentifier { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("resource")]
         public Output<Outputs.PrincipalPermissionsResource> Resource { get; private set; } = null!;
 
+        /// <summary>
+        /// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+        /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
 

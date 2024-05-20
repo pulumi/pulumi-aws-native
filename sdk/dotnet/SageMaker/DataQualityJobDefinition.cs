@@ -21,15 +21,27 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the container that runs the monitoring job.
+        /// </summary>
         [Output("dataQualityAppSpecification")]
         public Output<Outputs.DataQualityJobDefinitionDataQualityAppSpecification> DataQualityAppSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures the constraints and baselines for the monitoring job.
+        /// </summary>
         [Output("dataQualityBaselineConfig")]
         public Output<Outputs.DataQualityJobDefinitionDataQualityBaselineConfig?> DataQualityBaselineConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
+        /// </summary>
         [Output("dataQualityJobInput")]
         public Output<Outputs.DataQualityJobDefinitionDataQualityJobInput> DataQualityJobInput { get; private set; } = null!;
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Output("dataQualityJobOutputConfig")]
         public Output<Outputs.DataQualityJobDefinitionMonitoringOutputConfig> DataQualityJobOutputConfig { get; private set; } = null!;
 
@@ -42,12 +54,21 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("jobDefinitionArn")]
         public Output<string> JobDefinitionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the monitoring job definition.
+        /// </summary>
         [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Output("jobResources")]
         public Output<Outputs.DataQualityJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies networking configuration for the monitoring job.
+        /// </summary>
         [Output("networkConfig")]
         public Output<Outputs.DataQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
 
@@ -57,6 +78,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A time limit for how long the monitoring job is allowed to run before stopping.
+        /// </summary>
         [Output("stoppingCondition")]
         public Output<Outputs.DataQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
 
@@ -125,27 +149,48 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class DataQualityJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the container that runs the monitoring job.
+        /// </summary>
         [Input("dataQualityAppSpecification", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs> DataQualityAppSpecification { get; set; } = null!;
 
+        /// <summary>
+        /// Configures the constraints and baselines for the monitoring job.
+        /// </summary>
         [Input("dataQualityBaselineConfig")]
         public Input<Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs>? DataQualityBaselineConfig { get; set; }
 
+        /// <summary>
+        /// A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
+        /// </summary>
         [Input("dataQualityJobInput", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityJobInputArgs> DataQualityJobInput { get; set; } = null!;
 
+        /// <summary>
+        /// The output configuration for monitoring jobs.
+        /// </summary>
         [Input("dataQualityJobOutputConfig", required: true)]
         public Input<Inputs.DataQualityJobDefinitionMonitoringOutputConfigArgs> DataQualityJobOutputConfig { get; set; } = null!;
 
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
+        /// <summary>
+        /// The name for the monitoring job definition.
+        /// </summary>
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }
 
+        /// <summary>
+        /// Identifies the resources to deploy for a monitoring job.
+        /// </summary>
         [Input("jobResources", required: true)]
         public Input<Inputs.DataQualityJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies networking configuration for the monitoring job.
+        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.DataQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
 
@@ -155,6 +200,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// A time limit for how long the monitoring job is allowed to run before stopping.
+        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.DataQualityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
 

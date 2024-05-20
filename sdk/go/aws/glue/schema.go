@@ -18,7 +18,8 @@ type Schema struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name for the Schema.
-	Arn               pulumi.StringOutput        `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion SchemaVersionTypePtrOutput `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityOutput `pulumi:"compatibility"`
@@ -29,7 +30,8 @@ type Schema struct {
 	// Represents the version ID associated with the initial schema version.
 	InitialSchemaVersionId pulumi.StringOutput `pulumi:"initialSchemaVersionId"`
 	// Name of the schema.
-	Name     pulumi.StringOutput     `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The registry where a schema is stored.
 	Registry SchemaRegistryPtrOutput `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
@@ -93,6 +95,7 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
+	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion *SchemaVersionType `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibility `pulumi:"compatibility"`
@@ -101,7 +104,8 @@ type schemaArgs struct {
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
 	// Name of the schema.
-	Name     *string         `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The registry where a schema is stored.
 	Registry *SchemaRegistry `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
@@ -111,6 +115,7 @@ type schemaArgs struct {
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
+	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion SchemaVersionTypePtrInput
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityInput
@@ -119,7 +124,8 @@ type SchemaArgs struct {
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrInput
 	// Name of the schema.
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The registry where a schema is stored.
 	Registry SchemaRegistryPtrInput
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringInput
@@ -169,6 +175,7 @@ func (o SchemaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 func (o SchemaOutput) CheckpointVersion() SchemaVersionTypePtrOutput {
 	return o.ApplyT(func(v *Schema) SchemaVersionTypePtrOutput { return v.CheckpointVersion }).(SchemaVersionTypePtrOutput)
 }
@@ -198,6 +205,7 @@ func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The registry where a schema is stored.
 func (o SchemaOutput) Registry() SchemaRegistryPtrOutput {
 	return o.ApplyT(func(v *Schema) SchemaRegistryPtrOutput { return v.Registry }).(SchemaRegistryPtrOutput)
 }

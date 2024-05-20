@@ -42,6 +42,10 @@ class ApplicationExternalUrlConfig(dict):
     def __init__(__self__, *,
                  access_url: str,
                  approved_origins: Optional[Sequence[str]] = None):
+        """
+        :param str access_url: The URL to access the application.
+        :param Sequence[str] approved_origins: Additional URLs to allow list if different than the access URL.
+        """
         pulumi.set(__self__, "access_url", access_url)
         if approved_origins is not None:
             pulumi.set(__self__, "approved_origins", approved_origins)
@@ -49,11 +53,17 @@ class ApplicationExternalUrlConfig(dict):
     @property
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> str:
+        """
+        The URL to access the application.
+        """
         return pulumi.get(self, "access_url")
 
     @property
     @pulumi.getter(name="approvedOrigins")
     def approved_origins(self) -> Optional[Sequence[str]]:
+        """
+        Additional URLs to allow list if different than the access URL.
+        """
         return pulumi.get(self, "approved_origins")
 
 
@@ -83,12 +93,16 @@ class ApplicationSourceConfigProperties(dict):
                  external_url_config: 'outputs.ApplicationExternalUrlConfig'):
         """
         Application source config
+        :param 'ApplicationExternalUrlConfig' external_url_config: The external URL source for the application.
         """
         pulumi.set(__self__, "external_url_config", external_url_config)
 
     @property
     @pulumi.getter(name="externalUrlConfig")
     def external_url_config(self) -> 'outputs.ApplicationExternalUrlConfig':
+        """
+        The external URL source for the application.
+        """
         return pulumi.get(self, "external_url_config")
 
 

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The table cell style of table cells.
+        /// </summary>
         [Input("cellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? CellStyle { get; set; }
 
+        /// <summary>
+        /// The table cell style of a table header.
+        /// </summary>
         [Input("headerStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? HeaderStyle { get; set; }
 
+        /// <summary>
+        /// The orientation (vertical, horizontal) for a table.
+        /// </summary>
         [Input("orientation")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTableOrientation>? Orientation { get; set; }
 
+        /// <summary>
+        /// The row alternate color options (widget status, row alternate colors) for a table.
+        /// </summary>
         [Input("rowAlternateColorOptions")]
         public Input<Inputs.DashboardRowAlternateColorOptionsArgs>? RowAlternateColorOptions { get; set; }
 

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleSqsAction
     {
+        /// <summary>
+        /// The URL of the Amazon SQS queue.
+        /// </summary>
         public readonly string QueueUrl;
+        /// <summary>
+        /// The ARN of the IAM role that grants access.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Specifies whether to use Base64 encoding.
+        /// </summary>
         public readonly bool? UseBase64;
 
         [OutputConstructor]

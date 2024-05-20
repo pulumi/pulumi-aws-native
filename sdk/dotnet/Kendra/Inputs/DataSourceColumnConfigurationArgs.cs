@@ -14,23 +14,40 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("changeDetectingColumns", required: true)]
         private InputList<string>? _changeDetectingColumns;
+
+        /// <summary>
+        /// One to five columns that indicate when a document in the database has changed.
+        /// </summary>
         public InputList<string> ChangeDetectingColumns
         {
             get => _changeDetectingColumns ?? (_changeDetectingColumns = new InputList<string>());
             set => _changeDetectingColumns = value;
         }
 
+        /// <summary>
+        /// The column that contains the contents of the document.
+        /// </summary>
         [Input("documentDataColumnName", required: true)]
         public Input<string> DocumentDataColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// The column that provides the document's identifier.
+        /// </summary>
         [Input("documentIdColumnName", required: true)]
         public Input<string> DocumentIdColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// The column that contains the title of the document.
+        /// </summary>
         [Input("documentTitleColumnName")]
         public Input<string>? DocumentTitleColumnName { get; set; }
 
         [Input("fieldMappings")]
         private InputList<Inputs.DataSourceToIndexFieldMappingArgs>? _fieldMappings;
+
+        /// <summary>
+        /// An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+        /// </summary>
         public InputList<Inputs.DataSourceToIndexFieldMappingArgs> FieldMappings
         {
             get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceToIndexFieldMappingArgs>());

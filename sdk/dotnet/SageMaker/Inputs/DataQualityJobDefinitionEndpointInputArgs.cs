@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DataQualityJobDefinitionEndpointInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 

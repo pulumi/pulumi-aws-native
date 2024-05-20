@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGaugeChartOptions
     {
+        /// <summary>
+        /// The arc configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisArcConfiguration? Arc;
+        /// <summary>
+        /// The arc axis configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisArcAxisConfiguration? ArcAxis;
+        /// <summary>
+        /// The comparison configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisComparisonConfiguration? Comparison;
+        /// <summary>
+        /// The options that determine the primary value display type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPrimaryValueDisplayType? PrimaryValueDisplayType;
+        /// <summary>
+        /// The options that determine the primary value font configuration.
+        /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? PrimaryValueFontConfiguration;
 
         [OutputConstructor]

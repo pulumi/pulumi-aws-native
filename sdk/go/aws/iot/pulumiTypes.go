@@ -15,6 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // The criteria that determine when and how a job abort takes place.
 type AbortConfigProperties struct {
+	// The list of criteria that determine when and how to abort the job.
 	CriteriaList []JobTemplateAbortCriteria `pulumi:"criteriaList"`
 }
 
@@ -31,6 +32,7 @@ type AbortConfigPropertiesInput interface {
 
 // The criteria that determine when and how a job abort takes place.
 type AbortConfigPropertiesArgs struct {
+	// The list of criteria that determine when and how to abort the job.
 	CriteriaList JobTemplateAbortCriteriaArrayInput `pulumi:"criteriaList"`
 }
 
@@ -112,6 +114,7 @@ func (o AbortConfigPropertiesOutput) ToAbortConfigPropertiesPtrOutputWithContext
 	}).(AbortConfigPropertiesPtrOutput)
 }
 
+// The list of criteria that determine when and how to abort the job.
 func (o AbortConfigPropertiesOutput) CriteriaList() JobTemplateAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v AbortConfigProperties) []JobTemplateAbortCriteria { return v.CriteriaList }).(JobTemplateAbortCriteriaArrayOutput)
 }
@@ -140,6 +143,7 @@ func (o AbortConfigPropertiesPtrOutput) Elem() AbortConfigPropertiesOutput {
 	}).(AbortConfigPropertiesOutput)
 }
 
+// The list of criteria that determine when and how to abort the job.
 func (o AbortConfigPropertiesPtrOutput) CriteriaList() JobTemplateAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v *AbortConfigProperties) []JobTemplateAbortCriteria {
 		if v == nil {
@@ -291,22 +295,38 @@ func (o AccountAuditConfigurationAuditCheckConfigurationPtrOutput) Enabled() pul
 
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurations struct {
-	AuthenticatedCognitoRoleOverlyPermissiveCheck         *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	CaCertificateExpiringCheck                            *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
-	CaCertificateKeyQualityCheck                          *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
-	ConflictingClientIdsCheck                             *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
-	DeviceCertificateExpiringCheck                        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
-	DeviceCertificateKeyQualityCheck                      *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
-	DeviceCertificateSharedCheck                          *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
+	// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+	AuthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
+	CaCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
+	// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
+	CaCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
+	// Checks if multiple devices connect using the same client ID.
+	ConflictingClientIdsCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
+	// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+	DeviceCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
+	// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
+	DeviceCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
+	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
+	DeviceCertificateSharedCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
+	// Checks if device certificates are still active despite being revoked by an intermediate CA.
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
-	IoTPolicyPotentialMisConfigurationCheck               *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
-	IotPolicyOverlyPermissiveCheck                        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	IotRoleAliasAllowsAccessToUnusedServicesCheck         *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	IotRoleAliasOverlyPermissiveCheck                     *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	LoggingDisabledCheck                                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
-	RevokedCaCertificateStillActiveCheck                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
-	RevokedDeviceCertificateStillActiveCheck              *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	UnauthenticatedCognitoRoleOverlyPermissiveCheck       *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
+	// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
+	IoTPolicyPotentialMisConfigurationCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
+	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
+	IotPolicyOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
+	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
+	IotRoleAliasAllowsAccessToUnusedServicesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
+	IotRoleAliasOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
+	// Checks if AWS IoT logs are disabled.
+	LoggingDisabledCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
+	// Checks if a revoked CA certificate is still active.
+	RevokedCaCertificateStillActiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
+	// Checks if a revoked device certificate is still active.
+	RevokedDeviceCertificateStillActiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
+	// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
+	UnauthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
 // AccountAuditConfigurationAuditCheckConfigurationsInput is an input type that accepts AccountAuditConfigurationAuditCheckConfigurationsArgs and AccountAuditConfigurationAuditCheckConfigurationsOutput values.
@@ -322,22 +342,38 @@ type AccountAuditConfigurationAuditCheckConfigurationsInput interface {
 
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurationsArgs struct {
-	AuthenticatedCognitoRoleOverlyPermissiveCheck         AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	CaCertificateExpiringCheck                            AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
-	CaCertificateKeyQualityCheck                          AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
-	ConflictingClientIdsCheck                             AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
-	DeviceCertificateExpiringCheck                        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
-	DeviceCertificateKeyQualityCheck                      AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
-	DeviceCertificateSharedCheck                          AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
+	// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+	AuthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
+	CaCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
+	// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
+	CaCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
+	// Checks if multiple devices connect using the same client ID.
+	ConflictingClientIdsCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
+	// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+	DeviceCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
+	// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
+	DeviceCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
+	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
+	DeviceCertificateSharedCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
+	// Checks if device certificates are still active despite being revoked by an intermediate CA.
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
-	IoTPolicyPotentialMisConfigurationCheck               AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
-	IotPolicyOverlyPermissiveCheck                        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	IotRoleAliasAllowsAccessToUnusedServicesCheck         AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	IotRoleAliasOverlyPermissiveCheck                     AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	LoggingDisabledCheck                                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
-	RevokedCaCertificateStillActiveCheck                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
-	RevokedDeviceCertificateStillActiveCheck              AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	UnauthenticatedCognitoRoleOverlyPermissiveCheck       AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
+	// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
+	IoTPolicyPotentialMisConfigurationCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
+	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
+	IotPolicyOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
+	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
+	IotRoleAliasAllowsAccessToUnusedServicesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
+	IotRoleAliasOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
+	// Checks if AWS IoT logs are disabled.
+	LoggingDisabledCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
+	// Checks if a revoked CA certificate is still active.
+	RevokedCaCertificateStillActiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
+	// Checks if a revoked device certificate is still active.
+	RevokedDeviceCertificateStillActiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
+	// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
+	UnauthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
 func (AccountAuditConfigurationAuditCheckConfigurationsArgs) ElementType() reflect.Type {
@@ -367,96 +403,112 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditC
 	return o
 }
 
+// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.AuthenticatedCognitoRoleOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.CaCertificateExpiringCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.CaCertificateKeyQualityCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if multiple devices connect using the same client ID.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.ConflictingClientIdsCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateExpiringCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateKeyQualityCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateSharedCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if device certificates are still active despite being revoked by an intermediate CA.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IntermediateCaRevokedForActiveDeviceCertificatesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IoTPolicyPotentialMisConfigurationCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IoTPolicyPotentialMisConfigurationCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotPolicyOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotRoleAliasAllowsAccessToUnusedServicesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotRoleAliasOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if AWS IoT logs are disabled.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.LoggingDisabledCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a revoked CA certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.RevokedCaCertificateStillActiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a revoked device certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.RevokedDeviceCertificateStillActiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.UnauthenticatedCognitoRoleOverlyPermissiveCheck
@@ -487,6 +539,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Elem() Accou
 	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
 }
 
+// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -496,6 +549,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Authenticate
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -505,6 +559,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificat
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -514,6 +569,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificat
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if multiple devices connect using the same client ID.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -523,6 +579,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingC
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -532,6 +589,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -541,6 +599,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -550,6 +609,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if device certificates are still active despite being revoked by an intermediate CA.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -559,6 +619,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Intermediate
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IoTPolicyPotentialMisConfigurationCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -568,6 +629,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IoTPolicyPot
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -577,6 +639,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOve
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -586,6 +649,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAlias
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -595,6 +659,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAlias
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if AWS IoT logs are disabled.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -604,6 +669,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisab
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a revoked CA certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -613,6 +679,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCer
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if a revoked device certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -622,6 +689,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDevic
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
+// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -808,6 +876,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) TargetArn() p
 
 // Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurations struct {
+	// The `Sns` notification target.
 	Sns *AccountAuditConfigurationAuditNotificationTarget `pulumi:"sns"`
 }
 
@@ -824,6 +893,7 @@ type AccountAuditConfigurationAuditNotificationTargetConfigurationsInput interfa
 
 // Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs struct {
+	// The `Sns` notification target.
 	Sns AccountAuditConfigurationAuditNotificationTargetPtrInput `pulumi:"sns"`
 }
 
@@ -905,6 +975,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) To
 	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 }
 
+// The `Sns` notification target.
 func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) Sns() AccountAuditConfigurationAuditNotificationTargetPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditNotificationTargetConfigurations) *AccountAuditConfigurationAuditNotificationTarget {
 		return v.Sns
@@ -935,6 +1006,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput)
 }
 
+// The `Sns` notification target.
 func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput) Sns() AccountAuditConfigurationAuditNotificationTargetPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditNotificationTargetConfigurations) *AccountAuditConfigurationAuditNotificationTarget {
 		if v == nil {
@@ -945,11 +1017,15 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 }
 
 type AuthorizerTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
+// The properties of the billing group.
 type BillingGroupPropertiesProperties struct {
+	// The description of the billing group.
 	BillingGroupDescription *string `pulumi:"billingGroupDescription"`
 }
 
@@ -964,7 +1040,9 @@ type BillingGroupPropertiesPropertiesInput interface {
 	ToBillingGroupPropertiesPropertiesOutputWithContext(context.Context) BillingGroupPropertiesPropertiesOutput
 }
 
+// The properties of the billing group.
 type BillingGroupPropertiesPropertiesArgs struct {
+	// The description of the billing group.
 	BillingGroupDescription pulumi.StringPtrInput `pulumi:"billingGroupDescription"`
 }
 
@@ -1021,6 +1099,7 @@ func (i *billingGroupPropertiesPropertiesPtrType) ToBillingGroupPropertiesProper
 	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupPropertiesPropertiesPtrOutput)
 }
 
+// The properties of the billing group.
 type BillingGroupPropertiesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BillingGroupPropertiesPropertiesOutput) ElementType() reflect.Type {
@@ -1045,6 +1124,7 @@ func (o BillingGroupPropertiesPropertiesOutput) ToBillingGroupPropertiesProperti
 	}).(BillingGroupPropertiesPropertiesPtrOutput)
 }
 
+// The description of the billing group.
 func (o BillingGroupPropertiesPropertiesOutput) BillingGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BillingGroupPropertiesProperties) *string { return v.BillingGroupDescription }).(pulumi.StringPtrOutput)
 }
@@ -1073,6 +1153,7 @@ func (o BillingGroupPropertiesPropertiesPtrOutput) Elem() BillingGroupProperties
 	}).(BillingGroupPropertiesPropertiesOutput)
 }
 
+// The description of the billing group.
 func (o BillingGroupPropertiesPropertiesPtrOutput) BillingGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BillingGroupPropertiesProperties) *string {
 		if v == nil {
@@ -1091,8 +1172,11 @@ type BillingGroupTag struct {
 }
 
 type CaCertificateRegistrationConfig struct {
-	RoleArn      *string `pulumi:"roleArn"`
+	// The ARN of the role.
+	RoleArn *string `pulumi:"roleArn"`
+	// The template body.
 	TemplateBody *string `pulumi:"templateBody"`
+	// The name of the provisioning template.
 	TemplateName *string `pulumi:"templateName"`
 }
 
@@ -1108,8 +1192,11 @@ type CaCertificateRegistrationConfigInput interface {
 }
 
 type CaCertificateRegistrationConfigArgs struct {
-	RoleArn      pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ARN of the role.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The template body.
 	TemplateBody pulumi.StringPtrInput `pulumi:"templateBody"`
+	// The name of the provisioning template.
 	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
 }
 
@@ -1190,14 +1277,17 @@ func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfig
 	}).(CaCertificateRegistrationConfigPtrOutput)
 }
 
+// The ARN of the role.
 func (o CaCertificateRegistrationConfigOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The template body.
 func (o CaCertificateRegistrationConfigOutput) TemplateBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
+// The name of the provisioning template.
 func (o CaCertificateRegistrationConfigOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
@@ -1226,6 +1316,7 @@ func (o CaCertificateRegistrationConfigPtrOutput) Elem() CaCertificateRegistrati
 	}).(CaCertificateRegistrationConfigOutput)
 }
 
+// The ARN of the role.
 func (o CaCertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
@@ -1235,6 +1326,7 @@ func (o CaCertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The template body.
 func (o CaCertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
@@ -1244,6 +1336,7 @@ func (o CaCertificateRegistrationConfigPtrOutput) TemplateBody() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the provisioning template.
 func (o CaCertificateRegistrationConfigPtrOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
@@ -1286,8 +1379,10 @@ type DimensionTag struct {
 }
 
 type DomainConfigurationAuthorizerConfig struct {
-	AllowAuthorizerOverride *bool   `pulumi:"allowAuthorizerOverride"`
-	DefaultAuthorizerName   *string `pulumi:"defaultAuthorizerName"`
+	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+	AllowAuthorizerOverride *bool `pulumi:"allowAuthorizerOverride"`
+	// The name of the authorization service for a domain configuration.
+	DefaultAuthorizerName *string `pulumi:"defaultAuthorizerName"`
 }
 
 // DomainConfigurationAuthorizerConfigInput is an input type that accepts DomainConfigurationAuthorizerConfigArgs and DomainConfigurationAuthorizerConfigOutput values.
@@ -1302,8 +1397,10 @@ type DomainConfigurationAuthorizerConfigInput interface {
 }
 
 type DomainConfigurationAuthorizerConfigArgs struct {
-	AllowAuthorizerOverride pulumi.BoolPtrInput   `pulumi:"allowAuthorizerOverride"`
-	DefaultAuthorizerName   pulumi.StringPtrInput `pulumi:"defaultAuthorizerName"`
+	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+	AllowAuthorizerOverride pulumi.BoolPtrInput `pulumi:"allowAuthorizerOverride"`
+	// The name of the authorization service for a domain configuration.
+	DefaultAuthorizerName pulumi.StringPtrInput `pulumi:"defaultAuthorizerName"`
 }
 
 func (DomainConfigurationAuthorizerConfigArgs) ElementType() reflect.Type {
@@ -1383,10 +1480,12 @@ func (o DomainConfigurationAuthorizerConfigOutput) ToDomainConfigurationAuthoriz
 	}).(DomainConfigurationAuthorizerConfigPtrOutput)
 }
 
+// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
 func (o DomainConfigurationAuthorizerConfigOutput) AllowAuthorizerOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationAuthorizerConfig) *bool { return v.AllowAuthorizerOverride }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the authorization service for a domain configuration.
 func (o DomainConfigurationAuthorizerConfigOutput) DefaultAuthorizerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationAuthorizerConfig) *string { return v.DefaultAuthorizerName }).(pulumi.StringPtrOutput)
 }
@@ -1415,6 +1514,7 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) Elem() DomainConfiguration
 	}).(DomainConfigurationAuthorizerConfigOutput)
 }
 
+// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
 func (o DomainConfigurationAuthorizerConfigPtrOutput) AllowAuthorizerOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) *bool {
 		if v == nil {
@@ -1424,6 +1524,7 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) AllowAuthorizerOverride() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the authorization service for a domain configuration.
 func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) *string {
 		if v == nil {
@@ -1434,6 +1535,7 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pu
 }
 
 type DomainConfigurationServerCertificateConfig struct {
+	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 	EnableOcspCheck *bool `pulumi:"enableOcspCheck"`
 }
 
@@ -1449,6 +1551,7 @@ type DomainConfigurationServerCertificateConfigInput interface {
 }
 
 type DomainConfigurationServerCertificateConfigArgs struct {
+	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 	EnableOcspCheck pulumi.BoolPtrInput `pulumi:"enableOcspCheck"`
 }
 
@@ -1529,6 +1632,7 @@ func (o DomainConfigurationServerCertificateConfigOutput) ToDomainConfigurationS
 	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
+// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 func (o DomainConfigurationServerCertificateConfigOutput) EnableOcspCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *bool { return v.EnableOcspCheck }).(pulumi.BoolPtrOutput)
 }
@@ -1557,6 +1661,7 @@ func (o DomainConfigurationServerCertificateConfigPtrOutput) Elem() DomainConfig
 	}).(DomainConfigurationServerCertificateConfigOutput)
 }
 
+// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 func (o DomainConfigurationServerCertificateConfigPtrOutput) EnableOcspCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationServerCertificateConfig) *bool {
 		if v == nil {
@@ -1567,9 +1672,12 @@ func (o DomainConfigurationServerCertificateConfigPtrOutput) EnableOcspCheck() p
 }
 
 type DomainConfigurationServerCertificateSummary struct {
-	ServerCertificateArn          *string                                                             `pulumi:"serverCertificateArn"`
-	ServerCertificateStatus       *DomainConfigurationServerCertificateSummaryServerCertificateStatus `pulumi:"serverCertificateStatus"`
-	ServerCertificateStatusDetail *string                                                             `pulumi:"serverCertificateStatusDetail"`
+	// The ARN of the server certificate.
+	ServerCertificateArn *string `pulumi:"serverCertificateArn"`
+	// The status of the server certificate.
+	ServerCertificateStatus *DomainConfigurationServerCertificateSummaryServerCertificateStatus `pulumi:"serverCertificateStatus"`
+	// Details that explain the status of the server certificate.
+	ServerCertificateStatusDetail *string `pulumi:"serverCertificateStatusDetail"`
 }
 
 type DomainConfigurationServerCertificateSummaryOutput struct{ *pulumi.OutputState }
@@ -1586,16 +1694,19 @@ func (o DomainConfigurationServerCertificateSummaryOutput) ToDomainConfiguration
 	return o
 }
 
+// The ARN of the server certificate.
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the server certificate.
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatus() DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *DomainConfigurationServerCertificateSummaryServerCertificateStatus {
 		return v.ServerCertificateStatus
 	}).(DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput)
 }
 
+// Details that explain the status of the server certificate.
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatusDetail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateStatusDetail }).(pulumi.StringPtrOutput)
 }
@@ -1621,11 +1732,14 @@ func (o DomainConfigurationServerCertificateSummaryArrayOutput) Index(i pulumi.I
 }
 
 type DomainConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 type DomainConfigurationTlsConfig struct {
+	// The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 }
 
@@ -1641,6 +1755,7 @@ type DomainConfigurationTlsConfigInput interface {
 }
 
 type DomainConfigurationTlsConfigArgs struct {
+	// The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
 	SecurityPolicy pulumi.StringPtrInput `pulumi:"securityPolicy"`
 }
 
@@ -1721,6 +1836,7 @@ func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigPtrOut
 	}).(DomainConfigurationTlsConfigPtrOutput)
 }
 
+// The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
 func (o DomainConfigurationTlsConfigOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationTlsConfig) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1749,6 +1865,7 @@ func (o DomainConfigurationTlsConfigPtrOutput) Elem() DomainConfigurationTlsConf
 	}).(DomainConfigurationTlsConfigOutput)
 }
 
+// The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
 func (o DomainConfigurationTlsConfigPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationTlsConfig) *string {
 		if v == nil {
@@ -1925,7 +2042,9 @@ type FleetMetricTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Allows you to create the criteria to retry a job.
 type JobExecutionsRetryConfigProperties struct {
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
 	RetryCriteriaList []JobTemplateRetryCriteria `pulumi:"retryCriteriaList"`
 }
 
@@ -1940,7 +2059,9 @@ type JobExecutionsRetryConfigPropertiesInput interface {
 	ToJobExecutionsRetryConfigPropertiesOutputWithContext(context.Context) JobExecutionsRetryConfigPropertiesOutput
 }
 
+// Allows you to create the criteria to retry a job.
 type JobExecutionsRetryConfigPropertiesArgs struct {
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
 	RetryCriteriaList JobTemplateRetryCriteriaArrayInput `pulumi:"retryCriteriaList"`
 }
 
@@ -1997,6 +2118,7 @@ func (i *jobExecutionsRetryConfigPropertiesPtrType) ToJobExecutionsRetryConfigPr
 	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigPropertiesPtrOutput)
 }
 
+// Allows you to create the criteria to retry a job.
 type JobExecutionsRetryConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (JobExecutionsRetryConfigPropertiesOutput) ElementType() reflect.Type {
@@ -2021,6 +2143,7 @@ func (o JobExecutionsRetryConfigPropertiesOutput) ToJobExecutionsRetryConfigProp
 	}).(JobExecutionsRetryConfigPropertiesPtrOutput)
 }
 
+// The list of criteria that determines how many retries are allowed for each failure type for a job.
 func (o JobExecutionsRetryConfigPropertiesOutput) RetryCriteriaList() JobTemplateRetryCriteriaArrayOutput {
 	return o.ApplyT(func(v JobExecutionsRetryConfigProperties) []JobTemplateRetryCriteria { return v.RetryCriteriaList }).(JobTemplateRetryCriteriaArrayOutput)
 }
@@ -2049,6 +2172,7 @@ func (o JobExecutionsRetryConfigPropertiesPtrOutput) Elem() JobExecutionsRetryCo
 	}).(JobExecutionsRetryConfigPropertiesOutput)
 }
 
+// The list of criteria that determines how many retries are allowed for each failure type for a job.
 func (o JobExecutionsRetryConfigPropertiesPtrOutput) RetryCriteriaList() JobTemplateRetryCriteriaArrayOutput {
 	return o.ApplyT(func(v *JobExecutionsRetryConfigProperties) []JobTemplateRetryCriteria {
 		if v == nil {
@@ -2528,8 +2652,10 @@ func (o JobTemplateExponentialRolloutRatePtrOutput) RateIncreaseCriteria() JobTe
 
 // Specifies a start time and duration for a scheduled Job.
 type JobTemplateMaintenanceWindow struct {
-	DurationInMinutes *int    `pulumi:"durationInMinutes"`
-	StartTime         *string `pulumi:"startTime"`
+	// Displays the duration of the next maintenance window.
+	DurationInMinutes *int `pulumi:"durationInMinutes"`
+	// Displays the start time of the next maintenance window.
+	StartTime *string `pulumi:"startTime"`
 }
 
 // JobTemplateMaintenanceWindowInput is an input type that accepts JobTemplateMaintenanceWindowArgs and JobTemplateMaintenanceWindowOutput values.
@@ -2545,8 +2671,10 @@ type JobTemplateMaintenanceWindowInput interface {
 
 // Specifies a start time and duration for a scheduled Job.
 type JobTemplateMaintenanceWindowArgs struct {
-	DurationInMinutes pulumi.IntPtrInput    `pulumi:"durationInMinutes"`
-	StartTime         pulumi.StringPtrInput `pulumi:"startTime"`
+	// Displays the duration of the next maintenance window.
+	DurationInMinutes pulumi.IntPtrInput `pulumi:"durationInMinutes"`
+	// Displays the start time of the next maintenance window.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (JobTemplateMaintenanceWindowArgs) ElementType() reflect.Type {
@@ -2601,10 +2729,12 @@ func (o JobTemplateMaintenanceWindowOutput) ToJobTemplateMaintenanceWindowOutput
 	return o
 }
 
+// Displays the duration of the next maintenance window.
 func (o JobTemplateMaintenanceWindowOutput) DurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateMaintenanceWindow) *int { return v.DurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Displays the start time of the next maintenance window.
 func (o JobTemplateMaintenanceWindowOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateMaintenanceWindow) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -2630,7 +2760,9 @@ func (o JobTemplateMaintenanceWindowArrayOutput) Index(i pulumi.IntInput) JobTem
 }
 
 type JobTemplateRateIncreaseCriteria struct {
-	NumberOfNotifiedThings  *int `pulumi:"numberOfNotifiedThings"`
+	// The threshold for number of notified things that will initiate the increase in rate of rollout.
+	NumberOfNotifiedThings *int `pulumi:"numberOfNotifiedThings"`
+	// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
 	NumberOfSucceededThings *int `pulumi:"numberOfSucceededThings"`
 }
 
@@ -2646,7 +2778,9 @@ type JobTemplateRateIncreaseCriteriaInput interface {
 }
 
 type JobTemplateRateIncreaseCriteriaArgs struct {
-	NumberOfNotifiedThings  pulumi.IntPtrInput `pulumi:"numberOfNotifiedThings"`
+	// The threshold for number of notified things that will initiate the increase in rate of rollout.
+	NumberOfNotifiedThings pulumi.IntPtrInput `pulumi:"numberOfNotifiedThings"`
+	// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
 	NumberOfSucceededThings pulumi.IntPtrInput `pulumi:"numberOfSucceededThings"`
 }
 
@@ -2727,10 +2861,12 @@ func (o JobTemplateRateIncreaseCriteriaOutput) ToJobTemplateRateIncreaseCriteria
 	}).(JobTemplateRateIncreaseCriteriaPtrOutput)
 }
 
+// The threshold for number of notified things that will initiate the increase in rate of rollout.
 func (o JobTemplateRateIncreaseCriteriaOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateRateIncreaseCriteria) *int { return v.NumberOfNotifiedThings }).(pulumi.IntPtrOutput)
 }
 
+// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
 func (o JobTemplateRateIncreaseCriteriaOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateRateIncreaseCriteria) *int { return v.NumberOfSucceededThings }).(pulumi.IntPtrOutput)
 }
@@ -2759,6 +2895,7 @@ func (o JobTemplateRateIncreaseCriteriaPtrOutput) Elem() JobTemplateRateIncrease
 	}).(JobTemplateRateIncreaseCriteriaOutput)
 }
 
+// The threshold for number of notified things that will initiate the increase in rate of rollout.
 func (o JobTemplateRateIncreaseCriteriaPtrOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobTemplateRateIncreaseCriteria) *int {
 		if v == nil {
@@ -2768,6 +2905,7 @@ func (o JobTemplateRateIncreaseCriteriaPtrOutput) NumberOfNotifiedThings() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
 func (o JobTemplateRateIncreaseCriteriaPtrOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobTemplateRateIncreaseCriteria) *int {
 		if v == nil {
@@ -2779,8 +2917,10 @@ func (o JobTemplateRateIncreaseCriteriaPtrOutput) NumberOfSucceededThings() pulu
 
 // Specifies how many times a failure type should be retried.
 type JobTemplateRetryCriteria struct {
-	FailureType     *JobTemplateJobRetryFailureType `pulumi:"failureType"`
-	NumberOfRetries *int                            `pulumi:"numberOfRetries"`
+	// The type of job execution failures that can initiate a job retry.
+	FailureType *JobTemplateJobRetryFailureType `pulumi:"failureType"`
+	// The number of retries allowed for a failure type for the job.
+	NumberOfRetries *int `pulumi:"numberOfRetries"`
 }
 
 // JobTemplateRetryCriteriaInput is an input type that accepts JobTemplateRetryCriteriaArgs and JobTemplateRetryCriteriaOutput values.
@@ -2796,8 +2936,10 @@ type JobTemplateRetryCriteriaInput interface {
 
 // Specifies how many times a failure type should be retried.
 type JobTemplateRetryCriteriaArgs struct {
-	FailureType     JobTemplateJobRetryFailureTypePtrInput `pulumi:"failureType"`
-	NumberOfRetries pulumi.IntPtrInput                     `pulumi:"numberOfRetries"`
+	// The type of job execution failures that can initiate a job retry.
+	FailureType JobTemplateJobRetryFailureTypePtrInput `pulumi:"failureType"`
+	// The number of retries allowed for a failure type for the job.
+	NumberOfRetries pulumi.IntPtrInput `pulumi:"numberOfRetries"`
 }
 
 func (JobTemplateRetryCriteriaArgs) ElementType() reflect.Type {
@@ -2852,10 +2994,12 @@ func (o JobTemplateRetryCriteriaOutput) ToJobTemplateRetryCriteriaOutputWithCont
 	return o
 }
 
+// The type of job execution failures that can initiate a job retry.
 func (o JobTemplateRetryCriteriaOutput) FailureType() JobTemplateJobRetryFailureTypePtrOutput {
 	return o.ApplyT(func(v JobTemplateRetryCriteria) *JobTemplateJobRetryFailureType { return v.FailureType }).(JobTemplateJobRetryFailureTypePtrOutput)
 }
 
+// The number of retries allowed for a failure type for the job.
 func (o JobTemplateRetryCriteriaOutput) NumberOfRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateRetryCriteria) *int { return v.NumberOfRetries }).(pulumi.IntPtrOutput)
 }
@@ -3049,12 +3193,18 @@ func (o MetricsExportConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput
 
 // The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParams struct {
-	AddThingsToThingGroupParams       *MitigationActionAddThingsToThingGroupParams       `pulumi:"addThingsToThingGroupParams"`
-	EnableIoTLoggingParams            *MitigationActionEnableIoTLoggingParams            `pulumi:"enableIoTLoggingParams"`
-	PublishFindingToSnsParams         *MitigationActionPublishFindingToSnsParams         `pulumi:"publishFindingToSnsParams"`
+	// Specifies the group to which you want to add the devices.
+	AddThingsToThingGroupParams *MitigationActionAddThingsToThingGroupParams `pulumi:"addThingsToThingGroupParams"`
+	// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+	EnableIoTLoggingParams *MitigationActionEnableIoTLoggingParams `pulumi:"enableIoTLoggingParams"`
+	// Specifies the topic to which the finding should be published.
+	PublishFindingToSnsParams *MitigationActionPublishFindingToSnsParams `pulumi:"publishFindingToSnsParams"`
+	// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 	ReplaceDefaultPolicyVersionParams *MitigationActionReplaceDefaultPolicyVersionParams `pulumi:"replaceDefaultPolicyVersionParams"`
-	UpdateCaCertificateParams         *MitigationActionUpdateCaCertificateParams         `pulumi:"updateCaCertificateParams"`
-	UpdateDeviceCertificateParams     *MitigationActionUpdateDeviceCertificateParams     `pulumi:"updateDeviceCertificateParams"`
+	// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+	UpdateCaCertificateParams *MitigationActionUpdateCaCertificateParams `pulumi:"updateCaCertificateParams"`
+	// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
+	UpdateDeviceCertificateParams *MitigationActionUpdateDeviceCertificateParams `pulumi:"updateDeviceCertificateParams"`
 }
 
 // MitigationActionActionParamsInput is an input type that accepts MitigationActionActionParamsArgs and MitigationActionActionParamsOutput values.
@@ -3070,12 +3220,18 @@ type MitigationActionActionParamsInput interface {
 
 // The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParamsArgs struct {
-	AddThingsToThingGroupParams       MitigationActionAddThingsToThingGroupParamsPtrInput       `pulumi:"addThingsToThingGroupParams"`
-	EnableIoTLoggingParams            MitigationActionEnableIoTLoggingParamsPtrInput            `pulumi:"enableIoTLoggingParams"`
-	PublishFindingToSnsParams         MitigationActionPublishFindingToSnsParamsPtrInput         `pulumi:"publishFindingToSnsParams"`
+	// Specifies the group to which you want to add the devices.
+	AddThingsToThingGroupParams MitigationActionAddThingsToThingGroupParamsPtrInput `pulumi:"addThingsToThingGroupParams"`
+	// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+	EnableIoTLoggingParams MitigationActionEnableIoTLoggingParamsPtrInput `pulumi:"enableIoTLoggingParams"`
+	// Specifies the topic to which the finding should be published.
+	PublishFindingToSnsParams MitigationActionPublishFindingToSnsParamsPtrInput `pulumi:"publishFindingToSnsParams"`
+	// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 	ReplaceDefaultPolicyVersionParams MitigationActionReplaceDefaultPolicyVersionParamsPtrInput `pulumi:"replaceDefaultPolicyVersionParams"`
-	UpdateCaCertificateParams         MitigationActionUpdateCaCertificateParamsPtrInput         `pulumi:"updateCaCertificateParams"`
-	UpdateDeviceCertificateParams     MitigationActionUpdateDeviceCertificateParamsPtrInput     `pulumi:"updateDeviceCertificateParams"`
+	// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+	UpdateCaCertificateParams MitigationActionUpdateCaCertificateParamsPtrInput `pulumi:"updateCaCertificateParams"`
+	// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
+	UpdateDeviceCertificateParams MitigationActionUpdateDeviceCertificateParamsPtrInput `pulumi:"updateDeviceCertificateParams"`
 }
 
 func (MitigationActionActionParamsArgs) ElementType() reflect.Type {
@@ -3105,36 +3261,42 @@ func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsOutput
 	return o
 }
 
+// Specifies the group to which you want to add the devices.
 func (o MitigationActionActionParamsOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
 		return v.AddThingsToThingGroupParams
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
+// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
 func (o MitigationActionActionParamsOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
 		return v.EnableIoTLoggingParams
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
+// Specifies the topic to which the finding should be published.
 func (o MitigationActionActionParamsOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
 		return v.PublishFindingToSnsParams
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
+// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 func (o MitigationActionActionParamsOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
 		return v.ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
+// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsOutput) UpdateCaCertificateParams() MitigationActionUpdateCaCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateCaCertificateParams {
 		return v.UpdateCaCertificateParams
 	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
+// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
 		return v.UpdateDeviceCertificateParams
@@ -3165,6 +3327,7 @@ func (o MitigationActionActionParamsPtrOutput) Elem() MitigationActionActionPara
 	}).(MitigationActionActionParamsOutput)
 }
 
+// Specifies the group to which you want to add the devices.
 func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
 		if v == nil {
@@ -3174,6 +3337,7 @@ func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() Mit
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
+// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
 func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
 		if v == nil {
@@ -3183,6 +3347,7 @@ func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() Mitigati
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
+// Specifies the topic to which the finding should be published.
 func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
 		if v == nil {
@@ -3192,6 +3357,7 @@ func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() Mitig
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
+// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
 		if v == nil {
@@ -3201,6 +3367,7 @@ func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
+// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() MitigationActionUpdateCaCertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCaCertificateParams {
 		if v == nil {
@@ -3210,6 +3377,7 @@ func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() Mitig
 	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
+// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
 		if v == nil {
@@ -3681,6 +3849,7 @@ func (o MitigationActionPublishFindingToSnsParamsPtrOutput) TopicArn() pulumi.St
 
 // Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParams struct {
+	// The name of the template to be applied. The only supported value is `BLANK_POLICY` .
 	TemplateName MitigationActionReplaceDefaultPolicyVersionParamsTemplateName `pulumi:"templateName"`
 }
 
@@ -3697,6 +3866,7 @@ type MitigationActionReplaceDefaultPolicyVersionParamsInput interface {
 
 // Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParamsArgs struct {
+	// The name of the template to be applied. The only supported value is `BLANK_POLICY` .
 	TemplateName MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput `pulumi:"templateName"`
 }
 
@@ -3778,6 +3948,7 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) ToMitigationAct
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
+// The name of the template to be applied. The only supported value is `BLANK_POLICY` .
 func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) TemplateName() MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput {
 	return o.ApplyT(func(v MitigationActionReplaceDefaultPolicyVersionParams) MitigationActionReplaceDefaultPolicyVersionParamsTemplateName {
 		return v.TemplateName
@@ -3808,6 +3979,7 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) Elem() Mitig
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsOutput)
 }
 
+// The name of the template to be applied. The only supported value is `BLANK_POLICY` .
 func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) TemplateName() MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrOutput {
 	return o.ApplyT(func(v *MitigationActionReplaceDefaultPolicyVersionParams) *MitigationActionReplaceDefaultPolicyVersionParamsTemplateName {
 		if v == nil {
@@ -3827,6 +3999,7 @@ type MitigationActionTag struct {
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCaCertificateParams struct {
+	// The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
 	Action MitigationActionUpdateCaCertificateParamsAction `pulumi:"action"`
 }
 
@@ -3843,6 +4016,7 @@ type MitigationActionUpdateCaCertificateParamsInput interface {
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCaCertificateParamsArgs struct {
+	// The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
 	Action MitigationActionUpdateCaCertificateParamsActionInput `pulumi:"action"`
 }
 
@@ -3924,6 +4098,7 @@ func (o MitigationActionUpdateCaCertificateParamsOutput) ToMitigationActionUpdat
 	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
+// The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
 func (o MitigationActionUpdateCaCertificateParamsOutput) Action() MitigationActionUpdateCaCertificateParamsActionOutput {
 	return o.ApplyT(func(v MitigationActionUpdateCaCertificateParams) MitigationActionUpdateCaCertificateParamsAction {
 		return v.Action
@@ -3954,6 +4129,7 @@ func (o MitigationActionUpdateCaCertificateParamsPtrOutput) Elem() MitigationAct
 	}).(MitigationActionUpdateCaCertificateParamsOutput)
 }
 
+// The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
 func (o MitigationActionUpdateCaCertificateParamsPtrOutput) Action() MitigationActionUpdateCaCertificateParamsActionPtrOutput {
 	return o.ApplyT(func(v *MitigationActionUpdateCaCertificateParams) *MitigationActionUpdateCaCertificateParamsAction {
 		if v == nil {
@@ -3965,6 +4141,7 @@ func (o MitigationActionUpdateCaCertificateParamsPtrOutput) Action() MitigationA
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParams struct {
+	// The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
 	Action MitigationActionUpdateDeviceCertificateParamsAction `pulumi:"action"`
 }
 
@@ -3981,6 +4158,7 @@ type MitigationActionUpdateDeviceCertificateParamsInput interface {
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParamsArgs struct {
+	// The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
 	Action MitigationActionUpdateDeviceCertificateParamsActionInput `pulumi:"action"`
 }
 
@@ -4062,6 +4240,7 @@ func (o MitigationActionUpdateDeviceCertificateParamsOutput) ToMitigationActionU
 	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
 
+// The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
 func (o MitigationActionUpdateDeviceCertificateParamsOutput) Action() MitigationActionUpdateDeviceCertificateParamsActionOutput {
 	return o.ApplyT(func(v MitigationActionUpdateDeviceCertificateParams) MitigationActionUpdateDeviceCertificateParamsAction {
 		return v.Action
@@ -4092,6 +4271,7 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Elem() Mitigatio
 	}).(MitigationActionUpdateDeviceCertificateParamsOutput)
 }
 
+// The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
 func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() MitigationActionUpdateDeviceCertificateParamsActionPtrOutput {
 	return o.ApplyT(func(v *MitigationActionUpdateDeviceCertificateParams) *MitigationActionUpdateDeviceCertificateParamsAction {
 		if v == nil {
@@ -4102,14 +4282,20 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() Mitigat
 }
 
 type PolicyTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 // Configuration for pre-signed S3 URLs.
 type PresignedUrlConfigProperties struct {
-	ExpiresInSec *int   `pulumi:"expiresInSec"`
-	RoleArn      string `pulumi:"roleArn"`
+	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
+	ExpiresInSec *int `pulumi:"expiresInSec"`
+	// The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+	//
+	// > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // PresignedUrlConfigPropertiesInput is an input type that accepts PresignedUrlConfigPropertiesArgs and PresignedUrlConfigPropertiesOutput values.
@@ -4125,8 +4311,12 @@ type PresignedUrlConfigPropertiesInput interface {
 
 // Configuration for pre-signed S3 URLs.
 type PresignedUrlConfigPropertiesArgs struct {
+	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
 	ExpiresInSec pulumi.IntPtrInput `pulumi:"expiresInSec"`
-	RoleArn      pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+	//
+	// > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (PresignedUrlConfigPropertiesArgs) ElementType() reflect.Type {
@@ -4207,10 +4397,14 @@ func (o PresignedUrlConfigPropertiesOutput) ToPresignedUrlConfigPropertiesPtrOut
 	}).(PresignedUrlConfigPropertiesPtrOutput)
 }
 
+// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
 func (o PresignedUrlConfigPropertiesOutput) ExpiresInSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PresignedUrlConfigProperties) *int { return v.ExpiresInSec }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+//
+// > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
 func (o PresignedUrlConfigPropertiesOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PresignedUrlConfigProperties) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -4239,6 +4433,7 @@ func (o PresignedUrlConfigPropertiesPtrOutput) Elem() PresignedUrlConfigProperti
 	}).(PresignedUrlConfigPropertiesOutput)
 }
 
+// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
 func (o PresignedUrlConfigPropertiesPtrOutput) ExpiresInSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PresignedUrlConfigProperties) *int {
 		if v == nil {
@@ -4248,6 +4443,9 @@ func (o PresignedUrlConfigPropertiesPtrOutput) ExpiresInSec() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+//
+// > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
 func (o PresignedUrlConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PresignedUrlConfigProperties) *string {
 		if v == nil {
@@ -4258,8 +4456,10 @@ func (o PresignedUrlConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput 
 }
 
 type ProvisioningTemplateProvisioningHook struct {
+	// The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
 	PayloadVersion *string `pulumi:"payloadVersion"`
-	TargetArn      *string `pulumi:"targetArn"`
+	// The ARN of the target function.
+	TargetArn *string `pulumi:"targetArn"`
 }
 
 // ProvisioningTemplateProvisioningHookInput is an input type that accepts ProvisioningTemplateProvisioningHookArgs and ProvisioningTemplateProvisioningHookOutput values.
@@ -4274,8 +4474,10 @@ type ProvisioningTemplateProvisioningHookInput interface {
 }
 
 type ProvisioningTemplateProvisioningHookArgs struct {
+	// The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
 	PayloadVersion pulumi.StringPtrInput `pulumi:"payloadVersion"`
-	TargetArn      pulumi.StringPtrInput `pulumi:"targetArn"`
+	// The ARN of the target function.
+	TargetArn pulumi.StringPtrInput `pulumi:"targetArn"`
 }
 
 func (ProvisioningTemplateProvisioningHookArgs) ElementType() reflect.Type {
@@ -4355,10 +4557,12 @@ func (o ProvisioningTemplateProvisioningHookOutput) ToProvisioningTemplateProvis
 	}).(ProvisioningTemplateProvisioningHookPtrOutput)
 }
 
+// The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
 func (o ProvisioningTemplateProvisioningHookOutput) PayloadVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisioningTemplateProvisioningHook) *string { return v.PayloadVersion }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the target function.
 func (o ProvisioningTemplateProvisioningHookOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisioningTemplateProvisioningHook) *string { return v.TargetArn }).(pulumi.StringPtrOutput)
 }
@@ -4387,6 +4591,7 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) Elem() ProvisioningTempla
 	}).(ProvisioningTemplateProvisioningHookOutput)
 }
 
+// The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
 func (o ProvisioningTemplateProvisioningHookPtrOutput) PayloadVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplateProvisioningHook) *string {
 		if v == nil {
@@ -4396,6 +4601,7 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) PayloadVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the target function.
 func (o ProvisioningTemplateProvisioningHookPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplateProvisioningHook) *string {
 		if v == nil {
@@ -4406,7 +4612,9 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) TargetArn() pulumi.String
 }
 
 type ProvisioningTemplateTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
@@ -4537,10 +4745,15 @@ func (o SecurityProfileAlertTargetMapOutput) MapIndex(k pulumi.StringInput) Secu
 
 // A security profile behavior.
 type SecurityProfileBehavior struct {
-	Criteria     *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
-	ExportMetric *bool                            `pulumi:"exportMetric"`
+	// The criteria that determine if a device is behaving normally in regard to the `metric` .
+	//
+	// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
+	Criteria *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
+	// Value indicates exporting metrics related to the behavior when it is true.
+	ExportMetric *bool `pulumi:"exportMetric"`
 	// What is measured by the behavior.
-	Metric          *string                         `pulumi:"metric"`
+	Metric *string `pulumi:"metric"`
+	// The dimension of the metric.
 	MetricDimension *SecurityProfileMetricDimension `pulumi:"metricDimension"`
 	// The name for the behavior.
 	Name string `pulumi:"name"`
@@ -4561,10 +4774,15 @@ type SecurityProfileBehaviorInput interface {
 
 // A security profile behavior.
 type SecurityProfileBehaviorArgs struct {
-	Criteria     SecurityProfileBehaviorCriteriaPtrInput `pulumi:"criteria"`
-	ExportMetric pulumi.BoolPtrInput                     `pulumi:"exportMetric"`
+	// The criteria that determine if a device is behaving normally in regard to the `metric` .
+	//
+	// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
+	Criteria SecurityProfileBehaviorCriteriaPtrInput `pulumi:"criteria"`
+	// Value indicates exporting metrics related to the behavior when it is true.
+	ExportMetric pulumi.BoolPtrInput `pulumi:"exportMetric"`
 	// What is measured by the behavior.
-	Metric          pulumi.StringPtrInput                  `pulumi:"metric"`
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// The dimension of the metric.
 	MetricDimension SecurityProfileMetricDimensionPtrInput `pulumi:"metricDimension"`
 	// The name for the behavior.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4624,10 +4842,14 @@ func (o SecurityProfileBehaviorOutput) ToSecurityProfileBehaviorOutputWithContex
 	return o
 }
 
+// The criteria that determine if a device is behaving normally in regard to the `metric` .
+//
+// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
 func (o SecurityProfileBehaviorOutput) Criteria() SecurityProfileBehaviorCriteriaPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *SecurityProfileBehaviorCriteria { return v.Criteria }).(SecurityProfileBehaviorCriteriaPtrOutput)
 }
 
+// Value indicates exporting metrics related to the behavior when it is true.
 func (o SecurityProfileBehaviorOutput) ExportMetric() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *bool { return v.ExportMetric }).(pulumi.BoolPtrOutput)
 }
@@ -4637,6 +4859,7 @@ func (o SecurityProfileBehaviorOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// The dimension of the metric.
 func (o SecurityProfileBehaviorOutput) MetricDimension() SecurityProfileMetricDimensionPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *SecurityProfileMetricDimension { return v.MetricDimension }).(SecurityProfileMetricDimensionPtrOutput)
 }
@@ -4680,10 +4903,13 @@ type SecurityProfileBehaviorCriteria struct {
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 	ConsecutiveDatapointsToClear *int `pulumi:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated.
-	DurationSeconds      *int                                           `pulumi:"durationSeconds"`
-	MlDetectionConfig    *SecurityProfileMachineLearningDetectionConfig `pulumi:"mlDetectionConfig"`
-	StatisticalThreshold *SecurityProfileStatisticalThreshold           `pulumi:"statisticalThreshold"`
-	Value                *SecurityProfileMetricValue                    `pulumi:"value"`
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// The confidence level of the detection model.
+	MlDetectionConfig *SecurityProfileMachineLearningDetectionConfig `pulumi:"mlDetectionConfig"`
+	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+	StatisticalThreshold *SecurityProfileStatisticalThreshold `pulumi:"statisticalThreshold"`
+	// The value to be compared with the `metric` .
+	Value *SecurityProfileMetricValue `pulumi:"value"`
 }
 
 // SecurityProfileBehaviorCriteriaInput is an input type that accepts SecurityProfileBehaviorCriteriaArgs and SecurityProfileBehaviorCriteriaOutput values.
@@ -4706,10 +4932,13 @@ type SecurityProfileBehaviorCriteriaArgs struct {
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 	ConsecutiveDatapointsToClear pulumi.IntPtrInput `pulumi:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated.
-	DurationSeconds      pulumi.IntPtrInput                                    `pulumi:"durationSeconds"`
-	MlDetectionConfig    SecurityProfileMachineLearningDetectionConfigPtrInput `pulumi:"mlDetectionConfig"`
-	StatisticalThreshold SecurityProfileStatisticalThresholdPtrInput           `pulumi:"statisticalThreshold"`
-	Value                SecurityProfileMetricValuePtrInput                    `pulumi:"value"`
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// The confidence level of the detection model.
+	MlDetectionConfig SecurityProfileMachineLearningDetectionConfigPtrInput `pulumi:"mlDetectionConfig"`
+	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+	StatisticalThreshold SecurityProfileStatisticalThresholdPtrInput `pulumi:"statisticalThreshold"`
+	// The value to be compared with the `metric` .
+	Value SecurityProfileMetricValuePtrInput `pulumi:"value"`
 }
 
 func (SecurityProfileBehaviorCriteriaArgs) ElementType() reflect.Type {
@@ -4812,18 +5041,21 @@ func (o SecurityProfileBehaviorCriteriaOutput) DurationSeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The confidence level of the detection model.
 func (o SecurityProfileBehaviorCriteriaOutput) MlDetectionConfig() SecurityProfileMachineLearningDetectionConfigPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileMachineLearningDetectionConfig {
 		return v.MlDetectionConfig
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
+// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 func (o SecurityProfileBehaviorCriteriaOutput) StatisticalThreshold() SecurityProfileStatisticalThresholdPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileStatisticalThreshold {
 		return v.StatisticalThreshold
 	}).(SecurityProfileStatisticalThresholdPtrOutput)
 }
 
+// The value to be compared with the `metric` .
 func (o SecurityProfileBehaviorCriteriaOutput) Value() SecurityProfileMetricValuePtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileMetricValue { return v.Value }).(SecurityProfileMetricValuePtrOutput)
 }
@@ -4892,6 +5124,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) DurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The confidence level of the detection model.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) MlDetectionConfig() SecurityProfileMachineLearningDetectionConfigPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileMachineLearningDetectionConfig {
 		if v == nil {
@@ -4901,6 +5134,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) MlDetectionConfig() SecurityPr
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
+// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) StatisticalThreshold() SecurityProfileStatisticalThresholdPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileStatisticalThreshold {
 		if v == nil {
@@ -4910,6 +5144,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) StatisticalThreshold() Securit
 	}).(SecurityProfileStatisticalThresholdPtrOutput)
 }
 
+// The value to be compared with the `metric` .
 func (o SecurityProfileBehaviorCriteriaPtrOutput) Value() SecurityProfileMetricValuePtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileMetricValue {
 		if v == nil {
@@ -5222,9 +5457,11 @@ func (o SecurityProfileMetricDimensionPtrOutput) Operator() SecurityProfileMetri
 
 // The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetain struct {
+	// The value indicates exporting metrics related to the `MetricToRetain` when it's true.
 	ExportMetric *bool `pulumi:"exportMetric"`
 	// What is measured by the behavior.
-	Metric          string                          `pulumi:"metric"`
+	Metric string `pulumi:"metric"`
+	// The dimension of the metric.
 	MetricDimension *SecurityProfileMetricDimension `pulumi:"metricDimension"`
 }
 
@@ -5241,9 +5478,11 @@ type SecurityProfileMetricToRetainInput interface {
 
 // The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetainArgs struct {
+	// The value indicates exporting metrics related to the `MetricToRetain` when it's true.
 	ExportMetric pulumi.BoolPtrInput `pulumi:"exportMetric"`
 	// What is measured by the behavior.
-	Metric          pulumi.StringInput                     `pulumi:"metric"`
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// The dimension of the metric.
 	MetricDimension SecurityProfileMetricDimensionPtrInput `pulumi:"metricDimension"`
 }
 
@@ -5299,6 +5538,7 @@ func (o SecurityProfileMetricToRetainOutput) ToSecurityProfileMetricToRetainOutp
 	return o
 }
 
+// The value indicates exporting metrics related to the `MetricToRetain` when it's true.
 func (o SecurityProfileMetricToRetainOutput) ExportMetric() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityProfileMetricToRetain) *bool { return v.ExportMetric }).(pulumi.BoolPtrOutput)
 }
@@ -5308,6 +5548,7 @@ func (o SecurityProfileMetricToRetainOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityProfileMetricToRetain) string { return v.Metric }).(pulumi.StringOutput)
 }
 
+// The dimension of the metric.
 func (o SecurityProfileMetricToRetainOutput) MetricDimension() SecurityProfileMetricDimensionPtrOutput {
 	return o.ApplyT(func(v SecurityProfileMetricToRetain) *SecurityProfileMetricDimension { return v.MetricDimension }).(SecurityProfileMetricDimensionPtrOutput)
 }
@@ -5734,6 +5975,9 @@ type SoftwarePackageVersionTag struct {
 }
 
 type ThingAttributePayload struct {
+	// A JSON string containing up to three key-value pair in JSON format. For example:
+	//
+	// `{\"attributes\":{\"string1\":\"string2\"}}`
 	Attributes map[string]string `pulumi:"attributes"`
 }
 
@@ -5749,6 +5993,9 @@ type ThingAttributePayloadInput interface {
 }
 
 type ThingAttributePayloadArgs struct {
+	// A JSON string containing up to three key-value pair in JSON format. For example:
+	//
+	// `{\"attributes\":{\"string1\":\"string2\"}}`
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
@@ -5829,6 +6076,9 @@ func (o ThingAttributePayloadOutput) ToThingAttributePayloadPtrOutputWithContext
 	}).(ThingAttributePayloadPtrOutput)
 }
 
+// A JSON string containing up to three key-value pair in JSON format. For example:
+//
+// `{\"attributes\":{\"string1\":\"string2\"}}`
 func (o ThingAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ThingAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
@@ -5857,6 +6107,9 @@ func (o ThingAttributePayloadPtrOutput) Elem() ThingAttributePayloadOutput {
 	}).(ThingAttributePayloadOutput)
 }
 
+// A JSON string containing up to three key-value pair in JSON format. For example:
+//
+// `{\"attributes\":{\"string1\":\"string2\"}}`
 func (o ThingAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingAttributePayload) map[string]string {
 		if v == nil {
@@ -5867,6 +6120,9 @@ func (o ThingAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
 }
 
 type ThingGroupAttributePayload struct {
+	// A JSON string containing up to three key-value pair in JSON format. For example:
+	//
+	// `{\"attributes\":{\"string1\":\"string2\"}}`
 	Attributes map[string]string `pulumi:"attributes"`
 }
 
@@ -5882,6 +6138,9 @@ type ThingGroupAttributePayloadInput interface {
 }
 
 type ThingGroupAttributePayloadArgs struct {
+	// A JSON string containing up to three key-value pair in JSON format. For example:
+	//
+	// `{\"attributes\":{\"string1\":\"string2\"}}`
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
@@ -5962,6 +6221,9 @@ func (o ThingGroupAttributePayloadOutput) ToThingGroupAttributePayloadPtrOutputW
 	}).(ThingGroupAttributePayloadPtrOutput)
 }
 
+// A JSON string containing up to three key-value pair in JSON format. For example:
+//
+// `{\"attributes\":{\"string1\":\"string2\"}}`
 func (o ThingGroupAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ThingGroupAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
@@ -5990,6 +6252,9 @@ func (o ThingGroupAttributePayloadPtrOutput) Elem() ThingGroupAttributePayloadOu
 	}).(ThingGroupAttributePayloadOutput)
 }
 
+// A JSON string containing up to three key-value pair in JSON format. For example:
+//
+// `{\"attributes\":{\"string1\":\"string2\"}}`
 func (o ThingGroupAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroupAttributePayload) map[string]string {
 		if v == nil {
@@ -5999,9 +6264,12 @@ func (o ThingGroupAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
+// Thing group properties.
 type ThingGroupPropertiesProperties struct {
-	AttributePayload      *ThingGroupAttributePayload `pulumi:"attributePayload"`
-	ThingGroupDescription *string                     `pulumi:"thingGroupDescription"`
+	// The thing group attributes in JSON format.
+	AttributePayload *ThingGroupAttributePayload `pulumi:"attributePayload"`
+	// The thing group description.
+	ThingGroupDescription *string `pulumi:"thingGroupDescription"`
 }
 
 // ThingGroupPropertiesPropertiesInput is an input type that accepts ThingGroupPropertiesPropertiesArgs and ThingGroupPropertiesPropertiesOutput values.
@@ -6015,9 +6283,12 @@ type ThingGroupPropertiesPropertiesInput interface {
 	ToThingGroupPropertiesPropertiesOutputWithContext(context.Context) ThingGroupPropertiesPropertiesOutput
 }
 
+// Thing group properties.
 type ThingGroupPropertiesPropertiesArgs struct {
-	AttributePayload      ThingGroupAttributePayloadPtrInput `pulumi:"attributePayload"`
-	ThingGroupDescription pulumi.StringPtrInput              `pulumi:"thingGroupDescription"`
+	// The thing group attributes in JSON format.
+	AttributePayload ThingGroupAttributePayloadPtrInput `pulumi:"attributePayload"`
+	// The thing group description.
+	ThingGroupDescription pulumi.StringPtrInput `pulumi:"thingGroupDescription"`
 }
 
 func (ThingGroupPropertiesPropertiesArgs) ElementType() reflect.Type {
@@ -6073,6 +6344,7 @@ func (i *thingGroupPropertiesPropertiesPtrType) ToThingGroupPropertiesProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesPropertiesPtrOutput)
 }
 
+// Thing group properties.
 type ThingGroupPropertiesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupPropertiesPropertiesOutput) ElementType() reflect.Type {
@@ -6097,10 +6369,12 @@ func (o ThingGroupPropertiesPropertiesOutput) ToThingGroupPropertiesPropertiesPt
 	}).(ThingGroupPropertiesPropertiesPtrOutput)
 }
 
+// The thing group attributes in JSON format.
 func (o ThingGroupPropertiesPropertiesOutput) AttributePayload() ThingGroupAttributePayloadPtrOutput {
 	return o.ApplyT(func(v ThingGroupPropertiesProperties) *ThingGroupAttributePayload { return v.AttributePayload }).(ThingGroupAttributePayloadPtrOutput)
 }
 
+// The thing group description.
 func (o ThingGroupPropertiesPropertiesOutput) ThingGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingGroupPropertiesProperties) *string { return v.ThingGroupDescription }).(pulumi.StringPtrOutput)
 }
@@ -6129,6 +6403,7 @@ func (o ThingGroupPropertiesPropertiesPtrOutput) Elem() ThingGroupPropertiesProp
 	}).(ThingGroupPropertiesPropertiesOutput)
 }
 
+// The thing group attributes in JSON format.
 func (o ThingGroupPropertiesPropertiesPtrOutput) AttributePayload() ThingGroupAttributePayloadPtrOutput {
 	return o.ApplyT(func(v *ThingGroupPropertiesProperties) *ThingGroupAttributePayload {
 		if v == nil {
@@ -6138,6 +6413,7 @@ func (o ThingGroupPropertiesPropertiesPtrOutput) AttributePayload() ThingGroupAt
 	}).(ThingGroupAttributePayloadPtrOutput)
 }
 
+// The thing group description.
 func (o ThingGroupPropertiesPropertiesPtrOutput) ThingGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingGroupPropertiesProperties) *string {
 		if v == nil {
@@ -6155,9 +6431,12 @@ type ThingGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 type ThingTypePropertiesProperties struct {
+	// A list of searchable thing attribute names.
 	SearchableAttributes []string `pulumi:"searchableAttributes"`
-	ThingTypeDescription *string  `pulumi:"thingTypeDescription"`
+	// The description of the thing type.
+	ThingTypeDescription *string `pulumi:"thingTypeDescription"`
 }
 
 // ThingTypePropertiesPropertiesInput is an input type that accepts ThingTypePropertiesPropertiesArgs and ThingTypePropertiesPropertiesOutput values.
@@ -6171,9 +6450,12 @@ type ThingTypePropertiesPropertiesInput interface {
 	ToThingTypePropertiesPropertiesOutputWithContext(context.Context) ThingTypePropertiesPropertiesOutput
 }
 
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 type ThingTypePropertiesPropertiesArgs struct {
+	// A list of searchable thing attribute names.
 	SearchableAttributes pulumi.StringArrayInput `pulumi:"searchableAttributes"`
-	ThingTypeDescription pulumi.StringPtrInput   `pulumi:"thingTypeDescription"`
+	// The description of the thing type.
+	ThingTypeDescription pulumi.StringPtrInput `pulumi:"thingTypeDescription"`
 }
 
 func (ThingTypePropertiesPropertiesArgs) ElementType() reflect.Type {
@@ -6229,6 +6511,7 @@ func (i *thingTypePropertiesPropertiesPtrType) ToThingTypePropertiesPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesPtrOutput)
 }
 
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 type ThingTypePropertiesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ThingTypePropertiesPropertiesOutput) ElementType() reflect.Type {
@@ -6253,10 +6536,12 @@ func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesPtrO
 	}).(ThingTypePropertiesPropertiesPtrOutput)
 }
 
+// A list of searchable thing attribute names.
 func (o ThingTypePropertiesPropertiesOutput) SearchableAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThingTypePropertiesProperties) []string { return v.SearchableAttributes }).(pulumi.StringArrayOutput)
 }
 
+// The description of the thing type.
 func (o ThingTypePropertiesPropertiesOutput) ThingTypeDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingTypePropertiesProperties) *string { return v.ThingTypeDescription }).(pulumi.StringPtrOutput)
 }
@@ -6285,6 +6570,7 @@ func (o ThingTypePropertiesPropertiesPtrOutput) Elem() ThingTypePropertiesProper
 	}).(ThingTypePropertiesPropertiesOutput)
 }
 
+// A list of searchable thing attribute names.
 func (o ThingTypePropertiesPropertiesPtrOutput) SearchableAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThingTypePropertiesProperties) []string {
 		if v == nil {
@@ -6294,6 +6580,7 @@ func (o ThingTypePropertiesPropertiesPtrOutput) SearchableAttributes() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// The description of the thing type.
 func (o ThingTypePropertiesPropertiesPtrOutput) ThingTypeDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingTypePropertiesProperties) *string {
 		if v == nil {
@@ -6313,6 +6600,7 @@ type ThingTypeTag struct {
 
 // Specifies the amount of time each device has to finish its execution of the job.
 type TimeoutConfigProperties struct {
+	// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
 	InProgressTimeoutInMinutes int `pulumi:"inProgressTimeoutInMinutes"`
 }
 
@@ -6329,6 +6617,7 @@ type TimeoutConfigPropertiesInput interface {
 
 // Specifies the amount of time each device has to finish its execution of the job.
 type TimeoutConfigPropertiesArgs struct {
+	// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
 	InProgressTimeoutInMinutes pulumi.IntInput `pulumi:"inProgressTimeoutInMinutes"`
 }
 
@@ -6410,6 +6699,7 @@ func (o TimeoutConfigPropertiesOutput) ToTimeoutConfigPropertiesPtrOutputWithCon
 	}).(TimeoutConfigPropertiesPtrOutput)
 }
 
+// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
 func (o TimeoutConfigPropertiesOutput) InProgressTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeoutConfigProperties) int { return v.InProgressTimeoutInMinutes }).(pulumi.IntOutput)
 }
@@ -6438,6 +6728,7 @@ func (o TimeoutConfigPropertiesPtrOutput) Elem() TimeoutConfigPropertiesOutput {
 	}).(TimeoutConfigPropertiesOutput)
 }
 
+// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
 func (o TimeoutConfigPropertiesPtrOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TimeoutConfigProperties) *int {
 		if v == nil {
@@ -6448,28 +6739,52 @@ func (o TimeoutConfigPropertiesPtrOutput) InProgressTimeoutInMinutes() pulumi.In
 }
 
 type TopicRuleAction struct {
-	CloudwatchAlarm  *TopicRuleCloudwatchAlarmAction  `pulumi:"cloudwatchAlarm"`
-	CloudwatchLogs   *TopicRuleCloudwatchLogsAction   `pulumi:"cloudwatchLogs"`
+	// Change the state of a CloudWatch alarm.
+	CloudwatchAlarm *TopicRuleCloudwatchAlarmAction `pulumi:"cloudwatchAlarm"`
+	// Sends data to CloudWatch.
+	CloudwatchLogs *TopicRuleCloudwatchLogsAction `pulumi:"cloudwatchLogs"`
+	// Capture a CloudWatch metric.
 	CloudwatchMetric *TopicRuleCloudwatchMetricAction `pulumi:"cloudwatchMetric"`
-	DynamoDBv2       *TopicRuleDynamoDBv2Action       `pulumi:"dynamoDBv2"`
-	DynamoDb         *TopicRuleDynamoDbAction         `pulumi:"dynamoDb"`
-	Elasticsearch    *TopicRuleElasticsearchAction    `pulumi:"elasticsearch"`
-	Firehose         *TopicRuleFirehoseAction         `pulumi:"firehose"`
-	Http             *TopicRuleHttpAction             `pulumi:"http"`
-	IotAnalytics     *TopicRuleIotAnalyticsAction     `pulumi:"iotAnalytics"`
-	IotEvents        *TopicRuleIotEventsAction        `pulumi:"iotEvents"`
-	IotSiteWise      *TopicRuleIotSiteWiseAction      `pulumi:"iotSiteWise"`
-	Kafka            *TopicRuleKafkaAction            `pulumi:"kafka"`
-	Kinesis          *TopicRuleKinesisAction          `pulumi:"kinesis"`
-	Lambda           *TopicRuleLambdaAction           `pulumi:"lambda"`
-	Location         *TopicRuleLocationAction         `pulumi:"location"`
-	OpenSearch       *TopicRuleOpenSearchAction       `pulumi:"openSearch"`
-	Republish        *TopicRuleRepublishAction        `pulumi:"republish"`
-	S3               *TopicRuleS3Action               `pulumi:"s3"`
-	Sns              *TopicRuleSnsAction              `pulumi:"sns"`
-	Sqs              *TopicRuleSqsAction              `pulumi:"sqs"`
-	StepFunctions    *TopicRuleStepFunctionsAction    `pulumi:"stepFunctions"`
-	Timestream       *TopicRuleTimestreamAction       `pulumi:"timestream"`
+	// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+	DynamoDBv2 *TopicRuleDynamoDBv2Action `pulumi:"dynamoDBv2"`
+	// Write to a DynamoDB table.
+	DynamoDb *TopicRuleDynamoDbAction `pulumi:"dynamoDb"`
+	// Write data to an Amazon OpenSearch Service domain.
+	//
+	// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
+	Elasticsearch *TopicRuleElasticsearchAction `pulumi:"elasticsearch"`
+	// Write to an Amazon Kinesis Firehose stream.
+	Firehose *TopicRuleFirehoseAction `pulumi:"firehose"`
+	// Send data to an HTTPS endpoint.
+	Http *TopicRuleHttpAction `pulumi:"http"`
+	// Sends message data to an AWS IoT Analytics channel.
+	IotAnalytics *TopicRuleIotAnalyticsAction `pulumi:"iotAnalytics"`
+	// Sends an input to an AWS IoT Events detector.
+	IotEvents *TopicRuleIotEventsAction `pulumi:"iotEvents"`
+	// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+	IotSiteWise *TopicRuleIotSiteWiseAction `pulumi:"iotSiteWise"`
+	// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+	Kafka *TopicRuleKafkaAction `pulumi:"kafka"`
+	// Write data to an Amazon Kinesis stream.
+	Kinesis *TopicRuleKinesisAction `pulumi:"kinesis"`
+	// Invoke a Lambda function.
+	Lambda *TopicRuleLambdaAction `pulumi:"lambda"`
+	// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+	Location *TopicRuleLocationAction `pulumi:"location"`
+	// Write data to an Amazon OpenSearch Service domain.
+	OpenSearch *TopicRuleOpenSearchAction `pulumi:"openSearch"`
+	// Publish to another MQTT topic.
+	Republish *TopicRuleRepublishAction `pulumi:"republish"`
+	// Write to an Amazon S3 bucket.
+	S3 *TopicRuleS3Action `pulumi:"s3"`
+	// Publish to an Amazon SNS topic.
+	Sns *TopicRuleSnsAction `pulumi:"sns"`
+	// Publish to an Amazon SQS queue.
+	Sqs *TopicRuleSqsAction `pulumi:"sqs"`
+	// Starts execution of a Step Functions state machine.
+	StepFunctions *TopicRuleStepFunctionsAction `pulumi:"stepFunctions"`
+	// Writes attributes from an MQTT message.
+	Timestream *TopicRuleTimestreamAction `pulumi:"timestream"`
 }
 
 // TopicRuleActionInput is an input type that accepts TopicRuleActionArgs and TopicRuleActionOutput values.
@@ -6484,28 +6799,52 @@ type TopicRuleActionInput interface {
 }
 
 type TopicRuleActionArgs struct {
-	CloudwatchAlarm  TopicRuleCloudwatchAlarmActionPtrInput  `pulumi:"cloudwatchAlarm"`
-	CloudwatchLogs   TopicRuleCloudwatchLogsActionPtrInput   `pulumi:"cloudwatchLogs"`
+	// Change the state of a CloudWatch alarm.
+	CloudwatchAlarm TopicRuleCloudwatchAlarmActionPtrInput `pulumi:"cloudwatchAlarm"`
+	// Sends data to CloudWatch.
+	CloudwatchLogs TopicRuleCloudwatchLogsActionPtrInput `pulumi:"cloudwatchLogs"`
+	// Capture a CloudWatch metric.
 	CloudwatchMetric TopicRuleCloudwatchMetricActionPtrInput `pulumi:"cloudwatchMetric"`
-	DynamoDBv2       TopicRuleDynamoDBv2ActionPtrInput       `pulumi:"dynamoDBv2"`
-	DynamoDb         TopicRuleDynamoDbActionPtrInput         `pulumi:"dynamoDb"`
-	Elasticsearch    TopicRuleElasticsearchActionPtrInput    `pulumi:"elasticsearch"`
-	Firehose         TopicRuleFirehoseActionPtrInput         `pulumi:"firehose"`
-	Http             TopicRuleHttpActionPtrInput             `pulumi:"http"`
-	IotAnalytics     TopicRuleIotAnalyticsActionPtrInput     `pulumi:"iotAnalytics"`
-	IotEvents        TopicRuleIotEventsActionPtrInput        `pulumi:"iotEvents"`
-	IotSiteWise      TopicRuleIotSiteWiseActionPtrInput      `pulumi:"iotSiteWise"`
-	Kafka            TopicRuleKafkaActionPtrInput            `pulumi:"kafka"`
-	Kinesis          TopicRuleKinesisActionPtrInput          `pulumi:"kinesis"`
-	Lambda           TopicRuleLambdaActionPtrInput           `pulumi:"lambda"`
-	Location         TopicRuleLocationActionPtrInput         `pulumi:"location"`
-	OpenSearch       TopicRuleOpenSearchActionPtrInput       `pulumi:"openSearch"`
-	Republish        TopicRuleRepublishActionPtrInput        `pulumi:"republish"`
-	S3               TopicRuleS3ActionPtrInput               `pulumi:"s3"`
-	Sns              TopicRuleSnsActionPtrInput              `pulumi:"sns"`
-	Sqs              TopicRuleSqsActionPtrInput              `pulumi:"sqs"`
-	StepFunctions    TopicRuleStepFunctionsActionPtrInput    `pulumi:"stepFunctions"`
-	Timestream       TopicRuleTimestreamActionPtrInput       `pulumi:"timestream"`
+	// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+	DynamoDBv2 TopicRuleDynamoDBv2ActionPtrInput `pulumi:"dynamoDBv2"`
+	// Write to a DynamoDB table.
+	DynamoDb TopicRuleDynamoDbActionPtrInput `pulumi:"dynamoDb"`
+	// Write data to an Amazon OpenSearch Service domain.
+	//
+	// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
+	Elasticsearch TopicRuleElasticsearchActionPtrInput `pulumi:"elasticsearch"`
+	// Write to an Amazon Kinesis Firehose stream.
+	Firehose TopicRuleFirehoseActionPtrInput `pulumi:"firehose"`
+	// Send data to an HTTPS endpoint.
+	Http TopicRuleHttpActionPtrInput `pulumi:"http"`
+	// Sends message data to an AWS IoT Analytics channel.
+	IotAnalytics TopicRuleIotAnalyticsActionPtrInput `pulumi:"iotAnalytics"`
+	// Sends an input to an AWS IoT Events detector.
+	IotEvents TopicRuleIotEventsActionPtrInput `pulumi:"iotEvents"`
+	// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+	IotSiteWise TopicRuleIotSiteWiseActionPtrInput `pulumi:"iotSiteWise"`
+	// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+	Kafka TopicRuleKafkaActionPtrInput `pulumi:"kafka"`
+	// Write data to an Amazon Kinesis stream.
+	Kinesis TopicRuleKinesisActionPtrInput `pulumi:"kinesis"`
+	// Invoke a Lambda function.
+	Lambda TopicRuleLambdaActionPtrInput `pulumi:"lambda"`
+	// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+	Location TopicRuleLocationActionPtrInput `pulumi:"location"`
+	// Write data to an Amazon OpenSearch Service domain.
+	OpenSearch TopicRuleOpenSearchActionPtrInput `pulumi:"openSearch"`
+	// Publish to another MQTT topic.
+	Republish TopicRuleRepublishActionPtrInput `pulumi:"republish"`
+	// Write to an Amazon S3 bucket.
+	S3 TopicRuleS3ActionPtrInput `pulumi:"s3"`
+	// Publish to an Amazon SNS topic.
+	Sns TopicRuleSnsActionPtrInput `pulumi:"sns"`
+	// Publish to an Amazon SQS queue.
+	Sqs TopicRuleSqsActionPtrInput `pulumi:"sqs"`
+	// Starts execution of a Step Functions state machine.
+	StepFunctions TopicRuleStepFunctionsActionPtrInput `pulumi:"stepFunctions"`
+	// Writes attributes from an MQTT message.
+	Timestream TopicRuleTimestreamActionPtrInput `pulumi:"timestream"`
 }
 
 func (TopicRuleActionArgs) ElementType() reflect.Type {
@@ -6610,90 +6949,114 @@ func (o TopicRuleActionOutput) ToTopicRuleActionPtrOutputWithContext(ctx context
 	}).(TopicRuleActionPtrOutput)
 }
 
+// Change the state of a CloudWatch alarm.
 func (o TopicRuleActionOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchAlarmAction { return v.CloudwatchAlarm }).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
+// Sends data to CloudWatch.
 func (o TopicRuleActionOutput) CloudwatchLogs() TopicRuleCloudwatchLogsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchLogsAction { return v.CloudwatchLogs }).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
+// Capture a CloudWatch metric.
 func (o TopicRuleActionOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchMetricAction { return v.CloudwatchMetric }).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
+// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
 func (o TopicRuleActionOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBv2Action { return v.DynamoDBv2 }).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
+// Write to a DynamoDB table.
 func (o TopicRuleActionOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDbAction { return v.DynamoDb }).(TopicRuleDynamoDbActionPtrOutput)
 }
 
+// Write data to an Amazon OpenSearch Service domain.
+//
+// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 func (o TopicRuleActionOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleElasticsearchAction { return v.Elasticsearch }).(TopicRuleElasticsearchActionPtrOutput)
 }
 
+// Write to an Amazon Kinesis Firehose stream.
 func (o TopicRuleActionOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleFirehoseAction { return v.Firehose }).(TopicRuleFirehoseActionPtrOutput)
 }
 
+// Send data to an HTTPS endpoint.
 func (o TopicRuleActionOutput) Http() TopicRuleHttpActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleHttpAction { return v.Http }).(TopicRuleHttpActionPtrOutput)
 }
 
+// Sends message data to an AWS IoT Analytics channel.
 func (o TopicRuleActionOutput) IotAnalytics() TopicRuleIotAnalyticsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotAnalyticsAction { return v.IotAnalytics }).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
+// Sends an input to an AWS IoT Events detector.
 func (o TopicRuleActionOutput) IotEvents() TopicRuleIotEventsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotEventsAction { return v.IotEvents }).(TopicRuleIotEventsActionPtrOutput)
 }
 
+// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 func (o TopicRuleActionOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotSiteWiseAction { return v.IotSiteWise }).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
+// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
 func (o TopicRuleActionOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleKafkaAction { return v.Kafka }).(TopicRuleKafkaActionPtrOutput)
 }
 
+// Write data to an Amazon Kinesis stream.
 func (o TopicRuleActionOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleKinesisAction { return v.Kinesis }).(TopicRuleKinesisActionPtrOutput)
 }
 
+// Invoke a Lambda function.
 func (o TopicRuleActionOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLambdaAction { return v.Lambda }).(TopicRuleLambdaActionPtrOutput)
 }
 
+// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
 func (o TopicRuleActionOutput) Location() TopicRuleLocationActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLocationAction { return v.Location }).(TopicRuleLocationActionPtrOutput)
 }
 
+// Write data to an Amazon OpenSearch Service domain.
 func (o TopicRuleActionOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleOpenSearchAction { return v.OpenSearch }).(TopicRuleOpenSearchActionPtrOutput)
 }
 
+// Publish to another MQTT topic.
 func (o TopicRuleActionOutput) Republish() TopicRuleRepublishActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleRepublishAction { return v.Republish }).(TopicRuleRepublishActionPtrOutput)
 }
 
+// Write to an Amazon S3 bucket.
 func (o TopicRuleActionOutput) S3() TopicRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleS3Action { return v.S3 }).(TopicRuleS3ActionPtrOutput)
 }
 
+// Publish to an Amazon SNS topic.
 func (o TopicRuleActionOutput) Sns() TopicRuleSnsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleSnsAction { return v.Sns }).(TopicRuleSnsActionPtrOutput)
 }
 
+// Publish to an Amazon SQS queue.
 func (o TopicRuleActionOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleSqsAction { return v.Sqs }).(TopicRuleSqsActionPtrOutput)
 }
 
+// Starts execution of a Step Functions state machine.
 func (o TopicRuleActionOutput) StepFunctions() TopicRuleStepFunctionsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleStepFunctionsAction { return v.StepFunctions }).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
+// Writes attributes from an MQTT message.
 func (o TopicRuleActionOutput) Timestream() TopicRuleTimestreamActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleTimestreamAction { return v.Timestream }).(TopicRuleTimestreamActionPtrOutput)
 }
@@ -6722,6 +7085,7 @@ func (o TopicRuleActionPtrOutput) Elem() TopicRuleActionOutput {
 	}).(TopicRuleActionOutput)
 }
 
+// Change the state of a CloudWatch alarm.
 func (o TopicRuleActionPtrOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchAlarmAction {
 		if v == nil {
@@ -6731,6 +7095,7 @@ func (o TopicRuleActionPtrOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActi
 	}).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
+// Sends data to CloudWatch.
 func (o TopicRuleActionPtrOutput) CloudwatchLogs() TopicRuleCloudwatchLogsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchLogsAction {
 		if v == nil {
@@ -6740,6 +7105,7 @@ func (o TopicRuleActionPtrOutput) CloudwatchLogs() TopicRuleCloudwatchLogsAction
 	}).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
+// Capture a CloudWatch metric.
 func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchMetricAction {
 		if v == nil {
@@ -6749,6 +7115,7 @@ func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricAc
 	}).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
+// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
 func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBv2Action {
 		if v == nil {
@@ -6758,6 +7125,7 @@ func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutpu
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
+// Write to a DynamoDB table.
 func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDbAction {
 		if v == nil {
@@ -6767,6 +7135,9 @@ func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
 	}).(TopicRuleDynamoDbActionPtrOutput)
 }
 
+// Write data to an Amazon OpenSearch Service domain.
+//
+// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleElasticsearchAction {
 		if v == nil {
@@ -6776,6 +7147,7 @@ func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPt
 	}).(TopicRuleElasticsearchActionPtrOutput)
 }
 
+// Write to an Amazon Kinesis Firehose stream.
 func (o TopicRuleActionPtrOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleFirehoseAction {
 		if v == nil {
@@ -6785,6 +7157,7 @@ func (o TopicRuleActionPtrOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	}).(TopicRuleFirehoseActionPtrOutput)
 }
 
+// Send data to an HTTPS endpoint.
 func (o TopicRuleActionPtrOutput) Http() TopicRuleHttpActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleHttpAction {
 		if v == nil {
@@ -6794,6 +7167,7 @@ func (o TopicRuleActionPtrOutput) Http() TopicRuleHttpActionPtrOutput {
 	}).(TopicRuleHttpActionPtrOutput)
 }
 
+// Sends message data to an AWS IoT Analytics channel.
 func (o TopicRuleActionPtrOutput) IotAnalytics() TopicRuleIotAnalyticsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotAnalyticsAction {
 		if v == nil {
@@ -6803,6 +7177,7 @@ func (o TopicRuleActionPtrOutput) IotAnalytics() TopicRuleIotAnalyticsActionPtrO
 	}).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
+// Sends an input to an AWS IoT Events detector.
 func (o TopicRuleActionPtrOutput) IotEvents() TopicRuleIotEventsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotEventsAction {
 		if v == nil {
@@ -6812,6 +7187,7 @@ func (o TopicRuleActionPtrOutput) IotEvents() TopicRuleIotEventsActionPtrOutput 
 	}).(TopicRuleIotEventsActionPtrOutput)
 }
 
+// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 func (o TopicRuleActionPtrOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotSiteWiseAction {
 		if v == nil {
@@ -6821,6 +7197,7 @@ func (o TopicRuleActionPtrOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOut
 	}).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
+// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
 func (o TopicRuleActionPtrOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleKafkaAction {
 		if v == nil {
@@ -6830,6 +7207,7 @@ func (o TopicRuleActionPtrOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	}).(TopicRuleKafkaActionPtrOutput)
 }
 
+// Write data to an Amazon Kinesis stream.
 func (o TopicRuleActionPtrOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleKinesisAction {
 		if v == nil {
@@ -6839,6 +7217,7 @@ func (o TopicRuleActionPtrOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	}).(TopicRuleKinesisActionPtrOutput)
 }
 
+// Invoke a Lambda function.
 func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleLambdaAction {
 		if v == nil {
@@ -6848,6 +7227,7 @@ func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	}).(TopicRuleLambdaActionPtrOutput)
 }
 
+// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
 func (o TopicRuleActionPtrOutput) Location() TopicRuleLocationActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleLocationAction {
 		if v == nil {
@@ -6857,6 +7237,7 @@ func (o TopicRuleActionPtrOutput) Location() TopicRuleLocationActionPtrOutput {
 	}).(TopicRuleLocationActionPtrOutput)
 }
 
+// Write data to an Amazon OpenSearch Service domain.
 func (o TopicRuleActionPtrOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleOpenSearchAction {
 		if v == nil {
@@ -6866,6 +7247,7 @@ func (o TopicRuleActionPtrOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutpu
 	}).(TopicRuleOpenSearchActionPtrOutput)
 }
 
+// Publish to another MQTT topic.
 func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleRepublishAction {
 		if v == nil {
@@ -6875,6 +7257,7 @@ func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput 
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
+// Write to an Amazon S3 bucket.
 func (o TopicRuleActionPtrOutput) S3() TopicRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleS3Action {
 		if v == nil {
@@ -6884,6 +7267,7 @@ func (o TopicRuleActionPtrOutput) S3() TopicRuleS3ActionPtrOutput {
 	}).(TopicRuleS3ActionPtrOutput)
 }
 
+// Publish to an Amazon SNS topic.
 func (o TopicRuleActionPtrOutput) Sns() TopicRuleSnsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleSnsAction {
 		if v == nil {
@@ -6893,6 +7277,7 @@ func (o TopicRuleActionPtrOutput) Sns() TopicRuleSnsActionPtrOutput {
 	}).(TopicRuleSnsActionPtrOutput)
 }
 
+// Publish to an Amazon SQS queue.
 func (o TopicRuleActionPtrOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleSqsAction {
 		if v == nil {
@@ -6902,6 +7287,7 @@ func (o TopicRuleActionPtrOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	}).(TopicRuleSqsActionPtrOutput)
 }
 
+// Starts execution of a Step Functions state machine.
 func (o TopicRuleActionPtrOutput) StepFunctions() TopicRuleStepFunctionsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleStepFunctionsAction {
 		if v == nil {
@@ -6911,6 +7297,7 @@ func (o TopicRuleActionPtrOutput) StepFunctions() TopicRuleStepFunctionsActionPt
 	}).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
+// Writes attributes from an MQTT message.
 func (o TopicRuleActionPtrOutput) Timestream() TopicRuleTimestreamActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleTimestreamAction {
 		if v == nil {
@@ -6941,8 +7328,10 @@ func (o TopicRuleActionArrayOutput) Index(i pulumi.IntInput) TopicRuleActionOutp
 }
 
 type TopicRuleAssetPropertyTimestamp struct {
+	// Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
 	OffsetInNanos *string `pulumi:"offsetInNanos"`
-	TimeInSeconds string  `pulumi:"timeInSeconds"`
+	// A string that contains the time in seconds since epoch. Accepts substitution templates.
+	TimeInSeconds string `pulumi:"timeInSeconds"`
 }
 
 // TopicRuleAssetPropertyTimestampInput is an input type that accepts TopicRuleAssetPropertyTimestampArgs and TopicRuleAssetPropertyTimestampOutput values.
@@ -6957,8 +7346,10 @@ type TopicRuleAssetPropertyTimestampInput interface {
 }
 
 type TopicRuleAssetPropertyTimestampArgs struct {
+	// Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
 	OffsetInNanos pulumi.StringPtrInput `pulumi:"offsetInNanos"`
-	TimeInSeconds pulumi.StringInput    `pulumi:"timeInSeconds"`
+	// A string that contains the time in seconds since epoch. Accepts substitution templates.
+	TimeInSeconds pulumi.StringInput `pulumi:"timeInSeconds"`
 }
 
 func (TopicRuleAssetPropertyTimestampArgs) ElementType() reflect.Type {
@@ -6987,18 +7378,23 @@ func (o TopicRuleAssetPropertyTimestampOutput) ToTopicRuleAssetPropertyTimestamp
 	return o
 }
 
+// Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
 func (o TopicRuleAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
 }
 
+// A string that contains the time in seconds since epoch. Accepts substitution templates.
 func (o TopicRuleAssetPropertyTimestampOutput) TimeInSeconds() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyTimestamp) string { return v.TimeInSeconds }).(pulumi.StringOutput)
 }
 
 type TopicRuleAssetPropertyValue struct {
-	Quality   *string                         `pulumi:"quality"`
+	// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+	Quality *string `pulumi:"quality"`
+	// The asset property value timestamp.
 	Timestamp TopicRuleAssetPropertyTimestamp `pulumi:"timestamp"`
-	Value     TopicRuleAssetPropertyVariant   `pulumi:"value"`
+	// The value of the asset property.
+	Value TopicRuleAssetPropertyVariant `pulumi:"value"`
 }
 
 // TopicRuleAssetPropertyValueInput is an input type that accepts TopicRuleAssetPropertyValueArgs and TopicRuleAssetPropertyValueOutput values.
@@ -7013,9 +7409,12 @@ type TopicRuleAssetPropertyValueInput interface {
 }
 
 type TopicRuleAssetPropertyValueArgs struct {
-	Quality   pulumi.StringPtrInput                `pulumi:"quality"`
+	// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+	Quality pulumi.StringPtrInput `pulumi:"quality"`
+	// The asset property value timestamp.
 	Timestamp TopicRuleAssetPropertyTimestampInput `pulumi:"timestamp"`
-	Value     TopicRuleAssetPropertyVariantInput   `pulumi:"value"`
+	// The value of the asset property.
+	Value TopicRuleAssetPropertyVariantInput `pulumi:"value"`
 }
 
 func (TopicRuleAssetPropertyValueArgs) ElementType() reflect.Type {
@@ -7069,14 +7468,17 @@ func (o TopicRuleAssetPropertyValueOutput) ToTopicRuleAssetPropertyValueOutputWi
 	return o
 }
 
+// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
 func (o TopicRuleAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
 
+// The asset property value timestamp.
 func (o TopicRuleAssetPropertyValueOutput) Timestamp() TopicRuleAssetPropertyTimestampOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) TopicRuleAssetPropertyTimestamp { return v.Timestamp }).(TopicRuleAssetPropertyTimestampOutput)
 }
 
+// The value of the asset property.
 func (o TopicRuleAssetPropertyValueOutput) Value() TopicRuleAssetPropertyVariantOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) TopicRuleAssetPropertyVariant { return v.Value }).(TopicRuleAssetPropertyVariantOutput)
 }
@@ -7102,10 +7504,14 @@ func (o TopicRuleAssetPropertyValueArrayOutput) Index(i pulumi.IntInput) TopicRu
 }
 
 type TopicRuleAssetPropertyVariant struct {
+	// Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
 	BooleanValue *string `pulumi:"booleanValue"`
-	DoubleValue  *string `pulumi:"doubleValue"`
+	// Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+	DoubleValue *string `pulumi:"doubleValue"`
+	// Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
 	IntegerValue *string `pulumi:"integerValue"`
-	StringValue  *string `pulumi:"stringValue"`
+	// Optional. The string value of the value entry. Accepts substitution templates.
+	StringValue *string `pulumi:"stringValue"`
 }
 
 // TopicRuleAssetPropertyVariantInput is an input type that accepts TopicRuleAssetPropertyVariantArgs and TopicRuleAssetPropertyVariantOutput values.
@@ -7120,10 +7526,14 @@ type TopicRuleAssetPropertyVariantInput interface {
 }
 
 type TopicRuleAssetPropertyVariantArgs struct {
+	// Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
 	BooleanValue pulumi.StringPtrInput `pulumi:"booleanValue"`
-	DoubleValue  pulumi.StringPtrInput `pulumi:"doubleValue"`
+	// Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
+	// Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
 	IntegerValue pulumi.StringPtrInput `pulumi:"integerValue"`
-	StringValue  pulumi.StringPtrInput `pulumi:"stringValue"`
+	// Optional. The string value of the value entry. Accepts substitution templates.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
 func (TopicRuleAssetPropertyVariantArgs) ElementType() reflect.Type {
@@ -7152,27 +7562,35 @@ func (o TopicRuleAssetPropertyVariantOutput) ToTopicRuleAssetPropertyVariantOutp
 	return o
 }
 
+// Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
 func (o TopicRuleAssetPropertyVariantOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.BooleanValue }).(pulumi.StringPtrOutput)
 }
 
+// Optional. A string that contains the double value of the value entry. Accepts substitution templates.
 func (o TopicRuleAssetPropertyVariantOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
 }
 
+// Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
 func (o TopicRuleAssetPropertyVariantOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.IntegerValue }).(pulumi.StringPtrOutput)
 }
 
+// Optional. The string value of the value entry. Accepts substitution templates.
 func (o TopicRuleAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleCloudwatchAlarmAction struct {
-	AlarmName   string `pulumi:"alarmName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The CloudWatch alarm name.
+	AlarmName string `pulumi:"alarmName"`
+	// The IAM role that allows access to the CloudWatch alarm.
+	RoleArn string `pulumi:"roleArn"`
+	// The reason for the alarm change.
 	StateReason string `pulumi:"stateReason"`
-	StateValue  string `pulumi:"stateValue"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue string `pulumi:"stateValue"`
 }
 
 // TopicRuleCloudwatchAlarmActionInput is an input type that accepts TopicRuleCloudwatchAlarmActionArgs and TopicRuleCloudwatchAlarmActionOutput values.
@@ -7187,10 +7605,14 @@ type TopicRuleCloudwatchAlarmActionInput interface {
 }
 
 type TopicRuleCloudwatchAlarmActionArgs struct {
-	AlarmName   pulumi.StringInput `pulumi:"alarmName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+	// The CloudWatch alarm name.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+	// The IAM role that allows access to the CloudWatch alarm.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The reason for the alarm change.
 	StateReason pulumi.StringInput `pulumi:"stateReason"`
-	StateValue  pulumi.StringInput `pulumi:"stateValue"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue pulumi.StringInput `pulumi:"stateValue"`
 }
 
 func (TopicRuleCloudwatchAlarmActionArgs) ElementType() reflect.Type {
@@ -7270,18 +7692,22 @@ func (o TopicRuleCloudwatchAlarmActionOutput) ToTopicRuleCloudwatchAlarmActionPt
 	}).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
+// The CloudWatch alarm name.
 func (o TopicRuleCloudwatchAlarmActionOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.AlarmName }).(pulumi.StringOutput)
 }
 
+// The IAM role that allows access to the CloudWatch alarm.
 func (o TopicRuleCloudwatchAlarmActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The reason for the alarm change.
 func (o TopicRuleCloudwatchAlarmActionOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.StateReason }).(pulumi.StringOutput)
 }
 
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 func (o TopicRuleCloudwatchAlarmActionOutput) StateValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.StateValue }).(pulumi.StringOutput)
 }
@@ -7310,6 +7736,7 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) Elem() TopicRuleCloudwatchAlarm
 	}).(TopicRuleCloudwatchAlarmActionOutput)
 }
 
+// The CloudWatch alarm name.
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) AlarmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -7319,6 +7746,7 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) AlarmName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role that allows access to the CloudWatch alarm.
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -7328,6 +7756,7 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The reason for the alarm change.
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -7337,6 +7766,7 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateReason() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -7347,9 +7777,12 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateValue() pulumi.StringPtrOu
 }
 
 type TopicRuleCloudwatchLogsAction struct {
-	BatchMode    *bool  `pulumi:"batchMode"`
+	// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+	BatchMode *bool `pulumi:"batchMode"`
+	// The CloudWatch log name.
 	LogGroupName string `pulumi:"logGroupName"`
-	RoleArn      string `pulumi:"roleArn"`
+	// The IAM role that allows access to the CloudWatch log.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleCloudwatchLogsActionInput is an input type that accepts TopicRuleCloudwatchLogsActionArgs and TopicRuleCloudwatchLogsActionOutput values.
@@ -7364,9 +7797,12 @@ type TopicRuleCloudwatchLogsActionInput interface {
 }
 
 type TopicRuleCloudwatchLogsActionArgs struct {
-	BatchMode    pulumi.BoolPtrInput `pulumi:"batchMode"`
-	LogGroupName pulumi.StringInput  `pulumi:"logGroupName"`
-	RoleArn      pulumi.StringInput  `pulumi:"roleArn"`
+	// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
+	// The CloudWatch log name.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+	// The IAM role that allows access to the CloudWatch log.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchLogsActionArgs) ElementType() reflect.Type {
@@ -7446,14 +7882,17 @@ func (o TopicRuleCloudwatchLogsActionOutput) ToTopicRuleCloudwatchLogsActionPtrO
 	}).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
+// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
 func (o TopicRuleCloudwatchLogsActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
+// The CloudWatch log name.
 func (o TopicRuleCloudwatchLogsActionOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
+// The IAM role that allows access to the CloudWatch log.
 func (o TopicRuleCloudwatchLogsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7482,6 +7921,7 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) Elem() TopicRuleCloudwatchLogsAc
 	}).(TopicRuleCloudwatchLogsActionOutput)
 }
 
+// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
 func (o TopicRuleCloudwatchLogsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchLogsAction) *bool {
 		if v == nil {
@@ -7491,6 +7931,7 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The CloudWatch log name.
 func (o TopicRuleCloudwatchLogsActionPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchLogsAction) *string {
 		if v == nil {
@@ -7500,6 +7941,7 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) LogGroupName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role that allows access to the CloudWatch log.
 func (o TopicRuleCloudwatchLogsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchLogsAction) *string {
 		if v == nil {
@@ -7510,12 +7952,18 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) RoleArn() pulumi.StringPtrOutput
 }
 
 type TopicRuleCloudwatchMetricAction struct {
-	MetricName      string  `pulumi:"metricName"`
-	MetricNamespace string  `pulumi:"metricNamespace"`
+	// The CloudWatch metric name.
+	MetricName string `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
 	MetricTimestamp *string `pulumi:"metricTimestamp"`
-	MetricUnit      string  `pulumi:"metricUnit"`
-	MetricValue     string  `pulumi:"metricValue"`
-	RoleArn         string  `pulumi:"roleArn"`
+	// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
+	MetricUnit string `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue string `pulumi:"metricValue"`
+	// The IAM role that allows access to the CloudWatch metric.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleCloudwatchMetricActionInput is an input type that accepts TopicRuleCloudwatchMetricActionArgs and TopicRuleCloudwatchMetricActionOutput values.
@@ -7530,12 +7978,18 @@ type TopicRuleCloudwatchMetricActionInput interface {
 }
 
 type TopicRuleCloudwatchMetricActionArgs struct {
-	MetricName      pulumi.StringInput    `pulumi:"metricName"`
-	MetricNamespace pulumi.StringInput    `pulumi:"metricNamespace"`
+	// The CloudWatch metric name.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
 	MetricTimestamp pulumi.StringPtrInput `pulumi:"metricTimestamp"`
-	MetricUnit      pulumi.StringInput    `pulumi:"metricUnit"`
-	MetricValue     pulumi.StringInput    `pulumi:"metricValue"`
-	RoleArn         pulumi.StringInput    `pulumi:"roleArn"`
+	// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
+	MetricUnit pulumi.StringInput `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue pulumi.StringInput `pulumi:"metricValue"`
+	// The IAM role that allows access to the CloudWatch metric.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchMetricActionArgs) ElementType() reflect.Type {
@@ -7615,26 +8069,32 @@ func (o TopicRuleCloudwatchMetricActionOutput) ToTopicRuleCloudwatchMetricAction
 	}).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
+// The CloudWatch metric name.
 func (o TopicRuleCloudwatchMetricActionOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The CloudWatch metric namespace name.
 func (o TopicRuleCloudwatchMetricActionOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
+// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
 func (o TopicRuleCloudwatchMetricActionOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) *string { return v.MetricTimestamp }).(pulumi.StringPtrOutput)
 }
 
+// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
 func (o TopicRuleCloudwatchMetricActionOutput) MetricUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricUnit }).(pulumi.StringOutput)
 }
 
+// The CloudWatch metric value.
 func (o TopicRuleCloudwatchMetricActionOutput) MetricValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricValue }).(pulumi.StringOutput)
 }
 
+// The IAM role that allows access to the CloudWatch metric.
 func (o TopicRuleCloudwatchMetricActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7663,6 +8123,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) Elem() TopicRuleCloudwatchMetr
 	}).(TopicRuleCloudwatchMetricActionOutput)
 }
 
+// The CloudWatch metric name.
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -7672,6 +8133,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudWatch metric namespace name.
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -7681,6 +8143,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricNamespace() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -7690,6 +8153,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricTimestamp() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -7699,6 +8163,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricUnit() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CloudWatch metric value.
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -7708,6 +8173,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricValue() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role that allows access to the CloudWatch metric.
 func (o TopicRuleCloudwatchMetricActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -7718,6 +8184,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) RoleArn() pulumi.StringPtrOutp
 }
 
 type TopicRuleDestinationHttpUrlDestinationSummary struct {
+	// The URL used to confirm the HTTP topic rule destination URL.
 	ConfirmationUrl *string `pulumi:"confirmationUrl"`
 }
 
@@ -7733,6 +8200,7 @@ type TopicRuleDestinationHttpUrlDestinationSummaryInput interface {
 }
 
 type TopicRuleDestinationHttpUrlDestinationSummaryArgs struct {
+	// The URL used to confirm the HTTP topic rule destination URL.
 	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
 }
 
@@ -7813,6 +8281,7 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ToTopicRuleDestinat
 	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
 }
 
+// The URL used to confirm the HTTP topic rule destination URL.
 func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDestinationHttpUrlDestinationSummary) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
@@ -7841,6 +8310,7 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) Elem() TopicRule
 	}).(TopicRuleDestinationHttpUrlDestinationSummaryOutput)
 }
 
+// The URL used to confirm the HTTP topic rule destination URL.
 func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationHttpUrlDestinationSummary) *string {
 		if v == nil {
@@ -7851,10 +8321,14 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ConfirmationUrl(
 }
 
 type TopicRuleDestinationVpcDestinationProperties struct {
-	RoleArn        *string  `pulumi:"roleArn"`
+	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+	RoleArn *string `pulumi:"roleArn"`
+	// The security groups of the VPC destination.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	SubnetIds      []string `pulumi:"subnetIds"`
-	VpcId          *string  `pulumi:"vpcId"`
+	// The subnet IDs of the VPC destination.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // TopicRuleDestinationVpcDestinationPropertiesInput is an input type that accepts TopicRuleDestinationVpcDestinationPropertiesArgs and TopicRuleDestinationVpcDestinationPropertiesOutput values.
@@ -7869,10 +8343,14 @@ type TopicRuleDestinationVpcDestinationPropertiesInput interface {
 }
 
 type TopicRuleDestinationVpcDestinationPropertiesArgs struct {
-	RoleArn        pulumi.StringPtrInput   `pulumi:"roleArn"`
+	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The security groups of the VPC destination.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	SubnetIds      pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId          pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// The subnet IDs of the VPC destination.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (TopicRuleDestinationVpcDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -7952,18 +8430,22 @@ func (o TopicRuleDestinationVpcDestinationPropertiesOutput) ToTopicRuleDestinati
 	}).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
 }
 
+// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The security groups of the VPC destination.
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The subnet IDs of the VPC destination.
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC.
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -7992,6 +8474,7 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) Elem() TopicRuleD
 	}).(TopicRuleDestinationVpcDestinationPropertiesOutput)
 }
 
+// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) *string {
 		if v == nil {
@@ -8001,6 +8484,7 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) RoleArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The security groups of the VPC destination.
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) []string {
 		if v == nil {
@@ -8010,6 +8494,7 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SecurityGroups() 
 	}).(pulumi.StringArrayOutput)
 }
 
+// The subnet IDs of the VPC destination.
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) []string {
 		if v == nil {
@@ -8019,6 +8504,7 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SubnetIds() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC.
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) *string {
 		if v == nil {
@@ -8029,8 +8515,14 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.St
 }
 
 type TopicRuleDynamoDBv2Action struct {
+	// Specifies the DynamoDB table to which the message data will be written. For example:
+	//
+	// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+	//
+	// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 	PutItem *TopicRulePutItemInput `pulumi:"putItem"`
-	RoleArn *string                `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // TopicRuleDynamoDBv2ActionInput is an input type that accepts TopicRuleDynamoDBv2ActionArgs and TopicRuleDynamoDBv2ActionOutput values.
@@ -8045,8 +8537,14 @@ type TopicRuleDynamoDBv2ActionInput interface {
 }
 
 type TopicRuleDynamoDBv2ActionArgs struct {
+	// Specifies the DynamoDB table to which the message data will be written. For example:
+	//
+	// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+	//
+	// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 	PutItem TopicRulePutItemInputPtrInput `pulumi:"putItem"`
-	RoleArn pulumi.StringPtrInput         `pulumi:"roleArn"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleDynamoDBv2ActionArgs) ElementType() reflect.Type {
@@ -8126,10 +8624,16 @@ func (o TopicRuleDynamoDBv2ActionOutput) ToTopicRuleDynamoDBv2ActionPtrOutputWit
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
+// Specifies the DynamoDB table to which the message data will be written. For example:
+//
+// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+//
+// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 func (o TopicRuleDynamoDBv2ActionOutput) PutItem() TopicRulePutItemInputPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBv2Action) *TopicRulePutItemInput { return v.PutItem }).(TopicRulePutItemInputPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamoDBv2ActionOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBv2Action) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -8158,6 +8662,11 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) Elem() TopicRuleDynamoDBv2ActionOutp
 	}).(TopicRuleDynamoDBv2ActionOutput)
 }
 
+// Specifies the DynamoDB table to which the message data will be written. For example:
+//
+// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+//
+// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 func (o TopicRuleDynamoDBv2ActionPtrOutput) PutItem() TopicRulePutItemInputPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBv2Action) *TopicRulePutItemInput {
 		if v == nil {
@@ -8167,6 +8676,7 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) PutItem() TopicRulePutItemInputPtrOu
 	}).(TopicRulePutItemInputPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamoDBv2ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBv2Action) *string {
 		if v == nil {
@@ -8177,15 +8687,24 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleDynamoDbAction struct {
-	HashKeyField  string  `pulumi:"hashKeyField"`
-	HashKeyType   *string `pulumi:"hashKeyType"`
-	HashKeyValue  string  `pulumi:"hashKeyValue"`
-	PayloadField  *string `pulumi:"payloadField"`
+	// The hash key name.
+	HashKeyField string `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER"
+	HashKeyType *string `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The action payload. This name can be customized.
+	PayloadField *string `pulumi:"payloadField"`
+	// The range key name.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
-	RangeKeyType  *string `pulumi:"rangeKeyType"`
+	// The range key type. Valid values are "STRING" or "NUMBER"
+	RangeKeyType *string `pulumi:"rangeKeyType"`
+	// The range key value.
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TableName     string  `pulumi:"tableName"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
 }
 
 // TopicRuleDynamoDbActionInput is an input type that accepts TopicRuleDynamoDbActionArgs and TopicRuleDynamoDbActionOutput values.
@@ -8200,15 +8719,24 @@ type TopicRuleDynamoDbActionInput interface {
 }
 
 type TopicRuleDynamoDbActionArgs struct {
-	HashKeyField  pulumi.StringInput    `pulumi:"hashKeyField"`
-	HashKeyType   pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	HashKeyValue  pulumi.StringInput    `pulumi:"hashKeyValue"`
-	PayloadField  pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The hash key name.
+	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER"
+	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The action payload. This name can be customized.
+	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
+	// The range key name.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	RangeKeyType  pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The range key type. Valid values are "STRING" or "NUMBER"
+	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
+	// The range key value.
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TableName     pulumi.StringInput    `pulumi:"tableName"`
+	// The ARN of the IAM role that grants access to the DynamoDB table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (TopicRuleDynamoDbActionArgs) ElementType() reflect.Type {
@@ -8288,38 +8816,47 @@ func (o TopicRuleDynamoDbActionOutput) ToTopicRuleDynamoDbActionPtrOutputWithCon
 	}).(TopicRuleDynamoDbActionPtrOutput)
 }
 
+// The hash key name.
 func (o TopicRuleDynamoDbActionOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
+// The hash key type. Valid values are "STRING" or "NUMBER"
 func (o TopicRuleDynamoDbActionOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
 
+// The hash key value.
 func (o TopicRuleDynamoDbActionOutput) HashKeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.HashKeyValue }).(pulumi.StringOutput)
 }
 
+// The action payload. This name can be customized.
 func (o TopicRuleDynamoDbActionOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
+// The range key name.
 func (o TopicRuleDynamoDbActionOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
+// The range key type. Valid values are "STRING" or "NUMBER"
 func (o TopicRuleDynamoDbActionOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
 
+// The range key value.
 func (o TopicRuleDynamoDbActionOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamoDbActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleDynamoDbActionOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDbAction) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -8348,6 +8885,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) Elem() TopicRuleDynamoDbActionOutput {
 	}).(TopicRuleDynamoDbActionOutput)
 }
 
+// The hash key name.
 func (o TopicRuleDynamoDbActionPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8357,6 +8895,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) HashKeyField() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash key type. Valid values are "STRING" or "NUMBER"
 func (o TopicRuleDynamoDbActionPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8366,6 +8905,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash key value.
 func (o TopicRuleDynamoDbActionPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8375,6 +8915,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) HashKeyValue() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action payload. This name can be customized.
 func (o TopicRuleDynamoDbActionPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8384,6 +8925,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) PayloadField() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key name.
 func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8393,6 +8935,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyField() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key type. Valid values are "STRING" or "NUMBER"
 func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8402,6 +8945,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The range key value.
 func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8411,6 +8955,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) RangeKeyValue() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the DynamoDB table.
 func (o TopicRuleDynamoDbActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8420,6 +8965,7 @@ func (o TopicRuleDynamoDbActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the DynamoDB table.
 func (o TopicRuleDynamoDbActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDbAction) *string {
 		if v == nil {
@@ -8430,11 +8976,16 @@ func (o TopicRuleDynamoDbActionPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleElasticsearchAction struct {
+	// The endpoint of your OpenSearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	Id       string `pulumi:"id"`
-	Index    string `pulumi:"index"`
-	RoleArn  string `pulumi:"roleArn"`
-	Type     string `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id string `pulumi:"id"`
+	// The index where you want to store your data.
+	Index string `pulumi:"index"`
+	// The IAM role ARN that has access to OpenSearch.
+	RoleArn string `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type string `pulumi:"type"`
 }
 
 // TopicRuleElasticsearchActionInput is an input type that accepts TopicRuleElasticsearchActionArgs and TopicRuleElasticsearchActionOutput values.
@@ -8449,11 +9000,16 @@ type TopicRuleElasticsearchActionInput interface {
 }
 
 type TopicRuleElasticsearchActionArgs struct {
+	// The endpoint of your OpenSearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	Id       pulumi.StringInput `pulumi:"id"`
-	Index    pulumi.StringInput `pulumi:"index"`
-	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The index where you want to store your data.
+	Index pulumi.StringInput `pulumi:"index"`
+	// The IAM role ARN that has access to OpenSearch.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TopicRuleElasticsearchActionArgs) ElementType() reflect.Type {
@@ -8533,22 +9089,27 @@ func (o TopicRuleElasticsearchActionOutput) ToTopicRuleElasticsearchActionPtrOut
 	}).(TopicRuleElasticsearchActionPtrOutput)
 }
 
+// The endpoint of your OpenSearch domain.
 func (o TopicRuleElasticsearchActionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleElasticsearchActionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The index where you want to store your data.
 func (o TopicRuleElasticsearchActionOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that has access to OpenSearch.
 func (o TopicRuleElasticsearchActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleElasticsearchActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8577,6 +9138,7 @@ func (o TopicRuleElasticsearchActionPtrOutput) Elem() TopicRuleElasticsearchActi
 	}).(TopicRuleElasticsearchActionOutput)
 }
 
+// The endpoint of your OpenSearch domain.
 func (o TopicRuleElasticsearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -8586,6 +9148,7 @@ func (o TopicRuleElasticsearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleElasticsearchActionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -8595,6 +9158,7 @@ func (o TopicRuleElasticsearchActionPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The index where you want to store your data.
 func (o TopicRuleElasticsearchActionPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -8604,6 +9168,7 @@ func (o TopicRuleElasticsearchActionPtrOutput) Index() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that has access to OpenSearch.
 func (o TopicRuleElasticsearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -8613,6 +9178,7 @@ func (o TopicRuleElasticsearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleElasticsearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -8623,10 +9189,16 @@ func (o TopicRuleElasticsearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type TopicRuleFirehoseAction struct {
-	BatchMode          *bool   `pulumi:"batchMode"`
-	DeliveryStreamName string  `pulumi:"deliveryStreamName"`
-	RoleArn            string  `pulumi:"roleArn"`
-	Separator          *string `pulumi:"separator"`
+	// Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+	//
+	// When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
+	BatchMode *bool `pulumi:"batchMode"`
+	// The delivery stream name.
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
+	// The IAM role that grants access to the Amazon Kinesis Firehose stream.
+	RoleArn string `pulumi:"roleArn"`
+	// A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator *string `pulumi:"separator"`
 }
 
 // TopicRuleFirehoseActionInput is an input type that accepts TopicRuleFirehoseActionArgs and TopicRuleFirehoseActionOutput values.
@@ -8641,10 +9213,16 @@ type TopicRuleFirehoseActionInput interface {
 }
 
 type TopicRuleFirehoseActionArgs struct {
-	BatchMode          pulumi.BoolPtrInput   `pulumi:"batchMode"`
-	DeliveryStreamName pulumi.StringInput    `pulumi:"deliveryStreamName"`
-	RoleArn            pulumi.StringInput    `pulumi:"roleArn"`
-	Separator          pulumi.StringPtrInput `pulumi:"separator"`
+	// Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+	//
+	// When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
+	// The delivery stream name.
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
+	// The IAM role that grants access to the Amazon Kinesis Firehose stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
 
 func (TopicRuleFirehoseActionArgs) ElementType() reflect.Type {
@@ -8724,18 +9302,24 @@ func (o TopicRuleFirehoseActionOutput) ToTopicRuleFirehoseActionPtrOutputWithCon
 	}).(TopicRuleFirehoseActionPtrOutput)
 }
 
+// Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+//
+// When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
 func (o TopicRuleFirehoseActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
+// The delivery stream name.
 func (o TopicRuleFirehoseActionOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
+// The IAM role that grants access to the Amazon Kinesis Firehose stream.
 func (o TopicRuleFirehoseActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleFirehoseActionOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) *string { return v.Separator }).(pulumi.StringPtrOutput)
 }
@@ -8764,6 +9348,9 @@ func (o TopicRuleFirehoseActionPtrOutput) Elem() TopicRuleFirehoseActionOutput {
 	}).(TopicRuleFirehoseActionOutput)
 }
 
+// Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+//
+// When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
 func (o TopicRuleFirehoseActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *bool {
 		if v == nil {
@@ -8773,6 +9360,7 @@ func (o TopicRuleFirehoseActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The delivery stream name.
 func (o TopicRuleFirehoseActionPtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *string {
 		if v == nil {
@@ -8782,6 +9370,7 @@ func (o TopicRuleFirehoseActionPtrOutput) DeliveryStreamName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role that grants access to the Amazon Kinesis Firehose stream.
 func (o TopicRuleFirehoseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *string {
 		if v == nil {
@@ -8791,6 +9380,7 @@ func (o TopicRuleFirehoseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o TopicRuleFirehoseActionPtrOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *string {
 		if v == nil {
@@ -8801,10 +9391,14 @@ func (o TopicRuleFirehoseActionPtrOutput) Separator() pulumi.StringPtrOutput {
 }
 
 type TopicRuleHttpAction struct {
-	Auth            *TopicRuleHttpAuthorization `pulumi:"auth"`
-	ConfirmationUrl *string                     `pulumi:"confirmationUrl"`
-	Headers         []TopicRuleHttpActionHeader `pulumi:"headers"`
-	Url             string                      `pulumi:"url"`
+	// The authentication method to use when sending data to an HTTPS endpoint.
+	Auth *TopicRuleHttpAuthorization `pulumi:"auth"`
+	// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
+	ConfirmationUrl *string `pulumi:"confirmationUrl"`
+	// The HTTP headers to send with the message data.
+	Headers []TopicRuleHttpActionHeader `pulumi:"headers"`
+	// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
+	Url string `pulumi:"url"`
 }
 
 // TopicRuleHttpActionInput is an input type that accepts TopicRuleHttpActionArgs and TopicRuleHttpActionOutput values.
@@ -8819,10 +9413,14 @@ type TopicRuleHttpActionInput interface {
 }
 
 type TopicRuleHttpActionArgs struct {
-	Auth            TopicRuleHttpAuthorizationPtrInput  `pulumi:"auth"`
-	ConfirmationUrl pulumi.StringPtrInput               `pulumi:"confirmationUrl"`
-	Headers         TopicRuleHttpActionHeaderArrayInput `pulumi:"headers"`
-	Url             pulumi.StringInput                  `pulumi:"url"`
+	// The authentication method to use when sending data to an HTTPS endpoint.
+	Auth TopicRuleHttpAuthorizationPtrInput `pulumi:"auth"`
+	// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
+	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
+	// The HTTP headers to send with the message data.
+	Headers TopicRuleHttpActionHeaderArrayInput `pulumi:"headers"`
+	// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (TopicRuleHttpActionArgs) ElementType() reflect.Type {
@@ -8902,18 +9500,22 @@ func (o TopicRuleHttpActionOutput) ToTopicRuleHttpActionPtrOutputWithContext(ctx
 	}).(TopicRuleHttpActionPtrOutput)
 }
 
+// The authentication method to use when sending data to an HTTPS endpoint.
 func (o TopicRuleHttpActionOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *TopicRuleHttpAuthorization { return v.Auth }).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
+// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 func (o TopicRuleHttpActionOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
 
+// The HTTP headers to send with the message data.
 func (o TopicRuleHttpActionOutput) Headers() TopicRuleHttpActionHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) []TopicRuleHttpActionHeader { return v.Headers }).(TopicRuleHttpActionHeaderArrayOutput)
 }
 
+// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
 func (o TopicRuleHttpActionOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -8942,6 +9544,7 @@ func (o TopicRuleHttpActionPtrOutput) Elem() TopicRuleHttpActionOutput {
 	}).(TopicRuleHttpActionOutput)
 }
 
+// The authentication method to use when sending data to an HTTPS endpoint.
 func (o TopicRuleHttpActionPtrOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *TopicRuleHttpAuthorization {
 		if v == nil {
@@ -8951,6 +9554,7 @@ func (o TopicRuleHttpActionPtrOutput) Auth() TopicRuleHttpAuthorizationPtrOutput
 	}).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
+// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *string {
 		if v == nil {
@@ -8960,6 +9564,7 @@ func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP headers to send with the message data.
 func (o TopicRuleHttpActionPtrOutput) Headers() TopicRuleHttpActionHeaderArrayOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) []TopicRuleHttpActionHeader {
 		if v == nil {
@@ -8969,6 +9574,7 @@ func (o TopicRuleHttpActionPtrOutput) Headers() TopicRuleHttpActionHeaderArrayOu
 	}).(TopicRuleHttpActionHeaderArrayOutput)
 }
 
+// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
 func (o TopicRuleHttpActionPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *string {
 		if v == nil {
@@ -8979,7 +9585,9 @@ func (o TopicRuleHttpActionPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type TopicRuleHttpActionHeader struct {
-	Key   string `pulumi:"key"`
+	// The HTTP header key.
+	Key string `pulumi:"key"`
+	// The HTTP header value. Substitution templates are supported.
 	Value string `pulumi:"value"`
 }
 
@@ -8995,7 +9603,9 @@ type TopicRuleHttpActionHeaderInput interface {
 }
 
 type TopicRuleHttpActionHeaderArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The HTTP header key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The HTTP header value. Substitution templates are supported.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9050,10 +9660,12 @@ func (o TopicRuleHttpActionHeaderOutput) ToTopicRuleHttpActionHeaderOutputWithCo
 	return o
 }
 
+// The HTTP header key.
 func (o TopicRuleHttpActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The HTTP header value. Substitution templates are supported.
 func (o TopicRuleHttpActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9079,6 +9691,7 @@ func (o TopicRuleHttpActionHeaderArrayOutput) Index(i pulumi.IntInput) TopicRule
 }
 
 type TopicRuleHttpAuthorization struct {
+	// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 	Sigv4 *TopicRuleSigV4Authorization `pulumi:"sigv4"`
 }
 
@@ -9094,6 +9707,7 @@ type TopicRuleHttpAuthorizationInput interface {
 }
 
 type TopicRuleHttpAuthorizationArgs struct {
+	// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 	Sigv4 TopicRuleSigV4AuthorizationPtrInput `pulumi:"sigv4"`
 }
 
@@ -9174,6 +9788,7 @@ func (o TopicRuleHttpAuthorizationOutput) ToTopicRuleHttpAuthorizationPtrOutputW
 	}).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
+// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 func (o TopicRuleHttpAuthorizationOutput) Sigv4() TopicRuleSigV4AuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAuthorization) *TopicRuleSigV4Authorization { return v.Sigv4 }).(TopicRuleSigV4AuthorizationPtrOutput)
 }
@@ -9202,6 +9817,7 @@ func (o TopicRuleHttpAuthorizationPtrOutput) Elem() TopicRuleHttpAuthorizationOu
 	}).(TopicRuleHttpAuthorizationOutput)
 }
 
+// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 func (o TopicRuleHttpAuthorizationPtrOutput) Sigv4() TopicRuleSigV4AuthorizationPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAuthorization) *TopicRuleSigV4Authorization {
 		if v == nil {
@@ -9212,9 +9828,14 @@ func (o TopicRuleHttpAuthorizationPtrOutput) Sigv4() TopicRuleSigV4Authorization
 }
 
 type TopicRuleIotAnalyticsAction struct {
-	BatchMode   *bool  `pulumi:"batchMode"`
+	// Whether to process the action as a batch. The default value is `false` .
+	//
+	// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
+	BatchMode *bool `pulumi:"batchMode"`
+	// The name of the IoT Analytics channel to which message data will be sent.
 	ChannelName string `pulumi:"channelName"`
-	RoleArn     string `pulumi:"roleArn"`
+	// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleIotAnalyticsActionInput is an input type that accepts TopicRuleIotAnalyticsActionArgs and TopicRuleIotAnalyticsActionOutput values.
@@ -9229,9 +9850,14 @@ type TopicRuleIotAnalyticsActionInput interface {
 }
 
 type TopicRuleIotAnalyticsActionArgs struct {
-	BatchMode   pulumi.BoolPtrInput `pulumi:"batchMode"`
-	ChannelName pulumi.StringInput  `pulumi:"channelName"`
-	RoleArn     pulumi.StringInput  `pulumi:"roleArn"`
+	// Whether to process the action as a batch. The default value is `false` .
+	//
+	// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
+	// The name of the IoT Analytics channel to which message data will be sent.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotAnalyticsActionArgs) ElementType() reflect.Type {
@@ -9311,14 +9937,19 @@ func (o TopicRuleIotAnalyticsActionOutput) ToTopicRuleIotAnalyticsActionPtrOutpu
 	}).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
+// Whether to process the action as a batch. The default value is `false` .
+//
+// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
 func (o TopicRuleIotAnalyticsActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalyticsAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the IoT Analytics channel to which message data will be sent.
 func (o TopicRuleIotAnalyticsActionOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalyticsAction) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
 func (o TopicRuleIotAnalyticsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalyticsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -9347,6 +9978,9 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) Elem() TopicRuleIotAnalyticsAction
 	}).(TopicRuleIotAnalyticsActionOutput)
 }
 
+// Whether to process the action as a batch. The default value is `false` .
+//
+// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
 func (o TopicRuleIotAnalyticsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotAnalyticsAction) *bool {
 		if v == nil {
@@ -9356,6 +9990,7 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the IoT Analytics channel to which message data will be sent.
 func (o TopicRuleIotAnalyticsActionPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotAnalyticsAction) *string {
 		if v == nil {
@@ -9365,6 +10000,7 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) ChannelName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
 func (o TopicRuleIotAnalyticsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotAnalyticsAction) *string {
 		if v == nil {
@@ -9375,10 +10011,22 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleIotEventsAction struct {
-	BatchMode *bool   `pulumi:"batchMode"`
-	InputName string  `pulumi:"inputName"`
+	// Whether to process the event actions as a batch. The default value is `false` .
+	//
+	// When `batchMode` is `true` , you can't specify a `messageId` .
+	//
+	// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
+	BatchMode *bool `pulumi:"batchMode"`
+	// The name of the AWS IoT Events input.
+	InputName string `pulumi:"inputName"`
+	// The ID of the message. The default `messageId` is a new UUID value.
+	//
+	// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+	//
+	// Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
 	MessageId *string `pulumi:"messageId"`
-	RoleArn   string  `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleIotEventsActionInput is an input type that accepts TopicRuleIotEventsActionArgs and TopicRuleIotEventsActionOutput values.
@@ -9393,10 +10041,22 @@ type TopicRuleIotEventsActionInput interface {
 }
 
 type TopicRuleIotEventsActionArgs struct {
-	BatchMode pulumi.BoolPtrInput   `pulumi:"batchMode"`
-	InputName pulumi.StringInput    `pulumi:"inputName"`
+	// Whether to process the event actions as a batch. The default value is `false` .
+	//
+	// When `batchMode` is `true` , you can't specify a `messageId` .
+	//
+	// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
+	// The name of the AWS IoT Events input.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// The ID of the message. The default `messageId` is a new UUID value.
+	//
+	// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+	//
+	// Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
 	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotEventsActionArgs) ElementType() reflect.Type {
@@ -9476,18 +10136,30 @@ func (o TopicRuleIotEventsActionOutput) ToTopicRuleIotEventsActionPtrOutputWithC
 	}).(TopicRuleIotEventsActionPtrOutput)
 }
 
+// Whether to process the event actions as a batch. The default value is `false` .
+//
+// When `batchMode` is `true` , you can't specify a `messageId` .
+//
+// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
 func (o TopicRuleIotEventsActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the AWS IoT Events input.
 func (o TopicRuleIotEventsActionOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) string { return v.InputName }).(pulumi.StringOutput)
 }
 
+// The ID of the message. The default `messageId` is a new UUID value.
+//
+// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+//
+// Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
 func (o TopicRuleIotEventsActionOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
 func (o TopicRuleIotEventsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -9516,6 +10188,11 @@ func (o TopicRuleIotEventsActionPtrOutput) Elem() TopicRuleIotEventsActionOutput
 	}).(TopicRuleIotEventsActionOutput)
 }
 
+// Whether to process the event actions as a batch. The default value is `false` .
+//
+// When `batchMode` is `true` , you can't specify a `messageId` .
+//
+// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
 func (o TopicRuleIotEventsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *bool {
 		if v == nil {
@@ -9525,6 +10202,7 @@ func (o TopicRuleIotEventsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the AWS IoT Events input.
 func (o TopicRuleIotEventsActionPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *string {
 		if v == nil {
@@ -9534,6 +10212,11 @@ func (o TopicRuleIotEventsActionPtrOutput) InputName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the message. The default `messageId` is a new UUID value.
+//
+// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+//
+// Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
 func (o TopicRuleIotEventsActionPtrOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *string {
 		if v == nil {
@@ -9543,6 +10226,7 @@ func (o TopicRuleIotEventsActionPtrOutput) MessageId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
 func (o TopicRuleIotEventsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *string {
 		if v == nil {
@@ -9553,8 +10237,10 @@ func (o TopicRuleIotEventsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleIotSiteWiseAction struct {
+	// A list of asset property value entries.
 	PutAssetPropertyValueEntries []TopicRulePutAssetPropertyValueEntry `pulumi:"putAssetPropertyValueEntries"`
-	RoleArn                      string                                `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleIotSiteWiseActionInput is an input type that accepts TopicRuleIotSiteWiseActionArgs and TopicRuleIotSiteWiseActionOutput values.
@@ -9569,8 +10255,10 @@ type TopicRuleIotSiteWiseActionInput interface {
 }
 
 type TopicRuleIotSiteWiseActionArgs struct {
+	// A list of asset property value entries.
 	PutAssetPropertyValueEntries TopicRulePutAssetPropertyValueEntryArrayInput `pulumi:"putAssetPropertyValueEntries"`
-	RoleArn                      pulumi.StringInput                            `pulumi:"roleArn"`
+	// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotSiteWiseActionArgs) ElementType() reflect.Type {
@@ -9650,12 +10338,14 @@ func (o TopicRuleIotSiteWiseActionOutput) ToTopicRuleIotSiteWiseActionPtrOutputW
 	}).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
+// A list of asset property value entries.
 func (o TopicRuleIotSiteWiseActionOutput) PutAssetPropertyValueEntries() TopicRulePutAssetPropertyValueEntryArrayOutput {
 	return o.ApplyT(func(v TopicRuleIotSiteWiseAction) []TopicRulePutAssetPropertyValueEntry {
 		return v.PutAssetPropertyValueEntries
 	}).(TopicRulePutAssetPropertyValueEntryArrayOutput)
 }
 
+// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
 func (o TopicRuleIotSiteWiseActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotSiteWiseAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -9684,6 +10374,7 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) Elem() TopicRuleIotSiteWiseActionOu
 	}).(TopicRuleIotSiteWiseActionOutput)
 }
 
+// A list of asset property value entries.
 func (o TopicRuleIotSiteWiseActionPtrOutput) PutAssetPropertyValueEntries() TopicRulePutAssetPropertyValueEntryArrayOutput {
 	return o.ApplyT(func(v *TopicRuleIotSiteWiseAction) []TopicRulePutAssetPropertyValueEntry {
 		if v == nil {
@@ -9693,6 +10384,7 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) PutAssetPropertyValueEntries() Topi
 	}).(TopicRulePutAssetPropertyValueEntryArrayOutput)
 }
 
+// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
 func (o TopicRuleIotSiteWiseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotSiteWiseAction) *string {
 		if v == nil {
@@ -9703,12 +10395,18 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleKafkaAction struct {
-	ClientProperties map[string]string            `pulumi:"clientProperties"`
-	DestinationArn   string                       `pulumi:"destinationArn"`
-	Headers          []TopicRuleKafkaActionHeader `pulumi:"headers"`
-	Key              *string                      `pulumi:"key"`
-	Partition        *string                      `pulumi:"partition"`
-	Topic            string                       `pulumi:"topic"`
+	// Properties of the Apache Kafka producer client.
+	ClientProperties map[string]string `pulumi:"clientProperties"`
+	// The ARN of Kafka action's VPC `TopicRuleDestination` .
+	DestinationArn string `pulumi:"destinationArn"`
+	// The list of Kafka headers that you specify.
+	Headers []TopicRuleKafkaActionHeader `pulumi:"headers"`
+	// The Kafka message key.
+	Key *string `pulumi:"key"`
+	// The Kafka message partition.
+	Partition *string `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic string `pulumi:"topic"`
 }
 
 // TopicRuleKafkaActionInput is an input type that accepts TopicRuleKafkaActionArgs and TopicRuleKafkaActionOutput values.
@@ -9723,12 +10421,18 @@ type TopicRuleKafkaActionInput interface {
 }
 
 type TopicRuleKafkaActionArgs struct {
-	ClientProperties pulumi.StringMapInput                `pulumi:"clientProperties"`
-	DestinationArn   pulumi.StringInput                   `pulumi:"destinationArn"`
-	Headers          TopicRuleKafkaActionHeaderArrayInput `pulumi:"headers"`
-	Key              pulumi.StringPtrInput                `pulumi:"key"`
-	Partition        pulumi.StringPtrInput                `pulumi:"partition"`
-	Topic            pulumi.StringInput                   `pulumi:"topic"`
+	// Properties of the Apache Kafka producer client.
+	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
+	// The ARN of Kafka action's VPC `TopicRuleDestination` .
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The list of Kafka headers that you specify.
+	Headers TopicRuleKafkaActionHeaderArrayInput `pulumi:"headers"`
+	// The Kafka message key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The Kafka message partition.
+	Partition pulumi.StringPtrInput `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleKafkaActionArgs) ElementType() reflect.Type {
@@ -9808,26 +10512,32 @@ func (o TopicRuleKafkaActionOutput) ToTopicRuleKafkaActionPtrOutputWithContext(c
 	}).(TopicRuleKafkaActionPtrOutput)
 }
 
+// Properties of the Apache Kafka producer client.
 func (o TopicRuleKafkaActionOutput) ClientProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
 }
 
+// The ARN of Kafka action's VPC `TopicRuleDestination` .
 func (o TopicRuleKafkaActionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+// The list of Kafka headers that you specify.
 func (o TopicRuleKafkaActionOutput) Headers() TopicRuleKafkaActionHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) []TopicRuleKafkaActionHeader { return v.Headers }).(TopicRuleKafkaActionHeaderArrayOutput)
 }
 
+// The Kafka message key.
 func (o TopicRuleKafkaActionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka message partition.
 func (o TopicRuleKafkaActionOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka topic for messages to be sent to the Kafka broker.
 func (o TopicRuleKafkaActionOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -9856,6 +10566,7 @@ func (o TopicRuleKafkaActionPtrOutput) Elem() TopicRuleKafkaActionOutput {
 	}).(TopicRuleKafkaActionOutput)
 }
 
+// Properties of the Apache Kafka producer client.
 func (o TopicRuleKafkaActionPtrOutput) ClientProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) map[string]string {
 		if v == nil {
@@ -9865,6 +10576,7 @@ func (o TopicRuleKafkaActionPtrOutput) ClientProperties() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
+// The ARN of Kafka action's VPC `TopicRuleDestination` .
 func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -9874,6 +10586,7 @@ func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of Kafka headers that you specify.
 func (o TopicRuleKafkaActionPtrOutput) Headers() TopicRuleKafkaActionHeaderArrayOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) []TopicRuleKafkaActionHeader {
 		if v == nil {
@@ -9883,6 +10596,7 @@ func (o TopicRuleKafkaActionPtrOutput) Headers() TopicRuleKafkaActionHeaderArray
 	}).(TopicRuleKafkaActionHeaderArrayOutput)
 }
 
+// The Kafka message key.
 func (o TopicRuleKafkaActionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -9892,6 +10606,7 @@ func (o TopicRuleKafkaActionPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka message partition.
 func (o TopicRuleKafkaActionPtrOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -9901,6 +10616,7 @@ func (o TopicRuleKafkaActionPtrOutput) Partition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka topic for messages to be sent to the Kafka broker.
 func (o TopicRuleKafkaActionPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -9911,7 +10627,9 @@ func (o TopicRuleKafkaActionPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleKafkaActionHeader struct {
-	Key   string `pulumi:"key"`
+	// The key of the Kafka header.
+	Key string `pulumi:"key"`
+	// The value of the Kafka header.
 	Value string `pulumi:"value"`
 }
 
@@ -9927,7 +10645,9 @@ type TopicRuleKafkaActionHeaderInput interface {
 }
 
 type TopicRuleKafkaActionHeaderArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key of the Kafka header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the Kafka header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9982,10 +10702,12 @@ func (o TopicRuleKafkaActionHeaderOutput) ToTopicRuleKafkaActionHeaderOutputWith
 	return o
 }
 
+// The key of the Kafka header.
 func (o TopicRuleKafkaActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of the Kafka header.
 func (o TopicRuleKafkaActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10011,9 +10733,12 @@ func (o TopicRuleKafkaActionHeaderArrayOutput) Index(i pulumi.IntInput) TopicRul
 }
 
 type TopicRuleKinesisAction struct {
+	// The partition key.
 	PartitionKey *string `pulumi:"partitionKey"`
-	RoleArn      string  `pulumi:"roleArn"`
-	StreamName   string  `pulumi:"streamName"`
+	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName string `pulumi:"streamName"`
 }
 
 // TopicRuleKinesisActionInput is an input type that accepts TopicRuleKinesisActionArgs and TopicRuleKinesisActionOutput values.
@@ -10028,9 +10753,12 @@ type TopicRuleKinesisActionInput interface {
 }
 
 type TopicRuleKinesisActionArgs struct {
+	// The partition key.
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
-	RoleArn      pulumi.StringInput    `pulumi:"roleArn"`
-	StreamName   pulumi.StringInput    `pulumi:"streamName"`
+	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
 func (TopicRuleKinesisActionArgs) ElementType() reflect.Type {
@@ -10110,14 +10838,17 @@ func (o TopicRuleKinesisActionOutput) ToTopicRuleKinesisActionPtrOutputWithConte
 	}).(TopicRuleKinesisActionPtrOutput)
 }
 
+// The partition key.
 func (o TopicRuleKinesisActionOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKinesisAction) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 func (o TopicRuleKinesisActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKinesisAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the Amazon Kinesis stream.
 func (o TopicRuleKinesisActionOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKinesisAction) string { return v.StreamName }).(pulumi.StringOutput)
 }
@@ -10146,6 +10877,7 @@ func (o TopicRuleKinesisActionPtrOutput) Elem() TopicRuleKinesisActionOutput {
 	}).(TopicRuleKinesisActionOutput)
 }
 
+// The partition key.
 func (o TopicRuleKinesisActionPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesisAction) *string {
 		if v == nil {
@@ -10155,6 +10887,7 @@ func (o TopicRuleKinesisActionPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 func (o TopicRuleKinesisActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesisAction) *string {
 		if v == nil {
@@ -10164,6 +10897,7 @@ func (o TopicRuleKinesisActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Kinesis stream.
 func (o TopicRuleKinesisActionPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesisAction) *string {
 		if v == nil {
@@ -10174,6 +10908,7 @@ func (o TopicRuleKinesisActionPtrOutput) StreamName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleLambdaAction struct {
+	// The ARN of the Lambda function.
 	FunctionArn *string `pulumi:"functionArn"`
 }
 
@@ -10189,6 +10924,7 @@ type TopicRuleLambdaActionInput interface {
 }
 
 type TopicRuleLambdaActionArgs struct {
+	// The ARN of the Lambda function.
 	FunctionArn pulumi.StringPtrInput `pulumi:"functionArn"`
 }
 
@@ -10269,6 +11005,7 @@ func (o TopicRuleLambdaActionOutput) ToTopicRuleLambdaActionPtrOutputWithContext
 	}).(TopicRuleLambdaActionPtrOutput)
 }
 
+// The ARN of the Lambda function.
 func (o TopicRuleLambdaActionOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleLambdaAction) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
@@ -10297,6 +11034,7 @@ func (o TopicRuleLambdaActionPtrOutput) Elem() TopicRuleLambdaActionOutput {
 	}).(TopicRuleLambdaActionOutput)
 }
 
+// The ARN of the Lambda function.
 func (o TopicRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLambdaAction) *string {
 		if v == nil {
@@ -10307,12 +11045,18 @@ func (o TopicRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleLocationAction struct {
-	DeviceId    string              `pulumi:"deviceId"`
-	Latitude    string              `pulumi:"latitude"`
-	Longitude   string              `pulumi:"longitude"`
-	RoleArn     string              `pulumi:"roleArn"`
-	Timestamp   *TopicRuleTimestamp `pulumi:"timestamp"`
-	TrackerName string              `pulumi:"trackerName"`
+	// The unique ID of the device providing the location data.
+	DeviceId string `pulumi:"deviceId"`
+	// A string that evaluates to a double value that represents the latitude of the device's location.
+	Latitude string `pulumi:"latitude"`
+	// A string that evaluates to a double value that represents the longitude of the device's location.
+	Longitude string `pulumi:"longitude"`
+	// The IAM role that grants permission to write to the Amazon Location resource.
+	RoleArn string `pulumi:"roleArn"`
+	// The time that the location data was sampled. The default value is the time the MQTT message was processed.
+	Timestamp *TopicRuleTimestamp `pulumi:"timestamp"`
+	// The name of the tracker resource in Amazon Location in which the location is updated.
+	TrackerName string `pulumi:"trackerName"`
 }
 
 // TopicRuleLocationActionInput is an input type that accepts TopicRuleLocationActionArgs and TopicRuleLocationActionOutput values.
@@ -10327,12 +11071,18 @@ type TopicRuleLocationActionInput interface {
 }
 
 type TopicRuleLocationActionArgs struct {
-	DeviceId    pulumi.StringInput         `pulumi:"deviceId"`
-	Latitude    pulumi.StringInput         `pulumi:"latitude"`
-	Longitude   pulumi.StringInput         `pulumi:"longitude"`
-	RoleArn     pulumi.StringInput         `pulumi:"roleArn"`
-	Timestamp   TopicRuleTimestampPtrInput `pulumi:"timestamp"`
-	TrackerName pulumi.StringInput         `pulumi:"trackerName"`
+	// The unique ID of the device providing the location data.
+	DeviceId pulumi.StringInput `pulumi:"deviceId"`
+	// A string that evaluates to a double value that represents the latitude of the device's location.
+	Latitude pulumi.StringInput `pulumi:"latitude"`
+	// A string that evaluates to a double value that represents the longitude of the device's location.
+	Longitude pulumi.StringInput `pulumi:"longitude"`
+	// The IAM role that grants permission to write to the Amazon Location resource.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The time that the location data was sampled. The default value is the time the MQTT message was processed.
+	Timestamp TopicRuleTimestampPtrInput `pulumi:"timestamp"`
+	// The name of the tracker resource in Amazon Location in which the location is updated.
+	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 
 func (TopicRuleLocationActionArgs) ElementType() reflect.Type {
@@ -10412,26 +11162,32 @@ func (o TopicRuleLocationActionOutput) ToTopicRuleLocationActionPtrOutputWithCon
 	}).(TopicRuleLocationActionPtrOutput)
 }
 
+// The unique ID of the device providing the location data.
 func (o TopicRuleLocationActionOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.DeviceId }).(pulumi.StringOutput)
 }
 
+// A string that evaluates to a double value that represents the latitude of the device's location.
 func (o TopicRuleLocationActionOutput) Latitude() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.Latitude }).(pulumi.StringOutput)
 }
 
+// A string that evaluates to a double value that represents the longitude of the device's location.
 func (o TopicRuleLocationActionOutput) Longitude() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.Longitude }).(pulumi.StringOutput)
 }
 
+// The IAM role that grants permission to write to the Amazon Location resource.
 func (o TopicRuleLocationActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The time that the location data was sampled. The default value is the time the MQTT message was processed.
 func (o TopicRuleLocationActionOutput) Timestamp() TopicRuleTimestampPtrOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) *TopicRuleTimestamp { return v.Timestamp }).(TopicRuleTimestampPtrOutput)
 }
 
+// The name of the tracker resource in Amazon Location in which the location is updated.
 func (o TopicRuleLocationActionOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.TrackerName }).(pulumi.StringOutput)
 }
@@ -10460,6 +11216,7 @@ func (o TopicRuleLocationActionPtrOutput) Elem() TopicRuleLocationActionOutput {
 	}).(TopicRuleLocationActionOutput)
 }
 
+// The unique ID of the device providing the location data.
 func (o TopicRuleLocationActionPtrOutput) DeviceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
 		if v == nil {
@@ -10469,6 +11226,7 @@ func (o TopicRuleLocationActionPtrOutput) DeviceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that evaluates to a double value that represents the latitude of the device's location.
 func (o TopicRuleLocationActionPtrOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
 		if v == nil {
@@ -10478,6 +11236,7 @@ func (o TopicRuleLocationActionPtrOutput) Latitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that evaluates to a double value that represents the longitude of the device's location.
 func (o TopicRuleLocationActionPtrOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
 		if v == nil {
@@ -10487,6 +11246,7 @@ func (o TopicRuleLocationActionPtrOutput) Longitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role that grants permission to write to the Amazon Location resource.
 func (o TopicRuleLocationActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
 		if v == nil {
@@ -10496,6 +11256,7 @@ func (o TopicRuleLocationActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time that the location data was sampled. The default value is the time the MQTT message was processed.
 func (o TopicRuleLocationActionPtrOutput) Timestamp() TopicRuleTimestampPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *TopicRuleTimestamp {
 		if v == nil {
@@ -10505,6 +11266,7 @@ func (o TopicRuleLocationActionPtrOutput) Timestamp() TopicRuleTimestampPtrOutpu
 	}).(TopicRuleTimestampPtrOutput)
 }
 
+// The name of the tracker resource in Amazon Location in which the location is updated.
 func (o TopicRuleLocationActionPtrOutput) TrackerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
 		if v == nil {
@@ -10515,11 +11277,16 @@ func (o TopicRuleLocationActionPtrOutput) TrackerName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleOpenSearchAction struct {
+	// The endpoint of your OpenSearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	Id       string `pulumi:"id"`
-	Index    string `pulumi:"index"`
-	RoleArn  string `pulumi:"roleArn"`
-	Type     string `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id string `pulumi:"id"`
+	// The OpenSearch index where you want to store your data.
+	Index string `pulumi:"index"`
+	// The IAM role ARN that has access to OpenSearch.
+	RoleArn string `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type string `pulumi:"type"`
 }
 
 // TopicRuleOpenSearchActionInput is an input type that accepts TopicRuleOpenSearchActionArgs and TopicRuleOpenSearchActionOutput values.
@@ -10534,11 +11301,16 @@ type TopicRuleOpenSearchActionInput interface {
 }
 
 type TopicRuleOpenSearchActionArgs struct {
+	// The endpoint of your OpenSearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	Id       pulumi.StringInput `pulumi:"id"`
-	Index    pulumi.StringInput `pulumi:"index"`
-	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// The unique identifier for the document you are storing.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The OpenSearch index where you want to store your data.
+	Index pulumi.StringInput `pulumi:"index"`
+	// The IAM role ARN that has access to OpenSearch.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TopicRuleOpenSearchActionArgs) ElementType() reflect.Type {
@@ -10618,22 +11390,27 @@ func (o TopicRuleOpenSearchActionOutput) ToTopicRuleOpenSearchActionPtrOutputWit
 	}).(TopicRuleOpenSearchActionPtrOutput)
 }
 
+// The endpoint of your OpenSearch domain.
 func (o TopicRuleOpenSearchActionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleOpenSearchActionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The OpenSearch index where you want to store your data.
 func (o TopicRuleOpenSearchActionOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Index }).(pulumi.StringOutput)
 }
 
+// The IAM role ARN that has access to OpenSearch.
 func (o TopicRuleOpenSearchActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleOpenSearchActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10662,6 +11439,7 @@ func (o TopicRuleOpenSearchActionPtrOutput) Elem() TopicRuleOpenSearchActionOutp
 	}).(TopicRuleOpenSearchActionOutput)
 }
 
+// The endpoint of your OpenSearch domain.
 func (o TopicRuleOpenSearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
 		if v == nil {
@@ -10671,6 +11449,7 @@ func (o TopicRuleOpenSearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the document you are storing.
 func (o TopicRuleOpenSearchActionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
 		if v == nil {
@@ -10680,6 +11459,7 @@ func (o TopicRuleOpenSearchActionPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OpenSearch index where you want to store your data.
 func (o TopicRuleOpenSearchActionPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
 		if v == nil {
@@ -10689,6 +11469,7 @@ func (o TopicRuleOpenSearchActionPtrOutput) Index() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The IAM role ARN that has access to OpenSearch.
 func (o TopicRuleOpenSearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
 		if v == nil {
@@ -10698,6 +11479,7 @@ func (o TopicRuleOpenSearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of document you are storing.
 func (o TopicRuleOpenSearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
 		if v == nil {
@@ -10708,12 +11490,20 @@ func (o TopicRuleOpenSearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type TopicRulePayload struct {
-	Actions          []TopicRuleAction `pulumi:"actions"`
-	AwsIotSqlVersion *string           `pulumi:"awsIotSqlVersion"`
-	Description      *string           `pulumi:"description"`
-	ErrorAction      *TopicRuleAction  `pulumi:"errorAction"`
-	RuleDisabled     *bool             `pulumi:"ruleDisabled"`
-	Sql              string            `pulumi:"sql"`
+	// The actions associated with the rule.
+	Actions []TopicRuleAction `pulumi:"actions"`
+	// The version of the SQL rules engine to use when evaluating the rule.
+	//
+	// The default value is 2015-10-08.
+	AwsIotSqlVersion *string `pulumi:"awsIotSqlVersion"`
+	// The description of the rule.
+	Description *string `pulumi:"description"`
+	// The action to take when an error occurs.
+	ErrorAction *TopicRuleAction `pulumi:"errorAction"`
+	// Specifies whether the rule is disabled.
+	RuleDisabled *bool `pulumi:"ruleDisabled"`
+	// The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+	Sql string `pulumi:"sql"`
 }
 
 // TopicRulePayloadInput is an input type that accepts TopicRulePayloadArgs and TopicRulePayloadOutput values.
@@ -10728,12 +11518,20 @@ type TopicRulePayloadInput interface {
 }
 
 type TopicRulePayloadArgs struct {
-	Actions          TopicRuleActionArrayInput `pulumi:"actions"`
-	AwsIotSqlVersion pulumi.StringPtrInput     `pulumi:"awsIotSqlVersion"`
-	Description      pulumi.StringPtrInput     `pulumi:"description"`
-	ErrorAction      TopicRuleActionPtrInput   `pulumi:"errorAction"`
-	RuleDisabled     pulumi.BoolPtrInput       `pulumi:"ruleDisabled"`
-	Sql              pulumi.StringInput        `pulumi:"sql"`
+	// The actions associated with the rule.
+	Actions TopicRuleActionArrayInput `pulumi:"actions"`
+	// The version of the SQL rules engine to use when evaluating the rule.
+	//
+	// The default value is 2015-10-08.
+	AwsIotSqlVersion pulumi.StringPtrInput `pulumi:"awsIotSqlVersion"`
+	// The description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The action to take when an error occurs.
+	ErrorAction TopicRuleActionPtrInput `pulumi:"errorAction"`
+	// Specifies whether the rule is disabled.
+	RuleDisabled pulumi.BoolPtrInput `pulumi:"ruleDisabled"`
+	// The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+	Sql pulumi.StringInput `pulumi:"sql"`
 }
 
 func (TopicRulePayloadArgs) ElementType() reflect.Type {
@@ -10762,26 +11560,34 @@ func (o TopicRulePayloadOutput) ToTopicRulePayloadOutputWithContext(ctx context.
 	return o
 }
 
+// The actions associated with the rule.
 func (o TopicRulePayloadOutput) Actions() TopicRuleActionArrayOutput {
 	return o.ApplyT(func(v TopicRulePayload) []TopicRuleAction { return v.Actions }).(TopicRuleActionArrayOutput)
 }
 
+// The version of the SQL rules engine to use when evaluating the rule.
+//
+// The default value is 2015-10-08.
 func (o TopicRulePayloadOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePayload) *string { return v.AwsIotSqlVersion }).(pulumi.StringPtrOutput)
 }
 
+// The description of the rule.
 func (o TopicRulePayloadOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePayload) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The action to take when an error occurs.
 func (o TopicRulePayloadOutput) ErrorAction() TopicRuleActionPtrOutput {
 	return o.ApplyT(func(v TopicRulePayload) *TopicRuleAction { return v.ErrorAction }).(TopicRuleActionPtrOutput)
 }
 
+// Specifies whether the rule is disabled.
 func (o TopicRulePayloadOutput) RuleDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRulePayload) *bool { return v.RuleDisabled }).(pulumi.BoolPtrOutput)
 }
 
+// The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
 func (o TopicRulePayloadOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRulePayload) string { return v.Sql }).(pulumi.StringOutput)
 }
@@ -10810,6 +11616,7 @@ func (o TopicRulePayloadPtrOutput) Elem() TopicRulePayloadOutput {
 	}).(TopicRulePayloadOutput)
 }
 
+// The actions associated with the rule.
 func (o TopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
 	return o.ApplyT(func(v *TopicRulePayload) []TopicRuleAction {
 		if v == nil {
@@ -10819,6 +11626,9 @@ func (o TopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
 	}).(TopicRuleActionArrayOutput)
 }
 
+// The version of the SQL rules engine to use when evaluating the rule.
+//
+// The default value is 2015-10-08.
 func (o TopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRulePayload) *string {
 		if v == nil {
@@ -10828,6 +11638,7 @@ func (o TopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The description of the rule.
 func (o TopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRulePayload) *string {
 		if v == nil {
@@ -10837,6 +11648,7 @@ func (o TopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action to take when an error occurs.
 func (o TopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
 	return o.ApplyT(func(v *TopicRulePayload) *TopicRuleAction {
 		if v == nil {
@@ -10846,6 +11658,7 @@ func (o TopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
 	}).(TopicRuleActionPtrOutput)
 }
 
+// Specifies whether the rule is disabled.
 func (o TopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRulePayload) *bool {
 		if v == nil {
@@ -10855,6 +11668,7 @@ func (o TopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
 func (o TopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRulePayload) *string {
 		if v == nil {
@@ -10865,10 +11679,15 @@ func (o TopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
 }
 
 type TopicRulePutAssetPropertyValueEntry struct {
-	AssetId        *string                       `pulumi:"assetId"`
-	EntryId        *string                       `pulumi:"entryId"`
-	PropertyAlias  *string                       `pulumi:"propertyAlias"`
-	PropertyId     *string                       `pulumi:"propertyId"`
+	// The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+	AssetId *string `pulumi:"assetId"`
+	// Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+	EntryId *string `pulumi:"entryId"`
+	// The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+	PropertyAlias *string `pulumi:"propertyAlias"`
+	// The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+	PropertyId *string `pulumi:"propertyId"`
+	// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 	PropertyValues []TopicRuleAssetPropertyValue `pulumi:"propertyValues"`
 }
 
@@ -10884,10 +11703,15 @@ type TopicRulePutAssetPropertyValueEntryInput interface {
 }
 
 type TopicRulePutAssetPropertyValueEntryArgs struct {
-	AssetId        pulumi.StringPtrInput                 `pulumi:"assetId"`
-	EntryId        pulumi.StringPtrInput                 `pulumi:"entryId"`
-	PropertyAlias  pulumi.StringPtrInput                 `pulumi:"propertyAlias"`
-	PropertyId     pulumi.StringPtrInput                 `pulumi:"propertyId"`
+	// The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
+	// Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+	EntryId pulumi.StringPtrInput `pulumi:"entryId"`
+	// The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
+	// The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
+	// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 	PropertyValues TopicRuleAssetPropertyValueArrayInput `pulumi:"propertyValues"`
 }
 
@@ -10942,22 +11766,27 @@ func (o TopicRulePutAssetPropertyValueEntryOutput) ToTopicRulePutAssetPropertyVa
 	return o
 }
 
+// The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
 func (o TopicRulePutAssetPropertyValueEntryOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
+// Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
 func (o TopicRulePutAssetPropertyValueEntryOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.EntryId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.PropertyAlias }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
+// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyValues() TopicRuleAssetPropertyValueArrayOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) []TopicRuleAssetPropertyValue { return v.PropertyValues }).(TopicRuleAssetPropertyValueArrayOutput)
 }
@@ -10983,6 +11812,7 @@ func (o TopicRulePutAssetPropertyValueEntryArrayOutput) Index(i pulumi.IntInput)
 }
 
 type TopicRulePutItemInput struct {
+	// The table where the message data will be written.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -10998,6 +11828,7 @@ type TopicRulePutItemInputInput interface {
 }
 
 type TopicRulePutItemInputArgs struct {
+	// The table where the message data will be written.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -11078,6 +11909,7 @@ func (o TopicRulePutItemInputOutput) ToTopicRulePutItemInputPtrOutputWithContext
 	}).(TopicRulePutItemInputPtrOutput)
 }
 
+// The table where the message data will be written.
 func (o TopicRulePutItemInputOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRulePutItemInput) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -11106,6 +11938,7 @@ func (o TopicRulePutItemInputPtrOutput) Elem() TopicRulePutItemInputOutput {
 	}).(TopicRulePutItemInputOutput)
 }
 
+// The table where the message data will be written.
 func (o TopicRulePutItemInputPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRulePutItemInput) *string {
 		if v == nil {
@@ -11116,10 +11949,14 @@ func (o TopicRulePutItemInputPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleRepublishAction struct {
+	// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 	Headers *TopicRuleRepublishActionHeaders `pulumi:"headers"`
-	Qos     *int                             `pulumi:"qos"`
-	RoleArn string                           `pulumi:"roleArn"`
-	Topic   string                           `pulumi:"topic"`
+	// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+	Qos *int `pulumi:"qos"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the MQTT topic.
+	Topic string `pulumi:"topic"`
 }
 
 // TopicRuleRepublishActionInput is an input type that accepts TopicRuleRepublishActionArgs and TopicRuleRepublishActionOutput values.
@@ -11134,10 +11971,14 @@ type TopicRuleRepublishActionInput interface {
 }
 
 type TopicRuleRepublishActionArgs struct {
+	// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 	Headers TopicRuleRepublishActionHeadersPtrInput `pulumi:"headers"`
-	Qos     pulumi.IntPtrInput                      `pulumi:"qos"`
-	RoleArn pulumi.StringInput                      `pulumi:"roleArn"`
-	Topic   pulumi.StringInput                      `pulumi:"topic"`
+	// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+	Qos pulumi.IntPtrInput `pulumi:"qos"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the MQTT topic.
+	Topic pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleRepublishActionArgs) ElementType() reflect.Type {
@@ -11217,18 +12058,22 @@ func (o TopicRuleRepublishActionOutput) ToTopicRuleRepublishActionPtrOutputWithC
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
+// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 func (o TopicRuleRepublishActionOutput) Headers() TopicRuleRepublishActionHeadersPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) *TopicRuleRepublishActionHeaders { return v.Headers }).(TopicRuleRepublishActionHeadersPtrOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
 func (o TopicRuleRepublishActionOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleRepublishActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the MQTT topic.
 func (o TopicRuleRepublishActionOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -11257,6 +12102,7 @@ func (o TopicRuleRepublishActionPtrOutput) Elem() TopicRuleRepublishActionOutput
 	}).(TopicRuleRepublishActionOutput)
 }
 
+// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 func (o TopicRuleRepublishActionPtrOutput) Headers() TopicRuleRepublishActionHeadersPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *TopicRuleRepublishActionHeaders {
 		if v == nil {
@@ -11266,6 +12112,7 @@ func (o TopicRuleRepublishActionPtrOutput) Headers() TopicRuleRepublishActionHea
 	}).(TopicRuleRepublishActionHeadersPtrOutput)
 }
 
+// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
 func (o TopicRuleRepublishActionPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *int {
 		if v == nil {
@@ -11275,6 +12122,7 @@ func (o TopicRuleRepublishActionPtrOutput) Qos() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleRepublishActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *string {
 		if v == nil {
@@ -11284,6 +12132,7 @@ func (o TopicRuleRepublishActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the MQTT topic.
 func (o TopicRuleRepublishActionPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *string {
 		if v == nil {
@@ -11294,12 +12143,40 @@ func (o TopicRuleRepublishActionPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleRepublishActionHeaders struct {
-	ContentType            *string                 `pulumi:"contentType"`
-	CorrelationData        *string                 `pulumi:"correlationData"`
-	MessageExpiry          *string                 `pulumi:"messageExpiry"`
-	PayloadFormatIndicator *string                 `pulumi:"payloadFormatIndicator"`
-	ResponseTopic          *string                 `pulumi:"responseTopic"`
-	UserProperties         []TopicRuleUserProperty `pulumi:"userProperties"`
+	// A UTF-8 encoded string that describes the content of the publishing message.
+	//
+	// For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	ContentType *string `pulumi:"contentType"`
+	// The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+	//
+	// For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	//
+	// > This binary data must be base64-encoded.
+	CorrelationData *string `pulumi:"correlationData"`
+	// A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	MessageExpiry *string `pulumi:"messageExpiry"`
+	// An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+	//
+	// Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+	//
+	// For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	PayloadFormatIndicator *string `pulumi:"payloadFormatIndicator"`
+	// A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+	//
+	// For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	ResponseTopic *string `pulumi:"responseTopic"`
+	// An array of key-value pairs that you define in the MQTT5 header.
+	UserProperties []TopicRuleUserProperty `pulumi:"userProperties"`
 }
 
 // TopicRuleRepublishActionHeadersInput is an input type that accepts TopicRuleRepublishActionHeadersArgs and TopicRuleRepublishActionHeadersOutput values.
@@ -11314,12 +12191,40 @@ type TopicRuleRepublishActionHeadersInput interface {
 }
 
 type TopicRuleRepublishActionHeadersArgs struct {
-	ContentType            pulumi.StringPtrInput           `pulumi:"contentType"`
-	CorrelationData        pulumi.StringPtrInput           `pulumi:"correlationData"`
-	MessageExpiry          pulumi.StringPtrInput           `pulumi:"messageExpiry"`
-	PayloadFormatIndicator pulumi.StringPtrInput           `pulumi:"payloadFormatIndicator"`
-	ResponseTopic          pulumi.StringPtrInput           `pulumi:"responseTopic"`
-	UserProperties         TopicRuleUserPropertyArrayInput `pulumi:"userProperties"`
+	// A UTF-8 encoded string that describes the content of the publishing message.
+	//
+	// For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+	//
+	// For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	//
+	// > This binary data must be base64-encoded.
+	CorrelationData pulumi.StringPtrInput `pulumi:"correlationData"`
+	// A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	MessageExpiry pulumi.StringPtrInput `pulumi:"messageExpiry"`
+	// An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+	//
+	// Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+	//
+	// For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	PayloadFormatIndicator pulumi.StringPtrInput `pulumi:"payloadFormatIndicator"`
+	// A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+	//
+	// For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+	//
+	// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+	ResponseTopic pulumi.StringPtrInput `pulumi:"responseTopic"`
+	// An array of key-value pairs that you define in the MQTT5 header.
+	UserProperties TopicRuleUserPropertyArrayInput `pulumi:"userProperties"`
 }
 
 func (TopicRuleRepublishActionHeadersArgs) ElementType() reflect.Type {
@@ -11399,26 +12304,54 @@ func (o TopicRuleRepublishActionHeadersOutput) ToTopicRuleRepublishActionHeaders
 	}).(TopicRuleRepublishActionHeadersPtrOutput)
 }
 
+// A UTF-8 encoded string that describes the content of the publishing message.
+//
+// For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+//
+// For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+//
+// > This binary data must be base64-encoded.
 func (o TopicRuleRepublishActionHeadersOutput) CorrelationData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.CorrelationData }).(pulumi.StringPtrOutput)
 }
 
+// A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersOutput) MessageExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.MessageExpiry }).(pulumi.StringPtrOutput)
 }
 
+// An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+//
+// Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+//
+// For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersOutput) PayloadFormatIndicator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.PayloadFormatIndicator }).(pulumi.StringPtrOutput)
 }
 
+// A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+//
+// For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersOutput) ResponseTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.ResponseTopic }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs that you define in the MQTT5 header.
 func (o TopicRuleRepublishActionHeadersOutput) UserProperties() TopicRuleUserPropertyArrayOutput {
 	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) []TopicRuleUserProperty { return v.UserProperties }).(TopicRuleUserPropertyArrayOutput)
 }
@@ -11447,6 +12380,11 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) Elem() TopicRuleRepublishActio
 	}).(TopicRuleRepublishActionHeadersOutput)
 }
 
+// A UTF-8 encoded string that describes the content of the publishing message.
+//
+// For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
 		if v == nil {
@@ -11456,6 +12394,13 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) ContentType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+//
+// For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+//
+// > This binary data must be base64-encoded.
 func (o TopicRuleRepublishActionHeadersPtrOutput) CorrelationData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
 		if v == nil {
@@ -11465,6 +12410,9 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) CorrelationData() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersPtrOutput) MessageExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
 		if v == nil {
@@ -11474,6 +12422,13 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) MessageExpiry() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+//
+// Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+//
+// For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersPtrOutput) PayloadFormatIndicator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
 		if v == nil {
@@ -11483,6 +12438,11 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) PayloadFormatIndicator() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+//
+// For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+//
+// Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
 func (o TopicRuleRepublishActionHeadersPtrOutput) ResponseTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
 		if v == nil {
@@ -11492,6 +12452,7 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) ResponseTopic() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs that you define in the MQTT5 header.
 func (o TopicRuleRepublishActionHeadersPtrOutput) UserProperties() TopicRuleUserPropertyArrayOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) []TopicRuleUserProperty {
 		if v == nil {
@@ -11502,10 +12463,14 @@ func (o TopicRuleRepublishActionHeadersPtrOutput) UserProperties() TopicRuleUser
 }
 
 type TopicRuleS3Action struct {
-	BucketName string                            `pulumi:"bucketName"`
-	CannedAcl  *TopicRuleCannedAccessControlList `pulumi:"cannedAcl"`
-	Key        string                            `pulumi:"key"`
-	RoleArn    string                            `pulumi:"roleArn"`
+	// The Amazon S3 bucket.
+	BucketName string `pulumi:"bucketName"`
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+	CannedAcl *TopicRuleCannedAccessControlList `pulumi:"cannedAcl"`
+	// The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+	Key string `pulumi:"key"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // TopicRuleS3ActionInput is an input type that accepts TopicRuleS3ActionArgs and TopicRuleS3ActionOutput values.
@@ -11520,10 +12485,14 @@ type TopicRuleS3ActionInput interface {
 }
 
 type TopicRuleS3ActionArgs struct {
-	BucketName pulumi.StringInput                       `pulumi:"bucketName"`
-	CannedAcl  TopicRuleCannedAccessControlListPtrInput `pulumi:"cannedAcl"`
-	Key        pulumi.StringInput                       `pulumi:"key"`
-	RoleArn    pulumi.StringInput                       `pulumi:"roleArn"`
+	// The Amazon S3 bucket.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+	CannedAcl TopicRuleCannedAccessControlListPtrInput `pulumi:"cannedAcl"`
+	// The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+	Key pulumi.StringInput `pulumi:"key"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleS3ActionArgs) ElementType() reflect.Type {
@@ -11603,18 +12572,22 @@ func (o TopicRuleS3ActionOutput) ToTopicRuleS3ActionPtrOutputWithContext(ctx con
 	}).(TopicRuleS3ActionPtrOutput)
 }
 
+// The Amazon S3 bucket.
 func (o TopicRuleS3ActionOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
 func (o TopicRuleS3ActionOutput) CannedAcl() TopicRuleCannedAccessControlListPtrOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) *TopicRuleCannedAccessControlList { return v.CannedAcl }).(TopicRuleCannedAccessControlListPtrOutput)
 }
 
+// The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
 func (o TopicRuleS3ActionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleS3ActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -11643,6 +12616,7 @@ func (o TopicRuleS3ActionPtrOutput) Elem() TopicRuleS3ActionOutput {
 	}).(TopicRuleS3ActionOutput)
 }
 
+// The Amazon S3 bucket.
 func (o TopicRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -11652,6 +12626,7 @@ func (o TopicRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
 func (o TopicRuleS3ActionPtrOutput) CannedAcl() TopicRuleCannedAccessControlListPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *TopicRuleCannedAccessControlList {
 		if v == nil {
@@ -11661,6 +12636,7 @@ func (o TopicRuleS3ActionPtrOutput) CannedAcl() TopicRuleCannedAccessControlList
 	}).(TopicRuleCannedAccessControlListPtrOutput)
 }
 
+// The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
 func (o TopicRuleS3ActionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -11670,6 +12646,7 @@ func (o TopicRuleS3ActionPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleS3ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -11680,8 +12657,11 @@ func (o TopicRuleS3ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleSigV4Authorization struct {
-	RoleArn       string `pulumi:"roleArn"`
-	ServiceName   string `pulumi:"serviceName"`
+	// The ARN of the signing role.
+	RoleArn string `pulumi:"roleArn"`
+	// The service name to use while signing with Sig V4.
+	ServiceName string `pulumi:"serviceName"`
+	// The signing region.
 	SigningRegion string `pulumi:"signingRegion"`
 }
 
@@ -11697,8 +12677,11 @@ type TopicRuleSigV4AuthorizationInput interface {
 }
 
 type TopicRuleSigV4AuthorizationArgs struct {
-	RoleArn       pulumi.StringInput `pulumi:"roleArn"`
-	ServiceName   pulumi.StringInput `pulumi:"serviceName"`
+	// The ARN of the signing role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The service name to use while signing with Sig V4.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// The signing region.
 	SigningRegion pulumi.StringInput `pulumi:"signingRegion"`
 }
 
@@ -11779,14 +12762,17 @@ func (o TopicRuleSigV4AuthorizationOutput) ToTopicRuleSigV4AuthorizationPtrOutpu
 	}).(TopicRuleSigV4AuthorizationPtrOutput)
 }
 
+// The ARN of the signing role.
 func (o TopicRuleSigV4AuthorizationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSigV4Authorization) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The service name to use while signing with Sig V4.
 func (o TopicRuleSigV4AuthorizationOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSigV4Authorization) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
+// The signing region.
 func (o TopicRuleSigV4AuthorizationOutput) SigningRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSigV4Authorization) string { return v.SigningRegion }).(pulumi.StringOutput)
 }
@@ -11815,6 +12801,7 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) Elem() TopicRuleSigV4Authorization
 	}).(TopicRuleSigV4AuthorizationOutput)
 }
 
+// The ARN of the signing role.
 func (o TopicRuleSigV4AuthorizationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSigV4Authorization) *string {
 		if v == nil {
@@ -11824,6 +12811,7 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The service name to use while signing with Sig V4.
 func (o TopicRuleSigV4AuthorizationPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSigV4Authorization) *string {
 		if v == nil {
@@ -11833,6 +12821,7 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) ServiceName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The signing region.
 func (o TopicRuleSigV4AuthorizationPtrOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSigV4Authorization) *string {
 		if v == nil {
@@ -11843,9 +12832,12 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) SigningRegion() pulumi.StringPtrOu
 }
 
 type TopicRuleSnsAction struct {
+	// (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
 	MessageFormat *string `pulumi:"messageFormat"`
-	RoleArn       string  `pulumi:"roleArn"`
-	TargetArn     string  `pulumi:"targetArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // TopicRuleSnsActionInput is an input type that accepts TopicRuleSnsActionArgs and TopicRuleSnsActionOutput values.
@@ -11860,9 +12852,12 @@ type TopicRuleSnsActionInput interface {
 }
 
 type TopicRuleSnsActionArgs struct {
+	// (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
-	TargetArn     pulumi.StringInput    `pulumi:"targetArn"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
 func (TopicRuleSnsActionArgs) ElementType() reflect.Type {
@@ -11942,14 +12937,17 @@ func (o TopicRuleSnsActionOutput) ToTopicRuleSnsActionPtrOutputWithContext(ctx c
 	}).(TopicRuleSnsActionPtrOutput)
 }
 
+// (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
 func (o TopicRuleSnsActionOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleSnsAction) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSnsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSnsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the SNS topic.
 func (o TopicRuleSnsActionOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSnsAction) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -11978,6 +12976,7 @@ func (o TopicRuleSnsActionPtrOutput) Elem() TopicRuleSnsActionOutput {
 	}).(TopicRuleSnsActionOutput)
 }
 
+// (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
 func (o TopicRuleSnsActionPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSnsAction) *string {
 		if v == nil {
@@ -11987,6 +12986,7 @@ func (o TopicRuleSnsActionPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSnsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSnsAction) *string {
 		if v == nil {
@@ -11996,6 +12996,7 @@ func (o TopicRuleSnsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the SNS topic.
 func (o TopicRuleSnsActionPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSnsAction) *string {
 		if v == nil {
@@ -12006,9 +13007,12 @@ func (o TopicRuleSnsActionPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleSqsAction struct {
-	QueueUrl  string `pulumi:"queueUrl"`
-	RoleArn   string `pulumi:"roleArn"`
-	UseBase64 *bool  `pulumi:"useBase64"`
+	// The URL of the Amazon SQS queue.
+	QueueUrl string `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 *bool `pulumi:"useBase64"`
 }
 
 // TopicRuleSqsActionInput is an input type that accepts TopicRuleSqsActionArgs and TopicRuleSqsActionOutput values.
@@ -12023,8 +13027,11 @@ type TopicRuleSqsActionInput interface {
 }
 
 type TopicRuleSqsActionArgs struct {
-	QueueUrl  pulumi.StringInput  `pulumi:"queueUrl"`
-	RoleArn   pulumi.StringInput  `pulumi:"roleArn"`
+	// The URL of the Amazon SQS queue.
+	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
 	UseBase64 pulumi.BoolPtrInput `pulumi:"useBase64"`
 }
 
@@ -12105,14 +13112,17 @@ func (o TopicRuleSqsActionOutput) ToTopicRuleSqsActionPtrOutputWithContext(ctx c
 	}).(TopicRuleSqsActionPtrOutput)
 }
 
+// The URL of the Amazon SQS queue.
 func (o TopicRuleSqsActionOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSqsAction) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSqsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSqsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Specifies whether to use Base64 encoding.
 func (o TopicRuleSqsActionOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleSqsAction) *bool { return v.UseBase64 }).(pulumi.BoolPtrOutput)
 }
@@ -12141,6 +13151,7 @@ func (o TopicRuleSqsActionPtrOutput) Elem() TopicRuleSqsActionOutput {
 	}).(TopicRuleSqsActionOutput)
 }
 
+// The URL of the Amazon SQS queue.
 func (o TopicRuleSqsActionPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqsAction) *string {
 		if v == nil {
@@ -12150,6 +13161,7 @@ func (o TopicRuleSqsActionPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role that grants access.
 func (o TopicRuleSqsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqsAction) *string {
 		if v == nil {
@@ -12159,6 +13171,7 @@ func (o TopicRuleSqsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to use Base64 encoding.
 func (o TopicRuleSqsActionPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqsAction) *bool {
 		if v == nil {
@@ -12169,9 +13182,12 @@ func (o TopicRuleSqsActionPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 }
 
 type TopicRuleStepFunctionsAction struct {
+	// (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
 	ExecutionNamePrefix *string `pulumi:"executionNamePrefix"`
-	RoleArn             string  `pulumi:"roleArn"`
-	StateMachineName    string  `pulumi:"stateMachineName"`
+	// The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName string `pulumi:"stateMachineName"`
 }
 
 // TopicRuleStepFunctionsActionInput is an input type that accepts TopicRuleStepFunctionsActionArgs and TopicRuleStepFunctionsActionOutput values.
@@ -12186,9 +13202,12 @@ type TopicRuleStepFunctionsActionInput interface {
 }
 
 type TopicRuleStepFunctionsActionArgs struct {
+	// (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
 	ExecutionNamePrefix pulumi.StringPtrInput `pulumi:"executionNamePrefix"`
-	RoleArn             pulumi.StringInput    `pulumi:"roleArn"`
-	StateMachineName    pulumi.StringInput    `pulumi:"stateMachineName"`
+	// The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Step Functions state machine whose execution will be started.
+	StateMachineName pulumi.StringInput `pulumi:"stateMachineName"`
 }
 
 func (TopicRuleStepFunctionsActionArgs) ElementType() reflect.Type {
@@ -12268,14 +13287,17 @@ func (o TopicRuleStepFunctionsActionOutput) ToTopicRuleStepFunctionsActionPtrOut
 	}).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
+// (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
 func (o TopicRuleStepFunctionsActionOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleStepFunctionsAction) *string { return v.ExecutionNamePrefix }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
 func (o TopicRuleStepFunctionsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleStepFunctionsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the Step Functions state machine whose execution will be started.
 func (o TopicRuleStepFunctionsActionOutput) StateMachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleStepFunctionsAction) string { return v.StateMachineName }).(pulumi.StringOutput)
 }
@@ -12304,6 +13326,7 @@ func (o TopicRuleStepFunctionsActionPtrOutput) Elem() TopicRuleStepFunctionsActi
 	}).(TopicRuleStepFunctionsActionOutput)
 }
 
+// (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
 func (o TopicRuleStepFunctionsActionPtrOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleStepFunctionsAction) *string {
 		if v == nil {
@@ -12313,6 +13336,7 @@ func (o TopicRuleStepFunctionsActionPtrOutput) ExecutionNamePrefix() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
 func (o TopicRuleStepFunctionsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleStepFunctionsAction) *string {
 		if v == nil {
@@ -12322,6 +13346,7 @@ func (o TopicRuleStepFunctionsActionPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Step Functions state machine whose execution will be started.
 func (o TopicRuleStepFunctionsActionPtrOutput) StateMachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleStepFunctionsAction) *string {
 		if v == nil {
@@ -12332,13 +13357,17 @@ func (o TopicRuleStepFunctionsActionPtrOutput) StateMachineName() pulumi.StringP
 }
 
 type TopicRuleTag struct {
-	Key   string `pulumi:"key"`
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
 type TopicRuleTimestamp struct {
-	Unit  *string `pulumi:"unit"`
-	Value string  `pulumi:"value"`
+	// The precision of the timestamp value that results from the expression described in `value` .
+	Unit *string `pulumi:"unit"`
+	// An expression that returns a long epoch time value.
+	Value string `pulumi:"value"`
 }
 
 // TopicRuleTimestampInput is an input type that accepts TopicRuleTimestampArgs and TopicRuleTimestampOutput values.
@@ -12353,8 +13382,10 @@ type TopicRuleTimestampInput interface {
 }
 
 type TopicRuleTimestampArgs struct {
-	Unit  pulumi.StringPtrInput `pulumi:"unit"`
-	Value pulumi.StringInput    `pulumi:"value"`
+	// The precision of the timestamp value that results from the expression described in `value` .
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	// An expression that returns a long epoch time value.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (TopicRuleTimestampArgs) ElementType() reflect.Type {
@@ -12434,10 +13465,12 @@ func (o TopicRuleTimestampOutput) ToTopicRuleTimestampPtrOutputWithContext(ctx c
 	}).(TopicRuleTimestampPtrOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in `value` .
 func (o TopicRuleTimestampOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleTimestamp) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
+// An expression that returns a long epoch time value.
 func (o TopicRuleTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -12466,6 +13499,7 @@ func (o TopicRuleTimestampPtrOutput) Elem() TopicRuleTimestampOutput {
 	}).(TopicRuleTimestampOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in `value` .
 func (o TopicRuleTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestamp) *string {
 		if v == nil {
@@ -12475,6 +13509,7 @@ func (o TopicRuleTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An expression that returns a long epoch time value.
 func (o TopicRuleTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestamp) *string {
 		if v == nil {
@@ -12485,11 +13520,16 @@ func (o TopicRuleTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TopicRuleTimestreamAction struct {
-	DatabaseName string                         `pulumi:"databaseName"`
-	Dimensions   []TopicRuleTimestreamDimension `pulumi:"dimensions"`
-	RoleArn      string                         `pulumi:"roleArn"`
-	TableName    string                         `pulumi:"tableName"`
-	Timestamp    *TopicRuleTimestreamTimestamp  `pulumi:"timestamp"`
+	// The name of an Amazon Timestream database that has the table to write records into.
+	DatabaseName string `pulumi:"databaseName"`
+	// Metadata attributes of the time series that are written in each measure record.
+	Dimensions []TopicRuleTimestreamDimension `pulumi:"dimensions"`
+	// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
+	RoleArn string `pulumi:"roleArn"`
+	// The table where the message data will be written.
+	TableName string `pulumi:"tableName"`
+	// The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
+	Timestamp *TopicRuleTimestreamTimestamp `pulumi:"timestamp"`
 }
 
 // TopicRuleTimestreamActionInput is an input type that accepts TopicRuleTimestreamActionArgs and TopicRuleTimestreamActionOutput values.
@@ -12504,11 +13544,16 @@ type TopicRuleTimestreamActionInput interface {
 }
 
 type TopicRuleTimestreamActionArgs struct {
-	DatabaseName pulumi.StringInput                     `pulumi:"databaseName"`
-	Dimensions   TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
-	RoleArn      pulumi.StringInput                     `pulumi:"roleArn"`
-	TableName    pulumi.StringInput                     `pulumi:"tableName"`
-	Timestamp    TopicRuleTimestreamTimestampPtrInput   `pulumi:"timestamp"`
+	// The name of an Amazon Timestream database that has the table to write records into.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Metadata attributes of the time series that are written in each measure record.
+	Dimensions TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
+	// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The table where the message data will be written.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
+	Timestamp TopicRuleTimestreamTimestampPtrInput `pulumi:"timestamp"`
 }
 
 func (TopicRuleTimestreamActionArgs) ElementType() reflect.Type {
@@ -12588,22 +13633,27 @@ func (o TopicRuleTimestreamActionOutput) ToTopicRuleTimestreamActionPtrOutputWit
 	}).(TopicRuleTimestreamActionPtrOutput)
 }
 
+// The name of an Amazon Timestream database that has the table to write records into.
 func (o TopicRuleTimestreamActionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Metadata attributes of the time series that are written in each measure record.
 func (o TopicRuleTimestreamActionOutput) Dimensions() TopicRuleTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) []TopicRuleTimestreamDimension { return v.Dimensions }).(TopicRuleTimestreamDimensionArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
 func (o TopicRuleTimestreamActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The table where the message data will be written.
 func (o TopicRuleTimestreamActionOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.TableName }).(pulumi.StringOutput)
 }
 
+// The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
 func (o TopicRuleTimestreamActionOutput) Timestamp() TopicRuleTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) *TopicRuleTimestreamTimestamp { return v.Timestamp }).(TopicRuleTimestreamTimestampPtrOutput)
 }
@@ -12632,6 +13682,7 @@ func (o TopicRuleTimestreamActionPtrOutput) Elem() TopicRuleTimestreamActionOutp
 	}).(TopicRuleTimestreamActionOutput)
 }
 
+// The name of an Amazon Timestream database that has the table to write records into.
 func (o TopicRuleTimestreamActionPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *string {
 		if v == nil {
@@ -12641,6 +13692,7 @@ func (o TopicRuleTimestreamActionPtrOutput) DatabaseName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata attributes of the time series that are written in each measure record.
 func (o TopicRuleTimestreamActionPtrOutput) Dimensions() TopicRuleTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) []TopicRuleTimestreamDimension {
 		if v == nil {
@@ -12650,6 +13702,7 @@ func (o TopicRuleTimestreamActionPtrOutput) Dimensions() TopicRuleTimestreamDime
 	}).(TopicRuleTimestreamDimensionArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
 func (o TopicRuleTimestreamActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *string {
 		if v == nil {
@@ -12659,6 +13712,7 @@ func (o TopicRuleTimestreamActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The table where the message data will be written.
 func (o TopicRuleTimestreamActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *string {
 		if v == nil {
@@ -12668,6 +13722,7 @@ func (o TopicRuleTimestreamActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
 func (o TopicRuleTimestreamActionPtrOutput) Timestamp() TopicRuleTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *TopicRuleTimestreamTimestamp {
 		if v == nil {
@@ -12778,7 +13833,9 @@ func (o TopicRuleTimestreamDimensionArrayOutput) Index(i pulumi.IntInput) TopicR
 }
 
 type TopicRuleTimestreamTimestamp struct {
-	Unit  string `pulumi:"unit"`
+	// The precision of the timestamp value that results from the expression described in `value` .
+	Unit string `pulumi:"unit"`
+	// An expression that returns a long epoch time value.
 	Value string `pulumi:"value"`
 }
 
@@ -12794,7 +13851,9 @@ type TopicRuleTimestreamTimestampInput interface {
 }
 
 type TopicRuleTimestreamTimestampArgs struct {
-	Unit  pulumi.StringInput `pulumi:"unit"`
+	// The precision of the timestamp value that results from the expression described in `value` .
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// An expression that returns a long epoch time value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -12875,10 +13934,12 @@ func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampPtrOut
 	}).(TopicRuleTimestreamTimestampPtrOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in `value` .
 func (o TopicRuleTimestreamTimestampOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
 }
 
+// An expression that returns a long epoch time value.
 func (o TopicRuleTimestreamTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -12907,6 +13968,7 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Elem() TopicRuleTimestreamTimesta
 	}).(TopicRuleTimestreamTimestampOutput)
 }
 
+// The precision of the timestamp value that results from the expression described in `value` .
 func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {
@@ -12916,6 +13978,7 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An expression that returns a long epoch time value.
 func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {

@@ -35,6 +35,9 @@ class GetDestinationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
+        """
         return pulumi.get(self, "arn")
 
     @property

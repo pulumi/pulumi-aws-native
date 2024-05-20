@@ -16,11 +16,17 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationMssPackage
     {
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationMssEncryption? Encryption;
         /// <summary>
         /// A list of MSS manifest configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.PackagingConfigurationMssManifest> MssManifests;
+        /// <summary>
+        /// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+        /// </summary>
         public readonly int? SegmentDurationSeconds;
 
         [OutputConstructor]

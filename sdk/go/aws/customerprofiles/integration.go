@@ -20,7 +20,8 @@ type Integration struct {
 	// The time of this integration got created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The unique name of the domain.
-	DomainName     pulumi.StringOutput                `pulumi:"domainName"`
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition IntegrationFlowDefinitionPtrOutput `pulumi:"flowDefinition"`
 	// The time of this integration got last updated at
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
@@ -83,7 +84,8 @@ func (IntegrationState) ElementType() reflect.Type {
 
 type integrationArgs struct {
 	// The unique name of the domain.
-	DomainName     string                     `pulumi:"domainName"`
+	DomainName string `pulumi:"domainName"`
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition *IntegrationFlowDefinition `pulumi:"flowDefinition"`
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
 	ObjectTypeName *string `pulumi:"objectTypeName"`
@@ -98,7 +100,8 @@ type integrationArgs struct {
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
 	// The unique name of the domain.
-	DomainName     pulumi.StringInput
+	DomainName pulumi.StringInput
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition IntegrationFlowDefinitionPtrInput
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
 	ObjectTypeName pulumi.StringPtrInput
@@ -157,6 +160,7 @@ func (o IntegrationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// The configuration that controls how Customer Profiles retrieves data from the source.
 func (o IntegrationOutput) FlowDefinition() IntegrationFlowDefinitionPtrOutput {
 	return o.ApplyT(func(v *Integration) IntegrationFlowDefinitionPtrOutput { return v.FlowDefinition }).(IntegrationFlowDefinitionPtrOutput)
 }

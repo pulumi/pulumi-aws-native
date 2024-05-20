@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainOffPeakWindow
     {
+        /// <summary>
+        /// The desired start time for an off-peak maintenance window.
+        /// </summary>
         public readonly Outputs.DomainWindowStartTime? WindowStartTime;
 
         [OutputConstructor]

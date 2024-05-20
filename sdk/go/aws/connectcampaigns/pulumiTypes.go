@@ -314,8 +314,11 @@ func (o CampaignAnswerMachineDetectionConfigPtrOutput) EnableAnswerMachineDetect
 
 // The possible types of dialer config parameters
 type CampaignDialerConfig struct {
-	AgentlessDialerConfig   *CampaignAgentlessDialerConfig   `pulumi:"agentlessDialerConfig"`
-	PredictiveDialerConfig  *CampaignPredictiveDialerConfig  `pulumi:"predictiveDialerConfig"`
+	// The configuration of the agentless dialer.
+	AgentlessDialerConfig *CampaignAgentlessDialerConfig `pulumi:"agentlessDialerConfig"`
+	// The configuration of the predictive dialer.
+	PredictiveDialerConfig *CampaignPredictiveDialerConfig `pulumi:"predictiveDialerConfig"`
+	// The configuration of the progressive dialer.
 	ProgressiveDialerConfig *CampaignProgressiveDialerConfig `pulumi:"progressiveDialerConfig"`
 }
 
@@ -332,8 +335,11 @@ type CampaignDialerConfigInput interface {
 
 // The possible types of dialer config parameters
 type CampaignDialerConfigArgs struct {
-	AgentlessDialerConfig   CampaignAgentlessDialerConfigPtrInput   `pulumi:"agentlessDialerConfig"`
-	PredictiveDialerConfig  CampaignPredictiveDialerConfigPtrInput  `pulumi:"predictiveDialerConfig"`
+	// The configuration of the agentless dialer.
+	AgentlessDialerConfig CampaignAgentlessDialerConfigPtrInput `pulumi:"agentlessDialerConfig"`
+	// The configuration of the predictive dialer.
+	PredictiveDialerConfig CampaignPredictiveDialerConfigPtrInput `pulumi:"predictiveDialerConfig"`
+	// The configuration of the progressive dialer.
 	ProgressiveDialerConfig CampaignProgressiveDialerConfigPtrInput `pulumi:"progressiveDialerConfig"`
 }
 
@@ -364,14 +370,17 @@ func (o CampaignDialerConfigOutput) ToCampaignDialerConfigOutputWithContext(ctx 
 	return o
 }
 
+// The configuration of the agentless dialer.
 func (o CampaignDialerConfigOutput) AgentlessDialerConfig() CampaignAgentlessDialerConfigPtrOutput {
 	return o.ApplyT(func(v CampaignDialerConfig) *CampaignAgentlessDialerConfig { return v.AgentlessDialerConfig }).(CampaignAgentlessDialerConfigPtrOutput)
 }
 
+// The configuration of the predictive dialer.
 func (o CampaignDialerConfigOutput) PredictiveDialerConfig() CampaignPredictiveDialerConfigPtrOutput {
 	return o.ApplyT(func(v CampaignDialerConfig) *CampaignPredictiveDialerConfig { return v.PredictiveDialerConfig }).(CampaignPredictiveDialerConfigPtrOutput)
 }
 
+// The configuration of the progressive dialer.
 func (o CampaignDialerConfigOutput) ProgressiveDialerConfig() CampaignProgressiveDialerConfigPtrOutput {
 	return o.ApplyT(func(v CampaignDialerConfig) *CampaignProgressiveDialerConfig { return v.ProgressiveDialerConfig }).(CampaignProgressiveDialerConfigPtrOutput)
 }
@@ -400,6 +409,7 @@ func (o CampaignDialerConfigPtrOutput) Elem() CampaignDialerConfigOutput {
 	}).(CampaignDialerConfigOutput)
 }
 
+// The configuration of the agentless dialer.
 func (o CampaignDialerConfigPtrOutput) AgentlessDialerConfig() CampaignAgentlessDialerConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignAgentlessDialerConfig {
 		if v == nil {
@@ -409,6 +419,7 @@ func (o CampaignDialerConfigPtrOutput) AgentlessDialerConfig() CampaignAgentless
 	}).(CampaignAgentlessDialerConfigPtrOutput)
 }
 
+// The configuration of the predictive dialer.
 func (o CampaignDialerConfigPtrOutput) PredictiveDialerConfig() CampaignPredictiveDialerConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignPredictiveDialerConfig {
 		if v == nil {
@@ -418,6 +429,7 @@ func (o CampaignDialerConfigPtrOutput) PredictiveDialerConfig() CampaignPredicti
 	}).(CampaignPredictiveDialerConfigPtrOutput)
 }
 
+// The configuration of the progressive dialer.
 func (o CampaignDialerConfigPtrOutput) ProgressiveDialerConfig() CampaignProgressiveDialerConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignDialerConfig) *CampaignProgressiveDialerConfig {
 		if v == nil {
@@ -429,6 +441,7 @@ func (o CampaignDialerConfigPtrOutput) ProgressiveDialerConfig() CampaignProgres
 
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfig struct {
+	// Whether answering machine detection has been enabled.
 	AnswerMachineDetectionConfig *CampaignAnswerMachineDetectionConfig `pulumi:"answerMachineDetectionConfig"`
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn string `pulumi:"connectContactFlowArn"`
@@ -451,6 +464,7 @@ type CampaignOutboundCallConfigInput interface {
 
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfigArgs struct {
+	// Whether answering machine detection has been enabled.
 	AnswerMachineDetectionConfig CampaignAnswerMachineDetectionConfigPtrInput `pulumi:"answerMachineDetectionConfig"`
 	// The identifier of the contact flow for the outbound call.
 	ConnectContactFlowArn pulumi.StringInput `pulumi:"connectContactFlowArn"`
@@ -487,6 +501,7 @@ func (o CampaignOutboundCallConfigOutput) ToCampaignOutboundCallConfigOutputWith
 	return o
 }
 
+// Whether answering machine detection has been enabled.
 func (o CampaignOutboundCallConfigOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
 	return o.ApplyT(func(v CampaignOutboundCallConfig) *CampaignAnswerMachineDetectionConfig {
 		return v.AnswerMachineDetectionConfig
@@ -532,6 +547,7 @@ func (o CampaignOutboundCallConfigPtrOutput) Elem() CampaignOutboundCallConfigOu
 	}).(CampaignOutboundCallConfigOutput)
 }
 
+// Whether answering machine detection has been enabled.
 func (o CampaignOutboundCallConfigPtrOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignOutboundCallConfig) *CampaignAnswerMachineDetectionConfig {
 		if v == nil {

@@ -23,6 +23,7 @@ class IpamResourceDiscoveryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamResourceDiscovery resource.
+        :param pulumi.Input[str] description: The resource discovery description.
         :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]] operating_regions: The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -36,6 +37,9 @@ class IpamResourceDiscoveryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource discovery description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -81,6 +85,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The resource discovery description.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamResourceDiscoveryIpamOperatingRegionArgs']]]] operating_regions: The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -165,6 +170,9 @@ class IpamResourceDiscovery(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource discovery description.
+        """
         return pulumi.get(self, "description")
 
     @property

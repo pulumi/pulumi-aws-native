@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeTag
     {
+        /// <summary>
+        /// The key of the key-value pair.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the key-value pair.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

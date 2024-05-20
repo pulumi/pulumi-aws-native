@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDateTimeFormatConfiguration
     {
+        /// <summary>
+        /// Determines the `DateTime` format.
+        /// </summary>
         public readonly string? DateTimeFormat;
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         public readonly Outputs.AnalysisNullValueFormatConfiguration? NullValueFormatConfiguration;
+        /// <summary>
+        /// The formatting configuration for numeric `DateTime` fields.
+        /// </summary>
         public readonly Outputs.AnalysisNumericFormatConfiguration? NumericFormatConfiguration;
 
         [OutputConstructor]

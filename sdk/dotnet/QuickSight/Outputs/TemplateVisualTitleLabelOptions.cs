@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateVisualTitleLabelOptions
     {
+        /// <summary>
+        /// The short text format of the title label, such as plain text or rich text.
+        /// </summary>
         public readonly Outputs.TemplateShortFormatText? FormatText;
+        /// <summary>
+        /// The visibility of the title label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

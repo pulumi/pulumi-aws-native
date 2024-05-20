@@ -23,12 +23,14 @@ func LookupStudioComponent(ctx *pulumi.Context, args *LookupStudioComponentArgs,
 }
 
 type LookupStudioComponentArgs struct {
+	// The unique identifier for the studio component resource.
 	StudioComponentId string `pulumi:"studioComponentId"`
 	// <p>The studio ID. </p>
 	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStudioComponentResult struct {
+	// The configuration of the studio component, based on component type.
 	Configuration interface{} `pulumi:"configuration"`
 	// <p>The description.</p>
 	Description *string `pulumi:"description"`
@@ -37,13 +39,17 @@ type LookupStudioComponentResult struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name           *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 	RuntimeRoleArn *string `pulumi:"runtimeRoleArn"`
 	// <p>Parameters for the studio component scripts.</p>
-	ScriptParameters            []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	SecureInitializationRoleArn *string                                  `pulumi:"secureInitializationRoleArn"`
-	StudioComponentId           *string                                  `pulumi:"studioComponentId"`
-	Type                        *StudioComponentType                     `pulumi:"type"`
+	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+	SecureInitializationRoleArn *string `pulumi:"secureInitializationRoleArn"`
+	// The unique identifier for the studio component resource.
+	StudioComponentId *string `pulumi:"studioComponentId"`
+	// The type of the studio component.
+	Type *StudioComponentType `pulumi:"type"`
 }
 
 func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponentOutputArgs, opts ...pulumi.InvokeOption) LookupStudioComponentResultOutput {
@@ -60,6 +66,7 @@ func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponent
 }
 
 type LookupStudioComponentOutputArgs struct {
+	// The unique identifier for the studio component resource.
 	StudioComponentId pulumi.StringInput `pulumi:"studioComponentId"`
 	// <p>The studio ID. </p>
 	StudioId pulumi.StringInput `pulumi:"studioId"`
@@ -83,6 +90,7 @@ func (o LookupStudioComponentResultOutput) ToLookupStudioComponentResultOutputWi
 	return o
 }
 
+// The configuration of the studio component, based on component type.
 func (o LookupStudioComponentResultOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
@@ -109,6 +117,7 @@ func (o LookupStudioComponentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
 func (o LookupStudioComponentResultOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -120,14 +129,17 @@ func (o LookupStudioComponentResultOutput) ScriptParameters() StudioComponentScr
 	}).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
+// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
 func (o LookupStudioComponentResultOutput) SecureInitializationRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.SecureInitializationRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the studio component resource.
 func (o LookupStudioComponentResultOutput) StudioComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *string { return v.StudioComponentId }).(pulumi.StringPtrOutput)
 }
 
+// The type of the studio component.
 func (o LookupStudioComponentResultOutput) Type() StudioComponentTypePtrOutput {
 	return o.ApplyT(func(v LookupStudioComponentResult) *StudioComponentType { return v.Type }).(StudioComponentTypePtrOutput)
 }

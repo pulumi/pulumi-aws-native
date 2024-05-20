@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicNamedEntityDefinition
     {
+        /// <summary>
+        /// The name of the entity.
+        /// </summary>
         public readonly string? FieldName;
+        /// <summary>
+        /// The definition of a metric.
+        /// </summary>
         public readonly Outputs.TopicNamedEntityDefinitionMetric? Metric;
+        /// <summary>
+        /// The property name to be used for the named entity.
+        /// </summary>
         public readonly string? PropertyName;
+        /// <summary>
+        /// The property role. Valid values for this structure are `PRIMARY` and `ID` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicPropertyRole? PropertyRole;
+        /// <summary>
+        /// The property usage. Valid values for this structure are `INHERIT` , `DIMENSION` , and `MEASURE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicPropertyUsage? PropertyUsage;
 
         [OutputConstructor]

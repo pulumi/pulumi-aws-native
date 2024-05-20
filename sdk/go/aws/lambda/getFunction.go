@@ -38,7 +38,8 @@ type LookupFunctionArgs struct {
 type LookupFunctionResult struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
-	Arn           *string                     `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the function.
+	Arn *string `pulumi:"arn"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
@@ -128,6 +129,7 @@ func (o LookupFunctionResultOutput) Architectures() FunctionArchitecturesItemArr
 	return o.ApplyT(func(v LookupFunctionResult) []FunctionArchitecturesItem { return v.Architectures }).(FunctionArchitecturesItemArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

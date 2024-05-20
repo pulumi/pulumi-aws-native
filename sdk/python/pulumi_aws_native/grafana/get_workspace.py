@@ -94,6 +94,9 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> Optional['WorkspaceAccountAccessType']:
+        """
+        Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
+        """
         return pulumi.get(self, "account_access_type")
 
     @property
@@ -171,6 +174,9 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="networkAccessControl")
     def network_access_control(self) -> Optional['outputs.WorkspaceNetworkAccessControl']:
+        """
+        The configuration settings for network access to your workspace.
+        """
         return pulumi.get(self, "network_access_control")
 
     @property
@@ -200,6 +206,15 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> Optional['WorkspacePermissionType']:
+        """
+        If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+
+        If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+
+        If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+
+        For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+        """
         return pulumi.get(self, "permission_type")
 
     @property
@@ -221,11 +236,21 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="samlConfiguration")
     def saml_configuration(self) -> Optional['outputs.WorkspaceSamlConfiguration']:
+        """
+        If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
+        """
         return pulumi.get(self, "saml_configuration")
 
     @property
     @pulumi.getter(name="samlConfigurationStatus")
     def saml_configuration_status(self) -> Optional['WorkspaceSamlConfigurationStatus']:
+        """
+        Specifies whether the workspace's SAML configuration is complete.
+
+        Valid values: `CONFIGURED | NOT_CONFIGURED`
+
+        Type: String
+        """
         return pulumi.get(self, "saml_configuration_status")
 
     @property
@@ -247,11 +272,23 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['WorkspaceStatus']:
+        """
+        The current status of the workspace.
+
+        Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+
+        Type: String
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.WorkspaceVpcConfiguration']:
+        """
+        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+
+        > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
+        """
         return pulumi.get(self, "vpc_configuration")
 
 

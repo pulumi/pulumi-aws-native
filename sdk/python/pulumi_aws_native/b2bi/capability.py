@@ -26,6 +26,11 @@ class CapabilityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
+        :param pulumi.Input['CapabilityConfigurationPropertiesArgs'] configuration: Specifies a structure that contains the details for a capability.
+        :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        :param pulumi.Input[str] name: The display name of the capability.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "type", type)
@@ -39,6 +44,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input['CapabilityConfigurationPropertiesArgs']:
+        """
+        Specifies a structure that contains the details for a capability.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -48,6 +56,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['CapabilityType']:
+        """
+        Returns the type of the capability. Currently, only `edi` is supported.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -57,6 +68,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]:
+        """
+        Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        """
         return pulumi.get(self, "instructions_documents")
 
     @instructions_documents.setter
@@ -66,6 +80,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the capability.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -75,6 +92,9 @@ class CapabilityArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -98,6 +118,11 @@ class Capability(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CapabilityConfigurationPropertiesArgs']] configuration: Specifies a structure that contains the details for a capability.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityS3LocationArgs']]]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        :param pulumi.Input[str] name: The display name of the capability.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
         """
         ...
     @overload
@@ -188,45 +213,72 @@ class Capability(pulumi.CustomResource):
     @property
     @pulumi.getter(name="capabilityArn")
     def capability_arn(self) -> pulumi.Output[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        """
         return pulumi.get(self, "capability_arn")
 
     @property
     @pulumi.getter(name="capabilityId")
     def capability_id(self) -> pulumi.Output[str]:
+        """
+        Returns a system-assigned unique identifier for the capability.
+        """
         return pulumi.get(self, "capability_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.CapabilityConfigurationProperties']:
+        """
+        Specifies a structure that contains the details for a capability.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp for creation date and time of the capability.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> pulumi.Output[Optional[Sequence['outputs.CapabilityS3Location']]]:
+        """
+        Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        """
         return pulumi.get(self, "instructions_documents")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The display name of the capability.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['CapabilityType']:
+        """
+        Returns the type of the capability. Currently, only `edi` is supported.
+        """
         return pulumi.get(self, "type")
 

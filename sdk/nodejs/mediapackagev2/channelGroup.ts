@@ -41,6 +41,9 @@ export class ChannelGroup extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the channel group.
+     */
     public readonly channelGroupName!: pulumi.Output<string>;
     /**
      * <p>The date and time the channel group was created.</p>
@@ -58,6 +61,9 @@ export class ChannelGroup extends pulumi.CustomResource {
      * <p>The date and time the channel group was modified.</p>
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The tags associated with the channel group.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -98,10 +104,16 @@ export class ChannelGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ChannelGroup resource.
  */
 export interface ChannelGroupArgs {
+    /**
+     * The name of the channel group.
+     */
     channelGroupName?: pulumi.Input<string>;
     /**
      * <p>Enter any descriptive text that helps you to identify the channel group.</p>
      */
     description?: pulumi.Input<string>;
+    /**
+     * The tags associated with the channel group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

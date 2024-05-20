@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 
     public sealed class DetectorModelSqsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// You can configure the action payload when you send a message to an Amazon SQS queue.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
 

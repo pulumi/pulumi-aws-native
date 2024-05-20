@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:User")]
     public partial class User : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::User` resource. For example: `arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

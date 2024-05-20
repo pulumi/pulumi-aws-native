@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class QueueWindowsUser
     {
+        /// <summary>
+        /// The password ARN for the Windows user.
+        /// </summary>
         public readonly string PasswordArn;
+        /// <summary>
+        /// The user.
+        /// </summary>
         public readonly string User;
 
         [OutputConstructor]

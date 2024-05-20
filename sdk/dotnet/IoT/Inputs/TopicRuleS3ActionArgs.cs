@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleS3ActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+        /// </summary>
         [Input("cannedAcl")]
         public Input<Pulumi.AwsNative.IoT.TopicRuleCannedAccessControlList>? CannedAcl { get; set; }
 
+        /// <summary>
+        /// The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM role that grants access.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

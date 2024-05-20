@@ -13,11 +13,33 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupMatchAttributes
     {
+        /// <summary>
+        /// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        /// 
+        /// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupPortRange> DestinationPorts;
+        /// <summary>
+        /// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupAddress> Destinations;
+        /// <summary>
+        /// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        /// </summary>
         public readonly ImmutableArray<int> Protocols;
+        /// <summary>
+        /// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        /// 
+        /// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupPortRange> SourcePorts;
+        /// <summary>
+        /// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupAddress> Sources;
+        /// <summary>
+        /// The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupTcpFlagField> TcpFlags;
 
         [OutputConstructor]

@@ -16,8 +16,11 @@ import (
 type ResponseHeadersPolicy struct {
 	pulumi.CustomResourceState
 
-	AwsId                       pulumi.StringOutput               `pulumi:"awsId"`
-	LastModifiedTime            pulumi.StringOutput               `pulumi:"lastModifiedTime"`
+	// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The date and time when the response headers policy was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// A response headers policy configuration.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfigOutput `pulumi:"responseHeadersPolicyConfig"`
 }
 
@@ -64,11 +67,13 @@ func (ResponseHeadersPolicyState) ElementType() reflect.Type {
 }
 
 type responseHeadersPolicyArgs struct {
+	// A response headers policy configuration.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfig `pulumi:"responseHeadersPolicyConfig"`
 }
 
 // The set of arguments for constructing a ResponseHeadersPolicy resource.
 type ResponseHeadersPolicyArgs struct {
+	// A response headers policy configuration.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfigInput
 }
 
@@ -109,14 +114,17 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ct
 	return o
 }
 
+// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
 func (o ResponseHeadersPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The date and time when the response headers policy was last modified.
 func (o ResponseHeadersPolicyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// A response headers policy configuration.
 func (o ResponseHeadersPolicyOutput) ResponseHeadersPolicyConfig() ResponseHeadersPolicyConfigOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyConfigOutput { return v.ResponseHeadersPolicyConfig }).(ResponseHeadersPolicyConfigOutput)
 }

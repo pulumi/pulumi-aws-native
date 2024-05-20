@@ -23,12 +23,16 @@ func LookupOriginRequestPolicy(ctx *pulumi.Context, args *LookupOriginRequestPol
 }
 
 type LookupOriginRequestPolicyArgs struct {
+	// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
 	Id string `pulumi:"id"`
 }
 
 type LookupOriginRequestPolicyResult struct {
-	Id                        *string                    `pulumi:"id"`
-	LastModifiedTime          *string                    `pulumi:"lastModifiedTime"`
+	// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+	Id *string `pulumi:"id"`
+	// The date and time when the origin request policy was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The origin request policy configuration.
 	OriginRequestPolicyConfig *OriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
 }
 
@@ -46,6 +50,7 @@ func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginReque
 }
 
 type LookupOriginRequestPolicyOutputArgs struct {
+	// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResult
 	return o
 }
 
+// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
 func (o LookupOriginRequestPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the origin request policy was last modified.
 func (o LookupOriginRequestPolicyResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// The origin request policy configuration.
 func (o LookupOriginRequestPolicyResultOutput) OriginRequestPolicyConfig() OriginRequestPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *OriginRequestPolicyConfig { return v.OriginRequestPolicyConfig }).(OriginRequestPolicyConfigPtrOutput)
 }

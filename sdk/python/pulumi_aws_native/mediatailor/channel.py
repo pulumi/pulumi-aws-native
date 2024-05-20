@@ -31,8 +31,18 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]] outputs: <p>The channel's output properties.</p>
+        :param pulumi.Input['ChannelPlaybackMode'] playback_mode: The type of playback mode for this channel.
+               
+               `LINEAR` - Programs play back-to-back only once.
+               
+               `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: <p>The list of audiences defined in channel.</p>
+        :param pulumi.Input[str] channel_name: The name of the channel.
+        :param pulumi.Input['ChannelSlateSourceArgs'] filler_slate: The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        :param pulumi.Input['ChannelLogConfigurationForChannelArgs'] log_configuration: The log configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the channel.
+        :param pulumi.Input['ChannelTier'] tier: The tier for this channel. STANDARD tier channels can contain live programs.
+        :param pulumi.Input['ChannelTimeShiftConfigurationArgs'] time_shift_configuration: The configuration for time-shifted viewing.
         """
         pulumi.set(__self__, "outputs", outputs)
         pulumi.set(__self__, "playback_mode", playback_mode)
@@ -66,6 +76,13 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="playbackMode")
     def playback_mode(self) -> pulumi.Input['ChannelPlaybackMode']:
+        """
+        The type of playback mode for this channel.
+
+        `LINEAR` - Programs play back-to-back only once.
+
+        `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+        """
         return pulumi.get(self, "playback_mode")
 
     @playback_mode.setter
@@ -87,6 +104,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -96,6 +116,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="fillerSlate")
     def filler_slate(self) -> Optional[pulumi.Input['ChannelSlateSourceArgs']]:
+        """
+        The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        """
         return pulumi.get(self, "filler_slate")
 
     @filler_slate.setter
@@ -105,6 +128,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']]:
+        """
+        The log configuration.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -126,6 +152,9 @@ class ChannelArgs:
     @property
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input['ChannelTier']]:
+        """
+        The tier for this channel. STANDARD tier channels can contain live programs.
+        """
         return pulumi.get(self, "tier")
 
     @tier.setter
@@ -135,6 +164,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="timeShiftConfiguration")
     def time_shift_configuration(self) -> Optional[pulumi.Input['ChannelTimeShiftConfigurationArgs']]:
+        """
+        The configuration for time-shifted viewing.
+        """
         return pulumi.get(self, "time_shift_configuration")
 
     @time_shift_configuration.setter
@@ -163,8 +195,18 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: <p>The list of audiences defined in channel.</p>
+        :param pulumi.Input[str] channel_name: The name of the channel.
+        :param pulumi.Input[pulumi.InputType['ChannelSlateSourceArgs']] filler_slate: The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']] log_configuration: The log configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelRequestOutputItemArgs']]]] outputs: <p>The channel's output properties.</p>
+        :param pulumi.Input['ChannelPlaybackMode'] playback_mode: The type of playback mode for this channel.
+               
+               `LINEAR` - Programs play back-to-back only once.
+               
+               `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the channel.
+        :param pulumi.Input['ChannelTier'] tier: The tier for this channel. STANDARD tier channels can contain live programs.
+        :param pulumi.Input[pulumi.InputType['ChannelTimeShiftConfigurationArgs']] time_shift_configuration: The configuration for time-shifted viewing.
         """
         ...
     @overload
@@ -277,16 +319,25 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="fillerSlate")
     def filler_slate(self) -> pulumi.Output[Optional['outputs.ChannelSlateSource']]:
+        """
+        The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        """
         return pulumi.get(self, "filler_slate")
 
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.ChannelLogConfigurationForChannel']]:
+        """
+        The log configuration.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property
@@ -300,6 +351,13 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="playbackMode")
     def playback_mode(self) -> pulumi.Output['ChannelPlaybackMode']:
+        """
+        The type of playback mode for this channel.
+
+        `LINEAR` - Programs play back-to-back only once.
+
+        `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+        """
         return pulumi.get(self, "playback_mode")
 
     @property
@@ -313,10 +371,16 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tier(self) -> pulumi.Output[Optional['ChannelTier']]:
+        """
+        The tier for this channel. STANDARD tier channels can contain live programs.
+        """
         return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter(name="timeShiftConfiguration")
     def time_shift_configuration(self) -> pulumi.Output[Optional['outputs.ChannelTimeShiftConfiguration']]:
+        """
+        The configuration for time-shifted viewing.
+        """
         return pulumi.get(self, "time_shift_configuration")
 

@@ -67,6 +67,9 @@ class GetCrlResult:
     @property
     @pulumi.getter(name="trustAnchorArn")
     def trust_anchor_arn(self) -> Optional[str]:
+        """
+        The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        """
         return pulumi.get(self, "trust_anchor_arn")
 
 

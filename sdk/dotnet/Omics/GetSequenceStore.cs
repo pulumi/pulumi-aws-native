@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetSequenceStoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Input("sequenceStoreId", required: true)]
         public string SequenceStoreId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetSequenceStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Input("sequenceStoreId", required: true)]
         public Input<string> SequenceStoreId { get; set; } = null!;
 
@@ -59,6 +65,9 @@ namespace Pulumi.AwsNative.Omics
         /// When the store was created.
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         public readonly string? SequenceStoreId;
 
         [OutputConstructor]

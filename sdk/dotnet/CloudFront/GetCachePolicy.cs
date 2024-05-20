@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCachePolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetCachePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetCachePolicyResult
     {
+        /// <summary>
+        /// The cache policy configuration.
+        /// </summary>
         public readonly Outputs.CachePolicyConfig? CachePolicyConfig;
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time when the cache policy was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
 
         [OutputConstructor]

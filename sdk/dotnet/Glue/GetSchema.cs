@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Glue
         /// Amazon Resource Name for the Schema.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
+        /// </summary>
         public readonly Outputs.SchemaVersion? CheckpointVersion;
         /// <summary>
         /// Compatibility setting for the schema.

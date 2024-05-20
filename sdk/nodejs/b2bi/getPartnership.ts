@@ -19,17 +19,44 @@ export function getPartnership(args: GetPartnershipArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetPartnershipArgs {
+    /**
+     * Returns the unique, system-generated identifier for a partnership.
+     */
     partnershipId: string;
 }
 
 export interface GetPartnershipResult {
+    /**
+     * Returns one or more capabilities associated with this partnership.
+     */
     readonly capabilities?: string[];
+    /**
+     * Returns a timestamp for creation date and time of the partnership.
+     */
     readonly createdAt?: string;
+    /**
+     * Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+     */
     readonly modifiedAt?: string;
+    /**
+     * Returns the name of the partnership.
+     */
     readonly name?: string;
+    /**
+     * Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+     */
     readonly partnershipArn?: string;
+    /**
+     * Returns the unique, system-generated identifier for a partnership.
+     */
     readonly partnershipId?: string;
+    /**
+     * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * Returns the unique, system-generated identifier for a trading partner.
+     */
     readonly tradingPartnerId?: string;
 }
 /**
@@ -40,5 +67,8 @@ export function getPartnershipOutput(args: GetPartnershipOutputArgs, opts?: pulu
 }
 
 export interface GetPartnershipOutputArgs {
+    /**
+     * Returns the unique, system-generated identifier for a partnership.
+     */
     partnershipId: pulumi.Input<string>;
 }

@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [AwsNativeResourceType("aws-native:paymentcryptography:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+        /// 
+        /// &gt; Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        /// </summary>
         [Output("aliasName")]
         public Output<string> AliasName { get; private set; } = null!;
 
+        /// <summary>
+        /// The `KeyARN` of the key associated with the alias.
+        /// </summary>
         [Output("keyArn")]
         public Output<string?> KeyArn { get; private set; } = null!;
 
@@ -70,9 +78,17 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+        /// 
+        /// &gt; Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
 
+        /// <summary>
+        /// The `KeyARN` of the key associated with the alias.
+        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 

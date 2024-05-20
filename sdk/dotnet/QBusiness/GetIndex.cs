@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetIndexArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application using the index.
+        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for the index.
+        /// </summary>
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application using the index.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for the index.
+        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
@@ -57,16 +69,48 @@ namespace Pulumi.AwsNative.QBusiness
     [OutputType]
     public sealed class GetIndexResult
     {
+        /// <summary>
+        /// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        /// </summary>
         public readonly Outputs.IndexCapacityConfiguration? CapacityConfiguration;
+        /// <summary>
+        /// The Unix timestamp when the index was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// A description for the Amazon Q Business index.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+        /// 
+        /// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.IndexDocumentAttributeConfiguration> DocumentAttributeConfigurations;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an Amazon Q Business index.
+        /// </summary>
         public readonly string? IndexArn;
+        /// <summary>
+        /// The identifier for the index.
+        /// </summary>
         public readonly string? IndexId;
         public readonly Outputs.IndexStatistics? IndexStatistics;
+        /// <summary>
+        /// The current status of the index. When the status is `ACTIVE` , the index is ready.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.IndexStatus? Status;
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The Unix timestamp when the index was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

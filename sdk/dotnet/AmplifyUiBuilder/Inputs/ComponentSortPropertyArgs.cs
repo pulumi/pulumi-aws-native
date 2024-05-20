@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentSortPropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The direction of the sort, either ascending or descending.
+        /// </summary>
         [Input("direction", required: true)]
         public Input<Pulumi.AwsNative.AmplifyUiBuilder.ComponentSortDirection> Direction { get; set; } = null!;
 
+        /// <summary>
+        /// The field to perform the sort on.
+        /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 

@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateVisualPaletteArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The chart color options for the visual palette.
+        /// </summary>
         [Input("chartColor")]
         public Input<string>? ChartColor { get; set; }
 
         [Input("colorMap")]
         private InputList<Inputs.TemplateDataPathColorArgs>? _colorMap;
+
+        /// <summary>
+        /// The color map options for the visual palette.
+        /// </summary>
         public InputList<Inputs.TemplateDataPathColorArgs> ColorMap
         {
             get => _colorMap ?? (_colorMap = new InputList<Inputs.TemplateDataPathColorArgs>());

@@ -320,6 +320,9 @@ class FlowS3ConnectorOperator(str, Enum):
 
 
 class FlowS3InputFormatConfigS3InputFileType(str, Enum):
+    """
+    The file type that Amazon AppFlow gets from your Amazon S3 bucket.
+    """
     CSV = "CSV"
     JSON = "JSON"
 
@@ -373,6 +376,9 @@ class FlowSapoDataConnectorOperator(str, Enum):
 
 
 class FlowScheduledTriggerPropertiesDataPullMode(str, Enum):
+    """
+    Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+    """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
 

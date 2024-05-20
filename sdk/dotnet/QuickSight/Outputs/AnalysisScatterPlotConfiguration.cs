@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScatterPlotConfiguration
     {
+        /// <summary>
+        /// The options that determine if visual data labels are displayed.
+        /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisScatterPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
+        /// <summary>
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? XAxisLabelOptions;
+        /// <summary>
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
+        /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? YAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
+        /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? YAxisLabelOptions;
 
         [OutputConstructor]

@@ -34,10 +34,22 @@ class AnalysisArgs:
                  validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None):
         """
         The set of arguments for constructing a Analysis resource.
+        :param pulumi.Input[str] analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        :param pulumi.Input[str] aws_account_id: The ID of the AWS account where you are creating an analysis.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
         :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
+        :param pulumi.Input['AnalysisParametersArgs'] parameters: The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+               
+               To specify no permissions, omit `Permissions` .
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        :param pulumi.Input['AnalysisResourceStatus'] status: Status associated with the analysis.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
         :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
+        :param pulumi.Input['AnalysisValidationStrategyArgs'] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -67,6 +79,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Input[str]:
+        """
+        The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        """
         return pulumi.get(self, "analysis_id")
 
     @analysis_id.setter
@@ -76,6 +91,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AWS account where you are creating an analysis.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -118,6 +136,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['AnalysisParametersArgs']]:
+        """
+        The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -127,6 +148,11 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]:
+        """
+        A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+
+        To specify no permissions, omit `Permissions` .
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -148,6 +174,11 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
+        """
+        A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -157,6 +188,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['AnalysisResourceStatus']]:
+        """
+        Status associated with the analysis.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -166,6 +200,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -187,6 +224,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="validationStrategy")
     def validation_strategy(self) -> Optional[pulumi.Input['AnalysisValidationStrategyArgs']]:
+        """
+        The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        """
         return pulumi.get(self, "validation_strategy")
 
     @validation_strategy.setter
@@ -218,10 +258,22 @@ class Analysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        :param pulumi.Input[str] aws_account_id: The ID of the AWS account where you are creating an analysis.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
         :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
+        :param pulumi.Input[pulumi.InputType['AnalysisParametersArgs']] parameters: The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+               
+               To specify no permissions, omit `Permissions` .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']] source_entity: A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        :param pulumi.Input['AnalysisResourceStatus'] status: Status associated with the analysis.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
         :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
+        :param pulumi.Input[pulumi.InputType['AnalysisValidationStrategyArgs']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         """
         ...
     @overload
@@ -336,6 +388,9 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        """
         return pulumi.get(self, "analysis_id")
 
     @property
@@ -349,6 +404,9 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS account where you are creating an analysis.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
@@ -399,11 +457,19 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional['outputs.AnalysisParameters']]:
+        """
+        The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisResourcePermission']]]:
+        """
+        A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+
+        To specify no permissions, omit `Permissions` .
+        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -417,16 +483,27 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
+        """
+        A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        """
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['AnalysisResourceStatus']]:
+        """
+        Status associated with the analysis.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -440,5 +517,8 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="validationStrategy")
     def validation_strategy(self) -> pulumi.Output[Optional['outputs.AnalysisValidationStrategy']]:
+        """
+        The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        """
         return pulumi.get(self, "validation_strategy")
 

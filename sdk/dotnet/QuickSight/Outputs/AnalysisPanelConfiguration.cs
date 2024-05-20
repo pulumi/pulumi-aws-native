@@ -13,20 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPanelConfiguration
     {
+        /// <summary>
+        /// Sets the background color for each panel.
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// Determines whether or not a background for each small multiples panel is rendered.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? BackgroundVisibility;
+        /// <summary>
+        /// Sets the line color of panel borders.
+        /// </summary>
         public readonly string? BorderColor;
+        /// <summary>
+        /// Sets the line style of panel borders.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPanelBorderStyle? BorderStyle;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? BorderThickness;
+        /// <summary>
+        /// Determines whether or not each panel displays a border.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? BorderVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? GutterSpacing;
+        /// <summary>
+        /// Determines whether or not negative space between sibling panels is rendered.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? GutterVisibility;
+        /// <summary>
+        /// Configures the title display within each small multiples panel.
+        /// </summary>
         public readonly Outputs.AnalysisPanelTitleOptions? Title;
 
         [OutputConstructor]

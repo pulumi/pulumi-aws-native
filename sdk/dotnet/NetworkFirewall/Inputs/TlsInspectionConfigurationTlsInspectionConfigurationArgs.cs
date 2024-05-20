@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     {
         [Input("serverCertificateConfigurations")]
         private InputList<Inputs.TlsInspectionConfigurationServerCertificateConfigurationArgs>? _serverCertificateConfigurations;
+
+        /// <summary>
+        /// Lists the server certificate configurations that are associated with the TLS configuration.
+        /// </summary>
         public InputList<Inputs.TlsInspectionConfigurationServerCertificateConfigurationArgs> ServerCertificateConfigurations
         {
             get => _serverCertificateConfigurations ?? (_serverCertificateConfigurations = new InputList<Inputs.TlsInspectionConfigurationServerCertificateConfigurationArgs>());

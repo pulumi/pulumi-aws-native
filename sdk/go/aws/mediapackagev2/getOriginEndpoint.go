@@ -30,7 +30,8 @@ type LookupOriginEndpointArgs struct {
 
 type LookupOriginEndpointResult struct {
 	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
-	Arn           *string                      `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The container type associated with the origin endpoint configuration.
 	ContainerType *OriginEndpointContainerType `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
 	CreatedAt *string `pulumi:"createdAt"`
@@ -41,11 +42,13 @@ type LookupOriginEndpointResult struct {
 	// <p>A low-latency HLS manifest configuration.</p>
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
-	ModifiedAt *string                `pulumi:"modifiedAt"`
-	Segment    *OriginEndpointSegment `pulumi:"segment"`
+	ModifiedAt *string `pulumi:"modifiedAt"`
+	// The segment associated with the origin endpoint.
+	Segment *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-	StartoverWindowSeconds *int      `pulumi:"startoverWindowSeconds"`
-	Tags                   []aws.Tag `pulumi:"tags"`
+	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
+	// The tags associated with the origin endpoint.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOriginEndpointOutput(ctx *pulumi.Context, args LookupOriginEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupOriginEndpointResultOutput {
@@ -89,6 +92,7 @@ func (o LookupOriginEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The container type associated with the origin endpoint configuration.
 func (o LookupOriginEndpointResultOutput) ContainerType() OriginEndpointContainerTypePtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointContainerType { return v.ContainerType }).(OriginEndpointContainerTypePtrOutput)
 }
@@ -120,6 +124,7 @@ func (o LookupOriginEndpointResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The segment associated with the origin endpoint.
 func (o LookupOriginEndpointResultOutput) Segment() OriginEndpointSegmentPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointSegment { return v.Segment }).(OriginEndpointSegmentPtrOutput)
 }
@@ -129,6 +134,7 @@ func (o LookupOriginEndpointResultOutput) StartoverWindowSeconds() pulumi.IntPtr
 	return o.ApplyT(func(v LookupOriginEndpointResult) *int { return v.StartoverWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The tags associated with the origin endpoint.
 func (o LookupOriginEndpointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

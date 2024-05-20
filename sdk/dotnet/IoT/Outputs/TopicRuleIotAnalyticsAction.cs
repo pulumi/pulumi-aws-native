@@ -13,8 +13,19 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleIotAnalyticsAction
     {
+        /// <summary>
+        /// Whether to process the action as a batch. The default value is `false` .
+        /// 
+        /// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
+        /// </summary>
         public readonly bool? BatchMode;
+        /// <summary>
+        /// The name of the IoT Analytics channel to which message data will be sent.
+        /// </summary>
         public readonly string ChannelName;
+        /// <summary>
+        /// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

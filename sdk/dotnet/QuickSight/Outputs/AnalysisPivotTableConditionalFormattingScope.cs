@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPivotTableConditionalFormattingScope
     {
+        /// <summary>
+        /// The role (field, field total, grand total) of the cell for conditional formatting.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPivotTableConditionalFormattingScopeRole? Role;
 
         [OutputConstructor]

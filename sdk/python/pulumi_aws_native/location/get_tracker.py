@@ -58,16 +58,27 @@ class GetTrackerResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The timestamp for when the tracker resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description for the tracker resource.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -83,6 +94,17 @@ class GetTrackerResult:
     @property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> Optional['TrackerPositionFiltering']:
+        """
+        Specifies the position filtering for the tracker resource.
+
+        Valid values:
+
+        - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+        - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+        - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+
+        This field is optional. If not specified, the default value is `TimeBased` .
+        """
         return pulumi.get(self, "position_filtering")
 
     @property
@@ -109,11 +131,19 @@ class GetTrackerResult:
     @property
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> Optional[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+        """
         return pulumi.get(self, "tracker_arn")
 
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -140,6 +170,15 @@ def get_tracker(tracker_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrackerResult:
     """
     Definition of AWS::Location::Tracker Resource Type
+
+
+    :param str tracker_name: The name for the tracker resource.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+           - Must be a unique tracker resource name.
+           - No spaces allowed. For example, `ExampleTracker` .
     """
     __args__ = dict()
     __args__['trackerName'] = tracker_name
@@ -165,5 +204,14 @@ def get_tracker_output(tracker_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
     """
     Definition of AWS::Location::Tracker Resource Type
+
+
+    :param str tracker_name: The name for the tracker resource.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+           - Must be a unique tracker resource name.
+           - No spaces allowed. For example, `ExampleTracker` .
     """
     ...

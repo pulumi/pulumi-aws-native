@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:OriginRequestPolicy")]
     public partial class OriginRequestPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the origin request policy was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The origin request policy configuration.
+        /// </summary>
         [Output("originRequestPolicyConfig")]
         public Output<Outputs.OriginRequestPolicyConfig> OriginRequestPolicyConfig { get; private set; } = null!;
 
@@ -69,6 +78,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class OriginRequestPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The origin request policy configuration.
+        /// </summary>
         [Input("originRequestPolicyConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyConfigArgs> OriginRequestPolicyConfig { get; set; } = null!;
 

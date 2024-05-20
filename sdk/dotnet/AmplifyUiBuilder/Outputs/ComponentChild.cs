@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentChild
     {
+        /// <summary>
+        /// The list of `ComponentChild` instances for this component.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
+        /// <summary>
+        /// The type of the child component.
+        /// </summary>
         public readonly string ComponentType;
+        /// <summary>
+        /// Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentEvent>? Events;
+        /// <summary>
+        /// The name of the child component.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentProperty> Properties;
+        /// <summary>
+        /// The unique ID of the child component in its original source system, such as Figma.
+        /// </summary>
         public readonly string? SourceId;
 
         [OutputConstructor]

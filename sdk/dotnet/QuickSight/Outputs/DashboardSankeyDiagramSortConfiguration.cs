@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSankeyDiagramSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of destination nodes that are displayed in a sankey diagram.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? DestinationItemsLimit;
+        /// <summary>
+        /// The limit on the number of source nodes that are displayed in a sankey diagram.
+        /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? SourceItemsLimit;
+        /// <summary>
+        /// The sort configuration of the weight fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> WeightSort;
 
         [OutputConstructor]

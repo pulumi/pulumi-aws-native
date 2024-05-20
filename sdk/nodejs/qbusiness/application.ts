@@ -37,18 +37,59 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q Business application.
+     */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    /**
+     * The identifier for the Amazon Q Business application.
+     */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * Configuration information for the file upload during chat feature.
+     */
     public readonly attachmentsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
+    /**
+     * The Unix timestamp when the Amazon Q Business application was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A description for the Amazon Q Business application.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Amazon Q Business application.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+     */
     public /*out*/ readonly identityCenterApplicationArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+     *
+     * *Required* : `Yes`
+     */
     public readonly identityCenterInstanceArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.ApplicationStatus>;
+    /**
+     * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The Unix timestamp when the Amazon Q Business application was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -104,11 +145,34 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * Configuration information for the file upload during chat feature.
+     */
     attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfigurationArgs>;
+    /**
+     * A description for the Amazon Q Business application.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Amazon Q Business application.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfigurationArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
+     *
+     * *Required* : `Yes`
+     */
     identityCenterInstanceArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

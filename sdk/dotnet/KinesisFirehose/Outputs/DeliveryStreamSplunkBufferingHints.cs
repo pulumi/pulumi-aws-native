@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSplunkBufferingHints
     {
+        /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).
+        /// </summary>
         public readonly int? IntervalInSeconds;
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        /// </summary>
         public readonly int? SizeInMbs;
 
         [OutputConstructor]

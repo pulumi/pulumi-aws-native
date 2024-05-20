@@ -17,16 +17,25 @@ import (
 type Route struct {
 	pulumi.CustomResourceState
 
-	ApplicationIdentifier pulumi.StringOutput             `pulumi:"applicationIdentifier"`
-	Arn                   pulumi.StringOutput             `pulumi:"arn"`
-	DefaultRoute          RouteDefaultRouteInputPtrOutput `pulumi:"defaultRoute"`
-	EnvironmentIdentifier pulumi.StringOutput             `pulumi:"environmentIdentifier"`
-	PathResourceToId      pulumi.StringOutput             `pulumi:"pathResourceToId"`
-	RouteIdentifier       pulumi.StringOutput             `pulumi:"routeIdentifier"`
-	RouteType             RouteTypeOutput                 `pulumi:"routeType"`
-	ServiceIdentifier     pulumi.StringOutput             `pulumi:"serviceIdentifier"`
+	// The unique identifier of the application.
+	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
+	// The Amazon Resource Name (ARN) of the route.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration for the default route type.
+	DefaultRoute RouteDefaultRouteInputPtrOutput `pulumi:"defaultRoute"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
+	// A mapping of Amazon API Gateway path resources to resource IDs.
+	PathResourceToId pulumi.StringOutput `pulumi:"pathResourceToId"`
+	// The unique identifier of the route.
+	RouteIdentifier pulumi.StringOutput `pulumi:"routeIdentifier"`
+	// The route type of the route.
+	RouteType RouteTypeOutput `pulumi:"routeType"`
+	// The unique identifier of the service.
+	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags         aws.TagArrayOutput              `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The configuration for the URI path route type.
 	UriPathRoute RouteUriPathRouteInputPtrOutput `pulumi:"uriPathRoute"`
 }
 
@@ -93,25 +102,37 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	ApplicationIdentifier string                  `pulumi:"applicationIdentifier"`
-	DefaultRoute          *RouteDefaultRouteInput `pulumi:"defaultRoute"`
-	EnvironmentIdentifier string                  `pulumi:"environmentIdentifier"`
-	RouteType             RouteType               `pulumi:"routeType"`
-	ServiceIdentifier     string                  `pulumi:"serviceIdentifier"`
+	// The unique identifier of the application.
+	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	// Configuration for the default route type.
+	DefaultRoute *RouteDefaultRouteInput `pulumi:"defaultRoute"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	// The route type of the route.
+	RouteType RouteType `pulumi:"routeType"`
+	// The unique identifier of the service.
+	ServiceIdentifier string `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags         []aws.Tag               `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The configuration for the URI path route type.
 	UriPathRoute *RouteUriPathRouteInput `pulumi:"uriPathRoute"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringInput
-	DefaultRoute          RouteDefaultRouteInputPtrInput
+	// Configuration for the default route type.
+	DefaultRoute RouteDefaultRouteInputPtrInput
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput
-	RouteType             RouteTypeInput
-	ServiceIdentifier     pulumi.StringInput
+	// The route type of the route.
+	RouteType RouteTypeInput
+	// The unique identifier of the service.
+	ServiceIdentifier pulumi.StringInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags         aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The configuration for the URI path route type.
 	UriPathRoute RouteUriPathRouteInputPtrInput
 }
 
@@ -152,34 +173,42 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+// The unique identifier of the application.
 func (o RouteOutput) ApplicationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the route.
 func (o RouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration for the default route type.
 func (o RouteOutput) DefaultRoute() RouteDefaultRouteInputPtrOutput {
 	return o.ApplyT(func(v *Route) RouteDefaultRouteInputPtrOutput { return v.DefaultRoute }).(RouteDefaultRouteInputPtrOutput)
 }
 
+// The unique identifier of the environment.
 func (o RouteOutput) EnvironmentIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
+// A mapping of Amazon API Gateway path resources to resource IDs.
 func (o RouteOutput) PathResourceToId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.PathResourceToId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the route.
 func (o RouteOutput) RouteIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteIdentifier }).(pulumi.StringOutput)
 }
 
+// The route type of the route.
 func (o RouteOutput) RouteType() RouteTypeOutput {
 	return o.ApplyT(func(v *Route) RouteTypeOutput { return v.RouteType }).(RouteTypeOutput)
 }
 
+// The unique identifier of the service.
 func (o RouteOutput) ServiceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
 }
@@ -189,6 +218,7 @@ func (o RouteOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Route) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The configuration for the URI path route type.
 func (o RouteOutput) UriPathRoute() RouteUriPathRouteInputPtrOutput {
 	return o.ApplyT(func(v *Route) RouteUriPathRouteInputPtrOutput { return v.UriPathRoute }).(RouteUriPathRouteInputPtrOutput)
 }

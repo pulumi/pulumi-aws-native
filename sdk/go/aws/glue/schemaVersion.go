@@ -16,6 +16,7 @@ import (
 type SchemaVersion struct {
 	pulumi.CustomResourceState
 
+	// The schema that includes the schema version.
 	Schema SchemaVersionSchemaOutput `pulumi:"schema"`
 	// Complete definition of the schema in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
@@ -74,6 +75,7 @@ func (SchemaVersionState) ElementType() reflect.Type {
 }
 
 type schemaVersionArgs struct {
+	// The schema that includes the schema version.
 	Schema SchemaVersionSchema `pulumi:"schema"`
 	// Complete definition of the schema in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
@@ -81,6 +83,7 @@ type schemaVersionArgs struct {
 
 // The set of arguments for constructing a SchemaVersion resource.
 type SchemaVersionArgs struct {
+	// The schema that includes the schema version.
 	Schema SchemaVersionSchemaInput
 	// Complete definition of the schema in plain-text.
 	SchemaDefinition pulumi.StringInput
@@ -123,6 +126,7 @@ func (o SchemaVersionOutput) ToSchemaVersionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The schema that includes the schema version.
 func (o SchemaVersionOutput) Schema() SchemaVersionSchemaOutput {
 	return o.ApplyT(func(v *SchemaVersion) SchemaVersionSchemaOutput { return v.Schema }).(SchemaVersionSchemaOutput)
 }

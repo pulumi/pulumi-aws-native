@@ -16,10 +16,25 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensGroupAnd
     {
+        /// <summary>
+        /// This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        /// </summary>
         public readonly ImmutableArray<string> MatchAnyPrefix;
+        /// <summary>
+        /// This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        /// </summary>
         public readonly ImmutableArray<string> MatchAnySuffix;
+        /// <summary>
+        /// This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        /// </summary>
         public readonly ImmutableArray<Outputs.StorageLensGroupTag> MatchAnyTag;
+        /// <summary>
+        /// This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
+        /// </summary>
         public readonly Outputs.StorageLensGroupMatchObjectAge? MatchObjectAge;
+        /// <summary>
+        /// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+        /// </summary>
         public readonly Outputs.StorageLensGroupMatchObjectSize? MatchObjectSize;
 
         [OutputConstructor]

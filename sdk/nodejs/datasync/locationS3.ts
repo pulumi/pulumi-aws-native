@@ -83,6 +83,11 @@ export class LocationS3 extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
     public readonly s3BucketArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+     *
+     * For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+     */
     public readonly s3Config!: pulumi.Output<outputs.datasync.LocationS3s3Config>;
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
@@ -142,6 +147,11 @@ export interface LocationS3Args {
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
     s3BucketArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+     *
+     * For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+     */
     s3Config: pulumi.Input<inputs.datasync.LocationS3s3ConfigArgs>;
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.

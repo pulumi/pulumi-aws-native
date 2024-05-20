@@ -49,7 +49,15 @@ export class ScheduleGroup extends pulumi.CustomResource {
      * The time at which the schedule group was last modified.
      */
     public /*out*/ readonly lastModificationDate!: pulumi.Output<string>;
+    /**
+     * The name of the schedule group.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the state of the schedule group.
+     *
+     * *Allowed Values* : `ACTIVE` | `DELETING`
+     */
     public /*out*/ readonly state!: pulumi.Output<enums.scheduler.ScheduleGroupState>;
     /**
      * The list of tags to associate with the schedule group.
@@ -92,6 +100,9 @@ export class ScheduleGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduleGroup resource.
  */
 export interface ScheduleGroupArgs {
+    /**
+     * The name of the schedule group.
+     */
     name?: pulumi.Input<string>;
     /**
      * The list of tags to associate with the schedule group.

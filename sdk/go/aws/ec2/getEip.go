@@ -27,16 +27,20 @@ func LookupEip(ctx *pulumi.Context, args *LookupEipArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupEipArgs struct {
+	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId string `pulumi:"allocationId"`
-	PublicIp     string `pulumi:"publicIp"`
+	// The Elastic IP address.
+	PublicIp string `pulumi:"publicIp"`
 }
 
 type LookupEipResult struct {
+	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId *string `pulumi:"allocationId"`
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId *string `pulumi:"instanceId"`
-	PublicIp   *string `pulumi:"publicIp"`
+	// The Elastic IP address.
+	PublicIp *string `pulumi:"publicIp"`
 	// The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
 	//   Updates to the ``PublicIpv4Pool`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
@@ -59,8 +63,10 @@ func LookupEipOutput(ctx *pulumi.Context, args LookupEipOutputArgs, opts ...pulu
 }
 
 type LookupEipOutputArgs struct {
+	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId pulumi.StringInput `pulumi:"allocationId"`
-	PublicIp     pulumi.StringInput `pulumi:"publicIp"`
+	// The Elastic IP address.
+	PublicIp pulumi.StringInput `pulumi:"publicIp"`
 }
 
 func (LookupEipOutputArgs) ElementType() reflect.Type {
@@ -81,6 +87,7 @@ func (o LookupEipResultOutput) ToLookupEipResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 func (o LookupEipResultOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEipResult) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
@@ -92,6 +99,7 @@ func (o LookupEipResultOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEipResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// The Elastic IP address.
 func (o LookupEipResultOutput) PublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEipResult) *string { return v.PublicIp }).(pulumi.StringPtrOutput)
 }

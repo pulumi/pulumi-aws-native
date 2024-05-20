@@ -24,22 +24,36 @@ func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.Invo
 }
 
 type LookupIndexArgs struct {
+	// The identifier of the Amazon Q Business application using the index.
 	ApplicationId string `pulumi:"applicationId"`
-	IndexId       string `pulumi:"indexId"`
+	// The identifier for the index.
+	IndexId string `pulumi:"indexId"`
 }
 
 type LookupIndexResult struct {
-	CapacityConfiguration           *IndexCapacityConfiguration           `pulumi:"capacityConfiguration"`
-	CreatedAt                       *string                               `pulumi:"createdAt"`
-	Description                     *string                               `pulumi:"description"`
-	DisplayName                     *string                               `pulumi:"displayName"`
+	// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+	CapacityConfiguration *IndexCapacityConfiguration `pulumi:"capacityConfiguration"`
+	// The Unix timestamp when the index was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// A description for the Amazon Q Business index.
+	Description *string `pulumi:"description"`
+	// The name of the index.
+	DisplayName *string `pulumi:"displayName"`
+	// Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+	//
+	// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
 	DocumentAttributeConfigurations []IndexDocumentAttributeConfiguration `pulumi:"documentAttributeConfigurations"`
-	IndexArn                        *string                               `pulumi:"indexArn"`
-	IndexId                         *string                               `pulumi:"indexId"`
-	IndexStatistics                 *IndexStatistics                      `pulumi:"indexStatistics"`
-	Status                          *IndexStatus                          `pulumi:"status"`
-	Tags                            []aws.Tag                             `pulumi:"tags"`
-	UpdatedAt                       *string                               `pulumi:"updatedAt"`
+	// The Amazon Resource Name (ARN) of an Amazon Q Business index.
+	IndexArn *string `pulumi:"indexArn"`
+	// The identifier for the index.
+	IndexId         *string          `pulumi:"indexId"`
+	IndexStatistics *IndexStatistics `pulumi:"indexStatistics"`
+	// The current status of the index. When the status is `ACTIVE` , the index is ready.
+	Status *IndexStatus `pulumi:"status"`
+	// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The Unix timestamp when the index was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
@@ -56,8 +70,10 @@ func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...
 }
 
 type LookupIndexOutputArgs struct {
+	// The identifier of the Amazon Q Business application using the index.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	IndexId       pulumi.StringInput `pulumi:"indexId"`
+	// The identifier for the index.
+	IndexId pulumi.StringInput `pulumi:"indexId"`
 }
 
 func (LookupIndexOutputArgs) ElementType() reflect.Type {
@@ -78,32 +94,41 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx contex
 	return o
 }
 
+// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 func (o LookupIndexResultOutput) CapacityConfiguration() IndexCapacityConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexCapacityConfiguration { return v.CapacityConfiguration }).(IndexCapacityConfigurationPtrOutput)
 }
 
+// The Unix timestamp when the index was created.
 func (o LookupIndexResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// A description for the Amazon Q Business index.
 func (o LookupIndexResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the index.
 func (o LookupIndexResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+//
+// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
 func (o LookupIndexResultOutput) DocumentAttributeConfigurations() IndexDocumentAttributeConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupIndexResult) []IndexDocumentAttributeConfiguration {
 		return v.DocumentAttributeConfigurations
 	}).(IndexDocumentAttributeConfigurationArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of an Amazon Q Business index.
 func (o LookupIndexResultOutput) IndexArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the index.
 func (o LookupIndexResultOutput) IndexId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.IndexId }).(pulumi.StringPtrOutput)
 }
@@ -112,14 +137,17 @@ func (o LookupIndexResultOutput) IndexStatistics() IndexStatisticsPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexStatistics { return v.IndexStatistics }).(IndexStatisticsPtrOutput)
 }
 
+// The current status of the index. When the status is `ACTIVE` , the index is ready.
 func (o LookupIndexResultOutput) Status() IndexStatusPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexStatus { return v.Status }).(IndexStatusPtrOutput)
 }
 
+// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupIndexResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The Unix timestamp when the index was last updated.
 func (o LookupIndexResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

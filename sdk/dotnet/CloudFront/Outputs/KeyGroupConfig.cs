@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class KeyGroupConfig
     {
+        /// <summary>
+        /// A comment to describe the key group. The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// A list of the identifiers of the public keys in the key group.
+        /// </summary>
         public readonly ImmutableArray<string> Items;
+        /// <summary>
+        /// A name to identify the key group.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

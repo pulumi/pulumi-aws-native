@@ -27,9 +27,17 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetRestoreTestingSelectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Unique string that is the name of the restore testing plan.
+        /// 
+        /// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+        /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public string RestoreTestingPlanName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the restore testing selection that belongs to the related restore testing plan.
+        /// </summary>
         [Input("restoreTestingSelectionName", required: true)]
         public string RestoreTestingSelectionName { get; set; } = null!;
 
@@ -41,9 +49,17 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetRestoreTestingSelectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Unique string that is the name of the restore testing plan.
+        /// 
+        /// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
+        /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the restore testing selection that belongs to the related restore testing plan.
+        /// </summary>
         [Input("restoreTestingSelectionName", required: true)]
         public Input<string> RestoreTestingSelectionName { get; set; } = null!;
 
@@ -57,10 +73,27 @@ namespace Pulumi.AwsNative.Backup
     [OutputType]
     public sealed class GetRestoreTestingSelectionResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
+        /// </summary>
         public readonly string? IamRoleArn;
+        /// <summary>
+        /// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
+        /// </summary>
         public readonly ImmutableArray<string> ProtectedResourceArns;
+        /// <summary>
+        /// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
+        /// </summary>
         public readonly Outputs.RestoreTestingSelectionProtectedResourceConditions? ProtectedResourceConditions;
+        /// <summary>
+        /// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
+        /// 
+        /// See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? RestoreMetadataOverrides;
+        /// <summary>
+        /// This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
+        /// </summary>
         public readonly int? ValidationWindowHours;
 
         [OutputConstructor]

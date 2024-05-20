@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
     [OutputType]
     public sealed class DetectorModel
     {
+        /// <summary>
+        /// The ARN of the model.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

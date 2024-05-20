@@ -21,18 +21,33 @@ namespace Pulumi.AwsNative.AppRunner
         [Output("autoScalingConfigurationArn")]
         public Output<string?> AutoScalingConfigurationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
+        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ServiceEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+        /// </summary>
         [Output("healthCheckConfiguration")]
         public Output<Outputs.ServiceHealthCheckConfiguration?> HealthCheckConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The runtime configuration of instances (scaling units) of your service.
+        /// </summary>
         [Output("instanceConfiguration")]
         public Output<Outputs.ServiceInstanceConfiguration?> InstanceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The observability configuration of your service.
+        /// </summary>
         [Output("observabilityConfiguration")]
         public Output<Outputs.ServiceObservabilityConfiguration?> ObservabilityConfiguration { get; private set; } = null!;
 
@@ -60,6 +75,9 @@ namespace Pulumi.AwsNative.AppRunner
         [Output("serviceUrl")]
         public Output<string> ServiceUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The source to deploy to the App Runner service. It can be a code or an image repository.
+        /// </summary>
         [Output("sourceConfiguration")]
         public Output<Outputs.ServiceSourceConfiguration> SourceConfiguration { get; private set; } = null!;
 
@@ -69,6 +87,9 @@ namespace Pulumi.AwsNative.AppRunner
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -129,18 +150,33 @@ namespace Pulumi.AwsNative.AppRunner
         [Input("autoScalingConfigurationArn")]
         public Input<string>? AutoScalingConfigurationArn { get; set; }
 
+        /// <summary>
+        /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
+        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ServiceEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+        /// </summary>
         [Input("healthCheckConfiguration")]
         public Input<Inputs.ServiceHealthCheckConfigurationArgs>? HealthCheckConfiguration { get; set; }
 
+        /// <summary>
+        /// The runtime configuration of instances (scaling units) of your service.
+        /// </summary>
         [Input("instanceConfiguration")]
         public Input<Inputs.ServiceInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        /// <summary>
+        /// The observability configuration of your service.
+        /// </summary>
         [Input("observabilityConfiguration")]
         public Input<Inputs.ServiceObservabilityConfigurationArgs>? ObservabilityConfiguration { get; set; }
 
@@ -150,11 +186,18 @@ namespace Pulumi.AwsNative.AppRunner
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// The source to deploy to the App Runner service. It can be a code or an image repository.
+        /// </summary>
         [Input("sourceConfiguration", required: true)]
         public Input<Inputs.ServiceSourceConfigurationArgs> SourceConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

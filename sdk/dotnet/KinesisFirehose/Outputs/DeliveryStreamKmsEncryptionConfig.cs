@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamKmsEncryptionConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS KMS encryption key that Amazon S3 uses to encrypt data delivered by the Kinesis Data Firehose stream. The key must belong to the same region as the destination S3 bucket.
+        /// </summary>
         public readonly string AwskmsKeyArn;
 
         [OutputConstructor]

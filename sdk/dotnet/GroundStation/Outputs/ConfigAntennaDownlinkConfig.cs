@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigAntennaDownlinkConfig
     {
+        /// <summary>
+        /// Defines the spectrum configuration.
+        /// </summary>
         public readonly Outputs.ConfigSpectrumConfig? SpectrumConfig;
 
         [OutputConstructor]

@@ -24,6 +24,14 @@ class TrustAnchorNotificationSettingArgs:
                  event: pulumi.Input['TrustAnchorNotificationEvent'],
                  channel: Optional[pulumi.Input['TrustAnchorNotificationChannel']] = None,
                  threshold: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether the notification setting is enabled.
+        :param pulumi.Input['TrustAnchorNotificationEvent'] event: The event to which this notification setting is applied.
+        :param pulumi.Input['TrustAnchorNotificationChannel'] channel: The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+               
+               > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
+        :param pulumi.Input[float] threshold: The number of days before a notification event. This value is required for a notification setting that is enabled.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "event", event)
         if channel is not None:
@@ -34,6 +42,9 @@ class TrustAnchorNotificationSettingArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the notification setting is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -43,6 +54,9 @@ class TrustAnchorNotificationSettingArgs:
     @property
     @pulumi.getter
     def event(self) -> pulumi.Input['TrustAnchorNotificationEvent']:
+        """
+        The event to which this notification setting is applied.
+        """
         return pulumi.get(self, "event")
 
     @event.setter
@@ -52,6 +66,11 @@ class TrustAnchorNotificationSettingArgs:
     @property
     @pulumi.getter
     def channel(self) -> Optional[pulumi.Input['TrustAnchorNotificationChannel']]:
+        """
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+
+        > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
+        """
         return pulumi.get(self, "channel")
 
     @channel.setter
@@ -61,6 +80,9 @@ class TrustAnchorNotificationSettingArgs:
     @property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of days before a notification event. This value is required for a notification setting that is enabled.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -105,6 +127,10 @@ class TrustAnchorSourceArgs:
     def __init__(__self__, *,
                  source_data: Optional[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]] = None,
                  source_type: Optional[pulumi.Input['TrustAnchorType']] = None):
+        """
+        :param pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']] source_data: A union object representing the data field of the TrustAnchor depending on its type
+        :param pulumi.Input['TrustAnchorType'] source_type: The type of the TrustAnchor.
+        """
         if source_data is not None:
             pulumi.set(__self__, "source_data", source_data)
         if source_type is not None:
@@ -113,6 +139,9 @@ class TrustAnchorSourceArgs:
     @property
     @pulumi.getter(name="sourceData")
     def source_data(self) -> Optional[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]]:
+        """
+        A union object representing the data field of the TrustAnchor depending on its type
+        """
         return pulumi.get(self, "source_data")
 
     @source_data.setter
@@ -122,6 +151,9 @@ class TrustAnchorSourceArgs:
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input['TrustAnchorType']]:
+        """
+        The type of the TrustAnchor.
+        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter

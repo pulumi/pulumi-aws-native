@@ -24,10 +24,12 @@ func LookupLocation(ctx *pulumi.Context, args *LookupLocationArgs, opts ...pulum
 }
 
 type LookupLocationArgs struct {
+	// A descriptive name for the custom location.
 	LocationName string `pulumi:"locationName"`
 }
 
 type LookupLocationResult struct {
+	// A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
 	LocationArn *string `pulumi:"locationArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -47,6 +49,7 @@ func LookupLocationOutput(ctx *pulumi.Context, args LookupLocationOutputArgs, op
 }
 
 type LookupLocationOutputArgs struct {
+	// A descriptive name for the custom location.
 	LocationName pulumi.StringInput `pulumi:"locationName"`
 }
 
@@ -68,6 +71,7 @@ func (o LookupLocationResultOutput) ToLookupLocationResultOutputWithContext(ctx 
 	return o
 }
 
+// A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
 func (o LookupLocationResultOutput) LocationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationResult) *string { return v.LocationArn }).(pulumi.StringPtrOutput)
 }

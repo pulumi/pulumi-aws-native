@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDataPathValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type configuration of the field.
+        /// </summary>
         [Input("dataPathType")]
         public Input<Inputs.AnalysisDataPathTypeArgs>? DataPathType { get; set; }
 
+        /// <summary>
+        /// The field ID of the field that needs to be sorted.
+        /// </summary>
         [Input("fieldId")]
         public Input<string>? FieldId { get; set; }
 
+        /// <summary>
+        /// The actual value of the field that needs to be sorted.
+        /// </summary>
         [Input("fieldValue")]
         public Input<string>? FieldValue { get; set; }
 

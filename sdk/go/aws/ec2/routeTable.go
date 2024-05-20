@@ -19,6 +19,7 @@ import (
 type RouteTable struct {
 	pulumi.CustomResourceState
 
+	// The ID of the route table.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// Any tags assigned to the route table.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -124,6 +125,7 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
+// The ID of the route table.
 func (o RouteTableOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }

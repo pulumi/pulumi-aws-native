@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.RuleGroupStatementArgs>? _statements;
+
+        /// <summary>
+        /// The statements to combine with OR logic. You can use any statements that can be nested.
+        /// </summary>
         public InputList<Inputs.RuleGroupStatementArgs> Statements
         {
             get => _statements ?? (_statements = new InputList<Inputs.RuleGroupStatementArgs>());

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionDevice
     {
+        /// <summary>
+        /// The path inside the container that's used to expose the host device. By default, the `hostPath` value is used.
+        /// </summary>
         public readonly string? ContainerPath;
+        /// <summary>
+        /// The path for the device on the host container instance.
+        /// </summary>
         public readonly string? HostPath;
+        /// <summary>
+        /// The explicit permissions to provide to the container for the device. By default, the container has permissions for `read` , `write` , and `mknod` for the device.
+        /// </summary>
         public readonly ImmutableArray<string> Permissions;
 
         [OutputConstructor]

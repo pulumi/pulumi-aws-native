@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilledMapShapeConditionalFormatting
     {
+        /// <summary>
+        /// The field ID of the filled map shape.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The conditional formatting that determines the background color of a filled map's shape.
+        /// </summary>
         public readonly Outputs.TemplateShapeConditionalFormat? Format;
 
         [OutputConstructor]

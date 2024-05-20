@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterControl
     {
+        /// <summary>
+        /// A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
+        /// </summary>
         public readonly Outputs.DashboardFilterCrossSheetControl? CrossSheet;
+        /// <summary>
+        /// A control from a date filter that is used to specify date and time.
+        /// </summary>
         public readonly Outputs.DashboardFilterDateTimePickerControl? DateTimePicker;
+        /// <summary>
+        /// A control to display a dropdown list with buttons that are used to select a single value.
+        /// </summary>
         public readonly Outputs.DashboardFilterDropDownControl? Dropdown;
+        /// <summary>
+        /// A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.
+        /// </summary>
         public readonly Outputs.DashboardFilterListControl? List;
+        /// <summary>
+        /// A control from a date filter that is used to specify the relative date.
+        /// </summary>
         public readonly Outputs.DashboardFilterRelativeDateTimeControl? RelativeDateTime;
+        /// <summary>
+        /// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+        /// </summary>
         public readonly Outputs.DashboardFilterSliderControl? Slider;
+        /// <summary>
+        /// A control to display a text box that is used to enter multiple entries.
+        /// </summary>
         public readonly Outputs.DashboardFilterTextAreaControl? TextArea;
+        /// <summary>
+        /// A control to display a text box that is used to enter a single entry.
+        /// </summary>
         public readonly Outputs.DashboardFilterTextFieldControl? TextField;
 
         [OutputConstructor]

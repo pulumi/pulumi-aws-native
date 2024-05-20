@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolResourceServerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolResourceServerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolResourceServerResult
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A friendly name for the resource server.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserPoolResourceServerResourceServerScopeType> Scopes;
 
         [OutputConstructor]

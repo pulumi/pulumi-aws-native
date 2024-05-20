@@ -27,8 +27,10 @@ type LookupConfigurationArgs struct {
 }
 
 type LookupConfigurationResult struct {
-	Arn            *string                      `pulumi:"arn"`
-	Description    *string                      `pulumi:"description"`
+	Arn *string `pulumi:"arn"`
+	// The description of the configuration.
+	Description *string `pulumi:"description"`
+	// Latest revision of the configuration.
 	LatestRevision *ConfigurationLatestRevision `pulumi:"latestRevision"`
 }
 
@@ -71,10 +73,12 @@ func (o LookupConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The description of the configuration.
 func (o LookupConfigurationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Latest revision of the configuration.
 func (o LookupConfigurationResultOutput) LatestRevision() ConfigurationLatestRevisionPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) *ConfigurationLatestRevision { return v.LatestRevision }).(ConfigurationLatestRevisionPtrOutput)
 }

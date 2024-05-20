@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilledMapConditionalFormattingOption
     {
+        /// <summary>
+        /// The conditional formatting that determines the shape of the filled map.
+        /// </summary>
         public readonly Outputs.TemplateFilledMapShapeConditionalFormatting Shape;
 
         [OutputConstructor]

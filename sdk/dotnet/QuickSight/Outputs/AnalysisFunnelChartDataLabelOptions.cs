@@ -13,12 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFunnelChartDataLabelOptions
     {
+        /// <summary>
+        /// The visibility of the category labels within the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? CategoryLabelVisibility;
+        /// <summary>
+        /// The color of the data label text.
+        /// </summary>
         public readonly string? LabelColor;
+        /// <summary>
+        /// The font configuration for the data labels.
+        /// 
+        /// Only the `FontSize` attribute of the font configuration is used for data labels.
+        /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? LabelFontConfiguration;
+        /// <summary>
+        /// Determines the style of the metric labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisFunnelChartMeasureDataLabelStyle? MeasureDataLabelStyle;
+        /// <summary>
+        /// The visibility of the measure labels within the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? MeasureLabelVisibility;
+        /// <summary>
+        /// Determines the positioning of the data label relative to a section of the funnel.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDataLabelPosition? Position;
+        /// <summary>
+        /// The visibility option that determines if data labels are displayed.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

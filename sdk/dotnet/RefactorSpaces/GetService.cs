@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public string ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public string EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the service.
+        /// </summary>
         [Input("serviceIdentifier", required: true)]
         public string ServiceIdentifier { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the service.
+        /// </summary>
         [Input("serviceIdentifier", required: true)]
         public Input<string> ServiceIdentifier { get; set; } = null!;
 
@@ -63,7 +81,13 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [OutputType]
     public sealed class GetServiceResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The unique identifier of the service.
+        /// </summary>
         public readonly string? ServiceIdentifier;
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.

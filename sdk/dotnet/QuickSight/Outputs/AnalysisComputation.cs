@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisComputation
     {
+        /// <summary>
+        /// The forecast computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisForecastComputation? Forecast;
+        /// <summary>
+        /// The growth rate computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisGrowthRateComputation? GrowthRate;
+        /// <summary>
+        /// The maximum and minimum computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisMaximumMinimumComputation? MaximumMinimum;
+        /// <summary>
+        /// The metric comparison computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisMetricComparisonComputation? MetricComparison;
+        /// <summary>
+        /// The period over period computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisPeriodOverPeriodComputation? PeriodOverPeriod;
+        /// <summary>
+        /// The period to `DataSetIdentifier` computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisPeriodToDateComputation? PeriodToDate;
+        /// <summary>
+        /// The top movers and bottom movers computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisTopBottomMoversComputation? TopBottomMovers;
+        /// <summary>
+        /// The top ranked and bottom ranked computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisTopBottomRankedComputation? TopBottomRanked;
+        /// <summary>
+        /// The total aggregation computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisTotalAggregationComputation? TotalAggregation;
+        /// <summary>
+        /// The unique values computation configuration.
+        /// </summary>
         public readonly Outputs.AnalysisUniqueValuesComputation? UniqueValues;
 
         [OutputConstructor]

@@ -61,7 +61,15 @@ namespace Pulumi.AwsNative.Lightsail
         /// An array of objects representing the add-ons to enable for the new instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.InstanceAddOn> AddOns;
+        /// <summary>
+        /// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// 
+        /// &gt; The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
+        /// </summary>
         public readonly Outputs.InstanceHardware? Hardware;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        /// </summary>
         public readonly string? InstanceArn;
         /// <summary>
         /// IPv6 addresses of the instance
@@ -75,7 +83,15 @@ namespace Pulumi.AwsNative.Lightsail
         /// The name of your key pair.
         /// </summary>
         public readonly string? KeyPairName;
+        /// <summary>
+        /// The location for the instance, such as the AWS Region and Availability Zone.
+        /// 
+        /// &gt; The `Location` property is read-only and should not be specified in a create instance or update instance request.
+        /// </summary>
         public readonly Outputs.InstanceLocation? Location;
+        /// <summary>
+        /// The public ports and the monthly amount of data transfer allocated for the instance.
+        /// </summary>
         public readonly Outputs.InstanceNetworking? Networking;
         /// <summary>
         /// Private IP Address of the Instance
@@ -93,6 +109,11 @@ namespace Pulumi.AwsNative.Lightsail
         /// SSH Key Name of the  Lightsail instance.
         /// </summary>
         public readonly string? SshKeyName;
+        /// <summary>
+        /// The status code and the state (for example, `running` ) of the instance.
+        /// 
+        /// &gt; The `State` property is read-only and should not be specified in a create instance or update instance request.
+        /// </summary>
         public readonly Outputs.InstanceState? State;
         /// <summary>
         /// Support code to help identify any issues

@@ -41,6 +41,9 @@ export class Route extends pulumi.CustomResource {
      *  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
     public readonly carrierGatewayId!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv4 CIDR block.
+     */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the core network.

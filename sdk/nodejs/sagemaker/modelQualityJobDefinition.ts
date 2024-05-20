@@ -46,17 +46,41 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of job definition.
      */
     public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    /**
+     * The name of the monitoring job definition.
+     */
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    /**
+     * Identifies the resources to deploy for a monitoring job.
+     */
     public readonly jobResources!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringResources>;
+    /**
+     * Container image configuration object for the monitoring job.
+     */
     public readonly modelQualityAppSpecification!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
+    /**
+     * Specifies the constraints and baselines for the monitoring job.
+     */
     public readonly modelQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
+    /**
+     * A list of the inputs that are monitored. Currently endpoints are supported.
+     */
     public readonly modelQualityJobInput!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInput>;
+    /**
+     * The output configuration for monitoring jobs.
+     */
     public readonly modelQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
+    /**
+     * Specifies the network configuration for the monitoring job.
+     */
     public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A time limit for how long the monitoring job is allowed to run before stopping.
+     */
     public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -129,17 +153,41 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
  */
 export interface ModelQualityJobDefinitionArgs {
     endpointName?: pulumi.Input<string>;
+    /**
+     * The name of the monitoring job definition.
+     */
     jobDefinitionName?: pulumi.Input<string>;
+    /**
+     * Identifies the resources to deploy for a monitoring job.
+     */
     jobResources: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringResourcesArgs>;
+    /**
+     * Container image configuration object for the monitoring job.
+     */
     modelQualityAppSpecification: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecificationArgs>;
+    /**
+     * Specifies the constraints and baselines for the monitoring job.
+     */
     modelQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>;
+    /**
+     * A list of the inputs that are monitored. Currently endpoints are supported.
+     */
     modelQualityJobInput: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInputArgs>;
+    /**
+     * The output configuration for monitoring jobs.
+     */
     modelQualityJobOutputConfig: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfigArgs>;
+    /**
+     * Specifies the network configuration for the monitoring job.
+     */
     networkConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionNetworkConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * A time limit for how long the monitoring job is allowed to run before stopping.
+     */
     stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionStoppingConditionArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

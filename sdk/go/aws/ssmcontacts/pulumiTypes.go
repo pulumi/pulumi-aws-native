@@ -451,8 +451,10 @@ func (o ContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargets struct {
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo *ContactChannelTargetInfo `pulumi:"channelTargetInfo"`
-	ContactTargetInfo *ContactTargetInfo        `pulumi:"contactTargetInfo"`
+	// The contact that Incident Manager is engaging during an incident.
+	ContactTargetInfo *ContactTargetInfo `pulumi:"contactTargetInfo"`
 }
 
 // ContactTargetsInput is an input type that accepts ContactTargetsArgs and ContactTargetsOutput values.
@@ -468,8 +470,10 @@ type ContactTargetsInput interface {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargetsArgs struct {
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo ContactChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
-	ContactTargetInfo ContactTargetInfoPtrInput        `pulumi:"contactTargetInfo"`
+	// The contact that Incident Manager is engaging during an incident.
+	ContactTargetInfo ContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
 }
 
 func (ContactTargetsArgs) ElementType() reflect.Type {
@@ -524,10 +528,12 @@ func (o ContactTargetsOutput) ToContactTargetsOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Information about the contact channel that Incident Manager engages.
 func (o ContactTargetsOutput) ChannelTargetInfo() ContactChannelTargetInfoPtrOutput {
 	return o.ApplyT(func(v ContactTargets) *ContactChannelTargetInfo { return v.ChannelTargetInfo }).(ContactChannelTargetInfoPtrOutput)
 }
 
+// The contact that Incident Manager is engaging during an incident.
 func (o ContactTargetsOutput) ContactTargetInfo() ContactTargetInfoPtrOutput {
 	return o.ApplyT(func(v ContactTargets) *ContactTargetInfo { return v.ContactTargetInfo }).(ContactTargetInfoPtrOutput)
 }
@@ -981,7 +987,9 @@ func (o PlanStageArrayOutput) Index(i pulumi.IntInput) PlanStageOutput {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type PlanTargets struct {
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo *PlanChannelTargetInfo `pulumi:"channelTargetInfo"`
+	// Information about the contact that Incident Manager engages.
 	ContactTargetInfo *PlanContactTargetInfo `pulumi:"contactTargetInfo"`
 }
 
@@ -998,7 +1006,9 @@ type PlanTargetsInput interface {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type PlanTargetsArgs struct {
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo PlanChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
+	// Information about the contact that Incident Manager engages.
 	ContactTargetInfo PlanContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
 }
 
@@ -1054,10 +1064,12 @@ func (o PlanTargetsOutput) ToPlanTargetsOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// Information about the contact channel that Incident Manager engages.
 func (o PlanTargetsOutput) ChannelTargetInfo() PlanChannelTargetInfoPtrOutput {
 	return o.ApplyT(func(v PlanTargets) *PlanChannelTargetInfo { return v.ChannelTargetInfo }).(PlanChannelTargetInfoPtrOutput)
 }
 
+// Information about the contact that Incident Manager engages.
 func (o PlanTargetsOutput) ContactTargetInfo() PlanContactTargetInfoPtrOutput {
 	return o.ApplyT(func(v PlanTargets) *PlanContactTargetInfo { return v.ContactTargetInfo }).(PlanContactTargetInfoPtrOutput)
 }
@@ -1084,7 +1096,9 @@ func (o PlanTargetsArrayOutput) Index(i pulumi.IntInput) PlanTargetsOutput {
 
 // StartTime and EndTime for the Shift
 type RotationCoverageTime struct {
-	EndTime   string `pulumi:"endTime"`
+	// Information about when an on-call rotation shift ends.
+	EndTime string `pulumi:"endTime"`
+	// Information about when an on-call rotation shift begins.
 	StartTime string `pulumi:"startTime"`
 }
 
@@ -1101,7 +1115,9 @@ type RotationCoverageTimeInput interface {
 
 // StartTime and EndTime for the Shift
 type RotationCoverageTimeArgs struct {
-	EndTime   pulumi.StringInput `pulumi:"endTime"`
+	// Information about when an on-call rotation shift ends.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// Information about when an on-call rotation shift begins.
 	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
@@ -1157,10 +1173,12 @@ func (o RotationCoverageTimeOutput) ToRotationCoverageTimeOutputWithContext(ctx 
 	return o
 }
 
+// Information about when an on-call rotation shift ends.
 func (o RotationCoverageTimeOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RotationCoverageTime) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
+// Information about when an on-call rotation shift begins.
 func (o RotationCoverageTimeOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RotationCoverageTime) string { return v.StartTime }).(pulumi.StringOutput)
 }
@@ -1188,7 +1206,8 @@ func (o RotationCoverageTimeArrayOutput) Index(i pulumi.IntInput) RotationCovera
 // DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
 type RotationMonthlySetting struct {
 	// The day of the month when monthly recurring on-call rotations begin.
-	DayOfMonth  int    `pulumi:"dayOfMonth"`
+	DayOfMonth int `pulumi:"dayOfMonth"`
+	// The time of day when a monthly recurring on-call shift rotation begins.
 	HandOffTime string `pulumi:"handOffTime"`
 }
 
@@ -1206,7 +1225,8 @@ type RotationMonthlySettingInput interface {
 // DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
 type RotationMonthlySettingArgs struct {
 	// The day of the month when monthly recurring on-call rotations begin.
-	DayOfMonth  pulumi.IntInput    `pulumi:"dayOfMonth"`
+	DayOfMonth pulumi.IntInput `pulumi:"dayOfMonth"`
+	// The time of day when a monthly recurring on-call shift rotation begins.
 	HandOffTime pulumi.StringInput `pulumi:"handOffTime"`
 }
 
@@ -1267,6 +1287,7 @@ func (o RotationMonthlySettingOutput) DayOfMonth() pulumi.IntOutput {
 	return o.ApplyT(func(v RotationMonthlySetting) int { return v.DayOfMonth }).(pulumi.IntOutput)
 }
 
+// The time of day when a monthly recurring on-call shift rotation begins.
 func (o RotationMonthlySettingOutput) HandOffTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RotationMonthlySetting) string { return v.HandOffTime }).(pulumi.StringOutput)
 }
@@ -1479,7 +1500,8 @@ func (o RotationRecurrenceSettingsPtrOutput) WeeklySettings() RotationWeeklySett
 type RotationShiftCoverage struct {
 	// Information about when an on-call shift begins and ends.
 	CoverageTimes []RotationCoverageTime `pulumi:"coverageTimes"`
-	DayOfWeek     RotationDayOfWeek      `pulumi:"dayOfWeek"`
+	// A list of days on which the schedule is active.
+	DayOfWeek RotationDayOfWeek `pulumi:"dayOfWeek"`
 }
 
 // RotationShiftCoverageInput is an input type that accepts RotationShiftCoverageArgs and RotationShiftCoverageOutput values.
@@ -1497,7 +1519,8 @@ type RotationShiftCoverageInput interface {
 type RotationShiftCoverageArgs struct {
 	// Information about when an on-call shift begins and ends.
 	CoverageTimes RotationCoverageTimeArrayInput `pulumi:"coverageTimes"`
-	DayOfWeek     RotationDayOfWeekInput         `pulumi:"dayOfWeek"`
+	// A list of days on which the schedule is active.
+	DayOfWeek RotationDayOfWeekInput `pulumi:"dayOfWeek"`
 }
 
 func (RotationShiftCoverageArgs) ElementType() reflect.Type {
@@ -1557,6 +1580,7 @@ func (o RotationShiftCoverageOutput) CoverageTimes() RotationCoverageTimeArrayOu
 	return o.ApplyT(func(v RotationShiftCoverage) []RotationCoverageTime { return v.CoverageTimes }).(RotationCoverageTimeArrayOutput)
 }
 
+// A list of days on which the schedule is active.
 func (o RotationShiftCoverageOutput) DayOfWeek() RotationDayOfWeekOutput {
 	return o.ApplyT(func(v RotationShiftCoverage) RotationDayOfWeek { return v.DayOfWeek }).(RotationDayOfWeekOutput)
 }
@@ -1591,8 +1615,10 @@ type RotationTag struct {
 
 // DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
 type RotationWeeklySetting struct {
-	DayOfWeek   RotationDayOfWeek `pulumi:"dayOfWeek"`
-	HandOffTime string            `pulumi:"handOffTime"`
+	// The day of the week when weekly recurring on-call shift rotations begins.
+	DayOfWeek RotationDayOfWeek `pulumi:"dayOfWeek"`
+	// The time of day when a weekly recurring on-call shift rotation begins.
+	HandOffTime string `pulumi:"handOffTime"`
 }
 
 // RotationWeeklySettingInput is an input type that accepts RotationWeeklySettingArgs and RotationWeeklySettingOutput values.
@@ -1608,8 +1634,10 @@ type RotationWeeklySettingInput interface {
 
 // DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
 type RotationWeeklySettingArgs struct {
-	DayOfWeek   RotationDayOfWeekInput `pulumi:"dayOfWeek"`
-	HandOffTime pulumi.StringInput     `pulumi:"handOffTime"`
+	// The day of the week when weekly recurring on-call shift rotations begins.
+	DayOfWeek RotationDayOfWeekInput `pulumi:"dayOfWeek"`
+	// The time of day when a weekly recurring on-call shift rotation begins.
+	HandOffTime pulumi.StringInput `pulumi:"handOffTime"`
 }
 
 func (RotationWeeklySettingArgs) ElementType() reflect.Type {
@@ -1664,10 +1692,12 @@ func (o RotationWeeklySettingOutput) ToRotationWeeklySettingOutputWithContext(ct
 	return o
 }
 
+// The day of the week when weekly recurring on-call shift rotations begins.
 func (o RotationWeeklySettingOutput) DayOfWeek() RotationDayOfWeekOutput {
 	return o.ApplyT(func(v RotationWeeklySetting) RotationDayOfWeek { return v.DayOfWeek }).(RotationDayOfWeekOutput)
 }
 
+// The time of day when a weekly recurring on-call shift rotation begins.
 func (o RotationWeeklySettingOutput) HandOffTime() pulumi.StringOutput {
 	return o.ApplyT(func(v RotationWeeklySetting) string { return v.HandOffTime }).(pulumi.StringOutput)
 }

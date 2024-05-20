@@ -16,7 +16,15 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclCustomHttpHeader
     {
+        /// <summary>
+        /// The name of the custom header.
+        /// 
+        /// For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-` , to avoid confusion with the headers that are already in the request. For example, for the header name `sample` , AWS WAF inserts the header `x-amzn-waf-sample` .
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value of the custom header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

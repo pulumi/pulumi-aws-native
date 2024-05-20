@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
+    /// <summary>
+    /// Details about any associated training jobs.
+    /// </summary>
     public sealed class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("hyperParameters")]

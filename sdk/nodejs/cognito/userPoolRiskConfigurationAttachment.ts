@@ -37,10 +37,25 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolRiskConfigurationAttachment.__pulumiType;
     }
 
+    /**
+     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+     */
     public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType | undefined>;
+    /**
+     * The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+     */
     public readonly clientId!: pulumi.Output<string>;
+    /**
+     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+     */
     public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType | undefined>;
+    /**
+     * The configuration to override the risk decision.
+     */
     public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType | undefined>;
+    /**
+     * The user pool ID.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -83,9 +98,24 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
  */
 export interface UserPoolRiskConfigurationAttachmentArgs {
+    /**
+     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+     */
     accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>;
+    /**
+     * The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+     */
     clientId: pulumi.Input<string>;
+    /**
+     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+     */
     compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>;
+    /**
+     * The configuration to override the risk decision.
+     */
     riskExceptionConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs>;
+    /**
+     * The user pool ID.
+     */
     userPoolId: pulumi.Input<string>;
 }

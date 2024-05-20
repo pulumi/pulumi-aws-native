@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Inspector.Outputs
     [OutputType]
     public sealed class AssessmentTemplateTag
     {
+        /// <summary>
+        /// A tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// A value assigned to a tag key.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

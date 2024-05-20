@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Eks.Inputs
     /// </summary>
     public sealed class NodegroupTaintArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The effect of the taint.
+        /// </summary>
         [Input("effect")]
         public Input<string>? Effect { get; set; }
 
+        /// <summary>
+        /// The key of the taint.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The value of the taint.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

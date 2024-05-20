@@ -19,15 +19,40 @@ export function getVpceConfiguration(args: GetVpceConfigurationArgs, opts?: pulu
 }
 
 export interface GetVpceConfigurationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetVpceConfigurationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * The DNS name that Device Farm will use to map to the private service you want to access.
+     */
     readonly serviceDnsName?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * An optional description that provides details about your VPC endpoint configuration.
+     */
     readonly vpceConfigurationDescription?: string;
+    /**
+     * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+     */
     readonly vpceConfigurationName?: string;
+    /**
+     * The name of the VPC endpoint service that you want to access from Device Farm.
+     *
+     * The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+     */
     readonly vpceServiceName?: string;
 }
 /**
@@ -38,5 +63,8 @@ export function getVpceConfigurationOutput(args: GetVpceConfigurationOutputArgs,
 }
 
 export interface GetVpceConfigurationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

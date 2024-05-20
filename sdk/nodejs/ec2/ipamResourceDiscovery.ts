@@ -37,6 +37,9 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpamResourceDiscovery.__pulumiType;
     }
 
+    /**
+     * The resource discovery description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (Arn) for the Resource Discovery.
@@ -111,6 +114,9 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
  * The set of arguments for constructing a IpamResourceDiscovery resource.
  */
 export interface IpamResourceDiscoveryArgs {
+    /**
+     * The resource discovery description.
+     */
     description?: pulumi.Input<string>;
     /**
      * The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring

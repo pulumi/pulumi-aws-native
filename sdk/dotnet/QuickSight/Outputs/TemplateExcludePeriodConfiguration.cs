@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateExcludePeriodConfiguration
     {
+        /// <summary>
+        /// The amount or number of the exclude period.
+        /// </summary>
         public readonly double Amount;
+        /// <summary>
+        /// The granularity or unit (day, month, year) of the exclude period.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity Granularity;
+        /// <summary>
+        /// The status of the exclude period. Choose from the following options:
+        /// 
+        /// - `ENABLED`
+        /// - `DISABLED`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? Status;
 
         [OutputConstructor]

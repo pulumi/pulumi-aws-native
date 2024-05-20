@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetIpAccessSettingsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the IP access settings resource.
+        /// </summary>
         [Input("ipAccessSettingsArn", required: true)]
         public string IpAccessSettingsArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetIpAccessSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the IP access settings resource.
+        /// </summary>
         [Input("ipAccessSettingsArn", required: true)]
         public Input<string> IpAccessSettingsArn { get; set; } = null!;
 
@@ -51,12 +57,33 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetIpAccessSettingsResult
     {
+        /// <summary>
+        /// A list of web portal ARNs that this IP access settings resource is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        /// <summary>
+        /// The creation date timestamp of the IP access settings.
+        /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The description of the IP access settings.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the IP access settings.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The ARN of the IP access settings resource.
+        /// </summary>
         public readonly string? IpAccessSettingsArn;
+        /// <summary>
+        /// The IP rules of the IP access settings.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IpAccessSettingsIpRule> IpRules;
+        /// <summary>
+        /// The tags to add to the browser settings resource. A tag is a key-value pair.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

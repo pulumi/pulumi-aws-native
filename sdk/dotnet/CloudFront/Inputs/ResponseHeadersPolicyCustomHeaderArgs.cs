@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicyCustomHeaderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HTTP response header name.
+        /// </summary>
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
 
+        /// <summary>
+        /// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
+        /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the HTTP response header.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

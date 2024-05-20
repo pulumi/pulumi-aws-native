@@ -33,6 +33,55 @@ class ImageBuilderArgs:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
+        :param pulumi.Input[str] instance_type: The instance type to use when launching the image builder. The following instance types are available:
+               
+               - stream.standard.small
+               - stream.standard.medium
+               - stream.standard.large
+               - stream.compute.large
+               - stream.compute.xlarge
+               - stream.compute.2xlarge
+               - stream.compute.4xlarge
+               - stream.compute.8xlarge
+               - stream.memory.large
+               - stream.memory.xlarge
+               - stream.memory.2xlarge
+               - stream.memory.4xlarge
+               - stream.memory.8xlarge
+               - stream.memory.z1d.large
+               - stream.memory.z1d.xlarge
+               - stream.memory.z1d.2xlarge
+               - stream.memory.z1d.3xlarge
+               - stream.memory.z1d.6xlarge
+               - stream.memory.z1d.12xlarge
+               - stream.graphics-design.large
+               - stream.graphics-design.xlarge
+               - stream.graphics-design.2xlarge
+               - stream.graphics-design.4xlarge
+               - stream.graphics-desktop.2xlarge
+               - stream.graphics.g4dn.xlarge
+               - stream.graphics.g4dn.2xlarge
+               - stream.graphics.g4dn.4xlarge
+               - stream.graphics.g4dn.8xlarge
+               - stream.graphics.g4dn.12xlarge
+               - stream.graphics.g4dn.16xlarge
+               - stream.graphics-pro.4xlarge
+               - stream.graphics-pro.8xlarge
+               - stream.graphics-pro.16xlarge
+        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+        :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        :param pulumi.Input[str] description: The description to display.
+        :param pulumi.Input[str] display_name: The image builder name to display.
+        :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+        :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+               
+               For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+        :param pulumi.Input[str] image_arn: The ARN of the public, private, or shared image to use.
+        :param pulumi.Input[str] image_name: The name of the image used to create the image builder.
+        :param pulumi.Input[str] name: A unique name for the image builder.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs.
+        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: The VPC configuration for the image builder. You can specify only one subnet.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if access_endpoints is not None:
@@ -63,6 +112,43 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
+        """
+        The instance type to use when launching the image builder. The following instance types are available:
+
+        - stream.standard.small
+        - stream.standard.medium
+        - stream.standard.large
+        - stream.compute.large
+        - stream.compute.xlarge
+        - stream.compute.2xlarge
+        - stream.compute.4xlarge
+        - stream.compute.8xlarge
+        - stream.memory.large
+        - stream.memory.xlarge
+        - stream.memory.2xlarge
+        - stream.memory.4xlarge
+        - stream.memory.8xlarge
+        - stream.memory.z1d.large
+        - stream.memory.z1d.xlarge
+        - stream.memory.z1d.2xlarge
+        - stream.memory.z1d.3xlarge
+        - stream.memory.z1d.6xlarge
+        - stream.memory.z1d.12xlarge
+        - stream.graphics-design.large
+        - stream.graphics-design.xlarge
+        - stream.graphics-design.2xlarge
+        - stream.graphics-design.4xlarge
+        - stream.graphics-desktop.2xlarge
+        - stream.graphics.g4dn.xlarge
+        - stream.graphics.g4dn.2xlarge
+        - stream.graphics.g4dn.4xlarge
+        - stream.graphics.g4dn.8xlarge
+        - stream.graphics.g4dn.12xlarge
+        - stream.graphics.g4dn.16xlarge
+        - stream.graphics-pro.4xlarge
+        - stream.graphics-pro.8xlarge
+        - stream.graphics-pro.16xlarge
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -72,6 +158,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
+        """
+        The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+        """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
@@ -81,6 +170,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        """
         return pulumi.get(self, "appstream_agent_version")
 
     @appstream_agent_version.setter
@@ -90,6 +182,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description to display.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,6 +194,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image builder name to display.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -108,6 +206,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
+        """
+        The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+        """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
@@ -117,6 +218,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables default internet access for the image builder.
+        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
@@ -126,6 +230,11 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+
+        For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -135,6 +244,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the public, private, or shared image to use.
+        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -144,6 +256,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image used to create the image builder.
+        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -153,6 +268,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique name for the image builder.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -162,6 +280,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -171,6 +292,9 @@ class ImageBuilderArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
+        """
+        The VPC configuration for the image builder. You can specify only one subnet.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -202,6 +326,55 @@ class ImageBuilder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+        :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        :param pulumi.Input[str] description: The description to display.
+        :param pulumi.Input[str] display_name: The image builder name to display.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']] domain_join_info: The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+        :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+               
+               For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+        :param pulumi.Input[str] image_arn: The ARN of the public, private, or shared image to use.
+        :param pulumi.Input[str] image_name: The name of the image used to create the image builder.
+        :param pulumi.Input[str] instance_type: The instance type to use when launching the image builder. The following instance types are available:
+               
+               - stream.standard.small
+               - stream.standard.medium
+               - stream.standard.large
+               - stream.compute.large
+               - stream.compute.xlarge
+               - stream.compute.2xlarge
+               - stream.compute.4xlarge
+               - stream.compute.8xlarge
+               - stream.memory.large
+               - stream.memory.xlarge
+               - stream.memory.2xlarge
+               - stream.memory.4xlarge
+               - stream.memory.8xlarge
+               - stream.memory.z1d.large
+               - stream.memory.z1d.xlarge
+               - stream.memory.z1d.2xlarge
+               - stream.memory.z1d.3xlarge
+               - stream.memory.z1d.6xlarge
+               - stream.memory.z1d.12xlarge
+               - stream.graphics-design.large
+               - stream.graphics-design.xlarge
+               - stream.graphics-design.2xlarge
+               - stream.graphics-design.4xlarge
+               - stream.graphics-desktop.2xlarge
+               - stream.graphics.g4dn.xlarge
+               - stream.graphics.g4dn.2xlarge
+               - stream.graphics.g4dn.4xlarge
+               - stream.graphics.g4dn.8xlarge
+               - stream.graphics.g4dn.12xlarge
+               - stream.graphics.g4dn.16xlarge
+               - stream.graphics-pro.4xlarge
+               - stream.graphics-pro.8xlarge
+               - stream.graphics-pro.16xlarge
+        :param pulumi.Input[str] name: A unique name for the image builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: The VPC configuration for the image builder. You can specify only one subnet.
         """
         ...
     @overload
@@ -306,70 +479,148 @@ class ImageBuilder(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ImageBuilderAccessEndpoint']]]:
+        """
+        The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+        """
         return pulumi.get(self, "access_endpoints")
 
     @property
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        """
         return pulumi.get(self, "appstream_agent_version")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description to display.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The image builder name to display.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> pulumi.Output[Optional['outputs.ImageBuilderDomainJoinInfo']]:
+        """
+        The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+        """
         return pulumi.get(self, "domain_join_info")
 
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables or disables default internet access for the image builder.
+        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
+
+        For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon AppStream 2.0 Administration Guide* .
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the public, private, or shared image to use.
+        """
         return pulumi.get(self, "image_arn")
 
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the image used to create the image builder.
+        """
         return pulumi.get(self, "image_name")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
+        """
+        The instance type to use when launching the image builder. The following instance types are available:
+
+        - stream.standard.small
+        - stream.standard.medium
+        - stream.standard.large
+        - stream.compute.large
+        - stream.compute.xlarge
+        - stream.compute.2xlarge
+        - stream.compute.4xlarge
+        - stream.compute.8xlarge
+        - stream.memory.large
+        - stream.memory.xlarge
+        - stream.memory.2xlarge
+        - stream.memory.4xlarge
+        - stream.memory.8xlarge
+        - stream.memory.z1d.large
+        - stream.memory.z1d.xlarge
+        - stream.memory.z1d.2xlarge
+        - stream.memory.z1d.3xlarge
+        - stream.memory.z1d.6xlarge
+        - stream.memory.z1d.12xlarge
+        - stream.graphics-design.large
+        - stream.graphics-design.xlarge
+        - stream.graphics-design.2xlarge
+        - stream.graphics-design.4xlarge
+        - stream.graphics-desktop.2xlarge
+        - stream.graphics.g4dn.xlarge
+        - stream.graphics.g4dn.2xlarge
+        - stream.graphics.g4dn.4xlarge
+        - stream.graphics.g4dn.8xlarge
+        - stream.graphics.g4dn.12xlarge
+        - stream.graphics.g4dn.16xlarge
+        - stream.graphics-pro.4xlarge
+        - stream.graphics-pro.8xlarge
+        - stream.graphics-pro.16xlarge
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A unique name for the image builder.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="streamingUrl")
     def streaming_url(self) -> pulumi.Output[str]:
+        """
+        The URL to start an image builder streaming session, returned as a string.
+        """
         return pulumi.get(self, "streaming_url")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.ImageBuilderVpcConfig']]:
+        """
+        The VPC configuration for the image builder. You can specify only one subnet.
+        """
         return pulumi.get(self, "vpc_config")
 

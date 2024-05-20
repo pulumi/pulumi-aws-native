@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class IdMappingWorkflowProviderProperties
     {
+        /// <summary>
+        /// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
+        /// </summary>
         public readonly Outputs.IdMappingWorkflowIntermediateSourceConfiguration? IntermediateSourceConfiguration;
         /// <summary>
         /// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format

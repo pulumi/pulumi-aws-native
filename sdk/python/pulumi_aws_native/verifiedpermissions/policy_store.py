@@ -22,6 +22,13 @@ class PolicyStoreArgs:
                  schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
+        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Specifies the validation setting for this policy store.
+               
+               Currently, the only valid and required value is `Mode` .
+               
+               > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+        :param pulumi.Input[str] description: Descriptive text that you can provide to help with identification of the current policy store.
+        :param pulumi.Input['PolicyStoreSchemaDefinitionArgs'] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
         """
         pulumi.set(__self__, "validation_settings", validation_settings)
         if description is not None:
@@ -32,6 +39,13 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Input['PolicyStoreValidationSettingsArgs']:
+        """
+        Specifies the validation setting for this policy store.
+
+        Currently, the only valid and required value is `Mode` .
+
+        > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+        """
         return pulumi.get(self, "validation_settings")
 
     @validation_settings.setter
@@ -41,6 +55,9 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Descriptive text that you can provide to help with identification of the current policy store.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -50,6 +67,9 @@ class PolicyStoreArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']]:
+        """
+        Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -88,6 +108,13 @@ class PolicyStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Descriptive text that you can provide to help with identification of the current policy store.
+        :param pulumi.Input[pulumi.InputType['PolicyStoreSchemaDefinitionArgs']] schema: Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        :param pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']] validation_settings: Specifies the validation setting for this policy store.
+               
+               Currently, the only valid and required value is `Mode` .
+               
+               > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
         """
         ...
     @overload
@@ -181,25 +208,44 @@ class PolicyStore(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Descriptive text that you can provide to help with identification of the current policy store.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the new or updated policy store.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional['outputs.PolicyStoreSchemaDefinition']]:
+        """
+        Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Output['outputs.PolicyStoreValidationSettings']:
+        """
+        Specifies the validation setting for this policy store.
+
+        Currently, the only valid and required value is `Mode` .
+
+        > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+        """
         return pulumi.get(self, "validation_settings")
 

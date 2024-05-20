@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisBodySectionContent
     {
+        /// <summary>
+        /// The layout configuration of a body section.
+        /// </summary>
         public readonly Outputs.AnalysisSectionLayoutConfiguration? Layout;
 
         [OutputConstructor]

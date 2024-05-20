@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.Sqs
 
     public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the URLs of the queues from the policy.
+        /// </summary>
         [Input("queueUrl", required: true)]
         public string QueueUrl { get; set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.Sqs
 
     public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the URLs of the queues from the policy.
+        /// </summary>
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.Sqs
     [OutputType]
     public sealed class GetQueueResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
@@ -107,6 +116,9 @@ namespace Pulumi.AwsNative.Sqs
         /// The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
         /// </summary>
         public readonly int? MessageRetentionPeriod;
+        /// <summary>
+        /// Returns the URLs of the queues from the policy.
+        /// </summary>
         public readonly string? QueueUrl;
         /// <summary>
         /// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.

@@ -33,6 +33,9 @@ class GetCertificateResult:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property

@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetListenerRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         [Input("ruleArn", required: true)]
         public string RuleArn { get; set; } = null!;
 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetListenerRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         [Input("ruleArn", required: true)]
         public Input<string> RuleArn { get; set; } = null!;
 
@@ -63,12 +69,18 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         ///  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerRuleRuleCondition> Conditions;
+        /// <summary>
+        /// Indicates whether this is the default rule.
+        /// </summary>
         public readonly bool? IsDefault;
         /// <summary>
         /// The rule priority. A listener can't have multiple rules with the same priority.
         ///  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
         /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         public readonly string? RuleArn;
 
         [OutputConstructor]

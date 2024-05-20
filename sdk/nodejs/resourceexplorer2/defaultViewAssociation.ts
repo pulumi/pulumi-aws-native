@@ -38,6 +38,9 @@ export class DefaultViewAssociation extends pulumi.CustomResource {
      * The AWS principal that the default view is associated with, used as the unique identifier for this resource.
      */
     public /*out*/ readonly associatedAwsPrincipal!: pulumi.Output<string>;
+    /**
+     * The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+     */
     public readonly viewArn!: pulumi.Output<string>;
 
     /**
@@ -69,5 +72,8 @@ export class DefaultViewAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a DefaultViewAssociation resource.
  */
 export interface DefaultViewAssociationArgs {
+    /**
+     * The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+     */
     viewArn: pulumi.Input<string>;
 }

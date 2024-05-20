@@ -30,7 +30,15 @@ class ServiceArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Service resource.
+        :param pulumi.Input[str] application_identifier: The unique identifier of the application.
+        :param pulumi.Input['ServiceEndpointType'] endpoint_type: The endpoint type of the service.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
+        :param pulumi.Input[str] description: A description of the service.
+        :param pulumi.Input['ServiceLambdaEndpointInputArgs'] lambda_endpoint: A summary of the configuration for the AWS Lambda endpoint type.
+        :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input['ServiceUrlEndpointInputArgs'] url_endpoint: The summary of the configuration for the URL endpoint type.
+        :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -51,6 +59,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @application_identifier.setter
@@ -60,6 +71,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input['ServiceEndpointType']:
+        """
+        The endpoint type of the service.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -69,6 +83,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @environment_identifier.setter
@@ -78,6 +95,9 @@ class ServiceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the service.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -87,6 +107,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="lambdaEndpoint")
     def lambda_endpoint(self) -> Optional[pulumi.Input['ServiceLambdaEndpointInputArgs']]:
+        """
+        A summary of the configuration for the AWS Lambda endpoint type.
+        """
         return pulumi.get(self, "lambda_endpoint")
 
     @lambda_endpoint.setter
@@ -96,6 +119,9 @@ class ServiceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,6 +143,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="urlEndpoint")
     def url_endpoint(self) -> Optional[pulumi.Input['ServiceUrlEndpointInputArgs']]:
+        """
+        The summary of the configuration for the URL endpoint type.
+        """
         return pulumi.get(self, "url_endpoint")
 
     @url_endpoint.setter
@@ -126,6 +155,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the virtual private cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -153,7 +185,15 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_identifier: The unique identifier of the application.
+        :param pulumi.Input[str] description: A description of the service.
+        :param pulumi.Input['ServiceEndpointType'] endpoint_type: The endpoint type of the service.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
+        :param pulumi.Input[pulumi.InputType['ServiceLambdaEndpointInputArgs']] lambda_endpoint: A summary of the configuration for the AWS Lambda endpoint type.
+        :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[pulumi.InputType['ServiceUrlEndpointInputArgs']] url_endpoint: The summary of the configuration for the URL endpoint type.
+        :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         ...
     @overload
@@ -254,41 +294,65 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the service.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Output['ServiceEndpointType']:
+        """
+        The endpoint type of the service.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @property
     @pulumi.getter(name="lambdaEndpoint")
     def lambda_endpoint(self) -> pulumi.Output[Optional['outputs.ServiceLambdaEndpointInput']]:
+        """
+        A summary of the configuration for the AWS Lambda endpoint type.
+        """
         return pulumi.get(self, "lambda_endpoint")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the service.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @property
@@ -302,10 +366,16 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="urlEndpoint")
     def url_endpoint(self) -> pulumi.Output[Optional['outputs.ServiceUrlEndpointInput']]:
+        """
+        The summary of the configuration for the URL endpoint type.
+        """
         return pulumi.get(self, "url_endpoint")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the virtual private cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 

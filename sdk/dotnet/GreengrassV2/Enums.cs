@@ -35,6 +35,12 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of event source. Choose from the following options:
+    /// 
+    /// - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+    /// - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
+    /// </summary>
     [EnumType]
     public readonly struct ComponentVersionLambdaEventSourceType : IEquatable<ComponentVersionLambdaEventSourceType>
     {
@@ -63,6 +69,11 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The encoding type that the Lambda function supports.
+    /// 
+    /// Default: `json`
+    /// </summary>
     [EnumType]
     public readonly struct ComponentVersionLambdaExecutionParametersInputPayloadEncodingType : IEquatable<ComponentVersionLambdaExecutionParametersInputPayloadEncodingType>
     {
@@ -119,6 +130,11 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+    /// 
+    /// Default: `GreengrassContainer`
+    /// </summary>
     [EnumType]
     public readonly struct ComponentVersionLambdaLinuxProcessParamsIsolationMode : IEquatable<ComponentVersionLambdaLinuxProcessParamsIsolationMode>
     {
@@ -147,6 +163,14 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
+    /// 
+    /// - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+    /// - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
+    /// 
+    /// Default: `NOTIFY_COMPONENTS`
+    /// </summary>
     [EnumType]
     public readonly struct DeploymentComponentUpdatePolicyAction : IEquatable<DeploymentComponentUpdatePolicyAction>
     {
@@ -175,6 +199,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The action to perform when the criteria are met.
+    /// </summary>
     [EnumType]
     public readonly struct DeploymentIoTJobAbortCriteriaAction : IEquatable<DeploymentIoTJobAbortCriteriaAction>
     {
@@ -202,6 +229,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of job deployment failure that can cancel a job.
+    /// </summary>
     [EnumType]
     public readonly struct DeploymentIoTJobAbortCriteriaFailureType : IEquatable<DeploymentIoTJobAbortCriteriaFailureType>
     {
@@ -232,6 +262,11 @@ namespace Pulumi.AwsNative.GreengrassV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+    /// 
+    /// Default: `ROLLBACK`
+    /// </summary>
     [EnumType]
     public readonly struct DeploymentPoliciesFailureHandlingPolicy : IEquatable<DeploymentPoliciesFailureHandlingPolicy>
     {

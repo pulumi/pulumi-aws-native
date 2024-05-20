@@ -37,10 +37,31 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
+    /**
+     * Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+     *
+     * This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+     *
+     * To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
+     */
     public readonly appConfigResource!: pulumi.Output<outputs.evidently.ProjectAppConfigResourceObject | undefined>;
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+     *
+     * You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
+     */
     public readonly dataDelivery!: pulumi.Output<outputs.evidently.ProjectDataDeliveryObject | undefined>;
+    /**
+     * An optional description of the project.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name for the project. It can include up to 127 characters.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -83,9 +104,27 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
+    /**
+     * Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+     *
+     * This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+     *
+     * To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
+     */
     appConfigResource?: pulumi.Input<inputs.evidently.ProjectAppConfigResourceObjectArgs>;
+    /**
+     * A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+     *
+     * You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
+     */
     dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDeliveryObjectArgs>;
+    /**
+     * An optional description of the project.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name for the project. It can include up to 127 characters.
+     */
     name?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

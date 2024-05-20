@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetGroupIdentifier
     {
+        /// <summary>
+        /// The ID of the security group.
+        /// </summary>
         public readonly string GroupId;
 
         [OutputConstructor]

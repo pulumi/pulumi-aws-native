@@ -26,6 +26,9 @@ class GetVpcEndpointServicePermissionsResult:
     @property
     @pulumi.getter(name="allowedPrincipals")
     def allowed_principals(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
+        """
         return pulumi.get(self, "allowed_principals")
 
 
@@ -42,6 +45,9 @@ def get_vpc_endpoint_service_permissions(service_id: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServicePermissionsResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
+
+
+    :param str service_id: The ID of the service.
     """
     __args__ = dict()
     __args__['serviceId'] = service_id
@@ -57,5 +63,8 @@ def get_vpc_endpoint_service_permissions_output(service_id: Optional[pulumi.Inpu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServicePermissionsResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
+
+
+    :param str service_id: The ID of the service.
     """
     ...

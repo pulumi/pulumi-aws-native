@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class GameSessionQueueDestination
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+        /// </summary>
         public readonly string? DestinationArn;
 
         [OutputConstructor]

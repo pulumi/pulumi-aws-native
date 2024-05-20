@@ -13,9 +13,25 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaVolumeMount
     {
+        /// <summary>
+        /// Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
+        /// 
+        /// Default: `false`
+        /// </summary>
         public readonly bool? AddGroupOwner;
+        /// <summary>
+        /// The path to the logical volume in the file system.
+        /// </summary>
         public readonly string? DestinationPath;
+        /// <summary>
+        /// The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
+        /// 
+        /// Default: `ro`
+        /// </summary>
         public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaFilesystemPermission? Permission;
+        /// <summary>
+        /// The path to the physical volume in the file system.
+        /// </summary>
         public readonly string? SourcePath;
 
         [OutputConstructor]

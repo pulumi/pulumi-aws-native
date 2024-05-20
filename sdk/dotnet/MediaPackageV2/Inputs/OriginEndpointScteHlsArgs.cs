@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointScteHlsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The SCTE-35 HLS ad-marker configuration.
+        /// </summary>
         [Input("adMarkerHls")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerHls>? AdMarkerHls { get; set; }
 

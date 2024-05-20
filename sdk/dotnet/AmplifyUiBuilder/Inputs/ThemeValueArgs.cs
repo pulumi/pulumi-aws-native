@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     {
         [Input("children")]
         private InputList<Inputs.ThemeValuesArgs>? _children;
+
+        /// <summary>
+        /// A list of key-value pairs that define the theme's properties.
+        /// </summary>
         public InputList<Inputs.ThemeValuesArgs> Children
         {
             get => _children ?? (_children = new InputList<Inputs.ThemeValuesArgs>());
             set => _children = value;
         }
 
+        /// <summary>
+        /// The value of a theme property.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

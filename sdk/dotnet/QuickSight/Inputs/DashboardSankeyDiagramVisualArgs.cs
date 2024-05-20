@@ -14,21 +14,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.DashboardVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.DashboardVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.DashboardVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The configuration of a sankey diagram.
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.DashboardSankeyDiagramChartConfigurationArgs>? ChartConfiguration { get; set; }
 
+        /// <summary>
+        /// The subtitle that is displayed on the visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.DashboardVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title that is displayed on the visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.DashboardVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

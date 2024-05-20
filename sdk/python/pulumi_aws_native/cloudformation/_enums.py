@@ -153,6 +153,9 @@ class StackSetRegionConcurrencyType(str, Enum):
 
 
 class StackStatus(str, Enum):
+    """
+    Current status of the stack.
+    """
     CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
     CREATE_FAILED = "CREATE_FAILED"
     CREATE_COMPLETE = "CREATE_COMPLETE"

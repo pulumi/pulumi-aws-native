@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetApiKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A custom name for the API key resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique API key name.
+        /// - No spaces allowed. For example, `ExampleAPIKey` .
+        /// </summary>
         [Input("keyName", required: true)]
         public string KeyName { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetApiKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A custom name for the API key resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique API key name.
+        /// - No spaces allowed. For example, `ExampleAPIKey` .
+        /// </summary>
         [Input("keyName", required: true)]
         public Input<string> KeyName { get; set; } = null!;
 
@@ -51,16 +69,37 @@ namespace Pulumi.AwsNative.Location
     [OutputType]
     public sealed class GetApiKeyResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+        /// </summary>
         public readonly string? CreateTime;
+        /// <summary>
+        /// Updates the description for the API key resource.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+        /// </summary>
         public readonly string? ExpireTime;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+        /// </summary>
         public readonly string? KeyArn;
+        /// <summary>
+        /// The API key restrictions for the API key resource.
+        /// </summary>
         public readonly Outputs.ApiKeyRestrictions? Restrictions;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? UpdateTime;
 
         [OutputConstructor]

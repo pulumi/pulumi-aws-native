@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Configuration.Outputs
     [OutputType]
     public sealed class ConformancePackInputParameter
     {
+        /// <summary>
+        /// One part of a key-value pair.
+        /// </summary>
         public readonly string ParameterName;
+        /// <summary>
+        /// Another part of the key-value pair.
+        /// </summary>
         public readonly string ParameterValue;
 
         [OutputConstructor]

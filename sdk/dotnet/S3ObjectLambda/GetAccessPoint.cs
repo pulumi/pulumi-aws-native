@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     public sealed class GetAccessPointResult
     {
         public readonly Outputs.AccessPointAlias? Alias;
+        /// <summary>
+        /// Specifies the ARN for the Object Lambda Access Point.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The date and time when the Object lambda Access Point was created.

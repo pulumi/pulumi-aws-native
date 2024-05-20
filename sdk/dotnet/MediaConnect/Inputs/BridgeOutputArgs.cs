@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     /// </summary>
     public sealed class BridgeOutputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The output of the bridge. A network output is delivered to your premises.
+        /// </summary>
         [Input("networkOutput")]
         public Input<Inputs.BridgeNetworkOutputArgs>? NetworkOutput { get; set; }
 

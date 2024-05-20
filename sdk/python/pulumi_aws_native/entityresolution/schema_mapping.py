@@ -28,6 +28,7 @@ class SchemaMappingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]] mapped_input_fields: The SchemaMapping attributes input
         :param pulumi.Input[str] schema_name: The name of the SchemaMapping
         :param pulumi.Input[str] description: The description of the SchemaMapping
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "mapped_input_fields", mapped_input_fields)
         pulumi.set(__self__, "schema_name", schema_name)
@@ -75,6 +76,9 @@ class SchemaMappingArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -100,6 +104,7 @@ class SchemaMapping(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the SchemaMapping
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaMappingSchemaInputAttributeArgs']]]] mapped_input_fields: The SchemaMapping attributes input
         :param pulumi.Input[str] schema_name: The name of the SchemaMapping
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -226,6 +231,9 @@ class SchemaMapping(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property

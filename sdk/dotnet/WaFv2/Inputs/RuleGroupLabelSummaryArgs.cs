@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
     public sealed class RuleGroupLabelSummaryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An individual label specification.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -24,14 +24,17 @@ func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts 
 }
 
 type LookupDistributionArgs struct {
+	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
 	Id string `pulumi:"id"`
 }
 
 type LookupDistributionResult struct {
 	// The distribution's configuration.
 	DistributionConfig *DistributionConfig `pulumi:"distributionConfig"`
-	DomainName         *string             `pulumi:"domainName"`
-	Id                 *string             `pulumi:"id"`
+	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+	DomainName *string `pulumi:"domainName"`
+	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+	Id *string `pulumi:"id"`
 	// A complex type that contains zero or more ``Tag`` elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -50,6 +53,7 @@ func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutput
 }
 
 type LookupDistributionOutputArgs struct {
+	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -76,10 +80,12 @@ func (o LookupDistributionResultOutput) DistributionConfig() DistributionConfigP
 	return o.ApplyT(func(v LookupDistributionResult) *DistributionConfig { return v.DistributionConfig }).(DistributionConfigPtrOutput)
 }
 
+// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 func (o LookupDistributionResultOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// The distribution's identifier. For example: `E1U5RQF7T870K0` .
 func (o LookupDistributionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

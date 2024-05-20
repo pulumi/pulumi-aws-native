@@ -121,9 +121,18 @@ type Keyspace struct {
 	pulumi.CustomResourceState
 
 	// Name for Cassandra keyspace
-	KeyspaceName             pulumi.StringPtrOutput                    `pulumi:"keyspaceName"`
+	KeyspaceName pulumi.StringPtrOutput `pulumi:"keyspaceName"`
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+	//
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
+	//
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrOutput `pulumi:"replicationSpecification"`
-	Tags                     aws.TagArrayOutput                        `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -172,17 +181,35 @@ func (KeyspaceState) ElementType() reflect.Type {
 
 type keyspaceArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName             *string                           `pulumi:"keyspaceName"`
+	KeyspaceName *string `pulumi:"keyspaceName"`
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+	//
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
+	//
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
-	Tags                     []aws.Tag                         `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
 	// Name for Cassandra keyspace
-	KeyspaceName             pulumi.StringPtrInput
+	KeyspaceName pulumi.StringPtrInput
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+	//
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
+	//
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
-	Tags                     aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (KeyspaceArgs) ElementType() reflect.Type {
@@ -227,10 +254,19 @@ func (o KeyspaceOutput) KeyspaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringPtrOutput { return v.KeyspaceName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+//
+// - `SINGLE_REGION` for a single Region keyspace (optional) or
+// - `MULTI_REGION` for a multi-Region keyspace
+//
+// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 func (o KeyspaceOutput) ReplicationSpecification() KeyspaceReplicationSpecificationPtrOutput {
 	return o.ApplyT(func(v *Keyspace) KeyspaceReplicationSpecificationPtrOutput { return v.ReplicationSpecification }).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o KeyspaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Keyspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _columnGroupSchemaList = value;
         }
 
+        /// <summary>
+        /// Dataset schema.
+        /// </summary>
         [Input("dataSetSchema")]
         public Input<Inputs.TemplateDataSetSchemaArgs>? DataSetSchema { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class KeyValueStoreImportSource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the import source for the key value store.
+        /// </summary>
         public readonly string SourceArn;
+        /// <summary>
+        /// The source type of the import source for the key value store.
+        /// </summary>
         public readonly string SourceType;
 
         [OutputConstructor]

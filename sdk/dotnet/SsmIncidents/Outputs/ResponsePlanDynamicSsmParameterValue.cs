@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanDynamicSsmParameterValue
     {
+        /// <summary>
+        /// Variable dynamic parameters. A parameter value is determined when an incident is created.
+        /// </summary>
         public readonly Pulumi.AwsNative.SsmIncidents.ResponsePlanVariableType? Variable;
 
         [OutputConstructor]

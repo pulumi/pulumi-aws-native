@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class NetworkInterfacePrivateIpAddressSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
+        /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
 
+        /// <summary>
+        /// The private IP address of the network interface.
+        /// </summary>
         [Input("privateIpAddress", required: true)]
         public Input<string> PrivateIpAddress { get; set; } = null!;
 

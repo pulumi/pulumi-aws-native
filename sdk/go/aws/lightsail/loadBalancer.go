@@ -24,8 +24,9 @@ type LoadBalancer struct {
 	// The instance port where you're creating your load balancer.
 	InstancePort pulumi.IntOutput `pulumi:"instancePort"`
 	// The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.
-	IpAddressType   pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	LoadBalancerArn pulumi.StringOutput    `pulumi:"loadBalancerArn"`
+	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	// The Amazon Resource Name (ARN) of the load balancer.
+	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
 	// The name of your load balancer.
 	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
 	// Configuration option to enable session stickiness.
@@ -186,6 +187,7 @@ func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the load balancer.
 func (o LoadBalancerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }

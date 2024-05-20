@@ -17,15 +17,24 @@ import (
 type KnowledgeBase struct {
 	pulumi.CustomResourceState
 
-	Description                       pulumi.StringPtrOutput                                  `pulumi:"description"`
-	KnowledgeBaseArn                  pulumi.StringOutput                                     `pulumi:"knowledgeBaseArn"`
-	KnowledgeBaseId                   pulumi.StringOutput                                     `pulumi:"knowledgeBaseId"`
-	KnowledgeBaseType                 KnowledgeBaseTypeOutput                                 `pulumi:"knowledgeBaseType"`
-	Name                              pulumi.StringOutput                                     `pulumi:"name"`
-	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrOutput            `pulumi:"renderingConfiguration"`
+	// The description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the knowledge base.
+	KnowledgeBaseArn pulumi.StringOutput `pulumi:"knowledgeBaseArn"`
+	// The ID of the knowledge base.
+	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
+	// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+	KnowledgeBaseType KnowledgeBaseTypeOutput `pulumi:"knowledgeBaseType"`
+	// The name of the knowledge base.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Information about how to render the content.
+	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrOutput `pulumi:"renderingConfiguration"`
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrOutput               `pulumi:"sourceConfiguration"`
-	Tags                              aws.CreateOnlyTagArrayOutput                            `pulumi:"tags"`
+	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+	SourceConfiguration KnowledgeBaseSourceConfigurationPtrOutput `pulumi:"sourceConfiguration"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewKnowledgeBase registers a new resource with the given unique name, arguments, and options.
@@ -80,24 +89,38 @@ func (KnowledgeBaseState) ElementType() reflect.Type {
 }
 
 type knowledgeBaseArgs struct {
-	Description                       *string                                         `pulumi:"description"`
-	KnowledgeBaseType                 KnowledgeBaseType                               `pulumi:"knowledgeBaseType"`
-	Name                              *string                                         `pulumi:"name"`
-	RenderingConfiguration            *KnowledgeBaseRenderingConfiguration            `pulumi:"renderingConfiguration"`
+	// The description.
+	Description *string `pulumi:"description"`
+	// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+	KnowledgeBaseType KnowledgeBaseType `pulumi:"knowledgeBaseType"`
+	// The name of the knowledge base.
+	Name *string `pulumi:"name"`
+	// Information about how to render the content.
+	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	SourceConfiguration               *KnowledgeBaseSourceConfiguration               `pulumi:"sourceConfiguration"`
-	Tags                              []aws.CreateOnlyTag                             `pulumi:"tags"`
+	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+	SourceConfiguration *KnowledgeBaseSourceConfiguration `pulumi:"sourceConfiguration"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KnowledgeBase resource.
 type KnowledgeBaseArgs struct {
-	Description                       pulumi.StringPtrInput
-	KnowledgeBaseType                 KnowledgeBaseTypeInput
-	Name                              pulumi.StringPtrInput
-	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
+	// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+	KnowledgeBaseType KnowledgeBaseTypeInput
+	// The name of the knowledge base.
+	Name pulumi.StringPtrInput
+	// Information about how to render the content.
+	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrInput
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
-	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrInput
-	Tags                              aws.CreateOnlyTagArrayInput
+	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+	SourceConfiguration KnowledgeBaseSourceConfigurationPtrInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (KnowledgeBaseArgs) ElementType() reflect.Type {
@@ -137,40 +160,49 @@ func (o KnowledgeBaseOutput) ToKnowledgeBaseOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The description.
 func (o KnowledgeBaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the knowledge base.
 func (o KnowledgeBaseOutput) KnowledgeBaseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseArn }).(pulumi.StringOutput)
 }
 
+// The ID of the knowledge base.
 func (o KnowledgeBaseOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
+// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
 func (o KnowledgeBaseOutput) KnowledgeBaseType() KnowledgeBaseTypeOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseTypeOutput { return v.KnowledgeBaseType }).(KnowledgeBaseTypeOutput)
 }
 
+// The name of the knowledge base.
 func (o KnowledgeBaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KnowledgeBase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Information about how to render the content.
 func (o KnowledgeBaseOutput) RenderingConfiguration() KnowledgeBaseRenderingConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseRenderingConfigurationPtrOutput { return v.RenderingConfiguration }).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
+// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
+// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
 func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o KnowledgeBaseOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBase) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

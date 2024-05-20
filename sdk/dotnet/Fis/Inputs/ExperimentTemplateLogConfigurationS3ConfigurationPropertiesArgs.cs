@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Fis.Inputs
 {
 
+    /// <summary>
+    /// The configuration for experiment logging to Amazon S3 .
+    /// </summary>
     public sealed class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bucketName", required: true)]

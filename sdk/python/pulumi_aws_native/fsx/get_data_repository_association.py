@@ -41,6 +41,11 @@ class GetDataRepositoryAssociationResult:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[str]:
+        """
+        Returns the data repository association's system generated Association ID.
+
+        Example: `dra-abcdef0123456789d`
+        """
         return pulumi.get(self, "association_id")
 
     @property
@@ -55,6 +60,11 @@ class GetDataRepositoryAssociationResult:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
+        """
+        Returns the data repository association's Amazon Resource Name (ARN).
+
+        Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
@@ -93,6 +103,11 @@ def get_data_repository_association(association_id: Optional[str] = None,
     """
     Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
      Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+
+
+    :param str association_id: Returns the data repository association's system generated Association ID.
+           
+           Example: `dra-abcdef0123456789d`
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -113,5 +128,10 @@ def get_data_repository_association_output(association_id: Optional[pulumi.Input
     """
     Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
      Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+
+
+    :param str association_id: Returns the data repository association's system generated Association ID.
+           
+           Example: `dra-abcdef0123456789d`
     """
     ...

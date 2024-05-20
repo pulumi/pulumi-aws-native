@@ -34,7 +34,13 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationFleetAssociation.__pulumiType;
     }
 
+    /**
+     * The ARN of the application.
+     */
     public readonly applicationArn!: pulumi.Output<string>;
+    /**
+     * The name of the fleet.
+     */
     public readonly fleetName!: pulumi.Output<string>;
 
     /**
@@ -71,6 +77,12 @@ export class ApplicationFleetAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ApplicationFleetAssociation resource.
  */
 export interface ApplicationFleetAssociationArgs {
+    /**
+     * The ARN of the application.
+     */
     applicationArn: pulumi.Input<string>;
+    /**
+     * The name of the fleet.
+     */
     fleetName: pulumi.Input<string>;
 }

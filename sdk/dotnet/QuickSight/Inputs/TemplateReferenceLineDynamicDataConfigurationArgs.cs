@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateReferenceLineDynamicDataConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The calculation that is used in the dynamic data.
+        /// </summary>
         [Input("calculation", required: true)]
         public Input<Inputs.TemplateNumericalAggregationFunctionArgs> Calculation { get; set; } = null!;
 
+        /// <summary>
+        /// The column that the dynamic data targets.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The aggregation function that is used in the dynamic data.
+        /// </summary>
         [Input("measureAggregationFunction")]
         public Input<Inputs.TemplateAggregationFunctionArgs>? MeasureAggregationFunction { get; set; }
 

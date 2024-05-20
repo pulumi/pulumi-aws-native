@@ -20,6 +20,9 @@ export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.I
 }
 
 export interface GetStudioComponentArgs {
+    /**
+     * The unique identifier for the studio component resource.
+     */
     studioComponentId: string;
     /**
      * <p>The studio ID. </p>
@@ -28,6 +31,9 @@ export interface GetStudioComponentArgs {
 }
 
 export interface GetStudioComponentResult {
+    /**
+     * The configuration of the studio component, based on component type.
+     */
     readonly configuration?: outputs.nimblestudio.StudioComponentConfiguration0Properties | outputs.nimblestudio.StudioComponentConfiguration1Properties | outputs.nimblestudio.StudioComponentConfiguration2Properties | outputs.nimblestudio.StudioComponentConfiguration3Properties;
     /**
      * <p>The description.</p>
@@ -45,13 +51,25 @@ export interface GetStudioComponentResult {
      * <p>The name for the studio component.</p>
      */
     readonly name?: string;
+    /**
+     * An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
+     */
     readonly runtimeRoleArn?: string;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */
     readonly scriptParameters?: outputs.nimblestudio.StudioComponentScriptParameterKeyValue[];
+    /**
+     * An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
+     */
     readonly secureInitializationRoleArn?: string;
+    /**
+     * The unique identifier for the studio component resource.
+     */
     readonly studioComponentId?: string;
+    /**
+     * The type of the studio component.
+     */
     readonly type?: enums.nimblestudio.StudioComponentType;
 }
 /**
@@ -62,6 +80,9 @@ export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opt
 }
 
 export interface GetStudioComponentOutputArgs {
+    /**
+     * The unique identifier for the studio component resource.
+     */
     studioComponentId: pulumi.Input<string>;
     /**
      * <p>The studio ID. </p>

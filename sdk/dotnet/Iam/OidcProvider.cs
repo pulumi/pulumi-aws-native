@@ -21,15 +21,27 @@ namespace Pulumi.AwsNative.Iam
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         [Output("clientIdList")]
         public Output<ImmutableArray<string>> ClientIdList { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         [Output("thumbprintList")]
         public Output<ImmutableArray<string>> ThumbprintList { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
@@ -84,6 +96,10 @@ namespace Pulumi.AwsNative.Iam
     {
         [Input("clientIdList")]
         private InputList<string>? _clientIdList;
+
+        /// <summary>
+        /// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         public InputList<string> ClientIdList
         {
             get => _clientIdList ?? (_clientIdList = new InputList<string>());
@@ -92,6 +108,10 @@ namespace Pulumi.AwsNative.Iam
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -100,12 +120,19 @@ namespace Pulumi.AwsNative.Iam
 
         [Input("thumbprintList", required: true)]
         private InputList<string>? _thumbprintList;
+
+        /// <summary>
+        /// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         public InputList<string> ThumbprintList
         {
             get => _thumbprintList ?? (_thumbprintList = new InputList<string>());
             set => _thumbprintList = value;
         }
 
+        /// <summary>
+        /// The URL that the IAM OIDC provider resource object is associated with. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

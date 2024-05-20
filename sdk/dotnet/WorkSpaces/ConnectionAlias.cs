@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.WorkSpaces
     [AwsNativeResourceType("aws-native:workspaces:ConnectionAlias")]
     public partial class ConnectionAlias : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the connection alias, returned as a string.
+        /// </summary>
         [Output("aliasId")]
         public Output<string> AliasId { get; private set; } = null!;
 
+        /// <summary>
+        /// The association status of the connection alias.
+        /// </summary>
         [Output("associations")]
         public Output<ImmutableArray<Outputs.ConnectionAliasAssociation>> Associations { get; private set; } = null!;
 
+        /// <summary>
+        /// The current state of the connection alias, returned as a string.
+        /// </summary>
         [Output("connectionAliasState")]
         public Output<Pulumi.AwsNative.WorkSpaces.ConnectionAliasState> ConnectionAliasState { get; private set; } = null!;
 
+        /// <summary>
+        /// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+        /// </summary>
         [Output("connectionString")]
         public Output<string> ConnectionString { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to associate with the connection alias.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -80,11 +95,18 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class ConnectionAliasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to associate with the connection alias.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

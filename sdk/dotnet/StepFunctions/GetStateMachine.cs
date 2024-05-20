@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetStateMachineArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.StepFunctions
 
     public sealed class GetStateMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,13 +57,53 @@ namespace Pulumi.AwsNative.StepFunctions
     [OutputType]
     public sealed class GetStateMachineResult
     {
+        /// <summary>
+        /// Returns the ARN of the resource.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        /// </summary>
         public readonly string? DefinitionString;
+        /// <summary>
+        /// Defines what execution history events are logged and where they are logged.
+        /// 
+        /// &gt; By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        /// </summary>
         public readonly Outputs.StateMachineLoggingConfiguration? LoggingConfiguration;
+        /// <summary>
+        /// Returns the name of the state machine. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyStateMachine", "Name"] }`
+        /// 
+        /// Returns the name of your state machine:
+        /// 
+        /// `HelloWorld-StateMachine`
+        /// 
+        /// If you did not specify the name it will be similar to the following:
+        /// 
+        /// `MyStateMachine-1234abcdefgh`
+        /// 
+        /// For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+        /// </summary>
         public readonly string? StateMachineRevisionId;
+        /// <summary>
+        /// The list of tags to add to a resource.
+        /// 
+        /// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
+        /// </summary>
         public readonly Outputs.StateMachineTracingConfiguration? TracingConfiguration;
 
         [OutputConstructor]

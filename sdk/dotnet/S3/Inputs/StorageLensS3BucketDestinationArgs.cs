@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.StorageLensEncryptionArgs>? Encryption { get; set; }
 

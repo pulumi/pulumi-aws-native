@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationAttachmentsConfiguration struct {
+	// Status information about whether file upload functionality is activated or deactivated for your end user.
 	AttachmentsControlMode ApplicationAttachmentsControlMode `pulumi:"attachmentsControlMode"`
 }
 
@@ -29,6 +30,7 @@ type ApplicationAttachmentsConfigurationInput interface {
 }
 
 type ApplicationAttachmentsConfigurationArgs struct {
+	// Status information about whether file upload functionality is activated or deactivated for your end user.
 	AttachmentsControlMode ApplicationAttachmentsControlModeInput `pulumi:"attachmentsControlMode"`
 }
 
@@ -109,6 +111,7 @@ func (o ApplicationAttachmentsConfigurationOutput) ToApplicationAttachmentsConfi
 	}).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
+// Status information about whether file upload functionality is activated or deactivated for your end user.
 func (o ApplicationAttachmentsConfigurationOutput) AttachmentsControlMode() ApplicationAttachmentsControlModeOutput {
 	return o.ApplyT(func(v ApplicationAttachmentsConfiguration) ApplicationAttachmentsControlMode {
 		return v.AttachmentsControlMode
@@ -139,6 +142,7 @@ func (o ApplicationAttachmentsConfigurationPtrOutput) Elem() ApplicationAttachme
 	}).(ApplicationAttachmentsConfigurationOutput)
 }
 
+// Status information about whether file upload functionality is activated or deactivated for your end user.
 func (o ApplicationAttachmentsConfigurationPtrOutput) AttachmentsControlMode() ApplicationAttachmentsControlModePtrOutput {
 	return o.ApplyT(func(v *ApplicationAttachmentsConfiguration) *ApplicationAttachmentsControlMode {
 		if v == nil {
@@ -149,6 +153,7 @@ func (o ApplicationAttachmentsConfigurationPtrOutput) AttachmentsControlMode() A
 }
 
 type ApplicationEncryptionConfiguration struct {
+	// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -164,6 +169,7 @@ type ApplicationEncryptionConfigurationInput interface {
 }
 
 type ApplicationEncryptionConfigurationArgs struct {
+	// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -244,6 +250,7 @@ func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigu
 	}).(ApplicationEncryptionConfigurationPtrOutput)
 }
 
+// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
 func (o ApplicationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -272,6 +279,7 @@ func (o ApplicationEncryptionConfigurationPtrOutput) Elem() ApplicationEncryptio
 	}).(ApplicationEncryptionConfigurationOutput)
 }
 
+// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
 func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationEncryptionConfiguration) *string {
 		if v == nil {
@@ -282,14 +290,27 @@ func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 }
 
 type ApplicationTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 
 type DataSourceDocumentAttributeCondition struct {
-	Key      string                                        `pulumi:"key"`
+	// The identifier of the document attribute used for the condition.
+	//
+	// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+	//
+	// Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+	Key string `pulumi:"key"`
+	// The identifier of the document attribute used for the condition.
+	//
+	// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+	//
+	// Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
 	Operator DataSourceDocumentEnrichmentConditionOperator `pulumi:"operator"`
-	Value    interface{}                                   `pulumi:"value"`
+	// The value of a document attribute. You can only provide one value for a document attribute.
+	Value interface{} `pulumi:"value"`
 }
 
 // DataSourceDocumentAttributeConditionInput is an input type that accepts DataSourceDocumentAttributeConditionArgs and DataSourceDocumentAttributeConditionOutput values.
@@ -304,9 +325,20 @@ type DataSourceDocumentAttributeConditionInput interface {
 }
 
 type DataSourceDocumentAttributeConditionArgs struct {
-	Key      pulumi.StringInput                                 `pulumi:"key"`
+	// The identifier of the document attribute used for the condition.
+	//
+	// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+	//
+	// Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The identifier of the document attribute used for the condition.
+	//
+	// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+	//
+	// Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
 	Operator DataSourceDocumentEnrichmentConditionOperatorInput `pulumi:"operator"`
-	Value    pulumi.Input                                       `pulumi:"value"`
+	// The value of a document attribute. You can only provide one value for a document attribute.
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (DataSourceDocumentAttributeConditionArgs) ElementType() reflect.Type {
@@ -386,16 +418,27 @@ func (o DataSourceDocumentAttributeConditionOutput) ToDataSourceDocumentAttribut
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// The identifier of the document attribute used for the condition.
+//
+// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+//
+// Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
 func (o DataSourceDocumentAttributeConditionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The identifier of the document attribute used for the condition.
+//
+// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+//
+// Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceDocumentAttributeConditionOutput) Operator() DataSourceDocumentEnrichmentConditionOperatorOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) DataSourceDocumentEnrichmentConditionOperator {
 		return v.Operator
 	}).(DataSourceDocumentEnrichmentConditionOperatorOutput)
 }
 
+// The value of a document attribute. You can only provide one value for a document attribute.
 func (o DataSourceDocumentAttributeConditionOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -424,6 +467,11 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) Elem() DataSourceDocument
 	}).(DataSourceDocumentAttributeConditionOutput)
 }
 
+// The identifier of the document attribute used for the condition.
+//
+// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+//
+// Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
 func (o DataSourceDocumentAttributeConditionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *string {
 		if v == nil {
@@ -433,6 +481,11 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) Key() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the document attribute used for the condition.
+//
+// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+//
+// Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceDocumentAttributeConditionPtrOutput) Operator() DataSourceDocumentEnrichmentConditionOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *DataSourceDocumentEnrichmentConditionOperator {
 		if v == nil {
@@ -442,6 +495,7 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) Operator() DataSourceDocu
 	}).(DataSourceDocumentEnrichmentConditionOperatorPtrOutput)
 }
 
+// The value of a document attribute. You can only provide one value for a document attribute.
 func (o DataSourceDocumentAttributeConditionPtrOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) interface{} {
 		if v == nil {
@@ -452,9 +506,12 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) Value() pulumi.AnyOutput 
 }
 
 type DataSourceDocumentAttributeTarget struct {
+	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
 	AttributeValueOperator *DataSourceAttributeValueOperator `pulumi:"attributeValueOperator"`
-	Key                    string                            `pulumi:"key"`
-	Value                  interface{}                       `pulumi:"value"`
+	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+	Key string `pulumi:"key"`
+	// The value of a document attribute. You can only provide one value for a document attribute.
+	Value interface{} `pulumi:"value"`
 }
 
 // DataSourceDocumentAttributeTargetInput is an input type that accepts DataSourceDocumentAttributeTargetArgs and DataSourceDocumentAttributeTargetOutput values.
@@ -469,9 +526,12 @@ type DataSourceDocumentAttributeTargetInput interface {
 }
 
 type DataSourceDocumentAttributeTargetArgs struct {
+	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
 	AttributeValueOperator DataSourceAttributeValueOperatorPtrInput `pulumi:"attributeValueOperator"`
-	Key                    pulumi.StringInput                       `pulumi:"key"`
-	Value                  pulumi.Input                             `pulumi:"value"`
+	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of a document attribute. You can only provide one value for a document attribute.
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (DataSourceDocumentAttributeTargetArgs) ElementType() reflect.Type {
@@ -551,16 +611,19 @@ func (o DataSourceDocumentAttributeTargetOutput) ToDataSourceDocumentAttributeTa
 	}).(DataSourceDocumentAttributeTargetPtrOutput)
 }
 
+// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
 func (o DataSourceDocumentAttributeTargetOutput) AttributeValueOperator() DataSourceAttributeValueOperatorPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeTarget) *DataSourceAttributeValueOperator {
 		return v.AttributeValueOperator
 	}).(DataSourceAttributeValueOperatorPtrOutput)
 }
 
+// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 func (o DataSourceDocumentAttributeTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of a document attribute. You can only provide one value for a document attribute.
 func (o DataSourceDocumentAttributeTargetOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeTarget) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -589,6 +652,7 @@ func (o DataSourceDocumentAttributeTargetPtrOutput) Elem() DataSourceDocumentAtt
 	}).(DataSourceDocumentAttributeTargetOutput)
 }
 
+// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
 func (o DataSourceDocumentAttributeTargetPtrOutput) AttributeValueOperator() DataSourceAttributeValueOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) *DataSourceAttributeValueOperator {
 		if v == nil {
@@ -598,6 +662,7 @@ func (o DataSourceDocumentAttributeTargetPtrOutput) AttributeValueOperator() Dat
 	}).(DataSourceAttributeValueOperatorPtrOutput)
 }
 
+// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 func (o DataSourceDocumentAttributeTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) *string {
 		if v == nil {
@@ -607,6 +672,7 @@ func (o DataSourceDocumentAttributeTargetPtrOutput) Key() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of a document attribute. You can only provide one value for a document attribute.
 func (o DataSourceDocumentAttributeTargetPtrOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeTarget) interface{} {
 		if v == nil {
@@ -1149,9 +1215,12 @@ func (o DataSourceDocumentAttributeValue3PropertiesPtrOutput) DateValue() pulumi
 }
 
 type DataSourceDocumentEnrichmentConfiguration struct {
-	InlineConfigurations            []DataSourceInlineDocumentEnrichmentConfiguration `pulumi:"inlineConfigurations"`
-	PostExtractionHookConfiguration *DataSourceHookConfiguration                      `pulumi:"postExtractionHookConfiguration"`
-	PreExtractionHookConfiguration  *DataSourceHookConfiguration                      `pulumi:"preExtractionHookConfiguration"`
+	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+	InlineConfigurations []DataSourceInlineDocumentEnrichmentConfiguration `pulumi:"inlineConfigurations"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+	PostExtractionHookConfiguration *DataSourceHookConfiguration `pulumi:"postExtractionHookConfiguration"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+	PreExtractionHookConfiguration *DataSourceHookConfiguration `pulumi:"preExtractionHookConfiguration"`
 }
 
 // DataSourceDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceDocumentEnrichmentConfigurationArgs and DataSourceDocumentEnrichmentConfigurationOutput values.
@@ -1166,9 +1235,12 @@ type DataSourceDocumentEnrichmentConfigurationInput interface {
 }
 
 type DataSourceDocumentEnrichmentConfigurationArgs struct {
-	InlineConfigurations            DataSourceInlineDocumentEnrichmentConfigurationArrayInput `pulumi:"inlineConfigurations"`
-	PostExtractionHookConfiguration DataSourceHookConfigurationPtrInput                       `pulumi:"postExtractionHookConfiguration"`
-	PreExtractionHookConfiguration  DataSourceHookConfigurationPtrInput                       `pulumi:"preExtractionHookConfiguration"`
+	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+	InlineConfigurations DataSourceInlineDocumentEnrichmentConfigurationArrayInput `pulumi:"inlineConfigurations"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+	PostExtractionHookConfiguration DataSourceHookConfigurationPtrInput `pulumi:"postExtractionHookConfiguration"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+	PreExtractionHookConfiguration DataSourceHookConfigurationPtrInput `pulumi:"preExtractionHookConfiguration"`
 }
 
 func (DataSourceDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
@@ -1248,18 +1320,21 @@ func (o DataSourceDocumentEnrichmentConfigurationOutput) ToDataSourceDocumentEnr
 	}).(DataSourceDocumentEnrichmentConfigurationPtrOutput)
 }
 
+// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
 func (o DataSourceDocumentEnrichmentConfigurationOutput) InlineConfigurations() DataSourceInlineDocumentEnrichmentConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceDocumentEnrichmentConfiguration) []DataSourceInlineDocumentEnrichmentConfiguration {
 		return v.InlineConfigurations
 	}).(DataSourceInlineDocumentEnrichmentConfigurationArrayOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
 func (o DataSourceDocumentEnrichmentConfigurationOutput) PostExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		return v.PostExtractionHookConfiguration
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
 func (o DataSourceDocumentEnrichmentConfigurationOutput) PreExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		return v.PreExtractionHookConfiguration
@@ -1290,6 +1365,7 @@ func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) Elem() DataSourceDoc
 	}).(DataSourceDocumentEnrichmentConfigurationOutput)
 }
 
+// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
 func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) InlineConfigurations() DataSourceInlineDocumentEnrichmentConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataSourceDocumentEnrichmentConfiguration) []DataSourceInlineDocumentEnrichmentConfiguration {
 		if v == nil {
@@ -1299,6 +1375,7 @@ func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) InlineConfigurations
 	}).(DataSourceInlineDocumentEnrichmentConfigurationArrayOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
 func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) PostExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		if v == nil {
@@ -1308,6 +1385,7 @@ func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) PostExtractionHookCo
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
 func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) PreExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		if v == nil {
@@ -1318,10 +1396,16 @@ func (o DataSourceDocumentEnrichmentConfigurationPtrOutput) PreExtractionHookCon
 }
 
 type DataSourceHookConfiguration struct {
+	// The condition used for when a Lambda function should be invoked.
+	//
+	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition *DataSourceDocumentAttributeCondition `pulumi:"invocationCondition"`
-	LambdaArn           *string                               `pulumi:"lambdaArn"`
-	RoleArn             *string                               `pulumi:"roleArn"`
-	S3BucketName        *string                               `pulumi:"s3BucketName"`
+	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+	LambdaArn *string `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+	RoleArn *string `pulumi:"roleArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+	S3BucketName *string `pulumi:"s3BucketName"`
 }
 
 // DataSourceHookConfigurationInput is an input type that accepts DataSourceHookConfigurationArgs and DataSourceHookConfigurationOutput values.
@@ -1336,10 +1420,16 @@ type DataSourceHookConfigurationInput interface {
 }
 
 type DataSourceHookConfigurationArgs struct {
+	// The condition used for when a Lambda function should be invoked.
+	//
+	// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 	InvocationCondition DataSourceDocumentAttributeConditionPtrInput `pulumi:"invocationCondition"`
-	LambdaArn           pulumi.StringPtrInput                        `pulumi:"lambdaArn"`
-	RoleArn             pulumi.StringPtrInput                        `pulumi:"roleArn"`
-	S3BucketName        pulumi.StringPtrInput                        `pulumi:"s3BucketName"`
+	// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
 }
 
 func (DataSourceHookConfigurationArgs) ElementType() reflect.Type {
@@ -1419,20 +1509,26 @@ func (o DataSourceHookConfigurationOutput) ToDataSourceHookConfigurationPtrOutpu
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// The condition used for when a Lambda function should be invoked.
+//
+// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 func (o DataSourceHookConfigurationOutput) InvocationCondition() DataSourceDocumentAttributeConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *DataSourceDocumentAttributeCondition {
 		return v.InvocationCondition
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
 func (o DataSourceHookConfigurationOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 func (o DataSourceHookConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
 func (o DataSourceHookConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
@@ -1461,6 +1557,9 @@ func (o DataSourceHookConfigurationPtrOutput) Elem() DataSourceHookConfiguration
 	}).(DataSourceHookConfigurationOutput)
 }
 
+// The condition used for when a Lambda function should be invoked.
+//
+// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
 func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDocumentAttributeConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *DataSourceDocumentAttributeCondition {
 		if v == nil {
@@ -1470,6 +1569,7 @@ func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDo
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
 func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -1479,6 +1579,7 @@ func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
 func (o DataSourceHookConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -1488,6 +1589,7 @@ func (o DataSourceHookConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
 func (o DataSourceHookConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -1498,9 +1600,12 @@ func (o DataSourceHookConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOut
 }
 
 type DataSourceInlineDocumentEnrichmentConfiguration struct {
-	Condition               *DataSourceDocumentAttributeCondition `pulumi:"condition"`
-	DocumentContentOperator *DataSourceDocumentContentOperator    `pulumi:"documentContentOperator"`
-	Target                  *DataSourceDocumentAttributeTarget    `pulumi:"target"`
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+	Condition *DataSourceDocumentAttributeCondition `pulumi:"condition"`
+	// `TRUE` to delete content if the condition used for the target attribute is met.
+	DocumentContentOperator *DataSourceDocumentContentOperator `pulumi:"documentContentOperator"`
+	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+	Target *DataSourceDocumentAttributeTarget `pulumi:"target"`
 }
 
 // DataSourceInlineDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceInlineDocumentEnrichmentConfigurationArgs and DataSourceInlineDocumentEnrichmentConfigurationOutput values.
@@ -1515,9 +1620,12 @@ type DataSourceInlineDocumentEnrichmentConfigurationInput interface {
 }
 
 type DataSourceInlineDocumentEnrichmentConfigurationArgs struct {
-	Condition               DataSourceDocumentAttributeConditionPtrInput `pulumi:"condition"`
-	DocumentContentOperator DataSourceDocumentContentOperatorPtrInput    `pulumi:"documentContentOperator"`
-	Target                  DataSourceDocumentAttributeTargetPtrInput    `pulumi:"target"`
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+	Condition DataSourceDocumentAttributeConditionPtrInput `pulumi:"condition"`
+	// `TRUE` to delete content if the condition used for the target attribute is met.
+	DocumentContentOperator DataSourceDocumentContentOperatorPtrInput `pulumi:"documentContentOperator"`
+	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+	Target DataSourceDocumentAttributeTargetPtrInput `pulumi:"target"`
 }
 
 func (DataSourceInlineDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
@@ -1571,18 +1679,21 @@ func (o DataSourceInlineDocumentEnrichmentConfigurationOutput) ToDataSourceInlin
 	return o
 }
 
+// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
 func (o DataSourceInlineDocumentEnrichmentConfigurationOutput) Condition() DataSourceDocumentAttributeConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceInlineDocumentEnrichmentConfiguration) *DataSourceDocumentAttributeCondition {
 		return v.Condition
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// `TRUE` to delete content if the condition used for the target attribute is met.
 func (o DataSourceInlineDocumentEnrichmentConfigurationOutput) DocumentContentOperator() DataSourceDocumentContentOperatorPtrOutput {
 	return o.ApplyT(func(v DataSourceInlineDocumentEnrichmentConfiguration) *DataSourceDocumentContentOperator {
 		return v.DocumentContentOperator
 	}).(DataSourceDocumentContentOperatorPtrOutput)
 }
 
+// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
 func (o DataSourceInlineDocumentEnrichmentConfigurationOutput) Target() DataSourceDocumentAttributeTargetPtrOutput {
 	return o.ApplyT(func(v DataSourceInlineDocumentEnrichmentConfiguration) *DataSourceDocumentAttributeTarget {
 		return v.Target
@@ -1610,13 +1721,17 @@ func (o DataSourceInlineDocumentEnrichmentConfigurationArrayOutput) Index(i pulu
 }
 
 type DataSourceTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 
 type DataSourceVpcConfiguration struct {
+	// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // DataSourceVpcConfigurationInput is an input type that accepts DataSourceVpcConfigurationArgs and DataSourceVpcConfigurationOutput values.
@@ -1631,8 +1746,10 @@ type DataSourceVpcConfigurationInput interface {
 }
 
 type DataSourceVpcConfigurationArgs struct {
+	// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (DataSourceVpcConfigurationArgs) ElementType() reflect.Type {
@@ -1712,10 +1829,12 @@ func (o DataSourceVpcConfigurationOutput) ToDataSourceVpcConfigurationPtrOutputW
 	}).(DataSourceVpcConfigurationPtrOutput)
 }
 
+// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
 func (o DataSourceVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
 func (o DataSourceVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1744,6 +1863,7 @@ func (o DataSourceVpcConfigurationPtrOutput) Elem() DataSourceVpcConfigurationOu
 	}).(DataSourceVpcConfigurationOutput)
 }
 
+// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
 func (o DataSourceVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceVpcConfiguration) []string {
 		if v == nil {
@@ -1753,6 +1873,7 @@ func (o DataSourceVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
 func (o DataSourceVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceVpcConfiguration) []string {
 		if v == nil {
@@ -1763,6 +1884,7 @@ func (o DataSourceVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutpu
 }
 
 type IndexCapacityConfiguration struct {
+	// The number of storage units configured for an Amazon Q Business index.
 	Units *float64 `pulumi:"units"`
 }
 
@@ -1778,6 +1900,7 @@ type IndexCapacityConfigurationInput interface {
 }
 
 type IndexCapacityConfigurationArgs struct {
+	// The number of storage units configured for an Amazon Q Business index.
 	Units pulumi.Float64PtrInput `pulumi:"units"`
 }
 
@@ -1858,6 +1981,7 @@ func (o IndexCapacityConfigurationOutput) ToIndexCapacityConfigurationPtrOutputW
 	}).(IndexCapacityConfigurationPtrOutput)
 }
 
+// The number of storage units configured for an Amazon Q Business index.
 func (o IndexCapacityConfigurationOutput) Units() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IndexCapacityConfiguration) *float64 { return v.Units }).(pulumi.Float64PtrOutput)
 }
@@ -1886,6 +2010,7 @@ func (o IndexCapacityConfigurationPtrOutput) Elem() IndexCapacityConfigurationOu
 	}).(IndexCapacityConfigurationOutput)
 }
 
+// The number of storage units configured for an Amazon Q Business index.
 func (o IndexCapacityConfigurationPtrOutput) Units() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IndexCapacityConfiguration) *float64 {
 		if v == nil {
@@ -1896,9 +2021,12 @@ func (o IndexCapacityConfigurationPtrOutput) Units() pulumi.Float64PtrOutput {
 }
 
 type IndexDocumentAttributeConfiguration struct {
-	Name   *string               `pulumi:"name"`
+	// The name of the document attribute.
+	Name *string `pulumi:"name"`
+	// Information about whether the document attribute can be used by an end user to search for information on their web experience.
 	Search *QBusinessIndexStatus `pulumi:"search"`
-	Type   *IndexAttributeType   `pulumi:"type"`
+	// The type of document attribute.
+	Type *IndexAttributeType `pulumi:"type"`
 }
 
 // IndexDocumentAttributeConfigurationInput is an input type that accepts IndexDocumentAttributeConfigurationArgs and IndexDocumentAttributeConfigurationOutput values.
@@ -1913,9 +2041,12 @@ type IndexDocumentAttributeConfigurationInput interface {
 }
 
 type IndexDocumentAttributeConfigurationArgs struct {
-	Name   pulumi.StringPtrInput        `pulumi:"name"`
+	// The name of the document attribute.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Information about whether the document attribute can be used by an end user to search for information on their web experience.
 	Search QBusinessIndexStatusPtrInput `pulumi:"search"`
-	Type   IndexAttributeTypePtrInput   `pulumi:"type"`
+	// The type of document attribute.
+	Type IndexAttributeTypePtrInput `pulumi:"type"`
 }
 
 func (IndexDocumentAttributeConfigurationArgs) ElementType() reflect.Type {
@@ -1969,14 +2100,17 @@ func (o IndexDocumentAttributeConfigurationOutput) ToIndexDocumentAttributeConfi
 	return o
 }
 
+// The name of the document attribute.
 func (o IndexDocumentAttributeConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexDocumentAttributeConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Information about whether the document attribute can be used by an end user to search for information on their web experience.
 func (o IndexDocumentAttributeConfigurationOutput) Search() QBusinessIndexStatusPtrOutput {
 	return o.ApplyT(func(v IndexDocumentAttributeConfiguration) *QBusinessIndexStatus { return v.Search }).(QBusinessIndexStatusPtrOutput)
 }
 
+// The type of document attribute.
 func (o IndexDocumentAttributeConfigurationOutput) Type() IndexAttributeTypePtrOutput {
 	return o.ApplyT(func(v IndexDocumentAttributeConfiguration) *IndexAttributeType { return v.Type }).(IndexAttributeTypePtrOutput)
 }
@@ -2002,6 +2136,7 @@ func (o IndexDocumentAttributeConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type IndexStatistics struct {
+	// The number of documents indexed.
 	TextDocumentStatistics *IndexTextDocumentStatistics `pulumi:"textDocumentStatistics"`
 }
 
@@ -2019,6 +2154,7 @@ func (o IndexStatisticsOutput) ToIndexStatisticsOutputWithContext(ctx context.Co
 	return o
 }
 
+// The number of documents indexed.
 func (o IndexStatisticsOutput) TextDocumentStatistics() IndexTextDocumentStatisticsPtrOutput {
 	return o.ApplyT(func(v IndexStatistics) *IndexTextDocumentStatistics { return v.TextDocumentStatistics }).(IndexTextDocumentStatisticsPtrOutput)
 }
@@ -2047,6 +2183,7 @@ func (o IndexStatisticsPtrOutput) Elem() IndexStatisticsOutput {
 	}).(IndexStatisticsOutput)
 }
 
+// The number of documents indexed.
 func (o IndexStatisticsPtrOutput) TextDocumentStatistics() IndexTextDocumentStatisticsPtrOutput {
 	return o.ApplyT(func(v *IndexStatistics) *IndexTextDocumentStatistics {
 		if v == nil {
@@ -2057,12 +2194,16 @@ func (o IndexStatisticsPtrOutput) TextDocumentStatistics() IndexTextDocumentStat
 }
 
 type IndexTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 
 type IndexTextDocumentStatistics struct {
-	IndexedTextBytes         *float64 `pulumi:"indexedTextBytes"`
+	// The total size, in bytes, of the indexed documents.
+	IndexedTextBytes *float64 `pulumi:"indexedTextBytes"`
+	// The number of text documents indexed.
 	IndexedTextDocumentCount *float64 `pulumi:"indexedTextDocumentCount"`
 }
 
@@ -2080,10 +2221,12 @@ func (o IndexTextDocumentStatisticsOutput) ToIndexTextDocumentStatisticsOutputWi
 	return o
 }
 
+// The total size, in bytes, of the indexed documents.
 func (o IndexTextDocumentStatisticsOutput) IndexedTextBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IndexTextDocumentStatistics) *float64 { return v.IndexedTextBytes }).(pulumi.Float64PtrOutput)
 }
 
+// The number of text documents indexed.
 func (o IndexTextDocumentStatisticsOutput) IndexedTextDocumentCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IndexTextDocumentStatistics) *float64 { return v.IndexedTextDocumentCount }).(pulumi.Float64PtrOutput)
 }
@@ -2112,6 +2255,7 @@ func (o IndexTextDocumentStatisticsPtrOutput) Elem() IndexTextDocumentStatistics
 	}).(IndexTextDocumentStatisticsOutput)
 }
 
+// The total size, in bytes, of the indexed documents.
 func (o IndexTextDocumentStatisticsPtrOutput) IndexedTextBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IndexTextDocumentStatistics) *float64 {
 		if v == nil {
@@ -2121,6 +2265,7 @@ func (o IndexTextDocumentStatisticsPtrOutput) IndexedTextBytes() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The number of text documents indexed.
 func (o IndexTextDocumentStatisticsPtrOutput) IndexedTextDocumentCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IndexTextDocumentStatistics) *float64 {
 		if v == nil {
@@ -2744,9 +2889,12 @@ func (o PluginBasicAuthConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutpu
 }
 
 type PluginCustomPluginConfiguration struct {
-	ApiSchema     interface{}         `pulumi:"apiSchema"`
+	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+	ApiSchema interface{} `pulumi:"apiSchema"`
+	// The type of OpenAPI schema to use.
 	ApiSchemaType PluginApiSchemaType `pulumi:"apiSchemaType"`
-	Description   string              `pulumi:"description"`
+	// A description for your custom plugin configuration.
+	Description string `pulumi:"description"`
 }
 
 // PluginCustomPluginConfigurationInput is an input type that accepts PluginCustomPluginConfigurationArgs and PluginCustomPluginConfigurationOutput values.
@@ -2761,9 +2909,12 @@ type PluginCustomPluginConfigurationInput interface {
 }
 
 type PluginCustomPluginConfigurationArgs struct {
-	ApiSchema     pulumi.Input             `pulumi:"apiSchema"`
+	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+	ApiSchema pulumi.Input `pulumi:"apiSchema"`
+	// The type of OpenAPI schema to use.
 	ApiSchemaType PluginApiSchemaTypeInput `pulumi:"apiSchemaType"`
-	Description   pulumi.StringInput       `pulumi:"description"`
+	// A description for your custom plugin configuration.
+	Description pulumi.StringInput `pulumi:"description"`
 }
 
 func (PluginCustomPluginConfigurationArgs) ElementType() reflect.Type {
@@ -2843,14 +2994,17 @@ func (o PluginCustomPluginConfigurationOutput) ToPluginCustomPluginConfiguration
 	}).(PluginCustomPluginConfigurationPtrOutput)
 }
 
+// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
 func (o PluginCustomPluginConfigurationOutput) ApiSchema() pulumi.AnyOutput {
 	return o.ApplyT(func(v PluginCustomPluginConfiguration) interface{} { return v.ApiSchema }).(pulumi.AnyOutput)
 }
 
+// The type of OpenAPI schema to use.
 func (o PluginCustomPluginConfigurationOutput) ApiSchemaType() PluginApiSchemaTypeOutput {
 	return o.ApplyT(func(v PluginCustomPluginConfiguration) PluginApiSchemaType { return v.ApiSchemaType }).(PluginApiSchemaTypeOutput)
 }
 
+// A description for your custom plugin configuration.
 func (o PluginCustomPluginConfigurationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PluginCustomPluginConfiguration) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -2879,6 +3033,7 @@ func (o PluginCustomPluginConfigurationPtrOutput) Elem() PluginCustomPluginConfi
 	}).(PluginCustomPluginConfigurationOutput)
 }
 
+// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
 func (o PluginCustomPluginConfigurationPtrOutput) ApiSchema() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PluginCustomPluginConfiguration) interface{} {
 		if v == nil {
@@ -2888,6 +3043,7 @@ func (o PluginCustomPluginConfigurationPtrOutput) ApiSchema() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// The type of OpenAPI schema to use.
 func (o PluginCustomPluginConfigurationPtrOutput) ApiSchemaType() PluginApiSchemaTypePtrOutput {
 	return o.ApplyT(func(v *PluginCustomPluginConfiguration) *PluginApiSchemaType {
 		if v == nil {
@@ -2897,6 +3053,7 @@ func (o PluginCustomPluginConfigurationPtrOutput) ApiSchemaType() PluginApiSchem
 	}).(PluginApiSchemaTypePtrOutput)
 }
 
+// A description for your custom plugin configuration.
 func (o PluginCustomPluginConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PluginCustomPluginConfiguration) *string {
 		if v == nil {
@@ -3219,7 +3376,9 @@ func (o PluginS3PtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type PluginTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 
@@ -3556,12 +3715,16 @@ func (o RetrieverNativeIndexConfigurationPtrOutput) IndexId() pulumi.StringPtrOu
 }
 
 type RetrieverTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 
 type WebExperienceTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 

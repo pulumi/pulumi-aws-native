@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobStatisticsConfiguration
     {
+        /// <summary>
+        /// List of included evaluations. When the list is undefined, all supported evaluations will be included.
+        /// </summary>
         public readonly ImmutableArray<string> IncludedStatistics;
+        /// <summary>
+        /// List of overrides for evaluations.
+        /// </summary>
         public readonly ImmutableArray<Outputs.JobStatisticOverride> Overrides;
 
         [OutputConstructor]

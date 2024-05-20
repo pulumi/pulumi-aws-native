@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class ObjectTypeKeyMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("objectTypeKeyList")]
         private InputList<Inputs.ObjectTypeKeyArgs>? _objectTypeKeyList;
+
+        /// <summary>
+        /// A list of ObjectTypeKey.
+        /// </summary>
         public InputList<Inputs.ObjectTypeKeyArgs> ObjectTypeKeyList
         {
             get => _objectTypeKeyList ?? (_objectTypeKeyList = new InputList<Inputs.ObjectTypeKeyArgs>());

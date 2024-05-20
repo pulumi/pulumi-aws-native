@@ -31,7 +31,8 @@ type LookupNetworkInterfaceAttachmentResult struct {
 	// The ID of the network interface attachment.
 	AttachmentId *string `pulumi:"attachmentId"`
 	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
-	DeleteOnTermination *bool                                          `pulumi:"deleteOnTermination"`
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification *NetworkInterfaceAttachmentEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 }
 
@@ -81,6 +82,7 @@ func (o LookupNetworkInterfaceAttachmentResultOutput) DeleteOnTermination() pulu
 	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Configures ENA Express for the network interface that this action attaches to the instance.
 func (o LookupNetworkInterfaceAttachmentResultOutput) EnaSrdSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *NetworkInterfaceAttachmentEnaSrdSpecification {
 		return v.EnaSrdSpecification

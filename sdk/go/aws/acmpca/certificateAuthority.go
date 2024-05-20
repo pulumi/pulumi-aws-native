@@ -281,7 +281,8 @@ type CertificateAuthority struct {
 	SigningAlgorithm pulumi.StringOutput `pulumi:"signingAlgorithm"`
 	// Structure that contains X.500 distinguished name information for your CA.
 	Subject CertificateAuthoritySubjectOutput `pulumi:"subject"`
-	Tags    aws.TagArrayOutput                `pulumi:"tags"`
+	// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Usage mode of the ceritificate authority.
@@ -362,7 +363,8 @@ type certificateAuthorityArgs struct {
 	SigningAlgorithm string `pulumi:"signingAlgorithm"`
 	// Structure that contains X.500 distinguished name information for your CA.
 	Subject CertificateAuthoritySubject `pulumi:"subject"`
-	Tags    []aws.Tag                   `pulumi:"tags"`
+	// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type string `pulumi:"type"`
 	// Usage mode of the ceritificate authority.
@@ -383,7 +385,8 @@ type CertificateAuthorityArgs struct {
 	SigningAlgorithm pulumi.StringInput
 	// Structure that contains X.500 distinguished name information for your CA.
 	Subject CertificateAuthoritySubjectInput
-	Tags    aws.TagArrayInput
+	// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+	Tags aws.TagArrayInput
 	// The type of the certificate authority.
 	Type pulumi.StringInput
 	// Usage mode of the ceritificate authority.
@@ -469,6 +472,7 @@ func (o CertificateAuthorityOutput) Subject() CertificateAuthoritySubjectOutput 
 	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthoritySubjectOutput { return v.Subject }).(CertificateAuthoritySubjectOutput)
 }
 
+// Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
 func (o CertificateAuthorityOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CertificateAuthority) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

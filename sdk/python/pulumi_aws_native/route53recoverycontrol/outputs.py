@@ -22,6 +22,10 @@ class ClusterEndpoint(dict):
     def __init__(__self__, *,
                  endpoint: Optional[str] = None,
                  region: Optional[str] = None):
+        """
+        :param str endpoint: A cluster endpoint URL for one of the five redundant clusters that you specify to set or retrieve a routing control state.
+        :param str region: The AWS Region for a cluster endpoint.
+        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -30,11 +34,17 @@ class ClusterEndpoint(dict):
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        A cluster endpoint URL for one of the five redundant clusters that you specify to set or retrieve a routing control state.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        The AWS Region for a cluster endpoint.
+        """
         return pulumi.get(self, "region")
 
 
@@ -170,6 +180,7 @@ class SafetyRuleRuleConfig(dict):
         The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
         :param bool inverted: Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
         :param int threshold: The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
+        :param 'SafetyRuleRuleType' type: A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
         """
         pulumi.set(__self__, "inverted", inverted)
         pulumi.set(__self__, "threshold", threshold)
@@ -194,6 +205,9 @@ class SafetyRuleRuleConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'SafetyRuleRuleType':
+        """
+        A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
+        """
         return pulumi.get(self, "type")
 
 

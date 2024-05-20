@@ -23,12 +23,16 @@ func LookupBotVersion(ctx *pulumi.Context, args *LookupBotVersionArgs, opts ...p
 }
 
 type LookupBotVersionArgs struct {
-	BotId      string `pulumi:"botId"`
+	// The unique identifier of the bot.
+	BotId string `pulumi:"botId"`
+	// The version of the bot.
 	BotVersion string `pulumi:"botVersion"`
 }
 
 type LookupBotVersionResult struct {
-	BotVersion  *string `pulumi:"botVersion"`
+	// The version of the bot.
+	BotVersion *string `pulumi:"botVersion"`
+	// The description of the version.
 	Description *string `pulumi:"description"`
 }
 
@@ -46,7 +50,9 @@ func LookupBotVersionOutput(ctx *pulumi.Context, args LookupBotVersionOutputArgs
 }
 
 type LookupBotVersionOutputArgs struct {
-	BotId      pulumi.StringInput `pulumi:"botId"`
+	// The unique identifier of the bot.
+	BotId pulumi.StringInput `pulumi:"botId"`
+	// The version of the bot.
 	BotVersion pulumi.StringInput `pulumi:"botVersion"`
 }
 
@@ -68,10 +74,12 @@ func (o LookupBotVersionResultOutput) ToLookupBotVersionResultOutputWithContext(
 	return o
 }
 
+// The version of the bot.
 func (o LookupBotVersionResultOutput) BotVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotVersionResult) *string { return v.BotVersion }).(pulumi.StringPtrOutput)
 }
 
+// The description of the version.
 func (o LookupBotVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

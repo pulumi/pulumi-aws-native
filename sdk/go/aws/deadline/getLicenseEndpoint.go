@@ -23,15 +23,21 @@ func LookupLicenseEndpoint(ctx *pulumi.Context, args *LookupLicenseEndpointArgs,
 }
 
 type LookupLicenseEndpointArgs struct {
+	// The Amazon Resource Name (ARN) of the license endpoint.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupLicenseEndpointResult struct {
-	Arn               *string                `pulumi:"arn"`
-	DnsName           *string                `pulumi:"dnsName"`
-	LicenseEndpointId *string                `pulumi:"licenseEndpointId"`
-	Status            *LicenseEndpointStatus `pulumi:"status"`
-	StatusMessage     *string                `pulumi:"statusMessage"`
+	// The Amazon Resource Name (ARN) of the license endpoint.
+	Arn *string `pulumi:"arn"`
+	// The DNS name of the license server endpoint.
+	DnsName *string `pulumi:"dnsName"`
+	// The license endpoint ID.
+	LicenseEndpointId *string `pulumi:"licenseEndpointId"`
+	// The status of the license endpoint.
+	Status *LicenseEndpointStatus `pulumi:"status"`
+	// The status message of the license endpoint.
+	StatusMessage *string `pulumi:"statusMessage"`
 }
 
 func LookupLicenseEndpointOutput(ctx *pulumi.Context, args LookupLicenseEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupLicenseEndpointResultOutput {
@@ -48,6 +54,7 @@ func LookupLicenseEndpointOutput(ctx *pulumi.Context, args LookupLicenseEndpoint
 }
 
 type LookupLicenseEndpointOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the license endpoint.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -69,22 +76,27 @@ func (o LookupLicenseEndpointResultOutput) ToLookupLicenseEndpointResultOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the license endpoint.
 func (o LookupLicenseEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The DNS name of the license server endpoint.
 func (o LookupLicenseEndpointResultOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseEndpointResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
+// The license endpoint ID.
 func (o LookupLicenseEndpointResultOutput) LicenseEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseEndpointResult) *string { return v.LicenseEndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The status of the license endpoint.
 func (o LookupLicenseEndpointResultOutput) Status() LicenseEndpointStatusPtrOutput {
 	return o.ApplyT(func(v LookupLicenseEndpointResult) *LicenseEndpointStatus { return v.Status }).(LicenseEndpointStatusPtrOutput)
 }
 
+// The status message of the license endpoint.
 func (o LookupLicenseEndpointResultOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLicenseEndpointResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }

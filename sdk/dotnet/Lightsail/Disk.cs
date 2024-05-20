@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the disk.
+        /// </summary>
         [Output("diskArn")]
         public Output<string> DiskArn { get; private set; } = null!;
 
@@ -60,6 +63,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("isAttached")]
         public Output<bool> IsAttached { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region and Availability Zone where the disk is located.
+        /// </summary>
         [Output("location")]
         public Output<Outputs.DiskLocation?> Location { get; private set; } = null!;
 
@@ -174,6 +180,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
 
+        /// <summary>
+        /// The AWS Region and Availability Zone where the disk is located.
+        /// </summary>
         [Input("location")]
         public Input<Inputs.DiskLocationArgs>? Location { get; set; }
 

@@ -12,15 +12,30 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardReferenceLineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data configuration of the reference line.
+        /// </summary>
         [Input("dataConfiguration", required: true)]
         public Input<Inputs.DashboardReferenceLineDataConfigurationArgs> DataConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The label configuration of the reference line.
+        /// </summary>
         [Input("labelConfiguration")]
         public Input<Inputs.DashboardReferenceLineLabelConfigurationArgs>? LabelConfiguration { get; set; }
 
+        /// <summary>
+        /// The status of the reference line. Choose one of the following options:
+        /// 
+        /// - `ENABLE`
+        /// - `DISABLE`
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardWidgetStatus>? Status { get; set; }
 
+        /// <summary>
+        /// The style configuration of the reference line.
+        /// </summary>
         [Input("styleConfiguration")]
         public Input<Inputs.DashboardReferenceLineStyleConfigurationArgs>? StyleConfiguration { get; set; }
 

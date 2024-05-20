@@ -19,14 +19,32 @@ export function getLicenseEndpoint(args: GetLicenseEndpointArgs, opts?: pulumi.I
 }
 
 export interface GetLicenseEndpointArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the license endpoint.
+     */
     arn: string;
 }
 
 export interface GetLicenseEndpointResult {
+    /**
+     * The Amazon Resource Name (ARN) of the license endpoint.
+     */
     readonly arn?: string;
+    /**
+     * The DNS name of the license server endpoint.
+     */
     readonly dnsName?: string;
+    /**
+     * The license endpoint ID.
+     */
     readonly licenseEndpointId?: string;
+    /**
+     * The status of the license endpoint.
+     */
     readonly status?: enums.deadline.LicenseEndpointStatus;
+    /**
+     * The status message of the license endpoint.
+     */
     readonly statusMessage?: string;
 }
 /**
@@ -37,5 +55,8 @@ export function getLicenseEndpointOutput(args: GetLicenseEndpointOutputArgs, opt
 }
 
 export interface GetLicenseEndpointOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the license endpoint.
+     */
     arn: pulumi.Input<string>;
 }

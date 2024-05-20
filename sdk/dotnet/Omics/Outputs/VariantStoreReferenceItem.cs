@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Omics.Outputs
     [OutputType]
     public sealed class VariantStoreReferenceItem
     {
+        /// <summary>
+        /// The reference's ARN.
+        /// </summary>
         public readonly string ReferenceArn;
 
         [OutputConstructor]

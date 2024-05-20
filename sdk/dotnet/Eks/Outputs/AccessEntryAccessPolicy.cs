@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Eks.Outputs
     [OutputType]
     public sealed class AccessEntryAccessPolicy
     {
+        /// <summary>
+        /// The scope of an `AccessPolicy` that's associated to an `AccessEntry` .
+        /// </summary>
         public readonly Outputs.AccessEntryAccessScope AccessScope;
         /// <summary>
         /// The ARN of the access policy to add to the access entry.

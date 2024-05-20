@@ -20,14 +20,17 @@ type Scraper struct {
 	// Scraper alias.
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Scraper ARN.
-	Arn         pulumi.StringOutput      `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 	Destination ScraperDestinationOutput `pulumi:"destination"`
 	// IAM role ARN for the scraper.
-	RoleArn             pulumi.StringOutput              `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfigurationOutput `pulumi:"scrapeConfiguration"`
 	// Required to identify a specific scraper.
 	ScraperId pulumi.StringOutput `pulumi:"scraperId"`
-	Source    ScraperSourceOutput `pulumi:"source"`
+	// The Amazon EKS cluster from which the scraper collects metrics.
+	Source ScraperSourceOutput `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -89,10 +92,13 @@ func (ScraperState) ElementType() reflect.Type {
 
 type scraperArgs struct {
 	// Scraper alias.
-	Alias               *string                    `pulumi:"alias"`
-	Destination         ScraperDestination         `pulumi:"destination"`
+	Alias *string `pulumi:"alias"`
+	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+	Destination ScraperDestination `pulumi:"destination"`
+	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
-	Source              ScraperSource              `pulumi:"source"`
+	// The Amazon EKS cluster from which the scraper collects metrics.
+	Source ScraperSource `pulumi:"source"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -100,10 +106,13 @@ type scraperArgs struct {
 // The set of arguments for constructing a Scraper resource.
 type ScraperArgs struct {
 	// Scraper alias.
-	Alias               pulumi.StringPtrInput
-	Destination         ScraperDestinationInput
+	Alias pulumi.StringPtrInput
+	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+	Destination ScraperDestinationInput
+	// The configuration in use by the scraper.
 	ScrapeConfiguration ScraperScrapeConfigurationInput
-	Source              ScraperSourceInput
+	// The Amazon EKS cluster from which the scraper collects metrics.
+	Source ScraperSourceInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -155,6 +164,7 @@ func (o ScraperOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
 func (o ScraperOutput) Destination() ScraperDestinationOutput {
 	return o.ApplyT(func(v *Scraper) ScraperDestinationOutput { return v.Destination }).(ScraperDestinationOutput)
 }
@@ -164,6 +174,7 @@ func (o ScraperOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The configuration in use by the scraper.
 func (o ScraperOutput) ScrapeConfiguration() ScraperScrapeConfigurationOutput {
 	return o.ApplyT(func(v *Scraper) ScraperScrapeConfigurationOutput { return v.ScrapeConfiguration }).(ScraperScrapeConfigurationOutput)
 }
@@ -173,6 +184,7 @@ func (o ScraperOutput) ScraperId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.ScraperId }).(pulumi.StringOutput)
 }
 
+// The Amazon EKS cluster from which the scraper collects metrics.
 func (o ScraperOutput) Source() ScraperSourceOutput {
 	return o.ApplyT(func(v *Scraper) ScraperSourceOutput { return v.Source }).(ScraperSourceOutput)
 }

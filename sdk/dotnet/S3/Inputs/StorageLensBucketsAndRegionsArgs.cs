@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.S3.Inputs
     {
         [Input("buckets")]
         private InputList<string>? _buckets;
+
+        /// <summary>
+        /// This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
+        /// </summary>
         public InputList<string> Buckets
         {
             get => _buckets ?? (_buckets = new InputList<string>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         [Input("regions")]
         private InputList<string>? _regions;
+
+        /// <summary>
+        /// This property contains the details of the Regions for the S3 Storage Lens configuration.
+        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());

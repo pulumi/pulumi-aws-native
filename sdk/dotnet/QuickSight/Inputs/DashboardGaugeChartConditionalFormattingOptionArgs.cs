@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGaugeChartConditionalFormattingOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+        /// </summary>
         [Input("arc")]
         public Input<Inputs.DashboardGaugeChartArcConditionalFormattingArgs>? Arc { get; set; }
 
+        /// <summary>
+        /// The conditional formatting for the primary value of a `GaugeChartVisual` .
+        /// </summary>
         [Input("primaryValue")]
         public Input<Inputs.DashboardGaugeChartPrimaryValueConditionalFormattingArgs>? PrimaryValue { get; set; }
 

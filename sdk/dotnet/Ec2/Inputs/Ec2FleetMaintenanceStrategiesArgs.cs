@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class Ec2FleetMaintenanceStrategiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
+        /// </summary>
         [Input("capacityRebalance")]
         public Input<Inputs.Ec2FleetCapacityRebalanceArgs>? CapacityRebalance { get; set; }
 

@@ -15,8 +15,10 @@ var _ = internal.GetEnvOrDefault
 
 // Mathematical expression and a list of attribute items specified in that expression.
 type CalculatedAttributeDefinitionAttributeDetails struct {
+	// Mathematical expression and a list of attribute items specified in that expression.
 	Attributes []CalculatedAttributeDefinitionAttributeItem `pulumi:"attributes"`
-	Expression string                                       `pulumi:"expression"`
+	// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
+	Expression string `pulumi:"expression"`
 }
 
 // CalculatedAttributeDefinitionAttributeDetailsInput is an input type that accepts CalculatedAttributeDefinitionAttributeDetailsArgs and CalculatedAttributeDefinitionAttributeDetailsOutput values.
@@ -32,8 +34,10 @@ type CalculatedAttributeDefinitionAttributeDetailsInput interface {
 
 // Mathematical expression and a list of attribute items specified in that expression.
 type CalculatedAttributeDefinitionAttributeDetailsArgs struct {
+	// Mathematical expression and a list of attribute items specified in that expression.
 	Attributes CalculatedAttributeDefinitionAttributeItemArrayInput `pulumi:"attributes"`
-	Expression pulumi.StringInput                                   `pulumi:"expression"`
+	// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
+	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
 func (CalculatedAttributeDefinitionAttributeDetailsArgs) ElementType() reflect.Type {
@@ -63,12 +67,14 @@ func (o CalculatedAttributeDefinitionAttributeDetailsOutput) ToCalculatedAttribu
 	return o
 }
 
+// Mathematical expression and a list of attribute items specified in that expression.
 func (o CalculatedAttributeDefinitionAttributeDetailsOutput) Attributes() CalculatedAttributeDefinitionAttributeItemArrayOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionAttributeDetails) []CalculatedAttributeDefinitionAttributeItem {
 		return v.Attributes
 	}).(CalculatedAttributeDefinitionAttributeItemArrayOutput)
 }
 
+// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
 func (o CalculatedAttributeDefinitionAttributeDetailsOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionAttributeDetails) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -97,6 +103,7 @@ func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Elem() Calculate
 	}).(CalculatedAttributeDefinitionAttributeDetailsOutput)
 }
 
+// Mathematical expression and a list of attribute items specified in that expression.
 func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Attributes() CalculatedAttributeDefinitionAttributeItemArrayOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) []CalculatedAttributeDefinitionAttributeItem {
 		if v == nil {
@@ -106,6 +113,7 @@ func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Attributes() Cal
 	}).(CalculatedAttributeDefinitionAttributeItemArrayOutput)
 }
 
+// Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \"{ObjectTypeName.AttributeName}\".
 func (o CalculatedAttributeDefinitionAttributeDetailsPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionAttributeDetails) *string {
 		if v == nil {
@@ -214,9 +222,12 @@ func (o CalculatedAttributeDefinitionAttributeItemArrayOutput) Index(i pulumi.In
 
 // The conditions including range, object count, and threshold for the calculated attribute.
 type CalculatedAttributeDefinitionConditions struct {
-	ObjectCount *int                                    `pulumi:"objectCount"`
-	Range       *CalculatedAttributeDefinitionRange     `pulumi:"range"`
-	Threshold   *CalculatedAttributeDefinitionThreshold `pulumi:"threshold"`
+	// The number of profile objects used for the calculated attribute.
+	ObjectCount *int `pulumi:"objectCount"`
+	// The relative time period over which data is included in the aggregation.
+	Range *CalculatedAttributeDefinitionRange `pulumi:"range"`
+	// The threshold for the calculated attribute.
+	Threshold *CalculatedAttributeDefinitionThreshold `pulumi:"threshold"`
 }
 
 // CalculatedAttributeDefinitionConditionsInput is an input type that accepts CalculatedAttributeDefinitionConditionsArgs and CalculatedAttributeDefinitionConditionsOutput values.
@@ -232,9 +243,12 @@ type CalculatedAttributeDefinitionConditionsInput interface {
 
 // The conditions including range, object count, and threshold for the calculated attribute.
 type CalculatedAttributeDefinitionConditionsArgs struct {
-	ObjectCount pulumi.IntPtrInput                             `pulumi:"objectCount"`
-	Range       CalculatedAttributeDefinitionRangePtrInput     `pulumi:"range"`
-	Threshold   CalculatedAttributeDefinitionThresholdPtrInput `pulumi:"threshold"`
+	// The number of profile objects used for the calculated attribute.
+	ObjectCount pulumi.IntPtrInput `pulumi:"objectCount"`
+	// The relative time period over which data is included in the aggregation.
+	Range CalculatedAttributeDefinitionRangePtrInput `pulumi:"range"`
+	// The threshold for the calculated attribute.
+	Threshold CalculatedAttributeDefinitionThresholdPtrInput `pulumi:"threshold"`
 }
 
 func (CalculatedAttributeDefinitionConditionsArgs) ElementType() reflect.Type {
@@ -315,14 +329,17 @@ func (o CalculatedAttributeDefinitionConditionsOutput) ToCalculatedAttributeDefi
 	}).(CalculatedAttributeDefinitionConditionsPtrOutput)
 }
 
+// The number of profile objects used for the calculated attribute.
 func (o CalculatedAttributeDefinitionConditionsOutput) ObjectCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionConditions) *int { return v.ObjectCount }).(pulumi.IntPtrOutput)
 }
 
+// The relative time period over which data is included in the aggregation.
 func (o CalculatedAttributeDefinitionConditionsOutput) Range() CalculatedAttributeDefinitionRangePtrOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionRange { return v.Range }).(CalculatedAttributeDefinitionRangePtrOutput)
 }
 
+// The threshold for the calculated attribute.
 func (o CalculatedAttributeDefinitionConditionsOutput) Threshold() CalculatedAttributeDefinitionThresholdPtrOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionThreshold {
 		return v.Threshold
@@ -353,6 +370,7 @@ func (o CalculatedAttributeDefinitionConditionsPtrOutput) Elem() CalculatedAttri
 	}).(CalculatedAttributeDefinitionConditionsOutput)
 }
 
+// The number of profile objects used for the calculated attribute.
 func (o CalculatedAttributeDefinitionConditionsPtrOutput) ObjectCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) *int {
 		if v == nil {
@@ -362,6 +380,7 @@ func (o CalculatedAttributeDefinitionConditionsPtrOutput) ObjectCount() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The relative time period over which data is included in the aggregation.
 func (o CalculatedAttributeDefinitionConditionsPtrOutput) Range() CalculatedAttributeDefinitionRangePtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionRange {
 		if v == nil {
@@ -371,6 +390,7 @@ func (o CalculatedAttributeDefinitionConditionsPtrOutput) Range() CalculatedAttr
 	}).(CalculatedAttributeDefinitionRangePtrOutput)
 }
 
+// The threshold for the calculated attribute.
 func (o CalculatedAttributeDefinitionConditionsPtrOutput) Threshold() CalculatedAttributeDefinitionThresholdPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionConditions) *CalculatedAttributeDefinitionThreshold {
 		if v == nil {
@@ -382,8 +402,10 @@ func (o CalculatedAttributeDefinitionConditionsPtrOutput) Threshold() Calculated
 
 // The relative time period over which data is included in the aggregation.
 type CalculatedAttributeDefinitionRange struct {
-	Unit  CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
-	Value int                                    `pulumi:"value"`
+	// The unit of time.
+	Unit CalculatedAttributeDefinitionRangeUnit `pulumi:"unit"`
+	// The amount of time of the specified unit.
+	Value int `pulumi:"value"`
 }
 
 // CalculatedAttributeDefinitionRangeInput is an input type that accepts CalculatedAttributeDefinitionRangeArgs and CalculatedAttributeDefinitionRangeOutput values.
@@ -399,8 +421,10 @@ type CalculatedAttributeDefinitionRangeInput interface {
 
 // The relative time period over which data is included in the aggregation.
 type CalculatedAttributeDefinitionRangeArgs struct {
-	Unit  CalculatedAttributeDefinitionRangeUnitInput `pulumi:"unit"`
-	Value pulumi.IntInput                             `pulumi:"value"`
+	// The unit of time.
+	Unit CalculatedAttributeDefinitionRangeUnitInput `pulumi:"unit"`
+	// The amount of time of the specified unit.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (CalculatedAttributeDefinitionRangeArgs) ElementType() reflect.Type {
@@ -481,10 +505,12 @@ func (o CalculatedAttributeDefinitionRangeOutput) ToCalculatedAttributeDefinitio
 	}).(CalculatedAttributeDefinitionRangePtrOutput)
 }
 
+// The unit of time.
 func (o CalculatedAttributeDefinitionRangeOutput) Unit() CalculatedAttributeDefinitionRangeUnitOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) CalculatedAttributeDefinitionRangeUnit { return v.Unit }).(CalculatedAttributeDefinitionRangeUnitOutput)
 }
 
+// The amount of time of the specified unit.
 func (o CalculatedAttributeDefinitionRangeOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionRange) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -513,6 +539,7 @@ func (o CalculatedAttributeDefinitionRangePtrOutput) Elem() CalculatedAttributeD
 	}).(CalculatedAttributeDefinitionRangeOutput)
 }
 
+// The unit of time.
 func (o CalculatedAttributeDefinitionRangePtrOutput) Unit() CalculatedAttributeDefinitionRangeUnitPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *CalculatedAttributeDefinitionRangeUnit {
 		if v == nil {
@@ -522,6 +549,7 @@ func (o CalculatedAttributeDefinitionRangePtrOutput) Unit() CalculatedAttributeD
 	}).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
 }
 
+// The amount of time of the specified unit.
 func (o CalculatedAttributeDefinitionRangePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionRange) *int {
 		if v == nil {
@@ -541,8 +569,10 @@ type CalculatedAttributeDefinitionTag struct {
 
 // The threshold for the calculated attribute.
 type CalculatedAttributeDefinitionThreshold struct {
+	// The operator of the threshold.
 	Operator CalculatedAttributeDefinitionThresholdOperator `pulumi:"operator"`
-	Value    string                                         `pulumi:"value"`
+	// The value of the threshold.
+	Value string `pulumi:"value"`
 }
 
 // CalculatedAttributeDefinitionThresholdInput is an input type that accepts CalculatedAttributeDefinitionThresholdArgs and CalculatedAttributeDefinitionThresholdOutput values.
@@ -558,8 +588,10 @@ type CalculatedAttributeDefinitionThresholdInput interface {
 
 // The threshold for the calculated attribute.
 type CalculatedAttributeDefinitionThresholdArgs struct {
+	// The operator of the threshold.
 	Operator CalculatedAttributeDefinitionThresholdOperatorInput `pulumi:"operator"`
-	Value    pulumi.StringInput                                  `pulumi:"value"`
+	// The value of the threshold.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (CalculatedAttributeDefinitionThresholdArgs) ElementType() reflect.Type {
@@ -640,12 +672,14 @@ func (o CalculatedAttributeDefinitionThresholdOutput) ToCalculatedAttributeDefin
 	}).(CalculatedAttributeDefinitionThresholdPtrOutput)
 }
 
+// The operator of the threshold.
 func (o CalculatedAttributeDefinitionThresholdOutput) Operator() CalculatedAttributeDefinitionThresholdOperatorOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionThreshold) CalculatedAttributeDefinitionThresholdOperator {
 		return v.Operator
 	}).(CalculatedAttributeDefinitionThresholdOperatorOutput)
 }
 
+// The value of the threshold.
 func (o CalculatedAttributeDefinitionThresholdOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CalculatedAttributeDefinitionThreshold) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -674,6 +708,7 @@ func (o CalculatedAttributeDefinitionThresholdPtrOutput) Elem() CalculatedAttrib
 	}).(CalculatedAttributeDefinitionThresholdOutput)
 }
 
+// The operator of the threshold.
 func (o CalculatedAttributeDefinitionThresholdPtrOutput) Operator() CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionThreshold) *CalculatedAttributeDefinitionThresholdOperator {
 		if v == nil {
@@ -683,6 +718,7 @@ func (o CalculatedAttributeDefinitionThresholdPtrOutput) Operator() CalculatedAt
 	}).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
 }
 
+// The value of the threshold.
 func (o CalculatedAttributeDefinitionThresholdPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinitionThreshold) *string {
 		if v == nil {
@@ -694,8 +730,10 @@ func (o CalculatedAttributeDefinitionThresholdPtrOutput) Value() pulumi.StringPt
 
 // Details regarding the Kinesis stream.
 type DestinationDetailsProperties struct {
+	// The status of enabling the Kinesis stream as a destination for export.
 	Status EventStreamStatus `pulumi:"status"`
-	Uri    string            `pulumi:"uri"`
+	// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+	Uri string `pulumi:"uri"`
 }
 
 // Details regarding the Kinesis stream.
@@ -713,10 +751,12 @@ func (o DestinationDetailsPropertiesOutput) ToDestinationDetailsPropertiesOutput
 	return o
 }
 
+// The status of enabling the Kinesis stream as a destination for export.
 func (o DestinationDetailsPropertiesOutput) Status() EventStreamStatusOutput {
 	return o.ApplyT(func(v DestinationDetailsProperties) EventStreamStatus { return v.Status }).(EventStreamStatusOutput)
 }
 
+// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
 func (o DestinationDetailsPropertiesOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DestinationDetailsProperties) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -745,6 +785,7 @@ func (o DestinationDetailsPropertiesPtrOutput) Elem() DestinationDetailsProperti
 	}).(DestinationDetailsPropertiesOutput)
 }
 
+// The status of enabling the Kinesis stream as a destination for export.
 func (o DestinationDetailsPropertiesPtrOutput) Status() EventStreamStatusPtrOutput {
 	return o.ApplyT(func(v *DestinationDetailsProperties) *EventStreamStatus {
 		if v == nil {
@@ -754,6 +795,7 @@ func (o DestinationDetailsPropertiesPtrOutput) Status() EventStreamStatusPtrOutp
 	}).(EventStreamStatusPtrOutput)
 }
 
+// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
 func (o DestinationDetailsPropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DestinationDetailsProperties) *string {
 		if v == nil {
@@ -964,8 +1006,10 @@ func (o DomainAttributeTypesSelectorPtrOutput) PhoneNumber() pulumi.StringArrayO
 
 // Configuration information about the auto-merging process.
 type DomainAutoMerging struct {
+	// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 	ConflictResolution *DomainConflictResolution `pulumi:"conflictResolution"`
-	Consolidation      *DomainConsolidation      `pulumi:"consolidation"`
+	// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+	Consolidation *DomainConsolidation `pulumi:"consolidation"`
 	// The flag that enables the auto-merging of duplicate profiles.
 	Enabled bool `pulumi:"enabled"`
 	// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
@@ -985,8 +1029,10 @@ type DomainAutoMergingInput interface {
 
 // Configuration information about the auto-merging process.
 type DomainAutoMergingArgs struct {
+	// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 	ConflictResolution DomainConflictResolutionPtrInput `pulumi:"conflictResolution"`
-	Consolidation      DomainConsolidationPtrInput      `pulumi:"consolidation"`
+	// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+	Consolidation DomainConsolidationPtrInput `pulumi:"consolidation"`
 	// The flag that enables the auto-merging of duplicate profiles.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
@@ -1071,10 +1117,12 @@ func (o DomainAutoMergingOutput) ToDomainAutoMergingPtrOutputWithContext(ctx con
 	}).(DomainAutoMergingPtrOutput)
 }
 
+// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 func (o DomainAutoMergingOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
 	return o.ApplyT(func(v DomainAutoMerging) *DomainConflictResolution { return v.ConflictResolution }).(DomainConflictResolutionPtrOutput)
 }
 
+// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
 func (o DomainAutoMergingOutput) Consolidation() DomainConsolidationPtrOutput {
 	return o.ApplyT(func(v DomainAutoMerging) *DomainConsolidation { return v.Consolidation }).(DomainConsolidationPtrOutput)
 }
@@ -1113,6 +1161,7 @@ func (o DomainAutoMergingPtrOutput) Elem() DomainAutoMergingOutput {
 	}).(DomainAutoMergingOutput)
 }
 
+// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 func (o DomainAutoMergingPtrOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
 	return o.ApplyT(func(v *DomainAutoMerging) *DomainConflictResolution {
 		if v == nil {
@@ -1122,6 +1171,7 @@ func (o DomainAutoMergingPtrOutput) ConflictResolution() DomainConflictResolutio
 	}).(DomainConflictResolutionPtrOutput)
 }
 
+// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
 func (o DomainAutoMergingPtrOutput) Consolidation() DomainConsolidationPtrOutput {
 	return o.ApplyT(func(v *DomainAutoMerging) *DomainConsolidation {
 		if v == nil {
@@ -1749,11 +1799,14 @@ func (o DomainJobSchedulePtrOutput) Time() pulumi.StringPtrOutput {
 
 // The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
 type DomainMatching struct {
+	// Configuration information about the auto-merging process.
 	AutoMerging *DomainAutoMerging `pulumi:"autoMerging"`
 	// The flag that enables the matching process of duplicate profiles.
-	Enabled         bool                   `pulumi:"enabled"`
+	Enabled bool `pulumi:"enabled"`
+	// The S3 location where Identity Resolution Jobs write result files.
 	ExportingConfig *DomainExportingConfig `pulumi:"exportingConfig"`
-	JobSchedule     *DomainJobSchedule     `pulumi:"jobSchedule"`
+	// The day and time when do you want to start the Identity Resolution Job every week.
+	JobSchedule *DomainJobSchedule `pulumi:"jobSchedule"`
 }
 
 // DomainMatchingInput is an input type that accepts DomainMatchingArgs and DomainMatchingOutput values.
@@ -1769,11 +1822,14 @@ type DomainMatchingInput interface {
 
 // The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
 type DomainMatchingArgs struct {
+	// Configuration information about the auto-merging process.
 	AutoMerging DomainAutoMergingPtrInput `pulumi:"autoMerging"`
 	// The flag that enables the matching process of duplicate profiles.
-	Enabled         pulumi.BoolInput              `pulumi:"enabled"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The S3 location where Identity Resolution Jobs write result files.
 	ExportingConfig DomainExportingConfigPtrInput `pulumi:"exportingConfig"`
-	JobSchedule     DomainJobSchedulePtrInput     `pulumi:"jobSchedule"`
+	// The day and time when do you want to start the Identity Resolution Job every week.
+	JobSchedule DomainJobSchedulePtrInput `pulumi:"jobSchedule"`
 }
 
 func (DomainMatchingArgs) ElementType() reflect.Type {
@@ -1854,6 +1910,7 @@ func (o DomainMatchingOutput) ToDomainMatchingPtrOutputWithContext(ctx context.C
 	}).(DomainMatchingPtrOutput)
 }
 
+// Configuration information about the auto-merging process.
 func (o DomainMatchingOutput) AutoMerging() DomainAutoMergingPtrOutput {
 	return o.ApplyT(func(v DomainMatching) *DomainAutoMerging { return v.AutoMerging }).(DomainAutoMergingPtrOutput)
 }
@@ -1863,10 +1920,12 @@ func (o DomainMatchingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainMatching) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The S3 location where Identity Resolution Jobs write result files.
 func (o DomainMatchingOutput) ExportingConfig() DomainExportingConfigPtrOutput {
 	return o.ApplyT(func(v DomainMatching) *DomainExportingConfig { return v.ExportingConfig }).(DomainExportingConfigPtrOutput)
 }
 
+// The day and time when do you want to start the Identity Resolution Job every week.
 func (o DomainMatchingOutput) JobSchedule() DomainJobSchedulePtrOutput {
 	return o.ApplyT(func(v DomainMatching) *DomainJobSchedule { return v.JobSchedule }).(DomainJobSchedulePtrOutput)
 }
@@ -1895,6 +1954,7 @@ func (o DomainMatchingPtrOutput) Elem() DomainMatchingOutput {
 	}).(DomainMatchingOutput)
 }
 
+// Configuration information about the auto-merging process.
 func (o DomainMatchingPtrOutput) AutoMerging() DomainAutoMergingPtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *DomainAutoMerging {
 		if v == nil {
@@ -1914,6 +1974,7 @@ func (o DomainMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The S3 location where Identity Resolution Jobs write result files.
 func (o DomainMatchingPtrOutput) ExportingConfig() DomainExportingConfigPtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *DomainExportingConfig {
 		if v == nil {
@@ -1923,6 +1984,7 @@ func (o DomainMatchingPtrOutput) ExportingConfig() DomainExportingConfigPtrOutpu
 	}).(DomainExportingConfigPtrOutput)
 }
 
+// The day and time when do you want to start the Identity Resolution Job every week.
 func (o DomainMatchingPtrOutput) JobSchedule() DomainJobSchedulePtrOutput {
 	return o.ApplyT(func(v *DomainMatching) *DomainJobSchedule {
 		if v == nil {
@@ -1934,6 +1996,7 @@ func (o DomainMatchingPtrOutput) JobSchedule() DomainJobSchedulePtrOutput {
 
 // Specifies how does the rule-based matching process should match profiles.
 type DomainMatchingRule struct {
+	// A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
 	Rule []string `pulumi:"rule"`
 }
 
@@ -1950,6 +2013,7 @@ type DomainMatchingRuleInput interface {
 
 // Specifies how does the rule-based matching process should match profiles.
 type DomainMatchingRuleArgs struct {
+	// A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
 	Rule pulumi.StringArrayInput `pulumi:"rule"`
 }
 
@@ -2005,6 +2069,7 @@ func (o DomainMatchingRuleOutput) ToDomainMatchingRuleOutputWithContext(ctx cont
 	return o
 }
 
+// A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
 func (o DomainMatchingRuleOutput) Rule() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainMatchingRule) []string { return v.Rule }).(pulumi.StringArrayOutput)
 }
@@ -2031,18 +2096,22 @@ func (o DomainMatchingRuleArrayOutput) Index(i pulumi.IntInput) DomainMatchingRu
 
 // The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
 type DomainRuleBasedMatching struct {
+	// Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
 	AttributeTypesSelector *DomainAttributeTypesSelector `pulumi:"attributeTypesSelector"`
-	ConflictResolution     *DomainConflictResolution     `pulumi:"conflictResolution"`
+	// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+	ConflictResolution *DomainConflictResolution `pulumi:"conflictResolution"`
 	// The flag that enables the rule-based matching process of duplicate profiles.
-	Enabled         bool                   `pulumi:"enabled"`
+	Enabled bool `pulumi:"enabled"`
+	// The S3 location where Identity Resolution Jobs write result files.
 	ExportingConfig *DomainExportingConfig `pulumi:"exportingConfig"`
 	// Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
 	MatchingRules []DomainMatchingRule `pulumi:"matchingRules"`
 	// Indicates the maximum allowed rule level for matching.
 	MaxAllowedRuleLevelForMatching *int `pulumi:"maxAllowedRuleLevelForMatching"`
 	// Indicates the maximum allowed rule level for merging.
-	MaxAllowedRuleLevelForMerging *int                           `pulumi:"maxAllowedRuleLevelForMerging"`
-	Status                        *DomainRuleBasedMatchingStatus `pulumi:"status"`
+	MaxAllowedRuleLevelForMerging *int `pulumi:"maxAllowedRuleLevelForMerging"`
+	// The status of rule-based matching rule.
+	Status *DomainRuleBasedMatchingStatus `pulumi:"status"`
 }
 
 // DomainRuleBasedMatchingInput is an input type that accepts DomainRuleBasedMatchingArgs and DomainRuleBasedMatchingOutput values.
@@ -2058,18 +2127,22 @@ type DomainRuleBasedMatchingInput interface {
 
 // The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
 type DomainRuleBasedMatchingArgs struct {
+	// Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
 	AttributeTypesSelector DomainAttributeTypesSelectorPtrInput `pulumi:"attributeTypesSelector"`
-	ConflictResolution     DomainConflictResolutionPtrInput     `pulumi:"conflictResolution"`
+	// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+	ConflictResolution DomainConflictResolutionPtrInput `pulumi:"conflictResolution"`
 	// The flag that enables the rule-based matching process of duplicate profiles.
-	Enabled         pulumi.BoolInput              `pulumi:"enabled"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The S3 location where Identity Resolution Jobs write result files.
 	ExportingConfig DomainExportingConfigPtrInput `pulumi:"exportingConfig"`
 	// Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
 	MatchingRules DomainMatchingRuleArrayInput `pulumi:"matchingRules"`
 	// Indicates the maximum allowed rule level for matching.
 	MaxAllowedRuleLevelForMatching pulumi.IntPtrInput `pulumi:"maxAllowedRuleLevelForMatching"`
 	// Indicates the maximum allowed rule level for merging.
-	MaxAllowedRuleLevelForMerging pulumi.IntPtrInput                    `pulumi:"maxAllowedRuleLevelForMerging"`
-	Status                        DomainRuleBasedMatchingStatusPtrInput `pulumi:"status"`
+	MaxAllowedRuleLevelForMerging pulumi.IntPtrInput `pulumi:"maxAllowedRuleLevelForMerging"`
+	// The status of rule-based matching rule.
+	Status DomainRuleBasedMatchingStatusPtrInput `pulumi:"status"`
 }
 
 func (DomainRuleBasedMatchingArgs) ElementType() reflect.Type {
@@ -2150,10 +2223,12 @@ func (o DomainRuleBasedMatchingOutput) ToDomainRuleBasedMatchingPtrOutputWithCon
 	}).(DomainRuleBasedMatchingPtrOutput)
 }
 
+// Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
 func (o DomainRuleBasedMatchingOutput) AttributeTypesSelector() DomainAttributeTypesSelectorPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainAttributeTypesSelector { return v.AttributeTypesSelector }).(DomainAttributeTypesSelectorPtrOutput)
 }
 
+// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 func (o DomainRuleBasedMatchingOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainConflictResolution { return v.ConflictResolution }).(DomainConflictResolutionPtrOutput)
 }
@@ -2163,6 +2238,7 @@ func (o DomainRuleBasedMatchingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The S3 location where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingOutput) ExportingConfig() DomainExportingConfigPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainExportingConfig { return v.ExportingConfig }).(DomainExportingConfigPtrOutput)
 }
@@ -2182,6 +2258,7 @@ func (o DomainRuleBasedMatchingOutput) MaxAllowedRuleLevelForMerging() pulumi.In
 	return o.ApplyT(func(v DomainRuleBasedMatching) *int { return v.MaxAllowedRuleLevelForMerging }).(pulumi.IntPtrOutput)
 }
 
+// The status of rule-based matching rule.
 func (o DomainRuleBasedMatchingOutput) Status() DomainRuleBasedMatchingStatusPtrOutput {
 	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainRuleBasedMatchingStatus { return v.Status }).(DomainRuleBasedMatchingStatusPtrOutput)
 }
@@ -2210,6 +2287,7 @@ func (o DomainRuleBasedMatchingPtrOutput) Elem() DomainRuleBasedMatchingOutput {
 	}).(DomainRuleBasedMatchingOutput)
 }
 
+// Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
 func (o DomainRuleBasedMatchingPtrOutput) AttributeTypesSelector() DomainAttributeTypesSelectorPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainAttributeTypesSelector {
 		if v == nil {
@@ -2219,6 +2297,7 @@ func (o DomainRuleBasedMatchingPtrOutput) AttributeTypesSelector() DomainAttribu
 	}).(DomainAttributeTypesSelectorPtrOutput)
 }
 
+// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
 func (o DomainRuleBasedMatchingPtrOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainConflictResolution {
 		if v == nil {
@@ -2238,6 +2317,7 @@ func (o DomainRuleBasedMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The S3 location where Identity Resolution Jobs write result files.
 func (o DomainRuleBasedMatchingPtrOutput) ExportingConfig() DomainExportingConfigPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainExportingConfig {
 		if v == nil {
@@ -2277,6 +2357,7 @@ func (o DomainRuleBasedMatchingPtrOutput) MaxAllowedRuleLevelForMerging() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// The status of rule-based matching rule.
 func (o DomainRuleBasedMatchingPtrOutput) Status() DomainRuleBasedMatchingStatusPtrOutput {
 	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainRuleBasedMatchingStatus {
 		if v == nil {
@@ -2557,7 +2638,9 @@ func (o DomainStatsPtrOutput) TotalSize() pulumi.Float64PtrOutput {
 }
 
 type DomainTag struct {
-	Key   string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -2570,11 +2653,16 @@ type EventStreamTag struct {
 }
 
 type IntegrationConnectorOperator struct {
-	Marketo    *IntegrationMarketoConnectorOperator    `pulumi:"marketo"`
-	S3         *IntegrationS3ConnectorOperator         `pulumi:"s3"`
+	// The operation to be performed on the provided Marketo source fields.
+	Marketo *IntegrationMarketoConnectorOperator `pulumi:"marketo"`
+	// The operation to be performed on the provided Amazon S3 source fields.
+	S3 *IntegrationS3ConnectorOperator `pulumi:"s3"`
+	// The operation to be performed on the provided Salesforce source fields.
 	Salesforce *IntegrationSalesforceConnectorOperator `pulumi:"salesforce"`
+	// The operation to be performed on the provided ServiceNow source fields.
 	ServiceNow *IntegrationServiceNowConnectorOperator `pulumi:"serviceNow"`
-	Zendesk    *IntegrationZendeskConnectorOperator    `pulumi:"zendesk"`
+	// The operation to be performed on the provided Zendesk source fields.
+	Zendesk *IntegrationZendeskConnectorOperator `pulumi:"zendesk"`
 }
 
 // IntegrationConnectorOperatorInput is an input type that accepts IntegrationConnectorOperatorArgs and IntegrationConnectorOperatorOutput values.
@@ -2589,11 +2677,16 @@ type IntegrationConnectorOperatorInput interface {
 }
 
 type IntegrationConnectorOperatorArgs struct {
-	Marketo    IntegrationMarketoConnectorOperatorPtrInput    `pulumi:"marketo"`
-	S3         IntegrationS3ConnectorOperatorPtrInput         `pulumi:"s3"`
+	// The operation to be performed on the provided Marketo source fields.
+	Marketo IntegrationMarketoConnectorOperatorPtrInput `pulumi:"marketo"`
+	// The operation to be performed on the provided Amazon S3 source fields.
+	S3 IntegrationS3ConnectorOperatorPtrInput `pulumi:"s3"`
+	// The operation to be performed on the provided Salesforce source fields.
 	Salesforce IntegrationSalesforceConnectorOperatorPtrInput `pulumi:"salesforce"`
+	// The operation to be performed on the provided ServiceNow source fields.
 	ServiceNow IntegrationServiceNowConnectorOperatorPtrInput `pulumi:"serviceNow"`
-	Zendesk    IntegrationZendeskConnectorOperatorPtrInput    `pulumi:"zendesk"`
+	// The operation to be performed on the provided Zendesk source fields.
+	Zendesk IntegrationZendeskConnectorOperatorPtrInput `pulumi:"zendesk"`
 }
 
 func (IntegrationConnectorOperatorArgs) ElementType() reflect.Type {
@@ -2673,22 +2766,27 @@ func (o IntegrationConnectorOperatorOutput) ToIntegrationConnectorOperatorPtrOut
 	}).(IntegrationConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Marketo source fields.
 func (o IntegrationConnectorOperatorOutput) Marketo() IntegrationMarketoConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationMarketoConnectorOperator { return v.Marketo }).(IntegrationMarketoConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Amazon S3 source fields.
 func (o IntegrationConnectorOperatorOutput) S3() IntegrationS3ConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationS3ConnectorOperator { return v.S3 }).(IntegrationS3ConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Salesforce source fields.
 func (o IntegrationConnectorOperatorOutput) Salesforce() IntegrationSalesforceConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationSalesforceConnectorOperator { return v.Salesforce }).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided ServiceNow source fields.
 func (o IntegrationConnectorOperatorOutput) ServiceNow() IntegrationServiceNowConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationServiceNowConnectorOperator { return v.ServiceNow }).(IntegrationServiceNowConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Zendesk source fields.
 func (o IntegrationConnectorOperatorOutput) Zendesk() IntegrationZendeskConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationZendeskConnectorOperator { return v.Zendesk }).(IntegrationZendeskConnectorOperatorPtrOutput)
 }
@@ -2717,6 +2815,7 @@ func (o IntegrationConnectorOperatorPtrOutput) Elem() IntegrationConnectorOperat
 	}).(IntegrationConnectorOperatorOutput)
 }
 
+// The operation to be performed on the provided Marketo source fields.
 func (o IntegrationConnectorOperatorPtrOutput) Marketo() IntegrationMarketoConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationMarketoConnectorOperator {
 		if v == nil {
@@ -2726,6 +2825,7 @@ func (o IntegrationConnectorOperatorPtrOutput) Marketo() IntegrationMarketoConne
 	}).(IntegrationMarketoConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Amazon S3 source fields.
 func (o IntegrationConnectorOperatorPtrOutput) S3() IntegrationS3ConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationS3ConnectorOperator {
 		if v == nil {
@@ -2735,6 +2835,7 @@ func (o IntegrationConnectorOperatorPtrOutput) S3() IntegrationS3ConnectorOperat
 	}).(IntegrationS3ConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Salesforce source fields.
 func (o IntegrationConnectorOperatorPtrOutput) Salesforce() IntegrationSalesforceConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationSalesforceConnectorOperator {
 		if v == nil {
@@ -2744,6 +2845,7 @@ func (o IntegrationConnectorOperatorPtrOutput) Salesforce() IntegrationSalesforc
 	}).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided ServiceNow source fields.
 func (o IntegrationConnectorOperatorPtrOutput) ServiceNow() IntegrationServiceNowConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationServiceNowConnectorOperator {
 		if v == nil {
@@ -2753,6 +2855,7 @@ func (o IntegrationConnectorOperatorPtrOutput) ServiceNow() IntegrationServiceNo
 	}).(IntegrationServiceNowConnectorOperatorPtrOutput)
 }
 
+// The operation to be performed on the provided Zendesk source fields.
 func (o IntegrationConnectorOperatorPtrOutput) Zendesk() IntegrationZendeskConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationZendeskConnectorOperator {
 		if v == nil {
@@ -2763,12 +2866,18 @@ func (o IntegrationConnectorOperatorPtrOutput) Zendesk() IntegrationZendeskConne
 }
 
 type IntegrationFlowDefinition struct {
-	Description      *string                     `pulumi:"description"`
-	FlowName         string                      `pulumi:"flowName"`
-	KmsArn           string                      `pulumi:"kmsArn"`
+	// A description of the flow you want to create.
+	Description *string `pulumi:"description"`
+	// The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+	FlowName string `pulumi:"flowName"`
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+	KmsArn string `pulumi:"kmsArn"`
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	SourceFlowConfig IntegrationSourceFlowConfig `pulumi:"sourceFlowConfig"`
-	Tasks            []IntegrationTask           `pulumi:"tasks"`
-	TriggerConfig    IntegrationTriggerConfig    `pulumi:"triggerConfig"`
+	// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+	Tasks []IntegrationTask `pulumi:"tasks"`
+	// The trigger settings that determine how and when the flow runs.
+	TriggerConfig IntegrationTriggerConfig `pulumi:"triggerConfig"`
 }
 
 // IntegrationFlowDefinitionInput is an input type that accepts IntegrationFlowDefinitionArgs and IntegrationFlowDefinitionOutput values.
@@ -2783,12 +2892,18 @@ type IntegrationFlowDefinitionInput interface {
 }
 
 type IntegrationFlowDefinitionArgs struct {
-	Description      pulumi.StringPtrInput            `pulumi:"description"`
-	FlowName         pulumi.StringInput               `pulumi:"flowName"`
-	KmsArn           pulumi.StringInput               `pulumi:"kmsArn"`
+	// A description of the flow you want to create.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+	FlowName pulumi.StringInput `pulumi:"flowName"`
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+	KmsArn pulumi.StringInput `pulumi:"kmsArn"`
+	// The configuration that controls how Customer Profiles retrieves data from the source.
 	SourceFlowConfig IntegrationSourceFlowConfigInput `pulumi:"sourceFlowConfig"`
-	Tasks            IntegrationTaskArrayInput        `pulumi:"tasks"`
-	TriggerConfig    IntegrationTriggerConfigInput    `pulumi:"triggerConfig"`
+	// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+	Tasks IntegrationTaskArrayInput `pulumi:"tasks"`
+	// The trigger settings that determine how and when the flow runs.
+	TriggerConfig IntegrationTriggerConfigInput `pulumi:"triggerConfig"`
 }
 
 func (IntegrationFlowDefinitionArgs) ElementType() reflect.Type {
@@ -2868,26 +2983,32 @@ func (o IntegrationFlowDefinitionOutput) ToIntegrationFlowDefinitionPtrOutputWit
 	}).(IntegrationFlowDefinitionPtrOutput)
 }
 
+// A description of the flow you want to create.
 func (o IntegrationFlowDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
 func (o IntegrationFlowDefinitionOutput) FlowName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) string { return v.FlowName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
 func (o IntegrationFlowDefinitionOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) string { return v.KmsArn }).(pulumi.StringOutput)
 }
 
+// The configuration that controls how Customer Profiles retrieves data from the source.
 func (o IntegrationFlowDefinitionOutput) SourceFlowConfig() IntegrationSourceFlowConfigOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) IntegrationSourceFlowConfig { return v.SourceFlowConfig }).(IntegrationSourceFlowConfigOutput)
 }
 
+// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
 func (o IntegrationFlowDefinitionOutput) Tasks() IntegrationTaskArrayOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) []IntegrationTask { return v.Tasks }).(IntegrationTaskArrayOutput)
 }
 
+// The trigger settings that determine how and when the flow runs.
 func (o IntegrationFlowDefinitionOutput) TriggerConfig() IntegrationTriggerConfigOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) IntegrationTriggerConfig { return v.TriggerConfig }).(IntegrationTriggerConfigOutput)
 }
@@ -2916,6 +3037,7 @@ func (o IntegrationFlowDefinitionPtrOutput) Elem() IntegrationFlowDefinitionOutp
 	}).(IntegrationFlowDefinitionOutput)
 }
 
+// A description of the flow you want to create.
 func (o IntegrationFlowDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *string {
 		if v == nil {
@@ -2925,6 +3047,7 @@ func (o IntegrationFlowDefinitionPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
 func (o IntegrationFlowDefinitionPtrOutput) FlowName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *string {
 		if v == nil {
@@ -2934,6 +3057,7 @@ func (o IntegrationFlowDefinitionPtrOutput) FlowName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
 func (o IntegrationFlowDefinitionPtrOutput) KmsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *string {
 		if v == nil {
@@ -2943,6 +3067,7 @@ func (o IntegrationFlowDefinitionPtrOutput) KmsArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration that controls how Customer Profiles retrieves data from the source.
 func (o IntegrationFlowDefinitionPtrOutput) SourceFlowConfig() IntegrationSourceFlowConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *IntegrationSourceFlowConfig {
 		if v == nil {
@@ -2952,6 +3077,7 @@ func (o IntegrationFlowDefinitionPtrOutput) SourceFlowConfig() IntegrationSource
 	}).(IntegrationSourceFlowConfigPtrOutput)
 }
 
+// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
 func (o IntegrationFlowDefinitionPtrOutput) Tasks() IntegrationTaskArrayOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) []IntegrationTask {
 		if v == nil {
@@ -2961,6 +3087,7 @@ func (o IntegrationFlowDefinitionPtrOutput) Tasks() IntegrationTaskArrayOutput {
 	}).(IntegrationTaskArrayOutput)
 }
 
+// The trigger settings that determine how and when the flow runs.
 func (o IntegrationFlowDefinitionPtrOutput) TriggerConfig() IntegrationTriggerConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *IntegrationTriggerConfig {
 		if v == nil {
@@ -2971,6 +3098,7 @@ func (o IntegrationFlowDefinitionPtrOutput) TriggerConfig() IntegrationTriggerCo
 }
 
 type IntegrationIncrementalPullConfig struct {
+	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 	DatetimeTypeFieldName *string `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -2986,6 +3114,7 @@ type IntegrationIncrementalPullConfigInput interface {
 }
 
 type IntegrationIncrementalPullConfigArgs struct {
+	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 	DatetimeTypeFieldName pulumi.StringPtrInput `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -3066,6 +3195,7 @@ func (o IntegrationIncrementalPullConfigOutput) ToIntegrationIncrementalPullConf
 	}).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
+// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 func (o IntegrationIncrementalPullConfigOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationIncrementalPullConfig) *string { return v.DatetimeTypeFieldName }).(pulumi.StringPtrOutput)
 }
@@ -3094,6 +3224,7 @@ func (o IntegrationIncrementalPullConfigPtrOutput) Elem() IntegrationIncremental
 	}).(IntegrationIncrementalPullConfigOutput)
 }
 
+// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 func (o IntegrationIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationIncrementalPullConfig) *string {
 		if v == nil {
@@ -3104,6 +3235,7 @@ func (o IntegrationIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulum
 }
 
 type IntegrationMarketoSourceProperties struct {
+	// The object specified in the Marketo flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -3119,6 +3251,7 @@ type IntegrationMarketoSourcePropertiesInput interface {
 }
 
 type IntegrationMarketoSourcePropertiesArgs struct {
+	// The object specified in the Marketo flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -3199,6 +3332,7 @@ func (o IntegrationMarketoSourcePropertiesOutput) ToIntegrationMarketoSourceProp
 	}).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
+// The object specified in the Marketo flow source.
 func (o IntegrationMarketoSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationMarketoSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -3227,6 +3361,7 @@ func (o IntegrationMarketoSourcePropertiesPtrOutput) Elem() IntegrationMarketoSo
 	}).(IntegrationMarketoSourcePropertiesOutput)
 }
 
+// The object specified in the Marketo flow source.
 func (o IntegrationMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationMarketoSourceProperties) *string {
 		if v == nil {
@@ -3237,7 +3372,9 @@ func (o IntegrationMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOu
 }
 
 type IntegrationObjectTypeMapping struct {
-	Key   string `pulumi:"key"`
+	// The key.
+	Key string `pulumi:"key"`
+	// The value.
 	Value string `pulumi:"value"`
 }
 
@@ -3253,7 +3390,9 @@ type IntegrationObjectTypeMappingInput interface {
 }
 
 type IntegrationObjectTypeMappingArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3308,10 +3447,12 @@ func (o IntegrationObjectTypeMappingOutput) ToIntegrationObjectTypeMappingOutput
 	return o
 }
 
+// The key.
 func (o IntegrationObjectTypeMappingOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationObjectTypeMapping) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value.
 func (o IntegrationObjectTypeMappingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationObjectTypeMapping) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3337,7 +3478,9 @@ func (o IntegrationObjectTypeMappingArrayOutput) Index(i pulumi.IntInput) Integr
 }
 
 type IntegrationS3SourceProperties struct {
-	BucketName   string  `pulumi:"bucketName"`
+	// The Amazon S3 bucket name where the source files are stored.
+	BucketName string `pulumi:"bucketName"`
+	// The object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 }
 
@@ -3353,7 +3496,9 @@ type IntegrationS3SourcePropertiesInput interface {
 }
 
 type IntegrationS3SourcePropertiesArgs struct {
-	BucketName   pulumi.StringInput    `pulumi:"bucketName"`
+	// The Amazon S3 bucket name where the source files are stored.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The object key for the Amazon S3 bucket in which the source files are stored.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 }
 
@@ -3434,10 +3579,12 @@ func (o IntegrationS3SourcePropertiesOutput) ToIntegrationS3SourcePropertiesPtrO
 	}).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
+// The Amazon S3 bucket name where the source files are stored.
 func (o IntegrationS3SourcePropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationS3SourceProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The object key for the Amazon S3 bucket in which the source files are stored.
 func (o IntegrationS3SourcePropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationS3SourceProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -3466,6 +3613,7 @@ func (o IntegrationS3SourcePropertiesPtrOutput) Elem() IntegrationS3SourceProper
 	}).(IntegrationS3SourcePropertiesOutput)
 }
 
+// The Amazon S3 bucket name where the source files are stored.
 func (o IntegrationS3SourcePropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationS3SourceProperties) *string {
 		if v == nil {
@@ -3475,6 +3623,7 @@ func (o IntegrationS3SourcePropertiesPtrOutput) BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The object key for the Amazon S3 bucket in which the source files are stored.
 func (o IntegrationS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationS3SourceProperties) *string {
 		if v == nil {
@@ -3485,9 +3634,12 @@ func (o IntegrationS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrO
 }
 
 type IntegrationSalesforceSourceProperties struct {
-	EnableDynamicFieldUpdate *bool  `pulumi:"enableDynamicFieldUpdate"`
-	IncludeDeletedRecords    *bool  `pulumi:"includeDeletedRecords"`
-	Object                   string `pulumi:"object"`
+	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
+	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+	IncludeDeletedRecords *bool `pulumi:"includeDeletedRecords"`
+	// The object specified in the Salesforce flow source.
+	Object string `pulumi:"object"`
 }
 
 // IntegrationSalesforceSourcePropertiesInput is an input type that accepts IntegrationSalesforceSourcePropertiesArgs and IntegrationSalesforceSourcePropertiesOutput values.
@@ -3502,9 +3654,12 @@ type IntegrationSalesforceSourcePropertiesInput interface {
 }
 
 type IntegrationSalesforceSourcePropertiesArgs struct {
+	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
-	IncludeDeletedRecords    pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
-	Object                   pulumi.StringInput  `pulumi:"object"`
+	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
+	IncludeDeletedRecords pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
+	// The object specified in the Salesforce flow source.
+	Object pulumi.StringInput `pulumi:"object"`
 }
 
 func (IntegrationSalesforceSourcePropertiesArgs) ElementType() reflect.Type {
@@ -3584,14 +3739,17 @@ func (o IntegrationSalesforceSourcePropertiesOutput) ToIntegrationSalesforceSour
 	}).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
+// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o IntegrationSalesforceSourcePropertiesOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationSalesforceSourceProperties) *bool { return v.EnableDynamicFieldUpdate }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Amazon AppFlow includes deleted files in the flow run.
 func (o IntegrationSalesforceSourcePropertiesOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationSalesforceSourceProperties) *bool { return v.IncludeDeletedRecords }).(pulumi.BoolPtrOutput)
 }
 
+// The object specified in the Salesforce flow source.
 func (o IntegrationSalesforceSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationSalesforceSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -3620,6 +3778,7 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) Elem() IntegrationSalesf
 	}).(IntegrationSalesforceSourcePropertiesOutput)
 }
 
+// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o IntegrationSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceSourceProperties) *bool {
 		if v == nil {
@@ -3629,6 +3788,7 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Amazon AppFlow includes deleted files in the flow run.
 func (o IntegrationSalesforceSourcePropertiesPtrOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceSourceProperties) *bool {
 		if v == nil {
@@ -3638,6 +3798,7 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) IncludeDeletedRecords() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The object specified in the Salesforce flow source.
 func (o IntegrationSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceSourceProperties) *string {
 		if v == nil {
@@ -3648,13 +3809,20 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPt
 }
 
 type IntegrationScheduledTriggerProperties struct {
-	DataPullMode       *IntegrationScheduledTriggerPropertiesDataPullMode `pulumi:"dataPullMode"`
-	FirstExecutionFrom *float64                                           `pulumi:"firstExecutionFrom"`
-	ScheduleEndTime    *float64                                           `pulumi:"scheduleEndTime"`
-	ScheduleExpression string                                             `pulumi:"scheduleExpression"`
-	ScheduleOffset     *int                                               `pulumi:"scheduleOffset"`
-	ScheduleStartTime  *float64                                           `pulumi:"scheduleStartTime"`
-	Timezone           *string                                            `pulumi:"timezone"`
+	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+	DataPullMode *IntegrationScheduledTriggerPropertiesDataPullMode `pulumi:"dataPullMode"`
+	// Specifies the date range for the records to import from the connector in the first flow run.
+	FirstExecutionFrom *float64 `pulumi:"firstExecutionFrom"`
+	// Specifies the scheduled end time for a scheduled-trigger flow.
+	ScheduleEndTime *float64 `pulumi:"scheduleEndTime"`
+	// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+	ScheduleOffset *int `pulumi:"scheduleOffset"`
+	// Specifies the scheduled start time for a scheduled-trigger flow.
+	ScheduleStartTime *float64 `pulumi:"scheduleStartTime"`
+	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
+	Timezone *string `pulumi:"timezone"`
 }
 
 // IntegrationScheduledTriggerPropertiesInput is an input type that accepts IntegrationScheduledTriggerPropertiesArgs and IntegrationScheduledTriggerPropertiesOutput values.
@@ -3669,13 +3837,20 @@ type IntegrationScheduledTriggerPropertiesInput interface {
 }
 
 type IntegrationScheduledTriggerPropertiesArgs struct {
-	DataPullMode       IntegrationScheduledTriggerPropertiesDataPullModePtrInput `pulumi:"dataPullMode"`
-	FirstExecutionFrom pulumi.Float64PtrInput                                    `pulumi:"firstExecutionFrom"`
-	ScheduleEndTime    pulumi.Float64PtrInput                                    `pulumi:"scheduleEndTime"`
-	ScheduleExpression pulumi.StringInput                                        `pulumi:"scheduleExpression"`
-	ScheduleOffset     pulumi.IntPtrInput                                        `pulumi:"scheduleOffset"`
-	ScheduleStartTime  pulumi.Float64PtrInput                                    `pulumi:"scheduleStartTime"`
-	Timezone           pulumi.StringPtrInput                                     `pulumi:"timezone"`
+	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+	DataPullMode IntegrationScheduledTriggerPropertiesDataPullModePtrInput `pulumi:"dataPullMode"`
+	// Specifies the date range for the records to import from the connector in the first flow run.
+	FirstExecutionFrom pulumi.Float64PtrInput `pulumi:"firstExecutionFrom"`
+	// Specifies the scheduled end time for a scheduled-trigger flow.
+	ScheduleEndTime pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
+	// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+	ScheduleOffset pulumi.IntPtrInput `pulumi:"scheduleOffset"`
+	// Specifies the scheduled start time for a scheduled-trigger flow.
+	ScheduleStartTime pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
+	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (IntegrationScheduledTriggerPropertiesArgs) ElementType() reflect.Type {
@@ -3755,32 +3930,39 @@ func (o IntegrationScheduledTriggerPropertiesOutput) ToIntegrationScheduledTrigg
 	}).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
 
+// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 func (o IntegrationScheduledTriggerPropertiesOutput) DataPullMode() IntegrationScheduledTriggerPropertiesDataPullModePtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *IntegrationScheduledTriggerPropertiesDataPullMode {
 		return v.DataPullMode
 	}).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
+// Specifies the date range for the records to import from the connector in the first flow run.
 func (o IntegrationScheduledTriggerPropertiesOutput) FirstExecutionFrom() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.FirstExecutionFrom }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the scheduled end time for a scheduled-trigger flow.
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.ScheduleEndTime }).(pulumi.Float64PtrOutput)
 }
 
+// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
+// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *int { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the scheduled start time for a scheduled-trigger flow.
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.ScheduleStartTime }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
 func (o IntegrationScheduledTriggerPropertiesOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -3809,6 +3991,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) Elem() IntegrationSchedu
 	}).(IntegrationScheduledTriggerPropertiesOutput)
 }
 
+// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) DataPullMode() IntegrationScheduledTriggerPropertiesDataPullModePtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *IntegrationScheduledTriggerPropertiesDataPullMode {
 		if v == nil {
@@ -3818,6 +4001,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) DataPullMode() Integrati
 	}).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
+// Specifies the date range for the records to import from the connector in the first flow run.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) FirstExecutionFrom() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -3827,6 +4011,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) FirstExecutionFrom() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the scheduled end time for a scheduled-trigger flow.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -3836,6 +4021,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *string {
 		if v == nil {
@@ -3845,6 +4031,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *int {
 		if v == nil {
@@ -3854,6 +4041,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the scheduled start time for a scheduled-trigger flow.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -3863,6 +4051,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *string {
 		if v == nil {
@@ -3873,6 +4062,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) Timezone() pulumi.String
 }
 
 type IntegrationServiceNowSourceProperties struct {
+	// The object specified in the ServiceNow flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -3888,6 +4078,7 @@ type IntegrationServiceNowSourcePropertiesInput interface {
 }
 
 type IntegrationServiceNowSourcePropertiesArgs struct {
+	// The object specified in the ServiceNow flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -3968,6 +4159,7 @@ func (o IntegrationServiceNowSourcePropertiesOutput) ToIntegrationServiceNowSour
 	}).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
+// The object specified in the ServiceNow flow source.
 func (o IntegrationServiceNowSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationServiceNowSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -3996,6 +4188,7 @@ func (o IntegrationServiceNowSourcePropertiesPtrOutput) Elem() IntegrationServic
 	}).(IntegrationServiceNowSourcePropertiesOutput)
 }
 
+// The object specified in the ServiceNow flow source.
 func (o IntegrationServiceNowSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationServiceNowSourceProperties) *string {
 		if v == nil {
@@ -4006,11 +4199,16 @@ func (o IntegrationServiceNowSourcePropertiesPtrOutput) Object() pulumi.StringPt
 }
 
 type IntegrationSourceConnectorProperties struct {
-	Marketo    *IntegrationMarketoSourceProperties    `pulumi:"marketo"`
-	S3         *IntegrationS3SourceProperties         `pulumi:"s3"`
+	// The properties that are applied when Marketo is being used as a source.
+	Marketo *IntegrationMarketoSourceProperties `pulumi:"marketo"`
+	// The properties that are applied when Amazon S3 is being used as the flow source.
+	S3 *IntegrationS3SourceProperties `pulumi:"s3"`
+	// The properties that are applied when Salesforce is being used as a source.
 	Salesforce *IntegrationSalesforceSourceProperties `pulumi:"salesforce"`
+	// The properties that are applied when ServiceNow is being used as a source.
 	ServiceNow *IntegrationServiceNowSourceProperties `pulumi:"serviceNow"`
-	Zendesk    *IntegrationZendeskSourceProperties    `pulumi:"zendesk"`
+	// The properties that are applied when using Zendesk as a flow source.
+	Zendesk *IntegrationZendeskSourceProperties `pulumi:"zendesk"`
 }
 
 // IntegrationSourceConnectorPropertiesInput is an input type that accepts IntegrationSourceConnectorPropertiesArgs and IntegrationSourceConnectorPropertiesOutput values.
@@ -4025,11 +4223,16 @@ type IntegrationSourceConnectorPropertiesInput interface {
 }
 
 type IntegrationSourceConnectorPropertiesArgs struct {
-	Marketo    IntegrationMarketoSourcePropertiesPtrInput    `pulumi:"marketo"`
-	S3         IntegrationS3SourcePropertiesPtrInput         `pulumi:"s3"`
+	// The properties that are applied when Marketo is being used as a source.
+	Marketo IntegrationMarketoSourcePropertiesPtrInput `pulumi:"marketo"`
+	// The properties that are applied when Amazon S3 is being used as the flow source.
+	S3 IntegrationS3SourcePropertiesPtrInput `pulumi:"s3"`
+	// The properties that are applied when Salesforce is being used as a source.
 	Salesforce IntegrationSalesforceSourcePropertiesPtrInput `pulumi:"salesforce"`
+	// The properties that are applied when ServiceNow is being used as a source.
 	ServiceNow IntegrationServiceNowSourcePropertiesPtrInput `pulumi:"serviceNow"`
-	Zendesk    IntegrationZendeskSourcePropertiesPtrInput    `pulumi:"zendesk"`
+	// The properties that are applied when using Zendesk as a flow source.
+	Zendesk IntegrationZendeskSourcePropertiesPtrInput `pulumi:"zendesk"`
 }
 
 func (IntegrationSourceConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -4109,26 +4312,31 @@ func (o IntegrationSourceConnectorPropertiesOutput) ToIntegrationSourceConnector
 	}).(IntegrationSourceConnectorPropertiesPtrOutput)
 }
 
+// The properties that are applied when Marketo is being used as a source.
 func (o IntegrationSourceConnectorPropertiesOutput) Marketo() IntegrationMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationMarketoSourceProperties { return v.Marketo }).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when Amazon S3 is being used as the flow source.
 func (o IntegrationSourceConnectorPropertiesOutput) S3() IntegrationS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationS3SourceProperties { return v.S3 }).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when Salesforce is being used as a source.
 func (o IntegrationSourceConnectorPropertiesOutput) Salesforce() IntegrationSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationSalesforceSourceProperties {
 		return v.Salesforce
 	}).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when ServiceNow is being used as a source.
 func (o IntegrationSourceConnectorPropertiesOutput) ServiceNow() IntegrationServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationServiceNowSourceProperties {
 		return v.ServiceNow
 	}).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when using Zendesk as a flow source.
 func (o IntegrationSourceConnectorPropertiesOutput) Zendesk() IntegrationZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationZendeskSourceProperties { return v.Zendesk }).(IntegrationZendeskSourcePropertiesPtrOutput)
 }
@@ -4157,6 +4365,7 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Elem() IntegrationSourceC
 	}).(IntegrationSourceConnectorPropertiesOutput)
 }
 
+// The properties that are applied when Marketo is being used as a source.
 func (o IntegrationSourceConnectorPropertiesPtrOutput) Marketo() IntegrationMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationMarketoSourceProperties {
 		if v == nil {
@@ -4166,6 +4375,7 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Marketo() IntegrationMark
 	}).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when Amazon S3 is being used as the flow source.
 func (o IntegrationSourceConnectorPropertiesPtrOutput) S3() IntegrationS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationS3SourceProperties {
 		if v == nil {
@@ -4175,6 +4385,7 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) S3() IntegrationS3SourceP
 	}).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when Salesforce is being used as a source.
 func (o IntegrationSourceConnectorPropertiesPtrOutput) Salesforce() IntegrationSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationSalesforceSourceProperties {
 		if v == nil {
@@ -4184,6 +4395,7 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Salesforce() IntegrationS
 	}).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when ServiceNow is being used as a source.
 func (o IntegrationSourceConnectorPropertiesPtrOutput) ServiceNow() IntegrationServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationServiceNowSourceProperties {
 		if v == nil {
@@ -4193,6 +4405,7 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) ServiceNow() IntegrationS
 	}).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
+// The properties that are applied when using Zendesk as a flow source.
 func (o IntegrationSourceConnectorPropertiesPtrOutput) Zendesk() IntegrationZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationZendeskSourceProperties {
 		if v == nil {
@@ -4203,9 +4416,13 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Zendesk() IntegrationZend
 }
 
 type IntegrationSourceFlowConfig struct {
-	ConnectorProfileName      *string                              `pulumi:"connectorProfileName"`
-	ConnectorType             IntegrationConnectorType             `pulumi:"connectorType"`
-	IncrementalPullConfig     *IntegrationIncrementalPullConfig    `pulumi:"incrementalPullConfig"`
+	// The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
+	ConnectorProfileName *string `pulumi:"connectorProfileName"`
+	// The type of connector, such as Salesforce, Marketo, and so on.
+	ConnectorType IntegrationConnectorType `pulumi:"connectorType"`
+	// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
+	IncrementalPullConfig *IntegrationIncrementalPullConfig `pulumi:"incrementalPullConfig"`
+	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties IntegrationSourceConnectorProperties `pulumi:"sourceConnectorProperties"`
 }
 
@@ -4221,9 +4438,13 @@ type IntegrationSourceFlowConfigInput interface {
 }
 
 type IntegrationSourceFlowConfigArgs struct {
-	ConnectorProfileName      pulumi.StringPtrInput                     `pulumi:"connectorProfileName"`
-	ConnectorType             IntegrationConnectorTypeInput             `pulumi:"connectorType"`
-	IncrementalPullConfig     IntegrationIncrementalPullConfigPtrInput  `pulumi:"incrementalPullConfig"`
+	// The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
+	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
+	// The type of connector, such as Salesforce, Marketo, and so on.
+	ConnectorType IntegrationConnectorTypeInput `pulumi:"connectorType"`
+	// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
+	IncrementalPullConfig IntegrationIncrementalPullConfigPtrInput `pulumi:"incrementalPullConfig"`
+	// Specifies the information that is required to query a particular source connector.
 	SourceConnectorProperties IntegrationSourceConnectorPropertiesInput `pulumi:"sourceConnectorProperties"`
 }
 
@@ -4304,18 +4525,22 @@ func (o IntegrationSourceFlowConfigOutput) ToIntegrationSourceFlowConfigPtrOutpu
 	}).(IntegrationSourceFlowConfigPtrOutput)
 }
 
+// The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
 func (o IntegrationSourceFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
+// The type of connector, such as Salesforce, Marketo, and so on.
 func (o IntegrationSourceFlowConfigOutput) ConnectorType() IntegrationConnectorTypeOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) IntegrationConnectorType { return v.ConnectorType }).(IntegrationConnectorTypeOutput)
 }
 
+// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
 func (o IntegrationSourceFlowConfigOutput) IncrementalPullConfig() IntegrationIncrementalPullConfigPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) *IntegrationIncrementalPullConfig { return v.IncrementalPullConfig }).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
+// Specifies the information that is required to query a particular source connector.
 func (o IntegrationSourceFlowConfigOutput) SourceConnectorProperties() IntegrationSourceConnectorPropertiesOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) IntegrationSourceConnectorProperties {
 		return v.SourceConnectorProperties
@@ -4346,6 +4571,7 @@ func (o IntegrationSourceFlowConfigPtrOutput) Elem() IntegrationSourceFlowConfig
 	}).(IntegrationSourceFlowConfigOutput)
 }
 
+// The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
 func (o IntegrationSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *string {
 		if v == nil {
@@ -4355,6 +4581,7 @@ func (o IntegrationSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of connector, such as Salesforce, Marketo, and so on.
 func (o IntegrationSourceFlowConfigPtrOutput) ConnectorType() IntegrationConnectorTypePtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *IntegrationConnectorType {
 		if v == nil {
@@ -4364,6 +4591,7 @@ func (o IntegrationSourceFlowConfigPtrOutput) ConnectorType() IntegrationConnect
 	}).(IntegrationConnectorTypePtrOutput)
 }
 
+// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
 func (o IntegrationSourceFlowConfigPtrOutput) IncrementalPullConfig() IntegrationIncrementalPullConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *IntegrationIncrementalPullConfig {
 		if v == nil {
@@ -4373,6 +4601,7 @@ func (o IntegrationSourceFlowConfigPtrOutput) IncrementalPullConfig() Integratio
 	}).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
+// Specifies the information that is required to query a particular source connector.
 func (o IntegrationSourceFlowConfigPtrOutput) SourceConnectorProperties() IntegrationSourceConnectorPropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *IntegrationSourceConnectorProperties {
 		if v == nil {
@@ -4388,11 +4617,16 @@ type IntegrationTag struct {
 }
 
 type IntegrationTask struct {
-	ConnectorOperator *IntegrationConnectorOperator  `pulumi:"connectorOperator"`
-	DestinationField  *string                        `pulumi:"destinationField"`
-	SourceFields      []string                       `pulumi:"sourceFields"`
-	TaskProperties    []IntegrationTaskPropertiesMap `pulumi:"taskProperties"`
-	TaskType          IntegrationTaskType            `pulumi:"taskType"`
+	// The operation to be performed on the provided source fields.
+	ConnectorOperator *IntegrationConnectorOperator `pulumi:"connectorOperator"`
+	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+	DestinationField *string `pulumi:"destinationField"`
+	// The source fields to which a particular task is applied.
+	SourceFields []string `pulumi:"sourceFields"`
+	// A map used to store task-related information. The service looks for particular information based on the TaskType.
+	TaskProperties []IntegrationTaskPropertiesMap `pulumi:"taskProperties"`
+	// Specifies the particular task implementation that Amazon AppFlow performs.
+	TaskType IntegrationTaskType `pulumi:"taskType"`
 }
 
 // IntegrationTaskInput is an input type that accepts IntegrationTaskArgs and IntegrationTaskOutput values.
@@ -4407,11 +4641,16 @@ type IntegrationTaskInput interface {
 }
 
 type IntegrationTaskArgs struct {
-	ConnectorOperator IntegrationConnectorOperatorPtrInput   `pulumi:"connectorOperator"`
-	DestinationField  pulumi.StringPtrInput                  `pulumi:"destinationField"`
-	SourceFields      pulumi.StringArrayInput                `pulumi:"sourceFields"`
-	TaskProperties    IntegrationTaskPropertiesMapArrayInput `pulumi:"taskProperties"`
-	TaskType          IntegrationTaskTypeInput               `pulumi:"taskType"`
+	// The operation to be performed on the provided source fields.
+	ConnectorOperator IntegrationConnectorOperatorPtrInput `pulumi:"connectorOperator"`
+	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+	DestinationField pulumi.StringPtrInput `pulumi:"destinationField"`
+	// The source fields to which a particular task is applied.
+	SourceFields pulumi.StringArrayInput `pulumi:"sourceFields"`
+	// A map used to store task-related information. The service looks for particular information based on the TaskType.
+	TaskProperties IntegrationTaskPropertiesMapArrayInput `pulumi:"taskProperties"`
+	// Specifies the particular task implementation that Amazon AppFlow performs.
+	TaskType IntegrationTaskTypeInput `pulumi:"taskType"`
 }
 
 func (IntegrationTaskArgs) ElementType() reflect.Type {
@@ -4465,22 +4704,27 @@ func (o IntegrationTaskOutput) ToIntegrationTaskOutputWithContext(ctx context.Co
 	return o
 }
 
+// The operation to be performed on the provided source fields.
 func (o IntegrationTaskOutput) ConnectorOperator() IntegrationConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationTask) *IntegrationConnectorOperator { return v.ConnectorOperator }).(IntegrationConnectorOperatorPtrOutput)
 }
 
+// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
 func (o IntegrationTaskOutput) DestinationField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationTask) *string { return v.DestinationField }).(pulumi.StringPtrOutput)
 }
 
+// The source fields to which a particular task is applied.
 func (o IntegrationTaskOutput) SourceFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationTask) []string { return v.SourceFields }).(pulumi.StringArrayOutput)
 }
 
+// A map used to store task-related information. The service looks for particular information based on the TaskType.
 func (o IntegrationTaskOutput) TaskProperties() IntegrationTaskPropertiesMapArrayOutput {
 	return o.ApplyT(func(v IntegrationTask) []IntegrationTaskPropertiesMap { return v.TaskProperties }).(IntegrationTaskPropertiesMapArrayOutput)
 }
 
+// Specifies the particular task implementation that Amazon AppFlow performs.
 func (o IntegrationTaskOutput) TaskType() IntegrationTaskTypeOutput {
 	return o.ApplyT(func(v IntegrationTask) IntegrationTaskType { return v.TaskType }).(IntegrationTaskTypeOutput)
 }
@@ -4506,8 +4750,10 @@ func (o IntegrationTaskArrayOutput) Index(i pulumi.IntInput) IntegrationTaskOutp
 }
 
 type IntegrationTaskPropertiesMap struct {
+	// The task property key.
 	OperatorPropertyKey IntegrationOperatorPropertiesKeys `pulumi:"operatorPropertyKey"`
-	Property            string                            `pulumi:"property"`
+	// The task property value.
+	Property string `pulumi:"property"`
 }
 
 // IntegrationTaskPropertiesMapInput is an input type that accepts IntegrationTaskPropertiesMap and IntegrationTaskPropertiesMapOutput values.
@@ -4522,8 +4768,10 @@ type IntegrationTaskPropertiesMapInput interface {
 }
 
 type IntegrationTaskPropertiesMapArgs struct {
+	// The task property key.
 	OperatorPropertyKey IntegrationOperatorPropertiesKeysInput `pulumi:"operatorPropertyKey"`
-	Property            pulumi.StringInput                     `pulumi:"property"`
+	// The task property value.
+	Property pulumi.StringInput `pulumi:"property"`
 }
 
 func (IntegrationTaskPropertiesMapArgs) ElementType() reflect.Type {
@@ -4577,10 +4825,12 @@ func (o IntegrationTaskPropertiesMapOutput) ToIntegrationTaskPropertiesMapOutput
 	return o
 }
 
+// The task property key.
 func (o IntegrationTaskPropertiesMapOutput) OperatorPropertyKey() IntegrationOperatorPropertiesKeysOutput {
 	return o.ApplyT(func(v IntegrationTaskPropertiesMap) IntegrationOperatorPropertiesKeys { return v.OperatorPropertyKey }).(IntegrationOperatorPropertiesKeysOutput)
 }
 
+// The task property value.
 func (o IntegrationTaskPropertiesMapOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationTaskPropertiesMap) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -4606,8 +4856,10 @@ func (o IntegrationTaskPropertiesMapArrayOutput) Index(i pulumi.IntInput) Integr
 }
 
 type IntegrationTriggerConfig struct {
+	// Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
 	TriggerProperties *IntegrationTriggerProperties `pulumi:"triggerProperties"`
-	TriggerType       IntegrationTriggerType        `pulumi:"triggerType"`
+	// Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+	TriggerType IntegrationTriggerType `pulumi:"triggerType"`
 }
 
 // IntegrationTriggerConfigInput is an input type that accepts IntegrationTriggerConfigArgs and IntegrationTriggerConfigOutput values.
@@ -4622,8 +4874,10 @@ type IntegrationTriggerConfigInput interface {
 }
 
 type IntegrationTriggerConfigArgs struct {
+	// Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
 	TriggerProperties IntegrationTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
-	TriggerType       IntegrationTriggerTypeInput          `pulumi:"triggerType"`
+	// Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+	TriggerType IntegrationTriggerTypeInput `pulumi:"triggerType"`
 }
 
 func (IntegrationTriggerConfigArgs) ElementType() reflect.Type {
@@ -4703,10 +4957,12 @@ func (o IntegrationTriggerConfigOutput) ToIntegrationTriggerConfigPtrOutputWithC
 	}).(IntegrationTriggerConfigPtrOutput)
 }
 
+// Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
 func (o IntegrationTriggerConfigOutput) TriggerProperties() IntegrationTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationTriggerConfig) *IntegrationTriggerProperties { return v.TriggerProperties }).(IntegrationTriggerPropertiesPtrOutput)
 }
 
+// Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
 func (o IntegrationTriggerConfigOutput) TriggerType() IntegrationTriggerTypeOutput {
 	return o.ApplyT(func(v IntegrationTriggerConfig) IntegrationTriggerType { return v.TriggerType }).(IntegrationTriggerTypeOutput)
 }
@@ -4735,6 +4991,7 @@ func (o IntegrationTriggerConfigPtrOutput) Elem() IntegrationTriggerConfigOutput
 	}).(IntegrationTriggerConfigOutput)
 }
 
+// Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
 func (o IntegrationTriggerConfigPtrOutput) TriggerProperties() IntegrationTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationTriggerConfig) *IntegrationTriggerProperties {
 		if v == nil {
@@ -4744,6 +5001,7 @@ func (o IntegrationTriggerConfigPtrOutput) TriggerProperties() IntegrationTrigge
 	}).(IntegrationTriggerPropertiesPtrOutput)
 }
 
+// Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
 func (o IntegrationTriggerConfigPtrOutput) TriggerType() IntegrationTriggerTypePtrOutput {
 	return o.ApplyT(func(v *IntegrationTriggerConfig) *IntegrationTriggerType {
 		if v == nil {
@@ -4754,6 +5012,7 @@ func (o IntegrationTriggerConfigPtrOutput) TriggerType() IntegrationTriggerTypeP
 }
 
 type IntegrationTriggerProperties struct {
+	// Specifies the configuration details of a schedule-triggered flow that you define.
 	Scheduled *IntegrationScheduledTriggerProperties `pulumi:"scheduled"`
 }
 
@@ -4769,6 +5028,7 @@ type IntegrationTriggerPropertiesInput interface {
 }
 
 type IntegrationTriggerPropertiesArgs struct {
+	// Specifies the configuration details of a schedule-triggered flow that you define.
 	Scheduled IntegrationScheduledTriggerPropertiesPtrInput `pulumi:"scheduled"`
 }
 
@@ -4849,6 +5109,7 @@ func (o IntegrationTriggerPropertiesOutput) ToIntegrationTriggerPropertiesPtrOut
 	}).(IntegrationTriggerPropertiesPtrOutput)
 }
 
+// Specifies the configuration details of a schedule-triggered flow that you define.
 func (o IntegrationTriggerPropertiesOutput) Scheduled() IntegrationScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationTriggerProperties) *IntegrationScheduledTriggerProperties { return v.Scheduled }).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
@@ -4877,6 +5138,7 @@ func (o IntegrationTriggerPropertiesPtrOutput) Elem() IntegrationTriggerProperti
 	}).(IntegrationTriggerPropertiesOutput)
 }
 
+// Specifies the configuration details of a schedule-triggered flow that you define.
 func (o IntegrationTriggerPropertiesPtrOutput) Scheduled() IntegrationScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationTriggerProperties) *IntegrationScheduledTriggerProperties {
 		if v == nil {
@@ -4887,6 +5149,7 @@ func (o IntegrationTriggerPropertiesPtrOutput) Scheduled() IntegrationScheduledT
 }
 
 type IntegrationZendeskSourceProperties struct {
+	// The object specified in the Zendesk flow source.
 	Object string `pulumi:"object"`
 }
 
@@ -4902,6 +5165,7 @@ type IntegrationZendeskSourcePropertiesInput interface {
 }
 
 type IntegrationZendeskSourcePropertiesArgs struct {
+	// The object specified in the Zendesk flow source.
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -4982,6 +5246,7 @@ func (o IntegrationZendeskSourcePropertiesOutput) ToIntegrationZendeskSourceProp
 	}).(IntegrationZendeskSourcePropertiesPtrOutput)
 }
 
+// The object specified in the Zendesk flow source.
 func (o IntegrationZendeskSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationZendeskSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -5010,6 +5275,7 @@ func (o IntegrationZendeskSourcePropertiesPtrOutput) Elem() IntegrationZendeskSo
 	}).(IntegrationZendeskSourcePropertiesOutput)
 }
 
+// The object specified in the Zendesk flow source.
 func (o IntegrationZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationZendeskSourceProperties) *string {
 		if v == nil {
@@ -5198,7 +5464,9 @@ func (o ObjectTypeFieldPtrOutput) Target() pulumi.StringPtrOutput {
 }
 
 type ObjectTypeFieldMap struct {
-	Name            *string          `pulumi:"name"`
+	// Name of the field.
+	Name *string `pulumi:"name"`
+	// Represents a field in a ProfileObjectType.
 	ObjectTypeField *ObjectTypeField `pulumi:"objectTypeField"`
 }
 
@@ -5214,7 +5482,9 @@ type ObjectTypeFieldMapInput interface {
 }
 
 type ObjectTypeFieldMapArgs struct {
-	Name            pulumi.StringPtrInput   `pulumi:"name"`
+	// Name of the field.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Represents a field in a ProfileObjectType.
 	ObjectTypeField ObjectTypeFieldPtrInput `pulumi:"objectTypeField"`
 }
 
@@ -5269,10 +5539,12 @@ func (o ObjectTypeFieldMapOutput) ToObjectTypeFieldMapOutputWithContext(ctx cont
 	return o
 }
 
+// Name of the field.
 func (o ObjectTypeFieldMapOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeFieldMap) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Represents a field in a ProfileObjectType.
 func (o ObjectTypeFieldMapOutput) ObjectTypeField() ObjectTypeFieldPtrOutput {
 	return o.ApplyT(func(v ObjectTypeFieldMap) *ObjectTypeField { return v.ObjectTypeField }).(ObjectTypeFieldPtrOutput)
 }
@@ -5407,7 +5679,9 @@ func (o ObjectTypeKeyArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyOutput {
 }
 
 type ObjectTypeKeyMap struct {
-	Name              *string         `pulumi:"name"`
+	// Name of the key.
+	Name *string `pulumi:"name"`
+	// A list of ObjectTypeKey.
 	ObjectTypeKeyList []ObjectTypeKey `pulumi:"objectTypeKeyList"`
 }
 
@@ -5423,7 +5697,9 @@ type ObjectTypeKeyMapInput interface {
 }
 
 type ObjectTypeKeyMapArgs struct {
-	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	// Name of the key.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A list of ObjectTypeKey.
 	ObjectTypeKeyList ObjectTypeKeyArrayInput `pulumi:"objectTypeKeyList"`
 }
 
@@ -5478,10 +5754,12 @@ func (o ObjectTypeKeyMapOutput) ToObjectTypeKeyMapOutputWithContext(ctx context.
 	return o
 }
 
+// Name of the key.
 func (o ObjectTypeKeyMapOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeKeyMap) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A list of ObjectTypeKey.
 func (o ObjectTypeKeyMapOutput) ObjectTypeKeyList() ObjectTypeKeyArrayOutput {
 	return o.ApplyT(func(v ObjectTypeKeyMap) []ObjectTypeKey { return v.ObjectTypeKeyList }).(ObjectTypeKeyArrayOutput)
 }
@@ -5507,7 +5785,9 @@ func (o ObjectTypeKeyMapArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyMapOu
 }
 
 type ObjectTypeTag struct {
-	Key   string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 

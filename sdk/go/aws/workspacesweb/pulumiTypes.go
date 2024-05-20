@@ -14,11 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BrowserSettingsTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 
 type IpAccessSettingsIpRule struct {
+	// The description of the IP rule.
 	Description *string `pulumi:"description"`
 	// A single IP address or an IP address range in CIDR notation
 	IpRange string `pulumi:"ipRange"`
@@ -36,6 +39,7 @@ type IpAccessSettingsIpRuleInput interface {
 }
 
 type IpAccessSettingsIpRuleArgs struct {
+	// The description of the IP rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A single IP address or an IP address range in CIDR notation
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
@@ -92,6 +96,7 @@ func (o IpAccessSettingsIpRuleOutput) ToIpAccessSettingsIpRuleOutputWithContext(
 	return o
 }
 
+// The description of the IP rule.
 func (o IpAccessSettingsIpRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpAccessSettingsIpRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -122,34 +127,47 @@ func (o IpAccessSettingsIpRuleArrayOutput) Index(i pulumi.IntInput) IpAccessSett
 }
 
 type IpAccessSettingsTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 
 type NetworkSettingsTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 
 type PortalTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 
 type TrustStoreTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 
 type UserAccessLoggingSettingsTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 
 type UserSettingsCookieSpecification struct {
-	Domain string  `pulumi:"domain"`
-	Name   *string `pulumi:"name"`
-	Path   *string `pulumi:"path"`
+	// The domain of the cookie.
+	Domain string `pulumi:"domain"`
+	// The name of the cookie.
+	Name *string `pulumi:"name"`
+	// The path of the cookie.
+	Path *string `pulumi:"path"`
 }
 
 // UserSettingsCookieSpecificationInput is an input type that accepts UserSettingsCookieSpecificationArgs and UserSettingsCookieSpecificationOutput values.
@@ -164,9 +182,12 @@ type UserSettingsCookieSpecificationInput interface {
 }
 
 type UserSettingsCookieSpecificationArgs struct {
-	Domain pulumi.StringInput    `pulumi:"domain"`
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	Path   pulumi.StringPtrInput `pulumi:"path"`
+	// The domain of the cookie.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The name of the cookie.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The path of the cookie.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (UserSettingsCookieSpecificationArgs) ElementType() reflect.Type {
@@ -220,14 +241,17 @@ func (o UserSettingsCookieSpecificationOutput) ToUserSettingsCookieSpecification
 	return o
 }
 
+// The domain of the cookie.
 func (o UserSettingsCookieSpecificationOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v UserSettingsCookieSpecification) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// The name of the cookie.
 func (o UserSettingsCookieSpecificationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsCookieSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The path of the cookie.
 func (o UserSettingsCookieSpecificationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSettingsCookieSpecification) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -253,7 +277,9 @@ func (o UserSettingsCookieSpecificationArrayOutput) Index(i pulumi.IntInput) Use
 }
 
 type UserSettingsCookieSynchronizationConfiguration struct {
+	// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlist []UserSettingsCookieSpecification `pulumi:"allowlist"`
+	// The list of cookie specifications that are blocked from being synchronized to the remote browser.
 	Blocklist []UserSettingsCookieSpecification `pulumi:"blocklist"`
 }
 
@@ -269,7 +295,9 @@ type UserSettingsCookieSynchronizationConfigurationInput interface {
 }
 
 type UserSettingsCookieSynchronizationConfigurationArgs struct {
+	// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlist UserSettingsCookieSpecificationArrayInput `pulumi:"allowlist"`
+	// The list of cookie specifications that are blocked from being synchronized to the remote browser.
 	Blocklist UserSettingsCookieSpecificationArrayInput `pulumi:"blocklist"`
 }
 
@@ -350,12 +378,14 @@ func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCook
 	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
+// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
 		return v.Allowlist
 	}).(UserSettingsCookieSpecificationArrayOutput)
 }
 
+// The list of cookie specifications that are blocked from being synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationOutput) Blocklist() UserSettingsCookieSpecificationArrayOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
 		return v.Blocklist
@@ -386,6 +416,7 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Elem() UserSett
 	}).(UserSettingsCookieSynchronizationConfigurationOutput)
 }
 
+// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
 	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
 		if v == nil {
@@ -395,6 +426,7 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlist() Use
 	}).(UserSettingsCookieSpecificationArrayOutput)
 }
 
+// The list of cookie specifications that are blocked from being synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklist() UserSettingsCookieSpecificationArrayOutput {
 	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
 		if v == nil {
@@ -405,7 +437,9 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklist() Use
 }
 
 type UserSettingsTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
 	Value string `pulumi:"value"`
 }
 

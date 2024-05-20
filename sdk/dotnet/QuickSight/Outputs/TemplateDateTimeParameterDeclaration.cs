@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDateTimeParameterDeclaration
     {
+        /// <summary>
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+        /// </summary>
         public readonly Outputs.TemplateDateTimeDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.TemplateMappedDataSetParameter> MappedDataSetParameters;
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? TimeGranularity;
+        /// <summary>
+        /// The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+        /// </summary>
         public readonly Outputs.TemplateDateTimeValueWhenUnsetConfiguration? ValueWhenUnset;
 
         [OutputConstructor]

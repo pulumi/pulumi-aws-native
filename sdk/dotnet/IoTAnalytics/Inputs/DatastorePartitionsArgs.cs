@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("partitions")]
         private InputList<Inputs.DatastorePartitionArgs>? _partitions;
+
+        /// <summary>
+        /// A list of partition dimensions in a data store.
+        /// </summary>
         public InputList<Inputs.DatastorePartitionArgs> Partitions
         {
             get => _partitions ?? (_partitions = new InputList<Inputs.DatastorePartitionArgs>());

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialMapFieldWells
     {
+        /// <summary>
+        /// The aggregated field well for a geospatial map.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialMapAggregatedFieldWells? GeospatialMapAggregatedFieldWells;
 
         [OutputConstructor]

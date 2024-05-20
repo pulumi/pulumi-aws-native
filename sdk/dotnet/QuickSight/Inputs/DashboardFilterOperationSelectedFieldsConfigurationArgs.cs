@@ -24,11 +24,22 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _selectedColumns = value;
         }
 
+        /// <summary>
+        /// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `ALL_FIELDS` : Applies the filter operation to all fields.
+        /// </summary>
         [Input("selectedFieldOptions")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardSelectedFieldOptions>? SelectedFieldOptions { get; set; }
 
         [Input("selectedFields")]
         private InputList<string>? _selectedFields;
+
+        /// <summary>
+        /// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+        /// </summary>
         public InputList<string> SelectedFields
         {
             get => _selectedFields ?? (_selectedFields = new InputList<string>());

@@ -49,21 +49,37 @@ class GetGeofenceCollectionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collectionArn")
     def collection_arn(self) -> Optional[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        """
         return pulumi.get(self, "collection_arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description for the geofence collection.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -90,6 +106,9 @@ class GetGeofenceCollectionResult:
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -113,6 +132,15 @@ def get_geofence_collection(collection_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGeofenceCollectionResult:
     """
     Definition of AWS::Location::GeofenceCollection Resource Type
+
+
+    :param str collection_name: A custom name for the geofence collection.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique geofence collection name.
+           - No spaces allowed. For example, `ExampleGeofenceCollection` .
     """
     __args__ = dict()
     __args__['collectionName'] = collection_name
@@ -135,5 +163,14 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
     """
     Definition of AWS::Location::GeofenceCollection Resource Type
+
+
+    :param str collection_name: A custom name for the geofence collection.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique geofence collection name.
+           - No spaces allowed. For example, `ExampleGeofenceCollection` .
     """
     ...

@@ -38,6 +38,9 @@ export interface GetWorkspaceResult {
      * Workspace arn.
      */
     readonly arn?: string;
+    /**
+     * Contains information about the logging configuration for the workspace.
+     */
     readonly loggingConfiguration?: outputs.aps.WorkspaceLoggingConfiguration;
     /**
      * AMP Workspace prometheus endpoint

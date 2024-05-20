@@ -24,6 +24,9 @@ __all__ = [
 
 
 class AnalysisTemplateAnalysisParameterType(str, Enum):
+    """
+    The type of parameter.
+    """
     SMALLINT = "SMALLINT"
     INTEGER = "INTEGER"
     BIGINT = "BIGINT"
@@ -42,6 +45,9 @@ class AnalysisTemplateAnalysisParameterType(str, Enum):
 
 
 class AnalysisTemplateFormat(str, Enum):
+    """
+    The format of the analysis template.
+    """
     SQL = "SQL"
 
 
@@ -124,9 +130,17 @@ class MembershipResultFormat(str, Enum):
 
 
 class PrivacyBudgetTemplateAutoRefresh(str, Enum):
+    """
+    How often the privacy budget refreshes.
+
+    > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+    """
     CALENDAR_MONTH = "CALENDAR_MONTH"
     NONE = "NONE"
 
 
 class PrivacyBudgetTemplatePrivacyBudgetType(str, Enum):
+    """
+    Specifies the type of the privacy budget template.
+    """
     DIFFERENTIAL_PRIVACY = "DIFFERENTIAL_PRIVACY"

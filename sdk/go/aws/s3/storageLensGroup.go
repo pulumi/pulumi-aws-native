@@ -17,8 +17,10 @@ import (
 type StorageLensGroup struct {
 	pulumi.CustomResourceState
 
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilterOutput `pulumi:"filter"`
-	Name   pulumi.StringOutput          `pulumi:"name"`
+	// This property contains the Storage Lens group name.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN for the Amazon S3 Storage Lens Group.
 	StorageLensGroupArn pulumi.StringOutput `pulumi:"storageLensGroupArn"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
@@ -72,16 +74,20 @@ func (StorageLensGroupState) ElementType() reflect.Type {
 }
 
 type storageLensGroupArgs struct {
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilter `pulumi:"filter"`
-	Name   *string                `pulumi:"name"`
+	// This property contains the Storage Lens group name.
+	Name *string `pulumi:"name"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageLensGroup resource.
 type StorageLensGroupArgs struct {
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilterInput
-	Name   pulumi.StringPtrInput
+	// This property contains the Storage Lens group name.
+	Name pulumi.StringPtrInput
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.
 	Tags aws.TagArrayInput
 }
@@ -123,10 +129,12 @@ func (o StorageLensGroupOutput) ToStorageLensGroupOutputWithContext(ctx context.
 	return o
 }
 
+// This property contains the criteria for the Storage Lens group data that is displayed
 func (o StorageLensGroupOutput) Filter() StorageLensGroupFilterOutput {
 	return o.ApplyT(func(v *StorageLensGroup) StorageLensGroupFilterOutput { return v.Filter }).(StorageLensGroupFilterOutput)
 }
 
+// This property contains the Storage Lens group name.
 func (o StorageLensGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

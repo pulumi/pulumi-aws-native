@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSerializerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
+        /// </summary>
         [Input("orcSerDe")]
         public Input<Inputs.DeliveryStreamOrcSerDeArgs>? OrcSerDe { get; set; }
 
+        /// <summary>
+        /// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+        /// </summary>
         [Input("parquetSerDe")]
         public Input<Inputs.DeliveryStreamParquetSerDeArgs>? ParquetSerDe { get; set; }
 

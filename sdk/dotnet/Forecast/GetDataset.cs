@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Forecast
 
     public sealed class GetDatasetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dataset.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Forecast
 
     public sealed class GetDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dataset.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Forecast
     [OutputType]
     public sealed class GetDatasetResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dataset.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
@@ -64,8 +73,19 @@ namespace Pulumi.AwsNative.Forecast
         /// The domain associated with the dataset
         /// </summary>
         public readonly Pulumi.AwsNative.Forecast.DatasetDomain? Domain;
+        /// <summary>
+        /// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        /// </summary>
         public readonly Outputs.EncryptionConfigProperties? EncryptionConfig;
+        /// <summary>
+        /// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        /// </summary>
         public readonly Outputs.SchemaProperties? Schema;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

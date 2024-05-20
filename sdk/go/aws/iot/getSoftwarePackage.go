@@ -29,7 +29,8 @@ type LookupSoftwarePackageArgs struct {
 
 type LookupSoftwarePackageResult struct {
 	Description *string `pulumi:"description"`
-	PackageArn  *string `pulumi:"packageArn"`
+	// The Amazon Resource Name (ARN) for the package.
+	PackageArn *string `pulumi:"packageArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -73,6 +74,7 @@ func (o LookupSoftwarePackageResultOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupSoftwarePackageResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the package.
 func (o LookupSoftwarePackageResultOutput) PackageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageResult) *string { return v.PackageArn }).(pulumi.StringPtrOutput)
 }

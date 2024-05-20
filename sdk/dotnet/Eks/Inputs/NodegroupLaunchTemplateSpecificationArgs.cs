@@ -15,12 +15,25 @@ namespace Pulumi.AwsNative.Eks.Inputs
     /// </summary>
     public sealed class NodegroupLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the launch template.
+        /// 
+        /// You must specify either the launch template ID or the launch template name in the request, but not both.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The name of the launch template.
+        /// 
+        /// You must specify either the launch template name or the launch template ID in the request, but not both.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The version number of the launch template to use. If no version is specified, then the template's default version is used.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

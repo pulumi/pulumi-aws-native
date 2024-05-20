@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig
     {
+        /// <summary>
+        /// The name of the baseline model explainability job.
+        /// </summary>
         public readonly string? BaseliningJobName;
+        /// <summary>
+        /// The constraints resource for a model explainability job.
+        /// </summary>
         public readonly Outputs.ModelExplainabilityJobDefinitionConstraintsResource? ConstraintsResource;
 
         [OutputConstructor]

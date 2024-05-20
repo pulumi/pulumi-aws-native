@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleCloudwatchMetricAction
     {
+        /// <summary>
+        /// The CloudWatch metric name.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// The CloudWatch metric namespace name.
+        /// </summary>
         public readonly string MetricNamespace;
+        /// <summary>
+        /// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
+        /// </summary>
         public readonly string? MetricTimestamp;
+        /// <summary>
+        /// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
+        /// </summary>
         public readonly string MetricUnit;
+        /// <summary>
+        /// The CloudWatch metric value.
+        /// </summary>
         public readonly string MetricValue;
+        /// <summary>
+        /// The IAM role that allows access to the CloudWatch metric.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

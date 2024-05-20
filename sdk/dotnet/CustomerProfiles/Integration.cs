@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration that controls how Customer Profiles retrieves data from the source.
+        /// </summary>
         [Output("flowDefinition")]
         public Output<Outputs.IntegrationFlowDefinition?> FlowDefinition { get; private set; } = null!;
 
@@ -116,6 +119,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration that controls how Customer Profiles retrieves data from the source.
+        /// </summary>
         [Input("flowDefinition")]
         public Input<Inputs.IntegrationFlowDefinitionArgs>? FlowDefinition { get; set; }
 

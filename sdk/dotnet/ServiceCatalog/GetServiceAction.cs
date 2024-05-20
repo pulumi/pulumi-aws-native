@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetServiceActionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetServiceActionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.ServiceCatalog
     [OutputType]
     public sealed class GetServiceActionResult
     {
+        /// <summary>
+        /// A map that defines the self-service action.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceActionDefinitionParameter> Definition;
+        /// <summary>
+        /// The self-service action definition type. For example, `SSM_AUTOMATION` .
+        /// </summary>
         public readonly Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType? DefinitionType;
+        /// <summary>
+        /// The self-service action description.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The self-service action name.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

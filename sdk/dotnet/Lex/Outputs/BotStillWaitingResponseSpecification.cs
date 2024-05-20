@@ -20,8 +20,17 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// Indicates whether the user can interrupt a speech prompt from the bot.
         /// </summary>
         public readonly bool? AllowInterrupt;
+        /// <summary>
+        /// How often a message should be sent to the user. Minimum of 1 second, maximum of 5 minutes.
+        /// </summary>
         public readonly int FrequencyInSeconds;
+        /// <summary>
+        /// One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroupsList;
+        /// <summary>
+        /// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        /// </summary>
         public readonly int TimeoutInSeconds;
 
         [OutputConstructor]

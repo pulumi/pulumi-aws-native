@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Output("domainFileUrl")]
         public Output<string?> DomainFileUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of the domain lists that you have defined.
+        /// </summary>
         [Output("domains")]
         public Output<ImmutableArray<string>> Domains { get; private set; } = null!;
 
@@ -147,6 +150,10 @@ namespace Pulumi.AwsNative.Route53Resolver
 
         [Input("domains")]
         private InputList<string>? _domains;
+
+        /// <summary>
+        /// A list of the domain lists that you have defined.
+        /// </summary>
         public InputList<string> Domains
         {
             get => _domains ?? (_domains = new InputList<string>());

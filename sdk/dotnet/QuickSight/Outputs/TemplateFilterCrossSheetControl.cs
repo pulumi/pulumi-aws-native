@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilterCrossSheetControl
     {
+        /// <summary>
+        /// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+        /// </summary>
         public readonly Outputs.TemplateCascadingControlConfiguration? CascadingControlConfiguration;
+        /// <summary>
+        /// The ID of the `FilterCrossSheetControl` .
+        /// </summary>
         public readonly string FilterControlId;
+        /// <summary>
+        /// The source filter ID of the `FilterCrossSheetControl` .
+        /// </summary>
         public readonly string SourceFilterId;
 
         [OutputConstructor]

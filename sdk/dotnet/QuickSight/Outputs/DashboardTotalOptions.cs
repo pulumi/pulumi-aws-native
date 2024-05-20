@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTotalOptions
     {
+        /// <summary>
+        /// The custom label string for the total cells.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The placement (start, end) for the total cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableTotalsPlacement? Placement;
+        /// <summary>
+        /// The scroll status (pinned, scrolled) for the total cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableTotalsScrollStatus? ScrollStatus;
+        /// <summary>
+        /// The total aggregation settings for each value field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTotalAggregationOption> TotalAggregationOptions;
+        /// <summary>
+        /// Cell styling options for the total cells.
+        /// </summary>
         public readonly Outputs.DashboardTableCellStyle? TotalCellStyle;
+        /// <summary>
+        /// The visibility configuration for the total cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? TotalsVisibility;
 
         [OutputConstructor]

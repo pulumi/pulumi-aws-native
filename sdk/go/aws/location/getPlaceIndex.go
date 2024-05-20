@@ -24,19 +24,39 @@ func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...p
 }
 
 type LookupPlaceIndexArgs struct {
+	// The name of the place index resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique place index resource name.
+	// - No spaces allowed. For example, `ExamplePlaceIndex` .
 	IndexName string `pulumi:"indexName"`
 }
 
 type LookupPlaceIndexResult struct {
-	Arn                     *string                            `pulumi:"arn"`
-	CreateTime              *string                            `pulumi:"createTime"`
+	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+	Arn *string `pulumi:"arn"`
+	// The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime *string `pulumi:"createTime"`
+	// Specifies the data storage option requesting Places.
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	Description             *string                            `pulumi:"description"`
-	IndexArn                *string                            `pulumi:"indexArn"`
-	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
+	// The optional description for the place index resource.
+	Description *string `pulumi:"description"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+	IndexArn *string `pulumi:"indexArn"`
+	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+	//
+	// *Allowed Values* : `RequestBasedUsage`
+	PricingPlan *PlaceIndexPricingPlan `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag `pulumi:"tags"`
-	UpdateTime *string   `pulumi:"updateTime"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs, opts ...pulumi.InvokeOption) LookupPlaceIndexResultOutput {
@@ -53,6 +73,13 @@ func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs
 }
 
 type LookupPlaceIndexOutputArgs struct {
+	// The name of the place index resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique place index resource name.
+	// - No spaces allowed. For example, `ExamplePlaceIndex` .
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 }
 
@@ -74,26 +101,38 @@ func (o LookupPlaceIndexResultOutput) ToLookupPlaceIndexResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
 func (o LookupPlaceIndexResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupPlaceIndexResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the data storage option requesting Places.
 func (o LookupPlaceIndexResultOutput) DataSourceConfiguration() PlaceIndexDataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *PlaceIndexDataSourceConfiguration { return v.DataSourceConfiguration }).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
+// The optional description for the place index resource.
 func (o LookupPlaceIndexResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
 func (o LookupPlaceIndexResultOutput) IndexArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
 }
 
+// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+//
+// *Allowed Values* : `RequestBasedUsage`
 func (o LookupPlaceIndexResultOutput) PricingPlan() PlaceIndexPricingPlanPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *PlaceIndexPricingPlan { return v.PricingPlan }).(PlaceIndexPricingPlanPtrOutput)
 }
@@ -103,6 +142,7 @@ func (o LookupPlaceIndexResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupPlaceIndexResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

@@ -226,6 +226,8 @@ class ContactTargets(dict):
                  contact_target_info: Optional['outputs.ContactTargetInfo'] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
+        :param 'ContactChannelTargetInfo' channel_target_info: Information about the contact channel that Incident Manager engages.
+        :param 'ContactTargetInfo' contact_target_info: The contact that Incident Manager is engaging during an incident.
         """
         if channel_target_info is not None:
             pulumi.set(__self__, "channel_target_info", channel_target_info)
@@ -235,11 +237,17 @@ class ContactTargets(dict):
     @property
     @pulumi.getter(name="channelTargetInfo")
     def channel_target_info(self) -> Optional['outputs.ContactChannelTargetInfo']:
+        """
+        Information about the contact channel that Incident Manager engages.
+        """
         return pulumi.get(self, "channel_target_info")
 
     @property
     @pulumi.getter(name="contactTargetInfo")
     def contact_target_info(self) -> Optional['outputs.ContactTargetInfo']:
+        """
+        The contact that Incident Manager is engaging during an incident.
+        """
         return pulumi.get(self, "contact_target_info")
 
 
@@ -427,6 +435,8 @@ class PlanTargets(dict):
                  contact_target_info: Optional['outputs.PlanContactTargetInfo'] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
+        :param 'PlanChannelTargetInfo' channel_target_info: Information about the contact channel that Incident Manager engages.
+        :param 'PlanContactTargetInfo' contact_target_info: Information about the contact that Incident Manager engages.
         """
         if channel_target_info is not None:
             pulumi.set(__self__, "channel_target_info", channel_target_info)
@@ -436,11 +446,17 @@ class PlanTargets(dict):
     @property
     @pulumi.getter(name="channelTargetInfo")
     def channel_target_info(self) -> Optional['outputs.PlanChannelTargetInfo']:
+        """
+        Information about the contact channel that Incident Manager engages.
+        """
         return pulumi.get(self, "channel_target_info")
 
     @property
     @pulumi.getter(name="contactTargetInfo")
     def contact_target_info(self) -> Optional['outputs.PlanContactTargetInfo']:
+        """
+        Information about the contact that Incident Manager engages.
+        """
         return pulumi.get(self, "contact_target_info")
 
 
@@ -473,6 +489,8 @@ class RotationCoverageTime(dict):
                  start_time: str):
         """
         StartTime and EndTime for the Shift
+        :param str end_time: Information about when an on-call rotation shift ends.
+        :param str start_time: Information about when an on-call rotation shift begins.
         """
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "start_time", start_time)
@@ -480,11 +498,17 @@ class RotationCoverageTime(dict):
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> str:
+        """
+        Information about when an on-call rotation shift ends.
+        """
         return pulumi.get(self, "end_time")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
+        """
+        Information about when an on-call rotation shift begins.
+        """
         return pulumi.get(self, "start_time")
 
 
@@ -518,6 +542,7 @@ class RotationMonthlySetting(dict):
         """
         DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
         :param int day_of_month: The day of the month when monthly recurring on-call rotations begin.
+        :param str hand_off_time: The time of day when a monthly recurring on-call shift rotation begins.
         """
         pulumi.set(__self__, "day_of_month", day_of_month)
         pulumi.set(__self__, "hand_off_time", hand_off_time)
@@ -533,6 +558,9 @@ class RotationMonthlySetting(dict):
     @property
     @pulumi.getter(name="handOffTime")
     def hand_off_time(self) -> str:
+        """
+        The time of day when a monthly recurring on-call shift rotation begins.
+        """
         return pulumi.get(self, "hand_off_time")
 
 
@@ -676,6 +704,7 @@ class RotationShiftCoverage(dict):
         """
         Information about the days of the week included in on-call rotation coverage.
         :param Sequence['RotationCoverageTime'] coverage_times: Information about when an on-call shift begins and ends.
+        :param 'RotationDayOfWeek' day_of_week: A list of days on which the schedule is active.
         """
         pulumi.set(__self__, "coverage_times", coverage_times)
         pulumi.set(__self__, "day_of_week", day_of_week)
@@ -691,6 +720,9 @@ class RotationShiftCoverage(dict):
     @property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> 'RotationDayOfWeek':
+        """
+        A list of days on which the schedule is active.
+        """
         return pulumi.get(self, "day_of_week")
 
 
@@ -723,6 +755,8 @@ class RotationWeeklySetting(dict):
                  hand_off_time: str):
         """
         DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
+        :param 'RotationDayOfWeek' day_of_week: The day of the week when weekly recurring on-call shift rotations begins.
+        :param str hand_off_time: The time of day when a weekly recurring on-call shift rotation begins.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "hand_off_time", hand_off_time)
@@ -730,11 +764,17 @@ class RotationWeeklySetting(dict):
     @property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> 'RotationDayOfWeek':
+        """
+        The day of the week when weekly recurring on-call shift rotations begins.
+        """
         return pulumi.get(self, "day_of_week")
 
     @property
     @pulumi.getter(name="handOffTime")
     def hand_off_time(self) -> str:
+        """
+        The time of day when a weekly recurring on-call shift rotation begins.
+        """
         return pulumi.get(self, "hand_off_time")
 
 

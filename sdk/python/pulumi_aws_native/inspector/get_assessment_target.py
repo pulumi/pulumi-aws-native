@@ -29,11 +29,17 @@ class GetAssessmentTargetResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> Optional[str]:
+        """
+        The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+        """
         return pulumi.get(self, "resource_group_arn")
 
 
@@ -51,6 +57,9 @@ def get_assessment_target(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentTargetResult:
     """
     Resource Type definition for AWS::Inspector::AssessmentTarget
+
+
+    :param str arn: The Amazon Resource Name (ARN) that specifies the assessment target that is created.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -67,5 +76,8 @@ def get_assessment_target_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentTargetResult]:
     """
     Resource Type definition for AWS::Inspector::AssessmentTarget
+
+
+    :param str arn: The Amazon Resource Name (ARN) that specifies the assessment target that is created.
     """
     ...

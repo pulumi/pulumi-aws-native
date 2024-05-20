@@ -19,13 +19,30 @@ export function getRoleAlias(args: GetRoleAliasArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetRoleAliasArgs {
+    /**
+     * The role alias.
+     */
     roleAlias: string;
 }
 
 export interface GetRoleAliasResult {
+    /**
+     * The number of seconds for which the credential is valid.
+     */
     readonly credentialDurationSeconds?: number;
+    /**
+     * The role alias ARN.
+     */
     readonly roleAliasArn?: string;
+    /**
+     * The role ARN.
+     */
     readonly roleArn?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -36,5 +53,8 @@ export function getRoleAliasOutput(args: GetRoleAliasOutputArgs, opts?: pulumi.I
 }
 
 export interface GetRoleAliasOutputArgs {
+    /**
+     * The role alias.
+     */
     roleAlias: pulumi.Input<string>;
 }

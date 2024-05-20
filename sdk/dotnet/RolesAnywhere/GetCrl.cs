@@ -56,6 +56,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public readonly bool? Enabled;
         public readonly string? Name;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        /// </summary>
         public readonly string? TrustAnchorArn;
 
         [OutputConstructor]

@@ -44,9 +44,19 @@ type LookupDetectorResult struct {
 	// The event type to associate this detector with.
 	EventType *DetectorEventType `pulumi:"eventType"`
 	// The time when the detector was last updated.
-	LastUpdatedTime   *string                    `pulumi:"lastUpdatedTime"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The rule execution mode for the rules included in the detector version.
+	//
+	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+	//
+	// You can define and edit the rule mode at the detector version level, when it is in draft status.
+	//
+	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+	//
+	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
-	Rules             []DetectorRule             `pulumi:"rules"`
+	// The rules to include in the detector version.
+	Rules []DetectorRule `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -127,10 +137,20 @@ func (o LookupDetectorResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The rule execution mode for the rules included in the detector version.
+//
+// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+//
+// You can define and edit the rule mode at the detector version level, when it is in draft status.
+//
+// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+//
+// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 func (o LookupDetectorResultOutput) RuleExecutionMode() DetectorRuleExecutionModePtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *DetectorRuleExecutionMode { return v.RuleExecutionMode }).(DetectorRuleExecutionModePtrOutput)
 }
 
+// The rules to include in the detector version.
 func (o LookupDetectorResultOutput) Rules() DetectorRuleArrayOutput {
 	return o.ApplyT(func(v LookupDetectorResult) []DetectorRule { return v.Rules }).(DetectorRuleArrayOutput)
 }

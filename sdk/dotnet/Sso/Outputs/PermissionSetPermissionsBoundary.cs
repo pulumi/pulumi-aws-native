@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Sso.Outputs
     [OutputType]
     public sealed class PermissionSetPermissionsBoundary
     {
+        /// <summary>
+        /// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        /// </summary>
         public readonly Outputs.PermissionSetCustomerManagedPolicyReference? CustomerManagedPolicyReference;
+        /// <summary>
+        /// The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
+        /// </summary>
         public readonly string? ManagedPolicyArn;
 
         [OutputConstructor]

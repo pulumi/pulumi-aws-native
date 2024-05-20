@@ -13,16 +13,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePieChartConfiguration
     {
+        /// <summary>
+        /// The label options of the group/color that is displayed in a pie chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The contribution analysis (anomaly configuration) setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The options that determine if visual data labels are displayed.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
+        /// </summary>
         public readonly Outputs.TemplateDonutOptions? DonutOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.TemplatePieChartFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The small multiples setup for the visual.
+        /// </summary>
         public readonly Outputs.TemplateSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// The sort configuration of a pie chart.
+        /// </summary>
         public readonly Outputs.TemplatePieChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
+        /// <summary>
+        /// The label options for the value that is displayed in a pie chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ValueLabelOptions;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 
         [OutputConstructor]

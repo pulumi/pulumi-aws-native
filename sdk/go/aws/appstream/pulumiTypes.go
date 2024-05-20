@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppBlockBuilderAccessEndpoint struct {
+	// The type of interface endpoint.
 	EndpointType string `pulumi:"endpointType"`
-	VpceId       string `pulumi:"vpceId"`
+	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId string `pulumi:"vpceId"`
 }
 
 // AppBlockBuilderAccessEndpointInput is an input type that accepts AppBlockBuilderAccessEndpointArgs and AppBlockBuilderAccessEndpointOutput values.
@@ -30,8 +32,10 @@ type AppBlockBuilderAccessEndpointInput interface {
 }
 
 type AppBlockBuilderAccessEndpointArgs struct {
+	// The type of interface endpoint.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	VpceId       pulumi.StringInput `pulumi:"vpceId"`
+	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId pulumi.StringInput `pulumi:"vpceId"`
 }
 
 func (AppBlockBuilderAccessEndpointArgs) ElementType() reflect.Type {
@@ -85,10 +89,12 @@ func (o AppBlockBuilderAccessEndpointOutput) ToAppBlockBuilderAccessEndpointOutp
 	return o
 }
 
+// The type of interface endpoint.
 func (o AppBlockBuilderAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v AppBlockBuilderAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
+// The identifier (ID) of the VPC in which the interface endpoint is used.
 func (o AppBlockBuilderAccessEndpointOutput) VpceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppBlockBuilderAccessEndpoint) string { return v.VpceId }).(pulumi.StringOutput)
 }
@@ -114,13 +120,17 @@ func (o AppBlockBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) AppBl
 }
 
 type AppBlockBuilderTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type AppBlockBuilderVpcConfig struct {
+	// The identifiers of the security groups for the fleet or image builder.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // AppBlockBuilderVpcConfigInput is an input type that accepts AppBlockBuilderVpcConfigArgs and AppBlockBuilderVpcConfigOutput values.
@@ -135,8 +145,10 @@ type AppBlockBuilderVpcConfigInput interface {
 }
 
 type AppBlockBuilderVpcConfigArgs struct {
+	// The identifiers of the security groups for the fleet or image builder.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (AppBlockBuilderVpcConfigArgs) ElementType() reflect.Type {
@@ -165,10 +177,12 @@ func (o AppBlockBuilderVpcConfigOutput) ToAppBlockBuilderVpcConfigOutputWithCont
 	return o
 }
 
+// The identifiers of the security groups for the fleet or image builder.
 func (o AppBlockBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppBlockBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
 func (o AppBlockBuilderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppBlockBuilderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -197,6 +211,7 @@ func (o AppBlockBuilderVpcConfigPtrOutput) Elem() AppBlockBuilderVpcConfigOutput
 	}).(AppBlockBuilderVpcConfigOutput)
 }
 
+// The identifiers of the security groups for the fleet or image builder.
 func (o AppBlockBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppBlockBuilderVpcConfig) []string {
 		if v == nil {
@@ -206,6 +221,7 @@ func (o AppBlockBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
 func (o AppBlockBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppBlockBuilderVpcConfig) []string {
 		if v == nil {
@@ -216,8 +232,12 @@ func (o AppBlockBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput 
 }
 
 type AppBlockS3Location struct {
-	S3Bucket string  `pulumi:"s3Bucket"`
-	S3Key    *string `pulumi:"s3Key"`
+	// The S3 bucket of the app block.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// The S3 key of the S3 object of the virtual hard disk.
+	//
+	// This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
+	S3Key *string `pulumi:"s3Key"`
 }
 
 // AppBlockS3LocationInput is an input type that accepts AppBlockS3LocationArgs and AppBlockS3LocationOutput values.
@@ -232,8 +252,12 @@ type AppBlockS3LocationInput interface {
 }
 
 type AppBlockS3LocationArgs struct {
-	S3Bucket pulumi.StringInput    `pulumi:"s3Bucket"`
-	S3Key    pulumi.StringPtrInput `pulumi:"s3Key"`
+	// The S3 bucket of the app block.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// The S3 key of the S3 object of the virtual hard disk.
+	//
+	// This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
+	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
 }
 
 func (AppBlockS3LocationArgs) ElementType() reflect.Type {
@@ -313,10 +337,14 @@ func (o AppBlockS3LocationOutput) ToAppBlockS3LocationPtrOutputWithContext(ctx c
 	}).(AppBlockS3LocationPtrOutput)
 }
 
+// The S3 bucket of the app block.
 func (o AppBlockS3LocationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v AppBlockS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The S3 key of the S3 object of the virtual hard disk.
+//
+// This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
 func (o AppBlockS3LocationOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppBlockS3Location) *string { return v.S3Key }).(pulumi.StringPtrOutput)
 }
@@ -345,6 +373,7 @@ func (o AppBlockS3LocationPtrOutput) Elem() AppBlockS3LocationOutput {
 	}).(AppBlockS3LocationOutput)
 }
 
+// The S3 bucket of the app block.
 func (o AppBlockS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlockS3Location) *string {
 		if v == nil {
@@ -354,6 +383,9 @@ func (o AppBlockS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 key of the S3 object of the virtual hard disk.
+//
+// This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
 func (o AppBlockS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlockS3Location) *string {
 		if v == nil {
@@ -364,10 +396,14 @@ func (o AppBlockS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
 }
 
 type AppBlockScriptDetails struct {
-	ExecutableParameters *string            `pulumi:"executableParameters"`
-	ExecutablePath       string             `pulumi:"executablePath"`
-	ScriptS3Location     AppBlockS3Location `pulumi:"scriptS3Location"`
-	TimeoutInSeconds     int                `pulumi:"timeoutInSeconds"`
+	// The parameters used in the run path for the script.
+	ExecutableParameters *string `pulumi:"executableParameters"`
+	// The run path for the script.
+	ExecutablePath string `pulumi:"executablePath"`
+	// The S3 object location of the script.
+	ScriptS3Location AppBlockS3Location `pulumi:"scriptS3Location"`
+	// The run timeout, in seconds, for the script.
+	TimeoutInSeconds int `pulumi:"timeoutInSeconds"`
 }
 
 // AppBlockScriptDetailsInput is an input type that accepts AppBlockScriptDetailsArgs and AppBlockScriptDetailsOutput values.
@@ -382,10 +418,14 @@ type AppBlockScriptDetailsInput interface {
 }
 
 type AppBlockScriptDetailsArgs struct {
-	ExecutableParameters pulumi.StringPtrInput   `pulumi:"executableParameters"`
-	ExecutablePath       pulumi.StringInput      `pulumi:"executablePath"`
-	ScriptS3Location     AppBlockS3LocationInput `pulumi:"scriptS3Location"`
-	TimeoutInSeconds     pulumi.IntInput         `pulumi:"timeoutInSeconds"`
+	// The parameters used in the run path for the script.
+	ExecutableParameters pulumi.StringPtrInput `pulumi:"executableParameters"`
+	// The run path for the script.
+	ExecutablePath pulumi.StringInput `pulumi:"executablePath"`
+	// The S3 object location of the script.
+	ScriptS3Location AppBlockS3LocationInput `pulumi:"scriptS3Location"`
+	// The run timeout, in seconds, for the script.
+	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
 }
 
 func (AppBlockScriptDetailsArgs) ElementType() reflect.Type {
@@ -465,18 +505,22 @@ func (o AppBlockScriptDetailsOutput) ToAppBlockScriptDetailsPtrOutputWithContext
 	}).(AppBlockScriptDetailsPtrOutput)
 }
 
+// The parameters used in the run path for the script.
 func (o AppBlockScriptDetailsOutput) ExecutableParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) *string { return v.ExecutableParameters }).(pulumi.StringPtrOutput)
 }
 
+// The run path for the script.
 func (o AppBlockScriptDetailsOutput) ExecutablePath() pulumi.StringOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) string { return v.ExecutablePath }).(pulumi.StringOutput)
 }
 
+// The S3 object location of the script.
 func (o AppBlockScriptDetailsOutput) ScriptS3Location() AppBlockS3LocationOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) AppBlockS3Location { return v.ScriptS3Location }).(AppBlockS3LocationOutput)
 }
 
+// The run timeout, in seconds, for the script.
 func (o AppBlockScriptDetailsOutput) TimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
 }
@@ -505,6 +549,7 @@ func (o AppBlockScriptDetailsPtrOutput) Elem() AppBlockScriptDetailsOutput {
 	}).(AppBlockScriptDetailsOutput)
 }
 
+// The parameters used in the run path for the script.
 func (o AppBlockScriptDetailsPtrOutput) ExecutableParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlockScriptDetails) *string {
 		if v == nil {
@@ -514,6 +559,7 @@ func (o AppBlockScriptDetailsPtrOutput) ExecutableParameters() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The run path for the script.
 func (o AppBlockScriptDetailsPtrOutput) ExecutablePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlockScriptDetails) *string {
 		if v == nil {
@@ -523,6 +569,7 @@ func (o AppBlockScriptDetailsPtrOutput) ExecutablePath() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 object location of the script.
 func (o AppBlockScriptDetailsPtrOutput) ScriptS3Location() AppBlockS3LocationPtrOutput {
 	return o.ApplyT(func(v *AppBlockScriptDetails) *AppBlockS3Location {
 		if v == nil {
@@ -532,6 +579,7 @@ func (o AppBlockScriptDetailsPtrOutput) ScriptS3Location() AppBlockS3LocationPtr
 	}).(AppBlockS3LocationPtrOutput)
 }
 
+// The run timeout, in seconds, for the script.
 func (o AppBlockScriptDetailsPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppBlockScriptDetails) *int {
 		if v == nil {
@@ -652,8 +700,10 @@ func (o AppBlockTag1PropertiesOutput) TagValue() pulumi.StringOutput {
 }
 
 type ApplicationS3Location struct {
+	// The S3 bucket of the S3 object.
 	S3Bucket string `pulumi:"s3Bucket"`
-	S3Key    string `pulumi:"s3Key"`
+	// The S3 key of the S3 object.
+	S3Key string `pulumi:"s3Key"`
 }
 
 // ApplicationS3LocationInput is an input type that accepts ApplicationS3LocationArgs and ApplicationS3LocationOutput values.
@@ -668,8 +718,10 @@ type ApplicationS3LocationInput interface {
 }
 
 type ApplicationS3LocationArgs struct {
+	// The S3 bucket of the S3 object.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+	// The S3 key of the S3 object.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 }
 
 func (ApplicationS3LocationArgs) ElementType() reflect.Type {
@@ -698,10 +750,12 @@ func (o ApplicationS3LocationOutput) ToApplicationS3LocationOutputWithContext(ct
 	return o
 }
 
+// The S3 bucket of the S3 object.
 func (o ApplicationS3LocationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The S3 key of the S3 object.
 func (o ApplicationS3LocationOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationS3Location) string { return v.S3Key }).(pulumi.StringOutput)
 }
@@ -730,6 +784,7 @@ func (o ApplicationS3LocationPtrOutput) Elem() ApplicationS3LocationOutput {
 	}).(ApplicationS3LocationOutput)
 }
 
+// The S3 bucket of the S3 object.
 func (o ApplicationS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3Location) *string {
 		if v == nil {
@@ -739,6 +794,7 @@ func (o ApplicationS3LocationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 key of the S3 object.
 func (o ApplicationS3LocationPtrOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3Location) *string {
 		if v == nil {
@@ -859,8 +915,10 @@ func (o ApplicationTag1PropertiesOutput) TagValue() pulumi.StringOutput {
 }
 
 type DirectoryConfigCertificateBasedAuthProperties struct {
+	// The ARN of the AWS Certificate Manager Private CA resource.
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
-	Status                  *string `pulumi:"status"`
+	// The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+	Status *string `pulumi:"status"`
 }
 
 // DirectoryConfigCertificateBasedAuthPropertiesInput is an input type that accepts DirectoryConfigCertificateBasedAuthPropertiesArgs and DirectoryConfigCertificateBasedAuthPropertiesOutput values.
@@ -875,8 +933,10 @@ type DirectoryConfigCertificateBasedAuthPropertiesInput interface {
 }
 
 type DirectoryConfigCertificateBasedAuthPropertiesArgs struct {
+	// The ARN of the AWS Certificate Manager Private CA resource.
 	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
-	Status                  pulumi.StringPtrInput `pulumi:"status"`
+	// The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (DirectoryConfigCertificateBasedAuthPropertiesArgs) ElementType() reflect.Type {
@@ -956,10 +1016,12 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) ToDirectoryConfigCe
 	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
+// The ARN of the AWS Certificate Manager Private CA resource.
 func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryConfigCertificateBasedAuthProperties) *string { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
 func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryConfigCertificateBasedAuthProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -988,6 +1050,7 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Elem() Directory
 	}).(DirectoryConfigCertificateBasedAuthPropertiesOutput)
 }
 
+// The ARN of the AWS Certificate Manager Private CA resource.
 func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) *string {
 		if v == nil {
@@ -997,6 +1060,7 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) CertificateAutho
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
 func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) *string {
 		if v == nil {
@@ -1007,7 +1071,9 @@ func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Status() pulumi.
 }
 
 type DirectoryConfigServiceAccountCredentials struct {
-	AccountName     string `pulumi:"accountName"`
+	// The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+	AccountName string `pulumi:"accountName"`
+	// The password for the account.
 	AccountPassword string `pulumi:"accountPassword"`
 }
 
@@ -1023,7 +1089,9 @@ type DirectoryConfigServiceAccountCredentialsInput interface {
 }
 
 type DirectoryConfigServiceAccountCredentialsArgs struct {
-	AccountName     pulumi.StringInput `pulumi:"accountName"`
+	// The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The password for the account.
 	AccountPassword pulumi.StringInput `pulumi:"accountPassword"`
 }
 
@@ -1053,10 +1121,12 @@ func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigService
 	return o
 }
 
+// The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// The password for the account.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountPassword }).(pulumi.StringOutput)
 }
@@ -1085,6 +1155,7 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) Elem() DirectoryConfi
 	}).(DirectoryConfigServiceAccountCredentialsOutput)
 }
 
+// The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
 		if v == nil {
@@ -1094,6 +1165,7 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The password for the account.
 func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
 		if v == nil {
@@ -1104,7 +1176,19 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pul
 }
 
 type EntitlementAttribute struct {
-	Name  string `pulumi:"name"`
+	// A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+	//
+	// The following are supported values:
+	//
+	// - roles
+	// - department
+	// - organization
+	// - groups
+	// - title
+	// - costCenter
+	// - userType
+	Name string `pulumi:"name"`
+	// A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
 	Value string `pulumi:"value"`
 }
 
@@ -1120,7 +1204,19 @@ type EntitlementAttributeInput interface {
 }
 
 type EntitlementAttributeArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+	//
+	// The following are supported values:
+	//
+	// - roles
+	// - department
+	// - organization
+	// - groups
+	// - title
+	// - costCenter
+	// - userType
+	Name pulumi.StringInput `pulumi:"name"`
+	// A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1175,10 +1271,22 @@ func (o EntitlementAttributeOutput) ToEntitlementAttributeOutputWithContext(ctx 
 	return o
 }
 
+// A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+//
+// The following are supported values:
+//
+// - roles
+// - department
+// - organization
+// - groups
+// - title
+// - costCenter
+// - userType
 func (o EntitlementAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EntitlementAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
 func (o EntitlementAttributeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EntitlementAttribute) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1204,8 +1312,10 @@ func (o EntitlementAttributeArrayOutput) Index(i pulumi.IntInput) EntitlementAtt
 }
 
 type ImageBuilderAccessEndpoint struct {
+	// The type of interface endpoint.
 	EndpointType string `pulumi:"endpointType"`
-	VpceId       string `pulumi:"vpceId"`
+	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId string `pulumi:"vpceId"`
 }
 
 // ImageBuilderAccessEndpointInput is an input type that accepts ImageBuilderAccessEndpointArgs and ImageBuilderAccessEndpointOutput values.
@@ -1220,8 +1330,10 @@ type ImageBuilderAccessEndpointInput interface {
 }
 
 type ImageBuilderAccessEndpointArgs struct {
+	// The type of interface endpoint.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	VpceId       pulumi.StringInput `pulumi:"vpceId"`
+	// The identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId pulumi.StringInput `pulumi:"vpceId"`
 }
 
 func (ImageBuilderAccessEndpointArgs) ElementType() reflect.Type {
@@ -1275,10 +1387,12 @@ func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutputWith
 	return o
 }
 
+// The type of interface endpoint.
 func (o ImageBuilderAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageBuilderAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
+// The identifier (ID) of the VPC in which the interface endpoint is used.
 func (o ImageBuilderAccessEndpointOutput) VpceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageBuilderAccessEndpoint) string { return v.VpceId }).(pulumi.StringOutput)
 }
@@ -1304,7 +1418,9 @@ func (o ImageBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) ImageBui
 }
 
 type ImageBuilderDomainJoinInfo struct {
-	DirectoryName                       *string `pulumi:"directoryName"`
+	// The fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName *string `pulumi:"directoryName"`
+	// The distinguished name of the organizational unit for computer accounts.
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -1320,7 +1436,9 @@ type ImageBuilderDomainJoinInfoInput interface {
 }
 
 type ImageBuilderDomainJoinInfoArgs struct {
-	DirectoryName                       pulumi.StringPtrInput `pulumi:"directoryName"`
+	// The fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName pulumi.StringPtrInput `pulumi:"directoryName"`
+	// The distinguished name of the organizational unit for computer accounts.
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -1401,10 +1519,12 @@ func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoPtrOutputW
 	}).(ImageBuilderDomainJoinInfoPtrOutput)
 }
 
+// The fully qualified name of the directory (for example, corp.example.com).
 func (o ImageBuilderDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
 }
 
+// The distinguished name of the organizational unit for computer accounts.
 func (o ImageBuilderDomainJoinInfoOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.OrganizationalUnitDistinguishedName }).(pulumi.StringPtrOutput)
 }
@@ -1433,6 +1553,7 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) Elem() ImageBuilderDomainJoinInfoOu
 	}).(ImageBuilderDomainJoinInfoOutput)
 }
 
+// The fully qualified name of the directory (for example, corp.example.com).
 func (o ImageBuilderDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) *string {
 		if v == nil {
@@ -1442,6 +1563,7 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The distinguished name of the organizational unit for computer accounts.
 func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) *string {
 		if v == nil {
@@ -1452,13 +1574,17 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName
 }
 
 type ImageBuilderTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type ImageBuilderVpcConfig struct {
+	// The identifiers of the security groups for the image builder.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // ImageBuilderVpcConfigInput is an input type that accepts ImageBuilderVpcConfigArgs and ImageBuilderVpcConfigOutput values.
@@ -1473,8 +1599,10 @@ type ImageBuilderVpcConfigInput interface {
 }
 
 type ImageBuilderVpcConfigArgs struct {
+	// The identifiers of the security groups for the image builder.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ImageBuilderVpcConfigArgs) ElementType() reflect.Type {
@@ -1554,10 +1682,12 @@ func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigPtrOutputWithContext
 	}).(ImageBuilderVpcConfigPtrOutput)
 }
 
+// The identifiers of the security groups for the image builder.
 func (o ImageBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
 func (o ImageBuilderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1586,6 +1716,7 @@ func (o ImageBuilderVpcConfigPtrOutput) Elem() ImageBuilderVpcConfigOutput {
 	}).(ImageBuilderVpcConfigOutput)
 }
 
+// The identifiers of the security groups for the image builder.
 func (o ImageBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
 		if v == nil {
@@ -1595,6 +1726,7 @@ func (o ImageBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
 func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
 		if v == nil {

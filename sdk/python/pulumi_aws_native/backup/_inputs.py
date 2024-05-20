@@ -38,12 +38,39 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
     def __init__(__self__, *,
                  backup_options: Any,
                  resource_type: pulumi.Input[str]):
+        """
+        :param Any backup_options: The backup option for the resource. Each option is a key-value pair. This option is only available for Windows VSS backup jobs.
+               
+               Valid values:
+               
+               Set to `"WindowsVSS":"enabled"` to enable the `WindowsVSS` backup option and create a Windows VSS backup.
+               
+               Set to `"WindowsVSS":"disabled"` to create a regular backup. The `WindowsVSS` option is not enabled by default.
+               
+               If you specify an invalid option, you get an `InvalidParameterValueException` exception.
+               
+               For more information about Windows VSS backups, see [Creating a VSS-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html) .
+        :param pulumi.Input[str] resource_type: The name of a resource type. The only supported resource type is EC2.
+        """
         pulumi.set(__self__, "backup_options", backup_options)
         pulumi.set(__self__, "resource_type", resource_type)
 
     @property
     @pulumi.getter(name="backupOptions")
     def backup_options(self) -> Any:
+        """
+        The backup option for the resource. Each option is a key-value pair. This option is only available for Windows VSS backup jobs.
+
+        Valid values:
+
+        Set to `"WindowsVSS":"enabled"` to enable the `WindowsVSS` backup option and create a Windows VSS backup.
+
+        Set to `"WindowsVSS":"disabled"` to create a regular backup. The `WindowsVSS` option is not enabled by default.
+
+        If you specify an invalid option, you get an `InvalidParameterValueException` exception.
+
+        For more information about Windows VSS backups, see [Creating a VSS-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html) .
+        """
         return pulumi.get(self, "backup_options")
 
     @backup_options.setter
@@ -53,6 +80,9 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[str]:
+        """
+        The name of a resource type. The only supported resource type is EC2.
+        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -73,6 +103,20 @@ class BackupPlanBackupRuleResourceTypeArgs:
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
                  start_window_minutes: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] rule_name: A display name for a backup rule.
+        :param pulumi.Input[str] target_backup_vault: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
+        :param pulumi.Input[float] completion_window_minutes: A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPlanCopyActionResourceTypeArgs']]] copy_actions: An array of CopyAction objects, which contains the details of the copy operation.
+        :param pulumi.Input[bool] enable_continuous_backup: Enables continuous backup and point-in-time restores (PITR).
+        :param pulumi.Input['BackupPlanLifecycleResourceTypeArgs'] lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] recovery_point_tags: The tags to assign to the resources.
+        :param pulumi.Input[str] schedule_expression: A CRON expression specifying when AWS Backup initiates a backup job.
+        :param pulumi.Input[str] schedule_expression_timezone: This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        :param pulumi.Input[float] start_window_minutes: An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
+               
+               If this value is included, it must be at least 60 minutes to avoid errors.
+        """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_backup_vault", target_backup_vault)
         if completion_window_minutes is not None:
@@ -95,6 +139,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
+        """
+        A display name for a backup rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -104,6 +151,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="targetBackupVault")
     def target_backup_vault(self) -> pulumi.Input[str]:
+        """
+        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
+        """
         return pulumi.get(self, "target_backup_vault")
 
     @target_backup_vault.setter
@@ -113,6 +163,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="completionWindowMinutes")
     def completion_window_minutes(self) -> Optional[pulumi.Input[float]]:
+        """
+        A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
+        """
         return pulumi.get(self, "completion_window_minutes")
 
     @completion_window_minutes.setter
@@ -122,6 +175,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="copyActions")
     def copy_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanCopyActionResourceTypeArgs']]]]:
+        """
+        An array of CopyAction objects, which contains the details of the copy operation.
+        """
         return pulumi.get(self, "copy_actions")
 
     @copy_actions.setter
@@ -131,6 +187,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="enableContinuousBackup")
     def enable_continuous_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables continuous backup and point-in-time restores (PITR).
+        """
         return pulumi.get(self, "enable_continuous_backup")
 
     @enable_continuous_backup.setter
@@ -140,6 +199,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter
     def lifecycle(self) -> Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']]:
+        """
+        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
+        """
         return pulumi.get(self, "lifecycle")
 
     @lifecycle.setter
@@ -149,6 +211,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="recoveryPointTags")
     def recovery_point_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags to assign to the resources.
+        """
         return pulumi.get(self, "recovery_point_tags")
 
     @recovery_point_tags.setter
@@ -158,6 +223,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A CRON expression specifying when AWS Backup initiates a backup job.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -167,6 +235,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
@@ -176,6 +247,11 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @property
     @pulumi.getter(name="startWindowMinutes")
     def start_window_minutes(self) -> Optional[pulumi.Input[float]]:
+        """
+        An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
+
+        If this value is included, it must be at least 60 minutes to avoid errors.
+        """
         return pulumi.get(self, "start_window_minutes")
 
     @start_window_minutes.setter
@@ -188,6 +264,12 @@ class BackupPlanCopyActionResourceTypeArgs:
     def __init__(__self__, *,
                  destination_backup_vault_arn: pulumi.Input[str],
                  lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None):
+        """
+        :param pulumi.Input[str] destination_backup_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
+        :param pulumi.Input['BackupPlanLifecycleResourceTypeArgs'] lifecycle: Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+               
+               Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
+        """
         pulumi.set(__self__, "destination_backup_vault_arn", destination_backup_vault_arn)
         if lifecycle is not None:
             pulumi.set(__self__, "lifecycle", lifecycle)
@@ -195,6 +277,9 @@ class BackupPlanCopyActionResourceTypeArgs:
     @property
     @pulumi.getter(name="destinationBackupVaultArn")
     def destination_backup_vault_arn(self) -> pulumi.Input[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
+        """
         return pulumi.get(self, "destination_backup_vault_arn")
 
     @destination_backup_vault_arn.setter
@@ -204,6 +289,11 @@ class BackupPlanCopyActionResourceTypeArgs:
     @property
     @pulumi.getter
     def lifecycle(self) -> Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']]:
+        """
+        Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+
+        Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
+        """
         return pulumi.get(self, "lifecycle")
 
     @lifecycle.setter
@@ -217,6 +307,11 @@ class BackupPlanLifecycleResourceTypeArgs:
                  delete_after_days: Optional[pulumi.Input[float]] = None,
                  move_to_cold_storage_after_days: Optional[pulumi.Input[float]] = None,
                  opt_in_to_archive_for_supported_resources: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[float] delete_after_days: Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+        :param pulumi.Input[float] move_to_cold_storage_after_days: Specifies the number of days after creation that a recovery point is moved to cold storage.
+        :param pulumi.Input[bool] opt_in_to_archive_for_supported_resources: If the value is true, your backup plan transitions supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        """
         if delete_after_days is not None:
             pulumi.set(__self__, "delete_after_days", delete_after_days)
         if move_to_cold_storage_after_days is not None:
@@ -227,6 +322,9 @@ class BackupPlanLifecycleResourceTypeArgs:
     @property
     @pulumi.getter(name="deleteAfterDays")
     def delete_after_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+        """
         return pulumi.get(self, "delete_after_days")
 
     @delete_after_days.setter
@@ -236,6 +334,9 @@ class BackupPlanLifecycleResourceTypeArgs:
     @property
     @pulumi.getter(name="moveToColdStorageAfterDays")
     def move_to_cold_storage_after_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        """
         return pulumi.get(self, "move_to_cold_storage_after_days")
 
     @move_to_cold_storage_after_days.setter
@@ -245,6 +346,9 @@ class BackupPlanLifecycleResourceTypeArgs:
     @property
     @pulumi.getter(name="optInToArchiveForSupportedResources")
     def opt_in_to_archive_for_supported_resources(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the value is true, your backup plan transitions supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        """
         return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
     @opt_in_to_archive_for_supported_resources.setter
@@ -258,6 +362,11 @@ class BackupPlanResourceTypeArgs:
                  backup_plan_name: pulumi.Input[str],
                  backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
                  advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None):
+        """
+        :param pulumi.Input[str] backup_plan_name: The display name of a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]] backup_plan_rule: An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]] advanced_backup_settings: A list of backup options for each resource type.
+        """
         pulumi.set(__self__, "backup_plan_name", backup_plan_name)
         pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
         if advanced_backup_settings is not None:
@@ -266,6 +375,9 @@ class BackupPlanResourceTypeArgs:
     @property
     @pulumi.getter(name="backupPlanName")
     def backup_plan_name(self) -> pulumi.Input[str]:
+        """
+        The display name of a backup plan.
+        """
         return pulumi.get(self, "backup_plan_name")
 
     @backup_plan_name.setter
@@ -275,6 +387,9 @@ class BackupPlanResourceTypeArgs:
     @property
     @pulumi.getter(name="backupPlanRule")
     def backup_plan_rule(self) -> pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]]:
+        """
+        An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+        """
         return pulumi.get(self, "backup_plan_rule")
 
     @backup_plan_rule.setter
@@ -284,6 +399,9 @@ class BackupPlanResourceTypeArgs:
     @property
     @pulumi.getter(name="advancedBackupSettings")
     def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]:
+        """
+        A list of backup options for each resource type.
+        """
         return pulumi.get(self, "advanced_backup_settings")
 
     @advanced_backup_settings.setter
@@ -296,6 +414,10 @@ class BackupSelectionConditionParameterArgs:
     def __init__(__self__, *,
                  condition_key: Optional[pulumi.Input[str]] = None,
                  condition_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] condition_key: The key in a key-value pair. For example, in the tag `Department: Accounting` , `Department` is the key.
+        :param pulumi.Input[str] condition_value: The value in a key-value pair. For example, in the tag `Department: Accounting` , `Accounting` is the value.
+        """
         if condition_key is not None:
             pulumi.set(__self__, "condition_key", condition_key)
         if condition_value is not None:
@@ -304,6 +426,9 @@ class BackupSelectionConditionParameterArgs:
     @property
     @pulumi.getter(name="conditionKey")
     def condition_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key in a key-value pair. For example, in the tag `Department: Accounting` , `Department` is the key.
+        """
         return pulumi.get(self, "condition_key")
 
     @condition_key.setter
@@ -313,6 +438,9 @@ class BackupSelectionConditionParameterArgs:
     @property
     @pulumi.getter(name="conditionValue")
     def condition_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value in a key-value pair. For example, in the tag `Department: Accounting` , `Accounting` is the value.
+        """
         return pulumi.get(self, "condition_value")
 
     @condition_value.setter
@@ -326,6 +454,11 @@ class BackupSelectionConditionResourceTypeArgs:
                  condition_key: pulumi.Input[str],
                  condition_type: pulumi.Input[str],
                  condition_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] condition_key: The key in a key-value pair. For example, in `"Department": "accounting"` , `"Department"` is the key.
+        :param pulumi.Input[str] condition_type: An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
+        :param pulumi.Input[str] condition_value: The value in a key-value pair. For example, in `"Department": "accounting"` , `"accounting"` is the value.
+        """
         pulumi.set(__self__, "condition_key", condition_key)
         pulumi.set(__self__, "condition_type", condition_type)
         pulumi.set(__self__, "condition_value", condition_value)
@@ -333,6 +466,9 @@ class BackupSelectionConditionResourceTypeArgs:
     @property
     @pulumi.getter(name="conditionKey")
     def condition_key(self) -> pulumi.Input[str]:
+        """
+        The key in a key-value pair. For example, in `"Department": "accounting"` , `"Department"` is the key.
+        """
         return pulumi.get(self, "condition_key")
 
     @condition_key.setter
@@ -342,6 +478,9 @@ class BackupSelectionConditionResourceTypeArgs:
     @property
     @pulumi.getter(name="conditionType")
     def condition_type(self) -> pulumi.Input[str]:
+        """
+        An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
+        """
         return pulumi.get(self, "condition_type")
 
     @condition_type.setter
@@ -351,6 +490,9 @@ class BackupSelectionConditionResourceTypeArgs:
     @property
     @pulumi.getter(name="conditionValue")
     def condition_value(self) -> pulumi.Input[str]:
+        """
+        The value in a key-value pair. For example, in `"Department": "accounting"` , `"accounting"` is the value.
+        """
         return pulumi.get(self, "condition_value")
 
     @condition_value.setter
@@ -365,6 +507,14 @@ class BackupSelectionResourceTypeConditionsPropertiesArgs:
                  string_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
                  string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
                  string_not_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None):
+        """
+        A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+
+        `Conditions` differs from `ListOfTags` as follows:
+
+        - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
+        - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
+        """
         if string_equals is not None:
             pulumi.set(__self__, "string_equals", string_equals)
         if string_like is not None:
@@ -420,6 +570,26 @@ class BackupSelectionResourceTypeArgs:
                  list_of_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource; for example, `arn:aws:iam::123456789012:role/S3Access` .
+        :param pulumi.Input[str] selection_name: The display name of a resource selection document.
+        :param pulumi.Input['BackupSelectionResourceTypeConditionsPropertiesArgs'] conditions: A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+               
+               `Conditions` differs from `ListOfTags` as follows:
+               
+               - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
+               - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
+        :param pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]] list_of_tags: A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+               
+               `ListOfTags` differs from `Conditions` as follows:
+               
+               - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+               - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_resources: A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
+               
+               If you need to exclude many resources from a backup plan, consider a different resource selection strategy, such as assigning only one or a few resource types or refining your resource selection using tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that contain Amazon Resource Names (ARNs) of resources to assign to a backup plan.
+        """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "selection_name", selection_name)
         if conditions is not None:
@@ -434,6 +604,9 @@ class BackupSelectionResourceTypeArgs:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource; for example, `arn:aws:iam::123456789012:role/S3Access` .
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -443,6 +616,9 @@ class BackupSelectionResourceTypeArgs:
     @property
     @pulumi.getter(name="selectionName")
     def selection_name(self) -> pulumi.Input[str]:
+        """
+        The display name of a resource selection document.
+        """
         return pulumi.get(self, "selection_name")
 
     @selection_name.setter
@@ -452,6 +628,14 @@ class BackupSelectionResourceTypeArgs:
     @property
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['BackupSelectionResourceTypeConditionsPropertiesArgs']]:
+        """
+        A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+
+        `Conditions` differs from `ListOfTags` as follows:
+
+        - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
+        - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
+        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -461,6 +645,14 @@ class BackupSelectionResourceTypeArgs:
     @property
     @pulumi.getter(name="listOfTags")
     def list_of_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]]:
+        """
+        A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+
+        `ListOfTags` differs from `Conditions` as follows:
+
+        - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+        - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
+        """
         return pulumi.get(self, "list_of_tags")
 
     @list_of_tags.setter
@@ -470,6 +662,11 @@ class BackupSelectionResourceTypeArgs:
     @property
     @pulumi.getter(name="notResources")
     def not_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
+
+        If you need to exclude many resources from a backup plan, consider a different resource selection strategy, such as assigning only one or a few resource types or refining your resource selection using tags.
+        """
         return pulumi.get(self, "not_resources")
 
     @not_resources.setter
@@ -479,6 +676,9 @@ class BackupSelectionResourceTypeArgs:
     @property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of strings that contain Amazon Resource Names (ARNs) of resources to assign to a backup plan.
+        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -492,6 +692,25 @@ class BackupVaultLockConfigurationTypeArgs:
                  min_retention_days: pulumi.Input[int],
                  changeable_for_days: Optional[pulumi.Input[int]] = None,
                  max_retention_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] min_retention_days: The AWS Backup Vault Lock configuration that specifies the minimum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to retain certain data for at least seven years (2555 days).
+               
+               If this parameter is not specified, Vault Lock will not enforce a minimum retention period.
+               
+               If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+        :param pulumi.Input[int] changeable_for_days: The AWS Backup Vault Lock configuration that specifies the number of days before the lock date. For example, setting `ChangeableForDays` to 30 on Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.
+               
+               AWS Backup enforces a 72-hour cooling-off period before Vault Lock takes effect and becomes immutable. Therefore, you must set `ChangeableForDays` to 3 or greater.
+               
+               Before the lock date, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` . On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.
+               
+               If this parameter is not specified, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` at any time.
+        :param pulumi.Input[int] max_retention_days: The AWS Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to destroy certain data after retaining it for four years (1460 days).
+               
+               If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.
+               
+               If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+        """
         pulumi.set(__self__, "min_retention_days", min_retention_days)
         if changeable_for_days is not None:
             pulumi.set(__self__, "changeable_for_days", changeable_for_days)
@@ -501,6 +720,13 @@ class BackupVaultLockConfigurationTypeArgs:
     @property
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Input[int]:
+        """
+        The AWS Backup Vault Lock configuration that specifies the minimum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to retain certain data for at least seven years (2555 days).
+
+        If this parameter is not specified, Vault Lock will not enforce a minimum retention period.
+
+        If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+        """
         return pulumi.get(self, "min_retention_days")
 
     @min_retention_days.setter
@@ -510,6 +736,15 @@ class BackupVaultLockConfigurationTypeArgs:
     @property
     @pulumi.getter(name="changeableForDays")
     def changeable_for_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The AWS Backup Vault Lock configuration that specifies the number of days before the lock date. For example, setting `ChangeableForDays` to 30 on Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.
+
+        AWS Backup enforces a 72-hour cooling-off period before Vault Lock takes effect and becomes immutable. Therefore, you must set `ChangeableForDays` to 3 or greater.
+
+        Before the lock date, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` . On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.
+
+        If this parameter is not specified, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` at any time.
+        """
         return pulumi.get(self, "changeable_for_days")
 
     @changeable_for_days.setter
@@ -519,6 +754,13 @@ class BackupVaultLockConfigurationTypeArgs:
     @property
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The AWS Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to destroy certain data after retaining it for four years (1460 days).
+
+        If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.
+
+        If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+        """
         return pulumi.get(self, "max_retention_days")
 
     @max_retention_days.setter
@@ -531,12 +773,19 @@ class BackupVaultNotificationObjectTypeArgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sns_topic_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault. For valid events, see [BackupVaultEvents](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html#API_PutBackupVaultNotifications_RequestSyntax) in the *AWS Backup API Guide* .
+        :param pulumi.Input[str] sns_topic_arn: An ARN that uniquely identifies an Amazon Simple Notification Service (Amazon SNS) topic; for example, `arn:aws:sns:us-west-2:111122223333:MyTopic` .
+        """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of events that indicate the status of jobs to back up resources to the backup vault. For valid events, see [BackupVaultEvents](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html#API_PutBackupVaultNotifications_RequestSyntax) in the *AWS Backup API Guide* .
+        """
         return pulumi.get(self, "backup_vault_events")
 
     @backup_vault_events.setter
@@ -546,6 +795,9 @@ class BackupVaultNotificationObjectTypeArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[str]:
+        """
+        An ARN that uniquely identifies an Amazon Simple Notification Service (Amazon SNS) topic; for example, `arn:aws:sns:us-west-2:111122223333:MyTopic` .
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -614,12 +866,19 @@ class FrameworkControlInputParameterArgs:
     def __init__(__self__, *,
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] parameter_name: The name of a parameter, for example, `BackupPlanFrequency` .
+        :param pulumi.Input[str] parameter_value: The value of parameter, for example, `hourly` .
+        """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> pulumi.Input[str]:
+        """
+        The name of a parameter, for example, `BackupPlanFrequency` .
+        """
         return pulumi.get(self, "parameter_name")
 
     @parameter_name.setter
@@ -629,6 +888,9 @@ class FrameworkControlInputParameterArgs:
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        The value of parameter, for example, `hourly` .
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -880,6 +1142,15 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
                  recovery_point_types: pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]],
                  exclude_vaults: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  selection_window_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm'] algorithm: Acceptable values include "LATEST_WITHIN_WINDOW" or "RANDOM_WITHIN_WINDOW"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_vaults: Accepted values include wildcard ["*"] or by specific ARNs or ARN wilcard replacement ["arn:aws:backup:us-west-2:123456789012:backup-vault:asdf", ...] ["arn:aws:backup:*:*:backup-vault:asdf-*", ...]
+        :param pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]] recovery_point_types: These are the types of recovery points.
+               
+               Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_vaults: Accepted values include specific ARNs or list of selectors. Defaults to empty list if not listed.
+        :param pulumi.Input[int] selection_window_days: Accepted values are integers from 1 to 365.
+        """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "include_vaults", include_vaults)
         pulumi.set(__self__, "recovery_point_types", recovery_point_types)
@@ -891,6 +1162,9 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
     @property
     @pulumi.getter
     def algorithm(self) -> pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm']:
+        """
+        Acceptable values include "LATEST_WITHIN_WINDOW" or "RANDOM_WITHIN_WINDOW"
+        """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
@@ -900,6 +1174,9 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
     @property
     @pulumi.getter(name="includeVaults")
     def include_vaults(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Accepted values include wildcard ["*"] or by specific ARNs or ARN wilcard replacement ["arn:aws:backup:us-west-2:123456789012:backup-vault:asdf", ...] ["arn:aws:backup:*:*:backup-vault:asdf-*", ...]
+        """
         return pulumi.get(self, "include_vaults")
 
     @include_vaults.setter
@@ -909,6 +1186,11 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
     @property
     @pulumi.getter(name="recoveryPointTypes")
     def recovery_point_types(self) -> pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]]:
+        """
+        These are the types of recovery points.
+
+        Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+        """
         return pulumi.get(self, "recovery_point_types")
 
     @recovery_point_types.setter
@@ -918,6 +1200,9 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
     @property
     @pulumi.getter(name="excludeVaults")
     def exclude_vaults(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Accepted values include specific ARNs or list of selectors. Defaults to empty list if not listed.
+        """
         return pulumi.get(self, "exclude_vaults")
 
     @exclude_vaults.setter
@@ -927,6 +1212,9 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
     @property
     @pulumi.getter(name="selectionWindowDays")
     def selection_window_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Accepted values are integers from 1 to 365.
+        """
         return pulumi.get(self, "selection_window_days")
 
     @selection_window_days.setter
@@ -939,12 +1227,19 @@ class RestoreTestingSelectionKeyValueArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The tag key.
+        :param pulumi.Input[str] value: The tag value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -954,6 +1249,9 @@ class RestoreTestingSelectionKeyValueArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -966,6 +1264,10 @@ class RestoreTestingSelectionProtectedResourceConditionsArgs:
     def __init__(__self__, *,
                  string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]] = None,
                  string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]] string_equals: Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
+        :param pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]] string_not_equals: Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
+        """
         if string_equals is not None:
             pulumi.set(__self__, "string_equals", string_equals)
         if string_not_equals is not None:
@@ -974,6 +1276,9 @@ class RestoreTestingSelectionProtectedResourceConditionsArgs:
     @property
     @pulumi.getter(name="stringEquals")
     def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]:
+        """
+        Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
+        """
         return pulumi.get(self, "string_equals")
 
     @string_equals.setter
@@ -983,6 +1288,9 @@ class RestoreTestingSelectionProtectedResourceConditionsArgs:
     @property
     @pulumi.getter(name="stringNotEquals")
     def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]:
+        """
+        Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
+        """
         return pulumi.get(self, "string_not_equals")
 
     @string_not_equals.setter

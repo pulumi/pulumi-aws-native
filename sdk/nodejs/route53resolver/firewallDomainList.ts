@@ -61,6 +61,9 @@ export class FirewallDomainList extends pulumi.CustomResource {
      * S3 URL to import domains from.
      */
     public readonly domainFileUrl!: pulumi.Output<string | undefined>;
+    /**
+     * A list of the domain lists that you have defined.
+     */
     public readonly domains!: pulumi.Output<string[] | undefined>;
     /**
      * ServicePrincipal
@@ -141,6 +144,9 @@ export interface FirewallDomainListArgs {
      * S3 URL to import domains from.
      */
     domainFileUrl?: pulumi.Input<string>;
+    /**
+     * A list of the domain lists that you have defined.
+     */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * FirewallDomainListName

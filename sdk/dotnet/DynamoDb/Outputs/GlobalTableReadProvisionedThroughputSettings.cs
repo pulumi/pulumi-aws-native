@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTableReadProvisionedThroughputSettings
     {
+        /// <summary>
+        /// Specifies auto scaling settings for the replica table or global secondary index.
+        /// </summary>
         public readonly Outputs.GlobalTableCapacityAutoScalingSettings? ReadCapacityAutoScalingSettings;
+        /// <summary>
+        /// Specifies a fixed read capacity for the replica table or global secondary index.
+        /// </summary>
         public readonly int? ReadCapacityUnits;
 
         [OutputConstructor]

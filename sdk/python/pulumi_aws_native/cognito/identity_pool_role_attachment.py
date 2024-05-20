@@ -21,6 +21,13 @@ class IdentityPoolRoleAttachmentArgs:
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IdentityPoolRoleAttachment resource.
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION:GUID` .
+        :param pulumi.Input[Mapping[str, pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+               
+               If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+               
+               For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         if role_mappings is not None:
@@ -31,6 +38,9 @@ class IdentityPoolRoleAttachmentArgs:
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Input[str]:
+        """
+        An identity pool ID in the format `REGION:GUID` .
+        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -40,6 +50,13 @@ class IdentityPoolRoleAttachmentArgs:
     @property
     @pulumi.getter(name="roleMappings")
     def role_mappings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]:
+        """
+        How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+
+        If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+
+        For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+        """
         return pulumi.get(self, "role_mappings")
 
     @role_mappings.setter
@@ -49,6 +66,9 @@ class IdentityPoolRoleAttachmentArgs:
     @property
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+        """
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -70,6 +90,13 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION:GUID` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]] role_mappings: How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+               
+               If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+               
+               For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
         """
         ...
     @overload
@@ -146,20 +173,36 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Output[str]:
+        """
+        An identity pool ID in the format `REGION:GUID` .
+        """
         return pulumi.get(self, "identity_pool_id")
 
     @property
     @pulumi.getter(name="roleMappings")
     def role_mappings(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.IdentityPoolRoleAttachmentRoleMapping']]]:
+        """
+        How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+
+        If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+
+        For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+        """
         return pulumi.get(self, "role_mappings")
 
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+        """
         return pulumi.get(self, "roles")
 

@@ -31,8 +31,30 @@ class JobDefinitionArgs:
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
-        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param pulumi.Input[str] type: The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+               
+               - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+               - If the value is `multinode` , then `nodeProperties` is required.
+               
+               > If the job is run on Fargate resources, then `multinode` isn't supported.
+        :param pulumi.Input['JobDefinitionContainerPropertiesArgs'] container_properties: An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+        :param pulumi.Input['JobDefinitionEcsPropertiesArgs'] ecs_properties: An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+        :param pulumi.Input[str] job_definition_name: The name of the job definition.
+        :param pulumi.Input['JobDefinitionNodePropertiesArgs'] node_properties: An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+               
+               > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+        :param Any parameters: Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+        :param pulumi.Input[bool] propagate_tags: Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        :param pulumi.Input['JobDefinitionRetryStrategyArgs'] retry_strategy: The retry strategy to use for failed jobs that are submitted with this job definition.
+        :param pulumi.Input[int] scheduling_priority: The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        :param Any tags: The tags that are applied to the job definition.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         """
         pulumi.set(__self__, "type", type)
         if container_properties is not None:
@@ -63,6 +85,14 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+
+        - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+        - If the value is `multinode` , then `nodeProperties` is required.
+
+        > If the job is run on Fargate resources, then `multinode` isn't supported.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -72,6 +102,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]:
+        """
+        An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+        """
         return pulumi.get(self, "container_properties")
 
     @container_properties.setter
@@ -81,6 +114,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="ecsProperties")
     def ecs_properties(self) -> Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]:
+        """
+        An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+        """
         return pulumi.get(self, "ecs_properties")
 
     @ecs_properties.setter
@@ -90,6 +126,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]:
+        """
+        An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+        """
         return pulumi.get(self, "eks_properties")
 
     @eks_properties.setter
@@ -99,6 +138,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the job definition.
+        """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
@@ -108,6 +150,11 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> Optional[pulumi.Input['JobDefinitionNodePropertiesArgs']]:
+        """
+        An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+
+        > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+        """
         return pulumi.get(self, "node_properties")
 
     @node_properties.setter
@@ -118,6 +165,8 @@ class JobDefinitionArgs:
     @pulumi.getter
     def parameters(self) -> Optional[Any]:
         """
+        Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
@@ -129,6 +178,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="platformCapabilities")
     def platform_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+        """
         return pulumi.get(self, "platform_capabilities")
 
     @platform_capabilities.setter
@@ -138,6 +190,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -147,6 +202,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
+        """
+        The retry strategy to use for failed jobs that are submitted with this job definition.
+        """
         return pulumi.get(self, "retry_strategy")
 
     @retry_strategy.setter
@@ -156,6 +214,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        """
         return pulumi.get(self, "scheduling_priority")
 
     @scheduling_priority.setter
@@ -166,6 +227,8 @@ class JobDefinitionArgs:
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
+        The tags that are applied to the job definition.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
@@ -177,6 +240,9 @@ class JobDefinitionArgs:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input['JobDefinitionTimeoutArgs']]:
+        """
+        The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -208,8 +274,30 @@ class JobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any parameters: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-        :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param pulumi.Input[pulumi.InputType['JobDefinitionContainerPropertiesArgs']] container_properties: An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+        :param pulumi.Input[pulumi.InputType['JobDefinitionEcsPropertiesArgs']] ecs_properties: An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+        :param pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']] eks_properties: An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+        :param pulumi.Input[str] job_definition_name: The name of the job definition.
+        :param pulumi.Input[pulumi.InputType['JobDefinitionNodePropertiesArgs']] node_properties: An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+               
+               > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+        :param Any parameters: Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_capabilities: The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+        :param pulumi.Input[bool] propagate_tags: Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        :param pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']] retry_strategy: The retry strategy to use for failed jobs that are submitted with this job definition.
+        :param pulumi.Input[int] scheduling_priority: The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        :param Any tags: The tags that are applied to the job definition.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+        :param pulumi.Input[str] type: The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+               
+               - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+               - If the value is `multinode` , then `nodeProperties` is required.
+               
+               > If the job is run on Fargate resources, then `multinode` isn't supported.
         """
         ...
     @overload
@@ -321,32 +409,51 @@ class JobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionContainerProperties']]:
+        """
+        An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+        """
         return pulumi.get(self, "container_properties")
 
     @property
     @pulumi.getter(name="ecsProperties")
     def ecs_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionEcsProperties']]:
+        """
+        An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+        """
         return pulumi.get(self, "ecs_properties")
 
     @property
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionEksProperties']]:
+        """
+        An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+        """
         return pulumi.get(self, "eks_properties")
 
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the job definition.
+        """
         return pulumi.get(self, "job_definition_name")
 
     @property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionNodeProperties']]:
+        """
+        An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+
+        > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+        """
         return pulumi.get(self, "node_properties")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
+        Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
@@ -354,27 +461,41 @@ class JobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="platformCapabilities")
     def platform_capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+        """
         return pulumi.get(self, "platform_capabilities")
 
     @property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> pulumi.Output[Optional['outputs.JobDefinitionRetryStrategy']]:
+        """
+        The retry strategy to use for failed jobs that are submitted with this job definition.
+        """
         return pulumi.get(self, "retry_strategy")
 
     @property
     @pulumi.getter(name="schedulingPriority")
     def scheduling_priority(self) -> pulumi.Output[Optional[int]]:
+        """
+        The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        """
         return pulumi.get(self, "scheduling_priority")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
         """
+        The tags that are applied to the job definition.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "tags")
@@ -382,10 +503,21 @@ class JobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def timeout(self) -> pulumi.Output[Optional['outputs.JobDefinitionTimeout']]:
+        """
+        The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+        """
         return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+
+        - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+        - If the value is `multinode` , then `nodeProperties` is required.
+
+        > If the job is run on Fargate resources, then `multinode` isn't supported.
+        """
         return pulumi.get(self, "type")
 

@@ -16,7 +16,17 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclResponseInspectionBodyContains
     {
+        /// <summary>
+        /// Strings in the body of the response that indicate a failed login or account creation attempt. To be counted as a failure, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+        /// 
+        /// JSON example: `"FailureStrings": [ "Request failed" ]`
+        /// </summary>
         public readonly ImmutableArray<string> FailureStrings;
+        /// <summary>
+        /// Strings in the body of the response that indicate a successful login or account creation attempt. To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings.
+        /// 
+        /// JSON examples: `"SuccessStrings": [ "Login successful" ]` and `"SuccessStrings": [ "Account creation successful", "Welcome to our site!" ]`
+        /// </summary>
         public readonly ImmutableArray<string> SuccessStrings;
 
         [OutputConstructor]

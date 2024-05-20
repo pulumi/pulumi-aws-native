@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,19 +57,37 @@ namespace Pulumi.AwsNative.Lex
     [OutputType]
     public sealed class GetBotResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Data privacy setting of the Bot.
         /// </summary>
         public readonly Outputs.DataPrivacyProperties? DataPrivacy;
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// IdleSessionTTLInSeconds of the resource
         /// </summary>
         public readonly int? IdleSessionTtlInSeconds;
+        /// <summary>
+        /// The name of the bot locale.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+        /// </summary>
         public readonly Outputs.BotTestBotAliasSettings? TestBotAliasSettings;
 
         [OutputConstructor]

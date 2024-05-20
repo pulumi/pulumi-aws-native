@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAnalysisDefaults
     {
+        /// <summary>
+        /// The configuration for default new sheet settings.
+        /// </summary>
         public readonly Outputs.DashboardDefaultNewSheetConfiguration DefaultNewSheetConfiguration;
 
         [OutputConstructor]

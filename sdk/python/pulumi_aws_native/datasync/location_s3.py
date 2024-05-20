@@ -26,6 +26,9 @@ class LocationS3Args:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationS3 resource.
+        :param pulumi.Input['LocationS3s3ConfigArgs'] s3_config: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+               
+               For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
         :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         :param pulumi.Input['LocationS3S3StorageClass'] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
@@ -44,6 +47,11 @@ class LocationS3Args:
     @property
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> pulumi.Input['LocationS3s3ConfigArgs']:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+
+        For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+        """
         return pulumi.get(self, "s3_config")
 
     @s3_config.setter
@@ -148,6 +156,9 @@ class LocationS3(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+        :param pulumi.Input[pulumi.InputType['LocationS3s3ConfigArgs']] s3_config: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+               
+               For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
         :param pulumi.Input['LocationS3S3StorageClass'] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -291,6 +302,11 @@ class LocationS3(pulumi.CustomResource):
     @property
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> pulumi.Output['outputs.LocationS3s3Config']:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+
+        For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+        """
         return pulumi.get(self, "s3_config")
 
     @property

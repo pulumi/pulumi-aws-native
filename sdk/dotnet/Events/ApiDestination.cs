@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Events
         [Output("connectionArn")]
         public Output<string> ConnectionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the API destination to create.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The method to use for the request to the HTTP invocation endpoint.
+        /// </summary>
         [Output("httpMethod")]
         public Output<Pulumi.AwsNative.Events.ApiDestinationHttpMethod> HttpMethod { get; private set; } = null!;
 
@@ -39,6 +45,9 @@ namespace Pulumi.AwsNative.Events
         [Output("invocationEndpoint")]
         public Output<string> InvocationEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of requests per second to send to the HTTP invocation endpoint.
+        /// </summary>
         [Output("invocationRateLimitPerSecond")]
         public Output<int?> InvocationRateLimitPerSecond { get; private set; } = null!;
 
@@ -103,9 +112,15 @@ namespace Pulumi.AwsNative.Events
         [Input("connectionArn", required: true)]
         public Input<string> ConnectionArn { get; set; } = null!;
 
+        /// <summary>
+        /// A description for the API destination to create.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The method to use for the request to the HTTP invocation endpoint.
+        /// </summary>
         [Input("httpMethod", required: true)]
         public Input<Pulumi.AwsNative.Events.ApiDestinationHttpMethod> HttpMethod { get; set; } = null!;
 
@@ -115,6 +130,9 @@ namespace Pulumi.AwsNative.Events
         [Input("invocationEndpoint", required: true)]
         public Input<string> InvocationEndpoint { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of requests per second to send to the HTTP invocation endpoint.
+        /// </summary>
         [Input("invocationRateLimitPerSecond")]
         public Input<int>? InvocationRateLimitPerSecond { get; set; }
 

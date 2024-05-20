@@ -57,12 +57,21 @@ namespace Pulumi.AwsNative.Osis
     [OutputType]
     public sealed class GetPipelineResult
     {
+        /// <summary>
+        /// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+        /// </summary>
         public readonly Outputs.PipelineBufferOptions? BufferOptions;
+        /// <summary>
+        /// Options to control how OpenSearch encrypts buffer data.
+        /// </summary>
         public readonly Outputs.PipelineEncryptionAtRestOptions? EncryptionAtRestOptions;
         /// <summary>
         /// A list of endpoints that can be used for ingesting data into a pipeline
         /// </summary>
         public readonly ImmutableArray<string> IngestEndpointUrls;
+        /// <summary>
+        /// Key-value pairs that represent log publishing settings.
+        /// </summary>
         public readonly Outputs.PipelineLogPublishingOptions? LogPublishingOptions;
         /// <summary>
         /// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).

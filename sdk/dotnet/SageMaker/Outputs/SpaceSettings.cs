@@ -16,11 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceSettings
     {
+        /// <summary>
+        /// The type of app created within the space.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.SpaceAppType? AppType;
         /// <summary>
         /// The CodeEditor app settings.
         /// </summary>
         public readonly Outputs.SpaceCodeEditorAppSettings? CodeEditorAppSettings;
+        /// <summary>
+        /// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpaceCustomFileSystem> CustomFileSystems;
         /// <summary>
         /// The JupyterLab app settings.

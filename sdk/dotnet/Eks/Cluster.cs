@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Eks
     [AwsNativeResourceType("aws-native:eks:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The access configuration for the cluster.
+        /// </summary>
         [Output("accessConfig")]
         public Output<Outputs.ClusterAccessConfig?> AccessConfig { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("clusterSecurityGroupId")]
         public Output<string> ClusterSecurityGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The encryption configuration for the cluster.
+        /// </summary>
         [Output("encryptionConfig")]
         public Output<ImmutableArray<Outputs.ClusterEncryptionConfig>> EncryptionConfig { get; private set; } = null!;
 
@@ -57,9 +63,15 @@ namespace Pulumi.AwsNative.Eks
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The Kubernetes network configuration for the cluster.
+        /// </summary>
         [Output("kubernetesNetworkConfig")]
         public Output<Outputs.ClusterKubernetesNetworkConfig?> KubernetesNetworkConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The logging configuration for your cluster.
+        /// </summary>
         [Output("logging")]
         public Output<Outputs.Logging?> Logging { get; private set; } = null!;
 
@@ -75,9 +87,15 @@ namespace Pulumi.AwsNative.Eks
         [Output("openIdConnectIssuerUrl")]
         public Output<string> OpenIdConnectIssuerUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
+        /// </summary>
         [Output("outpostConfig")]
         public Output<Outputs.ClusterOutpostConfig?> OutpostConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+        /// </summary>
         [Output("resourcesVpcConfig")]
         public Output<Outputs.ClusterResourcesVpcConfig> ResourcesVpcConfig { get; private set; } = null!;
 
@@ -153,20 +171,33 @@ namespace Pulumi.AwsNative.Eks
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access configuration for the cluster.
+        /// </summary>
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
 
         [Input("encryptionConfig")]
         private InputList<Inputs.ClusterEncryptionConfigArgs>? _encryptionConfig;
+
+        /// <summary>
+        /// The encryption configuration for the cluster.
+        /// </summary>
         public InputList<Inputs.ClusterEncryptionConfigArgs> EncryptionConfig
         {
             get => _encryptionConfig ?? (_encryptionConfig = new InputList<Inputs.ClusterEncryptionConfigArgs>());
             set => _encryptionConfig = value;
         }
 
+        /// <summary>
+        /// The Kubernetes network configuration for the cluster.
+        /// </summary>
         [Input("kubernetesNetworkConfig")]
         public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
 
+        /// <summary>
+        /// The logging configuration for your cluster.
+        /// </summary>
         [Input("logging")]
         public Input<Inputs.LoggingArgs>? Logging { get; set; }
 
@@ -176,9 +207,15 @@ namespace Pulumi.AwsNative.Eks
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
+        /// </summary>
         [Input("outpostConfig")]
         public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
 
+        /// <summary>
+        /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+        /// </summary>
         [Input("resourcesVpcConfig", required: true)]
         public Input<Inputs.ClusterResourcesVpcConfigArgs> ResourcesVpcConfig { get; set; } = null!;
 

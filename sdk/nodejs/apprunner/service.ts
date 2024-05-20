@@ -41,10 +41,25 @@ export class Service extends pulumi.CustomResource {
      * Autoscaling configuration ARN
      */
     public readonly autoScalingConfigurationArn!: pulumi.Output<string | undefined>;
+    /**
+     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.apprunner.ServiceEncryptionConfiguration | undefined>;
+    /**
+     * The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+     */
     public readonly healthCheckConfiguration!: pulumi.Output<outputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
+    /**
+     * The runtime configuration of instances (scaling units) of your service.
+     */
     public readonly instanceConfiguration!: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration | undefined>;
+    /**
+     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     */
     public readonly networkConfiguration!: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration | undefined>;
+    /**
+     * The observability configuration of your service.
+     */
     public readonly observabilityConfiguration!: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AppRunner Service.
@@ -62,11 +77,17 @@ export class Service extends pulumi.CustomResource {
      * The Service Url of the AppRunner Service.
      */
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
+    /**
+     * The source to deploy to the App Runner service. It can be a code or an image repository.
+     */
     public readonly sourceConfiguration!: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     /**
      * AppRunner Service status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -126,15 +147,36 @@ export interface ServiceArgs {
      * Autoscaling configuration ARN
      */
     autoScalingConfigurationArn?: pulumi.Input<string>;
+    /**
+     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
+     */
     encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfigurationArgs>;
+    /**
+     * The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+     */
     healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfigurationArgs>;
+    /**
+     * The runtime configuration of instances (scaling units) of your service.
+     */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfigurationArgs>;
+    /**
+     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     */
     networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfigurationArgs>;
+    /**
+     * The observability configuration of your service.
+     */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfigurationArgs>;
     /**
      * The AppRunner Service Name.
      */
     serviceName?: pulumi.Input<string>;
+    /**
+     * The source to deploy to the App Runner service. It can be a code or an image repository.
+     */
     sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationArgs>;
+    /**
+     * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

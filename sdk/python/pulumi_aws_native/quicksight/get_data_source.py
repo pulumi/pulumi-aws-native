@@ -94,11 +94,17 @@ class GetDataSourceResult:
     @property
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> Optional['outputs.DataSourceParameters']:
+        """
+        The parameters that Amazon QuickSight uses to connect to your underlying source.
+        """
         return pulumi.get(self, "data_source_parameters")
 
     @property
     @pulumi.getter(name="errorInfo")
     def error_info(self) -> Optional['outputs.DataSourceErrorInfo']:
+        """
+        Error information from the last update or the creation of the data source.
+        """
         return pulumi.get(self, "error_info")
 
     @property
@@ -112,31 +118,49 @@ class GetDataSourceResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A display name for the data source.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DataSourceResourcePermission']]:
+        """
+        A list of resource permissions on the data source.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional['outputs.DataSourceSslProperties']:
+        """
+        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        """
         return pulumi.get(self, "ssl_properties")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['DataSourceResourceStatus']:
+        """
+        The HTTP status of the request.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional['outputs.DataSourceVpcConnectionProperties']:
+        """
+        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        """
         return pulumi.get(self, "vpc_connection_properties")
 
 
@@ -165,6 +189,10 @@ def get_data_source(aws_account_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
     Definition of the AWS::QuickSight::DataSource Resource Type.
+
+
+    :param str aws_account_id: The AWS account ID.
+    :param str data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -193,5 +221,9 @@ def get_data_source_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of the AWS::QuickSight::DataSource Resource Type.
+
+
+    :param str aws_account_id: The AWS account ID.
+    :param str data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
     """
     ...

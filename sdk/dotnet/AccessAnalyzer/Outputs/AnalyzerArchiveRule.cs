@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class AnalyzerArchiveRule
     {
+        /// <summary>
+        /// The criteria for the rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerFilter> Filter;
         /// <summary>
         /// The archive rule name

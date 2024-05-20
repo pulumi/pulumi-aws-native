@@ -55,51 +55,83 @@ class GetEndpointResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the endpoint.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[str]:
+        """
+        The ID of the endpoint.
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[str]:
+        """
+        The URL of the endpoint.
+        """
         return pulumi.get(self, "endpoint_url")
 
     @property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> Optional[Sequence['outputs.EndpointEventBus']]:
+        """
+        The event buses being used by the endpoint.
+
+        *Exactly* : `2`
+        """
         return pulumi.get(self, "event_buses")
 
     @property
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> Optional['outputs.EndpointReplicationConfig']:
+        """
+        Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        """
         return pulumi.get(self, "replication_config")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role used by event replication for the endpoint.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> Optional['outputs.EndpointRoutingConfig']:
+        """
+        The routing configuration of the endpoint.
+        """
         return pulumi.get(self, "routing_config")
 
     @property
     @pulumi.getter
     def state(self) -> Optional['EndpointState']:
+        """
+        The main Region of the endpoint.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> Optional[str]:
+        """
+        The reason the endpoint is in its current state.
+        """
         return pulumi.get(self, "state_reason")
 
 
@@ -125,6 +157,9 @@ def get_endpoint(name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Resource Type definition for AWS::Events::Endpoint.
+
+
+    :param str name: The name of the endpoint.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -149,5 +184,8 @@ def get_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Type definition for AWS::Events::Endpoint.
+
+
+    :param str name: The name of the endpoint.
     """
     ...

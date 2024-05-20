@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceImageRepository
     {
+        /// <summary>
+        /// Configuration for running the identified image.
+        /// </summary>
         public readonly Outputs.ServiceImageConfiguration? ImageConfiguration;
         /// <summary>
         /// Image Identifier

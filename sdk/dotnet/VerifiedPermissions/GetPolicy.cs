@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the new or updated policy.
+        /// </summary>
         [Input("policyId", required: true)]
         public string PolicyId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public string PolicyStoreId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the new or updated policy.
+        /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
@@ -57,8 +69,20 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [OutputType]
     public sealed class GetPolicyResult
     {
+        /// <summary>
+        /// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        /// </summary>
         public readonly Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>? Definition;
+        /// <summary>
+        /// The unique ID of the new or updated policy.
+        /// </summary>
         public readonly string? PolicyId;
+        /// <summary>
+        /// The type of the policy. This is one of the following values:
+        /// 
+        /// - Static
+        /// - TemplateLinked
+        /// </summary>
         public readonly Pulumi.AwsNative.VerifiedPermissions.PolicyType? PolicyType;
 
         [OutputConstructor]

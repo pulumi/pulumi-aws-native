@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCascadingControlSource
     {
+        /// <summary>
+        /// The column identifier that determines which column to look up for the source sheet control.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier? ColumnToMatch;
+        /// <summary>
+        /// The source sheet control ID of a `CascadingControlSource` .
+        /// </summary>
         public readonly string? SourceSheetControlId;
 
         [OutputConstructor]

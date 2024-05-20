@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+        /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
 
@@ -135,6 +138,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
+        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 

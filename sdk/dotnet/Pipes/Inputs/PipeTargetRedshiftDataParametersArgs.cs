@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         [Input("statementName")]
         public Input<string>? StatementName { get; set; }
 
+        /// <summary>
+        /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        /// </summary>
         [Input("withEvent")]
         public Input<bool>? WithEvent { get; set; }
 

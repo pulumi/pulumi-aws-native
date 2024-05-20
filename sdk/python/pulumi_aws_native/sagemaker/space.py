@@ -29,8 +29,11 @@ class SpaceArgs:
         """
         The set of arguments for constructing a Space resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: The collection of ownership settings for a space.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the Studio UI.
         :param pulumi.Input[str] space_name: A name for the Space.
         :param pulumi.Input['SpaceSettingsArgs'] space_settings: A collection of settings.
+        :param pulumi.Input['SpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the space.
         """
         pulumi.set(__self__, "domain_id", domain_id)
@@ -62,6 +65,9 @@ class SpaceArgs:
     @property
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
+        """
+        The collection of ownership settings for a space.
+        """
         return pulumi.get(self, "ownership_settings")
 
     @ownership_settings.setter
@@ -71,6 +77,9 @@ class SpaceArgs:
     @property
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the space that appears in the Studio UI.
+        """
         return pulumi.get(self, "space_display_name")
 
     @space_display_name.setter
@@ -104,6 +113,9 @@ class SpaceArgs:
     @property
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSharingSettingsArgs']]:
+        """
+        A collection of space sharing settings.
+        """
         return pulumi.get(self, "space_sharing_settings")
 
     @space_sharing_settings.setter
@@ -142,8 +154,11 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']] ownership_settings: The collection of ownership settings for a space.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the Studio UI.
         :param pulumi.Input[str] space_name: A name for the Space.
         :param pulumi.Input[pulumi.InputType['SpaceSettingsArgs']] space_settings: A collection of settings.
+        :param pulumi.Input[pulumi.InputType['SpaceSharingSettingsArgs']] space_sharing_settings: A collection of space sharing settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to apply to the space.
         """
         ...
@@ -243,6 +258,9 @@ class Space(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ownershipSettings")
     def ownership_settings(self) -> pulumi.Output[Optional['outputs.SpaceOwnershipSettings']]:
+        """
+        The collection of ownership settings for a space.
+        """
         return pulumi.get(self, "ownership_settings")
 
     @property
@@ -256,6 +274,9 @@ class Space(pulumi.CustomResource):
     @property
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the space that appears in the Studio UI.
+        """
         return pulumi.get(self, "space_display_name")
 
     @property
@@ -277,6 +298,9 @@ class Space(pulumi.CustomResource):
     @property
     @pulumi.getter(name="spaceSharingSettings")
     def space_sharing_settings(self) -> pulumi.Output[Optional['outputs.SpaceSharingSettings']]:
+        """
+        A collection of space sharing settings.
+        """
         return pulumi.get(self, "space_sharing_settings")
 
     @property
@@ -290,5 +314,14 @@ class Space(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+
+        The following application types are supported:
+
+        - Studio Classic: `&redirect=JupyterServer`
+        - JupyterLab: `&redirect=JupyterLab`
+        - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
+        """
         return pulumi.get(self, "url")
 

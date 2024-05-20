@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class OriginEndpointCmafPackageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointCmafEncryptionArgs>? Encryption { get; set; }
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("segmentPrefix")]
         public Input<string>? SegmentPrefix { get; set; }
 
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 

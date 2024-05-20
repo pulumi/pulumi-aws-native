@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         /// </summary>
         public readonly int? HealthCheckIntervalSeconds;
+        /// <summary>
+        /// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+        /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
         /// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         public readonly Pulumi.AwsNative.GlobalAccelerator.EndpointGroupHealthCheckProtocol? HealthCheckProtocol;
+        /// <summary>
+        /// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointGroupPortOverride> PortOverrides;
         /// <summary>
         /// The number of consecutive health checks required to set the state of the endpoint to unhealthy.

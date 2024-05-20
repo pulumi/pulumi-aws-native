@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAxisScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The linear axis scale setup.
+        /// </summary>
         [Input("linear")]
         public Input<Inputs.DashboardAxisLinearScaleArgs>? Linear { get; set; }
 
+        /// <summary>
+        /// The logarithmic axis scale setup.
+        /// </summary>
         [Input("logarithmic")]
         public Input<Inputs.DashboardAxisLogarithmicScaleArgs>? Logarithmic { get; set; }
 

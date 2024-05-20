@@ -23,15 +23,19 @@ func LookupResourceAssociation(ctx *pulumi.Context, args *LookupResourceAssociat
 }
 
 type LookupResourceAssociationArgs struct {
+	// The Amazon resource name (ARN) that specifies the application.
 	ApplicationArn string `pulumi:"applicationArn"`
-	ResourceArn    string `pulumi:"resourceArn"`
+	// The Amazon resource name (ARN) that specifies the resource.
+	ResourceArn string `pulumi:"resourceArn"`
 	// The type of the CFN Resource for now it's enum CFN_STACK.
 	ResourceType ResourceAssociationResourceType `pulumi:"resourceType"`
 }
 
 type LookupResourceAssociationResult struct {
+	// The Amazon resource name (ARN) that specifies the application.
 	ApplicationArn *string `pulumi:"applicationArn"`
-	ResourceArn    *string `pulumi:"resourceArn"`
+	// The Amazon resource name (ARN) that specifies the resource.
+	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 func LookupResourceAssociationOutput(ctx *pulumi.Context, args LookupResourceAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResourceAssociationResultOutput {
@@ -48,8 +52,10 @@ func LookupResourceAssociationOutput(ctx *pulumi.Context, args LookupResourceAss
 }
 
 type LookupResourceAssociationOutputArgs struct {
+	// The Amazon resource name (ARN) that specifies the application.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
-	ResourceArn    pulumi.StringInput `pulumi:"resourceArn"`
+	// The Amazon resource name (ARN) that specifies the resource.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 	// The type of the CFN Resource for now it's enum CFN_STACK.
 	ResourceType ResourceAssociationResourceTypeInput `pulumi:"resourceType"`
 }
@@ -72,10 +78,12 @@ func (o LookupResourceAssociationResultOutput) ToLookupResourceAssociationResult
 	return o
 }
 
+// The Amazon resource name (ARN) that specifies the application.
 func (o LookupResourceAssociationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceAssociationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon resource name (ARN) that specifies the resource.
 func (o LookupResourceAssociationResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceAssociationResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }

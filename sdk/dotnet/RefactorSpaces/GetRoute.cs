@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetRouteArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public string ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public string EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the route.
+        /// </summary>
         [Input("routeIdentifier", required: true)]
         public string RouteIdentifier { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class GetRouteInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the route.
+        /// </summary>
         [Input("routeIdentifier", required: true)]
         public Input<string> RouteIdentifier { get; set; } = null!;
 
@@ -63,8 +81,17 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [OutputType]
     public sealed class GetRouteResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the route.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A mapping of Amazon API Gateway path resources to resource IDs.
+        /// </summary>
         public readonly string? PathResourceToId;
+        /// <summary>
+        /// The unique identifier of the route.
+        /// </summary>
         public readonly string? RouteIdentifier;
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.

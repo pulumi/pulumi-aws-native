@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class AssetModelMetricWindow
     {
+        /// <summary>
+        /// The tumbling time interval window.
+        /// </summary>
         public readonly Outputs.AssetModelTumblingWindow? Tumbling;
 
         [OutputConstructor]

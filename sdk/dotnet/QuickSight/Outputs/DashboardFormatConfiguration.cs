@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFormatConfiguration
     {
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         public readonly Outputs.DashboardDateTimeFormatConfiguration? DateTimeFormatConfiguration;
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         public readonly Outputs.DashboardNumberFormatConfiguration? NumberFormatConfiguration;
+        /// <summary>
+        /// Formatting configuration for string fields.
+        /// </summary>
         public readonly Outputs.DashboardStringFormatConfiguration? StringFormatConfiguration;
 
         [OutputConstructor]

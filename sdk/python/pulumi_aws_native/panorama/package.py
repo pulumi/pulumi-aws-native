@@ -23,6 +23,9 @@ class PackageArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Package resource.
+        :param pulumi.Input[str] package_name: A name for the package.
+        :param pulumi.Input['PackageStorageLocationArgs'] storage_location: A storage location.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the package.
         """
         if package_name is not None:
             pulumi.set(__self__, "package_name", package_name)
@@ -34,6 +37,9 @@ class PackageArgs:
     @property
     @pulumi.getter(name="packageName")
     def package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the package.
+        """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
@@ -43,6 +49,9 @@ class PackageArgs:
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> Optional[pulumi.Input['PackageStorageLocationArgs']]:
+        """
+        A storage location.
+        """
         return pulumi.get(self, "storage_location")
 
     @storage_location.setter
@@ -52,6 +61,9 @@ class PackageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags for the package.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -73,6 +85,9 @@ class Package(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] package_name: A name for the package.
+        :param pulumi.Input[pulumi.InputType['PackageStorageLocationArgs']] storage_location: A storage location.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the package.
         """
         ...
     @overload
@@ -151,30 +166,48 @@ class Package(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The package's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[int]:
+        """
+        When the package was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="packageId")
     def package_id(self) -> pulumi.Output[str]:
+        """
+        The package's ID.
+        """
         return pulumi.get(self, "package_id")
 
     @property
     @pulumi.getter(name="packageName")
     def package_name(self) -> pulumi.Output[str]:
+        """
+        A name for the package.
+        """
         return pulumi.get(self, "package_name")
 
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> pulumi.Output[Optional['outputs.PackageStorageLocation']]:
+        """
+        A storage location.
+        """
         return pulumi.get(self, "storage_location")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags for the package.
+        """
         return pulumi.get(self, "tags")
 

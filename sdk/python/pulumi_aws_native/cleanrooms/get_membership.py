@@ -50,36 +50,65 @@ class GetMembershipResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified membership.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified collaboration.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "collaboration_arn")
 
     @property
     @pulumi.getter(name="collaborationCreatorAccountId")
     def collaboration_creator_account_id(self) -> Optional[str]:
+        """
+        Returns the unique identifier of the specified collaboration creator account.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "collaboration_creator_account_id")
 
     @property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional['outputs.MembershipProtectedQueryResultConfiguration']:
+        """
+        The default protected query result configuration as specified by the member who can receive results.
+        """
         return pulumi.get(self, "default_result_configuration")
 
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> Optional[str]:
+        """
+        Returns the unique identifier of the specified membership.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+        """
         return pulumi.get(self, "membership_identifier")
 
     @property
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional['outputs.MembershipPaymentConfiguration']:
+        """
+        The payment responsibilities accepted by the collaboration member.
+        """
         return pulumi.get(self, "payment_configuration")
 
     @property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> Optional['MembershipQueryLogStatus']:
+        """
+        An indicator as to whether query logging has been enabled or disabled for the membership.
+        """
         return pulumi.get(self, "query_log_status")
 
     @property
@@ -111,6 +140,11 @@ def get_membership(membership_identifier: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMembershipResult:
     """
     Represents an AWS account that is a part of a collaboration
+
+
+    :param str membership_identifier: Returns the unique identifier of the specified membership.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
     """
     __args__ = dict()
     __args__['membershipIdentifier'] = membership_identifier
@@ -133,5 +167,10 @@ def get_membership_output(membership_identifier: Optional[pulumi.Input[str]] = N
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
     """
     Represents an AWS account that is a part of a collaboration
+
+
+    :param str membership_identifier: Returns the unique identifier of the specified membership.
+           
+           Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
     """
     ...

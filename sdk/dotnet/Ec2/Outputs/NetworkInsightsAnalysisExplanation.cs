@@ -13,56 +13,212 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisExplanation
     {
+        /// <summary>
+        /// The network ACL.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Acl;
+        /// <summary>
+        /// The network ACL rule.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule;
+        /// <summary>
+        /// The IPv4 address, in CIDR notation.
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// The IPv4 addresses, in CIDR notation.
+        /// </summary>
         public readonly ImmutableArray<string> Addresses;
+        /// <summary>
+        /// The resource to which the component is attached.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? AttachedTo;
+        /// <summary>
+        /// The Availability Zones.
+        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
+        /// The CIDR ranges.
+        /// </summary>
         public readonly ImmutableArray<string> Cidrs;
+        /// <summary>
+        /// The listener for a Classic Load Balancer.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener? ClassicLoadBalancerListener;
+        /// <summary>
+        /// The component.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
+        /// <summary>
+        /// The AWS account for the component.
+        /// </summary>
         public readonly string? ComponentAccount;
+        /// <summary>
+        /// The Region for the component.
+        /// </summary>
         public readonly string? ComponentRegion;
+        /// <summary>
+        /// The customer gateway.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? CustomerGateway;
+        /// <summary>
+        /// The destination.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Destination;
+        /// <summary>
+        /// The destination VPC.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc;
+        /// <summary>
+        /// The direction. The following are the possible values:
+        /// 
+        /// - egress
+        /// - ingress
+        /// </summary>
         public readonly string? Direction;
+        /// <summary>
+        /// The load balancer listener.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? ElasticLoadBalancerListener;
+        /// <summary>
+        /// The explanation code.
+        /// </summary>
         public readonly string? ExplanationCode;
+        /// <summary>
+        /// The route table.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? IngressRouteTable;
+        /// <summary>
+        /// The internet gateway.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? InternetGateway;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         public readonly string? LoadBalancerArn;
+        /// <summary>
+        /// The listener port of the load balancer.
+        /// </summary>
         public readonly int? LoadBalancerListenerPort;
+        /// <summary>
+        /// The target.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerTarget? LoadBalancerTarget;
+        /// <summary>
+        /// The target group.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? LoadBalancerTargetGroup;
+        /// <summary>
+        /// The target groups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> LoadBalancerTargetGroups;
+        /// <summary>
+        /// The target port.
+        /// </summary>
         public readonly int? LoadBalancerTargetPort;
+        /// <summary>
+        /// The missing component.
+        /// </summary>
         public readonly string? MissingComponent;
+        /// <summary>
+        /// The NAT gateway.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? NatGateway;
+        /// <summary>
+        /// The network interface.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? NetworkInterface;
+        /// <summary>
+        /// The packet field.
+        /// </summary>
         public readonly string? PacketField;
+        /// <summary>
+        /// The port.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The port ranges.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> PortRanges;
+        /// <summary>
+        /// The prefix list.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? PrefixList;
+        /// <summary>
+        /// The protocols.
+        /// </summary>
         public readonly ImmutableArray<string> Protocols;
+        /// <summary>
+        /// The route table.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? RouteTable;
+        /// <summary>
+        /// The route table route.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute;
+        /// <summary>
+        /// The security group.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SecurityGroup;
+        /// <summary>
+        /// The security group rule.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule;
+        /// <summary>
+        /// The security groups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> SecurityGroups;
+        /// <summary>
+        /// The source VPC.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc;
+        /// <summary>
+        /// The state.
+        /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// The subnet.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
+        /// <summary>
+        /// The route table for the subnet.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SubnetRouteTable;
+        /// <summary>
+        /// The transit gateway.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
+        /// <summary>
+        /// The transit gateway attachment.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayAttachment;
+        /// <summary>
+        /// The transit gateway route table.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayRouteTable;
+        /// <summary>
+        /// The transit gateway route table route.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? TransitGatewayRouteTableRoute;
+        /// <summary>
+        /// The component VPC.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
+        /// <summary>
+        /// The VPC endpoint.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcEndpoint;
+        /// <summary>
+        /// The VPC peering connection.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcPeeringConnection;
+        /// <summary>
+        /// The VPN connection.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnConnection;
+        /// <summary>
+        /// The VPN gateway.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnGateway;
 
         [OutputConstructor]

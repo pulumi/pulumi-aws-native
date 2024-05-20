@@ -23,15 +23,21 @@ func LookupRegistryPolicy(ctx *pulumi.Context, args *LookupRegistryPolicyArgs, o
 }
 
 type LookupRegistryPolicyArgs struct {
+	// The ID of the policy.
 	Id string `pulumi:"id"`
 }
 
 type LookupRegistryPolicyResult struct {
+	// The ID of the policy.
 	Id *string `pulumi:"id"`
+	// A resource-based policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
-	Policy       interface{} `pulumi:"policy"`
-	RegistryName *string     `pulumi:"registryName"`
-	RevisionId   *string     `pulumi:"revisionId"`
+	Policy interface{} `pulumi:"policy"`
+	// The name of the registry.
+	RegistryName *string `pulumi:"registryName"`
+	// The revision ID of the policy.
+	RevisionId *string `pulumi:"revisionId"`
 }
 
 func LookupRegistryPolicyOutput(ctx *pulumi.Context, args LookupRegistryPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryPolicyResultOutput {
@@ -48,6 +54,7 @@ func LookupRegistryPolicyOutput(ctx *pulumi.Context, args LookupRegistryPolicyOu
 }
 
 type LookupRegistryPolicyOutputArgs struct {
+	// The ID of the policy.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -69,19 +76,24 @@ func (o LookupRegistryPolicyResultOutput) ToLookupRegistryPolicyResultOutputWith
 	return o
 }
 
+// The ID of the policy.
 func (o LookupRegistryPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A resource-based policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
 func (o LookupRegistryPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The name of the registry.
 func (o LookupRegistryPolicyResultOutput) RegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
 }
 
+// The revision ID of the policy.
 func (o LookupRegistryPolicyResultOutput) RevisionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryPolicyResult) *string { return v.RevisionId }).(pulumi.StringPtrOutput)
 }

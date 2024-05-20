@@ -20,11 +20,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The description of the task template's field
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique identifier for the field.
+        /// </summary>
         public readonly Outputs.TaskTemplateFieldIdentifier Id;
         /// <summary>
         /// list of field options to be used with single select
         /// </summary>
         public readonly ImmutableArray<string> SingleSelectOptions;
+        /// <summary>
+        /// Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.TaskTemplateFieldType Type;
 
         [OutputConstructor]

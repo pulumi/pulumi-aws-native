@@ -82,6 +82,9 @@ class JobLogSubscription(str, Enum):
 
 
 class JobOutputCompressionFormat(str, Enum):
+    """
+    The compression algorithm used to compress the output text of the job.
+    """
     GZIP = "GZIP"
     LZ4 = "LZ4"
     SNAPPY = "SNAPPY"
@@ -94,6 +97,9 @@ class JobOutputCompressionFormat(str, Enum):
 
 
 class JobOutputFormat(str, Enum):
+    """
+    The data format of the output of the job.
+    """
     CSV = "CSV"
     JSON = "JSON"
     PARQUET = "PARQUET"

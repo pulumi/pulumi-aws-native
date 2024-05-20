@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("azureBlobContainerUrl")]
         public Output<string?> AzureBlobContainerUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+        /// </summary>
         [Output("azureBlobSasConfiguration")]
         public Output<Outputs.LocationAzureBlobAzureBlobSasConfiguration?> AzureBlobSasConfiguration { get; private set; } = null!;
 
@@ -151,6 +154,9 @@ namespace Pulumi.AwsNative.DataSync
         [Input("azureBlobContainerUrl")]
         public Input<string>? AzureBlobContainerUrl { get; set; }
 
+        /// <summary>
+        /// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+        /// </summary>
         [Input("azureBlobSasConfiguration")]
         public Input<Inputs.LocationAzureBlobAzureBlobSasConfigurationArgs>? AzureBlobSasConfiguration { get; set; }
 

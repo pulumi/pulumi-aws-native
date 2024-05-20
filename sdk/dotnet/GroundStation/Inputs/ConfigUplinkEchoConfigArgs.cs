@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigUplinkEchoConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
+        /// </summary>
         [Input("antennaUplinkConfigArn")]
         public Input<string>? AntennaUplinkConfigArn { get; set; }
 
+        /// <summary>
+        /// Whether or not uplink echo is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

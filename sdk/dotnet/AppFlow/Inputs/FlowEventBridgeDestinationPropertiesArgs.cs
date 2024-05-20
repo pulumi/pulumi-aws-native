@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowEventBridgeDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The object specified in the Amplitude flow source.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
+        /// <summary>
+        /// The object specified in the Amazon EventBridge flow destination.
+        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

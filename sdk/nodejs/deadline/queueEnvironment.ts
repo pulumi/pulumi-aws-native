@@ -37,12 +37,33 @@ export class QueueEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueueEnvironment.__pulumiType;
     }
 
+    /**
+     * The identifier assigned to the farm that contains the queue.
+     */
     public readonly farmId!: pulumi.Output<string>;
+    /**
+     * The name of the queue environment.
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The queue environment's priority.
+     */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * The queue environment ID.
+     */
     public /*out*/ readonly queueEnvironmentId!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the queue that contains the environment.
+     */
     public readonly queueId!: pulumi.Output<string>;
+    /**
+     * A JSON or YAML template the describes the processing environment for the queue.
+     */
     public readonly template!: pulumi.Output<string>;
+    /**
+     * Specifies whether the template for the queue environment is JSON or YAML.
+     */
     public readonly templateType!: pulumi.Output<enums.deadline.QueueEnvironmentEnvironmentTemplateType>;
 
     /**
@@ -98,9 +119,24 @@ export class QueueEnvironment extends pulumi.CustomResource {
  * The set of arguments for constructing a QueueEnvironment resource.
  */
 export interface QueueEnvironmentArgs {
+    /**
+     * The identifier assigned to the farm that contains the queue.
+     */
     farmId: pulumi.Input<string>;
+    /**
+     * The queue environment's priority.
+     */
     priority: pulumi.Input<number>;
+    /**
+     * The unique identifier of the queue that contains the environment.
+     */
     queueId: pulumi.Input<string>;
+    /**
+     * A JSON or YAML template the describes the processing environment for the queue.
+     */
     template: pulumi.Input<string>;
+    /**
+     * Specifies whether the template for the queue environment is JSON or YAML.
+     */
     templateType: pulumi.Input<enums.deadline.QueueEnvironmentEnvironmentTemplateType>;
 }

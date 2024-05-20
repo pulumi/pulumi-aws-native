@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetQueryAction
     {
+        /// <summary>
+        /// Pre-filters applied to message data.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetFilter> Filters;
+        /// <summary>
+        /// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
+        /// </summary>
         public readonly string SqlQuery;
 
         [OutputConstructor]

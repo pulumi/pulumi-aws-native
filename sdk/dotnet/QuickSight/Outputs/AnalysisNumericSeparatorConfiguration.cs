@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNumericSeparatorConfiguration
     {
+        /// <summary>
+        /// Determines the decimal separator.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisNumericSeparatorSymbol? DecimalSeparator;
+        /// <summary>
+        /// The options that determine the thousands separator configuration.
+        /// </summary>
         public readonly Outputs.AnalysisThousandSeparatorOptions? ThousandsSeparator;
 
         [OutputConstructor]

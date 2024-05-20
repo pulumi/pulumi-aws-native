@@ -50,41 +50,81 @@ class GetStateMachineResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the ARN of the resource.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="definitionString")
     def definition_string(self) -> Optional[str]:
+        """
+        The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
+        """
         return pulumi.get(self, "definition_string")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.StateMachineLoggingConfiguration']:
+        """
+        Defines what execution history events are logged and where they are logged.
+
+        > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Returns the name of the state machine. For example:
+
+        `{ "Fn::GetAtt": ["MyStateMachine", "Name"] }`
+
+        Returns the name of your state machine:
+
+        `HelloWorld-StateMachine`
+
+        If you did not specify the name it will be similar to the following:
+
+        `MyStateMachine-1234abcdefgh`
+
+        For more information about using `Fn::GetAtt` , see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html) .
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stateMachineRevisionId")
     def state_machine_revision_id(self) -> Optional[str]:
+        """
+        Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+        """
         return pulumi.get(self, "state_machine_revision_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> Optional['outputs.StateMachineTracingConfiguration']:
+        """
+        Selects whether or not the state machine's AWS X-Ray tracing is enabled.
+        """
         return pulumi.get(self, "tracing_configuration")
 
 
@@ -108,6 +148,9 @@ def get_state_machine(arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineResult:
     """
     Resource schema for StateMachine
+
+
+    :param str arn: Returns the ARN of the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -130,5 +173,8 @@ def get_state_machine_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineResult]:
     """
     Resource schema for StateMachine
+
+
+    :param str arn: Returns the ARN of the resource.
     """
     ...

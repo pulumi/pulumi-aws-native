@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateConditionalFormattingSolidColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// The expression that determines the formatting configuration for solid color.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

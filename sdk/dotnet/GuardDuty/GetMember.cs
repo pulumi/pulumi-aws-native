@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetMemberArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the detector associated with the GuardDuty service to add the member to.
+        /// </summary>
         [Input("detectorId", required: true)]
         public string DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the account to designate as a member.
+        /// </summary>
         [Input("memberId", required: true)]
         public string MemberId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetMemberInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the detector associated with the GuardDuty service to add the member to.
+        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID of the account to designate as a member.
+        /// </summary>
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
@@ -57,7 +69,13 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetMemberResult
     {
+        /// <summary>
+        /// The email address associated with the member account.
+        /// </summary>
         public readonly string? Email;
+        /// <summary>
+        /// You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

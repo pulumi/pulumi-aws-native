@@ -52,17 +52,27 @@ class AppBlockBuilderAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: str):
+        """
+        :param str endpoint_type: The type of interface endpoint.
+        :param str vpce_id: The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
+        """
+        The type of interface endpoint.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> str:
+        """
+        The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
         return pulumi.get(self, "vpce_id")
 
 
@@ -90,6 +100,10 @@ class AppBlockBuilderVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] security_group_ids: The identifiers of the security groups for the fleet or image builder.
+        :param Sequence[str] subnet_ids: The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -98,11 +112,17 @@ class AppBlockBuilderVpcConfig(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The identifiers of the security groups for the fleet or image builder.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -130,6 +150,12 @@ class AppBlockS3Location(dict):
     def __init__(__self__, *,
                  s3_bucket: str,
                  s3_key: Optional[str] = None):
+        """
+        :param str s3_bucket: The S3 bucket of the app block.
+        :param str s3_key: The S3 key of the S3 object of the virtual hard disk.
+               
+               This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
+        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
             pulumi.set(__self__, "s3_key", s3_key)
@@ -137,11 +163,19 @@ class AppBlockS3Location(dict):
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
+        """
+        The S3 bucket of the app block.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[str]:
+        """
+        The S3 key of the S3 object of the virtual hard disk.
+
+        This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
+        """
         return pulumi.get(self, "s3_key")
 
 
@@ -175,6 +209,12 @@ class AppBlockScriptDetails(dict):
                  script_s3_location: 'outputs.AppBlockS3Location',
                  timeout_in_seconds: int,
                  executable_parameters: Optional[str] = None):
+        """
+        :param str executable_path: The run path for the script.
+        :param 'AppBlockS3Location' script_s3_location: The S3 object location of the script.
+        :param int timeout_in_seconds: The run timeout, in seconds, for the script.
+        :param str executable_parameters: The parameters used in the run path for the script.
+        """
         pulumi.set(__self__, "executable_path", executable_path)
         pulumi.set(__self__, "script_s3_location", script_s3_location)
         pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
@@ -184,21 +224,33 @@ class AppBlockScriptDetails(dict):
     @property
     @pulumi.getter(name="executablePath")
     def executable_path(self) -> str:
+        """
+        The run path for the script.
+        """
         return pulumi.get(self, "executable_path")
 
     @property
     @pulumi.getter(name="scriptS3Location")
     def script_s3_location(self) -> 'outputs.AppBlockS3Location':
+        """
+        The S3 object location of the script.
+        """
         return pulumi.get(self, "script_s3_location")
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> int:
+        """
+        The run timeout, in seconds, for the script.
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @property
     @pulumi.getter(name="executableParameters")
     def executable_parameters(self) -> Optional[str]:
+        """
+        The parameters used in the run path for the script.
+        """
         return pulumi.get(self, "executable_parameters")
 
 
@@ -283,17 +335,27 @@ class ApplicationS3Location(dict):
     def __init__(__self__, *,
                  s3_bucket: str,
                  s3_key: str):
+        """
+        :param str s3_bucket: The S3 bucket of the S3 object.
+        :param str s3_key: The S3 key of the S3 object.
+        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
+        """
+        The S3 bucket of the S3 object.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> str:
+        """
+        The S3 key of the S3 object.
+        """
         return pulumi.get(self, "s3_key")
 
 
@@ -376,6 +438,10 @@ class DirectoryConfigCertificateBasedAuthProperties(dict):
     def __init__(__self__, *,
                  certificate_authority_arn: Optional[str] = None,
                  status: Optional[str] = None):
+        """
+        :param str certificate_authority_arn: The ARN of the AWS Certificate Manager Private CA resource.
+        :param str status: The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+        """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if status is not None:
@@ -384,11 +450,17 @@ class DirectoryConfigCertificateBasedAuthProperties(dict):
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[str]:
+        """
+        The ARN of the AWS Certificate Manager Private CA resource.
+        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+        """
         return pulumi.get(self, "status")
 
 
@@ -416,17 +488,27 @@ class DirectoryConfigServiceAccountCredentials(dict):
     def __init__(__self__, *,
                  account_name: str,
                  account_password: str):
+        """
+        :param str account_name: The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        :param str account_password: The password for the account.
+        """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "account_password", account_password)
 
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
+        """
+        The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        """
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="accountPassword")
     def account_password(self) -> str:
+        """
+        The password for the account.
+        """
         return pulumi.get(self, "account_password")
 
 
@@ -435,17 +517,47 @@ class EntitlementAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+               
+               The following are supported values:
+               
+               - roles
+               - department
+               - organization
+               - groups
+               - title
+               - costCenter
+               - userType
+        :param str value: A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
+
+        The following are supported values:
+
+        - roles
+        - department
+        - organization
+        - groups
+        - title
+        - costCenter
+        - userType
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
+        """
         return pulumi.get(self, "value")
 
 
@@ -473,17 +585,27 @@ class ImageBuilderAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: str):
+        """
+        :param str endpoint_type: The type of interface endpoint.
+        :param str vpce_id: The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
+        """
+        The type of interface endpoint.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> str:
+        """
+        The identifier (ID) of the VPC in which the interface endpoint is used.
+        """
         return pulumi.get(self, "vpce_id")
 
 
@@ -511,6 +633,10 @@ class ImageBuilderDomainJoinInfo(dict):
     def __init__(__self__, *,
                  directory_name: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
+        """
+        :param str directory_name: The fully qualified name of the directory (for example, corp.example.com).
+        :param str organizational_unit_distinguished_name: The distinguished name of the organizational unit for computer accounts.
+        """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -519,11 +645,17 @@ class ImageBuilderDomainJoinInfo(dict):
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[str]:
+        """
+        The fully qualified name of the directory (for example, corp.example.com).
+        """
         return pulumi.get(self, "directory_name")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
+        """
+        The distinguished name of the organizational unit for computer accounts.
+        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -551,6 +683,10 @@ class ImageBuilderVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] security_group_ids: The identifiers of the security groups for the image builder.
+        :param Sequence[str] subnet_ids: The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
+        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -559,11 +695,17 @@ class ImageBuilderVpcConfig(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The identifiers of the security groups for the image builder.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
+        """
         return pulumi.get(self, "subnet_ids")
 
 

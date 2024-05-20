@@ -15,18 +15,35 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:RoleAlias")]
     public partial class RoleAlias : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The number of seconds for which the credential is valid.
+        /// </summary>
         [Output("credentialDurationSeconds")]
         public Output<int?> CredentialDurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The role alias.
+        /// </summary>
         [Output("roleAlias")]
         public Output<string?> RoleAliasValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The role alias ARN.
+        /// </summary>
         [Output("roleAliasArn")]
         public Output<string> RoleAliasArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The role ARN.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -79,17 +96,32 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class RoleAliasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of seconds for which the credential is valid.
+        /// </summary>
         [Input("credentialDurationSeconds")]
         public Input<int>? CredentialDurationSeconds { get; set; }
 
+        /// <summary>
+        /// The role alias.
+        /// </summary>
         [Input("roleAlias")]
         public Input<string>? RoleAliasValue { get; set; }
 
+        /// <summary>
+        /// The role ARN.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

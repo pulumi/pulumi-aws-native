@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetIdentitySourceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the new or updated identity store.
+        /// </summary>
         [Input("identitySourceId", required: true)]
         public string IdentitySourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public string PolicyStoreId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class GetIdentitySourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID of the new or updated identity store.
+        /// </summary>
         [Input("identitySourceId", required: true)]
         public Input<string> IdentitySourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
@@ -57,9 +69,18 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [OutputType]
     public sealed class GetIdentitySourceResult
     {
+        /// <summary>
+        /// Contains configuration information about an identity source.
+        /// </summary>
         public readonly Outputs.IdentitySourceConfigurationProperties? Configuration;
         public readonly Outputs.IdentitySourceDetails? Details;
+        /// <summary>
+        /// The unique ID of the new or updated identity store.
+        /// </summary>
         public readonly string? IdentitySourceId;
+        /// <summary>
+        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// </summary>
         public readonly string? PrincipalEntityType;
 
         [OutputConstructor]

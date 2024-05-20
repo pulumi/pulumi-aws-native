@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.DataBrew
         /// Schedule cron
         /// </summary>
         public readonly string? CronExpression;
+        /// <summary>
+        /// A list of jobs to be run, according to the schedule.
+        /// </summary>
         public readonly ImmutableArray<string> JobNames;
 
         [OutputConstructor]

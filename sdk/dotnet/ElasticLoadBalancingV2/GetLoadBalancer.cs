@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         [Input("loadBalancerArn", required: true)]
         public string LoadBalancerArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
+        /// <summary>
+        /// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
+        /// </summary>
         public readonly string? CanonicalHostedZoneId;
+        /// <summary>
+        /// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+        /// </summary>
         public readonly string? DnsName;
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
@@ -61,12 +73,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         /// </summary>
         public readonly string? IpAddressType;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         public readonly string? LoadBalancerArn;
         /// <summary>
         /// The load balancer attributes.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerAttribute> LoadBalancerAttributes;
+        /// <summary>
+        /// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+        /// </summary>
         public readonly string? LoadBalancerFullName;
+        /// <summary>
+        /// The name of the load balancer. For example, `my-load-balancer` .
+        /// </summary>
         public readonly string? LoadBalancerName;
         /// <summary>
         /// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Ssm.Inputs
     {
         [Input("patchFilters")]
         private InputList<Inputs.PatchBaselinePatchFilterArgs>? _patchFilters;
+
+        /// <summary>
+        /// The set of patch filters that make up the group.
+        /// </summary>
         public InputList<Inputs.PatchBaselinePatchFilterArgs> PatchFilters
         {
             get => _patchFilters ?? (_patchFilters = new InputList<Inputs.PatchBaselinePatchFilterArgs>());

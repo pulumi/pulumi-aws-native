@@ -49,6 +49,13 @@ class GetStateMachineAliasResult:
     @property
     @pulumi.getter(name="routingConfiguration")
     def routing_configuration(self) -> Optional[Sequence['outputs.StateMachineAliasRoutingConfigurationVersion']]:
+        """
+        The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+
+        Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+
+        > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+        """
         return pulumi.get(self, "routing_configuration")
 
 

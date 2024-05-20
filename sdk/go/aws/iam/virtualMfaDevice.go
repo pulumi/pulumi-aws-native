@@ -17,11 +17,24 @@ import (
 type VirtualMfaDevice struct {
 	pulumi.CustomResourceState
 
-	Path                 pulumi.StringPtrOutput   `pulumi:"path"`
-	SerialNumber         pulumi.StringOutput      `pulumi:"serialNumber"`
-	Tags                 aws.TagArrayOutput       `pulumi:"tags"`
-	Users                pulumi.StringArrayOutput `pulumi:"users"`
-	VirtualMfaDeviceName pulumi.StringPtrOutput   `pulumi:"virtualMfaDeviceName"`
+	// The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+	//
+	// This parameter is optional. If it is not included, it defaults to a slash (/).
+	//
+	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+	SerialNumber pulumi.StringOutput `pulumi:"serialNumber"`
+	// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	//
+	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The IAM user associated with this virtual MFA device.
+	Users pulumi.StringArrayOutput `pulumi:"users"`
+	// The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
+	//
+	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	VirtualMfaDeviceName pulumi.StringPtrOutput `pulumi:"virtualMfaDeviceName"`
 }
 
 // NewVirtualMfaDevice registers a new resource with the given unique name, arguments, and options.
@@ -72,17 +85,41 @@ func (VirtualMfaDeviceState) ElementType() reflect.Type {
 }
 
 type virtualMfaDeviceArgs struct {
-	Path                 *string   `pulumi:"path"`
-	Tags                 []aws.Tag `pulumi:"tags"`
-	Users                []string  `pulumi:"users"`
-	VirtualMfaDeviceName *string   `pulumi:"virtualMfaDeviceName"`
+	// The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+	//
+	// This parameter is optional. If it is not included, it defaults to a slash (/).
+	//
+	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+	Path *string `pulumi:"path"`
+	// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	//
+	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The IAM user associated with this virtual MFA device.
+	Users []string `pulumi:"users"`
+	// The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
+	//
+	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	VirtualMfaDeviceName *string `pulumi:"virtualMfaDeviceName"`
 }
 
 // The set of arguments for constructing a VirtualMfaDevice resource.
 type VirtualMfaDeviceArgs struct {
-	Path                 pulumi.StringPtrInput
-	Tags                 aws.TagArrayInput
-	Users                pulumi.StringArrayInput
+	// The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+	//
+	// This parameter is optional. If it is not included, it defaults to a slash (/).
+	//
+	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+	Path pulumi.StringPtrInput
+	// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	//
+	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+	Tags aws.TagArrayInput
+	// The IAM user associated with this virtual MFA device.
+	Users pulumi.StringArrayInput
+	// The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
+	//
+	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	VirtualMfaDeviceName pulumi.StringPtrInput
 }
 
@@ -123,22 +160,35 @@ func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutputWithContext(ctx context.
 	return o
 }
 
+// The path for the virtual MFA device. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+//
+// This parameter is optional. If it is not included, it defaults to a slash (/).
+//
+// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 func (o VirtualMfaDeviceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
 func (o VirtualMfaDeviceOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
+// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+//
+// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
 func (o VirtualMfaDeviceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The IAM user associated with this virtual MFA device.
 func (o VirtualMfaDeviceOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }
 
+// The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA device.
+//
+// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o VirtualMfaDeviceOutput) VirtualMfaDeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringPtrOutput { return v.VirtualMfaDeviceName }).(pulumi.StringPtrOutput)
 }

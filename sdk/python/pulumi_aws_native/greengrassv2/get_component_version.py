@@ -35,21 +35,40 @@ class GetComponentVersionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the component version.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="componentName")
     def component_name(self) -> Optional[str]:
+        """
+        The name of the component.
+        """
         return pulumi.get(self, "component_name")
 
     @property
     @pulumi.getter(name="componentVersion")
     def component_version(self) -> Optional[str]:
+        """
+        The version of the component.
+        """
         return pulumi.get(self, "component_version")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+
+        This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+
+        ```json
+        "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+        }
+        ```
+        """
         return pulumi.get(self, "tags")
 
 
@@ -69,6 +88,9 @@ def get_component_version(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentVersionResult:
     """
     Resource for Greengrass component version.
+
+
+    :param str arn: The ARN of the component version.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -87,5 +109,8 @@ def get_component_version_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentVersionResult]:
     """
     Resource for Greengrass component version.
+
+
+    :param str arn: The ARN of the component version.
     """
     ...

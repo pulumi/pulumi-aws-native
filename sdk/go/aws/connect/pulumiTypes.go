@@ -15,9 +15,12 @@ var _ = internal.GetEnvOrDefault
 
 // The constraints for the task template
 type ConstraintsProperties struct {
+	// Lists the fields that are invisible to agents.
 	InvisibleFields []TaskTemplateInvisibleFieldInfo `pulumi:"invisibleFields"`
-	ReadOnlyFields  []TaskTemplateReadOnlyFieldInfo  `pulumi:"readOnlyFields"`
-	RequiredFields  []TaskTemplateRequiredFieldInfo  `pulumi:"requiredFields"`
+	// Lists the fields that are read-only to agents, and cannot be edited.
+	ReadOnlyFields []TaskTemplateReadOnlyFieldInfo `pulumi:"readOnlyFields"`
+	// Lists the fields that are required to be filled by agents.
+	RequiredFields []TaskTemplateRequiredFieldInfo `pulumi:"requiredFields"`
 }
 
 // ConstraintsPropertiesInput is an input type that accepts ConstraintsPropertiesArgs and ConstraintsPropertiesOutput values.
@@ -33,9 +36,12 @@ type ConstraintsPropertiesInput interface {
 
 // The constraints for the task template
 type ConstraintsPropertiesArgs struct {
+	// Lists the fields that are invisible to agents.
 	InvisibleFields TaskTemplateInvisibleFieldInfoArrayInput `pulumi:"invisibleFields"`
-	ReadOnlyFields  TaskTemplateReadOnlyFieldInfoArrayInput  `pulumi:"readOnlyFields"`
-	RequiredFields  TaskTemplateRequiredFieldInfoArrayInput  `pulumi:"requiredFields"`
+	// Lists the fields that are read-only to agents, and cannot be edited.
+	ReadOnlyFields TaskTemplateReadOnlyFieldInfoArrayInput `pulumi:"readOnlyFields"`
+	// Lists the fields that are required to be filled by agents.
+	RequiredFields TaskTemplateRequiredFieldInfoArrayInput `pulumi:"requiredFields"`
 }
 
 func (ConstraintsPropertiesArgs) ElementType() reflect.Type {
@@ -116,14 +122,17 @@ func (o ConstraintsPropertiesOutput) ToConstraintsPropertiesPtrOutputWithContext
 	}).(ConstraintsPropertiesPtrOutput)
 }
 
+// Lists the fields that are invisible to agents.
 func (o ConstraintsPropertiesOutput) InvisibleFields() TaskTemplateInvisibleFieldInfoArrayOutput {
 	return o.ApplyT(func(v ConstraintsProperties) []TaskTemplateInvisibleFieldInfo { return v.InvisibleFields }).(TaskTemplateInvisibleFieldInfoArrayOutput)
 }
 
+// Lists the fields that are read-only to agents, and cannot be edited.
 func (o ConstraintsPropertiesOutput) ReadOnlyFields() TaskTemplateReadOnlyFieldInfoArrayOutput {
 	return o.ApplyT(func(v ConstraintsProperties) []TaskTemplateReadOnlyFieldInfo { return v.ReadOnlyFields }).(TaskTemplateReadOnlyFieldInfoArrayOutput)
 }
 
+// Lists the fields that are required to be filled by agents.
 func (o ConstraintsPropertiesOutput) RequiredFields() TaskTemplateRequiredFieldInfoArrayOutput {
 	return o.ApplyT(func(v ConstraintsProperties) []TaskTemplateRequiredFieldInfo { return v.RequiredFields }).(TaskTemplateRequiredFieldInfoArrayOutput)
 }
@@ -152,6 +161,7 @@ func (o ConstraintsPropertiesPtrOutput) Elem() ConstraintsPropertiesOutput {
 	}).(ConstraintsPropertiesOutput)
 }
 
+// Lists the fields that are invisible to agents.
 func (o ConstraintsPropertiesPtrOutput) InvisibleFields() TaskTemplateInvisibleFieldInfoArrayOutput {
 	return o.ApplyT(func(v *ConstraintsProperties) []TaskTemplateInvisibleFieldInfo {
 		if v == nil {
@@ -161,6 +171,7 @@ func (o ConstraintsPropertiesPtrOutput) InvisibleFields() TaskTemplateInvisibleF
 	}).(TaskTemplateInvisibleFieldInfoArrayOutput)
 }
 
+// Lists the fields that are read-only to agents, and cannot be edited.
 func (o ConstraintsPropertiesPtrOutput) ReadOnlyFields() TaskTemplateReadOnlyFieldInfoArrayOutput {
 	return o.ApplyT(func(v *ConstraintsProperties) []TaskTemplateReadOnlyFieldInfo {
 		if v == nil {
@@ -170,6 +181,7 @@ func (o ConstraintsPropertiesPtrOutput) ReadOnlyFields() TaskTemplateReadOnlyFie
 	}).(TaskTemplateReadOnlyFieldInfoArrayOutput)
 }
 
+// Lists the fields that are required to be filled by agents.
 func (o ConstraintsPropertiesPtrOutput) RequiredFields() TaskTemplateRequiredFieldInfoArrayOutput {
 	return o.ApplyT(func(v *ConstraintsProperties) []TaskTemplateRequiredFieldInfo {
 		if v == nil {
@@ -2828,8 +2840,14 @@ func (o InstanceAttributesPtrOutput) UseCustomTtsVoices() pulumi.BoolPtrOutput {
 }
 
 type InstanceStorageConfigEncryptionConfig struct {
+	// The type of encryption.
 	EncryptionType InstanceStorageConfigEncryptionType `pulumi:"encryptionType"`
-	KeyId          string                              `pulumi:"keyId"`
+	// The full ARN of the encryption key.
+	//
+	// > Be sure to provide the full ARN of the encryption key, not just the ID.
+	// >
+	// > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
+	KeyId string `pulumi:"keyId"`
 }
 
 // InstanceStorageConfigEncryptionConfigInput is an input type that accepts InstanceStorageConfigEncryptionConfigArgs and InstanceStorageConfigEncryptionConfigOutput values.
@@ -2844,8 +2862,14 @@ type InstanceStorageConfigEncryptionConfigInput interface {
 }
 
 type InstanceStorageConfigEncryptionConfigArgs struct {
+	// The type of encryption.
 	EncryptionType InstanceStorageConfigEncryptionTypeInput `pulumi:"encryptionType"`
-	KeyId          pulumi.StringInput                       `pulumi:"keyId"`
+	// The full ARN of the encryption key.
+	//
+	// > Be sure to provide the full ARN of the encryption key, not just the ID.
+	// >
+	// > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
 func (InstanceStorageConfigEncryptionConfigArgs) ElementType() reflect.Type {
@@ -2925,12 +2949,18 @@ func (o InstanceStorageConfigEncryptionConfigOutput) ToInstanceStorageConfigEncr
 	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
 }
 
+// The type of encryption.
 func (o InstanceStorageConfigEncryptionConfigOutput) EncryptionType() InstanceStorageConfigEncryptionTypeOutput {
 	return o.ApplyT(func(v InstanceStorageConfigEncryptionConfig) InstanceStorageConfigEncryptionType {
 		return v.EncryptionType
 	}).(InstanceStorageConfigEncryptionTypeOutput)
 }
 
+// The full ARN of the encryption key.
+//
+// > Be sure to provide the full ARN of the encryption key, not just the ID.
+// >
+// > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
 func (o InstanceStorageConfigEncryptionConfigOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigEncryptionConfig) string { return v.KeyId }).(pulumi.StringOutput)
 }
@@ -2959,6 +2989,7 @@ func (o InstanceStorageConfigEncryptionConfigPtrOutput) Elem() InstanceStorageCo
 	}).(InstanceStorageConfigEncryptionConfigOutput)
 }
 
+// The type of encryption.
 func (o InstanceStorageConfigEncryptionConfigPtrOutput) EncryptionType() InstanceStorageConfigEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigEncryptionConfig) *InstanceStorageConfigEncryptionType {
 		if v == nil {
@@ -2968,6 +2999,11 @@ func (o InstanceStorageConfigEncryptionConfigPtrOutput) EncryptionType() Instanc
 	}).(InstanceStorageConfigEncryptionTypePtrOutput)
 }
 
+// The full ARN of the encryption key.
+//
+// > Be sure to provide the full ARN of the encryption key, not just the ID.
+// >
+// > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
 func (o InstanceStorageConfigEncryptionConfigPtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigEncryptionConfig) *string {
 		if v == nil {
@@ -2978,6 +3014,7 @@ func (o InstanceStorageConfigEncryptionConfigPtrOutput) KeyId() pulumi.StringPtr
 }
 
 type InstanceStorageConfigKinesisFirehoseConfig struct {
+	// The Amazon Resource Name (ARN) of the delivery stream.
 	FirehoseArn string `pulumi:"firehoseArn"`
 }
 
@@ -2993,6 +3030,7 @@ type InstanceStorageConfigKinesisFirehoseConfigInput interface {
 }
 
 type InstanceStorageConfigKinesisFirehoseConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the delivery stream.
 	FirehoseArn pulumi.StringInput `pulumi:"firehoseArn"`
 }
 
@@ -3073,6 +3111,7 @@ func (o InstanceStorageConfigKinesisFirehoseConfigOutput) ToInstanceStorageConfi
 	}).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the delivery stream.
 func (o InstanceStorageConfigKinesisFirehoseConfigOutput) FirehoseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigKinesisFirehoseConfig) string { return v.FirehoseArn }).(pulumi.StringOutput)
 }
@@ -3101,6 +3140,7 @@ func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) Elem() InstanceStor
 	}).(InstanceStorageConfigKinesisFirehoseConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the delivery stream.
 func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) FirehoseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigKinesisFirehoseConfig) *string {
 		if v == nil {
@@ -3111,6 +3151,7 @@ func (o InstanceStorageConfigKinesisFirehoseConfigPtrOutput) FirehoseArn() pulum
 }
 
 type InstanceStorageConfigKinesisStreamConfig struct {
+	// The Amazon Resource Name (ARN) of the data stream.
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -3126,6 +3167,7 @@ type InstanceStorageConfigKinesisStreamConfigInput interface {
 }
 
 type InstanceStorageConfigKinesisStreamConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the data stream.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -3206,6 +3248,7 @@ func (o InstanceStorageConfigKinesisStreamConfigOutput) ToInstanceStorageConfigK
 	}).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the data stream.
 func (o InstanceStorageConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -3234,6 +3277,7 @@ func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) Elem() InstanceStorag
 	}).(InstanceStorageConfigKinesisStreamConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the data stream.
 func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigKinesisStreamConfig) *string {
 		if v == nil {
@@ -3244,9 +3288,14 @@ func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) StreamArn() pulumi.St
 }
 
 type InstanceStorageConfigKinesisVideoStreamConfig struct {
-	EncryptionConfig     InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
-	Prefix               string                                `pulumi:"prefix"`
-	RetentionPeriodHours float64                               `pulumi:"retentionPeriodHours"`
+	// The encryption configuration.
+	EncryptionConfig InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
+	// The prefix of the video stream.
+	Prefix string `pulumi:"prefix"`
+	// The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+	//
+	// The default value is 0, indicating that the stream does not persist data.
+	RetentionPeriodHours float64 `pulumi:"retentionPeriodHours"`
 }
 
 // InstanceStorageConfigKinesisVideoStreamConfigInput is an input type that accepts InstanceStorageConfigKinesisVideoStreamConfigArgs and InstanceStorageConfigKinesisVideoStreamConfigOutput values.
@@ -3261,9 +3310,14 @@ type InstanceStorageConfigKinesisVideoStreamConfigInput interface {
 }
 
 type InstanceStorageConfigKinesisVideoStreamConfigArgs struct {
-	EncryptionConfig     InstanceStorageConfigEncryptionConfigInput `pulumi:"encryptionConfig"`
-	Prefix               pulumi.StringInput                         `pulumi:"prefix"`
-	RetentionPeriodHours pulumi.Float64Input                        `pulumi:"retentionPeriodHours"`
+	// The encryption configuration.
+	EncryptionConfig InstanceStorageConfigEncryptionConfigInput `pulumi:"encryptionConfig"`
+	// The prefix of the video stream.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+	//
+	// The default value is 0, indicating that the stream does not persist data.
+	RetentionPeriodHours pulumi.Float64Input `pulumi:"retentionPeriodHours"`
 }
 
 func (InstanceStorageConfigKinesisVideoStreamConfigArgs) ElementType() reflect.Type {
@@ -3343,16 +3397,21 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) ToInstanceStorageCo
 	}).(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput)
 }
 
+// The encryption configuration.
 func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigOutput {
 	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) InstanceStorageConfigEncryptionConfig {
 		return v.EncryptionConfig
 	}).(InstanceStorageConfigEncryptionConfigOutput)
 }
 
+// The prefix of the video stream.
 func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
+// The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+//
+// The default value is 0, indicating that the stream does not persist data.
 func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) RetentionPeriodHours() pulumi.Float64Output {
 	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) float64 { return v.RetentionPeriodHours }).(pulumi.Float64Output)
 }
@@ -3381,6 +3440,7 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) Elem() InstanceS
 	}).(InstanceStorageConfigKinesisVideoStreamConfigOutput)
 }
 
+// The encryption configuration.
 func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) *InstanceStorageConfigEncryptionConfig {
 		if v == nil {
@@ -3390,6 +3450,7 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) EncryptionConfig
 	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
 }
 
+// The prefix of the video stream.
 func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) *string {
 		if v == nil {
@@ -3399,6 +3460,9 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) Prefix() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+//
+// The default value is 0, indicating that the stream does not persist data.
 func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) RetentionPeriodHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigKinesisVideoStreamConfig) *float64 {
 		if v == nil {
@@ -3409,8 +3473,11 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) RetentionPeriodH
 }
 
 type InstanceStorageConfigS3Config struct {
-	BucketName       string                                 `pulumi:"bucketName"`
-	BucketPrefix     string                                 `pulumi:"bucketPrefix"`
+	// The S3 bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// The S3 bucket prefix.
+	BucketPrefix string `pulumi:"bucketPrefix"`
+	// The Amazon S3 encryption configuration.
 	EncryptionConfig *InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
 }
 
@@ -3426,8 +3493,11 @@ type InstanceStorageConfigS3ConfigInput interface {
 }
 
 type InstanceStorageConfigS3ConfigArgs struct {
-	BucketName       pulumi.StringInput                            `pulumi:"bucketName"`
-	BucketPrefix     pulumi.StringInput                            `pulumi:"bucketPrefix"`
+	// The S3 bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The S3 bucket prefix.
+	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
+	// The Amazon S3 encryption configuration.
 	EncryptionConfig InstanceStorageConfigEncryptionConfigPtrInput `pulumi:"encryptionConfig"`
 }
 
@@ -3508,14 +3578,17 @@ func (o InstanceStorageConfigS3ConfigOutput) ToInstanceStorageConfigS3ConfigPtrO
 	}).(InstanceStorageConfigS3ConfigPtrOutput)
 }
 
+// The S3 bucket name.
 func (o InstanceStorageConfigS3ConfigOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigS3Config) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The S3 bucket prefix.
 func (o InstanceStorageConfigS3ConfigOutput) BucketPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigS3Config) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 encryption configuration.
 func (o InstanceStorageConfigS3ConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v InstanceStorageConfigS3Config) *InstanceStorageConfigEncryptionConfig {
 		return v.EncryptionConfig
@@ -3546,6 +3619,7 @@ func (o InstanceStorageConfigS3ConfigPtrOutput) Elem() InstanceStorageConfigS3Co
 	}).(InstanceStorageConfigS3ConfigOutput)
 }
 
+// The S3 bucket name.
 func (o InstanceStorageConfigS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *string {
 		if v == nil {
@@ -3555,6 +3629,7 @@ func (o InstanceStorageConfigS3ConfigPtrOutput) BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 bucket prefix.
 func (o InstanceStorageConfigS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *string {
 		if v == nil {
@@ -3564,6 +3639,7 @@ func (o InstanceStorageConfigS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 encryption configuration.
 func (o InstanceStorageConfigS3ConfigPtrOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *InstanceStorageConfigEncryptionConfig {
 		if v == nil {
@@ -3599,9 +3675,14 @@ type PromptTag struct {
 
 // The outbound caller ID name, number, and outbound whisper flow.
 type QueueOutboundCallerConfig struct {
-	OutboundCallerIdName      *string `pulumi:"outboundCallerIdName"`
+	// The caller ID name.
+	OutboundCallerIdName *string `pulumi:"outboundCallerIdName"`
+	// The Amazon Resource Name (ARN) of the outbound caller ID number.
+	//
+	// > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 	OutboundCallerIdNumberArn *string `pulumi:"outboundCallerIdNumberArn"`
-	OutboundFlowArn           *string `pulumi:"outboundFlowArn"`
+	// The Amazon Resource Name (ARN) of the outbound flow.
+	OutboundFlowArn *string `pulumi:"outboundFlowArn"`
 }
 
 // QueueOutboundCallerConfigInput is an input type that accepts QueueOutboundCallerConfigArgs and QueueOutboundCallerConfigOutput values.
@@ -3617,9 +3698,14 @@ type QueueOutboundCallerConfigInput interface {
 
 // The outbound caller ID name, number, and outbound whisper flow.
 type QueueOutboundCallerConfigArgs struct {
-	OutboundCallerIdName      pulumi.StringPtrInput `pulumi:"outboundCallerIdName"`
+	// The caller ID name.
+	OutboundCallerIdName pulumi.StringPtrInput `pulumi:"outboundCallerIdName"`
+	// The Amazon Resource Name (ARN) of the outbound caller ID number.
+	//
+	// > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 	OutboundCallerIdNumberArn pulumi.StringPtrInput `pulumi:"outboundCallerIdNumberArn"`
-	OutboundFlowArn           pulumi.StringPtrInput `pulumi:"outboundFlowArn"`
+	// The Amazon Resource Name (ARN) of the outbound flow.
+	OutboundFlowArn pulumi.StringPtrInput `pulumi:"outboundFlowArn"`
 }
 
 func (QueueOutboundCallerConfigArgs) ElementType() reflect.Type {
@@ -3700,14 +3786,19 @@ func (o QueueOutboundCallerConfigOutput) ToQueueOutboundCallerConfigPtrOutputWit
 	}).(QueueOutboundCallerConfigPtrOutput)
 }
 
+// The caller ID name.
 func (o QueueOutboundCallerConfigOutput) OutboundCallerIdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QueueOutboundCallerConfig) *string { return v.OutboundCallerIdName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the outbound caller ID number.
+//
+// > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 func (o QueueOutboundCallerConfigOutput) OutboundCallerIdNumberArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QueueOutboundCallerConfig) *string { return v.OutboundCallerIdNumberArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the outbound flow.
 func (o QueueOutboundCallerConfigOutput) OutboundFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QueueOutboundCallerConfig) *string { return v.OutboundFlowArn }).(pulumi.StringPtrOutput)
 }
@@ -3736,6 +3827,7 @@ func (o QueueOutboundCallerConfigPtrOutput) Elem() QueueOutboundCallerConfigOutp
 	}).(QueueOutboundCallerConfigOutput)
 }
 
+// The caller ID name.
 func (o QueueOutboundCallerConfigPtrOutput) OutboundCallerIdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueOutboundCallerConfig) *string {
 		if v == nil {
@@ -3745,6 +3837,9 @@ func (o QueueOutboundCallerConfigPtrOutput) OutboundCallerIdName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the outbound caller ID number.
+//
+// > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
 func (o QueueOutboundCallerConfigPtrOutput) OutboundCallerIdNumberArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueOutboundCallerConfig) *string {
 		if v == nil {
@@ -3754,6 +3849,7 @@ func (o QueueOutboundCallerConfigPtrOutput) OutboundCallerIdNumberArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the outbound flow.
 func (o QueueOutboundCallerConfigPtrOutput) OutboundFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueOutboundCallerConfig) *string {
 		if v == nil {
@@ -3765,16 +3861,22 @@ func (o QueueOutboundCallerConfigPtrOutput) OutboundFlowArn() pulumi.StringPtrOu
 
 // A key-value pair to associate with a resource.
 type QueueTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
 	Value string `pulumi:"value"`
 }
 
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
-	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
-	QueueConfig      *QuickConnectQueueQuickConnectConfig       `pulumi:"queueConfig"`
-	QuickConnectType QuickConnectType                           `pulumi:"quickConnectType"`
-	UserConfig       *QuickConnectUserQuickConnectConfig        `pulumi:"userConfig"`
+	// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+	PhoneConfig *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
+	// The queue configuration. This is required only if QuickConnectType is QUEUE.
+	QueueConfig *QuickConnectQueueQuickConnectConfig `pulumi:"queueConfig"`
+	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	QuickConnectType QuickConnectType `pulumi:"quickConnectType"`
+	// The user configuration. This is required only if QuickConnectType is USER.
+	UserConfig *QuickConnectUserQuickConnectConfig `pulumi:"userConfig"`
 }
 
 // QuickConnectConfigInput is an input type that accepts QuickConnectConfigArgs and QuickConnectConfigOutput values.
@@ -3790,10 +3892,14 @@ type QuickConnectConfigInput interface {
 
 // Configuration settings for the quick connect.
 type QuickConnectConfigArgs struct {
-	PhoneConfig      QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
-	QueueConfig      QuickConnectQueueQuickConnectConfigPtrInput       `pulumi:"queueConfig"`
-	QuickConnectType QuickConnectTypeInput                             `pulumi:"quickConnectType"`
-	UserConfig       QuickConnectUserQuickConnectConfigPtrInput        `pulumi:"userConfig"`
+	// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+	PhoneConfig QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
+	// The queue configuration. This is required only if QuickConnectType is QUEUE.
+	QueueConfig QuickConnectQueueQuickConnectConfigPtrInput `pulumi:"queueConfig"`
+	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	QuickConnectType QuickConnectTypeInput `pulumi:"quickConnectType"`
+	// The user configuration. This is required only if QuickConnectType is USER.
+	UserConfig QuickConnectUserQuickConnectConfigPtrInput `pulumi:"userConfig"`
 }
 
 func (QuickConnectConfigArgs) ElementType() reflect.Type {
@@ -3823,18 +3929,22 @@ func (o QuickConnectConfigOutput) ToQuickConnectConfigOutputWithContext(ctx cont
 	return o
 }
 
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 func (o QuickConnectConfigOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig { return v.PhoneConfig }).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 func (o QuickConnectConfigOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
+// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 func (o QuickConnectConfigOutput) QuickConnectType() QuickConnectTypeOutput {
 	return o.ApplyT(func(v QuickConnectConfig) QuickConnectType { return v.QuickConnectType }).(QuickConnectTypeOutput)
 }
 
+// The user configuration. This is required only if QuickConnectType is USER.
 func (o QuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
@@ -3863,6 +3973,7 @@ func (o QuickConnectConfigPtrOutput) Elem() QuickConnectConfigOutput {
 	}).(QuickConnectConfigOutput)
 }
 
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
 		if v == nil {
@@ -3872,6 +3983,7 @@ func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickC
 	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
 		if v == nil {
@@ -3881,6 +3993,7 @@ func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnect
 	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
+// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectType {
 		if v == nil {
@@ -3890,6 +4003,7 @@ func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutpu
 	}).(QuickConnectTypePtrOutput)
 }
 
+// The user configuration. This is required only if QuickConnectType is USER.
 func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectUserQuickConnectConfig {
 		if v == nil {
@@ -3901,6 +4015,7 @@ func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectCo
 
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfig struct {
+	// The phone number in E.164 format.
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -3917,6 +4032,7 @@ type QuickConnectPhoneNumberQuickConnectConfigInput interface {
 
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfigArgs struct {
+	// The phone number in E.164 format.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -3998,6 +4114,7 @@ func (o QuickConnectPhoneNumberQuickConnectConfigOutput) ToQuickConnectPhoneNumb
 	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
+// The phone number in E.164 format.
 func (o QuickConnectPhoneNumberQuickConnectConfigOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectPhoneNumberQuickConnectConfig) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -4026,6 +4143,7 @@ func (o QuickConnectPhoneNumberQuickConnectConfigPtrOutput) Elem() QuickConnectP
 	}).(QuickConnectPhoneNumberQuickConnectConfigOutput)
 }
 
+// The phone number in E.164 format.
 func (o QuickConnectPhoneNumberQuickConnectConfigPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectPhoneNumberQuickConnectConfig) *string {
 		if v == nil {
@@ -4037,8 +4155,10 @@ func (o QuickConnectPhoneNumberQuickConnectConfigPtrOutput) PhoneNumber() pulumi
 
 // The queue configuration. This is required only if QuickConnectType is QUEUE.
 type QuickConnectQueueQuickConnectConfig struct {
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn string `pulumi:"contactFlowArn"`
-	QueueArn       string `pulumi:"queueArn"`
+	// The Amazon Resource Name (ARN) of the queue.
+	QueueArn string `pulumi:"queueArn"`
 }
 
 // QuickConnectQueueQuickConnectConfigInput is an input type that accepts QuickConnectQueueQuickConnectConfigArgs and QuickConnectQueueQuickConnectConfigOutput values.
@@ -4054,8 +4174,10 @@ type QuickConnectQueueQuickConnectConfigInput interface {
 
 // The queue configuration. This is required only if QuickConnectType is QUEUE.
 type QuickConnectQueueQuickConnectConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
-	QueueArn       pulumi.StringInput `pulumi:"queueArn"`
+	// The Amazon Resource Name (ARN) of the queue.
+	QueueArn pulumi.StringInput `pulumi:"queueArn"`
 }
 
 func (QuickConnectQueueQuickConnectConfigArgs) ElementType() reflect.Type {
@@ -4136,10 +4258,12 @@ func (o QuickConnectQueueQuickConnectConfigOutput) ToQuickConnectQueueQuickConne
 	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the flow.
 func (o QuickConnectQueueQuickConnectConfigOutput) ContactFlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectQueueQuickConnectConfig) string { return v.ContactFlowArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the queue.
 func (o QuickConnectQueueQuickConnectConfigOutput) QueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectQueueQuickConnectConfig) string { return v.QueueArn }).(pulumi.StringOutput)
 }
@@ -4168,6 +4292,7 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) Elem() QuickConnectQueueQu
 	}).(QuickConnectQueueQuickConnectConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the flow.
 func (o QuickConnectQueueQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQueueQuickConnectConfig) *string {
 		if v == nil {
@@ -4177,6 +4302,7 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the queue.
 func (o QuickConnectQueueQuickConnectConfigPtrOutput) QueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQueueQuickConnectConfig) *string {
 		if v == nil {
@@ -4196,8 +4322,10 @@ type QuickConnectTag struct {
 
 // The user configuration. This is required only if QuickConnectType is USER.
 type QuickConnectUserQuickConnectConfig struct {
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn string `pulumi:"contactFlowArn"`
-	UserArn        string `pulumi:"userArn"`
+	// The Amazon Resource Name (ARN) of the user.
+	UserArn string `pulumi:"userArn"`
 }
 
 // QuickConnectUserQuickConnectConfigInput is an input type that accepts QuickConnectUserQuickConnectConfigArgs and QuickConnectUserQuickConnectConfigOutput values.
@@ -4213,8 +4341,10 @@ type QuickConnectUserQuickConnectConfigInput interface {
 
 // The user configuration. This is required only if QuickConnectType is USER.
 type QuickConnectUserQuickConnectConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
-	UserArn        pulumi.StringInput `pulumi:"userArn"`
+	// The Amazon Resource Name (ARN) of the user.
+	UserArn pulumi.StringInput `pulumi:"userArn"`
 }
 
 func (QuickConnectUserQuickConnectConfigArgs) ElementType() reflect.Type {
@@ -4295,10 +4425,12 @@ func (o QuickConnectUserQuickConnectConfigOutput) ToQuickConnectUserQuickConnect
 	}).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the flow.
 func (o QuickConnectUserQuickConnectConfigOutput) ContactFlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectUserQuickConnectConfig) string { return v.ContactFlowArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the user.
 func (o QuickConnectUserQuickConnectConfigOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectUserQuickConnectConfig) string { return v.UserArn }).(pulumi.StringOutput)
 }
@@ -4327,6 +4459,7 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) Elem() QuickConnectUserQuic
 	}).(QuickConnectUserQuickConnectConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the flow.
 func (o QuickConnectUserQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectUserQuickConnectConfig) *string {
 		if v == nil {
@@ -4336,6 +4469,7 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the user.
 func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectUserQuickConnectConfig) *string {
 		if v == nil {
@@ -4347,6 +4481,7 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrO
 
 // Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
 type RoutingProfileCrossChannelBehavior struct {
+	// Specifies the other channels that can be routed to an agent handling their current channel.
 	BehaviorType RoutingProfileBehaviorType `pulumi:"behaviorType"`
 }
 
@@ -4363,6 +4498,7 @@ type RoutingProfileCrossChannelBehaviorInput interface {
 
 // Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
 type RoutingProfileCrossChannelBehaviorArgs struct {
+	// Specifies the other channels that can be routed to an agent handling their current channel.
 	BehaviorType RoutingProfileBehaviorTypeInput `pulumi:"behaviorType"`
 }
 
@@ -4444,6 +4580,7 @@ func (o RoutingProfileCrossChannelBehaviorOutput) ToRoutingProfileCrossChannelBe
 	}).(RoutingProfileCrossChannelBehaviorPtrOutput)
 }
 
+// Specifies the other channels that can be routed to an agent handling their current channel.
 func (o RoutingProfileCrossChannelBehaviorOutput) BehaviorType() RoutingProfileBehaviorTypeOutput {
 	return o.ApplyT(func(v RoutingProfileCrossChannelBehavior) RoutingProfileBehaviorType { return v.BehaviorType }).(RoutingProfileBehaviorTypeOutput)
 }
@@ -4472,6 +4609,7 @@ func (o RoutingProfileCrossChannelBehaviorPtrOutput) Elem() RoutingProfileCrossC
 	}).(RoutingProfileCrossChannelBehaviorOutput)
 }
 
+// Specifies the other channels that can be routed to an agent handling their current channel.
 func (o RoutingProfileCrossChannelBehaviorPtrOutput) BehaviorType() RoutingProfileBehaviorTypePtrOutput {
 	return o.ApplyT(func(v *RoutingProfileCrossChannelBehavior) *RoutingProfileBehaviorType {
 		if v == nil {
@@ -4483,8 +4621,17 @@ func (o RoutingProfileCrossChannelBehaviorPtrOutput) BehaviorType() RoutingProfi
 
 // Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
 type RoutingProfileMediaConcurrency struct {
-	Channel              RoutingProfileChannel               `pulumi:"channel"`
-	Concurrency          int                                 `pulumi:"concurrency"`
+	// The channels that agents can handle in the Contact Control Panel (CCP).
+	Channel RoutingProfileChannel `pulumi:"channel"`
+	// The number of contacts an agent can have on a channel simultaneously.
+	//
+	// Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+	//
+	// Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+	//
+	// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
+	Concurrency int `pulumi:"concurrency"`
+	// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 	CrossChannelBehavior *RoutingProfileCrossChannelBehavior `pulumi:"crossChannelBehavior"`
 }
 
@@ -4501,8 +4648,17 @@ type RoutingProfileMediaConcurrencyInput interface {
 
 // Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
 type RoutingProfileMediaConcurrencyArgs struct {
-	Channel              RoutingProfileChannelInput                 `pulumi:"channel"`
-	Concurrency          pulumi.IntInput                            `pulumi:"concurrency"`
+	// The channels that agents can handle in the Contact Control Panel (CCP).
+	Channel RoutingProfileChannelInput `pulumi:"channel"`
+	// The number of contacts an agent can have on a channel simultaneously.
+	//
+	// Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+	//
+	// Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+	//
+	// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
+	Concurrency pulumi.IntInput `pulumi:"concurrency"`
+	// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 	CrossChannelBehavior RoutingProfileCrossChannelBehaviorPtrInput `pulumi:"crossChannelBehavior"`
 }
 
@@ -4558,14 +4714,23 @@ func (o RoutingProfileMediaConcurrencyOutput) ToRoutingProfileMediaConcurrencyOu
 	return o
 }
 
+// The channels that agents can handle in the Contact Control Panel (CCP).
 func (o RoutingProfileMediaConcurrencyOutput) Channel() RoutingProfileChannelOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) RoutingProfileChannel { return v.Channel }).(RoutingProfileChannelOutput)
 }
 
+// The number of contacts an agent can have on a channel simultaneously.
+//
+// Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+//
+// Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+//
+// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
 func (o RoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
 }
 
+// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 func (o RoutingProfileMediaConcurrencyOutput) CrossChannelBehavior() RoutingProfileCrossChannelBehaviorPtrOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) *RoutingProfileCrossChannelBehavior {
 		return v.CrossChannelBehavior
@@ -4594,8 +4759,11 @@ func (o RoutingProfileMediaConcurrencyArrayOutput) Index(i pulumi.IntInput) Rout
 
 // Contains information about the queue and channel for which priority and delay can be set.
 type RoutingProfileQueueConfig struct {
-	Delay          int                          `pulumi:"delay"`
-	Priority       int                          `pulumi:"priority"`
+	// The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+	Delay int `pulumi:"delay"`
+	// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+	Priority int `pulumi:"priority"`
+	// Contains information about a queue resource.
 	QueueReference RoutingProfileQueueReference `pulumi:"queueReference"`
 }
 
@@ -4612,8 +4780,11 @@ type RoutingProfileQueueConfigInput interface {
 
 // Contains information about the queue and channel for which priority and delay can be set.
 type RoutingProfileQueueConfigArgs struct {
-	Delay          pulumi.IntInput                   `pulumi:"delay"`
-	Priority       pulumi.IntInput                   `pulumi:"priority"`
+	// The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+	Delay pulumi.IntInput `pulumi:"delay"`
+	// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Contains information about a queue resource.
 	QueueReference RoutingProfileQueueReferenceInput `pulumi:"queueReference"`
 }
 
@@ -4669,14 +4840,17 @@ func (o RoutingProfileQueueConfigOutput) ToRoutingProfileQueueConfigOutputWithCo
 	return o
 }
 
+// The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
 func (o RoutingProfileQueueConfigOutput) Delay() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) int { return v.Delay }).(pulumi.IntOutput)
 }
 
+// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
 func (o RoutingProfileQueueConfigOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Contains information about a queue resource.
 func (o RoutingProfileQueueConfigOutput) QueueReference() RoutingProfileQueueReferenceOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) RoutingProfileQueueReference { return v.QueueReference }).(RoutingProfileQueueReferenceOutput)
 }
@@ -4703,8 +4877,10 @@ func (o RoutingProfileQueueConfigArrayOutput) Index(i pulumi.IntInput) RoutingPr
 
 // Contains the channel and queue identifier for a routing profile.
 type RoutingProfileQueueReference struct {
-	Channel  RoutingProfileChannel `pulumi:"channel"`
-	QueueArn string                `pulumi:"queueArn"`
+	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+	Channel RoutingProfileChannel `pulumi:"channel"`
+	// The Amazon Resource Name (ARN) of the queue.
+	QueueArn string `pulumi:"queueArn"`
 }
 
 // RoutingProfileQueueReferenceInput is an input type that accepts RoutingProfileQueueReferenceArgs and RoutingProfileQueueReferenceOutput values.
@@ -4720,8 +4896,10 @@ type RoutingProfileQueueReferenceInput interface {
 
 // Contains the channel and queue identifier for a routing profile.
 type RoutingProfileQueueReferenceArgs struct {
-	Channel  RoutingProfileChannelInput `pulumi:"channel"`
-	QueueArn pulumi.StringInput         `pulumi:"queueArn"`
+	// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+	Channel RoutingProfileChannelInput `pulumi:"channel"`
+	// The Amazon Resource Name (ARN) of the queue.
+	QueueArn pulumi.StringInput `pulumi:"queueArn"`
 }
 
 func (RoutingProfileQueueReferenceArgs) ElementType() reflect.Type {
@@ -4751,10 +4929,12 @@ func (o RoutingProfileQueueReferenceOutput) ToRoutingProfileQueueReferenceOutput
 	return o
 }
 
+// The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 func (o RoutingProfileQueueReferenceOutput) Channel() RoutingProfileChannelOutput {
 	return o.ApplyT(func(v RoutingProfileQueueReference) RoutingProfileChannel { return v.Channel }).(RoutingProfileChannelOutput)
 }
 
+// The Amazon Resource Name (ARN) of the queue.
 func (o RoutingProfileQueueReferenceOutput) QueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingProfileQueueReference) string { return v.QueueArn }).(pulumi.StringOutput)
 }
@@ -4769,13 +4949,17 @@ type RoutingProfileTag struct {
 
 // The list of actions that will be executed when a rule is triggered.
 type RuleActions struct {
+	// Information about the contact category action. The syntax can be empty, for example, `{}` .
 	AssignContactCategoryActions []RuleAssignContactCategoryAction `pulumi:"assignContactCategoryActions"`
 	CreateCaseActions            []RuleCreateCaseAction            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTasksActions"`
-	EventBridgeActions           []RuleEventBridgeAction           `pulumi:"eventBridgeActions"`
-	SendNotificationActions      []RuleSendNotificationAction      `pulumi:"sendNotificationActions"`
-	TaskActions                  []RuleTaskAction                  `pulumi:"taskActions"`
-	UpdateCaseActions            []RuleUpdateCaseAction            `pulumi:"updateCaseActions"`
+	// Information about the EventBridge action.
+	EventBridgeActions []RuleEventBridgeAction `pulumi:"eventBridgeActions"`
+	// Information about the send notification action.
+	SendNotificationActions []RuleSendNotificationAction `pulumi:"sendNotificationActions"`
+	// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+	TaskActions       []RuleTaskAction       `pulumi:"taskActions"`
+	UpdateCaseActions []RuleUpdateCaseAction `pulumi:"updateCaseActions"`
 }
 
 // RuleActionsInput is an input type that accepts RuleActionsArgs and RuleActionsOutput values.
@@ -4791,13 +4975,17 @@ type RuleActionsInput interface {
 
 // The list of actions that will be executed when a rule is triggered.
 type RuleActionsArgs struct {
+	// Information about the contact category action. The syntax can be empty, for example, `{}` .
 	AssignContactCategoryActions RuleAssignContactCategoryActionArrayInput `pulumi:"assignContactCategoryActions"`
 	CreateCaseActions            RuleCreateCaseActionArrayInput            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTasksActions"`
-	EventBridgeActions           RuleEventBridgeActionArrayInput           `pulumi:"eventBridgeActions"`
-	SendNotificationActions      RuleSendNotificationActionArrayInput      `pulumi:"sendNotificationActions"`
-	TaskActions                  RuleTaskActionArrayInput                  `pulumi:"taskActions"`
-	UpdateCaseActions            RuleUpdateCaseActionArrayInput            `pulumi:"updateCaseActions"`
+	// Information about the EventBridge action.
+	EventBridgeActions RuleEventBridgeActionArrayInput `pulumi:"eventBridgeActions"`
+	// Information about the send notification action.
+	SendNotificationActions RuleSendNotificationActionArrayInput `pulumi:"sendNotificationActions"`
+	// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+	TaskActions       RuleTaskActionArrayInput       `pulumi:"taskActions"`
+	UpdateCaseActions RuleUpdateCaseActionArrayInput `pulumi:"updateCaseActions"`
 }
 
 func (RuleActionsArgs) ElementType() reflect.Type {
@@ -4827,6 +5015,7 @@ func (o RuleActionsOutput) ToRuleActionsOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// Information about the contact category action. The syntax can be empty, for example, `{}` .
 func (o RuleActionsOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleAssignContactCategoryAction { return v.AssignContactCategoryActions }).(RuleAssignContactCategoryActionArrayOutput)
 }
@@ -4839,14 +5028,17 @@ func (o RuleActionsOutput) EndAssociatedTasksActions() RuleEndAssociatedTasksAct
 	return o.ApplyT(func(v RuleActions) []RuleEndAssociatedTasksAction { return v.EndAssociatedTasksActions }).(RuleEndAssociatedTasksActionArrayOutput)
 }
 
+// Information about the EventBridge action.
 func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleEventBridgeAction { return v.EventBridgeActions }).(RuleEventBridgeActionArrayOutput)
 }
 
+// Information about the send notification action.
 func (o RuleActionsOutput) SendNotificationActions() RuleSendNotificationActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleSendNotificationAction { return v.SendNotificationActions }).(RuleSendNotificationActionArrayOutput)
 }
 
+// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
 func (o RuleActionsOutput) TaskActions() RuleTaskActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleTaskAction { return v.TaskActions }).(RuleTaskActionArrayOutput)
 }
@@ -4879,6 +5071,7 @@ func (o RuleActionsPtrOutput) Elem() RuleActionsOutput {
 	}).(RuleActionsOutput)
 }
 
+// Information about the contact category action. The syntax can be empty, for example, `{}` .
 func (o RuleActionsPtrOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleAssignContactCategoryAction {
 		if v == nil {
@@ -4906,6 +5099,7 @@ func (o RuleActionsPtrOutput) EndAssociatedTasksActions() RuleEndAssociatedTasks
 	}).(RuleEndAssociatedTasksActionArrayOutput)
 }
 
+// Information about the EventBridge action.
 func (o RuleActionsPtrOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleEventBridgeAction {
 		if v == nil {
@@ -4915,6 +5109,7 @@ func (o RuleActionsPtrOutput) EventBridgeActions() RuleEventBridgeActionArrayOut
 	}).(RuleEventBridgeActionArrayOutput)
 }
 
+// Information about the send notification action.
 func (o RuleActionsPtrOutput) SendNotificationActions() RuleSendNotificationActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleSendNotificationAction {
 		if v == nil {
@@ -4924,6 +5119,7 @@ func (o RuleActionsPtrOutput) SendNotificationActions() RuleSendNotificationActi
 	}).(RuleSendNotificationActionArrayOutput)
 }
 
+// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
 func (o RuleActionsPtrOutput) TaskActions() RuleTaskActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleTaskAction {
 		if v == nil {
@@ -6322,8 +6518,10 @@ func (o SecurityProfileTagArrayOutput) Index(i pulumi.IntInput) SecurityProfileT
 
 // the default value for the task template's field
 type TaskTemplateDefaultFieldValue struct {
-	DefaultValue string                      `pulumi:"defaultValue"`
-	Id           TaskTemplateFieldIdentifier `pulumi:"id"`
+	// Default value for the field.
+	DefaultValue string `pulumi:"defaultValue"`
+	// Identifier of a field.
+	Id TaskTemplateFieldIdentifier `pulumi:"id"`
 }
 
 // TaskTemplateDefaultFieldValueInput is an input type that accepts TaskTemplateDefaultFieldValueArgs and TaskTemplateDefaultFieldValueOutput values.
@@ -6339,8 +6537,10 @@ type TaskTemplateDefaultFieldValueInput interface {
 
 // the default value for the task template's field
 type TaskTemplateDefaultFieldValueArgs struct {
-	DefaultValue pulumi.StringInput               `pulumi:"defaultValue"`
-	Id           TaskTemplateFieldIdentifierInput `pulumi:"id"`
+	// Default value for the field.
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// Identifier of a field.
+	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
 }
 
 func (TaskTemplateDefaultFieldValueArgs) ElementType() reflect.Type {
@@ -6395,10 +6595,12 @@ func (o TaskTemplateDefaultFieldValueOutput) ToTaskTemplateDefaultFieldValueOutp
 	return o
 }
 
+// Default value for the field.
 func (o TaskTemplateDefaultFieldValueOutput) DefaultValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskTemplateDefaultFieldValue) string { return v.DefaultValue }).(pulumi.StringOutput)
 }
 
+// Identifier of a field.
 func (o TaskTemplateDefaultFieldValueOutput) Id() TaskTemplateFieldIdentifierOutput {
 	return o.ApplyT(func(v TaskTemplateDefaultFieldValue) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
 }
@@ -6426,11 +6628,13 @@ func (o TaskTemplateDefaultFieldValueArrayOutput) Index(i pulumi.IntInput) TaskT
 // A task template field object.
 type TaskTemplateField struct {
 	// The description of the task template's field
-	Description *string                     `pulumi:"description"`
-	Id          TaskTemplateFieldIdentifier `pulumi:"id"`
+	Description *string `pulumi:"description"`
+	// The unique identifier for the field.
+	Id TaskTemplateFieldIdentifier `pulumi:"id"`
 	// list of field options to be used with single select
-	SingleSelectOptions []string              `pulumi:"singleSelectOptions"`
-	Type                TaskTemplateFieldType `pulumi:"type"`
+	SingleSelectOptions []string `pulumi:"singleSelectOptions"`
+	// Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
+	Type TaskTemplateFieldType `pulumi:"type"`
 }
 
 // TaskTemplateFieldInput is an input type that accepts TaskTemplateFieldArgs and TaskTemplateFieldOutput values.
@@ -6447,11 +6651,13 @@ type TaskTemplateFieldInput interface {
 // A task template field object.
 type TaskTemplateFieldArgs struct {
 	// The description of the task template's field
-	Description pulumi.StringPtrInput            `pulumi:"description"`
-	Id          TaskTemplateFieldIdentifierInput `pulumi:"id"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The unique identifier for the field.
+	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
 	// list of field options to be used with single select
-	SingleSelectOptions pulumi.StringArrayInput    `pulumi:"singleSelectOptions"`
-	Type                TaskTemplateFieldTypeInput `pulumi:"type"`
+	SingleSelectOptions pulumi.StringArrayInput `pulumi:"singleSelectOptions"`
+	// Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
+	Type TaskTemplateFieldTypeInput `pulumi:"type"`
 }
 
 func (TaskTemplateFieldArgs) ElementType() reflect.Type {
@@ -6511,6 +6717,7 @@ func (o TaskTemplateFieldOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTemplateField) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the field.
 func (o TaskTemplateFieldOutput) Id() TaskTemplateFieldIdentifierOutput {
 	return o.ApplyT(func(v TaskTemplateField) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
 }
@@ -6520,6 +6727,7 @@ func (o TaskTemplateFieldOutput) SingleSelectOptions() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v TaskTemplateField) []string { return v.SingleSelectOptions }).(pulumi.StringArrayOutput)
 }
 
+// Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
 func (o TaskTemplateFieldOutput) Type() TaskTemplateFieldTypeOutput {
 	return o.ApplyT(func(v TaskTemplateField) TaskTemplateFieldType { return v.Type }).(TaskTemplateFieldTypeOutput)
 }
@@ -6916,10 +7124,17 @@ type UserHierarchyGroupTag struct {
 
 // Contains information about the identity of a user.
 type UserIdentityInfo struct {
-	Email          *string `pulumi:"email"`
-	FirstName      *string `pulumi:"firstName"`
-	LastName       *string `pulumi:"lastName"`
-	Mobile         *string `pulumi:"mobile"`
+	// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+	Email *string `pulumi:"email"`
+	// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+	FirstName *string `pulumi:"firstName"`
+	// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+	LastName *string `pulumi:"lastName"`
+	// The user's mobile number.
+	Mobile *string `pulumi:"mobile"`
+	// The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+	//
+	// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
 	SecondaryEmail *string `pulumi:"secondaryEmail"`
 }
 
@@ -6936,10 +7151,17 @@ type UserIdentityInfoInput interface {
 
 // Contains information about the identity of a user.
 type UserIdentityInfoArgs struct {
-	Email          pulumi.StringPtrInput `pulumi:"email"`
-	FirstName      pulumi.StringPtrInput `pulumi:"firstName"`
-	LastName       pulumi.StringPtrInput `pulumi:"lastName"`
-	Mobile         pulumi.StringPtrInput `pulumi:"mobile"`
+	// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// The user's mobile number.
+	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
+	// The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+	//
+	// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
 	SecondaryEmail pulumi.StringPtrInput `pulumi:"secondaryEmail"`
 }
 
@@ -7021,22 +7243,29 @@ func (o UserIdentityInfoOutput) ToUserIdentityInfoPtrOutputWithContext(ctx conte
 	}).(UserIdentityInfoPtrOutput)
 }
 
+// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
 func (o UserIdentityInfoOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
+// The first name. This is required if you are using Amazon Connect or SAML for identity management.
 func (o UserIdentityInfoOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
+// The last name. This is required if you are using Amazon Connect or SAML for identity management.
 func (o UserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
+// The user's mobile number.
 func (o UserIdentityInfoOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.Mobile }).(pulumi.StringPtrOutput)
 }
 
+// The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+//
+// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
 func (o UserIdentityInfoOutput) SecondaryEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.SecondaryEmail }).(pulumi.StringPtrOutput)
 }
@@ -7065,6 +7294,7 @@ func (o UserIdentityInfoPtrOutput) Elem() UserIdentityInfoOutput {
 	}).(UserIdentityInfoOutput)
 }
 
+// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
 func (o UserIdentityInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -7074,6 +7304,7 @@ func (o UserIdentityInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The first name. This is required if you are using Amazon Connect or SAML for identity management.
 func (o UserIdentityInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -7083,6 +7314,7 @@ func (o UserIdentityInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The last name. This is required if you are using Amazon Connect or SAML for identity management.
 func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -7092,6 +7324,7 @@ func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user's mobile number.
 func (o UserIdentityInfoPtrOutput) Mobile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -7101,6 +7334,9 @@ func (o UserIdentityInfoPtrOutput) Mobile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+//
+// *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}`
 func (o UserIdentityInfoPtrOutput) SecondaryEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -7112,10 +7348,16 @@ func (o UserIdentityInfoPtrOutput) SecondaryEmail() pulumi.StringPtrOutput {
 
 // Contains information about the phone configuration settings for a user.
 type UserPhoneConfig struct {
-	AfterContactWorkTimeLimit *int          `pulumi:"afterContactWorkTimeLimit"`
-	AutoAccept                *bool         `pulumi:"autoAccept"`
-	DeskPhoneNumber           *string       `pulumi:"deskPhoneNumber"`
-	PhoneType                 UserPhoneType `pulumi:"phoneType"`
+	// The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+	//
+	// > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
+	AfterContactWorkTimeLimit *int `pulumi:"afterContactWorkTimeLimit"`
+	// The Auto accept setting.
+	AutoAccept *bool `pulumi:"autoAccept"`
+	// The phone number for the user's desk phone.
+	DeskPhoneNumber *string `pulumi:"deskPhoneNumber"`
+	// The phone type.
+	PhoneType UserPhoneType `pulumi:"phoneType"`
 }
 
 // UserPhoneConfigInput is an input type that accepts UserPhoneConfigArgs and UserPhoneConfigOutput values.
@@ -7131,10 +7373,16 @@ type UserPhoneConfigInput interface {
 
 // Contains information about the phone configuration settings for a user.
 type UserPhoneConfigArgs struct {
-	AfterContactWorkTimeLimit pulumi.IntPtrInput    `pulumi:"afterContactWorkTimeLimit"`
-	AutoAccept                pulumi.BoolPtrInput   `pulumi:"autoAccept"`
-	DeskPhoneNumber           pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
-	PhoneType                 UserPhoneTypeInput    `pulumi:"phoneType"`
+	// The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+	//
+	// > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
+	AfterContactWorkTimeLimit pulumi.IntPtrInput `pulumi:"afterContactWorkTimeLimit"`
+	// The Auto accept setting.
+	AutoAccept pulumi.BoolPtrInput `pulumi:"autoAccept"`
+	// The phone number for the user's desk phone.
+	DeskPhoneNumber pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
+	// The phone type.
+	PhoneType UserPhoneTypeInput `pulumi:"phoneType"`
 }
 
 func (UserPhoneConfigArgs) ElementType() reflect.Type {
@@ -7164,18 +7412,24 @@ func (o UserPhoneConfigOutput) ToUserPhoneConfigOutputWithContext(ctx context.Co
 	return o
 }
 
+// The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+//
+// > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
 func (o UserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPhoneConfig) *int { return v.AfterContactWorkTimeLimit }).(pulumi.IntPtrOutput)
 }
 
+// The Auto accept setting.
 func (o UserPhoneConfigOutput) AutoAccept() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPhoneConfig) *bool { return v.AutoAccept }).(pulumi.BoolPtrOutput)
 }
 
+// The phone number for the user's desk phone.
 func (o UserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPhoneConfig) *string { return v.DeskPhoneNumber }).(pulumi.StringPtrOutput)
 }
 
+// The phone type.
 func (o UserPhoneConfigOutput) PhoneType() UserPhoneTypeOutput {
 	return o.ApplyT(func(v UserPhoneConfig) UserPhoneType { return v.PhoneType }).(UserPhoneTypeOutput)
 }
@@ -7204,6 +7458,9 @@ func (o UserPhoneConfigPtrOutput) Elem() UserPhoneConfigOutput {
 	}).(UserPhoneConfigOutput)
 }
 
+// The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+//
+// > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
 func (o UserPhoneConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPhoneConfig) *int {
 		if v == nil {
@@ -7213,6 +7470,7 @@ func (o UserPhoneConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Auto accept setting.
 func (o UserPhoneConfigPtrOutput) AutoAccept() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPhoneConfig) *bool {
 		if v == nil {
@@ -7222,6 +7480,7 @@ func (o UserPhoneConfigPtrOutput) AutoAccept() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The phone number for the user's desk phone.
 func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPhoneConfig) *string {
 		if v == nil {
@@ -7231,6 +7490,7 @@ func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The phone type.
 func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
 	return o.ApplyT(func(v *UserPhoneConfig) *UserPhoneType {
 		if v == nil {
@@ -7242,9 +7502,12 @@ func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
 
 // Proficiency of a user.
 type UserProficiency struct {
-	AttributeName  string  `pulumi:"attributeName"`
-	AttributeValue string  `pulumi:"attributeValue"`
-	Level          float64 `pulumi:"level"`
+	// The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+	AttributeName string `pulumi:"attributeName"`
+	// The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+	AttributeValue string `pulumi:"attributeValue"`
+	// The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+	Level float64 `pulumi:"level"`
 }
 
 // UserProficiencyInput is an input type that accepts UserProficiencyArgs and UserProficiencyOutput values.
@@ -7260,9 +7523,12 @@ type UserProficiencyInput interface {
 
 // Proficiency of a user.
 type UserProficiencyArgs struct {
-	AttributeName  pulumi.StringInput  `pulumi:"attributeName"`
-	AttributeValue pulumi.StringInput  `pulumi:"attributeValue"`
-	Level          pulumi.Float64Input `pulumi:"level"`
+	// The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
+	// The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+	Level pulumi.Float64Input `pulumi:"level"`
 }
 
 func (UserProficiencyArgs) ElementType() reflect.Type {
@@ -7317,14 +7583,17 @@ func (o UserProficiencyOutput) ToUserProficiencyOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
 func (o UserProficiencyOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProficiency) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
 func (o UserProficiencyOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProficiency) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
 
+// The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
 func (o UserProficiencyOutput) Level() pulumi.Float64Output {
 	return o.ApplyT(func(v UserProficiency) float64 { return v.Level }).(pulumi.Float64Output)
 }
@@ -7359,6 +7628,7 @@ type UserTag struct {
 
 // The values of a predefined attribute.
 type ValuesProperties struct {
+	// Predefined attribute values of type string list.
 	StringList []string `pulumi:"stringList"`
 }
 
@@ -7375,6 +7645,7 @@ type ValuesPropertiesInput interface {
 
 // The values of a predefined attribute.
 type ValuesPropertiesArgs struct {
+	// Predefined attribute values of type string list.
 	StringList pulumi.StringArrayInput `pulumi:"stringList"`
 }
 
@@ -7405,6 +7676,7 @@ func (o ValuesPropertiesOutput) ToValuesPropertiesOutputWithContext(ctx context.
 	return o
 }
 
+// Predefined attribute values of type string list.
 func (o ValuesPropertiesOutput) StringList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ValuesProperties) []string { return v.StringList }).(pulumi.StringArrayOutput)
 }
@@ -7433,6 +7705,7 @@ func (o ValuesPropertiesPtrOutput) Elem() ValuesPropertiesOutput {
 	}).(ValuesPropertiesOutput)
 }
 
+// Predefined attribute values of type string list.
 func (o ValuesPropertiesPtrOutput) StringList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ValuesProperties) []string {
 		if v == nil {

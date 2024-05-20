@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ivs.Outputs
     [OutputType]
     public sealed class RecordingConfigurationS3DestinationConfiguration
     {
+        /// <summary>
+        /// Location (S3 bucket name) where recorded videos will be stored.
+        /// </summary>
         public readonly string BucketName;
 
         [OutputConstructor]

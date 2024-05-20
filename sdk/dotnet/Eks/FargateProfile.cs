@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Eks
     [AwsNativeResourceType("aws-native:eks:FargateProfile")]
     public partial class FargateProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -36,9 +39,15 @@ namespace Pulumi.AwsNative.Eks
         [Output("podExecutionRoleArn")]
         public Output<string> PodExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
+        /// </summary>
         [Output("selectors")]
         public Output<ImmutableArray<Outputs.FargateProfileSelector>> Selectors { get; private set; } = null!;
 
+        /// <summary>
+        /// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+        /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
@@ -121,6 +130,10 @@ namespace Pulumi.AwsNative.Eks
 
         [Input("selectors", required: true)]
         private InputList<Inputs.FargateProfileSelectorArgs>? _selectors;
+
+        /// <summary>
+        /// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
+        /// </summary>
         public InputList<Inputs.FargateProfileSelectorArgs> Selectors
         {
             get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorArgs>());
@@ -129,6 +142,10 @@ namespace Pulumi.AwsNative.Eks
 
         [Input("subnets")]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

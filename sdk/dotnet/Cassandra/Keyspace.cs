@@ -110,9 +110,22 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("keyspaceName")]
         public Output<string?> KeyspaceName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+        /// 
+        /// - `SINGLE_REGION` for a single Region keyspace (optional) or
+        /// - `MULTI_REGION` for a multi-Region keyspace
+        /// 
+        /// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        /// </summary>
         [Output("replicationSpecification")]
         public Output<Outputs.KeyspaceReplicationSpecification?> ReplicationSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -172,11 +185,25 @@ namespace Pulumi.AwsNative.Cassandra
         [Input("keyspaceName")]
         public Input<string>? KeyspaceName { get; set; }
 
+        /// <summary>
+        /// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+        /// 
+        /// - `SINGLE_REGION` for a single Region keyspace (optional) or
+        /// - `MULTI_REGION` for a multi-Region keyspace
+        /// 
+        /// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        /// </summary>
         [Input("replicationSpecification")]
         public Input<Inputs.KeyspaceReplicationSpecificationArgs>? ReplicationSpecification { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

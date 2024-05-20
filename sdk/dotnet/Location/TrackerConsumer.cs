@@ -15,9 +15,23 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:TrackerConsumer")]
     public partial class TrackerConsumer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+        /// </summary>
         [Output("consumerArn")]
         public Output<string> ConsumerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the tracker resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique tracker resource name.
+        /// - No spaces allowed. For example, `ExampleTracker` .
+        /// </summary>
         [Output("trackerName")]
         public Output<string> TrackerName { get; private set; } = null!;
 
@@ -71,9 +85,23 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class TrackerConsumerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
+        /// </summary>
         [Input("consumerArn", required: true)]
         public Input<string> ConsumerArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the tracker resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique tracker resource name.
+        /// - No spaces allowed. For example, `ExampleTracker` .
+        /// </summary>
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;
 

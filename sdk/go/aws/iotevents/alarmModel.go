@@ -19,13 +19,16 @@ import (
 type AlarmModel struct {
 	pulumi.CustomResourceState
 
+	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities AlarmModelAlarmCapabilitiesPtrOutput `pulumi:"alarmCapabilities"`
+	// Contains information about one or more alarm actions.
 	AlarmEventActions AlarmModelAlarmEventActionsPtrOutput `pulumi:"alarmEventActions"`
 	// A brief description of the alarm model.
 	AlarmModelDescription pulumi.StringPtrOutput `pulumi:"alarmModelDescription"`
 	// The name of the alarm model.
-	AlarmModelName pulumi.StringPtrOutput    `pulumi:"alarmModelName"`
-	AlarmRule      AlarmModelAlarmRuleOutput `pulumi:"alarmRule"`
+	AlarmModelName pulumi.StringPtrOutput `pulumi:"alarmModelName"`
+	// Defines when your alarm is invoked.
+	AlarmRule AlarmModelAlarmRuleOutput `pulumi:"alarmRule"`
 	// The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
@@ -91,13 +94,16 @@ func (AlarmModelState) ElementType() reflect.Type {
 }
 
 type alarmModelArgs struct {
+	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities *AlarmModelAlarmCapabilities `pulumi:"alarmCapabilities"`
+	// Contains information about one or more alarm actions.
 	AlarmEventActions *AlarmModelAlarmEventActions `pulumi:"alarmEventActions"`
 	// A brief description of the alarm model.
 	AlarmModelDescription *string `pulumi:"alarmModelDescription"`
 	// The name of the alarm model.
-	AlarmModelName *string             `pulumi:"alarmModelName"`
-	AlarmRule      AlarmModelAlarmRule `pulumi:"alarmRule"`
+	AlarmModelName *string `pulumi:"alarmModelName"`
+	// Defines when your alarm is invoked.
+	AlarmRule AlarmModelAlarmRule `pulumi:"alarmRule"`
 	// The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
@@ -114,13 +120,16 @@ type alarmModelArgs struct {
 
 // The set of arguments for constructing a AlarmModel resource.
 type AlarmModelArgs struct {
+	// Contains the configuration information of alarm state changes.
 	AlarmCapabilities AlarmModelAlarmCapabilitiesPtrInput
+	// Contains information about one or more alarm actions.
 	AlarmEventActions AlarmModelAlarmEventActionsPtrInput
 	// A brief description of the alarm model.
 	AlarmModelDescription pulumi.StringPtrInput
 	// The name of the alarm model.
 	AlarmModelName pulumi.StringPtrInput
-	AlarmRule      AlarmModelAlarmRuleInput
+	// Defines when your alarm is invoked.
+	AlarmRule AlarmModelAlarmRuleInput
 	// The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
@@ -172,10 +181,12 @@ func (o AlarmModelOutput) ToAlarmModelOutputWithContext(ctx context.Context) Ala
 	return o
 }
 
+// Contains the configuration information of alarm state changes.
 func (o AlarmModelOutput) AlarmCapabilities() AlarmModelAlarmCapabilitiesPtrOutput {
 	return o.ApplyT(func(v *AlarmModel) AlarmModelAlarmCapabilitiesPtrOutput { return v.AlarmCapabilities }).(AlarmModelAlarmCapabilitiesPtrOutput)
 }
 
+// Contains information about one or more alarm actions.
 func (o AlarmModelOutput) AlarmEventActions() AlarmModelAlarmEventActionsPtrOutput {
 	return o.ApplyT(func(v *AlarmModel) AlarmModelAlarmEventActionsPtrOutput { return v.AlarmEventActions }).(AlarmModelAlarmEventActionsPtrOutput)
 }
@@ -190,6 +201,7 @@ func (o AlarmModelOutput) AlarmModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModel) pulumi.StringPtrOutput { return v.AlarmModelName }).(pulumi.StringPtrOutput)
 }
 
+// Defines when your alarm is invoked.
 func (o AlarmModelOutput) AlarmRule() AlarmModelAlarmRuleOutput {
 	return o.ApplyT(func(v *AlarmModel) AlarmModelAlarmRuleOutput { return v.AlarmRule }).(AlarmModelAlarmRuleOutput)
 }

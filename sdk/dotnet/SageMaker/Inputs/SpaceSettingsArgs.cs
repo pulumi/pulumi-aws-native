@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class SpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of app created within the space.
+        /// </summary>
         [Input("appType")]
         public Input<Pulumi.AwsNative.SageMaker.SpaceAppType>? AppType { get; set; }
 
@@ -26,6 +29,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         [Input("customFileSystems")]
         private InputList<Inputs.SpaceCustomFileSystemArgs>? _customFileSystems;
+
+        /// <summary>
+        /// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// </summary>
         public InputList<Inputs.SpaceCustomFileSystemArgs> CustomFileSystems
         {
             get => _customFileSystems ?? (_customFileSystems = new InputList<Inputs.SpaceCustomFileSystemArgs>());

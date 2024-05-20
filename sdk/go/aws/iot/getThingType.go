@@ -24,13 +24,19 @@ func LookupThingType(ctx *pulumi.Context, args *LookupThingTypeArgs, opts ...pul
 }
 
 type LookupThingTypeArgs struct {
+	// The name of the thing type.
 	ThingTypeName string `pulumi:"thingTypeName"`
 }
 
 type LookupThingTypeResult struct {
-	Arn                *string `pulumi:"arn"`
-	DeprecateThingType *bool   `pulumi:"deprecateThingType"`
-	Id                 *string `pulumi:"id"`
+	// The thing type arn.
+	Arn *string `pulumi:"arn"`
+	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	//
+	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+	DeprecateThingType *bool `pulumi:"deprecateThingType"`
+	// The thing type id.
+	Id *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -49,6 +55,7 @@ func LookupThingTypeOutput(ctx *pulumi.Context, args LookupThingTypeOutputArgs, 
 }
 
 type LookupThingTypeOutputArgs struct {
+	// The name of the thing type.
 	ThingTypeName pulumi.StringInput `pulumi:"thingTypeName"`
 }
 
@@ -70,14 +77,19 @@ func (o LookupThingTypeResultOutput) ToLookupThingTypeResultOutputWithContext(ct
 	return o
 }
 
+// The thing type arn.
 func (o LookupThingTypeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThingTypeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Deprecates a thing type. You can not associate new things with deprecated thing type.
+//
+// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 func (o LookupThingTypeResultOutput) DeprecateThingType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupThingTypeResult) *bool { return v.DeprecateThingType }).(pulumi.BoolPtrOutput)
 }
 
+// The thing type id.
 func (o LookupThingTypeResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThingTypeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

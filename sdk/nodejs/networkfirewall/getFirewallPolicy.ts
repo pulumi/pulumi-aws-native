@@ -19,14 +19,34 @@ export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.Inv
 }
 
 export interface GetFirewallPolicyArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     */
     firewallPolicyArn: string;
 }
 
 export interface GetFirewallPolicyResult {
+    /**
+     * A description of the firewall policy.
+     */
     readonly description?: string;
+    /**
+     * The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+     */
     readonly firewallPolicy?: outputs.networkfirewall.FirewallPolicy;
+    /**
+     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     */
     readonly firewallPolicyArn?: string;
+    /**
+     * The unique ID of the `FirewallPolicy` resource.
+     */
     readonly firewallPolicyId?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +57,8 @@ export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?
 }
 
 export interface GetFirewallPolicyOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     */
     firewallPolicyArn: pulumi.Input<string>;
 }

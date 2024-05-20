@@ -329,8 +329,18 @@ type Simulation struct {
 	// The name of the simulation.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Role ARN.
-	RoleArn            pulumi.StringOutput           `pulumi:"roleArn"`
-	SchemaS3Location   SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
+	SchemaS3Location SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
+	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+	//
+	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 	SnapshotS3Location SimulationS3LocationPtrOutput `pulumi:"snapshotS3Location"`
 }
 
@@ -390,8 +400,18 @@ type simulationArgs struct {
 	// The name of the simulation.
 	Name *string `pulumi:"name"`
 	// Role ARN.
-	RoleArn            string                `pulumi:"roleArn"`
-	SchemaS3Location   *SimulationS3Location `pulumi:"schemaS3Location"`
+	RoleArn string `pulumi:"roleArn"`
+	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
+	SchemaS3Location *SimulationS3Location `pulumi:"schemaS3Location"`
+	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+	//
+	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 	SnapshotS3Location *SimulationS3Location `pulumi:"snapshotS3Location"`
 }
 
@@ -402,8 +422,18 @@ type SimulationArgs struct {
 	// The name of the simulation.
 	Name pulumi.StringPtrInput
 	// Role ARN.
-	RoleArn            pulumi.StringInput
-	SchemaS3Location   SimulationS3LocationPtrInput
+	RoleArn pulumi.StringInput
+	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
+	SchemaS3Location SimulationS3LocationPtrInput
+	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+	//
+	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 	SnapshotS3Location SimulationS3LocationPtrInput
 }
 
@@ -464,10 +494,20 @@ func (o SimulationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Simulation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+//
+// Provide a `SchemaS3Location` to start your simulation from a schema.
+//
+// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
 func (o SimulationOutput) SchemaS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SchemaS3Location }).(SimulationS3LocationPtrOutput)
 }
 
+// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+//
+// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+//
+// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 func (o SimulationOutput) SnapshotS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SnapshotS3Location }).(SimulationS3LocationPtrOutput)
 }

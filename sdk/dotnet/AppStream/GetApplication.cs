@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,14 +57,41 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The app block ARN with which the application should be associated.
+        /// </summary>
         public readonly string? AppBlockArn;
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The time when the application was created.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The description of the application.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the application. This name is visible to users in the application catalog.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The icon S3 location of the application.
+        /// </summary>
         public readonly Outputs.ApplicationS3Location? IconS3Location;
+        /// <summary>
+        /// The launch parameters of the application.
+        /// </summary>
         public readonly string? LaunchParameters;
+        /// <summary>
+        /// The launch path of the application.
+        /// </summary>
         public readonly string? LaunchPath;
+        /// <summary>
+        /// The working directory of the application.
+        /// </summary>
         public readonly string? WorkingDirectory;
 
         [OutputConstructor]

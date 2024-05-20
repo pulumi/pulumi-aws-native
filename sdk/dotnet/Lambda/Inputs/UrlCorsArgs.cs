@@ -66,6 +66,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
             set => _exposeHeaders = value;
         }
 
+        /// <summary>
+        /// The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
+        /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }
 

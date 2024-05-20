@@ -21,6 +21,11 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// The ID of the hierarchy that is trying to be referenced
         /// </summary>
         public readonly string? HierarchyId;
+        /// <summary>
+        /// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+        /// 
+        /// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
+        /// </summary>
         public readonly string? HierarchyLogicalId;
         /// <summary>
         /// The External ID of the property that is trying to be referenced
@@ -30,6 +35,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// The ID of the property that is trying to be referenced
         /// </summary>
         public readonly string? PropertyId;
+        /// <summary>
+        /// The `LogicalID` of the property that is being referenced.
+        /// </summary>
         public readonly string? PropertyLogicalId;
         /// <summary>
         /// The path of the property that is trying to be referenced

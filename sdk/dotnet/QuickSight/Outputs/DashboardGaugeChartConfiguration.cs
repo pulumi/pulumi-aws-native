@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGaugeChartConfiguration
     {
+        /// <summary>
+        /// The data label configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardGaugeChartFieldWells? FieldWells;
+        /// <summary>
+        /// The options that determine the presentation of the `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardGaugeChartOptions? GaugeChartOptions;
+        /// <summary>
+        /// The tooltip configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? TooltipOptions;
+        /// <summary>
+        /// The visual palette configuration of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 
         [OutputConstructor]

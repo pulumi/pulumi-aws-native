@@ -596,6 +596,11 @@ class Key(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+
+        For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -642,6 +647,11 @@ class Key(pulumi.CustomResource):
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
+        """
+        The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+
+        For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "key_id")
 
     @property

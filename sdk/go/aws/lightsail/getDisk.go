@@ -35,12 +35,14 @@ type LookupDiskResult struct {
 	AttachedTo *string `pulumi:"attachedTo"`
 	// Attachment State of the Lightsail disk
 	AttachmentState *string `pulumi:"attachmentState"`
-	DiskArn         *string `pulumi:"diskArn"`
+	// The Amazon Resource Name (ARN) of the disk.
+	DiskArn *string `pulumi:"diskArn"`
 	// Iops of the Lightsail disk
 	Iops *int `pulumi:"iops"`
 	// Check is Disk is attached state
-	IsAttached *bool         `pulumi:"isAttached"`
-	Location   *DiskLocation `pulumi:"location"`
+	IsAttached *bool `pulumi:"isAttached"`
+	// The AWS Region and Availability Zone where the disk is located.
+	Location *DiskLocation `pulumi:"location"`
 	// Path of the  attached Disk
 	Path *string `pulumi:"path"`
 	// Resource type of Lightsail instance.
@@ -104,6 +106,7 @@ func (o LookupDiskResultOutput) AttachmentState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *string { return v.AttachmentState }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the disk.
 func (o LookupDiskResultOutput) DiskArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *string { return v.DiskArn }).(pulumi.StringPtrOutput)
 }
@@ -118,6 +121,7 @@ func (o LookupDiskResultOutput) IsAttached() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *bool { return v.IsAttached }).(pulumi.BoolPtrOutput)
 }
 
+// The AWS Region and Availability Zone where the disk is located.
 func (o LookupDiskResultOutput) Location() DiskLocationPtrOutput {
 	return o.ApplyT(func(v LookupDiskResult) *DiskLocation { return v.Location }).(DiskLocationPtrOutput)
 }

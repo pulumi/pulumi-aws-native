@@ -49,6 +49,9 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      * The JSON policy document that is the content for the policy
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The type of lifecycle policy.
+     */
     public readonly type!: pulumi.Output<enums.opensearchserverless.LifecyclePolicyType>;
 
     /**
@@ -101,5 +104,8 @@ export interface LifecyclePolicyArgs {
      * The JSON policy document that is the content for the policy
      */
     policy: pulumi.Input<string>;
+    /**
+     * The type of lifecycle policy.
+     */
     type: pulumi.Input<enums.opensearchserverless.LifecyclePolicyType>;
 }

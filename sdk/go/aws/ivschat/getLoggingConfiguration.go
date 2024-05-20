@@ -30,7 +30,8 @@ type LookupLoggingConfigurationArgs struct {
 
 type LookupLoggingConfigurationResult struct {
 	// LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn                      *string                                       `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
 	DestinationConfiguration *LoggingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
 	// The system-generated ID of the logging configuration.
 	Id *string `pulumi:"id"`
@@ -83,6 +84,7 @@ func (o LookupLoggingConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoggingConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
 func (o LookupLoggingConfigurationResultOutput) DestinationConfiguration() LoggingConfigurationDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLoggingConfigurationResult) *LoggingConfigurationDestinationConfiguration {
 		return v.DestinationConfiguration

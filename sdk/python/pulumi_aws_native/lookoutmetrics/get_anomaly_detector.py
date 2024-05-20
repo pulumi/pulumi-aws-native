@@ -56,6 +56,9 @@ class GetAnomalyDetectorResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -92,6 +95,9 @@ def get_anomaly_detector(arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnomalyDetectorResult:
     """
     An Amazon Lookout for Metrics Detector
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -111,5 +117,8 @@ def get_anomaly_detector_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyDetectorResult]:
     """
     An Amazon Lookout for Metrics Detector
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
     """
     ...

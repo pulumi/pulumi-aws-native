@@ -63,6 +63,7 @@ class ConnectorApacheKafkaCluster(dict):
         """
         Details of how to connect to an Apache Kafka cluster.
         :param str bootstrap_servers: The bootstrap servers string of the Apache Kafka cluster.
+        :param 'ConnectorVpc' vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "bootstrap_servers", bootstrap_servers)
         pulumi.set(__self__, "vpc", vpc)
@@ -78,6 +79,9 @@ class ConnectorApacheKafkaCluster(dict):
     @property
     @pulumi.getter
     def vpc(self) -> 'outputs.ConnectorVpc':
+        """
+        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        """
         return pulumi.get(self, "vpc")
 
 
@@ -122,6 +126,8 @@ class ConnectorAutoScaling(dict):
         :param int max_worker_count: The maximum number of workers for a connector.
         :param int mcu_count: Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
         :param int min_worker_count: The minimum number of workers for a connector.
+        :param 'ConnectorScaleInPolicy' scale_in_policy: The sacle-in policy for the connector.
+        :param 'ConnectorScaleOutPolicy' scale_out_policy: The sacle-out policy for the connector.
         """
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "mcu_count", mcu_count)
@@ -156,11 +162,17 @@ class ConnectorAutoScaling(dict):
     @property
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> 'outputs.ConnectorScaleInPolicy':
+        """
+        The sacle-in policy for the connector.
+        """
         return pulumi.get(self, "scale_in_policy")
 
     @property
     @pulumi.getter(name="scaleOutPolicy")
     def scale_out_policy(self) -> 'outputs.ConnectorScaleOutPolicy':
+        """
+        The sacle-out policy for the connector.
+        """
         return pulumi.get(self, "scale_out_policy")
 
 
@@ -193,6 +205,8 @@ class ConnectorCapacity(dict):
                  provisioned_capacity: Optional['outputs.ConnectorProvisionedCapacity'] = None):
         """
         Information about the capacity allocated to the connector.
+        :param 'ConnectorAutoScaling' auto_scaling: Information about the auto scaling parameters for the connector.
+        :param 'ConnectorProvisionedCapacity' provisioned_capacity: Details about a fixed capacity allocated to a connector.
         """
         if auto_scaling is not None:
             pulumi.set(__self__, "auto_scaling", auto_scaling)
@@ -202,11 +216,17 @@ class ConnectorCapacity(dict):
     @property
     @pulumi.getter(name="autoScaling")
     def auto_scaling(self) -> Optional['outputs.ConnectorAutoScaling']:
+        """
+        Information about the auto scaling parameters for the connector.
+        """
         return pulumi.get(self, "auto_scaling")
 
     @property
     @pulumi.getter(name="provisionedCapacity")
     def provisioned_capacity(self) -> Optional['outputs.ConnectorProvisionedCapacity']:
+        """
+        Details about a fixed capacity allocated to a connector.
+        """
         return pulumi.get(self, "provisioned_capacity")
 
 
@@ -388,12 +408,16 @@ class ConnectorKafkaCluster(dict):
                  apache_kafka_cluster: 'outputs.ConnectorApacheKafkaCluster'):
         """
         Details of how to connect to the Kafka cluster.
+        :param 'ConnectorApacheKafkaCluster' apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
 
     @property
     @pulumi.getter(name="apacheKafkaCluster")
     def apache_kafka_cluster(self) -> 'outputs.ConnectorApacheKafkaCluster':
+        """
+        The Apache Kafka cluster to which the connector is connected.
+        """
         return pulumi.get(self, "apache_kafka_cluster")
 
 
@@ -423,12 +447,16 @@ class ConnectorKafkaClusterClientAuthentication(dict):
                  authentication_type: 'ConnectorKafkaClusterClientAuthenticationType'):
         """
         Details of the client authentication used by the Kafka cluster.
+        :param 'ConnectorKafkaClusterClientAuthenticationType' authentication_type: The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
 
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> 'ConnectorKafkaClusterClientAuthenticationType':
+        """
+        The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.
+        """
         return pulumi.get(self, "authentication_type")
 
 
@@ -458,12 +486,16 @@ class ConnectorKafkaClusterEncryptionInTransit(dict):
                  encryption_type: 'ConnectorKafkaClusterEncryptionInTransitType'):
         """
         Details of encryption in transit to the Kafka cluster.
+        :param 'ConnectorKafkaClusterEncryptionInTransitType' encryption_type: The type of encryption in transit to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
 
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> 'ConnectorKafkaClusterEncryptionInTransitType':
+        """
+        The type of encryption in transit to the Apache Kafka cluster.
+        """
         return pulumi.get(self, "encryption_type")
 
 
@@ -493,12 +525,16 @@ class ConnectorLogDelivery(dict):
                  worker_log_delivery: 'outputs.ConnectorWorkerLogDelivery'):
         """
         Details of what logs are delivered and where they are delivered.
+        :param 'ConnectorWorkerLogDelivery' worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
 
     @property
     @pulumi.getter(name="workerLogDelivery")
     def worker_log_delivery(self) -> 'outputs.ConnectorWorkerLogDelivery':
+        """
+        The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+        """
         return pulumi.get(self, "worker_log_delivery")
 
 
@@ -528,12 +564,16 @@ class ConnectorPlugin(dict):
                  custom_plugin: 'outputs.ConnectorCustomPlugin'):
         """
         Details about a Kafka Connect plugin which will be used with the connector.
+        :param 'ConnectorCustomPlugin' custom_plugin: Details about a custom plugin.
         """
         pulumi.set(__self__, "custom_plugin", custom_plugin)
 
     @property
     @pulumi.getter(name="customPlugin")
     def custom_plugin(self) -> 'outputs.ConnectorCustomPlugin':
+        """
+        Details about a custom plugin.
+        """
         return pulumi.get(self, "custom_plugin")
 
 
@@ -842,6 +882,9 @@ class ConnectorWorkerLogDelivery(dict):
                  s3: Optional['outputs.ConnectorS3LogDelivery'] = None):
         """
         Specifies where worker logs are delivered.
+        :param 'ConnectorCloudWatchLogsLogDelivery' cloud_watch_logs: Details about delivering logs to Amazon CloudWatch Logs.
+        :param 'ConnectorFirehoseLogDelivery' firehose: Details about delivering logs to Amazon Kinesis Data Firehose.
+        :param 'ConnectorS3LogDelivery' s3: Details about delivering logs to Amazon S3.
         """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
@@ -853,16 +896,25 @@ class ConnectorWorkerLogDelivery(dict):
     @property
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> Optional['outputs.ConnectorCloudWatchLogsLogDelivery']:
+        """
+        Details about delivering logs to Amazon CloudWatch Logs.
+        """
         return pulumi.get(self, "cloud_watch_logs")
 
     @property
     @pulumi.getter
     def firehose(self) -> Optional['outputs.ConnectorFirehoseLogDelivery']:
+        """
+        Details about delivering logs to Amazon Kinesis Data Firehose.
+        """
         return pulumi.get(self, "firehose")
 
     @property
     @pulumi.getter
     def s3(self) -> Optional['outputs.ConnectorS3LogDelivery']:
+        """
+        Details about delivering logs to Amazon S3.
+        """
         return pulumi.get(self, "s3")
 
 
@@ -946,12 +998,16 @@ class CustomPluginLocation(dict):
                  s3_location: 'outputs.CustomPluginS3Location'):
         """
         Information about the location of a custom plugin.
+        :param 'CustomPluginS3Location' s3_location: The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
         """
         pulumi.set(__self__, "s3_location", s3_location)
 
     @property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> 'outputs.CustomPluginS3Location':
+        """
+        The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+        """
         return pulumi.get(self, "s3_location")
 
 

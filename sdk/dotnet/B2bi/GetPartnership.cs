@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class GetPartnershipArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique, system-generated identifier for a partnership.
+        /// </summary>
         [Input("partnershipId", required: true)]
         public string PartnershipId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class GetPartnershipInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique, system-generated identifier for a partnership.
+        /// </summary>
         [Input("partnershipId", required: true)]
         public Input<string> PartnershipId { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.B2bi
     [OutputType]
     public sealed class GetPartnershipResult
     {
+        /// <summary>
+        /// Returns one or more capabilities associated with this partnership.
+        /// </summary>
         public readonly ImmutableArray<string> Capabilities;
+        /// <summary>
+        /// Returns a timestamp for creation date and time of the partnership.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// Returns the name of the partnership.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        /// </summary>
         public readonly string? PartnershipArn;
+        /// <summary>
+        /// Returns the unique, system-generated identifier for a partnership.
+        /// </summary>
         public readonly string? PartnershipId;
+        /// <summary>
+        /// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Returns the unique, system-generated identifier for a trading partner.
+        /// </summary>
         public readonly string? TradingPartnerId;
 
         [OutputConstructor]

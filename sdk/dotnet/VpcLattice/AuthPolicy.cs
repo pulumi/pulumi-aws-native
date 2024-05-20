@@ -16,14 +16,22 @@ namespace Pulumi.AwsNative.VpcLattice
     public partial class AuthPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The auth policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+        /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.VpcLattice.AuthPolicyState> State { get; private set; } = null!;
 
@@ -77,11 +85,16 @@ namespace Pulumi.AwsNative.VpcLattice
     public sealed class AuthPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The auth policy.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy", required: true)]
         public Input<object> Policy { get; set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;
 

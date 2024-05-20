@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("customColors")]
         private InputList<Inputs.DashboardCustomColorArgs>? _customColors;
+
+        /// <summary>
+        /// A list of up to 50 custom colors.
+        /// </summary>
         public InputList<Inputs.DashboardCustomColorArgs> CustomColors
         {
             get => _customColors ?? (_customColors = new InputList<Inputs.DashboardCustomColorArgs>());

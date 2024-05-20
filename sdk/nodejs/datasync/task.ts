@@ -71,20 +71,41 @@ export class Task extends pulumi.CustomResource {
      * The ARN of an AWS storage resource's location.
      */
     public readonly destinationLocationArn!: pulumi.Output<string>;
+    /**
+     * The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
+     */
     public /*out*/ readonly destinationNetworkInterfaceArns!: pulumi.Output<string[]>;
+    /**
+     * Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+     */
     public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
+    /**
+     * Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+     */
     public readonly includes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
+    /**
+     * The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+     */
     public readonly manifestConfig!: pulumi.Output<outputs.datasync.TaskManifestConfig | undefined>;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+     */
     public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
+    /**
+     * Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+     */
     public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
     /**
      * The ARN of the source location for the task.
      */
     public readonly sourceLocationArn!: pulumi.Output<string>;
+    /**
+     * The ARNs of the source ENIs that were created for your subnet.
+     */
     public /*out*/ readonly sourceNetworkInterfaceArns!: pulumi.Output<string[]>;
     /**
      * The status of the task that was described.
@@ -98,6 +119,11 @@ export class Task extends pulumi.CustomResource {
      * The ARN of the task.
      */
     public /*out*/ readonly taskArn!: pulumi.Output<string>;
+    /**
+     * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+     *
+     * When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+     */
     public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskReportConfig | undefined>;
 
     /**
@@ -168,14 +194,29 @@ export interface TaskArgs {
      * The ARN of an AWS storage resource's location.
      */
     destinationLocationArn: pulumi.Input<string>;
+    /**
+     * Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+     */
     excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
+    /**
+     * Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+     */
     includes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
+    /**
+     * The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+     */
     manifestConfig?: pulumi.Input<inputs.datasync.TaskManifestConfigArgs>;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+     */
     options?: pulumi.Input<inputs.datasync.TaskOptionsArgs>;
+    /**
+     * Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+     */
     schedule?: pulumi.Input<inputs.datasync.TaskScheduleArgs>;
     /**
      * The ARN of the source location for the task.
@@ -185,5 +226,10 @@ export interface TaskArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+     *
+     * When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+     */
     taskReportConfig?: pulumi.Input<inputs.datasync.TaskReportConfigArgs>;
 }

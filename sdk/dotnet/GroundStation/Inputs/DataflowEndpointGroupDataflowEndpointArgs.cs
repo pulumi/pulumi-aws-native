@@ -12,12 +12,20 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class DataflowEndpointGroupDataflowEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The address and port of an endpoint.
+        /// </summary>
         [Input("address")]
         public Input<Inputs.DataflowEndpointGroupSocketAddressArgs>? Address { get; set; }
 
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
 
+        /// <summary>
+        /// The endpoint name.
+        /// 
+        /// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

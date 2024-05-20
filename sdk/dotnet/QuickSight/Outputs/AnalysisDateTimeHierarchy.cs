@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDateTimeHierarchy
     {
+        /// <summary>
+        /// The option that determines the drill down filters for the `DateTime` hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDrillDownFilter> DrillDownFilters;
+        /// <summary>
+        /// The hierarchy ID of the `DateTime` hierarchy.
+        /// </summary>
         public readonly string HierarchyId;
 
         [OutputConstructor]

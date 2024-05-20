@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterSelectableValues
     {
+        /// <summary>
+        /// The values that are used in the `FilterSelectableValues` .
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

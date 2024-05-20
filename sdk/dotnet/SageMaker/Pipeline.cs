@@ -71,9 +71,15 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The parallelism configuration applied to the pipeline.
+        /// </summary>
         [Output("parallelismConfiguration")]
         public Output<Outputs.ParallelismConfigurationProperties?> ParallelismConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        /// </summary>
         [Output("pipelineDefinition")]
         public Output<Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>> PipelineDefinition { get; private set; } = null!;
 
@@ -101,6 +107,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags of the pipeline.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -153,9 +162,15 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parallelism configuration applied to the pipeline.
+        /// </summary>
         [Input("parallelismConfiguration")]
         public Input<Inputs.ParallelismConfigurationPropertiesArgs>? ParallelismConfiguration { get; set; }
 
+        /// <summary>
+        /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        /// </summary>
         [Input("pipelineDefinition", required: true)]
         public InputUnion<Inputs.PipelineDefinition0PropertiesArgs, Inputs.PipelineDefinition1PropertiesArgs> PipelineDefinition { get; set; } = null!;
 
@@ -185,6 +200,10 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags of the pipeline.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -792,16 +792,27 @@ type Bucket struct {
 	AccessControl BucketAccessControlPtrOutput `pulumi:"accessControl"`
 	// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 	AnalyticsConfigurations BucketAnalyticsConfigurationArrayOutput `pulumi:"analyticsConfigurations"`
-	Arn                     pulumi.StringOutput                     `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) of the specified bucket.
+	//
+	// Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
 	BucketEncryption BucketEncryptionPtrOutput `pulumi:"bucketEncryption"`
 	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
-	CorsConfiguration   BucketCorsConfigurationPtrOutput `pulumi:"corsConfiguration"`
-	DomainName          pulumi.StringOutput              `pulumi:"domainName"`
-	DualStackDomainName pulumi.StringOutput              `pulumi:"dualStackDomainName"`
+	CorsConfiguration BucketCorsConfigurationPtrOutput `pulumi:"corsConfiguration"`
+	// Returns the IPv4 DNS name of the specified bucket.
+	//
+	// Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Returns the IPv6 DNS name of the specified bucket.
+	//
+	// Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+	//
+	// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
+	DualStackDomainName pulumi.StringOutput `pulumi:"dualStackDomainName"`
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
 	IntelligentTieringConfigurations BucketIntelligentTieringConfigurationArrayOutput `pulumi:"intelligentTieringConfigurations"`
 	// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
@@ -826,7 +837,10 @@ type Bucket struct {
 	OwnershipControls BucketOwnershipControlsPtrOutput `pulumi:"ownershipControls"`
 	// Configuration that defines how Amazon S3 handles public access.
 	PublicAccessBlockConfiguration BucketPublicAccessBlockConfigurationPtrOutput `pulumi:"publicAccessBlockConfiguration"`
-	RegionalDomainName             pulumi.StringOutput                           `pulumi:"regionalDomainName"`
+	// Returns the regional domain name of the specified bucket.
+	//
+	// Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
+	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
 	// Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
 	//  Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
 	ReplicationConfiguration BucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
@@ -836,7 +850,12 @@ type Bucket struct {
 	VersioningConfiguration BucketVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 	// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 	WebsiteConfiguration BucketWebsiteConfigurationPtrOutput `pulumi:"websiteConfiguration"`
-	WebsiteUrl           pulumi.StringOutput                 `pulumi:"websiteUrl"`
+	// Returns the Amazon S3 website endpoint for the specified bucket.
+	//
+	// Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+	//
+	// Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+	WebsiteUrl pulumi.StringOutput `pulumi:"websiteUrl"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -1043,6 +1062,9 @@ func (o BucketOutput) AnalyticsConfigurations() BucketAnalyticsConfigurationArra
 	return o.ApplyT(func(v *Bucket) BucketAnalyticsConfigurationArrayOutput { return v.AnalyticsConfigurations }).(BucketAnalyticsConfigurationArrayOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified bucket.
+//
+// Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
 func (o BucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1064,10 +1086,18 @@ func (o BucketOutput) CorsConfiguration() BucketCorsConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketCorsConfigurationPtrOutput { return v.CorsConfiguration }).(BucketCorsConfigurationPtrOutput)
 }
 
+// Returns the IPv4 DNS name of the specified bucket.
+//
+// Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
 func (o BucketOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// Returns the IPv6 DNS name of the specified bucket.
+//
+// Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+//
+// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
 func (o BucketOutput) DualStackDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.DualStackDomainName }).(pulumi.StringOutput)
 }
@@ -1129,6 +1159,9 @@ func (o BucketOutput) PublicAccessBlockConfiguration() BucketPublicAccessBlockCo
 	return o.ApplyT(func(v *Bucket) BucketPublicAccessBlockConfigurationPtrOutput { return v.PublicAccessBlockConfiguration }).(BucketPublicAccessBlockConfigurationPtrOutput)
 }
 
+// Returns the regional domain name of the specified bucket.
+//
+// Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
 func (o BucketOutput) RegionalDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
 }
@@ -1155,6 +1188,11 @@ func (o BucketOutput) WebsiteConfiguration() BucketWebsiteConfigurationPtrOutput
 	return o.ApplyT(func(v *Bucket) BucketWebsiteConfigurationPtrOutput { return v.WebsiteConfiguration }).(BucketWebsiteConfigurationPtrOutput)
 }
 
+// Returns the Amazon S3 website endpoint for the specified bucket.
+//
+// Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+//
+// Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
 func (o BucketOutput) WebsiteUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteUrl }).(pulumi.StringOutput)
 }

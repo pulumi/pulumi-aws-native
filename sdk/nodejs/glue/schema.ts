@@ -41,6 +41,9 @@ export class Schema extends pulumi.CustomResource {
      * Amazon Resource Name for the Schema.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
+     */
     public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaVersion | undefined>;
     /**
      * Compatibility setting for the schema.
@@ -62,6 +65,9 @@ export class Schema extends pulumi.CustomResource {
      * Name of the schema.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The registry where a schema is stored.
+     */
     public readonly registry!: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
     /**
      * Definition for the initial schema version in plain-text.
@@ -125,6 +131,9 @@ export class Schema extends pulumi.CustomResource {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
+    /**
+     * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
+     */
     checkpointVersion?: pulumi.Input<inputs.glue.SchemaVersionArgs>;
     /**
      * Compatibility setting for the schema.
@@ -142,6 +151,9 @@ export interface SchemaArgs {
      * Name of the schema.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The registry where a schema is stored.
+     */
     registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
     /**
      * Definition for the initial schema version in plain-text.

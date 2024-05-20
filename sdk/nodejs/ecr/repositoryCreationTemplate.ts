@@ -49,6 +49,13 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      * The description of the template.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     *
+     * By default, when no encryption configuration is set or the `AES256` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+     *
+     * For more control over the encryption of the contents of your repository, you can use server-side encryption with AWS Key Management Service key stored in AWS Key Management Service ( AWS KMS ) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration | undefined>;
     /**
      * The image tag mutability setting for the repository.
@@ -133,6 +140,13 @@ export interface RepositoryCreationTemplateArgs {
      * The description of the template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     *
+     * By default, when no encryption configuration is set or the `AES256` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+     *
+     * For more control over the encryption of the contents of your repository, you can use server-side encryption with AWS Key Management Service key stored in AWS Key Management Service ( AWS KMS ) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
+     */
     encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfigurationArgs>;
     /**
      * The image tag mutability setting for the repository.

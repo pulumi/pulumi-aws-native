@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Outputs
 {
 
+    /// <summary>
+    /// The properties of the billing group.
+    /// </summary>
     [OutputType]
     public sealed class BillingGroupPropertiesProperties
     {
+        /// <summary>
+        /// The description of the billing group.
+        /// </summary>
         public readonly string? BillingGroupDescription;
 
         [OutputConstructor]

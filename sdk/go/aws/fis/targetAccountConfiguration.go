@@ -16,10 +16,14 @@ import (
 type TargetAccountConfiguration struct {
 	pulumi.CustomResourceState
 
-	AccountId            pulumi.StringOutput    `pulumi:"accountId"`
-	Description          pulumi.StringPtrOutput `pulumi:"description"`
-	ExperimentTemplateId pulumi.StringOutput    `pulumi:"experimentTemplateId"`
-	RoleArn              pulumi.StringOutput    `pulumi:"roleArn"`
+	// The AWS account ID of the target account.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The description of the target account.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the experiment template.
+	ExperimentTemplateId pulumi.StringOutput `pulumi:"experimentTemplateId"`
+	// The Amazon Resource Name (ARN) of an IAM role for the target account.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewTargetAccountConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -76,18 +80,26 @@ func (TargetAccountConfigurationState) ElementType() reflect.Type {
 }
 
 type targetAccountConfigurationArgs struct {
-	AccountId            string  `pulumi:"accountId"`
-	Description          *string `pulumi:"description"`
-	ExperimentTemplateId string  `pulumi:"experimentTemplateId"`
-	RoleArn              string  `pulumi:"roleArn"`
+	// The AWS account ID of the target account.
+	AccountId string `pulumi:"accountId"`
+	// The description of the target account.
+	Description *string `pulumi:"description"`
+	// The ID of the experiment template.
+	ExperimentTemplateId string `pulumi:"experimentTemplateId"`
+	// The Amazon Resource Name (ARN) of an IAM role for the target account.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a TargetAccountConfiguration resource.
 type TargetAccountConfigurationArgs struct {
-	AccountId            pulumi.StringInput
-	Description          pulumi.StringPtrInput
+	// The AWS account ID of the target account.
+	AccountId pulumi.StringInput
+	// The description of the target account.
+	Description pulumi.StringPtrInput
+	// The ID of the experiment template.
 	ExperimentTemplateId pulumi.StringInput
-	RoleArn              pulumi.StringInput
+	// The Amazon Resource Name (ARN) of an IAM role for the target account.
+	RoleArn pulumi.StringInput
 }
 
 func (TargetAccountConfigurationArgs) ElementType() reflect.Type {
@@ -127,18 +139,22 @@ func (o TargetAccountConfigurationOutput) ToTargetAccountConfigurationOutputWith
 	return o
 }
 
+// The AWS account ID of the target account.
 func (o TargetAccountConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The description of the target account.
 func (o TargetAccountConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the experiment template.
 func (o TargetAccountConfigurationOutput) ExperimentTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.ExperimentTemplateId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role for the target account.
 func (o TargetAccountConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetAccountConfiguration) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

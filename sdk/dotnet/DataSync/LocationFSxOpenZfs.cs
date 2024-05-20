@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of protocol that AWS DataSync uses to access your file system.
+        /// </summary>
         [Output("protocol")]
         public Output<Outputs.LocationFSxOpenZfsProtocol> Protocol { get; private set; } = null!;
 
@@ -112,6 +115,9 @@ namespace Pulumi.AwsNative.DataSync
         [Input("fsxFilesystemArn")]
         public Input<string>? FsxFilesystemArn { get; set; }
 
+        /// <summary>
+        /// The type of protocol that AWS DataSync uses to access your file system.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<Inputs.LocationFSxOpenZfsProtocolArgs> Protocol { get; set; } = null!;
 

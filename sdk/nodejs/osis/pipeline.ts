@@ -37,12 +37,21 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    /**
+     * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+     */
     public readonly bufferOptions!: pulumi.Output<outputs.osis.PipelineBufferOptions | undefined>;
+    /**
+     * Options to control how OpenSearch encrypts buffer data.
+     */
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.osis.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * A list of endpoints that can be used for ingesting data into a pipeline
      */
     public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
+    /**
+     * Key-value pairs that represent log publishing settings.
+     */
     public readonly logPublishingOptions!: pulumi.Output<outputs.osis.PipelineLogPublishingOptions | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
@@ -72,6 +81,9 @@ export class Pipeline extends pulumi.CustomResource {
      * The VPC interface endpoints that have access to the pipeline.
      */
     public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.osis.PipelineVpcEndpoint[]>;
+    /**
+     * Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+     */
     public readonly vpcOptions!: pulumi.Output<outputs.osis.PipelineVpcOptions | undefined>;
 
     /**
@@ -131,8 +143,17 @@ export class Pipeline extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+     */
     bufferOptions?: pulumi.Input<inputs.osis.PipelineBufferOptionsArgs>;
+    /**
+     * Options to control how OpenSearch encrypts buffer data.
+     */
     encryptionAtRestOptions?: pulumi.Input<inputs.osis.PipelineEncryptionAtRestOptionsArgs>;
+    /**
+     * Key-value pairs that represent log publishing settings.
+     */
     logPublishingOptions?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsArgs>;
     /**
      * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
@@ -154,5 +175,8 @@ export interface PipelineArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+     */
     vpcOptions?: pulumi.Input<inputs.osis.PipelineVpcOptionsArgs>;
 }

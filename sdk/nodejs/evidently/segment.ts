@@ -37,9 +37,21 @@ export class Segment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Segment.__pulumiType;
     }
 
+    /**
+     * The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An optional description for this segment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the segment.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+     */
     public readonly pattern!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -78,8 +90,17 @@ export class Segment extends pulumi.CustomResource {
  * The set of arguments for constructing a Segment resource.
  */
 export interface SegmentArgs {
+    /**
+     * An optional description for this segment.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A name for the segment.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+     */
     pattern?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

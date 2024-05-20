@@ -37,10 +37,25 @@ export class ConnectionAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectionAlias.__pulumiType;
     }
 
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
+    /**
+     * The association status of the connection alias.
+     */
     public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasAssociation[]>;
+    /**
+     * The current state of the connection alias, returned as a string.
+     */
     public /*out*/ readonly connectionAliasState!: pulumi.Output<enums.workspaces.ConnectionAliasState>;
+    /**
+     * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+     */
     public readonly connectionString!: pulumi.Output<string>;
+    /**
+     * The tags to associate with the connection alias.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -80,6 +95,12 @@ export class ConnectionAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a ConnectionAlias resource.
  */
 export interface ConnectionAliasArgs {
+    /**
+     * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+     */
     connectionString: pulumi.Input<string>;
+    /**
+     * The tags to associate with the connection alias.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

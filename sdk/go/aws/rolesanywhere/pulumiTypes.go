@@ -14,20 +14,30 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CrlTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type ProfileTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type TrustAnchorNotificationSetting struct {
-	Channel   *TrustAnchorNotificationChannel `pulumi:"channel"`
-	Enabled   bool                            `pulumi:"enabled"`
-	Event     TrustAnchorNotificationEvent    `pulumi:"event"`
-	Threshold *float64                        `pulumi:"threshold"`
+	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+	//
+	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
+	Channel *TrustAnchorNotificationChannel `pulumi:"channel"`
+	// Indicates whether the notification setting is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The event to which this notification setting is applied.
+	Event TrustAnchorNotificationEvent `pulumi:"event"`
+	// The number of days before a notification event. This value is required for a notification setting that is enabled.
+	Threshold *float64 `pulumi:"threshold"`
 }
 
 // TrustAnchorNotificationSettingInput is an input type that accepts TrustAnchorNotificationSettingArgs and TrustAnchorNotificationSettingOutput values.
@@ -42,10 +52,16 @@ type TrustAnchorNotificationSettingInput interface {
 }
 
 type TrustAnchorNotificationSettingArgs struct {
-	Channel   TrustAnchorNotificationChannelPtrInput `pulumi:"channel"`
-	Enabled   pulumi.BoolInput                       `pulumi:"enabled"`
-	Event     TrustAnchorNotificationEventInput      `pulumi:"event"`
-	Threshold pulumi.Float64PtrInput                 `pulumi:"threshold"`
+	// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+	//
+	// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
+	Channel TrustAnchorNotificationChannelPtrInput `pulumi:"channel"`
+	// Indicates whether the notification setting is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The event to which this notification setting is applied.
+	Event TrustAnchorNotificationEventInput `pulumi:"event"`
+	// The number of days before a notification event. This value is required for a notification setting that is enabled.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 }
 
 func (TrustAnchorNotificationSettingArgs) ElementType() reflect.Type {
@@ -99,18 +115,24 @@ func (o TrustAnchorNotificationSettingOutput) ToTrustAnchorNotificationSettingOu
 	return o
 }
 
+// The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge , and AWS Health Dashboard to notify for an event.
+//
+// > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
 func (o TrustAnchorNotificationSettingOutput) Channel() TrustAnchorNotificationChannelPtrOutput {
 	return o.ApplyT(func(v TrustAnchorNotificationSetting) *TrustAnchorNotificationChannel { return v.Channel }).(TrustAnchorNotificationChannelPtrOutput)
 }
 
+// Indicates whether the notification setting is enabled.
 func (o TrustAnchorNotificationSettingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TrustAnchorNotificationSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The event to which this notification setting is applied.
 func (o TrustAnchorNotificationSettingOutput) Event() TrustAnchorNotificationEventOutput {
 	return o.ApplyT(func(v TrustAnchorNotificationSetting) TrustAnchorNotificationEvent { return v.Event }).(TrustAnchorNotificationEventOutput)
 }
 
+// The number of days before a notification event. This value is required for a notification setting that is enabled.
 func (o TrustAnchorNotificationSettingOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TrustAnchorNotificationSetting) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
@@ -136,7 +158,9 @@ func (o TrustAnchorNotificationSettingArrayOutput) Index(i pulumi.IntInput) Trus
 }
 
 type TrustAnchorSource struct {
-	SourceData interface{}      `pulumi:"sourceData"`
+	// A union object representing the data field of the TrustAnchor depending on its type
+	SourceData interface{} `pulumi:"sourceData"`
+	// The type of the TrustAnchor.
 	SourceType *TrustAnchorType `pulumi:"sourceType"`
 }
 
@@ -152,7 +176,9 @@ type TrustAnchorSourceInput interface {
 }
 
 type TrustAnchorSourceArgs struct {
-	SourceData pulumi.Input            `pulumi:"sourceData"`
+	// A union object representing the data field of the TrustAnchor depending on its type
+	SourceData pulumi.Input `pulumi:"sourceData"`
+	// The type of the TrustAnchor.
 	SourceType TrustAnchorTypePtrInput `pulumi:"sourceType"`
 }
 
@@ -182,10 +208,12 @@ func (o TrustAnchorSourceOutput) ToTrustAnchorSourceOutputWithContext(ctx contex
 	return o
 }
 
+// A union object representing the data field of the TrustAnchor depending on its type
 func (o TrustAnchorSourceOutput) SourceData() pulumi.AnyOutput {
 	return o.ApplyT(func(v TrustAnchorSource) interface{} { return v.SourceData }).(pulumi.AnyOutput)
 }
 
+// The type of the TrustAnchor.
 func (o TrustAnchorSourceOutput) SourceType() TrustAnchorTypePtrOutput {
 	return o.ApplyT(func(v TrustAnchorSource) *TrustAnchorType { return v.SourceType }).(TrustAnchorTypePtrOutput)
 }
@@ -214,6 +242,7 @@ func (o TrustAnchorSourcePtrOutput) Elem() TrustAnchorSourceOutput {
 	}).(TrustAnchorSourceOutput)
 }
 
+// A union object representing the data field of the TrustAnchor depending on its type
 func (o TrustAnchorSourcePtrOutput) SourceData() pulumi.AnyOutput {
 	return o.ApplyT(func(v *TrustAnchorSource) interface{} {
 		if v == nil {
@@ -223,6 +252,7 @@ func (o TrustAnchorSourcePtrOutput) SourceData() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// The type of the TrustAnchor.
 func (o TrustAnchorSourcePtrOutput) SourceType() TrustAnchorTypePtrOutput {
 	return o.ApplyT(func(v *TrustAnchorSource) *TrustAnchorType {
 		if v == nil {
@@ -499,7 +529,9 @@ func (o TrustAnchorSourceData1PropertiesPtrOutput) AcmPcaArn() pulumi.StringPtrO
 }
 
 type TrustAnchorTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

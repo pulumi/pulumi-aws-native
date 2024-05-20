@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCategoryDrillDownFilter
     {
+        /// <summary>
+        /// A list of the string inputs that are the values of the category drill down filter.
+        /// </summary>
         public readonly ImmutableArray<string> CategoryValues;
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
 
         [OutputConstructor]

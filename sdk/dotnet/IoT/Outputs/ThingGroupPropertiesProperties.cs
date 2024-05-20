@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Outputs
 {
 
+    /// <summary>
+    /// Thing group properties.
+    /// </summary>
     [OutputType]
     public sealed class ThingGroupPropertiesProperties
     {
+        /// <summary>
+        /// The thing group attributes in JSON format.
+        /// </summary>
         public readonly Outputs.ThingGroupAttributePayload? AttributePayload;
+        /// <summary>
+        /// The thing group description.
+        /// </summary>
         public readonly string? ThingGroupDescription;
 
         [OutputConstructor]

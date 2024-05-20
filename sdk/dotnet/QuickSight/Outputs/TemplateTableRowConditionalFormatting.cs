@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableRowConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting color (solid, gradient) of the background for a table row.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? BackgroundColor;
+        /// <summary>
+        /// The conditional formatting color (solid, gradient) of the text for a table row.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? TextColor;
 
         [OutputConstructor]

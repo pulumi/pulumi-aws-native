@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetContentDeliveryRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration information for delivery of dataset contents to AWS IoT Events .
+        /// </summary>
         [Input("iotEventsDestinationConfiguration")]
         public Input<Inputs.DatasetIotEventsDestinationConfigurationArgs>? IotEventsDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration information for delivery of dataset contents to Amazon S3.
+        /// </summary>
         [Input("s3DestinationConfiguration")]
         public Input<Inputs.DatasetS3DestinationConfigurationArgs>? S3DestinationConfiguration { get; set; }
 

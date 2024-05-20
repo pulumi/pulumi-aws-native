@@ -42,31 +42,49 @@ class GetNetworkInsightsPathResult:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[str]:
+        """
+        The time stamp when the path was created.
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination.
+        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="networkInsightsPathArn")
     def network_insights_path_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the path.
+        """
         return pulumi.get(self, "network_insights_path_arn")
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> Optional[str]:
+        """
+        The ID of the path.
+        """
         return pulumi.get(self, "network_insights_path_id")
 
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the source.
+        """
         return pulumi.get(self, "source_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the path.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -88,6 +106,9 @@ def get_network_insights_path(network_insights_path_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsPathResult:
     """
     Resource schema for AWS::EC2::NetworkInsightsPath
+
+
+    :param str network_insights_path_id: The ID of the path.
     """
     __args__ = dict()
     __args__['networkInsightsPathId'] = network_insights_path_id
@@ -108,5 +129,8 @@ def get_network_insights_path_output(network_insights_path_id: Optional[pulumi.I
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsPath
+
+
+    :param str network_insights_path_id: The ID of the path.
     """
     ...

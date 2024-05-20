@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Stage for the auto created branch.
 type AppAutoBranchCreationConfigStage string
 
 const (
@@ -181,6 +182,7 @@ func (in *appAutoBranchCreationConfigStagePtr) ToAppAutoBranchCreationConfigStag
 	return pulumi.ToOutputWithContext(ctx, in).(AppAutoBranchCreationConfigStagePtrOutput)
 }
 
+// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
 type AppPlatform string
 
 const (
@@ -348,6 +350,7 @@ func (in *appPlatformPtr) ToAppPlatformPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(AppPlatformPtrOutput)
 }
 
+// Describes the current stage for the branch.
 type BranchStage string
 
 const (
@@ -519,6 +522,11 @@ func (in *branchStagePtr) ToBranchStagePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(BranchStagePtrOutput)
 }
 
+// The type of SSL/TLS certificate that you want to use.
+//
+// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+//
+// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 type DomainCertificateCertificateType string
 
 const (
@@ -609,6 +617,11 @@ func (o DomainCertificateCertificateTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The certificate type.
+//
+// Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+//
+// Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
 type DomainCertificateSettingsCertificateType string
 
 const (

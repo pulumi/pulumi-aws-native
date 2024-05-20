@@ -22,6 +22,10 @@ class DirectoryConfigArgs:
                  certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
+        :param pulumi.Input[str] directory_name: The fully qualified name of the directory (for example, corp.example.com).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_distinguished_names: The distinguished names of the organizational units for computer accounts.
+        :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
+        :param pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
         """
         pulumi.set(__self__, "directory_name", directory_name)
         pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
@@ -32,6 +36,9 @@ class DirectoryConfigArgs:
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> pulumi.Input[str]:
+        """
+        The fully qualified name of the directory (for example, corp.example.com).
+        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -41,6 +48,9 @@ class DirectoryConfigArgs:
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedNames")
     def organizational_unit_distinguished_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The distinguished names of the organizational units for computer accounts.
+        """
         return pulumi.get(self, "organizational_unit_distinguished_names")
 
     @organizational_unit_distinguished_names.setter
@@ -50,6 +60,9 @@ class DirectoryConfigArgs:
     @property
     @pulumi.getter(name="serviceAccountCredentials")
     def service_account_credentials(self) -> pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']:
+        """
+        The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
+        """
         return pulumi.get(self, "service_account_credentials")
 
     @service_account_credentials.setter
@@ -59,6 +72,9 @@ class DirectoryConfigArgs:
     @property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+        """
+        The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
@@ -81,6 +97,10 @@ class DirectoryConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DirectoryConfigCertificateBasedAuthPropertiesArgs']] certificate_based_auth_properties: The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        :param pulumi.Input[str] directory_name: The fully qualified name of the directory (for example, corp.example.com).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_distinguished_names: The distinguished names of the organizational units for computer accounts.
+        :param pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']] service_account_credentials: The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
         """
         ...
     @overload
@@ -162,20 +182,32 @@ class DirectoryConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateBasedAuthProperties")
     def certificate_based_auth_properties(self) -> pulumi.Output[Optional['outputs.DirectoryConfigCertificateBasedAuthProperties']]:
+        """
+        The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> pulumi.Output[str]:
+        """
+        The fully qualified name of the directory (for example, corp.example.com).
+        """
         return pulumi.get(self, "directory_name")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedNames")
     def organizational_unit_distinguished_names(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The distinguished names of the organizational units for computer accounts.
+        """
         return pulumi.get(self, "organizational_unit_distinguished_names")
 
     @property
     @pulumi.getter(name="serviceAccountCredentials")
     def service_account_credentials(self) -> pulumi.Output['outputs.DirectoryConfigServiceAccountCredentials']:
+        """
+        The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
+        """
         return pulumi.get(self, "service_account_credentials")
 

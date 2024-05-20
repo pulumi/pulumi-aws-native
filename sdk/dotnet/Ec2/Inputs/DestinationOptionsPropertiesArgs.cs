@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
+    /// <summary>
+    /// The destination options.
+    /// </summary>
     public sealed class DestinationOptionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The format for the flow log. The default is `plain-text` .
+        /// </summary>
         [Input("fileFormat", required: true)]
         public Input<Pulumi.AwsNative.Ec2.FlowLogDestinationOptionsPropertiesFileFormat> FileFormat { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. The default is `false` .
+        /// </summary>
         [Input("hiveCompatiblePartitions", required: true)]
         public Input<bool> HiveCompatiblePartitions { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. The default is `false` .
+        /// </summary>
         [Input("perHourPartition", required: true)]
         public Input<bool> PerHourPartition { get; set; } = null!;
 

@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleKafkaAction
     {
+        /// <summary>
+        /// Properties of the Apache Kafka producer client.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> ClientProperties;
+        /// <summary>
+        /// The ARN of Kafka action's VPC `TopicRuleDestination` .
+        /// </summary>
         public readonly string DestinationArn;
+        /// <summary>
+        /// The list of Kafka headers that you specify.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleKafkaActionHeader> Headers;
+        /// <summary>
+        /// The Kafka message key.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The Kafka message partition.
+        /// </summary>
         public readonly string? Partition;
+        /// <summary>
+        /// The Kafka topic for messages to be sent to the Kafka broker.
+        /// </summary>
         public readonly string Topic;
 
         [OutputConstructor]

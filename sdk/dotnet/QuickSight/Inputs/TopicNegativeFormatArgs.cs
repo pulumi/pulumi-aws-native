@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicNegativeFormatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The prefix for a negative format.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The suffix for a negative format.
+        /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }
 

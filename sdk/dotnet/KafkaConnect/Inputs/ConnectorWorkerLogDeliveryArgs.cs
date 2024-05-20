@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorWorkerLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about delivering logs to Amazon CloudWatch Logs.
+        /// </summary>
         [Input("cloudWatchLogs")]
         public Input<Inputs.ConnectorCloudWatchLogsLogDeliveryArgs>? CloudWatchLogs { get; set; }
 
+        /// <summary>
+        /// Details about delivering logs to Amazon Kinesis Data Firehose.
+        /// </summary>
         [Input("firehose")]
         public Input<Inputs.ConnectorFirehoseLogDeliveryArgs>? Firehose { get; set; }
 
+        /// <summary>
+        /// Details about delivering logs to Amazon S3.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.ConnectorS3LogDeliveryArgs>? S3 { get; set; }
 

@@ -22,6 +22,10 @@ class ApplicationExternalUrlConfigArgs:
     def __init__(__self__, *,
                  access_url: pulumi.Input[str],
                  approved_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] access_url: The URL to access the application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_origins: Additional URLs to allow list if different than the access URL.
+        """
         pulumi.set(__self__, "access_url", access_url)
         if approved_origins is not None:
             pulumi.set(__self__, "approved_origins", approved_origins)
@@ -29,6 +33,9 @@ class ApplicationExternalUrlConfigArgs:
     @property
     @pulumi.getter(name="accessUrl")
     def access_url(self) -> pulumi.Input[str]:
+        """
+        The URL to access the application.
+        """
         return pulumi.get(self, "access_url")
 
     @access_url.setter
@@ -38,6 +45,9 @@ class ApplicationExternalUrlConfigArgs:
     @property
     @pulumi.getter(name="approvedOrigins")
     def approved_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Additional URLs to allow list if different than the access URL.
+        """
         return pulumi.get(self, "approved_origins")
 
     @approved_origins.setter
@@ -51,12 +61,16 @@ class ApplicationSourceConfigPropertiesArgs:
                  external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgs']):
         """
         Application source config
+        :param pulumi.Input['ApplicationExternalUrlConfigArgs'] external_url_config: The external URL source for the application.
         """
         pulumi.set(__self__, "external_url_config", external_url_config)
 
     @property
     @pulumi.getter(name="externalUrlConfig")
     def external_url_config(self) -> pulumi.Input['ApplicationExternalUrlConfigArgs']:
+        """
+        The external URL source for the application.
+        """
         return pulumi.get(self, "external_url_config")
 
     @external_url_config.setter

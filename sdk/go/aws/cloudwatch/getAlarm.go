@@ -39,7 +39,8 @@ type LookupAlarmResult struct {
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description of the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
-	Arn              *string `pulumi:"arn"`
+	// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+	Arn *string `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 	ComparisonOperator *string `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -75,8 +76,11 @@ type LookupAlarmResult struct {
 	// The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
-	Statistic *string   `pulumi:"statistic"`
-	Tags      []aws.Tag `pulumi:"tags"`
+	Statistic *string `pulumi:"statistic"`
+	// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The value to compare with the specified statistic.
 	Threshold *float64 `pulumi:"threshold"`
 	// In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.
@@ -141,6 +145,7 @@ func (o LookupAlarmResultOutput) AlarmDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.AlarmDescription }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
 func (o LookupAlarmResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -227,6 +232,9 @@ func (o LookupAlarmResultOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.Statistic }).(pulumi.StringPtrOutput)
 }
 
+// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+//
+// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 func (o LookupAlarmResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAlarmResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

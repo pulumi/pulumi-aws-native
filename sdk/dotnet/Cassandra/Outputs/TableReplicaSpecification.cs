@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableReplicaSpecification
     {
+        /// <summary>
+        /// The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
+        /// </summary>
         public readonly Outputs.TableAutoScalingSetting? ReadCapacityAutoScaling;
+        /// <summary>
+        /// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
+        /// </summary>
         public readonly int? ReadCapacityUnits;
+        /// <summary>
+        /// The AWS Region.
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

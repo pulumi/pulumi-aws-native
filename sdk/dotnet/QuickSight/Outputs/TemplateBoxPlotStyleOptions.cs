@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBoxPlotStyleOptions
     {
+        /// <summary>
+        /// The fill styles (solid, transparent) of the box plot.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateBoxPlotFillStyle? FillStyle;
 
         [OutputConstructor]

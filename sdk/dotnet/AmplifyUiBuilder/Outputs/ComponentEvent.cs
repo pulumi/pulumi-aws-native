@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentEvent
     {
+        /// <summary>
+        /// The action to perform when a specific event is raised.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+        /// </summary>
         public readonly string? BindingEvent;
+        /// <summary>
+        /// Describes information about the action.
+        /// </summary>
         public readonly Outputs.ComponentActionParameters? Parameters;
 
         [OutputConstructor]

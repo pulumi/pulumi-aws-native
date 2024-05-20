@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeEcsEnvironmentFile
     {
+        /// <summary>
+        /// The file type to use. The only supported value is `s3` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeEcsEnvironmentFileType Type;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

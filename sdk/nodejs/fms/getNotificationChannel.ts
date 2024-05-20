@@ -16,11 +16,20 @@ export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: 
 }
 
 export interface GetNotificationChannelArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+     */
     snsTopicArn: string;
 }
 
 export interface GetNotificationChannelResult {
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+     */
     readonly snsRoleName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+     */
     readonly snsTopicArn?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getNotificationChannelOutput(args: GetNotificationChannelOutputA
 }
 
 export interface GetNotificationChannelOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+     */
     snsTopicArn: pulumi.Input<string>;
 }

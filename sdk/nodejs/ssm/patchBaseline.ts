@@ -193,6 +193,9 @@ export class PatchBaseline extends pulumi.CustomResource {
         return obj['__pulumiType'] === PatchBaseline.__pulumiType;
     }
 
+    /**
+     * A set of rules used to include patches in the baseline.
+     */
     public readonly approvalRules!: pulumi.Output<outputs.ssm.PatchBaselineRuleGroup | undefined>;
     /**
      * A list of explicitly approved patches for the baseline.
@@ -305,6 +308,9 @@ export class PatchBaseline extends pulumi.CustomResource {
  * The set of arguments for constructing a PatchBaseline resource.
  */
 export interface PatchBaselineArgs {
+    /**
+     * A set of rules used to include patches in the baseline.
+     */
     approvalRules?: pulumi.Input<inputs.ssm.PatchBaselineRuleGroupArgs>;
     /**
      * A list of explicitly approved patches for the baseline.

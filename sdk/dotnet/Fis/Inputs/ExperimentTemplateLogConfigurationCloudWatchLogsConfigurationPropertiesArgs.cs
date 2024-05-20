@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Fis.Inputs
 {
 
+    /// <summary>
+    /// The configuration for experiment logging to CloudWatch Logs .
+    /// </summary>
     public sealed class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("logGroupArn", required: true)]

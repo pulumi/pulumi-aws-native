@@ -19,15 +19,26 @@ export function getFileSystem(args: GetFileSystemArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetFileSystemArgs {
+    /**
+     * The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+     */
     fileSystemId: string;
 }
 
 export interface GetFileSystemResult {
+    /**
+     * The Amazon Resource Name (ARN) of the EFS file system.
+     *
+     * Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
+     */
     readonly arn?: string;
     /**
      * Use the ``BackupPolicy`` to turn automatic backups on or off for the file system.
      */
     readonly backupPolicy?: outputs.efs.FileSystemBackupPolicy;
+    /**
+     * The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+     */
     readonly fileSystemId?: string;
     /**
      * The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.
@@ -74,5 +85,8 @@ export function getFileSystemOutput(args: GetFileSystemOutputArgs, opts?: pulumi
 }
 
 export interface GetFileSystemOutputArgs {
+    /**
+     * The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+     */
     fileSystemId: pulumi.Input<string>;
 }

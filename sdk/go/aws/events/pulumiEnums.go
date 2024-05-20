@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The method to use for the request to the HTTP invocation endpoint.
 type ApiDestinationHttpMethod string
 
 const (
@@ -185,6 +186,9 @@ func (in *apiDestinationHttpMethodPtr) ToApiDestinationHttpMethodPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ApiDestinationHttpMethodPtrOutput)
 }
 
+// The type of authorization to use for the connection.
+//
+// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
 type ConnectionAuthorizationType string
 
 const (
@@ -352,6 +356,7 @@ func (in *connectionAuthorizationTypePtr) ToConnectionAuthorizationTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAuthorizationTypePtrOutput)
 }
 
+// The method to use for the authorization request.
 type ConnectionOAuthParametersHttpMethod string
 
 const (
@@ -684,6 +689,7 @@ func (in *endpointReplicationStatePtr) ToEndpointReplicationStatePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointReplicationStatePtrOutput)
 }
 
+// The main Region of the endpoint.
 type EndpointStateEnum string
 
 const (

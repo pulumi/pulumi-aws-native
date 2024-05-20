@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
 
     public sealed class FlywheelTaskConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration required for a document classification model.
+        /// </summary>
         [Input("documentClassificationConfig")]
         public Input<Inputs.FlywheelDocumentClassificationConfigArgs>? DocumentClassificationConfig { get; set; }
 
+        /// <summary>
+        /// Configuration required for an entity recognition model.
+        /// </summary>
         [Input("entityRecognitionConfig")]
         public Input<Inputs.FlywheelEntityRecognitionConfigArgs>? EntityRecognitionConfig { get; set; }
 
+        /// <summary>
+        /// Language code for the language that the model supports.
+        /// </summary>
         [Input("languageCode", required: true)]
         public Input<Pulumi.AwsNative.Comprehend.FlywheelTaskConfigLanguageCode> LanguageCode { get; set; } = null!;
 

@@ -69,6 +69,9 @@ export class Domain extends pulumi.CustomResource {
      * A name for the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+     */
     public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainSettings | undefined>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
@@ -203,6 +206,9 @@ export interface DomainArgs {
      * A name for the domain.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+     */
     domainSettings?: pulumi.Input<inputs.sagemaker.DomainSettingsArgs>;
     /**
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.

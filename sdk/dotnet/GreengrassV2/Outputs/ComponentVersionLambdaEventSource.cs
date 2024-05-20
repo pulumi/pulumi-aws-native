@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class ComponentVersionLambdaEventSource
     {
+        /// <summary>
+        /// The topic to which to subscribe to receive event messages.
+        /// </summary>
         public readonly string? Topic;
+        /// <summary>
+        /// The type of event source. Choose from the following options:
+        /// 
+        /// - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+        /// - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
+        /// </summary>
         public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaEventSourceType? Type;
 
         [OutputConstructor]

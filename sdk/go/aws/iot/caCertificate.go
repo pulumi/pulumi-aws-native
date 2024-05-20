@@ -17,14 +17,34 @@ import (
 type CaCertificate struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput                          `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+	//
+	// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+	//
+	// A value similar to the following is returned:
+	//
+	// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus CaCertificateAutoRegistrationStatusPtrOutput `pulumi:"autoRegistrationStatus"`
-	AwsId                  pulumi.StringOutput                          `pulumi:"awsId"`
-	CaCertificatePem       pulumi.StringOutput                          `pulumi:"caCertificatePem"`
-	CertificateMode        CaCertificateCertificateModePtrOutput        `pulumi:"certificateMode"`
-	RegistrationConfig     CaCertificateRegistrationConfigPtrOutput     `pulumi:"registrationConfig"`
-	RemoveAutoRegistration pulumi.BoolPtrOutput                         `pulumi:"removeAutoRegistration"`
-	Status                 CaCertificateStatusOutput                    `pulumi:"status"`
+	// The CA certificate ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The certificate data in PEM format.
+	CaCertificatePem pulumi.StringOutput `pulumi:"caCertificatePem"`
+	// The mode of the CA.
+	//
+	// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+	//
+	// Valid values are "DEFAULT" and "SNI_ONLY".
+	CertificateMode CaCertificateCertificateModePtrOutput `pulumi:"certificateMode"`
+	// Information about the registration configuration.
+	RegistrationConfig CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
+	// If true, removes auto registration.
+	RemoveAutoRegistration pulumi.BoolPtrOutput `pulumi:"removeAutoRegistration"`
+	// The status of the CA certificate.
+	//
+	// Valid values are "ACTIVE" and "INACTIVE".
+	Status CaCertificateStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The private key verification certificate.
@@ -83,12 +103,24 @@ func (CaCertificateState) ElementType() reflect.Type {
 }
 
 type caCertificateArgs struct {
+	// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus *CaCertificateAutoRegistrationStatus `pulumi:"autoRegistrationStatus"`
-	CaCertificatePem       string                               `pulumi:"caCertificatePem"`
-	CertificateMode        *CaCertificateCertificateMode        `pulumi:"certificateMode"`
-	RegistrationConfig     *CaCertificateRegistrationConfig     `pulumi:"registrationConfig"`
-	RemoveAutoRegistration *bool                                `pulumi:"removeAutoRegistration"`
-	Status                 CaCertificateStatus                  `pulumi:"status"`
+	// The certificate data in PEM format.
+	CaCertificatePem string `pulumi:"caCertificatePem"`
+	// The mode of the CA.
+	//
+	// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+	//
+	// Valid values are "DEFAULT" and "SNI_ONLY".
+	CertificateMode *CaCertificateCertificateMode `pulumi:"certificateMode"`
+	// Information about the registration configuration.
+	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
+	// If true, removes auto registration.
+	RemoveAutoRegistration *bool `pulumi:"removeAutoRegistration"`
+	// The status of the CA certificate.
+	//
+	// Valid values are "ACTIVE" and "INACTIVE".
+	Status CaCertificateStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The private key verification certificate.
@@ -97,12 +129,24 @@ type caCertificateArgs struct {
 
 // The set of arguments for constructing a CaCertificate resource.
 type CaCertificateArgs struct {
+	// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus CaCertificateAutoRegistrationStatusPtrInput
-	CaCertificatePem       pulumi.StringInput
-	CertificateMode        CaCertificateCertificateModePtrInput
-	RegistrationConfig     CaCertificateRegistrationConfigPtrInput
+	// The certificate data in PEM format.
+	CaCertificatePem pulumi.StringInput
+	// The mode of the CA.
+	//
+	// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+	//
+	// Valid values are "DEFAULT" and "SNI_ONLY".
+	CertificateMode CaCertificateCertificateModePtrInput
+	// Information about the registration configuration.
+	RegistrationConfig CaCertificateRegistrationConfigPtrInput
+	// If true, removes auto registration.
 	RemoveAutoRegistration pulumi.BoolPtrInput
-	Status                 CaCertificateStatusInput
+	// The status of the CA certificate.
+	//
+	// Valid values are "ACTIVE" and "INACTIVE".
+	Status CaCertificateStatusInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The private key verification certificate.
@@ -146,34 +190,54 @@ func (o CaCertificateOutput) ToCaCertificateOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+//
+// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+//
+// A value similar to the following is returned:
+//
+// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
 func (o CaCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 func (o CaCertificateOutput) AutoRegistrationStatus() CaCertificateAutoRegistrationStatusPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateAutoRegistrationStatusPtrOutput { return v.AutoRegistrationStatus }).(CaCertificateAutoRegistrationStatusPtrOutput)
 }
 
+// The CA certificate ID.
 func (o CaCertificateOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The certificate data in PEM format.
 func (o CaCertificateOutput) CaCertificatePem() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.CaCertificatePem }).(pulumi.StringOutput)
 }
 
+// The mode of the CA.
+//
+// All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
+//
+// Valid values are "DEFAULT" and "SNI_ONLY".
 func (o CaCertificateOutput) CertificateMode() CaCertificateCertificateModePtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateCertificateModePtrOutput { return v.CertificateMode }).(CaCertificateCertificateModePtrOutput)
 }
 
+// Information about the registration configuration.
 func (o CaCertificateOutput) RegistrationConfig() CaCertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateRegistrationConfigPtrOutput { return v.RegistrationConfig }).(CaCertificateRegistrationConfigPtrOutput)
 }
 
+// If true, removes auto registration.
 func (o CaCertificateOutput) RemoveAutoRegistration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.BoolPtrOutput { return v.RemoveAutoRegistration }).(pulumi.BoolPtrOutput)
 }
 
+// The status of the CA certificate.
+//
+// Valid values are "ACTIVE" and "INACTIVE".
 func (o CaCertificateOutput) Status() CaCertificateStatusOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateStatusOutput { return v.Status }).(CaCertificateStatusOutput)
 }

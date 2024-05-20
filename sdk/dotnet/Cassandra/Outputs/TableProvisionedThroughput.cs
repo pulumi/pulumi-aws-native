@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableProvisionedThroughput
     {
+        /// <summary>
+        /// The amount of read capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         public readonly int ReadCapacityUnits;
+        /// <summary>
+        /// The amount of write capacity that's provisioned for the table. For more information, see [Read/write capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         public readonly int WriteCapacityUnits;
 
         [OutputConstructor]

@@ -37,17 +37,50 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned to the fleet.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly capabilities!: pulumi.Output<outputs.deadline.FleetCapabilities>;
+    /**
+     * The configuration details for the fleet.
+     */
     public readonly configuration!: pulumi.Output<outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties>;
+    /**
+     * A description that helps identify what the fleet is used for.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the fleet summary to update.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The farm ID.
+     */
     public readonly farmId!: pulumi.Output<string | undefined>;
+    /**
+     * The fleet ID.
+     */
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
+    /**
+     * The maximum number of workers specified in the fleet.
+     */
     public readonly maxWorkerCount!: pulumi.Output<number>;
+    /**
+     * The minimum number of workers in the fleet.
+     */
     public readonly minWorkerCount!: pulumi.Output<number | undefined>;
+    /**
+     * The IAM role that workers in the fleet use when processing jobs.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The status of the fleet.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.deadline.FleetStatus>;
+    /**
+     * The number of workers in the fleet summary.
+     */
     public /*out*/ readonly workerCount!: pulumi.Output<number>;
 
     /**
@@ -110,11 +143,32 @@ export class Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
+    /**
+     * The configuration details for the fleet.
+     */
     configuration: pulumi.Input<inputs.deadline.FleetConfiguration0PropertiesArgs | inputs.deadline.FleetConfiguration1PropertiesArgs>;
+    /**
+     * A description that helps identify what the fleet is used for.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the fleet summary to update.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The farm ID.
+     */
     farmId?: pulumi.Input<string>;
+    /**
+     * The maximum number of workers specified in the fleet.
+     */
     maxWorkerCount: pulumi.Input<number>;
+    /**
+     * The minimum number of workers in the fleet.
+     */
     minWorkerCount?: pulumi.Input<number>;
+    /**
+     * The IAM role that workers in the fleet use when processing jobs.
+     */
     roleArn: pulumi.Input<string>;
 }

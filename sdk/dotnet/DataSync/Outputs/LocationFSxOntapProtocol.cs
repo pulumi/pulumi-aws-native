@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.DataSync.Outputs
     [OutputType]
     public sealed class LocationFSxOntapProtocol
     {
+        /// <summary>
+        /// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
+        /// </summary>
         public readonly Outputs.LocationFSxOntapNfs? Nfs;
+        /// <summary>
+        /// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
+        /// </summary>
         public readonly Outputs.LocationFSxOntapSmb? Smb;
 
         [OutputConstructor]

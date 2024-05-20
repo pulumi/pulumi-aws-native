@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionMetadata
     {
+        /// <summary>
+        /// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        /// </summary>
         public readonly object? Labels;
 
         [OutputConstructor]

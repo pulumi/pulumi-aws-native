@@ -15,12 +15,17 @@ import (
 type KeyValueStore struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput                `pulumi:"arn"`
-	AwsId        pulumi.StringOutput                `pulumi:"awsId"`
-	Comment      pulumi.StringPtrOutput             `pulumi:"comment"`
+	// The Amazon Resource Name (ARN) of the key value store.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique Id for the key value store.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A comment for the key value store.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// The import source for the key value store.
 	ImportSource KeyValueStoreImportSourcePtrOutput `pulumi:"importSource"`
-	Name         pulumi.StringOutput                `pulumi:"name"`
-	Status       pulumi.StringOutput                `pulumi:"status"`
+	// The name of the key value store.
+	Name   pulumi.StringOutput `pulumi:"name"`
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewKeyValueStore registers a new resource with the given unique name, arguments, and options.
@@ -67,16 +72,22 @@ func (KeyValueStoreState) ElementType() reflect.Type {
 }
 
 type keyValueStoreArgs struct {
-	Comment      *string                    `pulumi:"comment"`
+	// A comment for the key value store.
+	Comment *string `pulumi:"comment"`
+	// The import source for the key value store.
 	ImportSource *KeyValueStoreImportSource `pulumi:"importSource"`
-	Name         *string                    `pulumi:"name"`
+	// The name of the key value store.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a KeyValueStore resource.
 type KeyValueStoreArgs struct {
-	Comment      pulumi.StringPtrInput
+	// A comment for the key value store.
+	Comment pulumi.StringPtrInput
+	// The import source for the key value store.
 	ImportSource KeyValueStoreImportSourcePtrInput
-	Name         pulumi.StringPtrInput
+	// The name of the key value store.
+	Name pulumi.StringPtrInput
 }
 
 func (KeyValueStoreArgs) ElementType() reflect.Type {
@@ -116,22 +127,27 @@ func (o KeyValueStoreOutput) ToKeyValueStoreOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the key value store.
 func (o KeyValueStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The unique Id for the key value store.
 func (o KeyValueStoreOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A comment for the key value store.
 func (o KeyValueStoreOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The import source for the key value store.
 func (o KeyValueStoreOutput) ImportSource() KeyValueStoreImportSourcePtrOutput {
 	return o.ApplyT(func(v *KeyValueStore) KeyValueStoreImportSourcePtrOutput { return v.ImportSource }).(KeyValueStoreImportSourcePtrOutput)
 }
 
+// The name of the key value store.
 func (o KeyValueStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

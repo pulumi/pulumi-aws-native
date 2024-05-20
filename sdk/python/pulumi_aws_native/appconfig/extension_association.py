@@ -23,6 +23,10 @@ class ExtensionAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
+        :param pulumi.Input[str] extension_identifier: The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+        :param pulumi.Input[int] extension_version_number: The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        :param pulumi.Input[str] resource_identifier: The ARN of an application, configuration profile, or environment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if extension_identifier is not None:
@@ -39,6 +43,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter(name="extensionIdentifier")
     def extension_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+        """
         return pulumi.get(self, "extension_identifier")
 
     @extension_identifier.setter
@@ -48,6 +55,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter(name="extensionVersionNumber")
     def extension_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+        """
         return pulumi.get(self, "extension_version_number")
 
     @extension_version_number.setter
@@ -57,6 +67,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -66,6 +79,9 @@ class ExtensionAssociationArgs:
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an application, configuration profile, or environment.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -101,6 +117,10 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] extension_identifier: The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+        :param pulumi.Input[int] extension_version_number: The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        :param pulumi.Input[str] resource_identifier: The ARN of an application, configuration profile, or environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -188,41 +208,65 @@ class ExtensionAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The system-generated ID for the association.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the extension defined in the association.
+        """
         return pulumi.get(self, "extension_arn")
 
     @property
     @pulumi.getter(name="extensionIdentifier")
     def extension_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+        """
         return pulumi.get(self, "extension_identifier")
 
     @property
     @pulumi.getter(name="extensionVersionNumber")
     def extension_version_number(self) -> pulumi.Output[Optional[int]]:
+        """
+        The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+        """
         return pulumi.get(self, "extension_version_number")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The ARNs of applications, configuration profiles, or environments defined in the association.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of an application, configuration profile, or environment.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @property

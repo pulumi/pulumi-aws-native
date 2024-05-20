@@ -23,13 +23,17 @@ func LookupKeyGroup(ctx *pulumi.Context, args *LookupKeyGroupArgs, opts ...pulum
 }
 
 type LookupKeyGroupArgs struct {
+	// The identifier for the key group.
 	Id string `pulumi:"id"`
 }
 
 type LookupKeyGroupResult struct {
-	Id               *string         `pulumi:"id"`
-	KeyGroupConfig   *KeyGroupConfig `pulumi:"keyGroupConfig"`
-	LastModifiedTime *string         `pulumi:"lastModifiedTime"`
+	// The identifier for the key group.
+	Id *string `pulumi:"id"`
+	// The key group configuration.
+	KeyGroupConfig *KeyGroupConfig `pulumi:"keyGroupConfig"`
+	// The date and time when the key group was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 }
 
 func LookupKeyGroupOutput(ctx *pulumi.Context, args LookupKeyGroupOutputArgs, opts ...pulumi.InvokeOption) LookupKeyGroupResultOutput {
@@ -46,6 +50,7 @@ func LookupKeyGroupOutput(ctx *pulumi.Context, args LookupKeyGroupOutputArgs, op
 }
 
 type LookupKeyGroupOutputArgs struct {
+	// The identifier for the key group.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupKeyGroupResultOutput) ToLookupKeyGroupResultOutputWithContext(ctx 
 	return o
 }
 
+// The identifier for the key group.
 func (o LookupKeyGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The key group configuration.
 func (o LookupKeyGroupResultOutput) KeyGroupConfig() KeyGroupConfigPtrOutput {
 	return o.ApplyT(func(v LookupKeyGroupResult) *KeyGroupConfig { return v.KeyGroupConfig }).(KeyGroupConfigPtrOutput)
 }
 
+// The date and time when the key group was last modified.
 func (o LookupKeyGroupResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyGroupResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }

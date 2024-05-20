@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelBiasJobDefinitionModelBiasJobInput
     {
+        /// <summary>
+        /// Input object for the batch transform job.
+        /// </summary>
         public readonly Outputs.ModelBiasJobDefinitionBatchTransformInput? BatchTransformInput;
+        /// <summary>
+        /// Input object for the endpoint
+        /// </summary>
         public readonly Outputs.ModelBiasJobDefinitionEndpointInput? EndpointInput;
+        /// <summary>
+        /// Location of ground truth labels to use in model bias job.
+        /// </summary>
         public readonly Outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input;
 
         [OutputConstructor]

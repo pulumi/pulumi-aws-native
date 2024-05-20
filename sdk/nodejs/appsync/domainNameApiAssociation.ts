@@ -35,7 +35,13 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly apiAssociationIdentifier!: pulumi.Output<string>;
+    /**
+     * The API ID.
+     */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The domain name.
+     */
     public readonly domainName!: pulumi.Output<string>;
 
     /**
@@ -74,6 +80,12 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainNameApiAssociation resource.
  */
 export interface DomainNameApiAssociationArgs {
+    /**
+     * The API ID.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The domain name.
+     */
     domainName: pulumi.Input<string>;
 }

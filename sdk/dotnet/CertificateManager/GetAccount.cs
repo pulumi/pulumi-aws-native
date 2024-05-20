@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CertificateManager
 
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the AWS account that owns the certificate.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CertificateManager
 
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of the AWS account that owns the certificate.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.CertificateManager
     [OutputType]
     public sealed class GetAccountResult
     {
+        /// <summary>
+        /// ID of the AWS account that owns the certificate.
+        /// </summary>
         public readonly string? AccountId;
+        /// <summary>
+        /// Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+        /// </summary>
         public readonly Outputs.AccountExpiryEventsConfiguration? ExpiryEventsConfiguration;
 
         [OutputConstructor]

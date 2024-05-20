@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataSourceAccessControlListConfiguration struct {
+	// Path to the AWS S3 bucket that contains the access control list files.
 	KeyPath *string `pulumi:"keyPath"`
 }
 
@@ -29,6 +30,7 @@ type DataSourceAccessControlListConfigurationInput interface {
 }
 
 type DataSourceAccessControlListConfigurationArgs struct {
+	// Path to the AWS S3 bucket that contains the access control list files.
 	KeyPath pulumi.StringPtrInput `pulumi:"keyPath"`
 }
 
@@ -109,6 +111,7 @@ func (o DataSourceAccessControlListConfigurationOutput) ToDataSourceAccessContro
 	}).(DataSourceAccessControlListConfigurationPtrOutput)
 }
 
+// Path to the AWS S3 bucket that contains the access control list files.
 func (o DataSourceAccessControlListConfigurationOutput) KeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceAccessControlListConfiguration) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
 }
@@ -137,6 +140,7 @@ func (o DataSourceAccessControlListConfigurationPtrOutput) Elem() DataSourceAcce
 	}).(DataSourceAccessControlListConfigurationOutput)
 }
 
+// Path to the AWS S3 bucket that contains the access control list files.
 func (o DataSourceAccessControlListConfigurationPtrOutput) KeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAccessControlListConfiguration) *string {
 		if v == nil {
@@ -147,6 +151,7 @@ func (o DataSourceAccessControlListConfigurationPtrOutput) KeyPath() pulumi.Stri
 }
 
 type DataSourceAclConfiguration struct {
+	// A list of groups, separated by semi-colons, that filters a query response based on user context. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
 	AllowedGroupsColumnName string `pulumi:"allowedGroupsColumnName"`
 }
 
@@ -162,6 +167,7 @@ type DataSourceAclConfigurationInput interface {
 }
 
 type DataSourceAclConfigurationArgs struct {
+	// A list of groups, separated by semi-colons, that filters a query response based on user context. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
 	AllowedGroupsColumnName pulumi.StringInput `pulumi:"allowedGroupsColumnName"`
 }
 
@@ -242,6 +248,7 @@ func (o DataSourceAclConfigurationOutput) ToDataSourceAclConfigurationPtrOutputW
 	}).(DataSourceAclConfigurationPtrOutput)
 }
 
+// A list of groups, separated by semi-colons, that filters a query response based on user context. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
 func (o DataSourceAclConfigurationOutput) AllowedGroupsColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceAclConfiguration) string { return v.AllowedGroupsColumnName }).(pulumi.StringOutput)
 }
@@ -270,6 +277,7 @@ func (o DataSourceAclConfigurationPtrOutput) Elem() DataSourceAclConfigurationOu
 	}).(DataSourceAclConfigurationOutput)
 }
 
+// A list of groups, separated by semi-colons, that filters a query response based on user context. The document is only returned to users that are in one of the groups specified in the `UserContext` field of the [Query](https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html) operation.
 func (o DataSourceAclConfigurationPtrOutput) AllowedGroupsColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAclConfiguration) *string {
 		if v == nil {
@@ -280,11 +288,16 @@ func (o DataSourceAclConfigurationPtrOutput) AllowedGroupsColumnName() pulumi.St
 }
 
 type DataSourceColumnConfiguration struct {
-	ChangeDetectingColumns  []string                        `pulumi:"changeDetectingColumns"`
-	DocumentDataColumnName  string                          `pulumi:"documentDataColumnName"`
-	DocumentIdColumnName    string                          `pulumi:"documentIdColumnName"`
-	DocumentTitleColumnName *string                         `pulumi:"documentTitleColumnName"`
-	FieldMappings           []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// One to five columns that indicate when a document in the database has changed.
+	ChangeDetectingColumns []string `pulumi:"changeDetectingColumns"`
+	// The column that contains the contents of the document.
+	DocumentDataColumnName string `pulumi:"documentDataColumnName"`
+	// The column that provides the document's identifier.
+	DocumentIdColumnName string `pulumi:"documentIdColumnName"`
+	// The column that contains the title of the document.
+	DocumentTitleColumnName *string `pulumi:"documentTitleColumnName"`
+	// An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 }
 
 // DataSourceColumnConfigurationInput is an input type that accepts DataSourceColumnConfigurationArgs and DataSourceColumnConfigurationOutput values.
@@ -299,11 +312,16 @@ type DataSourceColumnConfigurationInput interface {
 }
 
 type DataSourceColumnConfigurationArgs struct {
-	ChangeDetectingColumns  pulumi.StringArrayInput                 `pulumi:"changeDetectingColumns"`
-	DocumentDataColumnName  pulumi.StringInput                      `pulumi:"documentDataColumnName"`
-	DocumentIdColumnName    pulumi.StringInput                      `pulumi:"documentIdColumnName"`
-	DocumentTitleColumnName pulumi.StringPtrInput                   `pulumi:"documentTitleColumnName"`
-	FieldMappings           DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// One to five columns that indicate when a document in the database has changed.
+	ChangeDetectingColumns pulumi.StringArrayInput `pulumi:"changeDetectingColumns"`
+	// The column that contains the contents of the document.
+	DocumentDataColumnName pulumi.StringInput `pulumi:"documentDataColumnName"`
+	// The column that provides the document's identifier.
+	DocumentIdColumnName pulumi.StringInput `pulumi:"documentIdColumnName"`
+	// The column that contains the title of the document.
+	DocumentTitleColumnName pulumi.StringPtrInput `pulumi:"documentTitleColumnName"`
+	// An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
 func (DataSourceColumnConfigurationArgs) ElementType() reflect.Type {
@@ -383,22 +401,27 @@ func (o DataSourceColumnConfigurationOutput) ToDataSourceColumnConfigurationPtrO
 	}).(DataSourceColumnConfigurationPtrOutput)
 }
 
+// One to five columns that indicate when a document in the database has changed.
 func (o DataSourceColumnConfigurationOutput) ChangeDetectingColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceColumnConfiguration) []string { return v.ChangeDetectingColumns }).(pulumi.StringArrayOutput)
 }
 
+// The column that contains the contents of the document.
 func (o DataSourceColumnConfigurationOutput) DocumentDataColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceColumnConfiguration) string { return v.DocumentDataColumnName }).(pulumi.StringOutput)
 }
 
+// The column that provides the document's identifier.
 func (o DataSourceColumnConfigurationOutput) DocumentIdColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceColumnConfiguration) string { return v.DocumentIdColumnName }).(pulumi.StringOutput)
 }
 
+// The column that contains the title of the document.
 func (o DataSourceColumnConfigurationOutput) DocumentTitleColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceColumnConfiguration) *string { return v.DocumentTitleColumnName }).(pulumi.StringPtrOutput)
 }
 
+// An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
 func (o DataSourceColumnConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceColumnConfiguration) []DataSourceToIndexFieldMapping { return v.FieldMappings }).(DataSourceToIndexFieldMappingArrayOutput)
 }
@@ -427,6 +450,7 @@ func (o DataSourceColumnConfigurationPtrOutput) Elem() DataSourceColumnConfigura
 	}).(DataSourceColumnConfigurationOutput)
 }
 
+// One to five columns that indicate when a document in the database has changed.
 func (o DataSourceColumnConfigurationPtrOutput) ChangeDetectingColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceColumnConfiguration) []string {
 		if v == nil {
@@ -436,6 +460,7 @@ func (o DataSourceColumnConfigurationPtrOutput) ChangeDetectingColumns() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The column that contains the contents of the document.
 func (o DataSourceColumnConfigurationPtrOutput) DocumentDataColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceColumnConfiguration) *string {
 		if v == nil {
@@ -445,6 +470,7 @@ func (o DataSourceColumnConfigurationPtrOutput) DocumentDataColumnName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The column that provides the document's identifier.
 func (o DataSourceColumnConfigurationPtrOutput) DocumentIdColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceColumnConfiguration) *string {
 		if v == nil {
@@ -454,6 +480,7 @@ func (o DataSourceColumnConfigurationPtrOutput) DocumentIdColumnName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The column that contains the title of the document.
 func (o DataSourceColumnConfigurationPtrOutput) DocumentTitleColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceColumnConfiguration) *string {
 		if v == nil {
@@ -463,6 +490,7 @@ func (o DataSourceColumnConfigurationPtrOutput) DocumentTitleColumnName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of objects that map database column names to the corresponding fields in an index. You must first create the fields in the index using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation.
 func (o DataSourceColumnConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceColumnConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -473,16 +501,34 @@ func (o DataSourceColumnConfigurationPtrOutput) FieldMappings() DataSourceToInde
 }
 
 type DataSourceConfiguration struct {
-	ConfluenceConfiguration  *DataSourceConfluenceConfiguration   `pulumi:"confluenceConfiguration"`
-	DatabaseConfiguration    *DataSourceDatabaseConfiguration     `pulumi:"databaseConfiguration"`
-	GoogleDriveConfiguration *DataSourceGoogleDriveConfiguration  `pulumi:"googleDriveConfiguration"`
-	OneDriveConfiguration    *DataSourceOneDriveConfiguration     `pulumi:"oneDriveConfiguration"`
-	S3Configuration          *DataSourceS3DataSourceConfiguration `pulumi:"s3Configuration"`
-	SalesforceConfiguration  *DataSourceSalesforceConfiguration   `pulumi:"salesforceConfiguration"`
-	ServiceNowConfiguration  *DataSourceServiceNowConfiguration   `pulumi:"serviceNowConfiguration"`
-	SharePointConfiguration  *DataSourceSharePointConfiguration   `pulumi:"sharePointConfiguration"`
-	WebCrawlerConfiguration  *DataSourceWebCrawlerConfiguration   `pulumi:"webCrawlerConfiguration"`
-	WorkDocsConfiguration    *DataSourceWorkDocsConfiguration     `pulumi:"workDocsConfiguration"`
+	// Provides the configuration information to connect to Confluence as your data source.
+	ConfluenceConfiguration *DataSourceConfluenceConfiguration `pulumi:"confluenceConfiguration"`
+	// Provides the configuration information to connect to a database as your data source.
+	DatabaseConfiguration *DataSourceDatabaseConfiguration `pulumi:"databaseConfiguration"`
+	// Provides the configuration information to connect to Google Drive as your data source.
+	GoogleDriveConfiguration *DataSourceGoogleDriveConfiguration `pulumi:"googleDriveConfiguration"`
+	// Provides the configuration information to connect to Microsoft OneDrive as your data source.
+	OneDriveConfiguration *DataSourceOneDriveConfiguration `pulumi:"oneDriveConfiguration"`
+	// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
+	//
+	// > Amazon Kendra now supports an upgraded Amazon S3 connector.
+	// >
+	// > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+	// >
+	// > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+	// >
+	// > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
+	S3Configuration *DataSourceS3DataSourceConfiguration `pulumi:"s3Configuration"`
+	// Provides the configuration information to connect to Salesforce as your data source.
+	SalesforceConfiguration *DataSourceSalesforceConfiguration `pulumi:"salesforceConfiguration"`
+	// Provides the configuration information to connect to ServiceNow as your data source.
+	ServiceNowConfiguration *DataSourceServiceNowConfiguration `pulumi:"serviceNowConfiguration"`
+	// Provides the configuration information to connect to Microsoft SharePoint as your data source.
+	SharePointConfiguration *DataSourceSharePointConfiguration `pulumi:"sharePointConfiguration"`
+	// Provides the configuration information required for Amazon Kendra Web Crawler.
+	WebCrawlerConfiguration *DataSourceWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
+	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+	WorkDocsConfiguration *DataSourceWorkDocsConfiguration `pulumi:"workDocsConfiguration"`
 }
 
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
@@ -497,16 +543,34 @@ type DataSourceConfigurationInput interface {
 }
 
 type DataSourceConfigurationArgs struct {
-	ConfluenceConfiguration  DataSourceConfluenceConfigurationPtrInput   `pulumi:"confluenceConfiguration"`
-	DatabaseConfiguration    DataSourceDatabaseConfigurationPtrInput     `pulumi:"databaseConfiguration"`
-	GoogleDriveConfiguration DataSourceGoogleDriveConfigurationPtrInput  `pulumi:"googleDriveConfiguration"`
-	OneDriveConfiguration    DataSourceOneDriveConfigurationPtrInput     `pulumi:"oneDriveConfiguration"`
-	S3Configuration          DataSourceS3DataSourceConfigurationPtrInput `pulumi:"s3Configuration"`
-	SalesforceConfiguration  DataSourceSalesforceConfigurationPtrInput   `pulumi:"salesforceConfiguration"`
-	ServiceNowConfiguration  DataSourceServiceNowConfigurationPtrInput   `pulumi:"serviceNowConfiguration"`
-	SharePointConfiguration  DataSourceSharePointConfigurationPtrInput   `pulumi:"sharePointConfiguration"`
-	WebCrawlerConfiguration  DataSourceWebCrawlerConfigurationPtrInput   `pulumi:"webCrawlerConfiguration"`
-	WorkDocsConfiguration    DataSourceWorkDocsConfigurationPtrInput     `pulumi:"workDocsConfiguration"`
+	// Provides the configuration information to connect to Confluence as your data source.
+	ConfluenceConfiguration DataSourceConfluenceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
+	// Provides the configuration information to connect to a database as your data source.
+	DatabaseConfiguration DataSourceDatabaseConfigurationPtrInput `pulumi:"databaseConfiguration"`
+	// Provides the configuration information to connect to Google Drive as your data source.
+	GoogleDriveConfiguration DataSourceGoogleDriveConfigurationPtrInput `pulumi:"googleDriveConfiguration"`
+	// Provides the configuration information to connect to Microsoft OneDrive as your data source.
+	OneDriveConfiguration DataSourceOneDriveConfigurationPtrInput `pulumi:"oneDriveConfiguration"`
+	// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
+	//
+	// > Amazon Kendra now supports an upgraded Amazon S3 connector.
+	// >
+	// > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+	// >
+	// > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+	// >
+	// > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
+	S3Configuration DataSourceS3DataSourceConfigurationPtrInput `pulumi:"s3Configuration"`
+	// Provides the configuration information to connect to Salesforce as your data source.
+	SalesforceConfiguration DataSourceSalesforceConfigurationPtrInput `pulumi:"salesforceConfiguration"`
+	// Provides the configuration information to connect to ServiceNow as your data source.
+	ServiceNowConfiguration DataSourceServiceNowConfigurationPtrInput `pulumi:"serviceNowConfiguration"`
+	// Provides the configuration information to connect to Microsoft SharePoint as your data source.
+	SharePointConfiguration DataSourceSharePointConfigurationPtrInput `pulumi:"sharePointConfiguration"`
+	// Provides the configuration information required for Amazon Kendra Web Crawler.
+	WebCrawlerConfiguration DataSourceWebCrawlerConfigurationPtrInput `pulumi:"webCrawlerConfiguration"`
+	// Provides the configuration information to connect to Amazon WorkDocs as your data source.
+	WorkDocsConfiguration DataSourceWorkDocsConfigurationPtrInput `pulumi:"workDocsConfiguration"`
 }
 
 func (DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -586,42 +650,60 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationPtrOutputWithCon
 	}).(DataSourceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Confluence as your data source.
 func (o DataSourceConfigurationOutput) ConfluenceConfiguration() DataSourceConfluenceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfluenceConfiguration { return v.ConfluenceConfiguration }).(DataSourceConfluenceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to a database as your data source.
 func (o DataSourceConfigurationOutput) DatabaseConfiguration() DataSourceDatabaseConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceDatabaseConfiguration { return v.DatabaseConfiguration }).(DataSourceDatabaseConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Google Drive as your data source.
 func (o DataSourceConfigurationOutput) GoogleDriveConfiguration() DataSourceGoogleDriveConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceGoogleDriveConfiguration { return v.GoogleDriveConfiguration }).(DataSourceGoogleDriveConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Microsoft OneDrive as your data source.
 func (o DataSourceConfigurationOutput) OneDriveConfiguration() DataSourceOneDriveConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceOneDriveConfiguration { return v.OneDriveConfiguration }).(DataSourceOneDriveConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
+//
+// > Amazon Kendra now supports an upgraded Amazon S3 connector.
+// >
+// > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+// >
+// > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+// >
+// > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
 func (o DataSourceConfigurationOutput) S3Configuration() DataSourceS3DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceS3DataSourceConfiguration { return v.S3Configuration }).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Salesforce as your data source.
 func (o DataSourceConfigurationOutput) SalesforceConfiguration() DataSourceSalesforceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSalesforceConfiguration { return v.SalesforceConfiguration }).(DataSourceSalesforceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to ServiceNow as your data source.
 func (o DataSourceConfigurationOutput) ServiceNowConfiguration() DataSourceServiceNowConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceServiceNowConfiguration { return v.ServiceNowConfiguration }).(DataSourceServiceNowConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Microsoft SharePoint as your data source.
 func (o DataSourceConfigurationOutput) SharePointConfiguration() DataSourceSharePointConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceSharePointConfiguration { return v.SharePointConfiguration }).(DataSourceSharePointConfigurationPtrOutput)
 }
 
+// Provides the configuration information required for Amazon Kendra Web Crawler.
 func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWebCrawlerConfiguration { return v.WebCrawlerConfiguration }).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Amazon WorkDocs as your data source.
 func (o DataSourceConfigurationOutput) WorkDocsConfiguration() DataSourceWorkDocsConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceWorkDocsConfiguration { return v.WorkDocsConfiguration }).(DataSourceWorkDocsConfigurationPtrOutput)
 }
@@ -650,6 +732,7 @@ func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
 	}).(DataSourceConfigurationOutput)
 }
 
+// Provides the configuration information to connect to Confluence as your data source.
 func (o DataSourceConfigurationPtrOutput) ConfluenceConfiguration() DataSourceConfluenceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfluenceConfiguration {
 		if v == nil {
@@ -659,6 +742,7 @@ func (o DataSourceConfigurationPtrOutput) ConfluenceConfiguration() DataSourceCo
 	}).(DataSourceConfluenceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to a database as your data source.
 func (o DataSourceConfigurationPtrOutput) DatabaseConfiguration() DataSourceDatabaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceDatabaseConfiguration {
 		if v == nil {
@@ -668,6 +752,7 @@ func (o DataSourceConfigurationPtrOutput) DatabaseConfiguration() DataSourceData
 	}).(DataSourceDatabaseConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Google Drive as your data source.
 func (o DataSourceConfigurationPtrOutput) GoogleDriveConfiguration() DataSourceGoogleDriveConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceGoogleDriveConfiguration {
 		if v == nil {
@@ -677,6 +762,7 @@ func (o DataSourceConfigurationPtrOutput) GoogleDriveConfiguration() DataSourceG
 	}).(DataSourceGoogleDriveConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Microsoft OneDrive as your data source.
 func (o DataSourceConfigurationPtrOutput) OneDriveConfiguration() DataSourceOneDriveConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceOneDriveConfiguration {
 		if v == nil {
@@ -686,6 +772,15 @@ func (o DataSourceConfigurationPtrOutput) OneDriveConfiguration() DataSourceOneD
 	}).(DataSourceOneDriveConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
+//
+// > Amazon Kendra now supports an upgraded Amazon S3 connector.
+// >
+// > You must now use the [TemplateConfiguration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html) object instead of the `S3DataSourceConfiguration` object to configure your connector.
+// >
+// > Connectors configured using the older console and API architecture will continue to function as configured. However, you won't be able to edit or update them. If you want to edit or update your connector configuration, you must create a new connector.
+// >
+// > We recommended migrating your connector workflow to the upgraded version. Support for connectors configured using the older architecture is scheduled to end by June 2024.
 func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceS3DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceS3DataSourceConfiguration {
 		if v == nil {
@@ -695,6 +790,7 @@ func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceS3DataSour
 	}).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Salesforce as your data source.
 func (o DataSourceConfigurationPtrOutput) SalesforceConfiguration() DataSourceSalesforceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceSalesforceConfiguration {
 		if v == nil {
@@ -704,6 +800,7 @@ func (o DataSourceConfigurationPtrOutput) SalesforceConfiguration() DataSourceSa
 	}).(DataSourceSalesforceConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to ServiceNow as your data source.
 func (o DataSourceConfigurationPtrOutput) ServiceNowConfiguration() DataSourceServiceNowConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceServiceNowConfiguration {
 		if v == nil {
@@ -713,6 +810,7 @@ func (o DataSourceConfigurationPtrOutput) ServiceNowConfiguration() DataSourceSe
 	}).(DataSourceServiceNowConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Microsoft SharePoint as your data source.
 func (o DataSourceConfigurationPtrOutput) SharePointConfiguration() DataSourceSharePointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceSharePointConfiguration {
 		if v == nil {
@@ -722,6 +820,7 @@ func (o DataSourceConfigurationPtrOutput) SharePointConfiguration() DataSourceSh
 	}).(DataSourceSharePointConfigurationPtrOutput)
 }
 
+// Provides the configuration information required for Amazon Kendra Web Crawler.
 func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceWebCrawlerConfiguration {
 		if v == nil {
@@ -731,6 +830,7 @@ func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceWe
 	}).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
+// Provides the configuration information to connect to Amazon WorkDocs as your data source.
 func (o DataSourceConfigurationPtrOutput) WorkDocsConfiguration() DataSourceWorkDocsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceWorkDocsConfiguration {
 		if v == nil {
@@ -741,8 +841,12 @@ func (o DataSourceConfigurationPtrOutput) WorkDocsConfiguration() DataSourceWork
 }
 
 type DataSourceConfluenceAttachmentConfiguration struct {
+	// Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 	AttachmentFieldMappings []DataSourceConfluenceAttachmentToIndexFieldMapping `pulumi:"attachmentFieldMappings"`
-	CrawlAttachments        *bool                                               `pulumi:"crawlAttachments"`
+	// `TRUE` to index attachments of pages and blogs in Confluence.
+	CrawlAttachments *bool `pulumi:"crawlAttachments"`
 }
 
 // DataSourceConfluenceAttachmentConfigurationInput is an input type that accepts DataSourceConfluenceAttachmentConfigurationArgs and DataSourceConfluenceAttachmentConfigurationOutput values.
@@ -757,8 +861,12 @@ type DataSourceConfluenceAttachmentConfigurationInput interface {
 }
 
 type DataSourceConfluenceAttachmentConfigurationArgs struct {
+	// Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 	AttachmentFieldMappings DataSourceConfluenceAttachmentToIndexFieldMappingArrayInput `pulumi:"attachmentFieldMappings"`
-	CrawlAttachments        pulumi.BoolPtrInput                                         `pulumi:"crawlAttachments"`
+	// `TRUE` to index attachments of pages and blogs in Confluence.
+	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
 }
 
 func (DataSourceConfluenceAttachmentConfigurationArgs) ElementType() reflect.Type {
@@ -838,12 +946,16 @@ func (o DataSourceConfluenceAttachmentConfigurationOutput) ToDataSourceConfluenc
 	}).(DataSourceConfluenceAttachmentConfigurationPtrOutput)
 }
 
+// Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluenceAttachmentConfigurationOutput) AttachmentFieldMappings() DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceAttachmentConfiguration) []DataSourceConfluenceAttachmentToIndexFieldMapping {
 		return v.AttachmentFieldMappings
 	}).(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput)
 }
 
+// `TRUE` to index attachments of pages and blogs in Confluence.
 func (o DataSourceConfluenceAttachmentConfigurationOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceAttachmentConfiguration) *bool { return v.CrawlAttachments }).(pulumi.BoolPtrOutput)
 }
@@ -872,6 +984,9 @@ func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) Elem() DataSourceC
 	}).(DataSourceConfluenceAttachmentConfigurationOutput)
 }
 
+// Maps attributes or field names of Confluence attachments to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `AttachentFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) AttachmentFieldMappings() DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceAttachmentConfiguration) []DataSourceConfluenceAttachmentToIndexFieldMapping {
 		if v == nil {
@@ -881,6 +996,7 @@ func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) AttachmentFieldMap
 	}).(DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput)
 }
 
+// `TRUE` to index attachments of pages and blogs in Confluence.
 func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceAttachmentConfiguration) *bool {
 		if v == nil {
@@ -999,6 +1115,9 @@ func (o DataSourceConfluenceAttachmentToIndexFieldMappingArrayOutput) Index(i pu
 }
 
 type DataSourceConfluenceBlogConfiguration struct {
+	// Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
 	BlogFieldMappings []DataSourceConfluenceBlogToIndexFieldMapping `pulumi:"blogFieldMappings"`
 }
 
@@ -1014,6 +1133,9 @@ type DataSourceConfluenceBlogConfigurationInput interface {
 }
 
 type DataSourceConfluenceBlogConfigurationArgs struct {
+	// Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
 	BlogFieldMappings DataSourceConfluenceBlogToIndexFieldMappingArrayInput `pulumi:"blogFieldMappings"`
 }
 
@@ -1094,6 +1216,9 @@ func (o DataSourceConfluenceBlogConfigurationOutput) ToDataSourceConfluenceBlogC
 	}).(DataSourceConfluenceBlogConfigurationPtrOutput)
 }
 
+// Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluenceBlogConfigurationOutput) BlogFieldMappings() DataSourceConfluenceBlogToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceBlogConfiguration) []DataSourceConfluenceBlogToIndexFieldMapping {
 		return v.BlogFieldMappings
@@ -1124,6 +1249,9 @@ func (o DataSourceConfluenceBlogConfigurationPtrOutput) Elem() DataSourceConflue
 	}).(DataSourceConfluenceBlogConfigurationOutput)
 }
 
+// Maps attributes or field names of Confluence blogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `BlogFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluenceBlogConfigurationPtrOutput) BlogFieldMappings() DataSourceConfluenceBlogToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceBlogConfiguration) []DataSourceConfluenceBlogToIndexFieldMapping {
 		if v == nil {
@@ -1242,16 +1370,28 @@ func (o DataSourceConfluenceBlogToIndexFieldMappingArrayOutput) Index(i pulumi.I
 }
 
 type DataSourceConfluenceConfiguration struct {
+	// Configuration information for indexing attachments to Confluence blogs and pages.
 	AttachmentConfiguration *DataSourceConfluenceAttachmentConfiguration `pulumi:"attachmentConfiguration"`
-	BlogConfiguration       *DataSourceConfluenceBlogConfiguration       `pulumi:"blogConfiguration"`
-	ExclusionPatterns       []string                                     `pulumi:"exclusionPatterns"`
-	InclusionPatterns       []string                                     `pulumi:"inclusionPatterns"`
-	PageConfiguration       *DataSourceConfluencePageConfiguration       `pulumi:"pageConfiguration"`
-	SecretArn               string                                       `pulumi:"secretArn"`
-	ServerUrl               string                                       `pulumi:"serverUrl"`
-	SpaceConfiguration      *DataSourceConfluenceSpaceConfiguration      `pulumi:"spaceConfiguration"`
-	Version                 DataSourceConfluenceVersion                  `pulumi:"version"`
-	VpcConfiguration        *DataSourceVpcConfiguration                  `pulumi:"vpcConfiguration"`
+	// Configuration information for indexing Confluence blogs.
+	BlogConfiguration *DataSourceConfluenceBlogConfiguration `pulumi:"blogConfiguration"`
+	// A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// Configuration information for indexing Confluence pages.
+	PageConfiguration *DataSourceConfluencePageConfiguration `pulumi:"pageConfiguration"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+	//
+	// You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
+	SecretArn string `pulumi:"secretArn"`
+	// The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
+	ServerUrl string `pulumi:"serverUrl"`
+	// Configuration information for indexing Confluence spaces.
+	SpaceConfiguration *DataSourceConfluenceSpaceConfiguration `pulumi:"spaceConfiguration"`
+	// The version or the type of Confluence installation to connect to.
+	Version DataSourceConfluenceVersion `pulumi:"version"`
+	// Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
+	VpcConfiguration *DataSourceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // DataSourceConfluenceConfigurationInput is an input type that accepts DataSourceConfluenceConfigurationArgs and DataSourceConfluenceConfigurationOutput values.
@@ -1266,16 +1406,28 @@ type DataSourceConfluenceConfigurationInput interface {
 }
 
 type DataSourceConfluenceConfigurationArgs struct {
+	// Configuration information for indexing attachments to Confluence blogs and pages.
 	AttachmentConfiguration DataSourceConfluenceAttachmentConfigurationPtrInput `pulumi:"attachmentConfiguration"`
-	BlogConfiguration       DataSourceConfluenceBlogConfigurationPtrInput       `pulumi:"blogConfiguration"`
-	ExclusionPatterns       pulumi.StringArrayInput                             `pulumi:"exclusionPatterns"`
-	InclusionPatterns       pulumi.StringArrayInput                             `pulumi:"inclusionPatterns"`
-	PageConfiguration       DataSourceConfluencePageConfigurationPtrInput       `pulumi:"pageConfiguration"`
-	SecretArn               pulumi.StringInput                                  `pulumi:"secretArn"`
-	ServerUrl               pulumi.StringInput                                  `pulumi:"serverUrl"`
-	SpaceConfiguration      DataSourceConfluenceSpaceConfigurationPtrInput      `pulumi:"spaceConfiguration"`
-	Version                 DataSourceConfluenceVersionInput                    `pulumi:"version"`
-	VpcConfiguration        DataSourceVpcConfigurationPtrInput                  `pulumi:"vpcConfiguration"`
+	// Configuration information for indexing Confluence blogs.
+	BlogConfiguration DataSourceConfluenceBlogConfigurationPtrInput `pulumi:"blogConfiguration"`
+	// A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// Configuration information for indexing Confluence pages.
+	PageConfiguration DataSourceConfluencePageConfigurationPtrInput `pulumi:"pageConfiguration"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+	//
+	// You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
+	ServerUrl pulumi.StringInput `pulumi:"serverUrl"`
+	// Configuration information for indexing Confluence spaces.
+	SpaceConfiguration DataSourceConfluenceSpaceConfigurationPtrInput `pulumi:"spaceConfiguration"`
+	// The version or the type of Confluence installation to connect to.
+	Version DataSourceConfluenceVersionInput `pulumi:"version"`
+	// Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
+	VpcConfiguration DataSourceVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
 }
 
 func (DataSourceConfluenceConfigurationArgs) ElementType() reflect.Type {
@@ -1355,50 +1507,62 @@ func (o DataSourceConfluenceConfigurationOutput) ToDataSourceConfluenceConfigura
 	}).(DataSourceConfluenceConfigurationPtrOutput)
 }
 
+// Configuration information for indexing attachments to Confluence blogs and pages.
 func (o DataSourceConfluenceConfigurationOutput) AttachmentConfiguration() DataSourceConfluenceAttachmentConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceConfluenceAttachmentConfiguration {
 		return v.AttachmentConfiguration
 	}).(DataSourceConfluenceAttachmentConfigurationPtrOutput)
 }
 
+// Configuration information for indexing Confluence blogs.
 func (o DataSourceConfluenceConfigurationOutput) BlogConfiguration() DataSourceConfluenceBlogConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceConfluenceBlogConfiguration {
 		return v.BlogConfiguration
 	}).(DataSourceConfluenceBlogConfigurationPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
 func (o DataSourceConfluenceConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
 func (o DataSourceConfluenceConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Configuration information for indexing Confluence pages.
 func (o DataSourceConfluenceConfigurationOutput) PageConfiguration() DataSourceConfluencePageConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceConfluencePageConfiguration {
 		return v.PageConfiguration
 	}).(DataSourceConfluencePageConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+//
+// You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
 func (o DataSourceConfluenceConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
 func (o DataSourceConfluenceConfigurationOutput) ServerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) string { return v.ServerUrl }).(pulumi.StringOutput)
 }
 
+// Configuration information for indexing Confluence spaces.
 func (o DataSourceConfluenceConfigurationOutput) SpaceConfiguration() DataSourceConfluenceSpaceConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceConfluenceSpaceConfiguration {
 		return v.SpaceConfiguration
 	}).(DataSourceConfluenceSpaceConfigurationPtrOutput)
 }
 
+// The version or the type of Confluence installation to connect to.
 func (o DataSourceConfluenceConfigurationOutput) Version() DataSourceConfluenceVersionOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) DataSourceConfluenceVersion { return v.Version }).(DataSourceConfluenceVersionOutput)
 }
 
+// Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
 func (o DataSourceConfluenceConfigurationOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceConfiguration) *DataSourceVpcConfiguration { return v.VpcConfiguration }).(DataSourceVpcConfigurationPtrOutput)
 }
@@ -1427,6 +1591,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) Elem() DataSourceConfluenceC
 	}).(DataSourceConfluenceConfigurationOutput)
 }
 
+// Configuration information for indexing attachments to Confluence blogs and pages.
 func (o DataSourceConfluenceConfigurationPtrOutput) AttachmentConfiguration() DataSourceConfluenceAttachmentConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceConfluenceAttachmentConfiguration {
 		if v == nil {
@@ -1436,6 +1601,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) AttachmentConfiguration() Da
 	}).(DataSourceConfluenceAttachmentConfigurationPtrOutput)
 }
 
+// Configuration information for indexing Confluence blogs.
 func (o DataSourceConfluenceConfigurationPtrOutput) BlogConfiguration() DataSourceConfluenceBlogConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceConfluenceBlogConfiguration {
 		if v == nil {
@@ -1445,6 +1611,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) BlogConfiguration() DataSour
 	}).(DataSourceConfluenceBlogConfigurationPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
 func (o DataSourceConfluenceConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) []string {
 		if v == nil {
@@ -1454,6 +1621,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) ExclusionPatterns() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.
 func (o DataSourceConfluenceConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) []string {
 		if v == nil {
@@ -1463,6 +1631,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) InclusionPatterns() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// Configuration information for indexing Confluence pages.
 func (o DataSourceConfluenceConfigurationPtrOutput) PageConfiguration() DataSourceConfluencePageConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceConfluencePageConfiguration {
 		if v == nil {
@@ -1472,6 +1641,9 @@ func (o DataSourceConfluenceConfigurationPtrOutput) PageConfiguration() DataSour
 	}).(DataSourceConfluencePageConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the Confluence instance. If you use Confluence Cloud, you use a generated API token as the password.
+//
+// You can also provide authentication credentials in the form of a personal access token. For more information, see [Using a Confluence data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-confluence.html) .
 func (o DataSourceConfluenceConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *string {
 		if v == nil {
@@ -1481,6 +1653,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) SecretArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/* . You can also use an IP address, for example, *https://192.168.1.113/* .
 func (o DataSourceConfluenceConfigurationPtrOutput) ServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *string {
 		if v == nil {
@@ -1490,6 +1663,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) ServerUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for indexing Confluence spaces.
 func (o DataSourceConfluenceConfigurationPtrOutput) SpaceConfiguration() DataSourceConfluenceSpaceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceConfluenceSpaceConfiguration {
 		if v == nil {
@@ -1499,6 +1673,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) SpaceConfiguration() DataSou
 	}).(DataSourceConfluenceSpaceConfigurationPtrOutput)
 }
 
+// The version or the type of Confluence installation to connect to.
 func (o DataSourceConfluenceConfigurationPtrOutput) Version() DataSourceConfluenceVersionPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceConfluenceVersion {
 		if v == nil {
@@ -1508,6 +1683,7 @@ func (o DataSourceConfluenceConfigurationPtrOutput) Version() DataSourceConfluen
 	}).(DataSourceConfluenceVersionPtrOutput)
 }
 
+// Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
 func (o DataSourceConfluenceConfigurationPtrOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceVpcConfiguration {
 		if v == nil {
@@ -1518,6 +1694,9 @@ func (o DataSourceConfluenceConfigurationPtrOutput) VpcConfiguration() DataSourc
 }
 
 type DataSourceConfluencePageConfiguration struct {
+	// Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
 	PageFieldMappings []DataSourceConfluencePageToIndexFieldMapping `pulumi:"pageFieldMappings"`
 }
 
@@ -1533,6 +1712,9 @@ type DataSourceConfluencePageConfigurationInput interface {
 }
 
 type DataSourceConfluencePageConfigurationArgs struct {
+	// Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
 	PageFieldMappings DataSourceConfluencePageToIndexFieldMappingArrayInput `pulumi:"pageFieldMappings"`
 }
 
@@ -1613,6 +1795,9 @@ func (o DataSourceConfluencePageConfigurationOutput) ToDataSourceConfluencePageC
 	}).(DataSourceConfluencePageConfigurationPtrOutput)
 }
 
+// Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluencePageConfigurationOutput) PageFieldMappings() DataSourceConfluencePageToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluencePageConfiguration) []DataSourceConfluencePageToIndexFieldMapping {
 		return v.PageFieldMappings
@@ -1643,6 +1828,9 @@ func (o DataSourceConfluencePageConfigurationPtrOutput) Elem() DataSourceConflue
 	}).(DataSourceConfluencePageConfigurationOutput)
 }
 
+// Maps attributes or field names of Confluence pages to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `PageFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluencePageConfigurationPtrOutput) PageFieldMappings() DataSourceConfluencePageToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluencePageConfiguration) []DataSourceConfluencePageToIndexFieldMapping {
 		if v == nil {
@@ -1761,11 +1949,18 @@ func (o DataSourceConfluencePageToIndexFieldMappingArrayOutput) Index(i pulumi.I
 }
 
 type DataSourceConfluenceSpaceConfiguration struct {
-	CrawlArchivedSpaces *bool                                          `pulumi:"crawlArchivedSpaces"`
-	CrawlPersonalSpaces *bool                                          `pulumi:"crawlPersonalSpaces"`
-	ExcludeSpaces       []string                                       `pulumi:"excludeSpaces"`
-	IncludeSpaces       []string                                       `pulumi:"includeSpaces"`
-	SpaceFieldMappings  []DataSourceConfluenceSpaceToIndexFieldMapping `pulumi:"spaceFieldMappings"`
+	// `TRUE` to index archived spaces.
+	CrawlArchivedSpaces *bool `pulumi:"crawlArchivedSpaces"`
+	// `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
+	CrawlPersonalSpaces *bool `pulumi:"crawlPersonalSpaces"`
+	// A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
+	ExcludeSpaces []string `pulumi:"excludeSpaces"`
+	// A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
+	IncludeSpaces []string `pulumi:"includeSpaces"`
+	// Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
+	SpaceFieldMappings []DataSourceConfluenceSpaceToIndexFieldMapping `pulumi:"spaceFieldMappings"`
 }
 
 // DataSourceConfluenceSpaceConfigurationInput is an input type that accepts DataSourceConfluenceSpaceConfigurationArgs and DataSourceConfluenceSpaceConfigurationOutput values.
@@ -1780,11 +1975,18 @@ type DataSourceConfluenceSpaceConfigurationInput interface {
 }
 
 type DataSourceConfluenceSpaceConfigurationArgs struct {
-	CrawlArchivedSpaces pulumi.BoolPtrInput                                    `pulumi:"crawlArchivedSpaces"`
-	CrawlPersonalSpaces pulumi.BoolPtrInput                                    `pulumi:"crawlPersonalSpaces"`
-	ExcludeSpaces       pulumi.StringArrayInput                                `pulumi:"excludeSpaces"`
-	IncludeSpaces       pulumi.StringArrayInput                                `pulumi:"includeSpaces"`
-	SpaceFieldMappings  DataSourceConfluenceSpaceToIndexFieldMappingArrayInput `pulumi:"spaceFieldMappings"`
+	// `TRUE` to index archived spaces.
+	CrawlArchivedSpaces pulumi.BoolPtrInput `pulumi:"crawlArchivedSpaces"`
+	// `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
+	CrawlPersonalSpaces pulumi.BoolPtrInput `pulumi:"crawlPersonalSpaces"`
+	// A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
+	ExcludeSpaces pulumi.StringArrayInput `pulumi:"excludeSpaces"`
+	// A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
+	IncludeSpaces pulumi.StringArrayInput `pulumi:"includeSpaces"`
+	// Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+	//
+	// If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
+	SpaceFieldMappings DataSourceConfluenceSpaceToIndexFieldMappingArrayInput `pulumi:"spaceFieldMappings"`
 }
 
 func (DataSourceConfluenceSpaceConfigurationArgs) ElementType() reflect.Type {
@@ -1864,22 +2066,29 @@ func (o DataSourceConfluenceSpaceConfigurationOutput) ToDataSourceConfluenceSpac
 	}).(DataSourceConfluenceSpaceConfigurationPtrOutput)
 }
 
+// `TRUE` to index archived spaces.
 func (o DataSourceConfluenceSpaceConfigurationOutput) CrawlArchivedSpaces() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) *bool { return v.CrawlArchivedSpaces }).(pulumi.BoolPtrOutput)
 }
 
+// `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
 func (o DataSourceConfluenceSpaceConfigurationOutput) CrawlPersonalSpaces() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) *bool { return v.CrawlPersonalSpaces }).(pulumi.BoolPtrOutput)
 }
 
+// A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
 func (o DataSourceConfluenceSpaceConfigurationOutput) ExcludeSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) []string { return v.ExcludeSpaces }).(pulumi.StringArrayOutput)
 }
 
+// A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
 func (o DataSourceConfluenceSpaceConfigurationOutput) IncludeSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) []string { return v.IncludeSpaces }).(pulumi.StringArrayOutput)
 }
 
+// Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluenceSpaceConfigurationOutput) SpaceFieldMappings() DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceConfluenceSpaceConfiguration) []DataSourceConfluenceSpaceToIndexFieldMapping {
 		return v.SpaceFieldMappings
@@ -1910,6 +2119,7 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) Elem() DataSourceConflu
 	}).(DataSourceConfluenceSpaceConfigurationOutput)
 }
 
+// `TRUE` to index archived spaces.
 func (o DataSourceConfluenceSpaceConfigurationPtrOutput) CrawlArchivedSpaces() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) *bool {
 		if v == nil {
@@ -1919,6 +2129,7 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) CrawlArchivedSpaces() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// `TRUE` to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see [Filtering on user context](https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html) .
 func (o DataSourceConfluenceSpaceConfigurationPtrOutput) CrawlPersonalSpaces() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) *bool {
 		if v == nil {
@@ -1928,6 +2139,7 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) CrawlPersonalSpaces() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list of space keys of Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are not indexed. If a space is in both the `ExcludeSpaces` and the `IncludeSpaces` list, the space is excluded.
 func (o DataSourceConfluenceSpaceConfigurationPtrOutput) ExcludeSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) []string {
 		if v == nil {
@@ -1937,6 +2149,7 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) ExcludeSpaces() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of space keys for Confluence spaces. If you include a key, the blogs, documents, and attachments in the space are indexed. Spaces that aren't in the list aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the data source is synchronized. If a space is in both the `IncludeSpaces` and the `ExcludeSpaces` list, the space is excluded.
 func (o DataSourceConfluenceSpaceConfigurationPtrOutput) IncludeSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) []string {
 		if v == nil {
@@ -1946,6 +2159,9 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) IncludeSpaces() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// Maps attributes or field names of Confluence spaces to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Confluence fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Confluence data source field names must exist in your Confluence custom metadata.
+//
+// If you specify the `SpaceFieldMappings` parameter, you must specify at least one field mapping.
 func (o DataSourceConfluenceSpaceConfigurationPtrOutput) SpaceFieldMappings() DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceConfluenceSpaceConfiguration) []DataSourceConfluenceSpaceToIndexFieldMapping {
 		if v == nil {
@@ -2064,11 +2280,16 @@ func (o DataSourceConfluenceSpaceToIndexFieldMappingArrayOutput) Index(i pulumi.
 }
 
 type DataSourceConnectionConfiguration struct {
+	// The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
 	DatabaseHost string `pulumi:"databaseHost"`
+	// The name of the database containing the document data.
 	DatabaseName string `pulumi:"databaseName"`
-	DatabasePort int    `pulumi:"databasePort"`
-	SecretArn    string `pulumi:"secretArn"`
-	TableName    string `pulumi:"tableName"`
+	// The port that the database uses for connections.
+	DatabasePort int `pulumi:"databasePort"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
+	SecretArn string `pulumi:"secretArn"`
+	// The name of the table that contains the document data.
+	TableName string `pulumi:"tableName"`
 }
 
 // DataSourceConnectionConfigurationInput is an input type that accepts DataSourceConnectionConfigurationArgs and DataSourceConnectionConfigurationOutput values.
@@ -2083,11 +2304,16 @@ type DataSourceConnectionConfigurationInput interface {
 }
 
 type DataSourceConnectionConfigurationArgs struct {
+	// The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
 	DatabaseHost pulumi.StringInput `pulumi:"databaseHost"`
+	// The name of the database containing the document data.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	DatabasePort pulumi.IntInput    `pulumi:"databasePort"`
-	SecretArn    pulumi.StringInput `pulumi:"secretArn"`
-	TableName    pulumi.StringInput `pulumi:"tableName"`
+	// The port that the database uses for connections.
+	DatabasePort pulumi.IntInput `pulumi:"databasePort"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// The name of the table that contains the document data.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (DataSourceConnectionConfigurationArgs) ElementType() reflect.Type {
@@ -2167,22 +2393,27 @@ func (o DataSourceConnectionConfigurationOutput) ToDataSourceConnectionConfigura
 	}).(DataSourceConnectionConfigurationPtrOutput)
 }
 
+// The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
 func (o DataSourceConnectionConfigurationOutput) DatabaseHost() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConnectionConfiguration) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
 
+// The name of the database containing the document data.
 func (o DataSourceConnectionConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConnectionConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The port that the database uses for connections.
 func (o DataSourceConnectionConfigurationOutput) DatabasePort() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceConnectionConfiguration) int { return v.DatabasePort }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
 func (o DataSourceConnectionConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConnectionConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// The name of the table that contains the document data.
 func (o DataSourceConnectionConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceConnectionConfiguration) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -2211,6 +2442,7 @@ func (o DataSourceConnectionConfigurationPtrOutput) Elem() DataSourceConnectionC
 	}).(DataSourceConnectionConfigurationOutput)
 }
 
+// The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.
 func (o DataSourceConnectionConfigurationPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConnectionConfiguration) *string {
 		if v == nil {
@@ -2220,6 +2452,7 @@ func (o DataSourceConnectionConfigurationPtrOutput) DatabaseHost() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database containing the document data.
 func (o DataSourceConnectionConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConnectionConfiguration) *string {
 		if v == nil {
@@ -2229,6 +2462,7 @@ func (o DataSourceConnectionConfigurationPtrOutput) DatabaseName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port that the database uses for connections.
 func (o DataSourceConnectionConfigurationPtrOutput) DatabasePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceConnectionConfiguration) *int {
 		if v == nil {
@@ -2238,6 +2472,7 @@ func (o DataSourceConnectionConfigurationPtrOutput) DatabasePort() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that stores the credentials. The credentials should be a user-password pair. For more information, see [Using a Database Data Source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) . For more information about AWS Secrets Manager , see [What Is AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager* user guide.
 func (o DataSourceConnectionConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConnectionConfiguration) *string {
 		if v == nil {
@@ -2247,6 +2482,7 @@ func (o DataSourceConnectionConfigurationPtrOutput) SecretArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table that contains the document data.
 func (o DataSourceConnectionConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceConnectionConfiguration) *string {
 		if v == nil {
@@ -2257,10 +2493,14 @@ func (o DataSourceConnectionConfigurationPtrOutput) TableName() pulumi.StringPtr
 }
 
 type DataSourceCustomDocumentEnrichmentConfiguration struct {
-	InlineConfigurations            []DataSourceInlineCustomDocumentEnrichmentConfiguration `pulumi:"inlineConfigurations"`
-	PostExtractionHookConfiguration *DataSourceHookConfiguration                            `pulumi:"postExtractionHookConfiguration"`
-	PreExtractionHookConfiguration  *DataSourceHookConfiguration                            `pulumi:"preExtractionHookConfiguration"`
-	RoleArn                         *string                                                 `pulumi:"roleArn"`
+	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
+	InlineConfigurations []DataSourceInlineCustomDocumentEnrichmentConfiguration `pulumi:"inlineConfigurations"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
+	PostExtractionHookConfiguration *DataSourceHookConfiguration `pulumi:"postExtractionHookConfiguration"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
+	PreExtractionHookConfiguration *DataSourceHookConfiguration `pulumi:"preExtractionHookConfiguration"`
+	// The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // DataSourceCustomDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationOutput values.
@@ -2275,10 +2515,14 @@ type DataSourceCustomDocumentEnrichmentConfigurationInput interface {
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationArgs struct {
-	InlineConfigurations            DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput `pulumi:"inlineConfigurations"`
-	PostExtractionHookConfiguration DataSourceHookConfigurationPtrInput                             `pulumi:"postExtractionHookConfiguration"`
-	PreExtractionHookConfiguration  DataSourceHookConfigurationPtrInput                             `pulumi:"preExtractionHookConfiguration"`
-	RoleArn                         pulumi.StringPtrInput                                           `pulumi:"roleArn"`
+	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
+	InlineConfigurations DataSourceInlineCustomDocumentEnrichmentConfigurationArrayInput `pulumi:"inlineConfigurations"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
+	PostExtractionHookConfiguration DataSourceHookConfigurationPtrInput `pulumi:"postExtractionHookConfiguration"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
+	PreExtractionHookConfiguration DataSourceHookConfigurationPtrInput `pulumi:"preExtractionHookConfiguration"`
+	// The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (DataSourceCustomDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
@@ -2358,24 +2602,28 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCusto
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
+// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) InlineConfigurations() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceInlineCustomDocumentEnrichmentConfiguration {
 		return v.InlineConfigurations
 	}).(DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PostExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		return v.PostExtractionHookConfiguration
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PreExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		return v.PreExtractionHookConfiguration
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2404,6 +2652,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) Elem() DataSou
 	}).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
 }
 
+// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) InlineConfigurations() DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceInlineCustomDocumentEnrichmentConfiguration {
 		if v == nil {
@@ -2413,6 +2662,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) InlineConfigur
 	}).(DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PostExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		if v == nil {
@@ -2422,6 +2672,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PostExtraction
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation) .
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionHookConfiguration() DataSourceHookConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceHookConfiguration {
 		if v == nil {
@@ -2431,6 +2682,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionH
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *string {
 		if v == nil {
@@ -2441,12 +2693,18 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulu
 }
 
 type DataSourceDatabaseConfiguration struct {
-	AclConfiguration        *DataSourceAclConfiguration       `pulumi:"aclConfiguration"`
-	ColumnConfiguration     DataSourceColumnConfiguration     `pulumi:"columnConfiguration"`
+	// Information about the database column that provides information for user context filtering.
+	AclConfiguration *DataSourceAclConfiguration `pulumi:"aclConfiguration"`
+	// Information about where the index should get the document information from the database.
+	ColumnConfiguration DataSourceColumnConfiguration `pulumi:"columnConfiguration"`
+	// Configuration information that's required to connect to a database.
 	ConnectionConfiguration DataSourceConnectionConfiguration `pulumi:"connectionConfiguration"`
-	DatabaseEngineType      DataSourceDatabaseEngineType      `pulumi:"databaseEngineType"`
-	SqlConfiguration        *DataSourceSqlConfiguration       `pulumi:"sqlConfiguration"`
-	VpcConfiguration        *DataSourceVpcConfiguration       `pulumi:"vpcConfiguration"`
+	// The type of database engine that runs the database.
+	DatabaseEngineType DataSourceDatabaseEngineType `pulumi:"databaseEngineType"`
+	// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
+	SqlConfiguration *DataSourceSqlConfiguration `pulumi:"sqlConfiguration"`
+	// Provides information for connecting to an Amazon VPC.
+	VpcConfiguration *DataSourceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // DataSourceDatabaseConfigurationInput is an input type that accepts DataSourceDatabaseConfigurationArgs and DataSourceDatabaseConfigurationOutput values.
@@ -2461,12 +2719,18 @@ type DataSourceDatabaseConfigurationInput interface {
 }
 
 type DataSourceDatabaseConfigurationArgs struct {
-	AclConfiguration        DataSourceAclConfigurationPtrInput     `pulumi:"aclConfiguration"`
-	ColumnConfiguration     DataSourceColumnConfigurationInput     `pulumi:"columnConfiguration"`
+	// Information about the database column that provides information for user context filtering.
+	AclConfiguration DataSourceAclConfigurationPtrInput `pulumi:"aclConfiguration"`
+	// Information about where the index should get the document information from the database.
+	ColumnConfiguration DataSourceColumnConfigurationInput `pulumi:"columnConfiguration"`
+	// Configuration information that's required to connect to a database.
 	ConnectionConfiguration DataSourceConnectionConfigurationInput `pulumi:"connectionConfiguration"`
-	DatabaseEngineType      DataSourceDatabaseEngineTypeInput      `pulumi:"databaseEngineType"`
-	SqlConfiguration        DataSourceSqlConfigurationPtrInput     `pulumi:"sqlConfiguration"`
-	VpcConfiguration        DataSourceVpcConfigurationPtrInput     `pulumi:"vpcConfiguration"`
+	// The type of database engine that runs the database.
+	DatabaseEngineType DataSourceDatabaseEngineTypeInput `pulumi:"databaseEngineType"`
+	// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
+	SqlConfiguration DataSourceSqlConfigurationPtrInput `pulumi:"sqlConfiguration"`
+	// Provides information for connecting to an Amazon VPC.
+	VpcConfiguration DataSourceVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
 }
 
 func (DataSourceDatabaseConfigurationArgs) ElementType() reflect.Type {
@@ -2546,28 +2810,34 @@ func (o DataSourceDatabaseConfigurationOutput) ToDataSourceDatabaseConfiguration
 	}).(DataSourceDatabaseConfigurationPtrOutput)
 }
 
+// Information about the database column that provides information for user context filtering.
 func (o DataSourceDatabaseConfigurationOutput) AclConfiguration() DataSourceAclConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceDatabaseConfiguration) *DataSourceAclConfiguration { return v.AclConfiguration }).(DataSourceAclConfigurationPtrOutput)
 }
 
+// Information about where the index should get the document information from the database.
 func (o DataSourceDatabaseConfigurationOutput) ColumnConfiguration() DataSourceColumnConfigurationOutput {
 	return o.ApplyT(func(v DataSourceDatabaseConfiguration) DataSourceColumnConfiguration { return v.ColumnConfiguration }).(DataSourceColumnConfigurationOutput)
 }
 
+// Configuration information that's required to connect to a database.
 func (o DataSourceDatabaseConfigurationOutput) ConnectionConfiguration() DataSourceConnectionConfigurationOutput {
 	return o.ApplyT(func(v DataSourceDatabaseConfiguration) DataSourceConnectionConfiguration {
 		return v.ConnectionConfiguration
 	}).(DataSourceConnectionConfigurationOutput)
 }
 
+// The type of database engine that runs the database.
 func (o DataSourceDatabaseConfigurationOutput) DatabaseEngineType() DataSourceDatabaseEngineTypeOutput {
 	return o.ApplyT(func(v DataSourceDatabaseConfiguration) DataSourceDatabaseEngineType { return v.DatabaseEngineType }).(DataSourceDatabaseEngineTypeOutput)
 }
 
+// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
 func (o DataSourceDatabaseConfigurationOutput) SqlConfiguration() DataSourceSqlConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceDatabaseConfiguration) *DataSourceSqlConfiguration { return v.SqlConfiguration }).(DataSourceSqlConfigurationPtrOutput)
 }
 
+// Provides information for connecting to an Amazon VPC.
 func (o DataSourceDatabaseConfigurationOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceDatabaseConfiguration) *DataSourceVpcConfiguration { return v.VpcConfiguration }).(DataSourceVpcConfigurationPtrOutput)
 }
@@ -2596,6 +2866,7 @@ func (o DataSourceDatabaseConfigurationPtrOutput) Elem() DataSourceDatabaseConfi
 	}).(DataSourceDatabaseConfigurationOutput)
 }
 
+// Information about the database column that provides information for user context filtering.
 func (o DataSourceDatabaseConfigurationPtrOutput) AclConfiguration() DataSourceAclConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceAclConfiguration {
 		if v == nil {
@@ -2605,6 +2876,7 @@ func (o DataSourceDatabaseConfigurationPtrOutput) AclConfiguration() DataSourceA
 	}).(DataSourceAclConfigurationPtrOutput)
 }
 
+// Information about where the index should get the document information from the database.
 func (o DataSourceDatabaseConfigurationPtrOutput) ColumnConfiguration() DataSourceColumnConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceColumnConfiguration {
 		if v == nil {
@@ -2614,6 +2886,7 @@ func (o DataSourceDatabaseConfigurationPtrOutput) ColumnConfiguration() DataSour
 	}).(DataSourceColumnConfigurationPtrOutput)
 }
 
+// Configuration information that's required to connect to a database.
 func (o DataSourceDatabaseConfigurationPtrOutput) ConnectionConfiguration() DataSourceConnectionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceConnectionConfiguration {
 		if v == nil {
@@ -2623,6 +2896,7 @@ func (o DataSourceDatabaseConfigurationPtrOutput) ConnectionConfiguration() Data
 	}).(DataSourceConnectionConfigurationPtrOutput)
 }
 
+// The type of database engine that runs the database.
 func (o DataSourceDatabaseConfigurationPtrOutput) DatabaseEngineType() DataSourceDatabaseEngineTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceDatabaseEngineType {
 		if v == nil {
@@ -2632,6 +2906,7 @@ func (o DataSourceDatabaseConfigurationPtrOutput) DatabaseEngineType() DataSourc
 	}).(DataSourceDatabaseEngineTypePtrOutput)
 }
 
+// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
 func (o DataSourceDatabaseConfigurationPtrOutput) SqlConfiguration() DataSourceSqlConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceSqlConfiguration {
 		if v == nil {
@@ -2641,6 +2916,7 @@ func (o DataSourceDatabaseConfigurationPtrOutput) SqlConfiguration() DataSourceS
 	}).(DataSourceSqlConfigurationPtrOutput)
 }
 
+// Provides information for connecting to an Amazon VPC.
 func (o DataSourceDatabaseConfigurationPtrOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceVpcConfiguration {
 		if v == nil {
@@ -2651,9 +2927,20 @@ func (o DataSourceDatabaseConfigurationPtrOutput) VpcConfiguration() DataSourceV
 }
 
 type DataSourceDocumentAttributeCondition struct {
-	ConditionDocumentAttributeKey string                            `pulumi:"conditionDocumentAttributeKey"`
-	ConditionOnValue              *DataSourceDocumentAttributeValue `pulumi:"conditionOnValue"`
-	Operator                      DataSourceConditionOperator       `pulumi:"operator"`
+	// The identifier of the document attribute used for the condition.
+	//
+	// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+	//
+	// Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator.
+	//
+	// For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
+	ConditionOnValue *DataSourceDocumentAttributeValue `pulumi:"conditionOnValue"`
+	// The condition operator.
+	//
+	// For example, you can use 'Contains' to partially match a string.
+	Operator DataSourceConditionOperator `pulumi:"operator"`
 }
 
 // DataSourceDocumentAttributeConditionInput is an input type that accepts DataSourceDocumentAttributeConditionArgs and DataSourceDocumentAttributeConditionOutput values.
@@ -2668,9 +2955,20 @@ type DataSourceDocumentAttributeConditionInput interface {
 }
 
 type DataSourceDocumentAttributeConditionArgs struct {
-	ConditionDocumentAttributeKey pulumi.StringInput                       `pulumi:"conditionDocumentAttributeKey"`
-	ConditionOnValue              DataSourceDocumentAttributeValuePtrInput `pulumi:"conditionOnValue"`
-	Operator                      DataSourceConditionOperatorInput         `pulumi:"operator"`
+	// The identifier of the document attribute used for the condition.
+	//
+	// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+	//
+	// Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator.
+	//
+	// For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
+	ConditionOnValue DataSourceDocumentAttributeValuePtrInput `pulumi:"conditionOnValue"`
+	// The condition operator.
+	//
+	// For example, you can use 'Contains' to partially match a string.
+	Operator DataSourceConditionOperatorInput `pulumi:"operator"`
 }
 
 func (DataSourceDocumentAttributeConditionArgs) ElementType() reflect.Type {
@@ -2750,16 +3048,27 @@ func (o DataSourceDocumentAttributeConditionOutput) ToDataSourceDocumentAttribut
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// The identifier of the document attribute used for the condition.
+//
+// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+//
+// Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceDocumentAttributeConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) string { return v.ConditionDocumentAttributeKey }).(pulumi.StringOutput)
 }
 
+// The value used by the operator.
+//
+// For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
 func (o DataSourceDocumentAttributeConditionOutput) ConditionOnValue() DataSourceDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) *DataSourceDocumentAttributeValue {
 		return v.ConditionOnValue
 	}).(DataSourceDocumentAttributeValuePtrOutput)
 }
 
+// The condition operator.
+//
+// For example, you can use 'Contains' to partially match a string.
 func (o DataSourceDocumentAttributeConditionOutput) Operator() DataSourceConditionOperatorOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeCondition) DataSourceConditionOperator { return v.Operator }).(DataSourceConditionOperatorOutput)
 }
@@ -2788,6 +3097,11 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) Elem() DataSourceDocument
 	}).(DataSourceDocumentAttributeConditionOutput)
 }
 
+// The identifier of the document attribute used for the condition.
+//
+// For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+//
+// Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 func (o DataSourceDocumentAttributeConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *string {
 		if v == nil {
@@ -2797,6 +3111,9 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) ConditionDocumentAttribut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value used by the operator.
+//
+// For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
 func (o DataSourceDocumentAttributeConditionPtrOutput) ConditionOnValue() DataSourceDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *DataSourceDocumentAttributeValue {
 		if v == nil {
@@ -2806,6 +3123,9 @@ func (o DataSourceDocumentAttributeConditionPtrOutput) ConditionOnValue() DataSo
 	}).(DataSourceDocumentAttributeValuePtrOutput)
 }
 
+// The condition operator.
+//
+// For example, you can use 'Contains' to partially match a string.
 func (o DataSourceDocumentAttributeConditionPtrOutput) Operator() DataSourceConditionOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeCondition) *DataSourceConditionOperator {
 		if v == nil {
@@ -2981,10 +3301,16 @@ func (o DataSourceDocumentAttributeTargetPtrOutput) TargetDocumentAttributeValue
 }
 
 type DataSourceDocumentAttributeValue struct {
-	DateValue       *string  `pulumi:"dateValue"`
-	LongValue       *int     `pulumi:"longValue"`
+	// A date expressed as an ISO 8601 string.
+	//
+	// It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
+	DateValue *string `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue *int `pulumi:"longValue"`
+	// A list of strings. The default maximum length or number of strings is 10.
 	StringListValue []string `pulumi:"stringListValue"`
-	StringValue     *string  `pulumi:"stringValue"`
+	// A string, such as "department".
+	StringValue *string `pulumi:"stringValue"`
 }
 
 // DataSourceDocumentAttributeValueInput is an input type that accepts DataSourceDocumentAttributeValueArgs and DataSourceDocumentAttributeValueOutput values.
@@ -2999,10 +3325,16 @@ type DataSourceDocumentAttributeValueInput interface {
 }
 
 type DataSourceDocumentAttributeValueArgs struct {
-	DateValue       pulumi.StringPtrInput   `pulumi:"dateValue"`
-	LongValue       pulumi.IntPtrInput      `pulumi:"longValue"`
+	// A date expressed as an ISO 8601 string.
+	//
+	// It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
+	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
+	// A list of strings. The default maximum length or number of strings is 10.
 	StringListValue pulumi.StringArrayInput `pulumi:"stringListValue"`
-	StringValue     pulumi.StringPtrInput   `pulumi:"stringValue"`
+	// A string, such as "department".
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
 func (DataSourceDocumentAttributeValueArgs) ElementType() reflect.Type {
@@ -3082,18 +3414,24 @@ func (o DataSourceDocumentAttributeValueOutput) ToDataSourceDocumentAttributeVal
 	}).(DataSourceDocumentAttributeValuePtrOutput)
 }
 
+// A date expressed as an ISO 8601 string.
+//
+// It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
 func (o DataSourceDocumentAttributeValueOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeValue) *string { return v.DateValue }).(pulumi.StringPtrOutput)
 }
 
+// A long integer value.
 func (o DataSourceDocumentAttributeValueOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeValue) *int { return v.LongValue }).(pulumi.IntPtrOutput)
 }
 
+// A list of strings. The default maximum length or number of strings is 10.
 func (o DataSourceDocumentAttributeValueOutput) StringListValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeValue) []string { return v.StringListValue }).(pulumi.StringArrayOutput)
 }
 
+// A string, such as "department".
 func (o DataSourceDocumentAttributeValueOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentAttributeValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
@@ -3122,6 +3460,9 @@ func (o DataSourceDocumentAttributeValuePtrOutput) Elem() DataSourceDocumentAttr
 	}).(DataSourceDocumentAttributeValueOutput)
 }
 
+// A date expressed as an ISO 8601 string.
+//
+// It is important for the time zone to be included in the ISO 8601 date-time format. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time.
 func (o DataSourceDocumentAttributeValuePtrOutput) DateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) *string {
 		if v == nil {
@@ -3131,6 +3472,7 @@ func (o DataSourceDocumentAttributeValuePtrOutput) DateValue() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// A long integer value.
 func (o DataSourceDocumentAttributeValuePtrOutput) LongValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) *int {
 		if v == nil {
@@ -3140,6 +3482,7 @@ func (o DataSourceDocumentAttributeValuePtrOutput) LongValue() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// A list of strings. The default maximum length or number of strings is 10.
 func (o DataSourceDocumentAttributeValuePtrOutput) StringListValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) []string {
 		if v == nil {
@@ -3149,6 +3492,7 @@ func (o DataSourceDocumentAttributeValuePtrOutput) StringListValue() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+// A string, such as "department".
 func (o DataSourceDocumentAttributeValuePtrOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentAttributeValue) *string {
 		if v == nil {
@@ -3159,6 +3503,7 @@ func (o DataSourceDocumentAttributeValuePtrOutput) StringValue() pulumi.StringPt
 }
 
 type DataSourceDocumentsMetadataConfiguration struct {
+	// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
 	S3Prefix *string `pulumi:"s3Prefix"`
 }
 
@@ -3174,6 +3519,7 @@ type DataSourceDocumentsMetadataConfigurationInput interface {
 }
 
 type DataSourceDocumentsMetadataConfigurationArgs struct {
+	// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
 	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
 }
 
@@ -3254,6 +3600,7 @@ func (o DataSourceDocumentsMetadataConfigurationOutput) ToDataSourceDocumentsMet
 	}).(DataSourceDocumentsMetadataConfigurationPtrOutput)
 }
 
+// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
 func (o DataSourceDocumentsMetadataConfigurationOutput) S3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDocumentsMetadataConfiguration) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3282,6 +3629,7 @@ func (o DataSourceDocumentsMetadataConfigurationPtrOutput) Elem() DataSourceDocu
 	}).(DataSourceDocumentsMetadataConfigurationOutput)
 }
 
+// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `S3Prefix` to include only the desired metadata files.
 func (o DataSourceDocumentsMetadataConfigurationPtrOutput) S3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDocumentsMetadataConfiguration) *string {
 		if v == nil {
@@ -3292,13 +3640,22 @@ func (o DataSourceDocumentsMetadataConfigurationPtrOutput) S3Prefix() pulumi.Str
 }
 
 type DataSourceGoogleDriveConfiguration struct {
-	ExcludeMimeTypes    []string                        `pulumi:"excludeMimeTypes"`
-	ExcludeSharedDrives []string                        `pulumi:"excludeSharedDrives"`
-	ExcludeUserAccounts []string                        `pulumi:"excludeUserAccounts"`
-	ExclusionPatterns   []string                        `pulumi:"exclusionPatterns"`
-	FieldMappings       []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	InclusionPatterns   []string                        `pulumi:"inclusionPatterns"`
-	SecretArn           string                          `pulumi:"secretArn"`
+	// A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+	//
+	// For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+	ExcludeMimeTypes []string `pulumi:"excludeMimeTypes"`
+	// A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
+	ExcludeSharedDrives []string `pulumi:"excludeSharedDrives"`
+	// A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
+	ExcludeUserAccounts []string `pulumi:"excludeUserAccounts"`
+	// A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+	SecretArn string `pulumi:"secretArn"`
 }
 
 // DataSourceGoogleDriveConfigurationInput is an input type that accepts DataSourceGoogleDriveConfigurationArgs and DataSourceGoogleDriveConfigurationOutput values.
@@ -3313,13 +3670,22 @@ type DataSourceGoogleDriveConfigurationInput interface {
 }
 
 type DataSourceGoogleDriveConfigurationArgs struct {
-	ExcludeMimeTypes    pulumi.StringArrayInput                 `pulumi:"excludeMimeTypes"`
-	ExcludeSharedDrives pulumi.StringArrayInput                 `pulumi:"excludeSharedDrives"`
-	ExcludeUserAccounts pulumi.StringArrayInput                 `pulumi:"excludeUserAccounts"`
-	ExclusionPatterns   pulumi.StringArrayInput                 `pulumi:"exclusionPatterns"`
-	FieldMappings       DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	InclusionPatterns   pulumi.StringArrayInput                 `pulumi:"inclusionPatterns"`
-	SecretArn           pulumi.StringInput                      `pulumi:"secretArn"`
+	// A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+	//
+	// For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+	ExcludeMimeTypes pulumi.StringArrayInput `pulumi:"excludeMimeTypes"`
+	// A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
+	ExcludeSharedDrives pulumi.StringArrayInput `pulumi:"excludeSharedDrives"`
+	// A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
+	ExcludeUserAccounts pulumi.StringArrayInput `pulumi:"excludeUserAccounts"`
+	// A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
 func (DataSourceGoogleDriveConfigurationArgs) ElementType() reflect.Type {
@@ -3399,30 +3765,39 @@ func (o DataSourceGoogleDriveConfigurationOutput) ToDataSourceGoogleDriveConfigu
 	}).(DataSourceGoogleDriveConfigurationPtrOutput)
 }
 
+// A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+//
+// For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
 func (o DataSourceGoogleDriveConfigurationOutput) ExcludeMimeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExcludeMimeTypes }).(pulumi.StringArrayOutput)
 }
 
+// A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
 func (o DataSourceGoogleDriveConfigurationOutput) ExcludeSharedDrives() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExcludeSharedDrives }).(pulumi.StringArrayOutput)
 }
 
+// A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
 func (o DataSourceGoogleDriveConfigurationOutput) ExcludeUserAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExcludeUserAccounts }).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceGoogleDriveConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
 func (o DataSourceGoogleDriveConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []DataSourceToIndexFieldMapping { return v.FieldMappings }).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceGoogleDriveConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
 func (o DataSourceGoogleDriveConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceGoogleDriveConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -3451,6 +3826,9 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) Elem() DataSourceGoogleDriv
 	}).(DataSourceGoogleDriveConfigurationOutput)
 }
 
+// A list of MIME types to exclude from the index. All documents matching the specified MIME type are excluded.
+//
+// For a list of MIME types, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
 func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeMimeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
 		if v == nil {
@@ -3460,6 +3838,7 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeMimeTypes() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of identifiers or shared drives to exclude from the index. All files and folders stored on the shared drive are excluded.
 func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeSharedDrives() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
 		if v == nil {
@@ -3469,6 +3848,7 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeSharedDrives() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of email addresses of the users. Documents owned by these users are excluded from the index. Documents shared with excluded users are indexed unless they are excluded in another way.
 func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeUserAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
 		if v == nil {
@@ -3478,6 +3858,7 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) ExcludeUserAccounts() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to exclude certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceGoogleDriveConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
 		if v == nil {
@@ -3487,6 +3868,7 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) ExclusionPatterns() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// Maps Google Drive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Google Drive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Google Drive data source field names must exist in your Google Drive custom metadata.
 func (o DataSourceGoogleDriveConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -3496,6 +3878,7 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) FieldMappings() DataSourceT
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain items in your Google Drive, including shared drives and users' My Drives. Items that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceGoogleDriveConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) []string {
 		if v == nil {
@@ -3505,6 +3888,7 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) InclusionPatterns() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of a AWS Secrets Manager secret that contains the credentials required to connect to Google Drive. For more information, see [Using a Google Workspace Drive data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html) .
 func (o DataSourceGoogleDriveConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceGoogleDriveConfiguration) *string {
 		if v == nil {
@@ -3515,9 +3899,14 @@ func (o DataSourceGoogleDriveConfigurationPtrOutput) SecretArn() pulumi.StringPt
 }
 
 type DataSourceHookConfiguration struct {
+	// The condition used for when a Lambda function should be invoked.
+	//
+	// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
 	InvocationCondition *DataSourceDocumentAttributeCondition `pulumi:"invocationCondition"`
-	LambdaArn           string                                `pulumi:"lambdaArn"`
-	S3Bucket            string                                `pulumi:"s3Bucket"`
+	// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+	LambdaArn string `pulumi:"lambdaArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+	S3Bucket string `pulumi:"s3Bucket"`
 }
 
 // DataSourceHookConfigurationInput is an input type that accepts DataSourceHookConfigurationArgs and DataSourceHookConfigurationOutput values.
@@ -3532,9 +3921,14 @@ type DataSourceHookConfigurationInput interface {
 }
 
 type DataSourceHookConfigurationArgs struct {
+	// The condition used for when a Lambda function should be invoked.
+	//
+	// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
 	InvocationCondition DataSourceDocumentAttributeConditionPtrInput `pulumi:"invocationCondition"`
-	LambdaArn           pulumi.StringInput                           `pulumi:"lambdaArn"`
-	S3Bucket            pulumi.StringInput                           `pulumi:"s3Bucket"`
+	// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 }
 
 func (DataSourceHookConfigurationArgs) ElementType() reflect.Type {
@@ -3614,16 +4008,21 @@ func (o DataSourceHookConfigurationOutput) ToDataSourceHookConfigurationPtrOutpu
 	}).(DataSourceHookConfigurationPtrOutput)
 }
 
+// The condition used for when a Lambda function should be invoked.
+//
+// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
 func (o DataSourceHookConfigurationOutput) InvocationCondition() DataSourceDocumentAttributeConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) *DataSourceDocumentAttributeCondition {
 		return v.InvocationCondition
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
 func (o DataSourceHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
 
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
 func (o DataSourceHookConfigurationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceHookConfiguration) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
@@ -3652,6 +4051,9 @@ func (o DataSourceHookConfigurationPtrOutput) Elem() DataSourceHookConfiguration
 	}).(DataSourceHookConfigurationOutput)
 }
 
+// The condition used for when a Lambda function should be invoked.
+//
+// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
 func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDocumentAttributeConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *DataSourceDocumentAttributeCondition {
 		if v == nil {
@@ -3661,6 +4063,7 @@ func (o DataSourceHookConfigurationPtrOutput) InvocationCondition() DataSourceDo
 	}).(DataSourceDocumentAttributeConditionPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function during ingestion. For more information, see [an IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html) .
 func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -3670,6 +4073,7 @@ func (o DataSourceHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
 func (o DataSourceHookConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceHookConfiguration) *string {
 		if v == nil {
@@ -3790,13 +4194,24 @@ func (o DataSourceInlineCustomDocumentEnrichmentConfigurationArrayOutput) Index(
 }
 
 type DataSourceOneDriveConfiguration struct {
-	DisableLocalGroups *bool                           `pulumi:"disableLocalGroups"`
-	ExclusionPatterns  []string                        `pulumi:"exclusionPatterns"`
-	FieldMappings      []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	InclusionPatterns  []string                        `pulumi:"inclusionPatterns"`
-	OneDriveUsers      DataSourceOneDriveUsers         `pulumi:"oneDriveUsers"`
-	SecretArn          string                          `pulumi:"secretArn"`
-	TenantDomain       string                          `pulumi:"tenantDomain"`
+	// `TRUE` to disable local groups information.
+	DisableLocalGroups *bool `pulumi:"disableLocalGroups"`
+	// A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the file name.
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the file name.
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// A list of user accounts whose documents should be indexed.
+	OneDriveUsers DataSourceOneDriveUsers `pulumi:"oneDriveUsers"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
+	SecretArn string `pulumi:"secretArn"`
+	// The Azure Active Directory domain of the organization.
+	TenantDomain string `pulumi:"tenantDomain"`
 }
 
 // DataSourceOneDriveConfigurationInput is an input type that accepts DataSourceOneDriveConfigurationArgs and DataSourceOneDriveConfigurationOutput values.
@@ -3811,13 +4226,24 @@ type DataSourceOneDriveConfigurationInput interface {
 }
 
 type DataSourceOneDriveConfigurationArgs struct {
-	DisableLocalGroups pulumi.BoolPtrInput                     `pulumi:"disableLocalGroups"`
-	ExclusionPatterns  pulumi.StringArrayInput                 `pulumi:"exclusionPatterns"`
-	FieldMappings      DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	InclusionPatterns  pulumi.StringArrayInput                 `pulumi:"inclusionPatterns"`
-	OneDriveUsers      DataSourceOneDriveUsersInput            `pulumi:"oneDriveUsers"`
-	SecretArn          pulumi.StringInput                      `pulumi:"secretArn"`
-	TenantDomain       pulumi.StringInput                      `pulumi:"tenantDomain"`
+	// `TRUE` to disable local groups information.
+	DisableLocalGroups pulumi.BoolPtrInput `pulumi:"disableLocalGroups"`
+	// A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the file name.
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the file name.
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// A list of user accounts whose documents should be indexed.
+	OneDriveUsers DataSourceOneDriveUsersInput `pulumi:"oneDriveUsers"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// The Azure Active Directory domain of the organization.
+	TenantDomain pulumi.StringInput `pulumi:"tenantDomain"`
 }
 
 func (DataSourceOneDriveConfigurationArgs) ElementType() reflect.Type {
@@ -3897,30 +4323,41 @@ func (o DataSourceOneDriveConfigurationOutput) ToDataSourceOneDriveConfiguration
 	}).(DataSourceOneDriveConfigurationPtrOutput)
 }
 
+// `TRUE` to disable local groups information.
 func (o DataSourceOneDriveConfigurationOutput) DisableLocalGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) *bool { return v.DisableLocalGroups }).(pulumi.BoolPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the file name.
 func (o DataSourceOneDriveConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
 func (o DataSourceOneDriveConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) []DataSourceToIndexFieldMapping { return v.FieldMappings }).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the file name.
 func (o DataSourceOneDriveConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of user accounts whose documents should be indexed.
 func (o DataSourceOneDriveConfigurationOutput) OneDriveUsers() DataSourceOneDriveUsersOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) DataSourceOneDriveUsers { return v.OneDriveUsers }).(DataSourceOneDriveUsersOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
 func (o DataSourceOneDriveConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory domain of the organization.
 func (o DataSourceOneDriveConfigurationOutput) TenantDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOneDriveConfiguration) string { return v.TenantDomain }).(pulumi.StringOutput)
 }
@@ -3949,6 +4386,7 @@ func (o DataSourceOneDriveConfigurationPtrOutput) Elem() DataSourceOneDriveConfi
 	}).(DataSourceOneDriveConfigurationOutput)
 }
 
+// `TRUE` to disable local groups information.
 func (o DataSourceOneDriveConfigurationPtrOutput) DisableLocalGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *bool {
 		if v == nil {
@@ -3958,6 +4396,9 @@ func (o DataSourceOneDriveConfigurationPtrOutput) DisableLocalGroups() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the file name.
 func (o DataSourceOneDriveConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) []string {
 		if v == nil {
@@ -3967,6 +4408,7 @@ func (o DataSourceOneDriveConfigurationPtrOutput) ExclusionPatterns() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of `DataSourceToIndexFieldMapping` objects that map OneDrive data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to OneDrive fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The OneDrive data source field names must exist in your OneDrive custom metadata.
 func (o DataSourceOneDriveConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -3976,6 +4418,9 @@ func (o DataSourceOneDriveConfigurationPtrOutput) FieldMappings() DataSourceToIn
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the file name.
 func (o DataSourceOneDriveConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) []string {
 		if v == nil {
@@ -3985,6 +4430,7 @@ func (o DataSourceOneDriveConfigurationPtrOutput) InclusionPatterns() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of user accounts whose documents should be indexed.
 func (o DataSourceOneDriveConfigurationPtrOutput) OneDriveUsers() DataSourceOneDriveUsersPtrOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *DataSourceOneDriveUsers {
 		if v == nil {
@@ -3994,6 +4440,7 @@ func (o DataSourceOneDriveConfigurationPtrOutput) OneDriveUsers() DataSourceOneD
 	}).(DataSourceOneDriveUsersPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.
 func (o DataSourceOneDriveConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *string {
 		if v == nil {
@@ -4003,6 +4450,7 @@ func (o DataSourceOneDriveConfigurationPtrOutput) SecretArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Azure Active Directory domain of the organization.
 func (o DataSourceOneDriveConfigurationPtrOutput) TenantDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveConfiguration) *string {
 		if v == nil {
@@ -4013,7 +4461,9 @@ func (o DataSourceOneDriveConfigurationPtrOutput) TenantDomain() pulumi.StringPt
 }
 
 type DataSourceOneDriveUsers struct {
-	OneDriveUserList   []string          `pulumi:"oneDriveUserList"`
+	// A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
+	OneDriveUserList []string `pulumi:"oneDriveUserList"`
+	// The S3 bucket location of a file containing a list of users whose documents should be indexed.
 	OneDriveUserS3Path *DataSourceS3Path `pulumi:"oneDriveUserS3Path"`
 }
 
@@ -4029,7 +4479,9 @@ type DataSourceOneDriveUsersInput interface {
 }
 
 type DataSourceOneDriveUsersArgs struct {
-	OneDriveUserList   pulumi.StringArrayInput  `pulumi:"oneDriveUserList"`
+	// A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
+	OneDriveUserList pulumi.StringArrayInput `pulumi:"oneDriveUserList"`
+	// The S3 bucket location of a file containing a list of users whose documents should be indexed.
 	OneDriveUserS3Path DataSourceS3PathPtrInput `pulumi:"oneDriveUserS3Path"`
 }
 
@@ -4110,10 +4562,12 @@ func (o DataSourceOneDriveUsersOutput) ToDataSourceOneDriveUsersPtrOutputWithCon
 	}).(DataSourceOneDriveUsersPtrOutput)
 }
 
+// A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
 func (o DataSourceOneDriveUsersOutput) OneDriveUserList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceOneDriveUsers) []string { return v.OneDriveUserList }).(pulumi.StringArrayOutput)
 }
 
+// The S3 bucket location of a file containing a list of users whose documents should be indexed.
 func (o DataSourceOneDriveUsersOutput) OneDriveUserS3Path() DataSourceS3PathPtrOutput {
 	return o.ApplyT(func(v DataSourceOneDriveUsers) *DataSourceS3Path { return v.OneDriveUserS3Path }).(DataSourceS3PathPtrOutput)
 }
@@ -4142,6 +4596,7 @@ func (o DataSourceOneDriveUsersPtrOutput) Elem() DataSourceOneDriveUsersOutput {
 	}).(DataSourceOneDriveUsersOutput)
 }
 
+// A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
 func (o DataSourceOneDriveUsersPtrOutput) OneDriveUserList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveUsers) []string {
 		if v == nil {
@@ -4151,6 +4606,7 @@ func (o DataSourceOneDriveUsersPtrOutput) OneDriveUserList() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The S3 bucket location of a file containing a list of users whose documents should be indexed.
 func (o DataSourceOneDriveUsersPtrOutput) OneDriveUserS3Path() DataSourceS3PathPtrOutput {
 	return o.ApplyT(func(v *DataSourceOneDriveUsers) *DataSourceS3Path {
 		if v == nil {
@@ -4161,9 +4617,18 @@ func (o DataSourceOneDriveUsersPtrOutput) OneDriveUserS3Path() DataSourceS3PathP
 }
 
 type DataSourceProxyConfiguration struct {
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+	//
+	// The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 	Credentials *string `pulumi:"credentials"`
-	Host        string  `pulumi:"host"`
-	Port        int     `pulumi:"port"`
+	// The name of the website host you want to connect to via a web proxy server.
+	//
+	// For example, the host name of https://a.example.com/page1.html is "a.example.com".
+	Host string `pulumi:"host"`
+	// The port number of the website host you want to connect to via a web proxy server.
+	//
+	// For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
+	Port int `pulumi:"port"`
 }
 
 // DataSourceProxyConfigurationInput is an input type that accepts DataSourceProxyConfigurationArgs and DataSourceProxyConfigurationOutput values.
@@ -4178,9 +4643,18 @@ type DataSourceProxyConfigurationInput interface {
 }
 
 type DataSourceProxyConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+	//
+	// The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
-	Host        pulumi.StringInput    `pulumi:"host"`
-	Port        pulumi.IntInput       `pulumi:"port"`
+	// The name of the website host you want to connect to via a web proxy server.
+	//
+	// For example, the host name of https://a.example.com/page1.html is "a.example.com".
+	Host pulumi.StringInput `pulumi:"host"`
+	// The port number of the website host you want to connect to via a web proxy server.
+	//
+	// For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (DataSourceProxyConfigurationArgs) ElementType() reflect.Type {
@@ -4260,14 +4734,23 @@ func (o DataSourceProxyConfigurationOutput) ToDataSourceProxyConfigurationPtrOut
 	}).(DataSourceProxyConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+//
+// The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 func (o DataSourceProxyConfigurationOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceProxyConfiguration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
+// The name of the website host you want to connect to via a web proxy server.
+//
+// For example, the host name of https://a.example.com/page1.html is "a.example.com".
 func (o DataSourceProxyConfigurationOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceProxyConfiguration) string { return v.Host }).(pulumi.StringOutput)
 }
 
+// The port number of the website host you want to connect to via a web proxy server.
+//
+// For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
 func (o DataSourceProxyConfigurationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceProxyConfiguration) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -4296,6 +4779,9 @@ func (o DataSourceProxyConfigurationPtrOutput) Elem() DataSourceProxyConfigurati
 	}).(DataSourceProxyConfigurationOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret. You create a secret to store your credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)
+//
+// The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
 func (o DataSourceProxyConfigurationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceProxyConfiguration) *string {
 		if v == nil {
@@ -4305,6 +4791,9 @@ func (o DataSourceProxyConfigurationPtrOutput) Credentials() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the website host you want to connect to via a web proxy server.
+//
+// For example, the host name of https://a.example.com/page1.html is "a.example.com".
 func (o DataSourceProxyConfigurationPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceProxyConfiguration) *string {
 		if v == nil {
@@ -4314,6 +4803,9 @@ func (o DataSourceProxyConfigurationPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port number of the website host you want to connect to via a web proxy server.
+//
+// For example, the port for https://a.example.com/page1.html is 443, the standard port for HTTPS.
 func (o DataSourceProxyConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceProxyConfiguration) *int {
 		if v == nil {
@@ -4325,12 +4817,40 @@ func (o DataSourceProxyConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
 
 // S3 data source configuration
 type DataSourceS3DataSourceConfiguration struct {
+	// Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
 	AccessControlListConfiguration *DataSourceAccessControlListConfiguration `pulumi:"accessControlListConfiguration"`
-	BucketName                     string                                    `pulumi:"bucketName"`
+	// The name of the bucket that contains the documents.
+	BucketName string `pulumi:"bucketName"`
+	// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
 	DocumentsMetadataConfiguration *DataSourceDocumentsMetadataConfiguration `pulumi:"documentsMetadataConfiguration"`
-	ExclusionPatterns              []string                                  `pulumi:"exclusionPatterns"`
-	InclusionPatterns              []string                                  `pulumi:"inclusionPatterns"`
-	InclusionPrefixes              []string                                  `pulumi:"inclusionPrefixes"`
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+	//
+	// - */myapp/config/** —All files inside config directory.
+	// - ***/*.png* —All .png files in all directories.
+	// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+	// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+	// - ***/!(*.module).ts* —All .ts files but not .module.ts
+	// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+	//
+	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+	//
+	// - */myapp/config/** —All files inside config directory.
+	// - ***/*.png* —All .png files in all directories.
+	// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+	// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+	// - ***/!(*.module).ts* —All .ts files but not .module.ts
+	// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+	//
+	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// A list of S3 prefixes for the documents that should be included in the index.
+	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
 }
 
 // DataSourceS3DataSourceConfigurationInput is an input type that accepts DataSourceS3DataSourceConfigurationArgs and DataSourceS3DataSourceConfigurationOutput values.
@@ -4346,12 +4866,40 @@ type DataSourceS3DataSourceConfigurationInput interface {
 
 // S3 data source configuration
 type DataSourceS3DataSourceConfigurationArgs struct {
+	// Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
 	AccessControlListConfiguration DataSourceAccessControlListConfigurationPtrInput `pulumi:"accessControlListConfiguration"`
-	BucketName                     pulumi.StringInput                               `pulumi:"bucketName"`
+	// The name of the bucket that contains the documents.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
 	DocumentsMetadataConfiguration DataSourceDocumentsMetadataConfigurationPtrInput `pulumi:"documentsMetadataConfiguration"`
-	ExclusionPatterns              pulumi.StringArrayInput                          `pulumi:"exclusionPatterns"`
-	InclusionPatterns              pulumi.StringArrayInput                          `pulumi:"inclusionPatterns"`
-	InclusionPrefixes              pulumi.StringArrayInput                          `pulumi:"inclusionPrefixes"`
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+	//
+	// - */myapp/config/** —All files inside config directory.
+	// - ***/*.png* —All .png files in all directories.
+	// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+	// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+	// - ***/!(*.module).ts* —All .ts files but not .module.ts
+	// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+	//
+	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+	//
+	// - */myapp/config/** —All files inside config directory.
+	// - ***/*.png* —All .png files in all directories.
+	// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+	// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+	// - ***/!(*.module).ts* —All .ts files but not .module.ts
+	// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+	// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+	// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+	//
+	// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// A list of S3 prefixes for the documents that should be included in the index.
+	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
 }
 
 func (DataSourceS3DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -4432,30 +4980,58 @@ func (o DataSourceS3DataSourceConfigurationOutput) ToDataSourceS3DataSourceConfi
 	}).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
+// Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
 func (o DataSourceS3DataSourceConfigurationOutput) AccessControlListConfiguration() DataSourceAccessControlListConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) *DataSourceAccessControlListConfiguration {
 		return v.AccessControlListConfiguration
 	}).(DataSourceAccessControlListConfigurationPtrOutput)
 }
 
+// The name of the bucket that contains the documents.
 func (o DataSourceS3DataSourceConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
 func (o DataSourceS3DataSourceConfigurationOutput) DocumentsMetadataConfiguration() DataSourceDocumentsMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) *DataSourceDocumentsMetadataConfiguration {
 		return v.DocumentsMetadataConfiguration
 	}).(DataSourceDocumentsMetadataConfigurationPtrOutput)
 }
 
+// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+//
+// - */myapp/config/** —All files inside config directory.
+// - ***/*.png* —All .png files in all directories.
+// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+// - ***/!(*.module).ts* —All .ts files but not .module.ts
+// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+//
+// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 func (o DataSourceS3DataSourceConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+//
+// - */myapp/config/** —All files inside config directory.
+// - ***/*.png* —All .png files in all directories.
+// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+// - ***/!(*.module).ts* —All .ts files but not .module.ts
+// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+//
+// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 func (o DataSourceS3DataSourceConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of S3 prefixes for the documents that should be included in the index.
 func (o DataSourceS3DataSourceConfigurationOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) []string { return v.InclusionPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -4484,6 +5060,7 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) Elem() DataSourceS3DataSou
 	}).(DataSourceS3DataSourceConfigurationOutput)
 }
 
+// Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
 func (o DataSourceS3DataSourceConfigurationPtrOutput) AccessControlListConfiguration() DataSourceAccessControlListConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *DataSourceAccessControlListConfiguration {
 		if v == nil {
@@ -4493,6 +5070,7 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) AccessControlListConfigura
 	}).(DataSourceAccessControlListConfigurationPtrOutput)
 }
 
+// The name of the bucket that contains the documents.
 func (o DataSourceS3DataSourceConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *string {
 		if v == nil {
@@ -4502,6 +5080,7 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) BucketName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
 func (o DataSourceS3DataSourceConfigurationPtrOutput) DocumentsMetadataConfiguration() DataSourceDocumentsMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *DataSourceDocumentsMetadataConfiguration {
 		if v == nil {
@@ -4511,6 +5090,18 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) DocumentsMetadataConfigura
 	}).(DataSourceDocumentsMetadataConfigurationPtrOutput)
 }
 
+// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to exclude from your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+//
+// - */myapp/config/** —All files inside config directory.
+// - ***/*.png* —All .png files in all directories.
+// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+// - ***/!(*.module).ts* —All .ts files but not .module.ts
+// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+//
+// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 func (o DataSourceS3DataSourceConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) []string {
 		if v == nil {
@@ -4520,6 +5111,18 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) ExclusionPatterns() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of glob patterns (patterns that can expand a wildcard pattern into a list of path names that match the given pattern) for certain file names and file types to include in your index. If a document matches both an inclusion and exclusion prefix or pattern, the exclusion prefix takes precendence and the document is not indexed. Examples of glob patterns include:
+//
+// - */myapp/config/** —All files inside config directory.
+// - ***/*.png* —All .png files in all directories.
+// - ***/*.{png, ico, md}* —All .png, .ico or .md files in all directories.
+// - */myapp/src/**/*.ts* —All .ts files inside src directory (and all its subdirectories).
+// - ***/!(*.module).ts* —All .ts files but not .module.ts
+// - **.png , *.jpg* —All PNG and JPEG image files in a directory (files with the extensions .png and .jpg).
+// - **internal** —All files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.
+// - ***/*internal** —All internal-related files in a directory and its subdirectories.
+//
+// For more examples, see [Use of Exclude and Include Filters](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) in the AWS CLI Command Reference.
 func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) []string {
 		if v == nil {
@@ -4529,6 +5132,7 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPatterns() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of S3 prefixes for the documents that should be included in the index.
 func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) []string {
 		if v == nil {
@@ -4539,8 +5143,10 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) InclusionPrefixes() pulumi
 }
 
 type DataSourceS3Path struct {
+	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	Key    string `pulumi:"key"`
+	// The name of the file.
+	Key string `pulumi:"key"`
 }
 
 // DataSourceS3PathInput is an input type that accepts DataSourceS3PathArgs and DataSourceS3PathOutput values.
@@ -4555,8 +5161,10 @@ type DataSourceS3PathInput interface {
 }
 
 type DataSourceS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	Key    pulumi.StringInput `pulumi:"key"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
 }
 
 func (DataSourceS3PathArgs) ElementType() reflect.Type {
@@ -4636,10 +5244,12 @@ func (o DataSourceS3PathOutput) ToDataSourceS3PathPtrOutputWithContext(ctx conte
 	}).(DataSourceS3PathPtrOutput)
 }
 
+// The name of the S3 bucket that contains the file.
 func (o DataSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The name of the file.
 func (o DataSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -4668,6 +5278,7 @@ func (o DataSourceS3PathPtrOutput) Elem() DataSourceS3PathOutput {
 	}).(DataSourceS3PathOutput)
 }
 
+// The name of the S3 bucket that contains the file.
 func (o DataSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3Path) *string {
 		if v == nil {
@@ -4677,6 +5288,7 @@ func (o DataSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the file.
 func (o DataSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3Path) *string {
 		if v == nil {
@@ -4687,10 +5299,14 @@ func (o DataSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type DataSourceSalesforceChatterFeedConfiguration struct {
-	DocumentDataFieldName  string                                             `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName *string                                            `pulumi:"documentTitleFieldName"`
-	FieldMappings          []DataSourceToIndexFieldMapping                    `pulumi:"fieldMappings"`
-	IncludeFilterTypes     []DataSourceSalesforceChatterFeedIncludeFilterType `pulumi:"includeFilterTypes"`
+	// The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
+	DocumentDataFieldName string `pulumi:"documentDataFieldName"`
+	// The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
+	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
+	// Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
+	IncludeFilterTypes []DataSourceSalesforceChatterFeedIncludeFilterType `pulumi:"includeFilterTypes"`
 }
 
 // DataSourceSalesforceChatterFeedConfigurationInput is an input type that accepts DataSourceSalesforceChatterFeedConfigurationArgs and DataSourceSalesforceChatterFeedConfigurationOutput values.
@@ -4705,10 +5321,14 @@ type DataSourceSalesforceChatterFeedConfigurationInput interface {
 }
 
 type DataSourceSalesforceChatterFeedConfigurationArgs struct {
-	DocumentDataFieldName  pulumi.StringInput                                         `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName pulumi.StringPtrInput                                      `pulumi:"documentTitleFieldName"`
-	FieldMappings          DataSourceToIndexFieldMappingArrayInput                    `pulumi:"fieldMappings"`
-	IncludeFilterTypes     DataSourceSalesforceChatterFeedIncludeFilterTypeArrayInput `pulumi:"includeFilterTypes"`
+	// The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
+	DocumentDataFieldName pulumi.StringInput `pulumi:"documentDataFieldName"`
+	// The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
+	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
+	// Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
+	IncludeFilterTypes DataSourceSalesforceChatterFeedIncludeFilterTypeArrayInput `pulumi:"includeFilterTypes"`
 }
 
 func (DataSourceSalesforceChatterFeedConfigurationArgs) ElementType() reflect.Type {
@@ -4788,20 +5408,24 @@ func (o DataSourceSalesforceChatterFeedConfigurationOutput) ToDataSourceSalesfor
 	}).(DataSourceSalesforceChatterFeedConfigurationPtrOutput)
 }
 
+// The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
 func (o DataSourceSalesforceChatterFeedConfigurationOutput) DocumentDataFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) string { return v.DocumentDataFieldName }).(pulumi.StringOutput)
 }
 
+// The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
 func (o DataSourceSalesforceChatterFeedConfigurationOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) *string { return v.DocumentTitleFieldName }).(pulumi.StringPtrOutput)
 }
 
+// Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
 func (o DataSourceSalesforceChatterFeedConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) []DataSourceToIndexFieldMapping {
 		return v.FieldMappings
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
 func (o DataSourceSalesforceChatterFeedConfigurationOutput) IncludeFilterTypes() DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) []DataSourceSalesforceChatterFeedIncludeFilterType {
 		return v.IncludeFilterTypes
@@ -4832,6 +5456,7 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) Elem() DataSource
 	}).(DataSourceSalesforceChatterFeedConfigurationOutput)
 }
 
+// The name of the column in the Salesforce FeedItem table that contains the content to index. Typically this is the `Body` column.
 func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) DocumentDataFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) *string {
 		if v == nil {
@@ -4841,6 +5466,7 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) DocumentDataField
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the column in the Salesforce FeedItem table that contains the title of the document. This is typically the `Title` column.
 func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) *string {
 		if v == nil {
@@ -4850,6 +5476,7 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) DocumentTitleFiel
 	}).(pulumi.StringPtrOutput)
 }
 
+// Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.
 func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -4859,6 +5486,7 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) FieldMappings() D
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// Filters the documents in the feed based on status of the user. When you specify `ACTIVE_USERS` only documents from users who have an active account are indexed. When you specify `STANDARD_USER` only documents for Salesforce standard users are documented. You can specify both.
 func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) IncludeFilterTypes() DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) []DataSourceSalesforceChatterFeedIncludeFilterType {
 		if v == nil {
@@ -4869,15 +5497,35 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) IncludeFilterType
 }
 
 type DataSourceSalesforceConfiguration struct {
-	ChatterFeedConfiguration              *DataSourceSalesforceChatterFeedConfiguration              `pulumi:"chatterFeedConfiguration"`
-	CrawlAttachments                      *bool                                                      `pulumi:"crawlAttachments"`
-	ExcludeAttachmentFilePatterns         []string                                                   `pulumi:"excludeAttachmentFilePatterns"`
-	IncludeAttachmentFilePatterns         []string                                                   `pulumi:"includeAttachmentFilePatterns"`
-	KnowledgeArticleConfiguration         *DataSourceSalesforceKnowledgeArticleConfiguration         `pulumi:"knowledgeArticleConfiguration"`
-	SecretArn                             string                                                     `pulumi:"secretArn"`
-	ServerUrl                             string                                                     `pulumi:"serverUrl"`
+	// Configuration information for Salesforce chatter feeds.
+	ChatterFeedConfiguration *DataSourceSalesforceChatterFeedConfiguration `pulumi:"chatterFeedConfiguration"`
+	// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+	CrawlAttachments *bool `pulumi:"crawlAttachments"`
+	// A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the name of the attached file.
+	ExcludeAttachmentFilePatterns []string `pulumi:"excludeAttachmentFilePatterns"`
+	// A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the name of the attached file.
+	IncludeAttachmentFilePatterns []string `pulumi:"includeAttachmentFilePatterns"`
+	// Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
+	KnowledgeArticleConfiguration *DataSourceSalesforceKnowledgeArticleConfiguration `pulumi:"knowledgeArticleConfiguration"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+	//
+	// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+	// - consumerKey - The application public key generated when you created your Salesforce application.
+	// - consumerSecret - The application private key generated when you created your Salesforce application.
+	// - password - The password associated with the user logging in to the Salesforce instance.
+	// - securityToken - The token associated with the user logging in to the Salesforce instance.
+	// - username - The user name of the user logging in to the Salesforce instance.
+	SecretArn string `pulumi:"secretArn"`
+	// The instance URL for the Salesforce site that you want to index.
+	ServerUrl string `pulumi:"serverUrl"`
+	// Configuration information for processing attachments to Salesforce standard objects.
 	StandardObjectAttachmentConfiguration *DataSourceSalesforceStandardObjectAttachmentConfiguration `pulumi:"standardObjectAttachmentConfiguration"`
-	StandardObjectConfigurations          []DataSourceSalesforceStandardObjectConfiguration          `pulumi:"standardObjectConfigurations"`
+	// Configuration of the Salesforce standard objects that Amazon Kendra indexes.
+	StandardObjectConfigurations []DataSourceSalesforceStandardObjectConfiguration `pulumi:"standardObjectConfigurations"`
 }
 
 // DataSourceSalesforceConfigurationInput is an input type that accepts DataSourceSalesforceConfigurationArgs and DataSourceSalesforceConfigurationOutput values.
@@ -4892,15 +5540,35 @@ type DataSourceSalesforceConfigurationInput interface {
 }
 
 type DataSourceSalesforceConfigurationArgs struct {
-	ChatterFeedConfiguration              DataSourceSalesforceChatterFeedConfigurationPtrInput              `pulumi:"chatterFeedConfiguration"`
-	CrawlAttachments                      pulumi.BoolPtrInput                                               `pulumi:"crawlAttachments"`
-	ExcludeAttachmentFilePatterns         pulumi.StringArrayInput                                           `pulumi:"excludeAttachmentFilePatterns"`
-	IncludeAttachmentFilePatterns         pulumi.StringArrayInput                                           `pulumi:"includeAttachmentFilePatterns"`
-	KnowledgeArticleConfiguration         DataSourceSalesforceKnowledgeArticleConfigurationPtrInput         `pulumi:"knowledgeArticleConfiguration"`
-	SecretArn                             pulumi.StringInput                                                `pulumi:"secretArn"`
-	ServerUrl                             pulumi.StringInput                                                `pulumi:"serverUrl"`
+	// Configuration information for Salesforce chatter feeds.
+	ChatterFeedConfiguration DataSourceSalesforceChatterFeedConfigurationPtrInput `pulumi:"chatterFeedConfiguration"`
+	// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
+	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
+	// A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the name of the attached file.
+	ExcludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"excludeAttachmentFilePatterns"`
+	// A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The pattern is applied to the name of the attached file.
+	IncludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"includeAttachmentFilePatterns"`
+	// Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
+	KnowledgeArticleConfiguration DataSourceSalesforceKnowledgeArticleConfigurationPtrInput `pulumi:"knowledgeArticleConfiguration"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+	//
+	// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+	// - consumerKey - The application public key generated when you created your Salesforce application.
+	// - consumerSecret - The application private key generated when you created your Salesforce application.
+	// - password - The password associated with the user logging in to the Salesforce instance.
+	// - securityToken - The token associated with the user logging in to the Salesforce instance.
+	// - username - The user name of the user logging in to the Salesforce instance.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// The instance URL for the Salesforce site that you want to index.
+	ServerUrl pulumi.StringInput `pulumi:"serverUrl"`
+	// Configuration information for processing attachments to Salesforce standard objects.
 	StandardObjectAttachmentConfiguration DataSourceSalesforceStandardObjectAttachmentConfigurationPtrInput `pulumi:"standardObjectAttachmentConfiguration"`
-	StandardObjectConfigurations          DataSourceSalesforceStandardObjectConfigurationArrayInput         `pulumi:"standardObjectConfigurations"`
+	// Configuration of the Salesforce standard objects that Amazon Kendra indexes.
+	StandardObjectConfigurations DataSourceSalesforceStandardObjectConfigurationArrayInput `pulumi:"standardObjectConfigurations"`
 }
 
 func (DataSourceSalesforceConfigurationArgs) ElementType() reflect.Type {
@@ -4980,44 +5648,64 @@ func (o DataSourceSalesforceConfigurationOutput) ToDataSourceSalesforceConfigura
 	}).(DataSourceSalesforceConfigurationPtrOutput)
 }
 
+// Configuration information for Salesforce chatter feeds.
 func (o DataSourceSalesforceConfigurationOutput) ChatterFeedConfiguration() DataSourceSalesforceChatterFeedConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *DataSourceSalesforceChatterFeedConfiguration {
 		return v.ChatterFeedConfiguration
 	}).(DataSourceSalesforceChatterFeedConfigurationPtrOutput)
 }
 
+// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
 func (o DataSourceSalesforceConfigurationOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *bool { return v.CrawlAttachments }).(pulumi.BoolPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the name of the attached file.
 func (o DataSourceSalesforceConfigurationOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) []string { return v.ExcludeAttachmentFilePatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the name of the attached file.
 func (o DataSourceSalesforceConfigurationOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) []string { return v.IncludeAttachmentFilePatterns }).(pulumi.StringArrayOutput)
 }
 
+// Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
 func (o DataSourceSalesforceConfigurationOutput) KnowledgeArticleConfiguration() DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *DataSourceSalesforceKnowledgeArticleConfiguration {
 		return v.KnowledgeArticleConfiguration
 	}).(DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+//
+// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+// - consumerKey - The application public key generated when you created your Salesforce application.
+// - consumerSecret - The application private key generated when you created your Salesforce application.
+// - password - The password associated with the user logging in to the Salesforce instance.
+// - securityToken - The token associated with the user logging in to the Salesforce instance.
+// - username - The user name of the user logging in to the Salesforce instance.
 func (o DataSourceSalesforceConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// The instance URL for the Salesforce site that you want to index.
 func (o DataSourceSalesforceConfigurationOutput) ServerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) string { return v.ServerUrl }).(pulumi.StringOutput)
 }
 
+// Configuration information for processing attachments to Salesforce standard objects.
 func (o DataSourceSalesforceConfigurationOutput) StandardObjectAttachmentConfiguration() DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) *DataSourceSalesforceStandardObjectAttachmentConfiguration {
 		return v.StandardObjectAttachmentConfiguration
 	}).(DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput)
 }
 
+// Configuration of the Salesforce standard objects that Amazon Kendra indexes.
 func (o DataSourceSalesforceConfigurationOutput) StandardObjectConfigurations() DataSourceSalesforceStandardObjectConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceConfiguration) []DataSourceSalesforceStandardObjectConfiguration {
 		return v.StandardObjectConfigurations
@@ -5048,6 +5736,7 @@ func (o DataSourceSalesforceConfigurationPtrOutput) Elem() DataSourceSalesforceC
 	}).(DataSourceSalesforceConfigurationOutput)
 }
 
+// Configuration information for Salesforce chatter feeds.
 func (o DataSourceSalesforceConfigurationPtrOutput) ChatterFeedConfiguration() DataSourceSalesforceChatterFeedConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *DataSourceSalesforceChatterFeedConfiguration {
 		if v == nil {
@@ -5057,6 +5746,7 @@ func (o DataSourceSalesforceConfigurationPtrOutput) ChatterFeedConfiguration() D
 	}).(DataSourceSalesforceChatterFeedConfigurationPtrOutput)
 }
 
+// Indicates whether Amazon Kendra should index attachments to Salesforce objects.
 func (o DataSourceSalesforceConfigurationPtrOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *bool {
 		if v == nil {
@@ -5066,6 +5756,9 @@ func (o DataSourceSalesforceConfigurationPtrOutput) CrawlAttachments() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain documents in your Salesforce. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the name of the attached file.
 func (o DataSourceSalesforceConfigurationPtrOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) []string {
 		if v == nil {
@@ -5075,6 +5768,9 @@ func (o DataSourceSalesforceConfigurationPtrOutput) ExcludeAttachmentFilePattern
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to include certain documents in your Salesforce. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The pattern is applied to the name of the attached file.
 func (o DataSourceSalesforceConfigurationPtrOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) []string {
 		if v == nil {
@@ -5084,6 +5780,7 @@ func (o DataSourceSalesforceConfigurationPtrOutput) IncludeAttachmentFilePattern
 	}).(pulumi.StringArrayOutput)
 }
 
+// Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
 func (o DataSourceSalesforceConfigurationPtrOutput) KnowledgeArticleConfiguration() DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *DataSourceSalesforceKnowledgeArticleConfiguration {
 		if v == nil {
@@ -5093,6 +5790,14 @@ func (o DataSourceSalesforceConfigurationPtrOutput) KnowledgeArticleConfiguratio
 	}).(DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key/value pairs required to connect to your Salesforce instance. The secret must contain a JSON structure with the following keys:
+//
+// - authenticationUrl - The OAUTH endpoint that Amazon Kendra connects to get an OAUTH token.
+// - consumerKey - The application public key generated when you created your Salesforce application.
+// - consumerSecret - The application private key generated when you created your Salesforce application.
+// - password - The password associated with the user logging in to the Salesforce instance.
+// - securityToken - The token associated with the user logging in to the Salesforce instance.
+// - username - The user name of the user logging in to the Salesforce instance.
 func (o DataSourceSalesforceConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *string {
 		if v == nil {
@@ -5102,6 +5807,7 @@ func (o DataSourceSalesforceConfigurationPtrOutput) SecretArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The instance URL for the Salesforce site that you want to index.
 func (o DataSourceSalesforceConfigurationPtrOutput) ServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *string {
 		if v == nil {
@@ -5111,6 +5817,7 @@ func (o DataSourceSalesforceConfigurationPtrOutput) ServerUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for processing attachments to Salesforce standard objects.
 func (o DataSourceSalesforceConfigurationPtrOutput) StandardObjectAttachmentConfiguration() DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) *DataSourceSalesforceStandardObjectAttachmentConfiguration {
 		if v == nil {
@@ -5120,6 +5827,7 @@ func (o DataSourceSalesforceConfigurationPtrOutput) StandardObjectAttachmentConf
 	}).(DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput)
 }
 
+// Configuration of the Salesforce standard objects that Amazon Kendra indexes.
 func (o DataSourceSalesforceConfigurationPtrOutput) StandardObjectConfigurations() DataSourceSalesforceStandardObjectConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceConfiguration) []DataSourceSalesforceStandardObjectConfiguration {
 		if v == nil {
@@ -5248,8 +5956,11 @@ func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput) 
 }
 
 type DataSourceSalesforceKnowledgeArticleConfiguration struct {
-	CustomKnowledgeArticleTypeConfigurations  []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration  `pulumi:"customKnowledgeArticleTypeConfigurations"`
-	IncludedStates                            []DataSourceSalesforceKnowledgeArticleState                    `pulumi:"includedStates"`
+	// Configuration information for custom Salesforce knowledge articles.
+	CustomKnowledgeArticleTypeConfigurations []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration `pulumi:"customKnowledgeArticleTypeConfigurations"`
+	// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
+	IncludedStates []DataSourceSalesforceKnowledgeArticleState `pulumi:"includedStates"`
+	// Configuration information for standard Salesforce knowledge articles.
 	StandardKnowledgeArticleTypeConfiguration *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration `pulumi:"standardKnowledgeArticleTypeConfiguration"`
 }
 
@@ -5265,8 +5976,11 @@ type DataSourceSalesforceKnowledgeArticleConfigurationInput interface {
 }
 
 type DataSourceSalesforceKnowledgeArticleConfigurationArgs struct {
-	CustomKnowledgeArticleTypeConfigurations  DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayInput `pulumi:"customKnowledgeArticleTypeConfigurations"`
-	IncludedStates                            DataSourceSalesforceKnowledgeArticleStateArrayInput                   `pulumi:"includedStates"`
+	// Configuration information for custom Salesforce knowledge articles.
+	CustomKnowledgeArticleTypeConfigurations DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayInput `pulumi:"customKnowledgeArticleTypeConfigurations"`
+	// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
+	IncludedStates DataSourceSalesforceKnowledgeArticleStateArrayInput `pulumi:"includedStates"`
+	// Configuration information for standard Salesforce knowledge articles.
 	StandardKnowledgeArticleTypeConfiguration DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrInput `pulumi:"standardKnowledgeArticleTypeConfiguration"`
 }
 
@@ -5347,18 +6061,21 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) ToDataSourceSal
 	}).(DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput)
 }
 
+// Configuration information for custom Salesforce knowledge articles.
 func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) CustomKnowledgeArticleTypeConfigurations() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
 		return v.CustomKnowledgeArticleTypeConfigurations
 	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
 }
 
+// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
 func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) IncludedStates() DataSourceSalesforceKnowledgeArticleStateArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceKnowledgeArticleState {
 		return v.IncludedStates
 	}).(DataSourceSalesforceKnowledgeArticleStateArrayOutput)
 }
 
+// Configuration information for standard Salesforce knowledge articles.
 func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) StandardKnowledgeArticleTypeConfiguration() DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration {
 		return v.StandardKnowledgeArticleTypeConfiguration
@@ -5389,6 +6106,7 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) Elem() DataS
 	}).(DataSourceSalesforceKnowledgeArticleConfigurationOutput)
 }
 
+// Configuration information for custom Salesforce knowledge articles.
 func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) CustomKnowledgeArticleTypeConfigurations() DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
 		if v == nil {
@@ -5398,6 +6116,7 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) CustomKnowle
 	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
 }
 
+// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
 func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) IncludedStates() DataSourceSalesforceKnowledgeArticleStateArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceKnowledgeArticleState {
 		if v == nil {
@@ -5407,6 +6126,7 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) IncludedStat
 	}).(DataSourceSalesforceKnowledgeArticleStateArrayOutput)
 }
 
+// Configuration information for standard Salesforce knowledge articles.
 func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) StandardKnowledgeArticleTypeConfiguration() DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration {
 		if v == nil {
@@ -5417,9 +6137,12 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) StandardKnow
 }
 
 type DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration struct {
-	DocumentDataFieldName  string                          `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName *string                         `pulumi:"documentTitleFieldName"`
-	FieldMappings          []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// The name of the field that contains the document data to index.
+	DocumentDataFieldName string `pulumi:"documentDataFieldName"`
+	// The name of the field that contains the document title.
+	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
+	// Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 }
 
 // DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationInput is an input type that accepts DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs and DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput values.
@@ -5434,9 +6157,12 @@ type DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationInput interfac
 }
 
 type DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs struct {
-	DocumentDataFieldName  pulumi.StringInput                      `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName pulumi.StringPtrInput                   `pulumi:"documentTitleFieldName"`
-	FieldMappings          DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// The name of the field that contains the document data to index.
+	DocumentDataFieldName pulumi.StringInput `pulumi:"documentDataFieldName"`
+	// The name of the field that contains the document title.
+	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
+	// Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
 func (DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs) ElementType() reflect.Type {
@@ -5516,18 +6242,21 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) ToD
 	}).(DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput)
 }
 
+// The name of the field that contains the document data to index.
 func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) DocumentDataFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) string {
 		return v.DocumentDataFieldName
 	}).(pulumi.StringOutput)
 }
 
+// The name of the field that contains the document title.
 func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) *string {
 		return v.DocumentTitleFieldName
 	}).(pulumi.StringPtrOutput)
 }
 
+// Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
 func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) []DataSourceToIndexFieldMapping {
 		return v.FieldMappings
@@ -5558,6 +6287,7 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) 
 	}).(DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationOutput)
 }
 
+// The name of the field that contains the document data to index.
 func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) DocumentDataFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) *string {
 		if v == nil {
@@ -5567,6 +6297,7 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the field that contains the document title.
 func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) *string {
 		if v == nil {
@@ -5576,6 +6307,7 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Maps attributes or field names of the knowledge article to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Salesforce fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Salesforce data source field names must exist in your Salesforce custom metadata.
 func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -5586,8 +6318,10 @@ func (o DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput) 
 }
 
 type DataSourceSalesforceStandardObjectAttachmentConfiguration struct {
-	DocumentTitleFieldName *string                         `pulumi:"documentTitleFieldName"`
-	FieldMappings          []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// The name of the field used for the document title.
+	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
+	// One or more objects that map fields in attachments to Amazon Kendra index fields.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
 }
 
 // DataSourceSalesforceStandardObjectAttachmentConfigurationInput is an input type that accepts DataSourceSalesforceStandardObjectAttachmentConfigurationArgs and DataSourceSalesforceStandardObjectAttachmentConfigurationOutput values.
@@ -5602,8 +6336,10 @@ type DataSourceSalesforceStandardObjectAttachmentConfigurationInput interface {
 }
 
 type DataSourceSalesforceStandardObjectAttachmentConfigurationArgs struct {
-	DocumentTitleFieldName pulumi.StringPtrInput                   `pulumi:"documentTitleFieldName"`
-	FieldMappings          DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// The name of the field used for the document title.
+	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
+	// One or more objects that map fields in attachments to Amazon Kendra index fields.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
 func (DataSourceSalesforceStandardObjectAttachmentConfigurationArgs) ElementType() reflect.Type {
@@ -5683,12 +6419,14 @@ func (o DataSourceSalesforceStandardObjectAttachmentConfigurationOutput) ToDataS
 	}).(DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput)
 }
 
+// The name of the field used for the document title.
 func (o DataSourceSalesforceStandardObjectAttachmentConfigurationOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceSalesforceStandardObjectAttachmentConfiguration) *string {
 		return v.DocumentTitleFieldName
 	}).(pulumi.StringPtrOutput)
 }
 
+// One or more objects that map fields in attachments to Amazon Kendra index fields.
 func (o DataSourceSalesforceStandardObjectAttachmentConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceSalesforceStandardObjectAttachmentConfiguration) []DataSourceToIndexFieldMapping {
 		return v.FieldMappings
@@ -5719,6 +6457,7 @@ func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) Elem
 	}).(DataSourceSalesforceStandardObjectAttachmentConfigurationOutput)
 }
 
+// The name of the field used for the document title.
 func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectAttachmentConfiguration) *string {
 		if v == nil {
@@ -5728,6 +6467,7 @@ func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) Docu
 	}).(pulumi.StringPtrOutput)
 }
 
+// One or more objects that map fields in attachments to Amazon Kendra index fields.
 func (o DataSourceSalesforceStandardObjectAttachmentConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceSalesforceStandardObjectAttachmentConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -5854,12 +6594,20 @@ func (o DataSourceSalesforceStandardObjectConfigurationArrayOutput) Index(i pulu
 }
 
 type DataSourceServiceNowConfiguration struct {
-	AuthenticationType            *DataSourceServiceNowAuthenticationType            `pulumi:"authenticationType"`
-	HostUrl                       string                                             `pulumi:"hostUrl"`
+	// The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
+	//
+	// When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+	AuthenticationType *DataSourceServiceNowAuthenticationType `pulumi:"authenticationType"`
+	// The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
+	HostUrl string `pulumi:"hostUrl"`
+	// Configuration information for crawling knowledge articles in the ServiceNow site.
 	KnowledgeArticleConfiguration *DataSourceServiceNowKnowledgeArticleConfiguration `pulumi:"knowledgeArticleConfiguration"`
-	SecretArn                     string                                             `pulumi:"secretArn"`
-	ServiceCatalogConfiguration   *DataSourceServiceNowServiceCatalogConfiguration   `pulumi:"serviceCatalogConfiguration"`
-	ServiceNowBuildVersion        DataSourceServiceNowBuildVersionType               `pulumi:"serviceNowBuildVersion"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+	SecretArn string `pulumi:"secretArn"`
+	// Configuration information for crawling service catalogs in the ServiceNow site.
+	ServiceCatalogConfiguration *DataSourceServiceNowServiceCatalogConfiguration `pulumi:"serviceCatalogConfiguration"`
+	// The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
+	ServiceNowBuildVersion DataSourceServiceNowBuildVersionType `pulumi:"serviceNowBuildVersion"`
 }
 
 // DataSourceServiceNowConfigurationInput is an input type that accepts DataSourceServiceNowConfigurationArgs and DataSourceServiceNowConfigurationOutput values.
@@ -5874,12 +6622,20 @@ type DataSourceServiceNowConfigurationInput interface {
 }
 
 type DataSourceServiceNowConfigurationArgs struct {
-	AuthenticationType            DataSourceServiceNowAuthenticationTypePtrInput            `pulumi:"authenticationType"`
-	HostUrl                       pulumi.StringInput                                        `pulumi:"hostUrl"`
+	// The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
+	//
+	// When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+	AuthenticationType DataSourceServiceNowAuthenticationTypePtrInput `pulumi:"authenticationType"`
+	// The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
+	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
+	// Configuration information for crawling knowledge articles in the ServiceNow site.
 	KnowledgeArticleConfiguration DataSourceServiceNowKnowledgeArticleConfigurationPtrInput `pulumi:"knowledgeArticleConfiguration"`
-	SecretArn                     pulumi.StringInput                                        `pulumi:"secretArn"`
-	ServiceCatalogConfiguration   DataSourceServiceNowServiceCatalogConfigurationPtrInput   `pulumi:"serviceCatalogConfiguration"`
-	ServiceNowBuildVersion        DataSourceServiceNowBuildVersionTypeInput                 `pulumi:"serviceNowBuildVersion"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// Configuration information for crawling service catalogs in the ServiceNow site.
+	ServiceCatalogConfiguration DataSourceServiceNowServiceCatalogConfigurationPtrInput `pulumi:"serviceCatalogConfiguration"`
+	// The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
+	ServiceNowBuildVersion DataSourceServiceNowBuildVersionTypeInput `pulumi:"serviceNowBuildVersion"`
 }
 
 func (DataSourceServiceNowConfigurationArgs) ElementType() reflect.Type {
@@ -5959,32 +6715,40 @@ func (o DataSourceServiceNowConfigurationOutput) ToDataSourceServiceNowConfigura
 	}).(DataSourceServiceNowConfigurationPtrOutput)
 }
 
+// The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
+//
+// When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
 func (o DataSourceServiceNowConfigurationOutput) AuthenticationType() DataSourceServiceNowAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowConfiguration) *DataSourceServiceNowAuthenticationType {
 		return v.AuthenticationType
 	}).(DataSourceServiceNowAuthenticationTypePtrOutput)
 }
 
+// The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
 func (o DataSourceServiceNowConfigurationOutput) HostUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceServiceNowConfiguration) string { return v.HostUrl }).(pulumi.StringOutput)
 }
 
+// Configuration information for crawling knowledge articles in the ServiceNow site.
 func (o DataSourceServiceNowConfigurationOutput) KnowledgeArticleConfiguration() DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowConfiguration) *DataSourceServiceNowKnowledgeArticleConfiguration {
 		return v.KnowledgeArticleConfiguration
 	}).(DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
 func (o DataSourceServiceNowConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceServiceNowConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// Configuration information for crawling service catalogs in the ServiceNow site.
 func (o DataSourceServiceNowConfigurationOutput) ServiceCatalogConfiguration() DataSourceServiceNowServiceCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowConfiguration) *DataSourceServiceNowServiceCatalogConfiguration {
 		return v.ServiceCatalogConfiguration
 	}).(DataSourceServiceNowServiceCatalogConfigurationPtrOutput)
 }
 
+// The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
 func (o DataSourceServiceNowConfigurationOutput) ServiceNowBuildVersion() DataSourceServiceNowBuildVersionTypeOutput {
 	return o.ApplyT(func(v DataSourceServiceNowConfiguration) DataSourceServiceNowBuildVersionType {
 		return v.ServiceNowBuildVersion
@@ -6015,6 +6779,9 @@ func (o DataSourceServiceNowConfigurationPtrOutput) Elem() DataSourceServiceNowC
 	}).(DataSourceServiceNowConfigurationOutput)
 }
 
+// The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC` , Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. If you choose `OAUTH2` , Amazon Kendra is authenticated using the credentials of client ID, client secret, user name and password.
+//
+// When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
 func (o DataSourceServiceNowConfigurationPtrOutput) AuthenticationType() DataSourceServiceNowAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *DataSourceServiceNowAuthenticationType {
 		if v == nil {
@@ -6024,6 +6791,7 @@ func (o DataSourceServiceNowConfigurationPtrOutput) AuthenticationType() DataSou
 	}).(DataSourceServiceNowAuthenticationTypePtrOutput)
 }
 
+// The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*
 func (o DataSourceServiceNowConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *string {
 		if v == nil {
@@ -6033,6 +6801,7 @@ func (o DataSourceServiceNowConfigurationPtrOutput) HostUrl() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for crawling knowledge articles in the ServiceNow site.
 func (o DataSourceServiceNowConfigurationPtrOutput) KnowledgeArticleConfiguration() DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *DataSourceServiceNowKnowledgeArticleConfiguration {
 		if v == nil {
@@ -6042,6 +6811,7 @@ func (o DataSourceServiceNowConfigurationPtrOutput) KnowledgeArticleConfiguratio
 	}).(DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance. You can also provide OAuth authentication credentials of user name, password, client ID, and client secret. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html) .
 func (o DataSourceServiceNowConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *string {
 		if v == nil {
@@ -6051,6 +6821,7 @@ func (o DataSourceServiceNowConfigurationPtrOutput) SecretArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for crawling service catalogs in the ServiceNow site.
 func (o DataSourceServiceNowConfigurationPtrOutput) ServiceCatalogConfiguration() DataSourceServiceNowServiceCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *DataSourceServiceNowServiceCatalogConfiguration {
 		if v == nil {
@@ -6060,6 +6831,7 @@ func (o DataSourceServiceNowConfigurationPtrOutput) ServiceCatalogConfiguration(
 	}).(DataSourceServiceNowServiceCatalogConfigurationPtrOutput)
 }
 
+// The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS` .
 func (o DataSourceServiceNowConfigurationPtrOutput) ServiceNowBuildVersion() DataSourceServiceNowBuildVersionTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *DataSourceServiceNowBuildVersionType {
 		if v == nil {
@@ -6070,13 +6842,22 @@ func (o DataSourceServiceNowConfigurationPtrOutput) ServiceNowBuildVersion() Dat
 }
 
 type DataSourceServiceNowKnowledgeArticleConfiguration struct {
-	CrawlAttachments              *bool                           `pulumi:"crawlAttachments"`
-	DocumentDataFieldName         string                          `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName        *string                         `pulumi:"documentTitleFieldName"`
-	ExcludeAttachmentFilePatterns []string                        `pulumi:"excludeAttachmentFilePatterns"`
-	FieldMappings                 []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	FilterQuery                   *string                         `pulumi:"filterQuery"`
-	IncludeAttachmentFilePatterns []string                        `pulumi:"includeAttachmentFilePatterns"`
+	// `TRUE` to index attachments to knowledge articles.
+	CrawlAttachments *bool `pulumi:"crawlAttachments"`
+	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+	DocumentDataFieldName string `pulumi:"documentDataFieldName"`
+	// The name of the ServiceNow field that is mapped to the index document title field.
+	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
+	// A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	ExcludeAttachmentFilePatterns []string `pulumi:"excludeAttachmentFilePatterns"`
+	// Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+	//
+	// The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
+	FilterQuery *string `pulumi:"filterQuery"`
+	// A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	IncludeAttachmentFilePatterns []string `pulumi:"includeAttachmentFilePatterns"`
 }
 
 // DataSourceServiceNowKnowledgeArticleConfigurationInput is an input type that accepts DataSourceServiceNowKnowledgeArticleConfigurationArgs and DataSourceServiceNowKnowledgeArticleConfigurationOutput values.
@@ -6091,13 +6872,22 @@ type DataSourceServiceNowKnowledgeArticleConfigurationInput interface {
 }
 
 type DataSourceServiceNowKnowledgeArticleConfigurationArgs struct {
-	CrawlAttachments              pulumi.BoolPtrInput                     `pulumi:"crawlAttachments"`
-	DocumentDataFieldName         pulumi.StringInput                      `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName        pulumi.StringPtrInput                   `pulumi:"documentTitleFieldName"`
-	ExcludeAttachmentFilePatterns pulumi.StringArrayInput                 `pulumi:"excludeAttachmentFilePatterns"`
-	FieldMappings                 DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	FilterQuery                   pulumi.StringPtrInput                   `pulumi:"filterQuery"`
-	IncludeAttachmentFilePatterns pulumi.StringArrayInput                 `pulumi:"includeAttachmentFilePatterns"`
+	// `TRUE` to index attachments to knowledge articles.
+	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
+	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+	DocumentDataFieldName pulumi.StringInput `pulumi:"documentDataFieldName"`
+	// The name of the ServiceNow field that is mapped to the index document title field.
+	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
+	// A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	ExcludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"excludeAttachmentFilePatterns"`
+	// Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+	//
+	// The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
+	FilterQuery pulumi.StringPtrInput `pulumi:"filterQuery"`
+	// A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	IncludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"includeAttachmentFilePatterns"`
 }
 
 func (DataSourceServiceNowKnowledgeArticleConfigurationArgs) ElementType() reflect.Type {
@@ -6177,34 +6967,43 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) ToDataSourceSer
 	}).(DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput)
 }
 
+// `TRUE` to index attachments to knowledge articles.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) *bool { return v.CrawlAttachments }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) DocumentDataFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) string { return v.DocumentDataFieldName }).(pulumi.StringOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document title field.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) *string { return v.DocumentTitleFieldName }).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		return v.ExcludeAttachmentFilePatterns
 	}).(pulumi.StringArrayOutput)
 }
 
+// Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) []DataSourceToIndexFieldMapping {
 		return v.FieldMappings
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+//
+// The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) FilterQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) *string { return v.FilterQuery }).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		return v.IncludeAttachmentFilePatterns
@@ -6235,6 +7034,7 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) Elem() DataS
 	}).(DataSourceServiceNowKnowledgeArticleConfigurationOutput)
 }
 
+// `TRUE` to index attachments to knowledge articles.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *bool {
 		if v == nil {
@@ -6244,6 +7044,7 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) CrawlAttachm
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) DocumentDataFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *string {
 		if v == nil {
@@ -6253,6 +7054,7 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) DocumentData
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document title field.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *string {
 		if v == nil {
@@ -6262,6 +7064,7 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) DocumentTitl
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns applied to exclude certain knowledge article attachments. Attachments that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		if v == nil {
@@ -6271,6 +7074,7 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) ExcludeAttac
 	}).(pulumi.StringArrayOutput)
 }
 
+// Maps attributes or field names of knoweldge articles to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -6280,6 +7084,9 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) FieldMapping
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A query that selects the knowledge articles to index. The query can return articles from multiple knowledge bases, and the knowledge bases can be public or private.
+//
+// The query string must be one generated by the ServiceNow console. For more information, see [Specifying documents to index with a query](https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html) .
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) FilterQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) *string {
 		if v == nil {
@@ -6289,6 +7096,7 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) FilterQuery(
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns applied to include knowledge article attachments. Attachments that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
 func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowKnowledgeArticleConfiguration) []string {
 		if v == nil {
@@ -6299,12 +7107,22 @@ func (o DataSourceServiceNowKnowledgeArticleConfigurationPtrOutput) IncludeAttac
 }
 
 type DataSourceServiceNowServiceCatalogConfiguration struct {
-	CrawlAttachments              *bool                           `pulumi:"crawlAttachments"`
-	DocumentDataFieldName         string                          `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName        *string                         `pulumi:"documentTitleFieldName"`
-	ExcludeAttachmentFilePatterns []string                        `pulumi:"excludeAttachmentFilePatterns"`
-	FieldMappings                 []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	IncludeAttachmentFilePatterns []string                        `pulumi:"includeAttachmentFilePatterns"`
+	// `TRUE` to index attachments to service catalog items.
+	CrawlAttachments *bool `pulumi:"crawlAttachments"`
+	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+	DocumentDataFieldName string `pulumi:"documentDataFieldName"`
+	// The name of the ServiceNow field that is mapped to the index document title field.
+	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
+	// A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	//
+	// The regex is applied to the file name of the attachment.
+	ExcludeAttachmentFilePatterns []string `pulumi:"excludeAttachmentFilePatterns"`
+	// Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	//
+	// The regex is applied to the file name of the attachment.
+	IncludeAttachmentFilePatterns []string `pulumi:"includeAttachmentFilePatterns"`
 }
 
 // DataSourceServiceNowServiceCatalogConfigurationInput is an input type that accepts DataSourceServiceNowServiceCatalogConfigurationArgs and DataSourceServiceNowServiceCatalogConfigurationOutput values.
@@ -6319,12 +7137,22 @@ type DataSourceServiceNowServiceCatalogConfigurationInput interface {
 }
 
 type DataSourceServiceNowServiceCatalogConfigurationArgs struct {
-	CrawlAttachments              pulumi.BoolPtrInput                     `pulumi:"crawlAttachments"`
-	DocumentDataFieldName         pulumi.StringInput                      `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName        pulumi.StringPtrInput                   `pulumi:"documentTitleFieldName"`
-	ExcludeAttachmentFilePatterns pulumi.StringArrayInput                 `pulumi:"excludeAttachmentFilePatterns"`
-	FieldMappings                 DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	IncludeAttachmentFilePatterns pulumi.StringArrayInput                 `pulumi:"includeAttachmentFilePatterns"`
+	// `TRUE` to index attachments to service catalog items.
+	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
+	// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
+	DocumentDataFieldName pulumi.StringInput `pulumi:"documentDataFieldName"`
+	// The name of the ServiceNow field that is mapped to the index document title field.
+	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
+	// A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	//
+	// The regex is applied to the file name of the attachment.
+	ExcludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"excludeAttachmentFilePatterns"`
+	// Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+	//
+	// The regex is applied to the file name of the attachment.
+	IncludeAttachmentFilePatterns pulumi.StringArrayInput `pulumi:"includeAttachmentFilePatterns"`
 }
 
 func (DataSourceServiceNowServiceCatalogConfigurationArgs) ElementType() reflect.Type {
@@ -6404,30 +7232,40 @@ func (o DataSourceServiceNowServiceCatalogConfigurationOutput) ToDataSourceServi
 	}).(DataSourceServiceNowServiceCatalogConfigurationPtrOutput)
 }
 
+// `TRUE` to index attachments to service catalog items.
 func (o DataSourceServiceNowServiceCatalogConfigurationOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) *bool { return v.CrawlAttachments }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 func (o DataSourceServiceNowServiceCatalogConfigurationOutput) DocumentDataFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) string { return v.DocumentDataFieldName }).(pulumi.StringOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document title field.
 func (o DataSourceServiceNowServiceCatalogConfigurationOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) *string { return v.DocumentTitleFieldName }).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+//
+// The regex is applied to the file name of the attachment.
 func (o DataSourceServiceNowServiceCatalogConfigurationOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) []string {
 		return v.ExcludeAttachmentFilePatterns
 	}).(pulumi.StringArrayOutput)
 }
 
+// Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
 func (o DataSourceServiceNowServiceCatalogConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) []DataSourceToIndexFieldMapping {
 		return v.FieldMappings
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+//
+// The regex is applied to the file name of the attachment.
 func (o DataSourceServiceNowServiceCatalogConfigurationOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceServiceNowServiceCatalogConfiguration) []string {
 		return v.IncludeAttachmentFilePatterns
@@ -6458,6 +7296,7 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) Elem() DataSou
 	}).(DataSourceServiceNowServiceCatalogConfigurationOutput)
 }
 
+// `TRUE` to index attachments to service catalog items.
 func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) *bool {
 		if v == nil {
@@ -6467,6 +7306,7 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) CrawlAttachmen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document contents field in the Amazon Kendra index.
 func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) DocumentDataFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) *string {
 		if v == nil {
@@ -6476,6 +7316,7 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) DocumentDataFi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the ServiceNow field that is mapped to the index document title field.
 func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) *string {
 		if v == nil {
@@ -6485,6 +7326,9 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) DocumentTitleF
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain attachments of catalogs in your ServiceNow. Item that match the patterns are excluded from the index. Items that don't match the patterns are included in the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+//
+// The regex is applied to the file name of the attachment.
 func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) ExcludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) []string {
 		if v == nil {
@@ -6494,6 +7338,7 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) ExcludeAttachm
 	}).(pulumi.StringArrayOutput)
 }
 
+// Maps attributes or field names of catalogs to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to ServiceNow fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The ServiceNow data source field names must exist in your ServiceNow custom metadata.
 func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -6503,6 +7348,9 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) FieldMappings(
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain attachments of catalogs in your ServiceNow. Item that match the patterns are included in the index. Items that don't match the patterns are excluded from the index. If an item matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the item isn't included in the index.
+//
+// The regex is applied to the file name of the attachment.
 func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) IncludeAttachmentFilePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceServiceNowServiceCatalogConfiguration) []string {
 		if v == nil {
@@ -6514,18 +7362,34 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) IncludeAttachm
 
 // SharePoint configuration
 type DataSourceSharePointConfiguration struct {
-	CrawlAttachments       *bool                                              `pulumi:"crawlAttachments"`
-	DisableLocalGroups     *bool                                              `pulumi:"disableLocalGroups"`
-	DocumentTitleFieldName *string                                            `pulumi:"documentTitleFieldName"`
-	ExclusionPatterns      []string                                           `pulumi:"exclusionPatterns"`
-	FieldMappings          []DataSourceToIndexFieldMapping                    `pulumi:"fieldMappings"`
-	InclusionPatterns      []string                                           `pulumi:"inclusionPatterns"`
-	SecretArn              string                                             `pulumi:"secretArn"`
-	SharePointVersion      DataSourceSharePointConfigurationSharePointVersion `pulumi:"sharePointVersion"`
-	SslCertificateS3Path   *DataSourceS3Path                                  `pulumi:"sslCertificateS3Path"`
-	Urls                   []string                                           `pulumi:"urls"`
-	UseChangeLog           *bool                                              `pulumi:"useChangeLog"`
-	VpcConfiguration       *DataSourceVpcConfiguration                        `pulumi:"vpcConfiguration"`
+	// `TRUE` to index document attachments.
+	CrawlAttachments *bool `pulumi:"crawlAttachments"`
+	// `TRUE` to disable local groups information.
+	DisableLocalGroups *bool `pulumi:"disableLocalGroups"`
+	// The Microsoft SharePoint attribute field that contains the title of the document.
+	DocumentTitleFieldName *string `pulumi:"documentTitleFieldName"`
+	// A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the display URL of the SharePoint document.
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The regex applies to the display URL of the SharePoint document.
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
+	SecretArn string `pulumi:"secretArn"`
+	// The version of Microsoft SharePoint that you use.
+	SharePointVersion DataSourceSharePointConfigurationSharePointVersion `pulumi:"sharePointVersion"`
+	// Information required to find a specific file in an Amazon S3 bucket.
+	SslCertificateS3Path *DataSourceS3Path `pulumi:"sslCertificateS3Path"`
+	// The Microsoft SharePoint site URLs for the documents you want to index.
+	Urls []string `pulumi:"urls"`
+	// `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
+	UseChangeLog *bool `pulumi:"useChangeLog"`
+	// Provides information for connecting to an Amazon VPC.
+	VpcConfiguration *DataSourceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // DataSourceSharePointConfigurationInput is an input type that accepts DataSourceSharePointConfigurationArgs and DataSourceSharePointConfigurationOutput values.
@@ -6541,18 +7405,34 @@ type DataSourceSharePointConfigurationInput interface {
 
 // SharePoint configuration
 type DataSourceSharePointConfigurationArgs struct {
-	CrawlAttachments       pulumi.BoolPtrInput                                     `pulumi:"crawlAttachments"`
-	DisableLocalGroups     pulumi.BoolPtrInput                                     `pulumi:"disableLocalGroups"`
-	DocumentTitleFieldName pulumi.StringPtrInput                                   `pulumi:"documentTitleFieldName"`
-	ExclusionPatterns      pulumi.StringArrayInput                                 `pulumi:"exclusionPatterns"`
-	FieldMappings          DataSourceToIndexFieldMappingArrayInput                 `pulumi:"fieldMappings"`
-	InclusionPatterns      pulumi.StringArrayInput                                 `pulumi:"inclusionPatterns"`
-	SecretArn              pulumi.StringInput                                      `pulumi:"secretArn"`
-	SharePointVersion      DataSourceSharePointConfigurationSharePointVersionInput `pulumi:"sharePointVersion"`
-	SslCertificateS3Path   DataSourceS3PathPtrInput                                `pulumi:"sslCertificateS3Path"`
-	Urls                   pulumi.StringArrayInput                                 `pulumi:"urls"`
-	UseChangeLog           pulumi.BoolPtrInput                                     `pulumi:"useChangeLog"`
-	VpcConfiguration       DataSourceVpcConfigurationPtrInput                      `pulumi:"vpcConfiguration"`
+	// `TRUE` to index document attachments.
+	CrawlAttachments pulumi.BoolPtrInput `pulumi:"crawlAttachments"`
+	// `TRUE` to disable local groups information.
+	DisableLocalGroups pulumi.BoolPtrInput `pulumi:"disableLocalGroups"`
+	// The Microsoft SharePoint attribute field that contains the title of the document.
+	DocumentTitleFieldName pulumi.StringPtrInput `pulumi:"documentTitleFieldName"`
+	// A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+	//
+	// The regex is applied to the display URL of the SharePoint document.
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+	//
+	// The regex applies to the display URL of the SharePoint document.
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// The version of Microsoft SharePoint that you use.
+	SharePointVersion DataSourceSharePointConfigurationSharePointVersionInput `pulumi:"sharePointVersion"`
+	// Information required to find a specific file in an Amazon S3 bucket.
+	SslCertificateS3Path DataSourceS3PathPtrInput `pulumi:"sslCertificateS3Path"`
+	// The Microsoft SharePoint site URLs for the documents you want to index.
+	Urls pulumi.StringArrayInput `pulumi:"urls"`
+	// `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
+	UseChangeLog pulumi.BoolPtrInput `pulumi:"useChangeLog"`
+	// Provides information for connecting to an Amazon VPC.
+	VpcConfiguration DataSourceVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
 }
 
 func (DataSourceSharePointConfigurationArgs) ElementType() reflect.Type {
@@ -6633,52 +7513,68 @@ func (o DataSourceSharePointConfigurationOutput) ToDataSourceSharePointConfigura
 	}).(DataSourceSharePointConfigurationPtrOutput)
 }
 
+// `TRUE` to index document attachments.
 func (o DataSourceSharePointConfigurationOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) *bool { return v.CrawlAttachments }).(pulumi.BoolPtrOutput)
 }
 
+// `TRUE` to disable local groups information.
 func (o DataSourceSharePointConfigurationOutput) DisableLocalGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) *bool { return v.DisableLocalGroups }).(pulumi.BoolPtrOutput)
 }
 
+// The Microsoft SharePoint attribute field that contains the title of the document.
 func (o DataSourceSharePointConfigurationOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) *string { return v.DocumentTitleFieldName }).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+//
+// The regex is applied to the display URL of the SharePoint document.
 func (o DataSourceSharePointConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
 func (o DataSourceSharePointConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) []DataSourceToIndexFieldMapping { return v.FieldMappings }).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The regex applies to the display URL of the SharePoint document.
 func (o DataSourceSharePointConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
 func (o DataSourceSharePointConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// The version of Microsoft SharePoint that you use.
 func (o DataSourceSharePointConfigurationOutput) SharePointVersion() DataSourceSharePointConfigurationSharePointVersionOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) DataSourceSharePointConfigurationSharePointVersion {
 		return v.SharePointVersion
 	}).(DataSourceSharePointConfigurationSharePointVersionOutput)
 }
 
+// Information required to find a specific file in an Amazon S3 bucket.
 func (o DataSourceSharePointConfigurationOutput) SslCertificateS3Path() DataSourceS3PathPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) *DataSourceS3Path { return v.SslCertificateS3Path }).(DataSourceS3PathPtrOutput)
 }
 
+// The Microsoft SharePoint site URLs for the documents you want to index.
 func (o DataSourceSharePointConfigurationOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) []string { return v.Urls }).(pulumi.StringArrayOutput)
 }
 
+// `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
 func (o DataSourceSharePointConfigurationOutput) UseChangeLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) *bool { return v.UseChangeLog }).(pulumi.BoolPtrOutput)
 }
 
+// Provides information for connecting to an Amazon VPC.
 func (o DataSourceSharePointConfigurationOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) *DataSourceVpcConfiguration { return v.VpcConfiguration }).(DataSourceVpcConfigurationPtrOutput)
 }
@@ -6707,6 +7603,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) Elem() DataSourceSharePointC
 	}).(DataSourceSharePointConfigurationOutput)
 }
 
+// `TRUE` to index document attachments.
 func (o DataSourceSharePointConfigurationPtrOutput) CrawlAttachments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *bool {
 		if v == nil {
@@ -6716,6 +7613,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) CrawlAttachments() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// `TRUE` to disable local groups information.
 func (o DataSourceSharePointConfigurationPtrOutput) DisableLocalGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *bool {
 		if v == nil {
@@ -6725,6 +7623,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) DisableLocalGroups() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Microsoft SharePoint attribute field that contains the title of the document.
 func (o DataSourceSharePointConfigurationPtrOutput) DocumentTitleFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *string {
 		if v == nil {
@@ -6734,6 +7633,9 @@ func (o DataSourceSharePointConfigurationPtrOutput) DocumentTitleFieldName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of regular expression patterns. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an exclusion pattern and an inclusion pattern, the document is not included in the index.
+//
+// The regex is applied to the display URL of the SharePoint document.
 func (o DataSourceSharePointConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []string {
 		if v == nil {
@@ -6743,6 +7645,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) ExclusionPatterns() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of `DataSourceToIndexFieldMapping` objects that map Microsoft SharePoint attributes or fields to Amazon Kendra index fields. You must first create the index fields using the [UpdateIndex](https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateIndex.html) operation before you map SharePoint attributes. For more information, see [Mapping Data Source Fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) .
 func (o DataSourceSharePointConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -6752,6 +7655,9 @@ func (o DataSourceSharePointConfigurationPtrOutput) FieldMappings() DataSourceTo
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain documents in your SharePoint. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.
+//
+// The regex applies to the display URL of the SharePoint document.
 func (o DataSourceSharePointConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []string {
 		if v == nil {
@@ -6761,6 +7667,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) InclusionPatterns() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password required to connect to the SharePoint instance. For more information, see [Microsoft SharePoint](https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html) .
 func (o DataSourceSharePointConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *string {
 		if v == nil {
@@ -6770,6 +7677,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) SecretArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of Microsoft SharePoint that you use.
 func (o DataSourceSharePointConfigurationPtrOutput) SharePointVersion() DataSourceSharePointConfigurationSharePointVersionPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceSharePointConfigurationSharePointVersion {
 		if v == nil {
@@ -6779,6 +7687,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) SharePointVersion() DataSour
 	}).(DataSourceSharePointConfigurationSharePointVersionPtrOutput)
 }
 
+// Information required to find a specific file in an Amazon S3 bucket.
 func (o DataSourceSharePointConfigurationPtrOutput) SslCertificateS3Path() DataSourceS3PathPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceS3Path {
 		if v == nil {
@@ -6788,6 +7697,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) SslCertificateS3Path() DataS
 	}).(DataSourceS3PathPtrOutput)
 }
 
+// The Microsoft SharePoint site URLs for the documents you want to index.
 func (o DataSourceSharePointConfigurationPtrOutput) Urls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) []string {
 		if v == nil {
@@ -6797,6 +7707,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) Urls() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// `TRUE` to use the SharePoint change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in SharePoint.
 func (o DataSourceSharePointConfigurationPtrOutput) UseChangeLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *bool {
 		if v == nil {
@@ -6806,6 +7717,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) UseChangeLog() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Provides information for connecting to an Amazon VPC.
 func (o DataSourceSharePointConfigurationPtrOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceVpcConfiguration {
 		if v == nil {
@@ -6816,6 +7728,13 @@ func (o DataSourceSharePointConfigurationPtrOutput) VpcConfiguration() DataSourc
 }
 
 type DataSourceSqlConfiguration struct {
+	// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
+	//
+	// By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+	//
+	// PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+	//
+	// For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
 	QueryIdentifiersEnclosingOption *DataSourceQueryIdentifiersEnclosingOption `pulumi:"queryIdentifiersEnclosingOption"`
 }
 
@@ -6831,6 +7750,13 @@ type DataSourceSqlConfigurationInput interface {
 }
 
 type DataSourceSqlConfigurationArgs struct {
+	// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
+	//
+	// By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+	//
+	// PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+	//
+	// For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
 	QueryIdentifiersEnclosingOption DataSourceQueryIdentifiersEnclosingOptionPtrInput `pulumi:"queryIdentifiersEnclosingOption"`
 }
 
@@ -6911,6 +7837,13 @@ func (o DataSourceSqlConfigurationOutput) ToDataSourceSqlConfigurationPtrOutputW
 	}).(DataSourceSqlConfigurationPtrOutput)
 }
 
+// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
+//
+// By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+//
+// PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+//
+// For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
 func (o DataSourceSqlConfigurationOutput) QueryIdentifiersEnclosingOption() DataSourceQueryIdentifiersEnclosingOptionPtrOutput {
 	return o.ApplyT(func(v DataSourceSqlConfiguration) *DataSourceQueryIdentifiersEnclosingOption {
 		return v.QueryIdentifiersEnclosingOption
@@ -6941,6 +7874,13 @@ func (o DataSourceSqlConfigurationPtrOutput) Elem() DataSourceSqlConfigurationOu
 	}).(DataSourceSqlConfigurationOutput)
 }
 
+// Determines whether Amazon Kendra encloses SQL identifiers for tables and column names in double quotes (") when making a database query. You can set the value to `DOUBLE_QUOTES` or `NONE` .
+//
+// By default, Amazon Kendra passes SQL identifiers the way that they are entered into the data source configuration. It does not change the case of identifiers or enclose them in quotes.
+//
+// PostgreSQL internally converts uppercase characters to lower case characters in identifiers unless they are quoted. Choosing this option encloses identifiers in quotes so that PostgreSQL does not convert the character's case.
+//
+// For MySQL databases, you must enable the ansi_quotes option when you set this field to `DOUBLE_QUOTES` .
 func (o DataSourceSqlConfigurationPtrOutput) QueryIdentifiersEnclosingOption() DataSourceQueryIdentifiersEnclosingOptionPtrOutput {
 	return o.ApplyT(func(v *DataSourceSqlConfiguration) *DataSourceQueryIdentifiersEnclosingOption {
 		if v == nil {
@@ -7065,8 +8005,10 @@ func (o DataSourceToIndexFieldMappingArrayOutput) Index(i pulumi.IntInput) DataS
 }
 
 type DataSourceVpcConfiguration struct {
+	// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Kendra to connect to the data source.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // DataSourceVpcConfigurationInput is an input type that accepts DataSourceVpcConfigurationArgs and DataSourceVpcConfigurationOutput values.
@@ -7081,8 +8023,10 @@ type DataSourceVpcConfigurationInput interface {
 }
 
 type DataSourceVpcConfigurationArgs struct {
+	// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Kendra to connect to the data source.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (DataSourceVpcConfigurationArgs) ElementType() reflect.Type {
@@ -7162,10 +8106,12 @@ func (o DataSourceVpcConfigurationOutput) ToDataSourceVpcConfigurationPtrOutputW
 	}).(DataSourceVpcConfigurationPtrOutput)
 }
 
+// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Kendra to connect to the data source.
 func (o DataSourceVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
 func (o DataSourceVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -7194,6 +8140,7 @@ func (o DataSourceVpcConfigurationPtrOutput) Elem() DataSourceVpcConfigurationOu
 	}).(DataSourceVpcConfigurationOutput)
 }
 
+// A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Kendra to connect to the data source.
 func (o DataSourceVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceVpcConfiguration) []string {
 		if v == nil {
@@ -7203,6 +8150,7 @@ func (o DataSourceVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
 func (o DataSourceVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceVpcConfiguration) []string {
 		if v == nil {
@@ -7213,6 +8161,9 @@ func (o DataSourceVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutpu
 }
 
 type DataSourceWebCrawlerAuthenticationConfiguration struct {
+	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+	//
+	// The list includes the name and port number of the website host.
 	BasicAuthentication []DataSourceWebCrawlerBasicAuthentication `pulumi:"basicAuthentication"`
 }
 
@@ -7228,6 +8179,9 @@ type DataSourceWebCrawlerAuthenticationConfigurationInput interface {
 }
 
 type DataSourceWebCrawlerAuthenticationConfigurationArgs struct {
+	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+	//
+	// The list includes the name and port number of the website host.
 	BasicAuthentication DataSourceWebCrawlerBasicAuthenticationArrayInput `pulumi:"basicAuthentication"`
 }
 
@@ -7308,6 +8262,9 @@ func (o DataSourceWebCrawlerAuthenticationConfigurationOutput) ToDataSourceWebCr
 	}).(DataSourceWebCrawlerAuthenticationConfigurationPtrOutput)
 }
 
+// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+//
+// The list includes the name and port number of the website host.
 func (o DataSourceWebCrawlerAuthenticationConfigurationOutput) BasicAuthentication() DataSourceWebCrawlerBasicAuthenticationArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerAuthenticationConfiguration) []DataSourceWebCrawlerBasicAuthentication {
 		return v.BasicAuthentication
@@ -7338,6 +8295,9 @@ func (o DataSourceWebCrawlerAuthenticationConfigurationPtrOutput) Elem() DataSou
 	}).(DataSourceWebCrawlerAuthenticationConfigurationOutput)
 }
 
+// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+//
+// The list includes the name and port number of the website host.
 func (o DataSourceWebCrawlerAuthenticationConfigurationPtrOutput) BasicAuthentication() DataSourceWebCrawlerBasicAuthenticationArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerAuthenticationConfiguration) []DataSourceWebCrawlerBasicAuthentication {
 		if v == nil {
@@ -7454,15 +8414,50 @@ func (o DataSourceWebCrawlerBasicAuthenticationArrayOutput) Index(i pulumi.IntIn
 }
 
 type DataSourceWebCrawlerConfiguration struct {
-	AuthenticationConfiguration      *DataSourceWebCrawlerAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	CrawlDepth                       *int                                             `pulumi:"crawlDepth"`
-	MaxContentSizePerPageInMegaBytes *float64                                         `pulumi:"maxContentSizePerPageInMegaBytes"`
-	MaxLinksPerPage                  *int                                             `pulumi:"maxLinksPerPage"`
-	MaxUrlsPerMinuteCrawlRate        *int                                             `pulumi:"maxUrlsPerMinuteCrawlRate"`
-	ProxyConfiguration               *DataSourceProxyConfiguration                    `pulumi:"proxyConfiguration"`
-	UrlExclusionPatterns             []string                                         `pulumi:"urlExclusionPatterns"`
-	UrlInclusionPatterns             []string                                         `pulumi:"urlInclusionPatterns"`
-	Urls                             DataSourceWebCrawlerUrls                         `pulumi:"urls"`
+	// Configuration information required to connect to websites using authentication.
+	//
+	// You can connect to websites using basic authentication of user name and password. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
+	//
+	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+	AuthenticationConfiguration *DataSourceWebCrawlerAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	// The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
+	CrawlDepth *int `pulumi:"crawlDepth"`
+	// The maximum size (in MB) of a web page or attachment to crawl.
+	//
+	// Files larger than this size (in MB) are skipped/not crawled.
+	//
+	// The default maximum size of a web page or attachment is set to 50 MB.
+	MaxContentSizePerPageInMegaBytes *float64 `pulumi:"maxContentSizePerPageInMegaBytes"`
+	// The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
+	//
+	// As a website’s web pages are crawled, any URLs the web pages link to are also crawled. URLs on a web page are crawled in order of appearance.
+	//
+	// The default maximum links per page is 100.
+	MaxLinksPerPage *int `pulumi:"maxLinksPerPage"`
+	// The maximum number of URLs crawled per website host per minute.
+	//
+	// A minimum of one URL is required.
+	//
+	// The default maximum number of URLs crawled per website host per minute is 300.
+	MaxUrlsPerMinuteCrawlRate *int `pulumi:"maxUrlsPerMinuteCrawlRate"`
+	// Configuration information required to connect to your internal websites via a web proxy.
+	//
+	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+	//
+	// Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) .
+	ProxyConfiguration *DataSourceProxyConfiguration `pulumi:"proxyConfiguration"`
+	// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+	UrlExclusionPatterns []string `pulumi:"urlExclusionPatterns"`
+	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+	UrlInclusionPatterns []string `pulumi:"urlInclusionPatterns"`
+	// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+	//
+	// You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+	//
+	// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+	//
+	// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
+	Urls DataSourceWebCrawlerUrls `pulumi:"urls"`
 }
 
 // DataSourceWebCrawlerConfigurationInput is an input type that accepts DataSourceWebCrawlerConfigurationArgs and DataSourceWebCrawlerConfigurationOutput values.
@@ -7477,15 +8472,50 @@ type DataSourceWebCrawlerConfigurationInput interface {
 }
 
 type DataSourceWebCrawlerConfigurationArgs struct {
-	AuthenticationConfiguration      DataSourceWebCrawlerAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
-	CrawlDepth                       pulumi.IntPtrInput                                      `pulumi:"crawlDepth"`
-	MaxContentSizePerPageInMegaBytes pulumi.Float64PtrInput                                  `pulumi:"maxContentSizePerPageInMegaBytes"`
-	MaxLinksPerPage                  pulumi.IntPtrInput                                      `pulumi:"maxLinksPerPage"`
-	MaxUrlsPerMinuteCrawlRate        pulumi.IntPtrInput                                      `pulumi:"maxUrlsPerMinuteCrawlRate"`
-	ProxyConfiguration               DataSourceProxyConfigurationPtrInput                    `pulumi:"proxyConfiguration"`
-	UrlExclusionPatterns             pulumi.StringArrayInput                                 `pulumi:"urlExclusionPatterns"`
-	UrlInclusionPatterns             pulumi.StringArrayInput                                 `pulumi:"urlInclusionPatterns"`
-	Urls                             DataSourceWebCrawlerUrlsInput                           `pulumi:"urls"`
+	// Configuration information required to connect to websites using authentication.
+	//
+	// You can connect to websites using basic authentication of user name and password. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
+	//
+	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+	AuthenticationConfiguration DataSourceWebCrawlerAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
+	// The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
+	CrawlDepth pulumi.IntPtrInput `pulumi:"crawlDepth"`
+	// The maximum size (in MB) of a web page or attachment to crawl.
+	//
+	// Files larger than this size (in MB) are skipped/not crawled.
+	//
+	// The default maximum size of a web page or attachment is set to 50 MB.
+	MaxContentSizePerPageInMegaBytes pulumi.Float64PtrInput `pulumi:"maxContentSizePerPageInMegaBytes"`
+	// The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
+	//
+	// As a website’s web pages are crawled, any URLs the web pages link to are also crawled. URLs on a web page are crawled in order of appearance.
+	//
+	// The default maximum links per page is 100.
+	MaxLinksPerPage pulumi.IntPtrInput `pulumi:"maxLinksPerPage"`
+	// The maximum number of URLs crawled per website host per minute.
+	//
+	// A minimum of one URL is required.
+	//
+	// The default maximum number of URLs crawled per website host per minute is 300.
+	MaxUrlsPerMinuteCrawlRate pulumi.IntPtrInput `pulumi:"maxUrlsPerMinuteCrawlRate"`
+	// Configuration information required to connect to your internal websites via a web proxy.
+	//
+	// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+	//
+	// Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) .
+	ProxyConfiguration DataSourceProxyConfigurationPtrInput `pulumi:"proxyConfiguration"`
+	// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+	UrlExclusionPatterns pulumi.StringArrayInput `pulumi:"urlExclusionPatterns"`
+	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
+	UrlInclusionPatterns pulumi.StringArrayInput `pulumi:"urlInclusionPatterns"`
+	// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+	//
+	// You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+	//
+	// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+	//
+	// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
+	Urls DataSourceWebCrawlerUrlsInput `pulumi:"urls"`
 }
 
 func (DataSourceWebCrawlerConfigurationArgs) ElementType() reflect.Type {
@@ -7565,40 +8595,75 @@ func (o DataSourceWebCrawlerConfigurationOutput) ToDataSourceWebCrawlerConfigura
 	}).(DataSourceWebCrawlerConfigurationPtrOutput)
 }
 
+// Configuration information required to connect to websites using authentication.
+//
+// You can connect to websites using basic authentication of user name and password. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
+//
+// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
 func (o DataSourceWebCrawlerConfigurationOutput) AuthenticationConfiguration() DataSourceWebCrawlerAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
 	}).(DataSourceWebCrawlerAuthenticationConfigurationPtrOutput)
 }
 
+// The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
 func (o DataSourceWebCrawlerConfigurationOutput) CrawlDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *int { return v.CrawlDepth }).(pulumi.IntPtrOutput)
 }
 
+// The maximum size (in MB) of a web page or attachment to crawl.
+//
+// Files larger than this size (in MB) are skipped/not crawled.
+//
+// The default maximum size of a web page or attachment is set to 50 MB.
 func (o DataSourceWebCrawlerConfigurationOutput) MaxContentSizePerPageInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *float64 { return v.MaxContentSizePerPageInMegaBytes }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
+//
+// As a website’s web pages are crawled, any URLs the web pages link to are also crawled. URLs on a web page are crawled in order of appearance.
+//
+// The default maximum links per page is 100.
 func (o DataSourceWebCrawlerConfigurationOutput) MaxLinksPerPage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *int { return v.MaxLinksPerPage }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of URLs crawled per website host per minute.
+//
+// A minimum of one URL is required.
+//
+// The default maximum number of URLs crawled per website host per minute is 300.
 func (o DataSourceWebCrawlerConfigurationOutput) MaxUrlsPerMinuteCrawlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *int { return v.MaxUrlsPerMinuteCrawlRate }).(pulumi.IntPtrOutput)
 }
 
+// Configuration information required to connect to your internal websites via a web proxy.
+//
+// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+//
+// Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) .
 func (o DataSourceWebCrawlerConfigurationOutput) ProxyConfiguration() DataSourceProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) *DataSourceProxyConfiguration { return v.ProxyConfiguration }).(DataSourceProxyConfigurationPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
 func (o DataSourceWebCrawlerConfigurationOutput) UrlExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) []string { return v.UrlExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
 func (o DataSourceWebCrawlerConfigurationOutput) UrlInclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) []string { return v.UrlInclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+//
+// You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+//
+// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+//
+// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
 func (o DataSourceWebCrawlerConfigurationOutput) Urls() DataSourceWebCrawlerUrlsOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerConfiguration) DataSourceWebCrawlerUrls { return v.Urls }).(DataSourceWebCrawlerUrlsOutput)
 }
@@ -7627,6 +8692,11 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) Elem() DataSourceWebCrawlerC
 	}).(DataSourceWebCrawlerConfigurationOutput)
 }
 
+// Configuration information required to connect to websites using authentication.
+//
+// You can connect to websites using basic authentication of user name and password. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
+//
+// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) AuthenticationConfiguration() DataSourceWebCrawlerAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerAuthenticationConfiguration {
 		if v == nil {
@@ -7636,6 +8706,7 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) AuthenticationConfiguration(
 	}).(DataSourceWebCrawlerAuthenticationConfigurationPtrOutput)
 }
 
+// The 'depth' or number of levels from the seed level to crawl. For example, the seed URL page is depth 1 and any hyperlinks on this page that are also crawled are depth 2.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) CrawlDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -7645,6 +8716,11 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) CrawlDepth() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum size (in MB) of a web page or attachment to crawl.
+//
+// Files larger than this size (in MB) are skipped/not crawled.
+//
+// The default maximum size of a web page or attachment is set to 50 MB.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) MaxContentSizePerPageInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *float64 {
 		if v == nil {
@@ -7654,6 +8730,11 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) MaxContentSizePerPageInMegaB
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum number of URLs on a web page to include when crawling a website. This number is per web page.
+//
+// As a website’s web pages are crawled, any URLs the web pages link to are also crawled. URLs on a web page are crawled in order of appearance.
+//
+// The default maximum links per page is 100.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) MaxLinksPerPage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -7663,6 +8744,11 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) MaxLinksPerPage() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of URLs crawled per website host per minute.
+//
+// A minimum of one URL is required.
+//
+// The default maximum number of URLs crawled per website host per minute is 300.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) MaxUrlsPerMinuteCrawlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *int {
 		if v == nil {
@@ -7672,6 +8758,11 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) MaxUrlsPerMinuteCrawlRate() 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration information required to connect to your internal websites via a web proxy.
+//
+// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+//
+// Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) .
 func (o DataSourceWebCrawlerConfigurationPtrOutput) ProxyConfiguration() DataSourceProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceProxyConfiguration {
 		if v == nil {
@@ -7681,6 +8772,7 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) ProxyConfiguration() DataSou
 	}).(DataSourceProxyConfigurationPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) UrlExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) []string {
 		if v == nil {
@@ -7690,6 +8782,7 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) UrlExclusionPatterns() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index.
 func (o DataSourceWebCrawlerConfigurationPtrOutput) UrlInclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) []string {
 		if v == nil {
@@ -7699,6 +8792,13 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) UrlInclusionPatterns() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.
+//
+// You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.
+//
+// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
+//
+// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
 func (o DataSourceWebCrawlerConfigurationPtrOutput) Urls() DataSourceWebCrawlerUrlsPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerConfiguration) *DataSourceWebCrawlerUrls {
 		if v == nil {
@@ -7709,7 +8809,17 @@ func (o DataSourceWebCrawlerConfigurationPtrOutput) Urls() DataSourceWebCrawlerU
 }
 
 type DataSourceWebCrawlerSeedUrlConfiguration struct {
-	SeedUrls       []string                                                `pulumi:"seedUrls"`
+	// The list of seed or starting point URLs of the websites you want to crawl.
+	//
+	// The list can include a maximum of 100 seed URLs.
+	SeedUrls []string `pulumi:"seedUrls"`
+	// You can choose one of the following modes:
+	//
+	// - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+	// - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+	// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+	//
+	// The default mode is set to `HOST_ONLY` .
 	WebCrawlerMode *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode `pulumi:"webCrawlerMode"`
 }
 
@@ -7725,7 +8835,17 @@ type DataSourceWebCrawlerSeedUrlConfigurationInput interface {
 }
 
 type DataSourceWebCrawlerSeedUrlConfigurationArgs struct {
-	SeedUrls       pulumi.StringArrayInput                                        `pulumi:"seedUrls"`
+	// The list of seed or starting point URLs of the websites you want to crawl.
+	//
+	// The list can include a maximum of 100 seed URLs.
+	SeedUrls pulumi.StringArrayInput `pulumi:"seedUrls"`
+	// You can choose one of the following modes:
+	//
+	// - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+	// - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+	// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+	//
+	// The default mode is set to `HOST_ONLY` .
 	WebCrawlerMode DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrInput `pulumi:"webCrawlerMode"`
 }
 
@@ -7806,10 +8926,20 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationOutput) ToDataSourceWebCrawlerSe
 	}).(DataSourceWebCrawlerSeedUrlConfigurationPtrOutput)
 }
 
+// The list of seed or starting point URLs of the websites you want to crawl.
+//
+// The list can include a maximum of 100 seed URLs.
 func (o DataSourceWebCrawlerSeedUrlConfigurationOutput) SeedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerSeedUrlConfiguration) []string { return v.SeedUrls }).(pulumi.StringArrayOutput)
 }
 
+// You can choose one of the following modes:
+//
+// - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+// - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+//
+// The default mode is set to `HOST_ONLY` .
 func (o DataSourceWebCrawlerSeedUrlConfigurationOutput) WebCrawlerMode() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerSeedUrlConfiguration) *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode {
 		return v.WebCrawlerMode
@@ -7840,6 +8970,9 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationPtrOutput) Elem() DataSourceWebC
 	}).(DataSourceWebCrawlerSeedUrlConfigurationOutput)
 }
 
+// The list of seed or starting point URLs of the websites you want to crawl.
+//
+// The list can include a maximum of 100 seed URLs.
 func (o DataSourceWebCrawlerSeedUrlConfigurationPtrOutput) SeedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerSeedUrlConfiguration) []string {
 		if v == nil {
@@ -7849,6 +8982,13 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationPtrOutput) SeedUrls() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// You can choose one of the following modes:
+//
+// - `HOST_ONLY` —crawl only the website host names. For example, if the seed URL is "abc.example.com", then only URLs with host name "abc.example.com" are crawled.
+// - `SUBDOMAINS` —crawl the website host names with subdomains. For example, if the seed URL is "abc.example.com", then "a.abc.example.com" and "b.abc.example.com" are also crawled.
+// - `EVERYTHING` —crawl the website host names with subdomains and other domains that the web pages link to.
+//
+// The default mode is set to `HOST_ONLY` .
 func (o DataSourceWebCrawlerSeedUrlConfigurationPtrOutput) WebCrawlerMode() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerSeedUrlConfiguration) *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode {
 		if v == nil {
@@ -7859,6 +8999,9 @@ func (o DataSourceWebCrawlerSeedUrlConfigurationPtrOutput) WebCrawlerMode() Data
 }
 
 type DataSourceWebCrawlerSiteMapsConfiguration struct {
+	// The list of sitemap URLs of the websites you want to crawl.
+	//
+	// The list can include a maximum of three sitemap URLs.
 	SiteMaps []string `pulumi:"siteMaps"`
 }
 
@@ -7874,6 +9017,9 @@ type DataSourceWebCrawlerSiteMapsConfigurationInput interface {
 }
 
 type DataSourceWebCrawlerSiteMapsConfigurationArgs struct {
+	// The list of sitemap URLs of the websites you want to crawl.
+	//
+	// The list can include a maximum of three sitemap URLs.
 	SiteMaps pulumi.StringArrayInput `pulumi:"siteMaps"`
 }
 
@@ -7954,6 +9100,9 @@ func (o DataSourceWebCrawlerSiteMapsConfigurationOutput) ToDataSourceWebCrawlerS
 	}).(DataSourceWebCrawlerSiteMapsConfigurationPtrOutput)
 }
 
+// The list of sitemap URLs of the websites you want to crawl.
+//
+// The list can include a maximum of three sitemap URLs.
 func (o DataSourceWebCrawlerSiteMapsConfigurationOutput) SiteMaps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerSiteMapsConfiguration) []string { return v.SiteMaps }).(pulumi.StringArrayOutput)
 }
@@ -7982,6 +9131,9 @@ func (o DataSourceWebCrawlerSiteMapsConfigurationPtrOutput) Elem() DataSourceWeb
 	}).(DataSourceWebCrawlerSiteMapsConfigurationOutput)
 }
 
+// The list of sitemap URLs of the websites you want to crawl.
+//
+// The list can include a maximum of three sitemap URLs.
 func (o DataSourceWebCrawlerSiteMapsConfigurationPtrOutput) SiteMaps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerSiteMapsConfiguration) []string {
 		if v == nil {
@@ -7992,7 +9144,15 @@ func (o DataSourceWebCrawlerSiteMapsConfigurationPtrOutput) SiteMaps() pulumi.St
 }
 
 type DataSourceWebCrawlerUrls struct {
-	SeedUrlConfiguration  *DataSourceWebCrawlerSeedUrlConfiguration  `pulumi:"seedUrlConfiguration"`
+	// Configuration of the seed or starting point URLs of the websites you want to crawl.
+	//
+	// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the web pages link to.
+	//
+	// You can list up to 100 seed URLs.
+	SeedUrlConfiguration *DataSourceWebCrawlerSeedUrlConfiguration `pulumi:"seedUrlConfiguration"`
+	// Configuration of the sitemap URLs of the websites you want to crawl.
+	//
+	// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
 	SiteMapsConfiguration *DataSourceWebCrawlerSiteMapsConfiguration `pulumi:"siteMapsConfiguration"`
 }
 
@@ -8008,7 +9168,15 @@ type DataSourceWebCrawlerUrlsInput interface {
 }
 
 type DataSourceWebCrawlerUrlsArgs struct {
-	SeedUrlConfiguration  DataSourceWebCrawlerSeedUrlConfigurationPtrInput  `pulumi:"seedUrlConfiguration"`
+	// Configuration of the seed or starting point URLs of the websites you want to crawl.
+	//
+	// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the web pages link to.
+	//
+	// You can list up to 100 seed URLs.
+	SeedUrlConfiguration DataSourceWebCrawlerSeedUrlConfigurationPtrInput `pulumi:"seedUrlConfiguration"`
+	// Configuration of the sitemap URLs of the websites you want to crawl.
+	//
+	// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
 	SiteMapsConfiguration DataSourceWebCrawlerSiteMapsConfigurationPtrInput `pulumi:"siteMapsConfiguration"`
 }
 
@@ -8089,12 +9257,20 @@ func (o DataSourceWebCrawlerUrlsOutput) ToDataSourceWebCrawlerUrlsPtrOutputWithC
 	}).(DataSourceWebCrawlerUrlsPtrOutput)
 }
 
+// Configuration of the seed or starting point URLs of the websites you want to crawl.
+//
+// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the web pages link to.
+//
+// You can list up to 100 seed URLs.
 func (o DataSourceWebCrawlerUrlsOutput) SeedUrlConfiguration() DataSourceWebCrawlerSeedUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerUrls) *DataSourceWebCrawlerSeedUrlConfiguration {
 		return v.SeedUrlConfiguration
 	}).(DataSourceWebCrawlerSeedUrlConfigurationPtrOutput)
 }
 
+// Configuration of the sitemap URLs of the websites you want to crawl.
+//
+// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
 func (o DataSourceWebCrawlerUrlsOutput) SiteMapsConfiguration() DataSourceWebCrawlerSiteMapsConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceWebCrawlerUrls) *DataSourceWebCrawlerSiteMapsConfiguration {
 		return v.SiteMapsConfiguration
@@ -8125,6 +9301,11 @@ func (o DataSourceWebCrawlerUrlsPtrOutput) Elem() DataSourceWebCrawlerUrlsOutput
 	}).(DataSourceWebCrawlerUrlsOutput)
 }
 
+// Configuration of the seed or starting point URLs of the websites you want to crawl.
+//
+// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the web pages link to.
+//
+// You can list up to 100 seed URLs.
 func (o DataSourceWebCrawlerUrlsPtrOutput) SeedUrlConfiguration() DataSourceWebCrawlerSeedUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerUrls) *DataSourceWebCrawlerSeedUrlConfiguration {
 		if v == nil {
@@ -8134,6 +9315,9 @@ func (o DataSourceWebCrawlerUrlsPtrOutput) SeedUrlConfiguration() DataSourceWebC
 	}).(DataSourceWebCrawlerSeedUrlConfigurationPtrOutput)
 }
 
+// Configuration of the sitemap URLs of the websites you want to crawl.
+//
+// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
 func (o DataSourceWebCrawlerUrlsPtrOutput) SiteMapsConfiguration() DataSourceWebCrawlerSiteMapsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceWebCrawlerUrls) *DataSourceWebCrawlerSiteMapsConfiguration {
 		if v == nil {
@@ -8144,12 +9328,22 @@ func (o DataSourceWebCrawlerUrlsPtrOutput) SiteMapsConfiguration() DataSourceWeb
 }
 
 type DataSourceWorkDocsConfiguration struct {
-	CrawlComments     *bool                           `pulumi:"crawlComments"`
-	ExclusionPatterns []string                        `pulumi:"exclusionPatterns"`
-	FieldMappings     []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	InclusionPatterns []string                        `pulumi:"inclusionPatterns"`
-	OrganizationId    string                          `pulumi:"organizationId"`
-	UseChangeLog      *bool                           `pulumi:"useChangeLog"`
+	// `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
+	//
+	// The default is set to `FALSE` .
+	CrawlComments *bool `pulumi:"crawlComments"`
+	// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+	FieldMappings []DataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+	//
+	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+	OrganizationId string `pulumi:"organizationId"`
+	// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+	UseChangeLog *bool `pulumi:"useChangeLog"`
 }
 
 // DataSourceWorkDocsConfigurationInput is an input type that accepts DataSourceWorkDocsConfigurationArgs and DataSourceWorkDocsConfigurationOutput values.
@@ -8164,12 +9358,22 @@ type DataSourceWorkDocsConfigurationInput interface {
 }
 
 type DataSourceWorkDocsConfigurationArgs struct {
-	CrawlComments     pulumi.BoolPtrInput                     `pulumi:"crawlComments"`
-	ExclusionPatterns pulumi.StringArrayInput                 `pulumi:"exclusionPatterns"`
-	FieldMappings     DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	InclusionPatterns pulumi.StringArrayInput                 `pulumi:"inclusionPatterns"`
-	OrganizationId    pulumi.StringInput                      `pulumi:"organizationId"`
-	UseChangeLog      pulumi.BoolPtrInput                     `pulumi:"useChangeLog"`
+	// `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
+	//
+	// The default is set to `FALSE` .
+	CrawlComments pulumi.BoolPtrInput `pulumi:"crawlComments"`
+	// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
+	FieldMappings DataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
+	// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+	//
+	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
+	UseChangeLog pulumi.BoolPtrInput `pulumi:"useChangeLog"`
 }
 
 func (DataSourceWorkDocsConfigurationArgs) ElementType() reflect.Type {
@@ -8249,26 +9453,36 @@ func (o DataSourceWorkDocsConfigurationOutput) ToDataSourceWorkDocsConfiguration
 	}).(DataSourceWorkDocsConfigurationPtrOutput)
 }
 
+// `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
+//
+// The default is set to `FALSE` .
 func (o DataSourceWorkDocsConfigurationOutput) CrawlComments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) *bool { return v.CrawlComments }).(pulumi.BoolPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
 func (o DataSourceWorkDocsConfigurationOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) []DataSourceToIndexFieldMapping { return v.FieldMappings }).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
+// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+//
+// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
 func (o DataSourceWorkDocsConfigurationOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
+// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
 func (o DataSourceWorkDocsConfigurationOutput) UseChangeLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) *bool { return v.UseChangeLog }).(pulumi.BoolPtrOutput)
 }
@@ -8297,6 +9511,9 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) Elem() DataSourceWorkDocsConfi
 	}).(DataSourceWorkDocsConfigurationOutput)
 }
 
+// `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
+//
+// The default is set to `FALSE` .
 func (o DataSourceWorkDocsConfigurationPtrOutput) CrawlComments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) *bool {
 		if v == nil {
@@ -8306,6 +9523,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) CrawlComments() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list of regular expression patterns to exclude certain files in your Amazon WorkDocs site repository. Files that match the patterns are excluded from the index. Files that don’t match the patterns are included in the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) []string {
 		if v == nil {
@@ -8315,6 +9533,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) ExclusionPatterns() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of `DataSourceToIndexFieldMapping` objects that map Amazon WorkDocs data source attributes or field names to Amazon Kendra index field names. To create custom fields, use the `UpdateIndex` API before you map to Amazon WorkDocs fields. For more information, see [Mapping data source fields](https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html) . The Amazon WorkDocs data source field names must exist in your Amazon WorkDocs custom metadata.
 func (o DataSourceWorkDocsConfigurationPtrOutput) FieldMappings() DataSourceToIndexFieldMappingArrayOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) []DataSourceToIndexFieldMapping {
 		if v == nil {
@@ -8324,6 +9543,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) FieldMappings() DataSourceToIn
 	}).(DataSourceToIndexFieldMappingArrayOutput)
 }
 
+// A list of regular expression patterns to include certain files in your Amazon WorkDocs site repository. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index.
 func (o DataSourceWorkDocsConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) []string {
 		if v == nil {
@@ -8333,6 +9553,9 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) InclusionPatterns() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// The identifier of the directory corresponding to your Amazon WorkDocs site repository.
+//
+// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your Amazon WorkDocs site directory has an ID, which is the organization ID. You can also set up a new Amazon WorkDocs directory in the AWS Directory Service console and enable a Amazon WorkDocs site for the directory in the Amazon WorkDocs console.
 func (o DataSourceWorkDocsConfigurationPtrOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) *string {
 		if v == nil {
@@ -8342,6 +9565,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) OrganizationId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// `TRUE` to use the Amazon WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in Amazon WorkDocs.
 func (o DataSourceWorkDocsConfigurationPtrOutput) UseChangeLog() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) *bool {
 		if v == nil {
@@ -8352,8 +9576,10 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) UseChangeLog() pulumi.BoolPtrO
 }
 
 type FaqS3Path struct {
+	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	Key    string `pulumi:"key"`
+	// The name of the file.
+	Key string `pulumi:"key"`
 }
 
 // FaqS3PathInput is an input type that accepts FaqS3PathArgs and FaqS3PathOutput values.
@@ -8368,8 +9594,10 @@ type FaqS3PathInput interface {
 }
 
 type FaqS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	Key    pulumi.StringInput `pulumi:"key"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
 }
 
 func (FaqS3PathArgs) ElementType() reflect.Type {
@@ -8398,10 +9626,12 @@ func (o FaqS3PathOutput) ToFaqS3PathOutputWithContext(ctx context.Context) FaqS3
 	return o
 }
 
+// The name of the S3 bucket that contains the file.
 func (o FaqS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The name of the file.
 func (o FaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -8415,7 +9645,13 @@ type FaqTag struct {
 }
 
 type IndexCapacityUnitsConfiguration struct {
-	QueryCapacityUnits   int `pulumi:"queryCapacityUnits"`
+	// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+	//
+	// A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day. You can add up to 100 extra capacity units.
+	//
+	// `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
+	QueryCapacityUnits int `pulumi:"queryCapacityUnits"`
+	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. You can add up to 100 extra capacity units.
 	StorageCapacityUnits int `pulumi:"storageCapacityUnits"`
 }
 
@@ -8431,7 +9667,13 @@ type IndexCapacityUnitsConfigurationInput interface {
 }
 
 type IndexCapacityUnitsConfigurationArgs struct {
-	QueryCapacityUnits   pulumi.IntInput `pulumi:"queryCapacityUnits"`
+	// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+	//
+	// A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day. You can add up to 100 extra capacity units.
+	//
+	// `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
+	QueryCapacityUnits pulumi.IntInput `pulumi:"queryCapacityUnits"`
+	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. You can add up to 100 extra capacity units.
 	StorageCapacityUnits pulumi.IntInput `pulumi:"storageCapacityUnits"`
 }
 
@@ -8512,10 +9754,16 @@ func (o IndexCapacityUnitsConfigurationOutput) ToIndexCapacityUnitsConfiguration
 	}).(IndexCapacityUnitsConfigurationPtrOutput)
 }
 
+// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+//
+// A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day. You can add up to 100 extra capacity units.
+//
+// `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
 func (o IndexCapacityUnitsConfigurationOutput) QueryCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v IndexCapacityUnitsConfiguration) int { return v.QueryCapacityUnits }).(pulumi.IntOutput)
 }
 
+// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. You can add up to 100 extra capacity units.
 func (o IndexCapacityUnitsConfigurationOutput) StorageCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v IndexCapacityUnitsConfiguration) int { return v.StorageCapacityUnits }).(pulumi.IntOutput)
 }
@@ -8544,6 +9792,11 @@ func (o IndexCapacityUnitsConfigurationPtrOutput) Elem() IndexCapacityUnitsConfi
 	}).(IndexCapacityUnitsConfigurationOutput)
 }
 
+// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
+//
+// A single extra capacity unit for an index provides 0.1 queries per second or approximately 8,000 queries per day. You can add up to 100 extra capacity units.
+//
+// `GetQuerySuggestions` capacity is five times the provisioned query capacity for an index, or the base capacity of 2.5 calls per second, whichever is higher. For example, the base capacity for an index is 0.1 queries per second, and `GetQuerySuggestions` capacity has a base of 2.5 calls per second. If you add another 0.1 queries per second to total 0.2 queries per second for an index, the `GetQuerySuggestions` capacity is 2.5 calls per second (higher than five times 0.2 queries per second).
 func (o IndexCapacityUnitsConfigurationPtrOutput) QueryCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IndexCapacityUnitsConfiguration) *int {
 		if v == nil {
@@ -8553,6 +9806,7 @@ func (o IndexCapacityUnitsConfigurationPtrOutput) QueryCapacityUnits() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. You can add up to 100 extra capacity units.
 func (o IndexCapacityUnitsConfigurationPtrOutput) StorageCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IndexCapacityUnitsConfiguration) *int {
 		if v == nil {
@@ -9417,6 +10671,7 @@ func (o IndexSearchPtrOutput) Sortable() pulumi.BoolPtrOutput {
 }
 
 type IndexServerSideEncryptionConfiguration struct {
+	// The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -9432,6 +10687,7 @@ type IndexServerSideEncryptionConfigurationInput interface {
 }
 
 type IndexServerSideEncryptionConfigurationArgs struct {
+	// The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -9512,6 +10768,7 @@ func (o IndexServerSideEncryptionConfigurationOutput) ToIndexServerSideEncryptio
 	}).(IndexServerSideEncryptionConfigurationPtrOutput)
 }
 
+// The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
 func (o IndexServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -9540,6 +10797,7 @@ func (o IndexServerSideEncryptionConfigurationPtrOutput) Elem() IndexServerSideE
 	}).(IndexServerSideEncryptionConfigurationOutput)
 }
 
+// The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
 func (o IndexServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexServerSideEncryptionConfiguration) *string {
 		if v == nil {

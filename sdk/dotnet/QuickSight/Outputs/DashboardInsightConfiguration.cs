@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardInsightConfiguration
     {
+        /// <summary>
+        /// The computations configurations of the insight visual
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardComputation> Computations;
+        /// <summary>
+        /// The custom narrative of the insight visual.
+        /// </summary>
         public readonly Outputs.DashboardCustomNarrativeOptions? CustomNarrative;
 
         [OutputConstructor]

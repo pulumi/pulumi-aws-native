@@ -27,6 +27,16 @@ class DevicePoolArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DevicePool resource.
+        :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
+        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: The device pool's rules.
+        :param pulumi.Input[str] description: The device pool's description.
+        :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+               
+               By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        :param pulumi.Input[str] name: The device pool's name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         pulumi.set(__self__, "project_arn", project_arn)
         pulumi.set(__self__, "rules", rules)
@@ -42,6 +52,9 @@ class DevicePoolArgs:
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the project for the device pool.
+        """
         return pulumi.get(self, "project_arn")
 
     @project_arn.setter
@@ -51,6 +64,9 @@ class DevicePoolArgs:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]:
+        """
+        The device pool's rules.
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -60,6 +76,9 @@ class DevicePoolArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device pool's description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,6 +88,11 @@ class DevicePoolArgs:
     @property
     @pulumi.getter(name="maxDevices")
     def max_devices(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+
+        By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        """
         return pulumi.get(self, "max_devices")
 
     @max_devices.setter
@@ -78,6 +102,9 @@ class DevicePoolArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device pool's name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -87,6 +114,11 @@ class DevicePoolArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,6 +143,16 @@ class DevicePool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The device pool's description.
+        :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+               
+               By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        :param pulumi.Input[str] name: The device pool's name.
+        :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]] rules: The device pool's rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         ...
     @overload
@@ -198,35 +240,60 @@ class DevicePool(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The device pool's description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="maxDevices")
     def max_devices(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+
+        By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+        """
         return pulumi.get(self, "max_devices")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The device pool's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the project for the device pool.
+        """
         return pulumi.get(self, "project_arn")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.DevicePoolRule']]:
+        """
+        The device pool's rules.
+        """
         return pulumi.get(self, "rules")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        """
         return pulumi.get(self, "tags")
 

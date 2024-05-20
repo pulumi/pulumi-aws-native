@@ -37,6 +37,9 @@ export class ModelCard extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelCard.__pulumiType;
     }
 
+    /**
+     * The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+     */
     public readonly content!: pulumi.Output<outputs.sagemaker.ModelCardContent>;
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
@@ -74,6 +77,9 @@ export class ModelCard extends pulumi.CustomResource {
      * A version of the model card.
      */
     public /*out*/ readonly modelCardVersion!: pulumi.Output<number>;
+    /**
+     * The security configuration used to protect model card data.
+     */
     public readonly securityConfig!: pulumi.Output<outputs.sagemaker.ModelCardSecurityConfig | undefined>;
     /**
      * Key-value pairs used to manage metadata for model cards.
@@ -134,6 +140,9 @@ export class ModelCard extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelCard resource.
  */
 export interface ModelCardArgs {
+    /**
+     * The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+     */
     content: pulumi.Input<inputs.sagemaker.ModelCardContentArgs>;
     /**
      * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
@@ -151,6 +160,9 @@ export interface ModelCardArgs {
      * The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
      */
     modelCardStatus: pulumi.Input<enums.sagemaker.ModelCardStatus>;
+    /**
+     * The security configuration used to protect model card data.
+     */
     securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfigArgs>;
     /**
      * Key-value pairs used to manage metadata for model cards.

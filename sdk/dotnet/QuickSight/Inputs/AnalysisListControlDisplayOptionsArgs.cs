@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisListControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.AnalysisSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The configuration of the search options in a list control.
+        /// </summary>
         [Input("searchOptions")]
         public Input<Inputs.AnalysisListControlSearchOptionsArgs>? SearchOptions { get; set; }
 
+        /// <summary>
+        /// The configuration of the `Select all` options in a list control.
+        /// </summary>
         [Input("selectAllOptions")]
         public Input<Inputs.AnalysisListControlSelectAllOptionsArgs>? SelectAllOptions { get; set; }
 
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.AnalysisLabelOptionsArgs>? TitleOptions { get; set; }
 

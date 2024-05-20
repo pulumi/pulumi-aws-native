@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStreamingImageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the streaming image resource.
+        /// </summary>
         [Input("streamingImageId", required: true)]
         public string StreamingImageId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetStreamingImageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the streaming image resource.
+        /// </summary>
         [Input("streamingImageId", required: true)]
         public Input<string> StreamingImageId { get; set; } = null!;
 
@@ -84,6 +90,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// &lt;p&gt;The platform of the streaming image, either WINDOWS or LINUX.&lt;/p&gt;
         /// </summary>
         public readonly string? Platform;
+        /// <summary>
+        /// The unique identifier for the streaming image resource.
+        /// </summary>
         public readonly string? StreamingImageId;
 
         [OutputConstructor]

@@ -47,6 +47,9 @@ class GetRepositoryResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -86,6 +89,9 @@ class GetRepositoryResult:
     @property
     @pulumi.getter(name="repositoryUri")
     def repository_uri(self) -> Optional[str]:
+        """
+        Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+        """
         return pulumi.get(self, "repository_uri")
 
     @property

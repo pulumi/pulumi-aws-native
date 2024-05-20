@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of threshold for a notification.
 type BudgetsActionActionThresholdType string
 
 const (
@@ -175,6 +176,7 @@ func (in *budgetsActionActionThresholdTypePtr) ToBudgetsActionActionThresholdTyp
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionActionThresholdTypePtrOutput)
 }
 
+// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
 type BudgetsActionActionType string
 
 const (
@@ -342,6 +344,7 @@ func (in *budgetsActionActionTypePtr) ToBudgetsActionActionTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionActionTypePtrOutput)
 }
 
+// This specifies if the action needs manual or automatic approval.
 type BudgetsActionApprovalModel string
 
 const (
@@ -507,6 +510,7 @@ func (in *budgetsActionApprovalModelPtr) ToBudgetsActionApprovalModelPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionApprovalModelPtrOutput)
 }
 
+// The type of a notification.
 type BudgetsActionNotificationType string
 
 const (
@@ -672,6 +676,7 @@ func (in *budgetsActionNotificationTypePtr) ToBudgetsActionNotificationTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionNotificationTypePtrOutput)
 }
 
+// The action subType.
 type BudgetsActionSsmActionDefinitionSubtype string
 
 const (
@@ -837,6 +842,7 @@ func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToBudgetsActionSsmActionDe
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionSsmActionDefinitionSubtypePtrOutput)
 }
 
+// The type of notification that AWS sends to a subscriber.
 type BudgetsActionSubscriberType string
 
 const (

@@ -327,6 +327,9 @@ namespace Pulumi.AwsNative.DynamoDb
     [AwsNativeResourceType("aws-native:dynamodb:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -429,6 +432,11 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("sseSpecification")]
         public Output<Outputs.TableSseSpecification?> SseSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
+        /// 
+        /// &gt; You must specify the `StreamSpecification` property to use this attribute.
+        /// </summary>
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
 

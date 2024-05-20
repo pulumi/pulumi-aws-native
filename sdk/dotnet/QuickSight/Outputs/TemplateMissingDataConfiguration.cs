@@ -13,6 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateMissingDataConfiguration
     {
+        /// <summary>
+        /// The treatment option that determines how missing data should be rendered. Choose from the following options:
+        /// 
+        /// - `INTERPOLATE` : Interpolate missing values between the prior and the next known value.
+        /// - `SHOW_AS_ZERO` : Show missing values as the value `0` .
+        /// - `SHOW_AS_BLANK` : Display a blank space when rendering missing data.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateMissingDataTreatmentOption? TreatmentOption;
 
         [OutputConstructor]

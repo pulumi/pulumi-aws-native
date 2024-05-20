@@ -45,7 +45,15 @@ export class LocationNfs extends pulumi.CustomResource {
      * The URL of the NFS location that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    /**
+     * Specifies the options that DataSync can use to mount your NFS file server.
+     */
     public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationNfsMountOptions | undefined>;
+    /**
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+     *
+     * You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+     */
     public readonly onPremConfig!: pulumi.Output<outputs.datasync.LocationNfsOnPremConfig>;
     /**
      * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
@@ -101,7 +109,15 @@ export class LocationNfs extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationNfs resource.
  */
 export interface LocationNfsArgs {
+    /**
+     * Specifies the options that DataSync can use to mount your NFS file server.
+     */
     mountOptions?: pulumi.Input<inputs.datasync.LocationNfsMountOptionsArgs>;
+    /**
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+     *
+     * You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+     */
     onPremConfig: pulumi.Input<inputs.datasync.LocationNfsOnPremConfigArgs>;
     /**
      * The name of the NFS server. This value is the IP address or DNS name of the NFS server.

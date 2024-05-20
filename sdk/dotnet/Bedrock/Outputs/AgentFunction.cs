@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Name for a resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The parameters that the agent elicits from the user to fulfill the function.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.AgentParameterDetail>? Parameters;
 
         [OutputConstructor]

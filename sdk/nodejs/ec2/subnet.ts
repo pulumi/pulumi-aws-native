@@ -100,6 +100,9 @@ export class Subnet extends pulumi.CustomResource {
      *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
+     */
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
@@ -113,6 +116,9 @@ export class Subnet extends pulumi.CustomResource {
      *   +  HostnameType (ip-name | resource-name)
      */
     public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
+    /**
+     * The ID of the subnet.
+     */
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
     /**
      * Any tags assigned to the subnet.

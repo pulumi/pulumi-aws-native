@@ -21,8 +21,9 @@ type Ipam struct {
 	// The Id of the default association to the default resource discovery, created with this IPAM.
 	DefaultResourceDiscoveryAssociationId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
 	// The Id of the default resource discovery, created with this IPAM.
-	DefaultResourceDiscoveryId pulumi.StringOutput    `pulumi:"defaultResourceDiscoveryId"`
-	Description                pulumi.StringPtrOutput `pulumi:"description"`
+	DefaultResourceDiscoveryId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryId"`
+	// The description for the IPAM.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Id of the IPAM.
 	IpamId pulumi.StringOutput `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -81,6 +82,7 @@ func (IpamState) ElementType() reflect.Type {
 }
 
 type ipamArgs struct {
+	// The description for the IPAM.
 	Description *string `pulumi:"description"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
@@ -92,6 +94,7 @@ type ipamArgs struct {
 
 // The set of arguments for constructing a Ipam resource.
 type IpamArgs struct {
+	// The description for the IPAM.
 	Description pulumi.StringPtrInput
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
 	OperatingRegions IpamOperatingRegionArrayInput
@@ -153,6 +156,7 @@ func (o IpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ipam) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }
 
+// The description for the IPAM.
 func (o IpamOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ipam) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

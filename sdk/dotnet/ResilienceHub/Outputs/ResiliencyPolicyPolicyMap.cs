@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
     [OutputType]
     public sealed class ResiliencyPolicyPolicyMap
     {
+        /// <summary>
+        /// Defines the RTO and RPO targets for Availability Zone disruption.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy Az;
+        /// <summary>
+        /// Defines the RTO and RPO targets for hardware disruption.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy Hardware;
+        /// <summary>
+        /// Defines the RTO and RPO targets for Regional disruption.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy? Region;
+        /// <summary>
+        /// Defines the RTO and RPO targets for software disruption.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyFailurePolicy Software;
 
         [OutputConstructor]

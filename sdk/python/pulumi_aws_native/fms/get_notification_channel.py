@@ -29,11 +29,17 @@ class GetNotificationChannelResult:
     @property
     @pulumi.getter(name="snsRoleName")
     def sns_role_name(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+        """
         return pulumi.get(self, "sns_role_name")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
+        """
         return pulumi.get(self, "sns_topic_arn")
 
 
@@ -51,6 +57,9 @@ def get_notification_channel(sns_topic_arn: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
     Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
+
+
+    :param str sns_topic_arn: The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
     """
     __args__ = dict()
     __args__['snsTopicArn'] = sns_topic_arn
@@ -67,5 +76,8 @@ def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
+
+
+    :param str sns_topic_arn: The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
     """
     ...

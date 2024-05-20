@@ -45,6 +45,9 @@ export class Integration extends pulumi.CustomResource {
      * The unique name of the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The configuration that controls how Customer Profiles retrieves data from the source.
+     */
     public readonly flowDefinition!: pulumi.Output<outputs.customerprofiles.IntegrationFlowDefinition | undefined>;
     /**
      * The time of this integration got last updated at
@@ -114,6 +117,9 @@ export interface IntegrationArgs {
      * The unique name of the domain.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The configuration that controls how Customer Profiles retrieves data from the source.
+     */
     flowDefinition?: pulumi.Input<inputs.customerprofiles.IntegrationFlowDefinitionArgs>;
     /**
      * The name of the ObjectType defined for the 3rd party data in Profile Service

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCategoryFilter
     {
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The configuration for a `CategoryFilter` .
+        /// </summary>
         public readonly Outputs.DashboardCategoryFilterConfiguration Configuration;
+        /// <summary>
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+        /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
 
         [OutputConstructor]

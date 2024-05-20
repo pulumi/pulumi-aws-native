@@ -37,18 +37,57 @@ export class Form extends pulumi.CustomResource {
         return obj['__pulumiType'] === Form.__pulumiType;
     }
 
+    /**
+     * The unique ID of the Amplify app associated with the form.
+     */
     public readonly appId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID for the form.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The `FormCTA` object that stores the call to action configuration for the form.
+     */
     public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
+    /**
+     * The type of data source to use to create the form.
+     */
     public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     public readonly environmentName!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration information for the form's fields.
+     */
     public readonly fields!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormFieldConfig} | undefined>;
+    /**
+     * Specifies whether to perform a create or update action on the form.
+     */
     public readonly formActionType!: pulumi.Output<enums.amplifyuibuilder.FormActionType | undefined>;
+    /**
+     * Specifies an icon or decoration to display on the form.
+     */
     public readonly labelDecorator!: pulumi.Output<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
+    /**
+     * The name of the form.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The schema version of the form.
+     */
     public readonly schemaVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+     */
     public readonly sectionalElements!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormSectionalElement} | undefined>;
+    /**
+     * The configuration for the form's style.
+     */
     public readonly style!: pulumi.Output<outputs.amplifyuibuilder.FormStyle | undefined>;
+    /**
+     * One or more key-value pairs to use when tagging the form data.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -101,16 +140,52 @@ export class Form extends pulumi.CustomResource {
  * The set of arguments for constructing a Form resource.
  */
 export interface FormArgs {
+    /**
+     * The unique ID of the Amplify app associated with the form.
+     */
     appId?: pulumi.Input<string>;
+    /**
+     * The `FormCTA` object that stores the call to action configuration for the form.
+     */
     cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs>;
+    /**
+     * The type of data source to use to create the form.
+     */
     dataType?: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     environmentName?: pulumi.Input<string>;
+    /**
+     * The configuration information for the form's fields.
+     */
     fields?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormFieldConfigArgs>}>;
+    /**
+     * Specifies whether to perform a create or update action on the form.
+     */
     formActionType?: pulumi.Input<enums.amplifyuibuilder.FormActionType>;
+    /**
+     * Specifies an icon or decoration to display on the form.
+     */
     labelDecorator?: pulumi.Input<enums.amplifyuibuilder.FormLabelDecorator>;
+    /**
+     * The name of the form.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The schema version of the form.
+     */
     schemaVersion?: pulumi.Input<string>;
+    /**
+     * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+     */
     sectionalElements?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementArgs>}>;
+    /**
+     * The configuration for the form's style.
+     */
     style?: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs>;
+    /**
+     * One or more key-value pairs to use when tagging the form data.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

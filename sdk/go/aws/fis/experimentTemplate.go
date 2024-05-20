@@ -110,15 +110,24 @@ import (
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
 
-	Actions           ExperimentTemplateActionMapOutput            `pulumi:"actions"`
-	AwsId             pulumi.StringOutput                          `pulumi:"awsId"`
-	Description       pulumi.StringOutput                          `pulumi:"description"`
+	// The actions for the experiment.
+	Actions ExperimentTemplateActionMapOutput `pulumi:"actions"`
+	// The ID of the experiment template.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The description for the experiment template.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The experiment options for an experiment template.
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrOutput `pulumi:"experimentOptions"`
-	LogConfiguration  ExperimentTemplateLogConfigurationPtrOutput  `pulumi:"logConfiguration"`
-	RoleArn           pulumi.StringOutput                          `pulumi:"roleArn"`
-	StopConditions    ExperimentTemplateStopConditionArrayOutput   `pulumi:"stopConditions"`
-	Tags              pulumi.StringMapOutput                       `pulumi:"tags"`
-	Targets           ExperimentTemplateTargetMapOutput            `pulumi:"targets"`
+	// The configuration for experiment logging.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
+	// The Amazon Resource Name (ARN) of an IAM role.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The stop conditions for the experiment.
+	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
+	// The tags for the experiment template.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The targets for the experiment.
+	Targets ExperimentTemplateTargetMapOutput `pulumi:"targets"`
 }
 
 // NewExperimentTemplate registers a new resource with the given unique name, arguments, and options.
@@ -181,26 +190,42 @@ func (ExperimentTemplateState) ElementType() reflect.Type {
 }
 
 type experimentTemplateArgs struct {
-	Actions           map[string]ExperimentTemplateAction  `pulumi:"actions"`
-	Description       string                               `pulumi:"description"`
+	// The actions for the experiment.
+	Actions map[string]ExperimentTemplateAction `pulumi:"actions"`
+	// The description for the experiment template.
+	Description string `pulumi:"description"`
+	// The experiment options for an experiment template.
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
-	LogConfiguration  *ExperimentTemplateLogConfiguration  `pulumi:"logConfiguration"`
-	RoleArn           string                               `pulumi:"roleArn"`
-	StopConditions    []ExperimentTemplateStopCondition    `pulumi:"stopConditions"`
-	Tags              map[string]string                    `pulumi:"tags"`
-	Targets           map[string]ExperimentTemplateTarget  `pulumi:"targets"`
+	// The configuration for experiment logging.
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
+	// The Amazon Resource Name (ARN) of an IAM role.
+	RoleArn string `pulumi:"roleArn"`
+	// The stop conditions for the experiment.
+	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
+	// The tags for the experiment template.
+	Tags map[string]string `pulumi:"tags"`
+	// The targets for the experiment.
+	Targets map[string]ExperimentTemplateTarget `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a ExperimentTemplate resource.
 type ExperimentTemplateArgs struct {
-	Actions           ExperimentTemplateActionMapInput
-	Description       pulumi.StringInput
+	// The actions for the experiment.
+	Actions ExperimentTemplateActionMapInput
+	// The description for the experiment template.
+	Description pulumi.StringInput
+	// The experiment options for an experiment template.
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
-	LogConfiguration  ExperimentTemplateLogConfigurationPtrInput
-	RoleArn           pulumi.StringInput
-	StopConditions    ExperimentTemplateStopConditionArrayInput
-	Tags              pulumi.StringMapInput
-	Targets           ExperimentTemplateTargetMapInput
+	// The configuration for experiment logging.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
+	// The Amazon Resource Name (ARN) of an IAM role.
+	RoleArn pulumi.StringInput
+	// The stop conditions for the experiment.
+	StopConditions ExperimentTemplateStopConditionArrayInput
+	// The tags for the experiment template.
+	Tags pulumi.StringMapInput
+	// The targets for the experiment.
+	Targets ExperimentTemplateTargetMapInput
 }
 
 func (ExperimentTemplateArgs) ElementType() reflect.Type {
@@ -240,38 +265,47 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx cont
 	return o
 }
 
+// The actions for the experiment.
 func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionMapOutput { return v.Actions }).(ExperimentTemplateActionMapOutput)
 }
 
+// The ID of the experiment template.
 func (o ExperimentTemplateOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The description for the experiment template.
 func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The experiment options for an experiment template.
 func (o ExperimentTemplateOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentOptionsPtrOutput { return v.ExperimentOptions }).(ExperimentTemplateExperimentOptionsPtrOutput)
 }
 
+// The configuration for experiment logging.
 func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role.
 func (o ExperimentTemplateOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The stop conditions for the experiment.
 func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditionArrayOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
 
+// The tags for the experiment template.
 func (o ExperimentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The targets for the experiment.
 func (o ExperimentTemplateOutput) Targets() ExperimentTemplateTargetMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateTargetMapOutput { return v.Targets }).(ExperimentTemplateTargetMapOutput)
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetContinuousDeploymentPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the cotinuous deployment policy.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetContinuousDeploymentPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the cotinuous deployment policy.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetContinuousDeploymentPolicyResult
     {
+        /// <summary>
+        /// Contains the configuration for a continuous deployment policy.
+        /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicyConfig? ContinuousDeploymentPolicyConfig;
+        /// <summary>
+        /// The identifier of the cotinuous deployment policy.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time when the continuous deployment policy was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
 
         [OutputConstructor]

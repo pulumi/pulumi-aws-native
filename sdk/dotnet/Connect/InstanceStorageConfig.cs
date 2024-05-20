@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:InstanceStorageConfig")]
     public partial class InstanceStorageConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
@@ -24,21 +27,39 @@ namespace Pulumi.AwsNative.Connect
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of the Kinesis Firehose delivery stream.
+        /// </summary>
         [Output("kinesisFirehoseConfig")]
         public Output<Outputs.InstanceStorageConfigKinesisFirehoseConfig?> KinesisFirehoseConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of the Kinesis data stream.
+        /// </summary>
         [Output("kinesisStreamConfig")]
         public Output<Outputs.InstanceStorageConfigKinesisStreamConfig?> KinesisStreamConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of the Kinesis video stream.
+        /// </summary>
         [Output("kinesisVideoStreamConfig")]
         public Output<Outputs.InstanceStorageConfigKinesisVideoStreamConfig?> KinesisVideoStreamConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+        /// </summary>
         [Output("resourceType")]
         public Output<Pulumi.AwsNative.Connect.InstanceStorageConfigInstanceStorageResourceType> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The S3 bucket configuration.
+        /// </summary>
         [Output("s3Config")]
         public Output<Outputs.InstanceStorageConfigS3Config?> S3Config { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid storage type.
+        /// </summary>
         [Output("storageType")]
         public Output<Pulumi.AwsNative.Connect.InstanceStorageConfigStorageType> StorageType { get; private set; } = null!;
 
@@ -98,21 +119,39 @@ namespace Pulumi.AwsNative.Connect
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration of the Kinesis Firehose delivery stream.
+        /// </summary>
         [Input("kinesisFirehoseConfig")]
         public Input<Inputs.InstanceStorageConfigKinesisFirehoseConfigArgs>? KinesisFirehoseConfig { get; set; }
 
+        /// <summary>
+        /// The configuration of the Kinesis data stream.
+        /// </summary>
         [Input("kinesisStreamConfig")]
         public Input<Inputs.InstanceStorageConfigKinesisStreamConfigArgs>? KinesisStreamConfig { get; set; }
 
+        /// <summary>
+        /// The configuration of the Kinesis video stream.
+        /// </summary>
         [Input("kinesisVideoStreamConfig")]
         public Input<Inputs.InstanceStorageConfigKinesisVideoStreamConfigArgs>? KinesisVideoStreamConfig { get; set; }
 
+        /// <summary>
+        /// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+        /// </summary>
         [Input("resourceType", required: true)]
         public Input<Pulumi.AwsNative.Connect.InstanceStorageConfigInstanceStorageResourceType> ResourceType { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 bucket configuration.
+        /// </summary>
         [Input("s3Config")]
         public Input<Inputs.InstanceStorageConfigS3ConfigArgs>? S3Config { get; set; }
 
+        /// <summary>
+        /// A valid storage type.
+        /// </summary>
         [Input("storageType", required: true)]
         public Input<Pulumi.AwsNative.Connect.InstanceStorageConfigStorageType> StorageType { get; set; } = null!;
 

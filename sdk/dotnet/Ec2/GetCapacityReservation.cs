@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCapacityReservationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCapacityReservationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,11 +57,38 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetCapacityReservationResult
     {
+        /// <summary>
+        /// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+        /// </summary>
         public readonly int? AvailableInstanceCount;
+        /// <summary>
+        /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+        /// 
+        /// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+        /// 
+        /// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+        /// </summary>
         public readonly string? EndDate;
+        /// <summary>
+        /// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+        /// 
+        /// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+        /// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+        /// </summary>
         public readonly string? EndDateType;
+        /// <summary>
+        /// The ID of the Capacity Reservation.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The number of instances for which to reserve capacity.
+        /// 
+        /// Valid range: 1 - 1000
+        /// </summary>
         public readonly int? InstanceCount;
+        /// <summary>
+        /// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+        /// </summary>
         public readonly int? TotalInstanceCount;
 
         [OutputConstructor]

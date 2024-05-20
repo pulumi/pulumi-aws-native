@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDocumentationPartArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the documentation part.
+        /// </summary>
         [Input("documentationPartId", required: true)]
         public string DocumentationPartId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetDocumentationPartInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the documentation part.
+        /// </summary>
         [Input("documentationPartId", required: true)]
         public Input<string> DocumentationPartId { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetDocumentationPartResult
     {
+        /// <summary>
+        /// The ID for the documentation part.
+        /// </summary>
         public readonly string? DocumentationPartId;
         /// <summary>
         /// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.

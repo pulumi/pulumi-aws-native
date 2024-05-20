@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class ConfiguredTableAnalysisRule
     {
+        /// <summary>
+        /// A policy that describes the associated data usage limitations.
+        /// </summary>
         public readonly Outputs.ConfiguredTableAnalysisRulePolicy Policy;
+        /// <summary>
+        /// The type of analysis rule.
+        /// </summary>
         public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisRuleType Type;
 
         [OutputConstructor]

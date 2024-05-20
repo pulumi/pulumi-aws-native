@@ -34,6 +34,9 @@ class GetTrainingDatasetResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['TrainingDatasetStatus']:
+        """
+        The status of the training dataset.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -47,6 +50,9 @@ class GetTrainingDatasetResult:
     @property
     @pulumi.getter(name="trainingDatasetArn")
     def training_dataset_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the training dataset.
+        """
         return pulumi.get(self, "training_dataset_arn")
 
 
@@ -65,6 +71,9 @@ def get_training_dataset(training_dataset_arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrainingDatasetResult:
     """
     Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
+
+
+    :param str training_dataset_arn: The Amazon Resource Name (ARN) of the training dataset.
     """
     __args__ = dict()
     __args__['trainingDatasetArn'] = training_dataset_arn
@@ -82,5 +91,8 @@ def get_training_dataset_output(training_dataset_arn: Optional[pulumi.Input[str]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrainingDatasetResult]:
     """
     Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
+
+
+    :param str training_dataset_arn: The Amazon Resource Name (ARN) of the training dataset.
     """
     ...

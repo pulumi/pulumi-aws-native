@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateColorsConfiguration
     {
+        /// <summary>
+        /// A list of up to 50 custom colors.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateCustomColor> CustomColors;
 
         [OutputConstructor]

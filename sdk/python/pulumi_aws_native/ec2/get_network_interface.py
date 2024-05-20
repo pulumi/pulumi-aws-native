@@ -82,6 +82,9 @@ class GetNetworkInterfaceResult:
     @property
     @pulumi.getter(name="connectionTrackingSpecification")
     def connection_tracking_specification(self) -> Optional['outputs.NetworkInterfaceConnectionTrackingSpecification']:
+        """
+        A connection tracking specification for the network interface.
+        """
         return pulumi.get(self, "connection_tracking_specification")
 
     @property

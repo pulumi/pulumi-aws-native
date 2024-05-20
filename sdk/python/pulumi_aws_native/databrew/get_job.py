@@ -76,11 +76,17 @@ class GetJobResult:
     @property
     @pulumi.getter(name="dataCatalogOutputs")
     def data_catalog_outputs(self) -> Optional[Sequence['outputs.JobDataCatalogOutput']]:
+        """
+        One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        """
         return pulumi.get(self, "data_catalog_outputs")
 
     @property
     @pulumi.getter(name="databaseOutputs")
     def database_outputs(self) -> Optional[Sequence['outputs.JobDatabaseOutput']]:
+        """
+        Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        """
         return pulumi.get(self, "database_outputs")
 
     @property
@@ -150,6 +156,9 @@ class GetJobResult:
     @property
     @pulumi.getter
     def outputs(self) -> Optional[Sequence['outputs.JobOutput']]:
+        """
+        One or more artifacts that represent output from running the job.
+        """
         return pulumi.get(self, "outputs")
 
     @property
@@ -171,6 +180,9 @@ class GetJobResult:
     @property
     @pulumi.getter
     def recipe(self) -> Optional['outputs.JobRecipe']:
+        """
+        A series of data transformation steps that the job runs.
+        """
         return pulumi.get(self, "recipe")
 
     @property

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
 
     public sealed class StateMachineTracingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When set to `true` , X-Ray tracing is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

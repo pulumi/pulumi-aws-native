@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     [OutputType]
     public sealed class ScheduledQueryScheduleConfiguration
     {
+        /// <summary>
+        /// An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
+        /// </summary>
         public readonly string ScheduleExpression;
 
         [OutputConstructor]

@@ -167,6 +167,9 @@ export class AnomalySubscription extends pulumi.CustomResource {
      * A list of subscriber
      */
     public readonly subscribers!: pulumi.Output<outputs.ce.AnomalySubscriptionSubscriber[]>;
+    /**
+     * The `AnomalySubscription` Amazon Resource Name (ARN).
+     */
     public /*out*/ readonly subscriptionArn!: pulumi.Output<string>;
     /**
      * The name of the subscription.

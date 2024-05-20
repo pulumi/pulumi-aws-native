@@ -37,24 +37,75 @@ export class DataSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataSource.__pulumiType;
     }
 
+    /**
+     * The identifier of the Amazon Q Business application the data source will be attached to.
+     */
     public readonly applicationId!: pulumi.Output<string>;
     /**
+     * Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
      */
     public readonly configuration!: pulumi.Output<any>;
+    /**
+     * The Unix timestamp when the Amazon Q Business data source was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
+     */
     public /*out*/ readonly dataSourceArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Q Business data source.
+     */
     public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    /**
+     * A description for the data source connector.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Amazon Q Business data source.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Provides the configuration information for altering document metadata and content during the document ingestion process.
+     *
+     * For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+     */
     public readonly documentEnrichmentConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceDocumentEnrichmentConfiguration | undefined>;
+    /**
+     * The identifier of the index the data source is attached to.
+     */
     public readonly indexId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the Amazon Q Business data source.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.DataSourceStatus>;
+    /**
+     * Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+     *
+     * Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+     */
     public readonly syncSchedule!: pulumi.Output<string | undefined>;
+    /**
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of the Amazon Q Business data source.
+     */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The Unix timestamp when the Amazon Q Business data source was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+     */
     public readonly vpcConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceVpcConfiguration | undefined>;
 
     /**
@@ -125,17 +176,50 @@ export class DataSource extends pulumi.CustomResource {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    /**
+     * The identifier of the Amazon Q Business application the data source will be attached to.
+     */
     applicationId: pulumi.Input<string>;
     /**
+     * Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
      */
     configuration: any;
+    /**
+     * A description for the data source connector.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Amazon Q Business data source.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * Provides the configuration information for altering document metadata and content during the document ingestion process.
+     *
+     * For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+     */
     documentEnrichmentConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceDocumentEnrichmentConfigurationArgs>;
+    /**
+     * The identifier of the index the data source is attached to.
+     */
     indexId: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+     *
+     * Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+     */
     syncSchedule?: pulumi.Input<string>;
+    /**
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+     */
     vpcConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceVpcConfigurationArgs>;
 }

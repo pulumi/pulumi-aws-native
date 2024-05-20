@@ -24,8 +24,10 @@ func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pul
 }
 
 type LookupDashboardArgs struct {
+	// The ID of the AWS account where you want to create the dashboard.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	DashboardId  string `pulumi:"dashboardId"`
+	// The ID for the dashboard, also added to the IAM policy.
+	DashboardId string `pulumi:"dashboardId"`
 }
 
 type LookupDashboardResult struct {
@@ -36,12 +38,18 @@ type LookupDashboardResult struct {
 	// <p>The last time that this dashboard was published.</p>
 	LastPublishedTime *string `pulumi:"lastPublishedTime"`
 	// <p>The last time that this dashboard was updated.</p>
-	LastUpdatedTime *string                       `pulumi:"lastUpdatedTime"`
-	LinkEntities    []string                      `pulumi:"linkEntities"`
-	Name            *string                       `pulumi:"name"`
-	Permissions     []DashboardResourcePermission `pulumi:"permissions"`
-	Tags            []aws.Tag                     `pulumi:"tags"`
-	Version         *DashboardVersion             `pulumi:"version"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+	LinkEntities []string `pulumi:"linkEntities"`
+	// The display name of the dashboard.
+	Name *string `pulumi:"name"`
+	// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
+	Permissions []DashboardResourcePermission `pulumi:"permissions"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+	Tags    []aws.Tag         `pulumi:"tags"`
+	Version *DashboardVersion `pulumi:"version"`
 }
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
@@ -58,8 +66,10 @@ func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, 
 }
 
 type LookupDashboardOutputArgs struct {
+	// The ID of the AWS account where you want to create the dashboard.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
-	DashboardId  pulumi.StringInput `pulumi:"dashboardId"`
+	// The ID for the dashboard, also added to the IAM policy.
+	DashboardId pulumi.StringInput `pulumi:"dashboardId"`
 }
 
 func (LookupDashboardOutputArgs) ElementType() reflect.Type {
@@ -100,18 +110,24 @@ func (o LookupDashboardResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 func (o LookupDashboardResultOutput) LinkEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []string { return v.LinkEntities }).(pulumi.StringArrayOutput)
 }
 
+// The display name of the dashboard.
 func (o LookupDashboardResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+//
+// To specify no permissions, omit the permissions list.
 func (o LookupDashboardResultOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardResourcePermission { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
 
+// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 func (o LookupDashboardResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [AwsNativeResourceType("aws-native:refactorspaces:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the environment.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the environment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Output("environmentIdentifier")]
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the environment.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The network fabric type of the environment.
+        /// </summary>
         [Output("networkFabricType")]
         public Output<Pulumi.AwsNative.RefactorSpaces.EnvironmentNetworkFabricType> NetworkFabricType { get; private set; } = null!;
 
@@ -36,6 +51,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS Transit Gateway set up by the environment.
+        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
@@ -90,12 +108,21 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the environment.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The network fabric type of the environment.
+        /// </summary>
         [Input("networkFabricType", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.EnvironmentNetworkFabricType> NetworkFabricType { get; set; } = null!;
 

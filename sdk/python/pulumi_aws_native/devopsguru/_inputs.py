@@ -26,6 +26,12 @@ class NotificationChannelConfigArgs:
                  sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None):
         """
         Information about notification channels you have configured with DevOps Guru.
+        :param pulumi.Input['NotificationChannelNotificationFilterConfigArgs'] filters: The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
+        :param pulumi.Input['NotificationChannelSnsChannelConfigArgs'] sns: Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
+               
+               If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
+               
+               If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -35,6 +41,9 @@ class NotificationChannelConfigArgs:
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']]:
+        """
+        The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
+        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -44,6 +53,13 @@ class NotificationChannelConfigArgs:
     @property
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]:
+        """
+        Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
+
+        If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
+
+        If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
+        """
         return pulumi.get(self, "sns")
 
     @sns.setter
@@ -58,6 +74,8 @@ class NotificationChannelNotificationFilterConfigArgs:
                  severities: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]] = None):
         """
         Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]] message_types: The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]] severities: The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
         """
         if message_types is not None:
             pulumi.set(__self__, "message_types", message_types)
@@ -67,6 +85,9 @@ class NotificationChannelNotificationFilterConfigArgs:
     @property
     @pulumi.getter(name="messageTypes")
     def message_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]:
+        """
+        The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
+        """
         return pulumi.get(self, "message_types")
 
     @message_types.setter
@@ -76,6 +97,9 @@ class NotificationChannelNotificationFilterConfigArgs:
     @property
     @pulumi.getter
     def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]:
+        """
+        The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
+        """
         return pulumi.get(self, "severities")
 
     @severities.setter
@@ -89,6 +113,7 @@ class NotificationChannelSnsChannelConfigArgs:
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
+        :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
         """
         if topic_arn is not None:
             pulumi.set(__self__, "topic_arn", topic_arn)
@@ -96,6 +121,9 @@ class NotificationChannelSnsChannelConfigArgs:
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -134,6 +162,19 @@ class ResourceCollectionFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]] = None):
         """
         Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        :param pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs'] cloud_formation: Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]] tags: The AWS tags used to filter the resources in the resource collection.
+               
+               Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
+               
+               Each AWS tag has two parts.
+               
+               - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
+               - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
+               
+               Together these are known as *key* - *value* pairs.
+               
+               > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
         """
         if cloud_formation is not None:
             pulumi.set(__self__, "cloud_formation", cloud_formation)
@@ -143,6 +184,9 @@ class ResourceCollectionFilterArgs:
     @property
     @pulumi.getter(name="cloudFormation")
     def cloud_formation(self) -> Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']]:
+        """
+        Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
+        """
         return pulumi.get(self, "cloud_formation")
 
     @cloud_formation.setter
@@ -152,6 +196,20 @@ class ResourceCollectionFilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]:
+        """
+        The AWS tags used to filter the resources in the resource collection.
+
+        Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
+
+        Each AWS tag has two parts.
+
+        - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
+        - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
+
+        Together these are known as *key* - *value* pairs.
+
+        > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter

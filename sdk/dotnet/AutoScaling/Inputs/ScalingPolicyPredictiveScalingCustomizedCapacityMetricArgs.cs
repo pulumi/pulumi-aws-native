@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     {
         [Input("metricDataQueries", required: true)]
         private InputList<Inputs.ScalingPolicyMetricDataQueryArgs>? _metricDataQueries;
+
+        /// <summary>
+        /// One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
+        /// </summary>
         public InputList<Inputs.ScalingPolicyMetricDataQueryArgs> MetricDataQueries
         {
             get => _metricDataQueries ?? (_metricDataQueries = new InputList<Inputs.ScalingPolicyMetricDataQueryArgs>());

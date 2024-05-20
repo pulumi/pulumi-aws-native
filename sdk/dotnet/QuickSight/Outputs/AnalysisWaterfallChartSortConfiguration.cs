@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisWaterfallChartSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of bar groups that are displayed.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? BreakdownItemsLimit;
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> CategorySort;
 
         [OutputConstructor]

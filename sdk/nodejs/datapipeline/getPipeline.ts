@@ -19,6 +19,9 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetPipelineArgs {
+    /**
+     * The ID of the pipeline.
+     */
     pipelineId: string;
 }
 
@@ -35,6 +38,9 @@ export interface GetPipelineResult {
      * The parameter values used with the pipeline.
      */
     readonly parameterValues?: outputs.datapipeline.PipelineParameterValue[];
+    /**
+     * The ID of the pipeline.
+     */
     readonly pipelineId?: string;
     /**
      * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
@@ -53,5 +59,8 @@ export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetPipelineOutputArgs {
+    /**
+     * The ID of the pipeline.
+     */
     pipelineId: pulumi.Input<string>;
 }

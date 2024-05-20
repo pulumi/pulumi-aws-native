@@ -13,7 +13,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDonutOptions
     {
+        /// <summary>
+        /// The option for define the arc of the chart shape. Valid values are as follows:
+        /// 
+        /// - `WHOLE` - A pie chart
+        /// - `SMALL` - A small-sized donut chart
+        /// - `MEDIUM` - A medium-sized donut chart
+        /// - `LARGE` - A large-sized donut chart
+        /// </summary>
         public readonly Outputs.TemplateArcOptions? ArcOptions;
+        /// <summary>
+        /// The label options of the label that is displayed in the center of a donut chart. This option isn't available for pie charts.
+        /// </summary>
         public readonly Outputs.TemplateDonutCenterOptions? DonutCenterOptions;
 
         [OutputConstructor]

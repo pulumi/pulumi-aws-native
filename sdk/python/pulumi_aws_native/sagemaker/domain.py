@@ -40,6 +40,7 @@ class DomainArgs:
         :param pulumi.Input['DomainAppSecurityGroupManagement'] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
+        :param pulumi.Input['DomainSettingsArgs'] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the user profile.
         """
@@ -161,6 +162,9 @@ class DomainArgs:
     @property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> Optional[pulumi.Input['DomainSettingsArgs']]:
+        """
+        A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        """
         return pulumi.get(self, "domain_settings")
 
     @domain_settings.setter
@@ -220,6 +224,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings.
         :param pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']] default_user_settings: The default user settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
+        :param pulumi.Input[pulumi.InputType['DomainSettingsArgs']] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A list of tags to apply to the user profile.
@@ -406,6 +411,9 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainSettings")
     def domain_settings(self) -> pulumi.Output[Optional['outputs.DomainSettings']]:
+        """
+        A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        """
         return pulumi.get(self, "domain_settings")
 
     @property

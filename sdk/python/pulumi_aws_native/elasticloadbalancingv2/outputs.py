@@ -2516,6 +2516,12 @@ class TrustStoreRevocation(dict):
                  revocation_id: Optional[str] = None,
                  revocation_type: Optional[str] = None,
                  trust_store_arn: Optional[str] = None):
+        """
+        :param int number_of_revoked_entries: The number of revoked certificates.
+        :param str revocation_id: The revocation ID of the revocation file.
+        :param str revocation_type: The type of revocation file.
+        :param str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
+        """
         if number_of_revoked_entries is not None:
             pulumi.set(__self__, "number_of_revoked_entries", number_of_revoked_entries)
         if revocation_id is not None:
@@ -2528,21 +2534,33 @@ class TrustStoreRevocation(dict):
     @property
     @pulumi.getter(name="numberOfRevokedEntries")
     def number_of_revoked_entries(self) -> Optional[int]:
+        """
+        The number of revoked certificates.
+        """
         return pulumi.get(self, "number_of_revoked_entries")
 
     @property
     @pulumi.getter(name="revocationId")
     def revocation_id(self) -> Optional[str]:
+        """
+        The revocation ID of the revocation file.
+        """
         return pulumi.get(self, "revocation_id")
 
     @property
     @pulumi.getter(name="revocationType")
     def revocation_type(self) -> Optional[str]:
+        """
+        The type of revocation file.
+        """
         return pulumi.get(self, "revocation_type")
 
     @property
     @pulumi.getter(name="trustStoreArn")
     def trust_store_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the trust store.
+        """
         return pulumi.get(self, "trust_store_arn")
 
 
@@ -2576,6 +2594,12 @@ class TrustStoreRevocationRevocationContent(dict):
                  s3_bucket: Optional[str] = None,
                  s3_key: Optional[str] = None,
                  s3_object_version: Optional[str] = None):
+        """
+        :param str revocation_type: The type of revocation file.
+        :param str s3_bucket: The Amazon S3 bucket for the revocation file.
+        :param str s3_key: The Amazon S3 path for the revocation file.
+        :param str s3_object_version: The Amazon S3 object version of the revocation file.
+        """
         if revocation_type is not None:
             pulumi.set(__self__, "revocation_type", revocation_type)
         if s3_bucket is not None:
@@ -2588,21 +2612,33 @@ class TrustStoreRevocationRevocationContent(dict):
     @property
     @pulumi.getter(name="revocationType")
     def revocation_type(self) -> Optional[str]:
+        """
+        The type of revocation file.
+        """
         return pulumi.get(self, "revocation_type")
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[str]:
+        """
+        The Amazon S3 bucket for the revocation file.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[str]:
+        """
+        The Amazon S3 path for the revocation file.
+        """
         return pulumi.get(self, "s3_key")
 
     @property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
+        """
+        The Amazon S3 object version of the revocation file.
+        """
         return pulumi.get(self, "s3_object_version")
 
 

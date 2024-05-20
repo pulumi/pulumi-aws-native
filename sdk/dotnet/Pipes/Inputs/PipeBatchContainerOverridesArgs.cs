@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     {
         [Input("command")]
         private InputList<string>? _command;
+
+        /// <summary>
+        /// The command to send to the container that overrides the default command from the Docker image or the task definition.
+        /// </summary>
         public InputList<string> Command
         {
             get => _command ?? (_command = new InputList<string>());
@@ -22,17 +26,32 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
         [Input("environment")]
         private InputList<Inputs.PipeBatchEnvironmentVariableArgs>? _environment;
+
+        /// <summary>
+        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition.
+        /// 
+        /// &gt; Environment variables cannot start with " `AWS Batch` ". This naming convention is reserved for variables that AWS Batch sets.
+        /// </summary>
         public InputList<Inputs.PipeBatchEnvironmentVariableArgs> Environment
         {
             get => _environment ?? (_environment = new InputList<Inputs.PipeBatchEnvironmentVariableArgs>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The instance type to use for a multi-node parallel job.
+        /// 
+        /// &gt; This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
         [Input("resourceRequirements")]
         private InputList<Inputs.PipeBatchResourceRequirementArgs>? _resourceRequirements;
+
+        /// <summary>
+        /// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        /// </summary>
         public InputList<Inputs.PipeBatchResourceRequirementArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.PipeBatchResourceRequirementArgs>());

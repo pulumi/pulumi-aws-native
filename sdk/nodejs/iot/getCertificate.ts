@@ -19,12 +19,34 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetCertificateArgs {
+    /**
+     * The certificate ID.
+     */
     id: string;
 }
 
 export interface GetCertificateResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) for the certificate. For example:
+     *
+     * `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
+     *
+     * A value similar to the following is returned:
+     *
+     * `arn:aws:iot:ap-southeast-2:123456789012:cert/a1234567b89c012d3e4fg567hij8k9l01mno1p23q45678901rs234567890t1u2`
+     */
     readonly arn?: string;
+    /**
+     * The certificate ID.
+     */
     readonly id?: string;
+    /**
+     * The status of the certificate.
+     *
+     * Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
+     *
+     * The status value REGISTER_INACTIVE is deprecated and should not be used.
+     */
     readonly status?: enums.iot.CertificateStatus;
 }
 /**
@@ -35,5 +57,8 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
 }
 
 export interface GetCertificateOutputArgs {
+    /**
+     * The certificate ID.
+     */
     id: pulumi.Input<string>;
 }

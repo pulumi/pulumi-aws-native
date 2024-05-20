@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Shield
     [AwsNativeResourceType("aws-native:shield:ProactiveEngagement")]
     public partial class ProactiveEngagement : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the account that submitted the template.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 

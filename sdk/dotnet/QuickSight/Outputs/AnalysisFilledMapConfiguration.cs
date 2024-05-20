@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilledMapConfiguration
     {
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisFilledMapFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The map style options of the filled map visual.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialMapStyleOptions? MapStyleOptions;
+        /// <summary>
+        /// The sort configuration of a `FilledMapVisual` .
+        /// </summary>
         public readonly Outputs.AnalysisFilledMapSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip display setup of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The window options of the filled map visual.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialWindowOptions? WindowOptions;
 
         [OutputConstructor]

@@ -58,11 +58,17 @@ class GetApiDestinationResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the API destination to create.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional['ApiDestinationHttpMethod']:
+        """
+        The method to use for the request to the HTTP invocation endpoint.
+        """
         return pulumi.get(self, "http_method")
 
     @property
@@ -76,6 +82,9 @@ class GetApiDestinationResult:
     @property
     @pulumi.getter(name="invocationRateLimitPerSecond")
     def invocation_rate_limit_per_second(self) -> Optional[int]:
+        """
+        The maximum number of requests per second to send to the HTTP invocation endpoint.
+        """
         return pulumi.get(self, "invocation_rate_limit_per_second")
 
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class GetResourceSetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Fms
 
     public sealed class GetResourceSetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Fms
     [OutputType]
     public sealed class GetResourceSetResult
     {
+        /// <summary>
+        /// A description of the resource set.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceTypeList;
         public readonly ImmutableArray<string> Resources;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableSortConfiguration
     {
+        /// <summary>
+        /// The pagination configuration (page size, page number) for the table.
+        /// </summary>
         public readonly Outputs.AnalysisPaginationConfiguration? PaginationConfiguration;
+        /// <summary>
+        /// The field sort options for rows in the table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> RowSort;
 
         [OutputConstructor]

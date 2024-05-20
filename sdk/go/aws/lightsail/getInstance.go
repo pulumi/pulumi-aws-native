@@ -30,17 +30,25 @@ type LookupInstanceArgs struct {
 
 type LookupInstanceResult struct {
 	// An array of objects representing the add-ons to enable for the new instance.
-	AddOns      []InstanceAddOn   `pulumi:"addOns"`
-	Hardware    *InstanceHardware `pulumi:"hardware"`
-	InstanceArn *string           `pulumi:"instanceArn"`
+	AddOns []InstanceAddOn `pulumi:"addOns"`
+	// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+	//
+	// > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
+	Hardware *InstanceHardware `pulumi:"hardware"`
+	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+	InstanceArn *string `pulumi:"instanceArn"`
 	// IPv6 addresses of the instance
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Is the IP Address of the Instance is the static IP
 	IsStaticIp *bool `pulumi:"isStaticIp"`
 	// The name of your key pair.
-	KeyPairName *string             `pulumi:"keyPairName"`
-	Location    *InstanceLocation   `pulumi:"location"`
-	Networking  *InstanceNetworking `pulumi:"networking"`
+	KeyPairName *string `pulumi:"keyPairName"`
+	// The location for the instance, such as the AWS Region and Availability Zone.
+	//
+	// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
+	Location *InstanceLocation `pulumi:"location"`
+	// The public ports and the monthly amount of data transfer allocated for the instance.
+	Networking *InstanceNetworking `pulumi:"networking"`
 	// Private IP Address of the Instance
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// Public IP Address of the Instance
@@ -48,8 +56,11 @@ type LookupInstanceResult struct {
 	// Resource type of Lightsail instance.
 	ResourceType *string `pulumi:"resourceType"`
 	// SSH Key Name of the  Lightsail instance.
-	SshKeyName *string            `pulumi:"sshKeyName"`
-	State      *InstanceStateType `pulumi:"state"`
+	SshKeyName *string `pulumi:"sshKeyName"`
+	// The status code and the state (for example, `running` ) of the instance.
+	//
+	// > The `State` property is read-only and should not be specified in a create instance or update instance request.
+	State *InstanceStateType `pulumi:"state"`
 	// Support code to help identify any issues
 	SupportCode *string `pulumi:"supportCode"`
 	// An array of key-value pairs to apply to this resource.
@@ -99,10 +110,14 @@ func (o LookupInstanceResultOutput) AddOns() InstanceAddOnArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceAddOn { return v.AddOns }).(InstanceAddOnArrayOutput)
 }
 
+// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+//
+// > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
 func (o LookupInstanceResultOutput) Hardware() InstanceHardwarePtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceHardware { return v.Hardware }).(InstanceHardwarePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 func (o LookupInstanceResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
 }
@@ -122,10 +137,14 @@ func (o LookupInstanceResultOutput) KeyPairName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.KeyPairName }).(pulumi.StringPtrOutput)
 }
 
+// The location for the instance, such as the AWS Region and Availability Zone.
+//
+// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
 func (o LookupInstanceResultOutput) Location() InstanceLocationPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceLocation { return v.Location }).(InstanceLocationPtrOutput)
 }
 
+// The public ports and the monthly amount of data transfer allocated for the instance.
 func (o LookupInstanceResultOutput) Networking() InstanceNetworkingPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceNetworking { return v.Networking }).(InstanceNetworkingPtrOutput)
 }
@@ -150,6 +169,9 @@ func (o LookupInstanceResultOutput) SshKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.SshKeyName }).(pulumi.StringPtrOutput)
 }
 
+// The status code and the state (for example, `running` ) of the instance.
+//
+// > The `State` property is read-only and should not be specified in a create instance or update instance request.
 func (o LookupInstanceResultOutput) State() InstanceStateTypePtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceStateType { return v.State }).(InstanceStateTypePtrOutput)
 }

@@ -70,76 +70,121 @@ class GetComponentResult:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[Mapping[str, 'outputs.ComponentBindingPropertiesValue']]:
+        """
+        The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        """
         return pulumi.get(self, "binding_properties")
 
     @property
     @pulumi.getter
     def children(self) -> Optional[Sequence['outputs.ComponentChild']]:
+        """
+        A list of the component's `ComponentChild` instances.
+        """
         return pulumi.get(self, "children")
 
     @property
     @pulumi.getter(name="collectionProperties")
     def collection_properties(self) -> Optional[Mapping[str, 'outputs.ComponentDataConfiguration']]:
+        """
+        The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        """
         return pulumi.get(self, "collection_properties")
 
     @property
     @pulumi.getter(name="componentType")
     def component_type(self) -> Optional[str]:
+        """
+        The type of the component. This can be an Amplify custom UI component or another custom component.
+        """
         return pulumi.get(self, "component_type")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The time that the component was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def events(self) -> Optional[Mapping[str, 'outputs.ComponentEvent']]:
+        """
+        Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique ID of the component.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        The time that the component was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the component.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def overrides(self) -> Optional[Mapping[str, Any]]:
+        """
+        Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        """
         return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, 'outputs.ComponentProperty']]:
+        """
+        Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        """
         return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> Optional[str]:
+        """
+        The schema version of the component when it was imported.
+        """
         return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[str]:
+        """
+        The unique ID of the component in its original source system, such as Figma.
+        """
         return pulumi.get(self, "source_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        One or more key-value pairs to use when tagging the component.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def variants(self) -> Optional[Sequence['outputs.ComponentVariant']]:
+        """
+        A list of the component's variants. A variant is a unique style configuration of a main component.
+        """
         return pulumi.get(self, "variants")
 
 
@@ -172,6 +217,11 @@ def get_component(app_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
     Definition of AWS::AmplifyUIBuilder::Component Resource Type
+
+
+    :param str app_id: The unique ID of the Amplify app associated with the component.
+    :param str environment_name: The name of the backend environment that is a part of the Amplify app.
+    :param str id: The unique ID of the component.
     """
     __args__ = dict()
     __args__['appId'] = app_id
@@ -205,5 +255,10 @@ def get_component_output(app_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Component Resource Type
+
+
+    :param str app_id: The unique ID of the Amplify app associated with the component.
+    :param str environment_name: The name of the backend environment that is a part of the Amplify app.
+    :param str id: The unique ID of the component.
     """
     ...

@@ -31,6 +31,7 @@ type LookupMonitoringScheduleArgs struct {
 type LookupMonitoringScheduleResult struct {
 	// The time at which the schedule was created.
 	CreationTime *string `pulumi:"creationTime"`
+	// The name of the endpoint using the monitoring schedule.
 	EndpointName *string `pulumi:"endpointName"`
 	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason *string `pulumi:"failureReason"`
@@ -39,7 +40,8 @@ type LookupMonitoringScheduleResult struct {
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
-	MonitoringScheduleArn    *string                   `pulumi:"monitoringScheduleArn"`
+	MonitoringScheduleArn *string `pulumi:"monitoringScheduleArn"`
+	// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 	MonitoringScheduleConfig *MonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
 	// The status of a schedule job.
 	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
@@ -88,6 +90,7 @@ func (o LookupMonitoringScheduleResultOutput) CreationTime() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupMonitoringScheduleResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The name of the endpoint using the monitoring schedule.
 func (o LookupMonitoringScheduleResultOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitoringScheduleResult) *string { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
@@ -114,6 +117,7 @@ func (o LookupMonitoringScheduleResultOutput) MonitoringScheduleArn() pulumi.Str
 	return o.ApplyT(func(v LookupMonitoringScheduleResult) *string { return v.MonitoringScheduleArn }).(pulumi.StringPtrOutput)
 }
 
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 func (o LookupMonitoringScheduleResultOutput) MonitoringScheduleConfig() MonitoringScheduleConfigPtrOutput {
 	return o.ApplyT(func(v LookupMonitoringScheduleResult) *MonitoringScheduleConfig { return v.MonitoringScheduleConfig }).(MonitoringScheduleConfigPtrOutput)
 }

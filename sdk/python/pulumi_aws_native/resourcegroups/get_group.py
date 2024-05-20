@@ -52,6 +52,11 @@ class GetGroupResult:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Sequence['outputs.GroupConfigurationItem']]:
+        """
+        The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+
+        > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -65,16 +70,31 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="resourceQuery")
     def resource_query(self) -> Optional['outputs.GroupResourceQuery']:
+        """
+        The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+
+        > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+        > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+        """
         return pulumi.get(self, "resource_query")
 
     @property
     @pulumi.getter
     def resources(self) -> Optional[Sequence[str]]:
+        """
+        A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+
+        > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+        > - You can include a `Resources` property only if you also specify a `Configuration` property.
+        """
         return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag key and value pairs that are attached to the resource group.
+        """
         return pulumi.get(self, "tags")
 
 

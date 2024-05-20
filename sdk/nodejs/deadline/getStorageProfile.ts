@@ -20,14 +20,32 @@ export function getStorageProfile(args: GetStorageProfileArgs, opts?: pulumi.Inv
 }
 
 export interface GetStorageProfileArgs {
+    /**
+     * The unique identifier of the farm that contains the storage profile.
+     */
     farmId: string;
+    /**
+     * The storage profile ID.
+     */
     storageProfileId: string;
 }
 
 export interface GetStorageProfileResult {
+    /**
+     * The display name of the storage profile summary to update.
+     */
     readonly displayName?: string;
+    /**
+     * Operating system specific file system path to the storage location.
+     */
     readonly fileSystemLocations?: outputs.deadline.StorageProfileFileSystemLocation[];
+    /**
+     * The operating system (OS) family.
+     */
     readonly osFamily?: enums.deadline.StorageProfileOperatingSystemFamily;
+    /**
+     * The storage profile ID.
+     */
     readonly storageProfileId?: string;
 }
 /**
@@ -38,6 +56,12 @@ export function getStorageProfileOutput(args: GetStorageProfileOutputArgs, opts?
 }
 
 export interface GetStorageProfileOutputArgs {
+    /**
+     * The unique identifier of the farm that contains the storage profile.
+     */
     farmId: pulumi.Input<string>;
+    /**
+     * The storage profile ID.
+     */
     storageProfileId: pulumi.Input<string>;
 }

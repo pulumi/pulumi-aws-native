@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointEncryptionMethodArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption method to use.
+        /// </summary>
         [Input("cmafEncryptionMethod")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointCmafEncryptionMethod>? CmafEncryptionMethod { get; set; }
 
+        /// <summary>
+        /// The encryption method to use.
+        /// </summary>
         [Input("tsEncryptionMethod")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointTsEncryptionMethod>? TsEncryptionMethod { get; set; }
 

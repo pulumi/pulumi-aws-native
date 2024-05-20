@@ -31,6 +31,18 @@ class FormArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Form resource.
+        :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the form.
+        :param pulumi.Input['FormCtaArgs'] cta: The `FormCTA` object that stores the call to action configuration for the form.
+        :param pulumi.Input['FormDataTypeConfigArgs'] data_type: The type of data source to use to create the form.
+        :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]] fields: The configuration information for the form's fields.
+        :param pulumi.Input['FormActionType'] form_action_type: Specifies whether to perform a create or update action on the form.
+        :param pulumi.Input['FormLabelDecorator'] label_decorator: Specifies an icon or decoration to display on the form.
+        :param pulumi.Input[str] name: The name of the form.
+        :param pulumi.Input[str] schema_version: The schema version of the form.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]] sectional_elements: The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        :param pulumi.Input['FormStyleArgs'] style: The configuration for the form's style.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the form data.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -60,6 +72,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the Amplify app associated with the form.
+        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -69,6 +84,9 @@ class FormArgs:
     @property
     @pulumi.getter
     def cta(self) -> Optional[pulumi.Input['FormCtaArgs']]:
+        """
+        The `FormCTA` object that stores the call to action configuration for the form.
+        """
         return pulumi.get(self, "cta")
 
     @cta.setter
@@ -78,6 +96,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input['FormDataTypeConfigArgs']]:
+        """
+        The type of data source to use to create the form.
+        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
@@ -87,6 +108,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the backend environment that is a part of the Amplify app.
+        """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
@@ -96,6 +120,9 @@ class FormArgs:
     @property
     @pulumi.getter
     def fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]]]:
+        """
+        The configuration information for the form's fields.
+        """
         return pulumi.get(self, "fields")
 
     @fields.setter
@@ -105,6 +132,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="formActionType")
     def form_action_type(self) -> Optional[pulumi.Input['FormActionType']]:
+        """
+        Specifies whether to perform a create or update action on the form.
+        """
         return pulumi.get(self, "form_action_type")
 
     @form_action_type.setter
@@ -114,6 +144,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="labelDecorator")
     def label_decorator(self) -> Optional[pulumi.Input['FormLabelDecorator']]:
+        """
+        Specifies an icon or decoration to display on the form.
+        """
         return pulumi.get(self, "label_decorator")
 
     @label_decorator.setter
@@ -123,6 +156,9 @@ class FormArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the form.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -132,6 +168,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema version of the form.
+        """
         return pulumi.get(self, "schema_version")
 
     @schema_version.setter
@@ -141,6 +180,9 @@ class FormArgs:
     @property
     @pulumi.getter(name="sectionalElements")
     def sectional_elements(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]]]:
+        """
+        The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        """
         return pulumi.get(self, "sectional_elements")
 
     @sectional_elements.setter
@@ -150,6 +192,9 @@ class FormArgs:
     @property
     @pulumi.getter
     def style(self) -> Optional[pulumi.Input['FormStyleArgs']]:
+        """
+        The configuration for the form's style.
+        """
         return pulumi.get(self, "style")
 
     @style.setter
@@ -159,6 +204,9 @@ class FormArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        One or more key-value pairs to use when tagging the form data.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -189,6 +237,18 @@ class Form(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the form.
+        :param pulumi.Input[pulumi.InputType['FormCtaArgs']] cta: The `FormCTA` object that stores the call to action configuration for the form.
+        :param pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']] data_type: The type of data source to use to create the form.
+        :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormFieldConfigArgs']]]] fields: The configuration information for the form's fields.
+        :param pulumi.Input['FormActionType'] form_action_type: Specifies whether to perform a create or update action on the form.
+        :param pulumi.Input['FormLabelDecorator'] label_decorator: Specifies an icon or decoration to display on the form.
+        :param pulumi.Input[str] name: The name of the form.
+        :param pulumi.Input[str] schema_version: The schema version of the form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormSectionalElementArgs']]]] sectional_elements: The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        :param pulumi.Input[pulumi.InputType['FormStyleArgs']] style: The configuration for the form's style.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the form data.
         """
         ...
     @overload
@@ -290,65 +350,104 @@ class Form(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique ID of the Amplify app associated with the form.
+        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the form.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def cta(self) -> pulumi.Output[Optional['outputs.FormCta']]:
+        """
+        The `FormCTA` object that stores the call to action configuration for the form.
+        """
         return pulumi.get(self, "cta")
 
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[Optional['outputs.FormDataTypeConfig']]:
+        """
+        The type of data source to use to create the form.
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the backend environment that is a part of the Amplify app.
+        """
         return pulumi.get(self, "environment_name")
 
     @property
     @pulumi.getter
     def fields(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.FormFieldConfig']]]:
+        """
+        The configuration information for the form's fields.
+        """
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter(name="formActionType")
     def form_action_type(self) -> pulumi.Output[Optional['FormActionType']]:
+        """
+        Specifies whether to perform a create or update action on the form.
+        """
         return pulumi.get(self, "form_action_type")
 
     @property
     @pulumi.getter(name="labelDecorator")
     def label_decorator(self) -> pulumi.Output[Optional['FormLabelDecorator']]:
+        """
+        Specifies an icon or decoration to display on the form.
+        """
         return pulumi.get(self, "label_decorator")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the form.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The schema version of the form.
+        """
         return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter(name="sectionalElements")
     def sectional_elements(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.FormSectionalElement']]]:
+        """
+        The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        """
         return pulumi.get(self, "sectional_elements")
 
     @property
     @pulumi.getter
     def style(self) -> pulumi.Output[Optional['outputs.FormStyle']]:
+        """
+        The configuration for the form's style.
+        """
         return pulumi.get(self, "style")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        One or more key-value pairs to use when tagging the form data.
+        """
         return pulumi.get(self, "tags")
 

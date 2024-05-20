@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamHttpEndpointRequestConfiguration
     {
+        /// <summary>
+        /// Describes the metadata sent to the HTTP endpoint destination.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryStreamHttpEndpointCommonAttribute> CommonAttributes;
+        /// <summary>
+        /// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding? ContentEncoding;
 
         [OutputConstructor]

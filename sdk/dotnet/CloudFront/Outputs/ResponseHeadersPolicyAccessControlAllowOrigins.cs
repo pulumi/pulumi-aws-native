@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyAccessControlAllowOrigins
     {
+        /// <summary>
+        /// The list of origins (domain names). You can specify `*` to allow all origins.
+        /// </summary>
         public readonly ImmutableArray<string> Items;
 
         [OutputConstructor]

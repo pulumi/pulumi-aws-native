@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.M2
         /// The unique identifier of the environment.
         /// </summary>
         public readonly string? EnvironmentId;
+        /// <summary>
+        /// Defines the details of a high availability configuration.
+        /// </summary>
         public readonly Outputs.EnvironmentHighAvailabilityConfig? HighAvailabilityConfig;
         /// <summary>
         /// The type of instance underlying the environment.

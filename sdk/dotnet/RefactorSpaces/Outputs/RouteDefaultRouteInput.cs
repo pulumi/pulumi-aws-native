@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.RefactorSpaces.Outputs
     [OutputType]
     public sealed class RouteDefaultRouteInput
     {
+        /// <summary>
+        /// If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+        /// </summary>
         public readonly Pulumi.AwsNative.RefactorSpaces.RouteActivationState ActivationState;
 
         [OutputConstructor]

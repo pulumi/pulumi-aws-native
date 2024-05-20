@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     /// </summary>
     public sealed class LifecyclePolicyActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the resources that the lifecycle policy applies to.
+        /// </summary>
         [Input("includeResources")]
         public Input<Inputs.LifecyclePolicyIncludeResourcesArgs>? IncludeResources { get; set; }
 

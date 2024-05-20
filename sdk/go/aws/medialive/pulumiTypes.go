@@ -995,6 +995,7 @@ func (o MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput) ServiceName(
 
 // Multiplex Program settings configuration.
 type MultiplexprogramMultiplexProgramSettings struct {
+	// Indicates which pipeline is preferred by the multiplex for program ingest.
 	PreferredChannelPipeline *MultiplexprogramPreferredChannelPipeline `pulumi:"preferredChannelPipeline"`
 	// Unique program number.
 	ProgramNumber int `pulumi:"programNumber"`
@@ -1017,6 +1018,7 @@ type MultiplexprogramMultiplexProgramSettingsInput interface {
 
 // Multiplex Program settings configuration.
 type MultiplexprogramMultiplexProgramSettingsArgs struct {
+	// Indicates which pipeline is preferred by the multiplex for program ingest.
 	PreferredChannelPipeline MultiplexprogramPreferredChannelPipelinePtrInput `pulumi:"preferredChannelPipeline"`
 	// Unique program number.
 	ProgramNumber pulumi.IntInput `pulumi:"programNumber"`
@@ -1104,6 +1106,7 @@ func (o MultiplexprogramMultiplexProgramSettingsOutput) ToMultiplexprogramMultip
 	}).(MultiplexprogramMultiplexProgramSettingsPtrOutput)
 }
 
+// Indicates which pipeline is preferred by the multiplex for program ingest.
 func (o MultiplexprogramMultiplexProgramSettingsOutput) PreferredChannelPipeline() MultiplexprogramPreferredChannelPipelinePtrOutput {
 	return o.ApplyT(func(v MultiplexprogramMultiplexProgramSettings) *MultiplexprogramPreferredChannelPipeline {
 		return v.PreferredChannelPipeline
@@ -1153,6 +1156,7 @@ func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) Elem() Multiplexprogr
 	}).(MultiplexprogramMultiplexProgramSettingsOutput)
 }
 
+// Indicates which pipeline is preferred by the multiplex for program ingest.
 func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) PreferredChannelPipeline() MultiplexprogramPreferredChannelPipelinePtrOutput {
 	return o.ApplyT(func(v *MultiplexprogramMultiplexProgramSettings) *MultiplexprogramPreferredChannelPipeline {
 		if v == nil {

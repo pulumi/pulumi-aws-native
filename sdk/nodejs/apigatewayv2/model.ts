@@ -46,6 +46,9 @@ export class Model extends pulumi.CustomResource {
      * The description of the model.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The model ID.
+     */
     public /*out*/ readonly modelId!: pulumi.Output<string>;
     /**
      * The name of the model.

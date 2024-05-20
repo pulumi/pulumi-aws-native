@@ -17,7 +17,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         /// Operator used to aggregate metric values
         /// </summary>
         public readonly Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorMetricAggregationFunction AggregationFunction;
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         public readonly string MetricName;
+        /// <summary>
+        /// The namespace for the metric.
+        /// </summary>
         public readonly string? Namespace;
 
         [OutputConstructor]

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisAxisDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not the axis line is visible.
+        /// </summary>
         [Input("axisLineVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? AxisLineVisibility { get; set; }
 
@@ -21,15 +24,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("axisOffset")]
         public Input<string>? AxisOffset { get; set; }
 
+        /// <summary>
+        /// The data options for an axis.
+        /// </summary>
         [Input("dataOptions")]
         public Input<Inputs.AnalysisAxisDataOptionsArgs>? DataOptions { get; set; }
 
+        /// <summary>
+        /// Determines whether or not the grid line is visible.
+        /// </summary>
         [Input("gridLineVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? GridLineVisibility { get; set; }
 
+        /// <summary>
+        /// The scroll bar options for an axis.
+        /// </summary>
         [Input("scrollbarOptions")]
         public Input<Inputs.AnalysisScrollBarOptionsArgs>? ScrollbarOptions { get; set; }
 
+        /// <summary>
+        /// The tick label options of an axis.
+        /// </summary>
         [Input("tickLabelOptions")]
         public Input<Inputs.AnalysisAxisTickLabelOptionsArgs>? TickLabelOptions { get; set; }
 

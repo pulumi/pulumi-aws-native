@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentPropertyBindingPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data field to bind the property to.
+        /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
+        /// <summary>
+        /// The component property to bind to the data field.
+        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 

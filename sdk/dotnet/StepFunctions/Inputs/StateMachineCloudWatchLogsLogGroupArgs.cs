@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
 
     public sealed class StateMachineCloudWatchLogsLogGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        /// </summary>
         [Input("logGroupArn")]
         public Input<string>? LogGroupArn { get; set; }
 

@@ -29,7 +29,8 @@ type LookupDatasetArgs struct {
 
 type LookupDatasetResult struct {
 	// The ARN of the dataset
-	DatasetArn       *string           `pulumi:"datasetArn"`
+	DatasetArn *string `pulumi:"datasetArn"`
+	// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 	DatasetImportJob *DatasetImportJob `pulumi:"datasetImportJob"`
 }
 
@@ -74,6 +75,7 @@ func (o LookupDatasetResultOutput) DatasetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.DatasetArn }).(pulumi.StringPtrOutput)
 }
 
+// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
 func (o LookupDatasetResultOutput) DatasetImportJob() DatasetImportJobPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetImportJob { return v.DatasetImportJob }).(DatasetImportJobPtrOutput)
 }

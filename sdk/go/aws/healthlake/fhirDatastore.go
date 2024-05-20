@@ -17,17 +17,29 @@ import (
 type FhirDatastore struct {
 	pulumi.CustomResourceState
 
-	CreatedAt                     FhirDatastoreCreatedAtOutput                        `pulumi:"createdAt"`
-	DatastoreArn                  pulumi.StringOutput                                 `pulumi:"datastoreArn"`
-	DatastoreEndpoint             pulumi.StringOutput                                 `pulumi:"datastoreEndpoint"`
-	DatastoreId                   pulumi.StringOutput                                 `pulumi:"datastoreId"`
-	DatastoreName                 pulumi.StringPtrOutput                              `pulumi:"datastoreName"`
-	DatastoreStatus               FhirDatastoreDatastoreStatusOutput                  `pulumi:"datastoreStatus"`
-	DatastoreTypeVersion          FhirDatastoreDatastoreTypeVersionOutput             `pulumi:"datastoreTypeVersion"`
+	CreatedAt FhirDatastoreCreatedAtOutput `pulumi:"createdAt"`
+	// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+	DatastoreArn pulumi.StringOutput `pulumi:"datastoreArn"`
+	// The endpoint for the created Data Store.
+	DatastoreEndpoint pulumi.StringOutput `pulumi:"datastoreEndpoint"`
+	// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+	DatastoreId pulumi.StringOutput `pulumi:"datastoreId"`
+	// The user generated name for the data store.
+	DatastoreName pulumi.StringPtrOutput `pulumi:"datastoreName"`
+	// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+	DatastoreStatus FhirDatastoreDatastoreStatusOutput `pulumi:"datastoreStatus"`
+	// The FHIR version of the data store. The only supported version is R4.
+	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersionOutput `pulumi:"datastoreTypeVersion"`
+	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrOutput `pulumi:"identityProviderConfiguration"`
-	PreloadDataConfig             FhirDatastorePreloadDataConfigPtrOutput             `pulumi:"preloadDataConfig"`
-	SseConfiguration              FhirDatastoreSseConfigurationPtrOutput              `pulumi:"sseConfiguration"`
-	Tags                          aws.TagArrayOutput                                  `pulumi:"tags"`
+	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+	PreloadDataConfig FhirDatastorePreloadDataConfigPtrOutput `pulumi:"preloadDataConfig"`
+	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	SseConfiguration FhirDatastoreSseConfigurationPtrOutput `pulumi:"sseConfiguration"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewFhirDatastore registers a new resource with the given unique name, arguments, and options.
@@ -81,22 +93,38 @@ func (FhirDatastoreState) ElementType() reflect.Type {
 }
 
 type fhirDatastoreArgs struct {
-	DatastoreName                 *string                                     `pulumi:"datastoreName"`
-	DatastoreTypeVersion          FhirDatastoreDatastoreTypeVersion           `pulumi:"datastoreTypeVersion"`
+	// The user generated name for the data store.
+	DatastoreName *string `pulumi:"datastoreName"`
+	// The FHIR version of the data store. The only supported version is R4.
+	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersion `pulumi:"datastoreTypeVersion"`
+	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration *FhirDatastoreIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
-	PreloadDataConfig             *FhirDatastorePreloadDataConfig             `pulumi:"preloadDataConfig"`
-	SseConfiguration              *FhirDatastoreSseConfiguration              `pulumi:"sseConfiguration"`
-	Tags                          []aws.Tag                                   `pulumi:"tags"`
+	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+	PreloadDataConfig *FhirDatastorePreloadDataConfig `pulumi:"preloadDataConfig"`
+	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	SseConfiguration *FhirDatastoreSseConfiguration `pulumi:"sseConfiguration"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FhirDatastore resource.
 type FhirDatastoreArgs struct {
-	DatastoreName                 pulumi.StringPtrInput
-	DatastoreTypeVersion          FhirDatastoreDatastoreTypeVersionInput
+	// The user generated name for the data store.
+	DatastoreName pulumi.StringPtrInput
+	// The FHIR version of the data store. The only supported version is R4.
+	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersionInput
+	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrInput
-	PreloadDataConfig             FhirDatastorePreloadDataConfigPtrInput
-	SseConfiguration              FhirDatastoreSseConfigurationPtrInput
-	Tags                          aws.TagArrayInput
+	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+	PreloadDataConfig FhirDatastorePreloadDataConfigPtrInput
+	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	SseConfiguration FhirDatastoreSseConfigurationPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (FhirDatastoreArgs) ElementType() reflect.Type {
@@ -140,44 +168,56 @@ func (o FhirDatastoreOutput) CreatedAt() FhirDatastoreCreatedAtOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreCreatedAtOutput { return v.CreatedAt }).(FhirDatastoreCreatedAtOutput)
 }
 
+// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
 func (o FhirDatastoreOutput) DatastoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirDatastore) pulumi.StringOutput { return v.DatastoreArn }).(pulumi.StringOutput)
 }
 
+// The endpoint for the created Data Store.
 func (o FhirDatastoreOutput) DatastoreEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirDatastore) pulumi.StringOutput { return v.DatastoreEndpoint }).(pulumi.StringOutput)
 }
 
+// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
 func (o FhirDatastoreOutput) DatastoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirDatastore) pulumi.StringOutput { return v.DatastoreId }).(pulumi.StringOutput)
 }
 
+// The user generated name for the data store.
 func (o FhirDatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) pulumi.StringPtrOutput { return v.DatastoreName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
 func (o FhirDatastoreOutput) DatastoreStatus() FhirDatastoreDatastoreStatusOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreDatastoreStatusOutput { return v.DatastoreStatus }).(FhirDatastoreDatastoreStatusOutput)
 }
 
+// The FHIR version of the data store. The only supported version is R4.
 func (o FhirDatastoreOutput) DatastoreTypeVersion() FhirDatastoreDatastoreTypeVersionOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreDatastoreTypeVersionOutput { return v.DatastoreTypeVersion }).(FhirDatastoreDatastoreTypeVersionOutput)
 }
 
+// The identity provider configuration that you gave when the data store was created.
 func (o FhirDatastoreOutput) IdentityProviderConfiguration() FhirDatastoreIdentityProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreIdentityProviderConfigurationPtrOutput {
 		return v.IdentityProviderConfiguration
 	}).(FhirDatastoreIdentityProviderConfigurationPtrOutput)
 }
 
+// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
 func (o FhirDatastoreOutput) PreloadDataConfig() FhirDatastorePreloadDataConfigPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastorePreloadDataConfigPtrOutput { return v.PreloadDataConfig }).(FhirDatastorePreloadDataConfigPtrOutput)
 }
 
+// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
 func (o FhirDatastoreOutput) SseConfiguration() FhirDatastoreSseConfigurationPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreSseConfigurationPtrOutput { return v.SseConfiguration }).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o FhirDatastoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *FhirDatastore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

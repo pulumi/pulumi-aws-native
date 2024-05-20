@@ -37,9 +37,23 @@ export class BackupSelection extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupSelection.__pulumiType;
     }
 
+    /**
+     * Uniquely identifies the backup selection.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Uniquely identifies a backup plan.
+     */
     public readonly backupPlanId!: pulumi.Output<string>;
+    /**
+     * Specifies the body of a request to assign a set of resources to a backup plan.
+     *
+     * It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
+     */
     public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionResourceType>;
+    /**
+     * Uniquely identifies a request to assign a set of resources to a backup plan.
+     */
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
 
     /**
@@ -80,6 +94,14 @@ export class BackupSelection extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupSelection resource.
  */
 export interface BackupSelectionArgs {
+    /**
+     * Uniquely identifies a backup plan.
+     */
     backupPlanId: pulumi.Input<string>;
+    /**
+     * Specifies the body of a request to assign a set of resources to a backup plan.
+     *
+     * It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
+     */
     backupSelection: pulumi.Input<inputs.backup.BackupSelectionResourceTypeArgs>;
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     {
         [Input("customKnowledgeArticleTypeConfigurations")]
         private InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>? _customKnowledgeArticleTypeConfigurations;
+
+        /// <summary>
+        /// Configuration information for custom Salesforce knowledge articles.
+        /// </summary>
         public InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs> CustomKnowledgeArticleTypeConfigurations
         {
             get => _customKnowledgeArticleTypeConfigurations ?? (_customKnowledgeArticleTypeConfigurations = new InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>());
@@ -22,12 +26,19 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("includedStates", required: true)]
         private InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState>? _includedStates;
+
+        /// <summary>
+        /// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState> IncludedStates
         {
             get => _includedStates ?? (_includedStates = new InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState>());
             set => _includedStates = value;
         }
 
+        /// <summary>
+        /// Configuration information for standard Salesforce knowledge articles.
+        /// </summary>
         [Input("standardKnowledgeArticleTypeConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs>? StandardKnowledgeArticleTypeConfiguration { get; set; }
 

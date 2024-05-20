@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSheetElementConfigurationOverrides
     {
+        /// <summary>
+        /// Determines whether or not the overrides are visible. Choose one of the following options:
+        /// 
+        /// - `VISIBLE`
+        /// - `HIDDEN`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

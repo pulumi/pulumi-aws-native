@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAxisDataOptions
     {
+        /// <summary>
+        /// The options for an axis with a date field.
+        /// </summary>
         public readonly Outputs.DashboardDateAxisOptions? DateAxisOptions;
+        /// <summary>
+        /// The options for an axis with a numeric field.
+        /// </summary>
         public readonly Outputs.DashboardNumericAxisOptions? NumericAxisOptions;
 
         [OutputConstructor]

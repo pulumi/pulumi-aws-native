@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGaugeChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data label configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.TemplateDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        /// <summary>
+        /// The field well configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateGaugeChartFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of the `GaugeChartVisual` .
+        /// </summary>
         [Input("gaugeChartOptions")]
         public Input<Inputs.TemplateGaugeChartOptionsArgs>? GaugeChartOptions { get; set; }
 
+        /// <summary>
+        /// The tooltip configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("tooltipOptions")]
         public Input<Inputs.TemplateTooltipOptionsArgs>? TooltipOptions { get; set; }
 
+        /// <summary>
+        /// The visual palette configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.TemplateVisualPaletteArgs>? VisualPalette { get; set; }
 

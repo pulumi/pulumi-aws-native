@@ -16,13 +16,24 @@ import (
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput      `pulumi:"arn"`
-	Description                   pulumi.StringPtrOutput   `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the instance profile.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+	//
+	// The list of packages is considered only if you set `packageCleanup` to `true` .
 	ExcludeAppPackagesFromCleanup pulumi.StringArrayOutput `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          pulumi.StringOutput      `pulumi:"name"`
-	PackageCleanup                pulumi.BoolPtrOutput     `pulumi:"packageCleanup"`
-	RebootAfterUse                pulumi.BoolPtrOutput     `pulumi:"rebootAfterUse"`
-	Tags                          aws.TagArrayOutput       `pulumi:"tags"`
+	// The name of the instance profile.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+	PackageCleanup pulumi.BoolPtrOutput `pulumi:"packageCleanup"`
+	// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+	RebootAfterUse pulumi.BoolPtrOutput `pulumi:"rebootAfterUse"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewInstanceProfile registers a new resource with the given unique name, arguments, and options.
@@ -65,22 +76,42 @@ func (InstanceProfileState) ElementType() reflect.Type {
 }
 
 type instanceProfileArgs struct {
-	Description                   *string   `pulumi:"description"`
-	ExcludeAppPackagesFromCleanup []string  `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          *string   `pulumi:"name"`
-	PackageCleanup                *bool     `pulumi:"packageCleanup"`
-	RebootAfterUse                *bool     `pulumi:"rebootAfterUse"`
-	Tags                          []aws.Tag `pulumi:"tags"`
+	// The description of the instance profile.
+	Description *string `pulumi:"description"`
+	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+	//
+	// The list of packages is considered only if you set `packageCleanup` to `true` .
+	ExcludeAppPackagesFromCleanup []string `pulumi:"excludeAppPackagesFromCleanup"`
+	// The name of the instance profile.
+	Name *string `pulumi:"name"`
+	// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+	PackageCleanup *bool `pulumi:"packageCleanup"`
+	// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+	RebootAfterUse *bool `pulumi:"rebootAfterUse"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
 type InstanceProfileArgs struct {
-	Description                   pulumi.StringPtrInput
+	// The description of the instance profile.
+	Description pulumi.StringPtrInput
+	// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+	//
+	// The list of packages is considered only if you set `packageCleanup` to `true` .
 	ExcludeAppPackagesFromCleanup pulumi.StringArrayInput
-	Name                          pulumi.StringPtrInput
-	PackageCleanup                pulumi.BoolPtrInput
-	RebootAfterUse                pulumi.BoolPtrInput
-	Tags                          aws.TagArrayInput
+	// The name of the instance profile.
+	Name pulumi.StringPtrInput
+	// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+	PackageCleanup pulumi.BoolPtrInput
+	// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+	RebootAfterUse pulumi.BoolPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {
@@ -120,30 +151,41 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the instance profile.
 func (o InstanceProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+//
+// The list of packages is considered only if you set `packageCleanup` to `true` .
 func (o InstanceProfileOutput) ExcludeAppPackagesFromCleanup() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringArrayOutput { return v.ExcludeAppPackagesFromCleanup }).(pulumi.StringArrayOutput)
 }
 
+// The name of the instance profile.
 func (o InstanceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
 func (o InstanceProfileOutput) PackageCleanup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.PackageCleanup }).(pulumi.BoolPtrOutput)
 }
 
+// When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
 func (o InstanceProfileOutput) RebootAfterUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o InstanceProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *InstanceProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

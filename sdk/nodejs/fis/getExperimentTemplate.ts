@@ -19,17 +19,44 @@ export function getExperimentTemplate(args: GetExperimentTemplateArgs, opts?: pu
 }
 
 export interface GetExperimentTemplateArgs {
+    /**
+     * The ID of the experiment template.
+     */
     id: string;
 }
 
 export interface GetExperimentTemplateResult {
+    /**
+     * The actions for the experiment.
+     */
     readonly actions?: {[key: string]: outputs.fis.ExperimentTemplateAction};
+    /**
+     * The description for the experiment template.
+     */
     readonly description?: string;
+    /**
+     * The experiment options for an experiment template.
+     */
     readonly experimentOptions?: outputs.fis.ExperimentTemplateExperimentOptions;
+    /**
+     * The ID of the experiment template.
+     */
     readonly id?: string;
+    /**
+     * The configuration for experiment logging.
+     */
     readonly logConfiguration?: outputs.fis.ExperimentTemplateLogConfiguration;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role.
+     */
     readonly roleArn?: string;
+    /**
+     * The stop conditions for the experiment.
+     */
     readonly stopConditions?: outputs.fis.ExperimentTemplateStopCondition[];
+    /**
+     * The targets for the experiment.
+     */
     readonly targets?: {[key: string]: outputs.fis.ExperimentTemplateTarget};
 }
 /**
@@ -40,5 +67,8 @@ export function getExperimentTemplateOutput(args: GetExperimentTemplateOutputArg
 }
 
 export interface GetExperimentTemplateOutputArgs {
+    /**
+     * The ID of the experiment template.
+     */
     id: pulumi.Input<string>;
 }

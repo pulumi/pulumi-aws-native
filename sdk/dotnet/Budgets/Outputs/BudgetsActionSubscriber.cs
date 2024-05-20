@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     [OutputType]
     public sealed class BudgetsActionSubscriber
     {
+        /// <summary>
+        /// The address that AWS sends budget notifications to, either an SNS topic or an email.
+        /// 
+        /// When you create a subscriber, the value of `Address` can't contain line breaks.
+        /// </summary>
         public readonly string Address;
+        /// <summary>
+        /// The type of notification that AWS sends to a subscriber.
+        /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionSubscriberType Type;
 
         [OutputConstructor]

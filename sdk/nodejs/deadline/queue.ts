@@ -37,16 +37,49 @@ export class Queue extends pulumi.CustomResource {
         return obj['__pulumiType'] === Queue.__pulumiType;
     }
 
+    /**
+     * The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+     */
     public readonly allowedStorageProfileIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the queue.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The default action taken on a queue summary if a budget wasn't configured.
+     */
     public readonly defaultBudgetAction!: pulumi.Output<enums.deadline.QueueDefaultQueueBudgetAction | undefined>;
+    /**
+     * A description of the queue that helps identify what the queue is used for.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the queue summary to update.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The farm ID.
+     */
     public readonly farmId!: pulumi.Output<string | undefined>;
+    /**
+     * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+     */
     public readonly jobAttachmentSettings!: pulumi.Output<outputs.deadline.QueueJobAttachmentSettings | undefined>;
+    /**
+     * Identifies the user for a job.
+     */
     public readonly jobRunAsUser!: pulumi.Output<outputs.deadline.QueueJobRunAsUser | undefined>;
+    /**
+     * The queue ID.
+     */
     public /*out*/ readonly queueId!: pulumi.Output<string>;
+    /**
+     * The file system location that the queue uses.
+     */
     public readonly requiredFileSystemLocationNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -98,13 +131,40 @@ export class Queue extends pulumi.CustomResource {
  * The set of arguments for constructing a Queue resource.
  */
 export interface QueueArgs {
+    /**
+     * The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+     */
     allowedStorageProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The default action taken on a queue summary if a budget wasn't configured.
+     */
     defaultBudgetAction?: pulumi.Input<enums.deadline.QueueDefaultQueueBudgetAction>;
+    /**
+     * A description of the queue that helps identify what the queue is used for.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the queue summary to update.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The farm ID.
+     */
     farmId?: pulumi.Input<string>;
+    /**
+     * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+     */
     jobAttachmentSettings?: pulumi.Input<inputs.deadline.QueueJobAttachmentSettingsArgs>;
+    /**
+     * Identifies the user for a job.
+     */
     jobRunAsUser?: pulumi.Input<inputs.deadline.QueueJobRunAsUserArgs>;
+    /**
+     * The file system location that the queue uses.
+     */
     requiredFileSystemLocationNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+     */
     roleArn?: pulumi.Input<string>;
 }

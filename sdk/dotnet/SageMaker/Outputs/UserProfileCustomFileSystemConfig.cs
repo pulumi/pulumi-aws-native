@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class UserProfileCustomFileSystemConfig
     {
+        /// <summary>
+        /// The settings for a custom Amazon EFS file system.
+        /// </summary>
         public readonly Outputs.UserProfileEfsFileSystemConfig? EfsFileSystemConfig;
 
         [OutputConstructor]

@@ -37,11 +37,29 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TlsInspectionConfiguration.__pulumiType;
     }
 
+    /**
+     * A description of the TLS inspection configuration.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The key:value pairs to associate with the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+     */
     public readonly tlsInspectionConfiguration!: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
+    /**
+     * The Amazon Resource Name (ARN) of the TLS inspection configuration.
+     */
     public /*out*/ readonly tlsInspectionConfigurationArn!: pulumi.Output<string>;
+    /**
+     * A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.
+     */
     public /*out*/ readonly tlsInspectionConfigurationId!: pulumi.Output<string>;
+    /**
+     * The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
+     */
     public readonly tlsInspectionConfigurationName!: pulumi.Output<string>;
 
     /**
@@ -83,8 +101,20 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a TlsInspectionConfiguration resource.
  */
 export interface TlsInspectionConfigurationArgs {
+    /**
+     * A description of the TLS inspection configuration.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The key:value pairs to associate with the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+     */
     tlsInspectionConfiguration: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationArgs>;
+    /**
+     * The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
+     */
     tlsInspectionConfigurationName?: pulumi.Input<string>;
 }

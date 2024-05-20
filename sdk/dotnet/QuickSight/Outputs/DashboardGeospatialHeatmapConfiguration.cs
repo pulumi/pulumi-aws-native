@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialHeatmapConfiguration
     {
+        /// <summary>
+        /// The color scale specification for the heatmap point style.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialHeatmapColorScale? HeatmapColor;
 
         [OutputConstructor]

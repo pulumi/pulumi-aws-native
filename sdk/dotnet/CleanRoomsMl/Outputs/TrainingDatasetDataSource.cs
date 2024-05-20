@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRoomsMl.Outputs
     [OutputType]
     public sealed class TrainingDatasetDataSource
     {
+        /// <summary>
+        /// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
+        /// </summary>
         public readonly Outputs.TrainingDatasetGlueDataSource GlueDataSource;
 
         [OutputConstructor]

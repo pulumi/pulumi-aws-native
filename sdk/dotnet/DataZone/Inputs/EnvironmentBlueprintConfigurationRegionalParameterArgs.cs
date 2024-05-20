@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     {
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// A string to string map containing parameters for the region.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// The region specified in the environment parameter.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

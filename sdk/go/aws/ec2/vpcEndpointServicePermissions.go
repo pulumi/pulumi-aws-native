@@ -16,8 +16,10 @@ import (
 type VpcEndpointServicePermissions struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
-	ServiceId         pulumi.StringOutput      `pulumi:"serviceId"`
+	// The ID of the service.
+	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 }
 
 // NewVpcEndpointServicePermissions registers a new resource with the given unique name, arguments, and options.
@@ -67,14 +69,18 @@ func (VpcEndpointServicePermissionsState) ElementType() reflect.Type {
 }
 
 type vpcEndpointServicePermissionsArgs struct {
+	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
-	ServiceId         string   `pulumi:"serviceId"`
+	// The ID of the service.
+	ServiceId string `pulumi:"serviceId"`
 }
 
 // The set of arguments for constructing a VpcEndpointServicePermissions resource.
 type VpcEndpointServicePermissionsArgs struct {
+	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals pulumi.StringArrayInput
-	ServiceId         pulumi.StringInput
+	// The ID of the service.
+	ServiceId pulumi.StringInput
 }
 
 func (VpcEndpointServicePermissionsArgs) ElementType() reflect.Type {
@@ -114,10 +120,12 @@ func (o VpcEndpointServicePermissionsOutput) ToVpcEndpointServicePermissionsOutp
 	return o
 }
 
+// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 func (o VpcEndpointServicePermissionsOutput) AllowedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointServicePermissions) pulumi.StringArrayOutput { return v.AllowedPrincipals }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the service.
 func (o VpcEndpointServicePermissionsOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServicePermissions) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }

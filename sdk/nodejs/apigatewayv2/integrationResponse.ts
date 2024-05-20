@@ -49,6 +49,9 @@ export class IntegrationResponse extends pulumi.CustomResource {
      * The integration ID.
      */
     public readonly integrationId!: pulumi.Output<string>;
+    /**
+     * The integration response ID.
+     */
     public /*out*/ readonly integrationResponseId!: pulumi.Output<string>;
     /**
      * The integration response key.

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSourceEntity
     {
+        /// <summary>
+        /// The source template for the source entity of the analysis.
+        /// </summary>
         public readonly Outputs.AnalysisSourceTemplate? SourceTemplate;
 
         [OutputConstructor]

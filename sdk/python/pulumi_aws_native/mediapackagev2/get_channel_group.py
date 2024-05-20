@@ -82,6 +82,9 @@ class GetChannelGroupResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags associated with the channel group.
+        """
         return pulumi.get(self, "tags")
 
 

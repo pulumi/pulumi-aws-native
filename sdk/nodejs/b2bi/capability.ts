@@ -37,14 +37,41 @@ export class Capability extends pulumi.CustomResource {
         return obj['__pulumiType'] === Capability.__pulumiType;
     }
 
+    /**
+     * Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+     */
     public /*out*/ readonly capabilityArn!: pulumi.Output<string>;
+    /**
+     * Returns a system-assigned unique identifier for the capability.
+     */
     public /*out*/ readonly capabilityId!: pulumi.Output<string>;
+    /**
+     * Specifies a structure that contains the details for a capability.
+     */
     public readonly configuration!: pulumi.Output<outputs.b2bi.CapabilityConfigurationProperties>;
+    /**
+     * Returns a timestamp for creation date and time of the capability.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+     */
     public readonly instructionsDocuments!: pulumi.Output<outputs.b2bi.CapabilityS3Location[] | undefined>;
+    /**
+     * Returns a timestamp that identifies the most recent date and time that the capability was modified.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * The display name of the capability.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Returns the type of the capability. Currently, only `edi` is supported.
+     */
     public readonly type!: pulumi.Output<enums.b2bi.CapabilityType>;
 
     /**
@@ -95,9 +122,24 @@ export class Capability extends pulumi.CustomResource {
  * The set of arguments for constructing a Capability resource.
  */
 export interface CapabilityArgs {
+    /**
+     * Specifies a structure that contains the details for a capability.
+     */
     configuration: pulumi.Input<inputs.b2bi.CapabilityConfigurationPropertiesArgs>;
+    /**
+     * Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+     */
     instructionsDocuments?: pulumi.Input<pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>[]>;
+    /**
+     * The display name of the capability.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Returns the type of the capability. Currently, only `edi` is supported.
+     */
     type: pulumi.Input<enums.b2bi.CapabilityType>;
 }

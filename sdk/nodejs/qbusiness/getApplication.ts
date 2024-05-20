@@ -19,20 +19,56 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetApplicationArgs {
+    /**
+     * The identifier for the Amazon Q Business application.
+     */
     applicationId: string;
 }
 
 export interface GetApplicationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q Business application.
+     */
     readonly applicationArn?: string;
+    /**
+     * The identifier for the Amazon Q Business application.
+     */
     readonly applicationId?: string;
+    /**
+     * Configuration information for the file upload during chat feature.
+     */
     readonly attachmentsConfiguration?: outputs.qbusiness.ApplicationAttachmentsConfiguration;
+    /**
+     * The Unix timestamp when the Amazon Q Business application was created.
+     */
     readonly createdAt?: string;
+    /**
+     * A description for the Amazon Q Business application.
+     */
     readonly description?: string;
+    /**
+     * The name of the Amazon Q Business application.
+     */
     readonly displayName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+     */
     readonly identityCenterApplicationArn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     */
     readonly roleArn?: string;
+    /**
+     * The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+     */
     readonly status?: enums.qbusiness.ApplicationStatus;
+    /**
+     * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The Unix timestamp when the Amazon Q Business application was last updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -43,5 +79,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
+    /**
+     * The identifier for the Amazon Q Business application.
+     */
     applicationId: pulumi.Input<string>;
 }

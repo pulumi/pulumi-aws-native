@@ -18,18 +18,37 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes which data sources will be enabled for the detector.
+        /// </summary>
         [Output("dataSources")]
         public Output<Outputs.DetectorCfnDataSourceConfigurations?> DataSources { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the detector is to be enabled on creation.
+        /// </summary>
         [Output("enable")]
         public Output<bool> Enable { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of features that will be configured for the detector.
+        /// </summary>
         [Output("features")]
         public Output<ImmutableArray<Outputs.DetectorCfnFeatureConfiguration>> Features { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies how frequently updated findings are exported.
+        /// </summary>
         [Output("findingPublishingFrequency")]
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -78,25 +97,46 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes which data sources will be enabled for the detector.
+        /// </summary>
         [Input("dataSources")]
         public Input<Inputs.DetectorCfnDataSourceConfigurationsArgs>? DataSources { get; set; }
 
+        /// <summary>
+        /// Specifies whether the detector is to be enabled on creation.
+        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
         [Input("features")]
         private InputList<Inputs.DetectorCfnFeatureConfigurationArgs>? _features;
+
+        /// <summary>
+        /// A list of features that will be configured for the detector.
+        /// </summary>
         public InputList<Inputs.DetectorCfnFeatureConfigurationArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.DetectorCfnFeatureConfigurationArgs>());
             set => _features = value;
         }
 
+        /// <summary>
+        /// Specifies how frequently updated findings are exported.
+        /// </summary>
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

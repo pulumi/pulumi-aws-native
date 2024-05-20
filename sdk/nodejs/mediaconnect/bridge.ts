@@ -41,8 +41,17 @@ export class Bridge extends pulumi.CustomResource {
      * The Amazon Resource Number (ARN) of the bridge.
      */
     public /*out*/ readonly bridgeArn!: pulumi.Output<string>;
+    /**
+     * The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+     */
     public /*out*/ readonly bridgeState!: pulumi.Output<enums.mediaconnect.BridgeStateEnum>;
+    /**
+     * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+     */
     public readonly egressGatewayBridge!: pulumi.Output<outputs.mediaconnect.BridgeEgressGatewayBridge | undefined>;
+    /**
+     * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+     */
     public readonly ingressGatewayBridge!: pulumi.Output<outputs.mediaconnect.BridgeIngressGatewayBridge | undefined>;
     /**
      * The name of the bridge.
@@ -56,6 +65,9 @@ export class Bridge extends pulumi.CustomResource {
      * The placement Amazon Resource Number (ARN) of the bridge.
      */
     public readonly placementArn!: pulumi.Output<string>;
+    /**
+     * The settings for source failover.
+     */
     public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.BridgeFailoverConfig | undefined>;
     /**
      * The sources on this bridge.
@@ -108,7 +120,13 @@ export class Bridge extends pulumi.CustomResource {
  * The set of arguments for constructing a Bridge resource.
  */
 export interface BridgeArgs {
+    /**
+     * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+     */
     egressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeEgressGatewayBridgeArgs>;
+    /**
+     * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+     */
     ingressGatewayBridge?: pulumi.Input<inputs.mediaconnect.BridgeIngressGatewayBridgeArgs>;
     /**
      * The name of the bridge.
@@ -122,6 +140,9 @@ export interface BridgeArgs {
      * The placement Amazon Resource Number (ARN) of the bridge.
      */
     placementArn: pulumi.Input<string>;
+    /**
+     * The settings for source failover.
+     */
     sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.BridgeFailoverConfigArgs>;
     /**
      * The sources on this bridge.

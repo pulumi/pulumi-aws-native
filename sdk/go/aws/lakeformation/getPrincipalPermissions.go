@@ -23,13 +23,17 @@ func LookupPrincipalPermissions(ctx *pulumi.Context, args *LookupPrincipalPermis
 }
 
 type LookupPrincipalPermissionsArgs struct {
+	// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
 	PrincipalIdentifier string `pulumi:"principalIdentifier"`
-	ResourceIdentifier  string `pulumi:"resourceIdentifier"`
+	// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 }
 
 type LookupPrincipalPermissionsResult struct {
+	// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
 	PrincipalIdentifier *string `pulumi:"principalIdentifier"`
-	ResourceIdentifier  *string `pulumi:"resourceIdentifier"`
+	// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 }
 
 func LookupPrincipalPermissionsOutput(ctx *pulumi.Context, args LookupPrincipalPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPrincipalPermissionsResultOutput {
@@ -46,8 +50,10 @@ func LookupPrincipalPermissionsOutput(ctx *pulumi.Context, args LookupPrincipalP
 }
 
 type LookupPrincipalPermissionsOutputArgs struct {
+	// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
 	PrincipalIdentifier pulumi.StringInput `pulumi:"principalIdentifier"`
-	ResourceIdentifier  pulumi.StringInput `pulumi:"resourceIdentifier"`
+	// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+	ResourceIdentifier pulumi.StringInput `pulumi:"resourceIdentifier"`
 }
 
 func (LookupPrincipalPermissionsOutputArgs) ElementType() reflect.Type {
@@ -68,10 +74,12 @@ func (o LookupPrincipalPermissionsResultOutput) ToLookupPrincipalPermissionsResu
 	return o
 }
 
+// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
 func (o LookupPrincipalPermissionsResultOutput) PrincipalIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrincipalPermissionsResult) *string { return v.PrincipalIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
 func (o LookupPrincipalPermissionsResultOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPrincipalPermissionsResult) *string { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }

@@ -36,21 +36,35 @@ class GetRoleAliasResult:
     @property
     @pulumi.getter(name="credentialDurationSeconds")
     def credential_duration_seconds(self) -> Optional[int]:
+        """
+        The number of seconds for which the credential is valid.
+        """
         return pulumi.get(self, "credential_duration_seconds")
 
     @property
     @pulumi.getter(name="roleAliasArn")
     def role_alias_arn(self) -> Optional[str]:
+        """
+        The role alias ARN.
+        """
         return pulumi.get(self, "role_alias_arn")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The role ARN.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -70,6 +84,9 @@ def get_role_alias(role_alias: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAliasResult:
     """
     Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
+
+
+    :param str role_alias: The role alias.
     """
     __args__ = dict()
     __args__['roleAlias'] = role_alias
@@ -88,5 +105,8 @@ def get_role_alias_output(role_alias: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAliasResult]:
     """
     Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
+
+
+    :param str role_alias: The role alias.
     """
     ...

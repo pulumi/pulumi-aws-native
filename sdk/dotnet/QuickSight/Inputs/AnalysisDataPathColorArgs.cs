@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDataPathColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color that needs to be applied to the element.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// The element that the color needs to be applied to.
+        /// </summary>
         [Input("element", required: true)]
         public Input<Inputs.AnalysisDataPathValueArgs> Element { get; set; } = null!;
 
+        /// <summary>
+        /// The time granularity of the field that the color needs to be applied to.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity>? TimeGranularity { get; set; }
 

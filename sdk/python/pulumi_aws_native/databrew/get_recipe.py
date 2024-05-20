@@ -38,6 +38,9 @@ class GetRecipeResult:
     @property
     @pulumi.getter
     def steps(self) -> Optional[Sequence['outputs.RecipeStep']]:
+        """
+        A list of steps that are defined by the recipe.
+        """
         return pulumi.get(self, "steps")
 
 

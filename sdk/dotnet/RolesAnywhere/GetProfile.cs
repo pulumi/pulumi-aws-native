@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class GetProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique primary identifier of the Profile
+        /// </summary>
         [Input("profileId", required: true)]
         public string ProfileId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class GetProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique primary identifier of the Profile
+        /// </summary>
         [Input("profileId", required: true)]
         public Input<string> ProfileId { get; set; } = null!;
 
@@ -51,15 +57,45 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [OutputType]
     public sealed class GetProfileResult
     {
+        /// <summary>
+        /// The number of seconds vended session credentials will be valid for
+        /// </summary>
         public readonly double? DurationSeconds;
+        /// <summary>
+        /// The enabled status of the resource.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        /// </summary>
         public readonly ImmutableArray<string> ManagedPolicyArns;
+        /// <summary>
+        /// The customer specified name of the resource.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The ARN of the profile.
+        /// </summary>
         public readonly string? ProfileArn;
+        /// <summary>
+        /// The unique primary identifier of the Profile
+        /// </summary>
         public readonly string? ProfileId;
+        /// <summary>
+        /// Specifies whether instance properties are required in CreateSession requests with this profile.
+        /// </summary>
         public readonly bool? RequireInstanceProperties;
+        /// <summary>
+        /// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        /// </summary>
         public readonly ImmutableArray<string> RoleArns;
+        /// <summary>
+        /// A session policy that will applied to the trust boundary of the vended session credentials.
+        /// </summary>
         public readonly string? SessionPolicy;
+        /// <summary>
+        /// A list of Tags.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

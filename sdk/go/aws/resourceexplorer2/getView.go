@@ -23,14 +23,27 @@ func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.Invoke
 }
 
 type LookupViewArgs struct {
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 	ViewArn string `pulumi:"viewArn"`
 }
 
 type LookupViewResult struct {
-	Filters            *ViewSearchFilter      `pulumi:"filters"`
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+	Filters *ViewSearchFilter `pulumi:"filters"`
+	// A list of fields that provide additional information about the view.
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
-	Tags               map[string]string      `pulumi:"tags"`
-	ViewArn            *string                `pulumi:"viewArn"`
+	// Tag key and value pairs that are attached to the view.
+	Tags map[string]string `pulumi:"tags"`
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+	ViewArn *string `pulumi:"viewArn"`
 }
 
 func LookupViewOutput(ctx *pulumi.Context, args LookupViewOutputArgs, opts ...pulumi.InvokeOption) LookupViewResultOutput {
@@ -47,6 +60,9 @@ func LookupViewOutput(ctx *pulumi.Context, args LookupViewOutputArgs, opts ...pu
 }
 
 type LookupViewOutputArgs struct {
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 	ViewArn pulumi.StringInput `pulumi:"viewArn"`
 }
 
@@ -68,18 +84,28 @@ func (o LookupViewResultOutput) ToLookupViewResultOutputWithContext(ctx context.
 	return o
 }
 
+// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+//
+// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+//
+// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 func (o LookupViewResultOutput) Filters() ViewSearchFilterPtrOutput {
 	return o.ApplyT(func(v LookupViewResult) *ViewSearchFilter { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
+// A list of fields that provide additional information about the view.
 func (o LookupViewResultOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 	return o.ApplyT(func(v LookupViewResult) []ViewIncludedProperty { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
 }
 
+// Tag key and value pairs that are attached to the view.
 func (o LookupViewResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupViewResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the new view. For example:
+//
+// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 func (o LookupViewResultOutput) ViewArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupViewResult) *string { return v.ViewArn }).(pulumi.StringPtrOutput)
 }

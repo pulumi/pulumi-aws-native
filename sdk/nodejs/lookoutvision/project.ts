@@ -34,7 +34,13 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name of the project.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the project.
+     */
     public readonly projectName!: pulumi.Output<string>;
 
     /**
@@ -65,5 +71,8 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
+    /**
+     * The name of the project.
+     */
     projectName?: pulumi.Input<string>;
 }

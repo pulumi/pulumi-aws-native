@@ -16,18 +16,30 @@ import (
 type VariantStore struct {
 	pulumi.CustomResourceState
 
-	AwsId          pulumi.StringOutput             `pulumi:"awsId"`
-	CreationTime   pulumi.StringOutput             `pulumi:"creationTime"`
-	Description    pulumi.StringPtrOutput          `pulumi:"description"`
-	Name           pulumi.StringOutput             `pulumi:"name"`
-	Reference      VariantStoreReferenceItemOutput `pulumi:"reference"`
-	SseConfig      VariantStoreSseConfigPtrOutput  `pulumi:"sseConfig"`
-	Status         VariantStoreStoreStatusOutput   `pulumi:"status"`
-	StatusMessage  pulumi.StringOutput             `pulumi:"statusMessage"`
-	StoreArn       pulumi.StringOutput             `pulumi:"storeArn"`
-	StoreSizeBytes pulumi.Float64Output            `pulumi:"storeSizeBytes"`
-	Tags           pulumi.StringMapOutput          `pulumi:"tags"`
-	UpdateTime     pulumi.StringOutput             `pulumi:"updateTime"`
+	// The store's ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// When the store was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// A description for the store.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A name for the store.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The genome reference for the store's variants.
+	Reference VariantStoreReferenceItemOutput `pulumi:"reference"`
+	// Server-side encryption (SSE) settings for the store.
+	SseConfig VariantStoreSseConfigPtrOutput `pulumi:"sseConfig"`
+	// The store's status.
+	Status VariantStoreStoreStatusOutput `pulumi:"status"`
+	// The store's status message.
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// The store's ARN.
+	StoreArn pulumi.StringOutput `pulumi:"storeArn"`
+	// The store's size in bytes.
+	StoreSizeBytes pulumi.Float64Output `pulumi:"storeSizeBytes"`
+	// Tags for the store.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// When the store was updated.
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewVariantStore registers a new resource with the given unique name, arguments, and options.
@@ -80,20 +92,30 @@ func (VariantStoreState) ElementType() reflect.Type {
 }
 
 type variantStoreArgs struct {
-	Description *string                   `pulumi:"description"`
-	Name        *string                   `pulumi:"name"`
-	Reference   VariantStoreReferenceItem `pulumi:"reference"`
-	SseConfig   *VariantStoreSseConfig    `pulumi:"sseConfig"`
-	Tags        map[string]string         `pulumi:"tags"`
+	// A description for the store.
+	Description *string `pulumi:"description"`
+	// A name for the store.
+	Name *string `pulumi:"name"`
+	// The genome reference for the store's variants.
+	Reference VariantStoreReferenceItem `pulumi:"reference"`
+	// Server-side encryption (SSE) settings for the store.
+	SseConfig *VariantStoreSseConfig `pulumi:"sseConfig"`
+	// Tags for the store.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VariantStore resource.
 type VariantStoreArgs struct {
+	// A description for the store.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Reference   VariantStoreReferenceItemInput
-	SseConfig   VariantStoreSseConfigPtrInput
-	Tags        pulumi.StringMapInput
+	// A name for the store.
+	Name pulumi.StringPtrInput
+	// The genome reference for the store's variants.
+	Reference VariantStoreReferenceItemInput
+	// Server-side encryption (SSE) settings for the store.
+	SseConfig VariantStoreSseConfigPtrInput
+	// Tags for the store.
+	Tags pulumi.StringMapInput
 }
 
 func (VariantStoreArgs) ElementType() reflect.Type {
@@ -133,50 +155,62 @@ func (o VariantStoreOutput) ToVariantStoreOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The store's ID.
 func (o VariantStoreOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// When the store was created.
 func (o VariantStoreOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// A description for the store.
 func (o VariantStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the store.
 func (o VariantStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The genome reference for the store's variants.
 func (o VariantStoreOutput) Reference() VariantStoreReferenceItemOutput {
 	return o.ApplyT(func(v *VariantStore) VariantStoreReferenceItemOutput { return v.Reference }).(VariantStoreReferenceItemOutput)
 }
 
+// Server-side encryption (SSE) settings for the store.
 func (o VariantStoreOutput) SseConfig() VariantStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *VariantStore) VariantStoreSseConfigPtrOutput { return v.SseConfig }).(VariantStoreSseConfigPtrOutput)
 }
 
+// The store's status.
 func (o VariantStoreOutput) Status() VariantStoreStoreStatusOutput {
 	return o.ApplyT(func(v *VariantStore) VariantStoreStoreStatusOutput { return v.Status }).(VariantStoreStoreStatusOutput)
 }
 
+// The store's status message.
 func (o VariantStoreOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// The store's ARN.
 func (o VariantStoreOutput) StoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.StoreArn }).(pulumi.StringOutput)
 }
 
+// The store's size in bytes.
 func (o VariantStoreOutput) StoreSizeBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v *VariantStore) pulumi.Float64Output { return v.StoreSizeBytes }).(pulumi.Float64Output)
 }
 
+// Tags for the store.
 func (o VariantStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// When the store was updated.
 func (o VariantStoreOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

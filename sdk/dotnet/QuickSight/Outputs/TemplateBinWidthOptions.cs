@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBinWidthOptions
     {
+        /// <summary>
+        /// The options that determine the bin count limit.
+        /// </summary>
         public readonly double? BinCountLimit;
+        /// <summary>
+        /// The options that determine the bin width value.
+        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
 
     public sealed class InAppTemplateOverrideButtonConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+        /// 
+        /// - `LINK` – A link to a web destination.
+        /// - `DEEP_LINK` – A link to a specific page in an application.
+        /// - `CLOSE` – Dismisses the message.
+        /// </summary>
         [Input("buttonAction")]
         public Input<Pulumi.AwsNative.Pinpoint.InAppTemplateButtonAction>? ButtonAction { get; set; }
 
+        /// <summary>
+        /// The destination (such as a URL) for a button.
+        /// </summary>
         [Input("link")]
         public Input<string>? Link { get; set; }
 

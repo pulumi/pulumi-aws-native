@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         [Input("threshold", required: true)]
         public Input<int> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleRuleType> Type { get; set; } = null!;
 

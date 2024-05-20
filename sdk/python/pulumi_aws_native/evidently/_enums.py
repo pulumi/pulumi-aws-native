@@ -11,10 +11,18 @@ __all__ = [
 
 
 class ExperimentMetricGoalObjectDesiredChange(str, Enum):
+    """
+    `INCREASE` means that a variation with a higher number for this metric is performing better.
+
+    `DECREASE` means that a variation with a lower number for this metric is performing better.
+    """
     INCREASE = "INCREASE"
     DECREASE = "DECREASE"
 
 
 class FeatureEvaluationStrategy(str, Enum):
+    """
+    Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+    """
     ALL_RULES = "ALL_RULES"
     DEFAULT_VARIATION = "DEFAULT_VARIATION"

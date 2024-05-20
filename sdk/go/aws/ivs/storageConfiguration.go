@@ -20,8 +20,9 @@ type StorageConfiguration struct {
 	// Storage Configuration ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Storage Configuration Name.
-	Name pulumi.StringPtrOutput                           `pulumi:"name"`
-	S3   StorageConfigurationS3StorageConfigurationOutput `pulumi:"s3"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
+	S3 StorageConfigurationS3StorageConfigurationOutput `pulumi:"s3"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -75,8 +76,9 @@ func (StorageConfigurationState) ElementType() reflect.Type {
 
 type storageConfigurationArgs struct {
 	// Storage Configuration Name.
-	Name *string                                    `pulumi:"name"`
-	S3   StorageConfigurationS3StorageConfiguration `pulumi:"s3"`
+	Name *string `pulumi:"name"`
+	// An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
+	S3 StorageConfigurationS3StorageConfiguration `pulumi:"s3"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -85,7 +87,8 @@ type storageConfigurationArgs struct {
 type StorageConfigurationArgs struct {
 	// Storage Configuration Name.
 	Name pulumi.StringPtrInput
-	S3   StorageConfigurationS3StorageConfigurationInput
+	// An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
+	S3 StorageConfigurationS3StorageConfigurationInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayInput
 }
@@ -137,6 +140,7 @@ func (o StorageConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
 func (o StorageConfigurationOutput) S3() StorageConfigurationS3StorageConfigurationOutput {
 	return o.ApplyT(func(v *StorageConfiguration) StorageConfigurationS3StorageConfigurationOutput { return v.S3 }).(StorageConfigurationS3StorageConfigurationOutput)
 }

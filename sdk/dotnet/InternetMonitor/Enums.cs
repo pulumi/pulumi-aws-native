@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.InternetMonitor
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
+    /// </summary>
     [EnumType]
     public readonly struct MonitorLocalHealthEventsConfigStatus : IEquatable<MonitorLocalHealthEventsConfigStatus>
     {
@@ -97,6 +100,9 @@ namespace Pulumi.AwsNative.InternetMonitor
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
+    /// </summary>
     [EnumType]
     public readonly struct MonitorS3ConfigLogDeliveryStatus : IEquatable<MonitorS3ConfigLogDeliveryStatus>
     {

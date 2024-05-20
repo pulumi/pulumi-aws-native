@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorKafkaClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Apache Kafka cluster to which the connector is connected.
+        /// </summary>
         [Input("apacheKafkaCluster", required: true)]
         public Input<Inputs.ConnectorApacheKafkaClusterArgs> ApacheKafkaCluster { get; set; } = null!;
 

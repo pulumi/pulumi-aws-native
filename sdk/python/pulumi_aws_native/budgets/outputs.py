@@ -25,17 +25,27 @@ class BudgetsActionActionThreshold(dict):
     def __init__(__self__, *,
                  type: 'BudgetsActionActionThresholdType',
                  value: float):
+        """
+        :param 'BudgetsActionActionThresholdType' type: The type of threshold for a notification.
+        :param float value: The threshold of a notification.
+        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def type(self) -> 'BudgetsActionActionThresholdType':
+        """
+        The type of threshold for a notification.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> float:
+        """
+        The threshold of a notification.
+        """
         return pulumi.get(self, "value")
 
 
@@ -66,6 +76,11 @@ class BudgetsActionDefinition(dict):
                  iam_action_definition: Optional['outputs.BudgetsActionIamActionDefinition'] = None,
                  scp_action_definition: Optional['outputs.BudgetsActionScpActionDefinition'] = None,
                  ssm_action_definition: Optional['outputs.BudgetsActionSsmActionDefinition'] = None):
+        """
+        :param 'BudgetsActionIamActionDefinition' iam_action_definition: The AWS Identity and Access Management ( IAM ) action definition details.
+        :param 'BudgetsActionScpActionDefinition' scp_action_definition: The service control policies (SCP) action definition details.
+        :param 'BudgetsActionSsmActionDefinition' ssm_action_definition: The Amazon EC2 Systems Manager ( SSM ) action definition details.
+        """
         if iam_action_definition is not None:
             pulumi.set(__self__, "iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
@@ -76,16 +91,25 @@ class BudgetsActionDefinition(dict):
     @property
     @pulumi.getter(name="iamActionDefinition")
     def iam_action_definition(self) -> Optional['outputs.BudgetsActionIamActionDefinition']:
+        """
+        The AWS Identity and Access Management ( IAM ) action definition details.
+        """
         return pulumi.get(self, "iam_action_definition")
 
     @property
     @pulumi.getter(name="scpActionDefinition")
     def scp_action_definition(self) -> Optional['outputs.BudgetsActionScpActionDefinition']:
+        """
+        The service control policies (SCP) action definition details.
+        """
         return pulumi.get(self, "scp_action_definition")
 
     @property
     @pulumi.getter(name="ssmActionDefinition")
     def ssm_action_definition(self) -> Optional['outputs.BudgetsActionSsmActionDefinition']:
+        """
+        The Amazon EC2 Systems Manager ( SSM ) action definition details.
+        """
         return pulumi.get(self, "ssm_action_definition")
 
 
@@ -113,6 +137,12 @@ class BudgetsActionIamActionDefinition(dict):
                  groups: Optional[Sequence[str]] = None,
                  roles: Optional[Sequence[str]] = None,
                  users: Optional[Sequence[str]] = None):
+        """
+        :param str policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
+        :param Sequence[str] groups: A list of groups to be attached. There must be at least one group.
+        :param Sequence[str] roles: A list of roles to be attached. There must be at least one role.
+        :param Sequence[str] users: A list of users to be attached. There must be at least one user.
+        """
         pulumi.set(__self__, "policy_arn", policy_arn)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -124,21 +154,33 @@ class BudgetsActionIamActionDefinition(dict):
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the policy to be attached.
+        """
         return pulumi.get(self, "policy_arn")
 
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of groups to be attached. There must be at least one group.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def roles(self) -> Optional[Sequence[str]]:
+        """
+        A list of roles to be attached. There must be at least one role.
+        """
         return pulumi.get(self, "roles")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
+        """
+        A list of users to be attached. There must be at least one user.
+        """
         return pulumi.get(self, "users")
 
 
@@ -166,17 +208,27 @@ class BudgetsActionScpActionDefinition(dict):
     def __init__(__self__, *,
                  policy_id: str,
                  target_ids: Sequence[str]):
+        """
+        :param str policy_id: The policy ID attached.
+        :param Sequence[str] target_ids: A list of target IDs.
+        """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "target_ids", target_ids)
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> str:
+        """
+        The policy ID attached.
+        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="targetIds")
     def target_ids(self) -> Sequence[str]:
+        """
+        A list of target IDs.
+        """
         return pulumi.get(self, "target_ids")
 
 
@@ -203,6 +255,11 @@ class BudgetsActionSsmActionDefinition(dict):
                  instance_ids: Sequence[str],
                  region: str,
                  subtype: 'BudgetsActionSsmActionDefinitionSubtype'):
+        """
+        :param Sequence[str] instance_ids: The EC2 and RDS instance IDs.
+        :param str region: The Region to run the ( SSM ) document.
+        :param 'BudgetsActionSsmActionDefinitionSubtype' subtype: The action subType.
+        """
         pulumi.set(__self__, "instance_ids", instance_ids)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "subtype", subtype)
@@ -210,16 +267,25 @@ class BudgetsActionSsmActionDefinition(dict):
     @property
     @pulumi.getter(name="instanceIds")
     def instance_ids(self) -> Sequence[str]:
+        """
+        The EC2 and RDS instance IDs.
+        """
         return pulumi.get(self, "instance_ids")
 
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        The Region to run the ( SSM ) document.
+        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def subtype(self) -> 'BudgetsActionSsmActionDefinitionSubtype':
+        """
+        The action subType.
+        """
         return pulumi.get(self, "subtype")
 
 
@@ -228,17 +294,31 @@ class BudgetsActionSubscriber(dict):
     def __init__(__self__, *,
                  address: str,
                  type: 'BudgetsActionSubscriberType'):
+        """
+        :param str address: The address that AWS sends budget notifications to, either an SNS topic or an email.
+               
+               When you create a subscriber, the value of `Address` can't contain line breaks.
+        :param 'BudgetsActionSubscriberType' type: The type of notification that AWS sends to a subscriber.
+        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def address(self) -> str:
+        """
+        The address that AWS sends budget notifications to, either an SNS topic or an email.
+
+        When you create a subscriber, the value of `Address` can't contain line breaks.
+        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter
     def type(self) -> 'BudgetsActionSubscriberType':
+        """
+        The type of notification that AWS sends to a subscriber.
+        """
         return pulumi.get(self, "type")
 
 

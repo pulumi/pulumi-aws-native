@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileSapoDataConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The location of the SAPOData resource.
+        /// </summary>
         [Input("applicationHostUrl")]
         public Input<string>? ApplicationHostUrl { get; set; }
 
+        /// <summary>
+        /// The application path to catalog service.
+        /// </summary>
         [Input("applicationServicePath")]
         public Input<string>? ApplicationServicePath { get; set; }
 
+        /// <summary>
+        /// The client number for the client creating the connection.
+        /// </summary>
         [Input("clientNumber")]
         public Input<string>? ClientNumber { get; set; }
 
@@ -27,15 +36,27 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("disableSso")]
         public Input<bool>? DisableSso { get; set; }
 
+        /// <summary>
+        /// The logon language of SAPOData instance.
+        /// </summary>
         [Input("logonLanguage")]
         public Input<string>? LogonLanguage { get; set; }
 
+        /// <summary>
+        /// The SAPOData OAuth properties required for OAuth type authentication.
+        /// </summary>
         [Input("oAuthProperties")]
         public Input<Inputs.ConnectorProfileOAuthPropertiesArgs>? OAuthProperties { get; set; }
 
+        /// <summary>
+        /// The port number of the SAPOData instance.
+        /// </summary>
         [Input("portNumber")]
         public Input<int>? PortNumber { get; set; }
 
+        /// <summary>
+        /// The SAPOData Private Link service name to be used for private data transfers.
+        /// </summary>
         [Input("privateLinkServiceName")]
         public Input<string>? PrivateLinkServiceName { get; set; }
 

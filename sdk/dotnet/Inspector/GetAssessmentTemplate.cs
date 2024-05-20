@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Inspector
     [OutputType]
     public sealed class GetAssessmentTemplateResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

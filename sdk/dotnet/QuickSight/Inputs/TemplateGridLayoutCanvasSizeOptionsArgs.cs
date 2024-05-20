@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGridLayoutCanvasSizeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the sizing of the canvas used in a grid layout.
+        /// </summary>
         [Input("screenCanvasSizeOptions")]
         public Input<Inputs.TemplateGridLayoutScreenCanvasSizeOptionsArgs>? ScreenCanvasSizeOptions { get; set; }
 

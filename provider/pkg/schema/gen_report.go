@@ -16,12 +16,20 @@ type Reports struct {
 	UnexpectedTagsShapes map[string]interface{}
 	// MissedAutonaming is a map of the resource token of resources we haven't identified as autonameable.
 	MissedAutonaming map[string]interface{}
+	// MissingDocs is a map of the resource type (i.e. AWS::Lambda::Function) with a map of properties
+	// that are missing documentation
+	MissingDocs map[string]map[string]string
+	// DocsUpdated is a count of the number of property descriptions that have been augmented
+	// with the CloudFormation documentation
+	DocsUpdated int
 }
 
 func NewReports() *Reports {
 	return &Reports{
 		UnexpectedTagsShapes: make(map[string]interface{}),
 		MissedAutonaming:     make(map[string]interface{}),
+		MissingDocs:          make(map[string]map[string]string),
+		DocsUpdated:          0,
 	}
 }
 

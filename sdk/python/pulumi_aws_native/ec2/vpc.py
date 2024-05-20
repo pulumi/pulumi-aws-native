@@ -286,16 +286,25 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlockAssociations")
     def cidr_block_associations(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
+        """
         return pulumi.get(self, "cidr_block_associations")
 
     @property
     @pulumi.getter(name="defaultNetworkAcl")
     def default_network_acl(self) -> pulumi.Output[str]:
+        """
+        The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+        """
         return pulumi.get(self, "default_network_acl")
 
     @property
     @pulumi.getter(name="defaultSecurityGroup")
     def default_security_group(self) -> pulumi.Output[str]:
+        """
+        The ID of the default security group for the VPC. For example, sg-b178e0d3.
+        """
         return pulumi.get(self, "default_security_group")
 
     @property
@@ -347,6 +356,9 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @property
@@ -360,5 +372,8 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

@@ -28,29 +28,46 @@ type LookupAssociationArgs struct {
 }
 
 type LookupAssociationResult struct {
+	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
 	// Unique identifier of the association.
 	AssociationId *string `pulumi:"associationId"`
 	// The name of the association.
-	AssociationName               *string                        `pulumi:"associationName"`
-	AutomationTargetParameterName *string                        `pulumi:"automationTargetParameterName"`
-	CalendarNames                 []string                       `pulumi:"calendarNames"`
-	ComplianceSeverity            *AssociationComplianceSeverity `pulumi:"complianceSeverity"`
+	AssociationName *string `pulumi:"associationName"`
+	// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
+	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+	CalendarNames []string `pulumi:"calendarNames"`
+	// The severity level that is assigned to the association.
+	ComplianceSeverity *AssociationComplianceSeverity `pulumi:"complianceSeverity"`
 	// The version of the SSM document to associate with the target.
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The ID of the instance that the SSM document is associated with.
-	InstanceId     *string `pulumi:"instanceId"`
+	InstanceId *string `pulumi:"instanceId"`
+	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+	//
+	// If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	MaxErrors      *string `pulumi:"maxErrors"`
+	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+	//
+	// Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+	MaxErrors *string `pulumi:"maxErrors"`
 	// The name of the SSM document.
-	Name           *string                                       `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
 	Parameters map[string][]string `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
-	ScheduleExpression *string                    `pulumi:"scheduleExpression"`
-	ScheduleOffset     *int                       `pulumi:"scheduleOffset"`
-	SyncCompliance     *AssociationSyncCompliance `pulumi:"syncCompliance"`
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// Number of days to wait after the scheduled day to run an association.
+	ScheduleOffset *int `pulumi:"scheduleOffset"`
+	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+	//
+	// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+	//
+	// By default, all associations use `AUTO` mode.
+	SyncCompliance *AssociationSyncCompliance `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
 	Targets []AssociationTarget `pulumi:"targets"`
 }
@@ -91,6 +108,7 @@ func (o LookupAssociationResultOutput) ToLookupAssociationResultOutputWithContex
 	return o
 }
 
+// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
 func (o LookupAssociationResultOutput) ApplyOnlyAtCronInterval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *bool { return v.ApplyOnlyAtCronInterval }).(pulumi.BoolPtrOutput)
 }
@@ -105,14 +123,17 @@ func (o LookupAssociationResultOutput) AssociationName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.AssociationName }).(pulumi.StringPtrOutput)
 }
 
+// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
 func (o LookupAssociationResultOutput) AutomationTargetParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.AutomationTargetParameterName }).(pulumi.StringPtrOutput)
 }
 
+// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
 func (o LookupAssociationResultOutput) CalendarNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAssociationResult) []string { return v.CalendarNames }).(pulumi.StringArrayOutput)
 }
 
+// The severity level that is assigned to the association.
 func (o LookupAssociationResultOutput) ComplianceSeverity() AssociationComplianceSeverityPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *AssociationComplianceSeverity { return v.ComplianceSeverity }).(AssociationComplianceSeverityPtrOutput)
 }
@@ -127,10 +148,16 @@ func (o LookupAssociationResultOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+//
+// If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
 func (o LookupAssociationResultOutput) MaxConcurrency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.MaxConcurrency }).(pulumi.StringPtrOutput)
 }
 
+// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+//
+// Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
 func (o LookupAssociationResultOutput) MaxErrors() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.MaxErrors }).(pulumi.StringPtrOutput)
 }
@@ -140,6 +167,7 @@ func (o LookupAssociationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 func (o LookupAssociationResultOutput) OutputLocation() AssociationInstanceAssociationOutputLocationPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *AssociationInstanceAssociationOutputLocation { return v.OutputLocation }).(AssociationInstanceAssociationOutputLocationPtrOutput)
 }
@@ -154,10 +182,16 @@ func (o LookupAssociationResultOutput) ScheduleExpression() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupAssociationResult) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
+// Number of days to wait after the scheduled day to run an association.
 func (o LookupAssociationResultOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *int { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
+// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+//
+// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+//
+// By default, all associations use `AUTO` mode.
 func (o LookupAssociationResultOutput) SyncCompliance() AssociationSyncCompliancePtrOutput {
 	return o.ApplyT(func(v LookupAssociationResult) *AssociationSyncCompliance { return v.SyncCompliance }).(AssociationSyncCompliancePtrOutput)
 }

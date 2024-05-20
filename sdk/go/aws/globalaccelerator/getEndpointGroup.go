@@ -33,13 +33,15 @@ type LookupEndpointGroupResult struct {
 	// The Amazon Resource Name (ARN) of the endpoint group
 	EndpointGroupArn *string `pulumi:"endpointGroupArn"`
 	// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
-	HealthCheckIntervalSeconds *int    `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckPath            *string `pulumi:"healthCheckPath"`
+	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
+	// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckProtocol *EndpointGroupHealthCheckProtocol `pulumi:"healthCheckProtocol"`
-	PortOverrides       []EndpointGroupPortOverride       `pulumi:"portOverrides"`
+	// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
 	ThresholdCount *int `pulumi:"thresholdCount"`
 	// The percentage of traffic to sent to an AWS Region
@@ -99,6 +101,7 @@ func (o LookupEndpointGroupResultOutput) HealthCheckIntervalSeconds() pulumi.Int
 	return o.ApplyT(func(v LookupEndpointGroupResult) *int { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
 func (o LookupEndpointGroupResultOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointGroupResult) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
@@ -113,6 +116,7 @@ func (o LookupEndpointGroupResultOutput) HealthCheckProtocol() EndpointGroupHeal
 	return o.ApplyT(func(v LookupEndpointGroupResult) *EndpointGroupHealthCheckProtocol { return v.HealthCheckProtocol }).(EndpointGroupHealthCheckProtocolPtrOutput)
 }
 
+// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 func (o LookupEndpointGroupResultOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
 	return o.ApplyT(func(v LookupEndpointGroupResult) []EndpointGroupPortOverride { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
 }

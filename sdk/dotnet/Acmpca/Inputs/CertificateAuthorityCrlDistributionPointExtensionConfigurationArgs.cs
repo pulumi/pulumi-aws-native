@@ -15,6 +15,13 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+        /// 
+        /// &gt; Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+        /// &gt; 
+        /// &gt; This configuration cannot be enabled with a custom CNAME set.
+        /// </summary>
         [Input("omitExtension", required: true)]
         public Input<bool> OmitExtension { get; set; } = null!;
 

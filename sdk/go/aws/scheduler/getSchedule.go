@@ -23,6 +23,7 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 }
 
 type LookupScheduleArgs struct {
+	// The name of the schedule.
 	Name string `pulumi:"name"`
 }
 
@@ -32,7 +33,8 @@ type LookupScheduleResult struct {
 	// The description of the schedule.
 	Description *string `pulumi:"description"`
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
-	EndDate            *string                     `pulumi:"endDate"`
+	EndDate *string `pulumi:"endDate"`
+	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 	FlexibleTimeWindow *ScheduleFlexibleTimeWindow `pulumi:"flexibleTimeWindow"`
 	// The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
 	GroupName *string `pulumi:"groupName"`
@@ -43,9 +45,13 @@ type LookupScheduleResult struct {
 	// The timezone in which the scheduling expression is evaluated.
 	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
 	// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
-	StartDate *string            `pulumi:"startDate"`
-	State     *ScheduleStateEnum `pulumi:"state"`
-	Target    *ScheduleTarget    `pulumi:"target"`
+	StartDate *string `pulumi:"startDate"`
+	// Specifies whether the schedule is enabled or disabled.
+	//
+	// *Allowed Values* : `ENABLED` | `DISABLED`
+	State *ScheduleStateEnum `pulumi:"state"`
+	// The schedule's target details.
+	Target *ScheduleTarget `pulumi:"target"`
 }
 
 func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleResultOutput {
@@ -62,6 +68,7 @@ func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, op
 }
 
 type LookupScheduleOutputArgs struct {
+	// The name of the schedule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -98,6 +105,7 @@ func (o LookupScheduleResultOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScheduleResult) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
+// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 func (o LookupScheduleResultOutput) FlexibleTimeWindow() ScheduleFlexibleTimeWindowPtrOutput {
 	return o.ApplyT(func(v LookupScheduleResult) *ScheduleFlexibleTimeWindow { return v.FlexibleTimeWindow }).(ScheduleFlexibleTimeWindowPtrOutput)
 }
@@ -127,10 +135,14 @@ func (o LookupScheduleResultOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScheduleResult) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the schedule is enabled or disabled.
+//
+// *Allowed Values* : `ENABLED` | `DISABLED`
 func (o LookupScheduleResultOutput) State() ScheduleStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupScheduleResult) *ScheduleStateEnum { return v.State }).(ScheduleStateEnumPtrOutput)
 }
 
+// The schedule's target details.
 func (o LookupScheduleResultOutput) Target() ScheduleTargetPtrOutput {
 	return o.ApplyT(func(v LookupScheduleResult) *ScheduleTarget { return v.Target }).(ScheduleTargetPtrOutput)
 }

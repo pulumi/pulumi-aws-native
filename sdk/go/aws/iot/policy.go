@@ -17,12 +17,17 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Arn   pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of this policy.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The JSON document that describes the policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
-	PolicyDocument pulumi.AnyOutput       `pulumi:"policyDocument"`
-	PolicyName     pulumi.StringPtrOutput `pulumi:"policyName"`
-	Tags           aws.TagArrayOutput     `pulumi:"tags"`
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
+	// The policy name.
+	PolicyName pulumi.StringPtrOutput `pulumi:"policyName"`
+	Tags       aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +77,24 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
+	// The JSON document that describes the policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     *string     `pulumi:"policyName"`
-	Tags           []aws.Tag   `pulumi:"tags"`
+	// The policy name.
+	PolicyName *string   `pulumi:"policyName"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// The JSON document that describes the policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
-	PolicyName     pulumi.StringPtrInput
-	Tags           aws.TagArrayInput
+	// The policy name.
+	PolicyName pulumi.StringPtrInput
+	Tags       aws.TagArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -123,19 +134,24 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS IoT policy, such as `arn:aws:iot:us-east-2:123456789012:policy/MyPolicy` .
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of this policy.
 func (o PolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The JSON document that describes the policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 func (o PolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The policy name.
 func (o PolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyName }).(pulumi.StringPtrOutput)
 }

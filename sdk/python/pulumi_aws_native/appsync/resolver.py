@@ -618,6 +618,9 @@ class Resolver(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resolverArn")
     def resolver_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+        """
         return pulumi.get(self, "resolver_arn")
 
     @property

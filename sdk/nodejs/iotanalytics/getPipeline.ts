@@ -19,12 +19,27 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetPipelineArgs {
+    /**
+     * The name of the pipeline.
+     */
     pipelineName: string;
 }
 
 export interface GetPipelineResult {
     readonly id?: string;
+    /**
+     * A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+     *
+     * The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+     *
+     * `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
+     */
     readonly pipelineActivities?: outputs.iotanalytics.PipelineActivity[];
+    /**
+     * Metadata which can be used to manage the pipeline.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -35,5 +50,8 @@ export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetPipelineOutputArgs {
+    /**
+     * The name of the pipeline.
+     */
     pipelineName: pulumi.Input<string>;
 }

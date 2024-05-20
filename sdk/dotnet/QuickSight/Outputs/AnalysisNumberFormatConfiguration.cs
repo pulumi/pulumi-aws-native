@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisNumberFormatConfiguration
     {
+        /// <summary>
+        /// The options that determine the numeric format configuration.
+        /// </summary>
         public readonly Outputs.AnalysisNumericFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

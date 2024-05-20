@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
     public sealed class JobColumnSelectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of a column from a dataset.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A regular expression for selecting a column from a dataset.
+        /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }
 

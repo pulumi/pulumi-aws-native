@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDataSetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("dataSetId", required: true)]
         public string DataSetId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetDataSetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
@@ -80,17 +92,29 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The refresh properties of a dataset.
+        /// </summary>
         public readonly Outputs.DataSetRefreshProperties? DataSetRefreshProperties;
+        /// <summary>
+        /// The usage configuration to apply to child datasets that reference this dataset as a source.
+        /// </summary>
         public readonly Outputs.DataSetUsageConfiguration? DataSetUsageConfiguration;
         /// <summary>
         /// &lt;p&gt;The parameter declarations of the dataset.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetDatasetParameter> DatasetParameters;
+        /// <summary>
+        /// Indicates whether you want to import the data into SPICE.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetImportMode? ImportMode;
         /// <summary>
         /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// Configures the combination and transformation of the data from the physical tables.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetLogicalTable>? LogicalTableMap;
         /// <summary>
         /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
@@ -105,8 +129,17 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetResourcePermission> Permissions;
+        /// <summary>
+        /// Declares the physical tables that are available in the underlying data sources.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetPhysicalTable>? PhysicalTableMap;
+        /// <summary>
+        /// The row-level security configuration for the data that you want to create.
+        /// </summary>
         public readonly Outputs.DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet;
+        /// <summary>
+        /// The element you can use to define tags for row-level security.
+        /// </summary>
         public readonly Outputs.DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration;
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;

@@ -27,9 +27,19 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetSecurityKeyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// An `AssociationId` is automatically generated when a storage config is associated with an instance.
+        /// </summary>
         [Input("associationId", required: true)]
         public string AssociationId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
@@ -41,9 +51,19 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetSecurityKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// An `AssociationId` is automatically generated when a storage config is associated with an instance.
+        /// </summary>
         [Input("associationId", required: true)]
         public Input<string> AssociationId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
@@ -57,6 +77,9 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetSecurityKeyResult
     {
+        /// <summary>
+        /// An `AssociationId` is automatically generated when a storage config is associated with an instance.
+        /// </summary>
         public readonly string? AssociationId;
 
         [OutputConstructor]

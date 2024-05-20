@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateRadarChartAreaStyleSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility settings of a radar chart.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
 

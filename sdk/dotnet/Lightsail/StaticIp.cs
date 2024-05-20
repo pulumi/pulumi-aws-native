@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("isAttached")]
         public Output<bool> IsAttached { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the static IP (for example, `arn:aws:lightsail:us-east-2:123456789101:StaticIp/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        /// </summary>
         [Output("staticIpArn")]
         public Output<string> StaticIpArn { get; private set; } = null!;
 

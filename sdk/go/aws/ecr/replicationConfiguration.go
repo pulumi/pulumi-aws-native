@@ -59,7 +59,8 @@ type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The RegistryId associated with the aws account.
-	RegistryId               pulumi.StringOutput                `pulumi:"registryId"`
+	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	// The replication configuration for a registry.
 	ReplicationConfiguration ReplicationConfigurationTypeOutput `pulumi:"replicationConfiguration"`
 }
 
@@ -106,11 +107,13 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 }
 
 type replicationConfigurationArgs struct {
+	// The replication configuration for a registry.
 	ReplicationConfiguration ReplicationConfigurationType `pulumi:"replicationConfiguration"`
 }
 
 // The set of arguments for constructing a ReplicationConfiguration resource.
 type ReplicationConfigurationArgs struct {
+	// The replication configuration for a registry.
 	ReplicationConfiguration ReplicationConfigurationTypeInput
 }
 
@@ -156,6 +159,7 @@ func (o ReplicationConfigurationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
+// The replication configuration for a registry.
 func (o ReplicationConfigurationOutput) ReplicationConfiguration() ReplicationConfigurationTypeOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) ReplicationConfigurationTypeOutput {
 		return v.ReplicationConfiguration

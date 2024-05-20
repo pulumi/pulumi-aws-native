@@ -46,6 +46,9 @@ export interface GetChannelResult {
      * <p>The date and time the channel was modified.</p>
      */
     readonly modifiedAt?: string;
+    /**
+     * The tags associated with the channel.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

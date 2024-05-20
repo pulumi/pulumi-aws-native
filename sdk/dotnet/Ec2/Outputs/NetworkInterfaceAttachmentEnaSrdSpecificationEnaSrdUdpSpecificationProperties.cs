@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Configures ENA Express for UDP network traffic.
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties
     {

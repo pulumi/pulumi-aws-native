@@ -13,12 +13,30 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGeospatialMapConfiguration
     {
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.TemplateGeospatialMapFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The map style options of the geospatial map.
+        /// </summary>
         public readonly Outputs.TemplateGeospatialMapStyleOptions? MapStyleOptions;
+        /// <summary>
+        /// The point style options of the geospatial map.
+        /// </summary>
         public readonly Outputs.TemplateGeospatialPointStyleOptions? PointStyleOptions;
+        /// <summary>
+        /// The tooltip display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
+        /// <summary>
+        /// The window options of the geospatial map.
+        /// </summary>
         public readonly Outputs.TemplateGeospatialWindowOptions? WindowOptions;
 
         [OutputConstructor]

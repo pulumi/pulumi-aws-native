@@ -84,6 +84,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Amazon ECS service, such as `sample-webapp` .
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -136,6 +139,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("schedulingStrategy")]
         public Output<Pulumi.AwsNative.Ecs.ServiceSchedulingStrategy?> SchedulingStrategy { get; private set; } = null!;
 
+        /// <summary>
+        /// Not currently supported in AWS CloudFormation .
+        /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 

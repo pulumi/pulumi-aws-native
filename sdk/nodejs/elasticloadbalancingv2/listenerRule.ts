@@ -48,6 +48,9 @@ export class ListenerRule extends pulumi.CustomResource {
      *  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
      */
     public readonly conditions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[]>;
+    /**
+     * Indicates whether this is the default rule.
+     */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
@@ -58,6 +61,9 @@ export class ListenerRule extends pulumi.CustomResource {
      *  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
      */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
 
     /**

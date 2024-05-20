@@ -30,8 +30,9 @@ type LookupFleetMetricArgs struct {
 
 type LookupFleetMetricResult struct {
 	// The aggregation field to perform aggregation and metric emission
-	AggregationField *string                     `pulumi:"aggregationField"`
-	AggregationType  *FleetMetricAggregationType `pulumi:"aggregationType"`
+	AggregationField *string `pulumi:"aggregationField"`
+	// The type of the aggregation query.
+	AggregationType *FleetMetricAggregationType `pulumi:"aggregationType"`
 	// The creation date of a fleet metric
 	CreationDate *string `pulumi:"creationDate"`
 	// The description of a fleet metric
@@ -97,6 +98,7 @@ func (o LookupFleetMetricResultOutput) AggregationField() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupFleetMetricResult) *string { return v.AggregationField }).(pulumi.StringPtrOutput)
 }
 
+// The type of the aggregation query.
 func (o LookupFleetMetricResultOutput) AggregationType() FleetMetricAggregationTypePtrOutput {
 	return o.ApplyT(func(v LookupFleetMetricResult) *FleetMetricAggregationType { return v.AggregationType }).(FleetMetricAggregationTypePtrOutput)
 }

@@ -24,7 +24,8 @@ type LocationSmb struct {
 	// The Amazon Resource Name (ARN) of the SMB location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the SMB location that was described.
-	LocationUri  pulumi.StringOutput              `pulumi:"locationUri"`
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 	MountOptions LocationSmbMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
@@ -91,7 +92,8 @@ type locationSmbArgs struct {
 	// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
 	AgentArns []string `pulumi:"agentArns"`
 	// The name of the Windows domain that the SMB server belongs to.
-	Domain       *string                  `pulumi:"domain"`
+	Domain *string `pulumi:"domain"`
+	// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 	MountOptions *LocationSmbMountOptions `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password *string `pulumi:"password"`
@@ -110,7 +112,8 @@ type LocationSmbArgs struct {
 	// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
 	AgentArns pulumi.StringArrayInput
 	// The name of the Windows domain that the SMB server belongs to.
-	Domain       pulumi.StringPtrInput
+	Domain pulumi.StringPtrInput
+	// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 	MountOptions LocationSmbMountOptionsPtrInput
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password pulumi.StringPtrInput
@@ -181,6 +184,7 @@ func (o LocationSmbOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
+// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
 func (o LocationSmbOutput) MountOptions() LocationSmbMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationSmb) LocationSmbMountOptionsPtrOutput { return v.MountOptions }).(LocationSmbMountOptionsPtrOutput)
 }

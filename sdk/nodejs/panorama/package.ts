@@ -37,11 +37,29 @@ export class Package extends pulumi.CustomResource {
         return obj['__pulumiType'] === Package.__pulumiType;
     }
 
+    /**
+     * The package's ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * When the package was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<number>;
+    /**
+     * The package's ID.
+     */
     public /*out*/ readonly packageId!: pulumi.Output<string>;
+    /**
+     * A name for the package.
+     */
     public readonly packageName!: pulumi.Output<string>;
+    /**
+     * A storage location.
+     */
     public readonly storageLocation!: pulumi.Output<outputs.panorama.PackageStorageLocation | undefined>;
+    /**
+     * Tags for the package.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -80,7 +98,16 @@ export class Package extends pulumi.CustomResource {
  * The set of arguments for constructing a Package resource.
  */
 export interface PackageArgs {
+    /**
+     * A name for the package.
+     */
     packageName?: pulumi.Input<string>;
+    /**
+     * A storage location.
+     */
     storageLocation?: pulumi.Input<inputs.panorama.PackageStorageLocationArgs>;
+    /**
+     * Tags for the package.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

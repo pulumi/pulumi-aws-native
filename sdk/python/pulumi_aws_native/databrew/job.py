@@ -43,6 +43,8 @@ class JobArgs:
         The set of arguments for constructing a Job resource.
         :param pulumi.Input[str] role_arn: Role arn
         :param pulumi.Input['JobType'] type: Job type
+        :param pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]] data_catalog_outputs: One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]] database_outputs: Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
         :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
@@ -52,8 +54,11 @@ class JobArgs:
         :param pulumi.Input[int] max_retries: Max retries
         :param pulumi.Input[str] name: Job name
         :param pulumi.Input['JobOutputLocationArgs'] output_location: Output location
+        :param pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]] outputs: One or more artifacts that represent output from running the job.
         :param pulumi.Input['JobProfileConfigurationArgs'] profile_configuration: Profile Job configuration
         :param pulumi.Input[str] project_name: Project name
+        :param pulumi.Input['JobRecipeArgs'] recipe: A series of data transformation steps that the job runs.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the job.
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]] validation_configurations: Data quality rules configuration
         """
@@ -123,6 +128,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="dataCatalogOutputs")
     def data_catalog_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]]:
+        """
+        One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        """
         return pulumi.get(self, "data_catalog_outputs")
 
     @data_catalog_outputs.setter
@@ -132,6 +140,9 @@ class JobArgs:
     @property
     @pulumi.getter(name="databaseOutputs")
     def database_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]]:
+        """
+        Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        """
         return pulumi.get(self, "database_outputs")
 
     @database_outputs.setter
@@ -249,6 +260,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]]]:
+        """
+        One or more artifacts that represent output from running the job.
+        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -282,6 +296,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def recipe(self) -> Optional[pulumi.Input['JobRecipeArgs']]:
+        """
+        A series of data transformation steps that the job runs.
+        """
         return pulumi.get(self, "recipe")
 
     @recipe.setter
@@ -291,6 +308,9 @@ class JobArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Metadata tags that have been applied to the job.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -379,6 +399,8 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDataCatalogOutputArgs']]]] data_catalog_outputs: One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]] database_outputs: Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
         :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
@@ -388,9 +410,12 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] max_retries: Max retries
         :param pulumi.Input[str] name: Job name
         :param pulumi.Input[pulumi.InputType['JobOutputLocationArgs']] output_location: Output location
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputArgs']]]] outputs: One or more artifacts that represent output from running the job.
         :param pulumi.Input[pulumi.InputType['JobProfileConfigurationArgs']] profile_configuration: Profile Job configuration
         :param pulumi.Input[str] project_name: Project name
+        :param pulumi.Input[pulumi.InputType['JobRecipeArgs']] recipe: A series of data transformation steps that the job runs.
         :param pulumi.Input[str] role_arn: Role arn
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the job.
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input['JobType'] type: Job type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobValidationConfigurationArgs']]]] validation_configurations: Data quality rules configuration
@@ -547,11 +572,17 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataCatalogOutputs")
     def data_catalog_outputs(self) -> pulumi.Output[Optional[Sequence['outputs.JobDataCatalogOutput']]]:
+        """
+        One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+        """
         return pulumi.get(self, "data_catalog_outputs")
 
     @property
     @pulumi.getter(name="databaseOutputs")
     def database_outputs(self) -> pulumi.Output[Optional[Sequence['outputs.JobDatabaseOutput']]]:
+        """
+        Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+        """
         return pulumi.get(self, "database_outputs")
 
     @property
@@ -629,6 +660,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Optional[Sequence['outputs.JobOutput']]]:
+        """
+        One or more artifacts that represent output from running the job.
+        """
         return pulumi.get(self, "outputs")
 
     @property
@@ -650,6 +684,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter
     def recipe(self) -> pulumi.Output[Optional['outputs.JobRecipe']]:
+        """
+        A series of data transformation steps that the job runs.
+        """
         return pulumi.get(self, "recipe")
 
     @property
@@ -663,6 +700,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Metadata tags that have been applied to the job.
+        """
         return pulumi.get(self, "tags")
 
     @property

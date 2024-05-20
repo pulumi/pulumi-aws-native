@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ActivityTagsEntry struct {
-	Key   string `pulumi:"key"`
+	// The `key` for a key-value pair in a tag entry.
+	Key string `pulumi:"key"`
+	// The `value` for a key-value pair in a tag entry.
 	Value string `pulumi:"value"`
 }
 
@@ -25,7 +27,10 @@ type StateMachineAliasDeploymentPreference struct {
 	// The time in minutes between each traffic shifting increment.
 	Interval *int `pulumi:"interval"`
 	// The percentage of traffic to shift to the new version in each increment.
-	Percentage             *int   `pulumi:"percentage"`
+	Percentage *int `pulumi:"percentage"`
+	// The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+	//
+	// While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
 	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
 	// The type of deployment to perform.
 	Type StateMachineAliasDeploymentPreferenceType `pulumi:"type"`
@@ -49,7 +54,10 @@ type StateMachineAliasDeploymentPreferenceArgs struct {
 	// The time in minutes between each traffic shifting increment.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// The percentage of traffic to shift to the new version in each increment.
-	Percentage             pulumi.IntPtrInput `pulumi:"percentage"`
+	Percentage pulumi.IntPtrInput `pulumi:"percentage"`
+	// The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+	//
+	// While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
 	StateMachineVersionArn pulumi.StringInput `pulumi:"stateMachineVersionArn"`
 	// The type of deployment to perform.
 	Type StateMachineAliasDeploymentPreferenceTypeInput `pulumi:"type"`
@@ -148,6 +156,9 @@ func (o StateMachineAliasDeploymentPreferenceOutput) Percentage() pulumi.IntPtrO
 	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) *int { return v.Percentage }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+//
+// While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
 func (o StateMachineAliasDeploymentPreferenceOutput) StateMachineVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineAliasDeploymentPreference) string { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }
@@ -211,6 +222,9 @@ func (o StateMachineAliasDeploymentPreferencePtrOutput) Percentage() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+//
+// While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
 func (o StateMachineAliasDeploymentPreferencePtrOutput) StateMachineVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineAliasDeploymentPreference) *string {
 		if v == nil {
@@ -337,6 +351,7 @@ func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) Index(i pulumi.
 }
 
 type StateMachineCloudWatchLogsLogGroup struct {
+	// The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
 	LogGroupArn *string `pulumi:"logGroupArn"`
 }
 
@@ -352,6 +367,7 @@ type StateMachineCloudWatchLogsLogGroupInput interface {
 }
 
 type StateMachineCloudWatchLogsLogGroupArgs struct {
+	// The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
 }
 
@@ -432,6 +448,7 @@ func (o StateMachineCloudWatchLogsLogGroupOutput) ToStateMachineCloudWatchLogsLo
 	}).(StateMachineCloudWatchLogsLogGroupPtrOutput)
 }
 
+// The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
 func (o StateMachineCloudWatchLogsLogGroupOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineCloudWatchLogsLogGroup) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -460,6 +477,7 @@ func (o StateMachineCloudWatchLogsLogGroupPtrOutput) Elem() StateMachineCloudWat
 	}).(StateMachineCloudWatchLogsLogGroupOutput)
 }
 
+// The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
 func (o StateMachineCloudWatchLogsLogGroupPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineCloudWatchLogsLogGroup) *string {
 		if v == nil {
@@ -588,6 +606,7 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 }
 
 type StateMachineLogDestination struct {
+	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
 	CloudWatchLogsLogGroup *StateMachineCloudWatchLogsLogGroup `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -603,6 +622,7 @@ type StateMachineLogDestinationInput interface {
 }
 
 type StateMachineLogDestinationArgs struct {
+	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
 	CloudWatchLogsLogGroup StateMachineCloudWatchLogsLogGroupPtrInput `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -657,6 +677,7 @@ func (o StateMachineLogDestinationOutput) ToStateMachineLogDestinationOutputWith
 	return o
 }
 
+// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
 func (o StateMachineLogDestinationOutput) CloudWatchLogsLogGroup() StateMachineCloudWatchLogsLogGroupPtrOutput {
 	return o.ApplyT(func(v StateMachineLogDestination) *StateMachineCloudWatchLogsLogGroup {
 		return v.CloudWatchLogsLogGroup
@@ -684,9 +705,12 @@ func (o StateMachineLogDestinationArrayOutput) Index(i pulumi.IntInput) StateMac
 }
 
 type StateMachineLoggingConfiguration struct {
-	Destinations         []StateMachineLogDestination           `pulumi:"destinations"`
-	IncludeExecutionData *bool                                  `pulumi:"includeExecutionData"`
-	Level                *StateMachineLoggingConfigurationLevel `pulumi:"level"`
+	// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+	Destinations []StateMachineLogDestination `pulumi:"destinations"`
+	// Determines whether execution data is included in your log. When set to `false` , data is excluded.
+	IncludeExecutionData *bool `pulumi:"includeExecutionData"`
+	// Defines which category of execution history events are logged.
+	Level *StateMachineLoggingConfigurationLevel `pulumi:"level"`
 }
 
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
@@ -701,9 +725,12 @@ type StateMachineLoggingConfigurationInput interface {
 }
 
 type StateMachineLoggingConfigurationArgs struct {
-	Destinations         StateMachineLogDestinationArrayInput          `pulumi:"destinations"`
-	IncludeExecutionData pulumi.BoolPtrInput                           `pulumi:"includeExecutionData"`
-	Level                StateMachineLoggingConfigurationLevelPtrInput `pulumi:"level"`
+	// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+	Destinations StateMachineLogDestinationArrayInput `pulumi:"destinations"`
+	// Determines whether execution data is included in your log. When set to `false` , data is excluded.
+	IncludeExecutionData pulumi.BoolPtrInput `pulumi:"includeExecutionData"`
+	// Defines which category of execution history events are logged.
+	Level StateMachineLoggingConfigurationLevelPtrInput `pulumi:"level"`
 }
 
 func (StateMachineLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -783,14 +810,17 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	}).(StateMachineLoggingConfigurationPtrOutput)
 }
 
+// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
 func (o StateMachineLoggingConfigurationOutput) Destinations() StateMachineLogDestinationArrayOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) []StateMachineLogDestination { return v.Destinations }).(StateMachineLogDestinationArrayOutput)
 }
 
+// Determines whether execution data is included in your log. When set to `false` , data is excluded.
 func (o StateMachineLoggingConfigurationOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *bool { return v.IncludeExecutionData }).(pulumi.BoolPtrOutput)
 }
 
+// Defines which category of execution history events are logged.
 func (o StateMachineLoggingConfigurationOutput) Level() StateMachineLoggingConfigurationLevelPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *StateMachineLoggingConfigurationLevel { return v.Level }).(StateMachineLoggingConfigurationLevelPtrOutput)
 }
@@ -819,6 +849,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingCon
 	}).(StateMachineLoggingConfigurationOutput)
 }
 
+// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
 func (o StateMachineLoggingConfigurationPtrOutput) Destinations() StateMachineLogDestinationArrayOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) []StateMachineLogDestination {
 		if v == nil {
@@ -828,6 +859,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) Destinations() StateMachineLo
 	}).(StateMachineLogDestinationArrayOutput)
 }
 
+// Determines whether execution data is included in your log. When set to `false` , data is excluded.
 func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *bool {
 		if v == nil {
@@ -837,6 +869,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Defines which category of execution history events are logged.
 func (o StateMachineLoggingConfigurationPtrOutput) Level() StateMachineLoggingConfigurationLevelPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *StateMachineLoggingConfigurationLevel {
 		if v == nil {
@@ -847,8 +880,11 @@ func (o StateMachineLoggingConfigurationPtrOutput) Level() StateMachineLoggingCo
 }
 
 type StateMachineS3Location struct {
-	Bucket  string  `pulumi:"bucket"`
-	Key     string  `pulumi:"key"`
+	// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+	Bucket string `pulumi:"bucket"`
+	// The name of the state machine definition file (Amazon S3 object name).
+	Key string `pulumi:"key"`
+	// For versioning-enabled buckets, a specific version of the state machine definition.
 	Version *string `pulumi:"version"`
 }
 
@@ -864,8 +900,11 @@ type StateMachineS3LocationInput interface {
 }
 
 type StateMachineS3LocationArgs struct {
-	Bucket  pulumi.StringInput    `pulumi:"bucket"`
-	Key     pulumi.StringInput    `pulumi:"key"`
+	// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the state machine definition file (Amazon S3 object name).
+	Key pulumi.StringInput `pulumi:"key"`
+	// For versioning-enabled buckets, a specific version of the state machine definition.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -946,14 +985,17 @@ func (o StateMachineS3LocationOutput) ToStateMachineS3LocationPtrOutputWithConte
 	}).(StateMachineS3LocationPtrOutput)
 }
 
+// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
 func (o StateMachineS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The name of the state machine definition file (Amazon S3 object name).
 func (o StateMachineS3LocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineS3Location) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// For versioning-enabled buckets, a specific version of the state machine definition.
 func (o StateMachineS3LocationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -982,6 +1024,7 @@ func (o StateMachineS3LocationPtrOutput) Elem() StateMachineS3LocationOutput {
 	}).(StateMachineS3LocationOutput)
 }
 
+// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
 func (o StateMachineS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineS3Location) *string {
 		if v == nil {
@@ -991,6 +1034,7 @@ func (o StateMachineS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the state machine definition file (Amazon S3 object name).
 func (o StateMachineS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineS3Location) *string {
 		if v == nil {
@@ -1000,6 +1044,7 @@ func (o StateMachineS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// For versioning-enabled buckets, a specific version of the state machine definition.
 func (o StateMachineS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineS3Location) *string {
 		if v == nil {
@@ -1010,11 +1055,14 @@ func (o StateMachineS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type StateMachineTagsEntry struct {
-	Key   string `pulumi:"key"`
+	// The `key` for a key-value pair in a tag entry.
+	Key string `pulumi:"key"`
+	// The `value` for a key-value pair in a tag entry.
 	Value string `pulumi:"value"`
 }
 
 type StateMachineTracingConfiguration struct {
+	// When set to `true` , X-Ray tracing is enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1030,6 +1078,7 @@ type StateMachineTracingConfigurationInput interface {
 }
 
 type StateMachineTracingConfigurationArgs struct {
+	// When set to `true` , X-Ray tracing is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1110,6 +1159,7 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
+// When set to `true` , X-Ray tracing is enabled.
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1138,6 +1188,7 @@ func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingCon
 	}).(StateMachineTracingConfigurationOutput)
 }
 
+// When set to `true` , X-Ray tracing is enabled.
 func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineTracingConfiguration) *bool {
 		if v == nil {

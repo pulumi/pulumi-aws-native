@@ -29,6 +29,7 @@ type LookupNetworkInterfaceArgs struct {
 }
 
 type LookupNetworkInterfaceResult struct {
+	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
@@ -104,6 +105,7 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 	return o
 }
 
+// A connection tracking specification for the network interface.
 func (o LookupNetworkInterfaceResultOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) *NetworkInterfaceConnectionTrackingSpecification {
 		return v.ConnectionTrackingSpecification

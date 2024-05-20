@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFieldTooltipItem
     {
+        /// <summary>
+        /// The unique ID of the field that is targeted by the tooltip.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The label of the tooltip item.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The visibility of the tooltip item.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisAnalysisAclRule
     {
+        /// <summary>
+        /// The IPv4 address range, in CIDR notation.
+        /// </summary>
         public readonly string? Cidr;
+        /// <summary>
+        /// Indicates whether the rule is an outbound rule.
+        /// </summary>
         public readonly bool? Egress;
+        /// <summary>
+        /// The range of ports.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisPortRange? PortRange;
+        /// <summary>
+        /// The protocol.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// Indicates whether to allow or deny traffic that matches the rule.
+        /// </summary>
         public readonly string? RuleAction;
+        /// <summary>
+        /// The rule number.
+        /// </summary>
         public readonly int? RuleNumber;
 
         [OutputConstructor]

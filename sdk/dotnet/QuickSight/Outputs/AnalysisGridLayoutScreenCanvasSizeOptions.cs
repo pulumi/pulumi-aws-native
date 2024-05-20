@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? OptimizedViewPortWidth;
+        /// <summary>
+        /// This value determines the layout behavior when the viewport is resized.
+        /// 
+        /// - `FIXED` : A fixed width will be used when optimizing the layout. In the Amazon QuickSight console, this option is called `Classic` .
+        /// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Amazon QuickSight console, this option is called `Tiled` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisResizeOption ResizeOption;
 
         [OutputConstructor]

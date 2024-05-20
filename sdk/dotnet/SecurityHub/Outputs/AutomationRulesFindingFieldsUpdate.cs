@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRulesFindingFieldsUpdate
     {
+        /// <summary>
+        /// The rule action updates the `Confidence` field of a finding.
+        /// </summary>
         public readonly int? Confidence;
+        /// <summary>
+        /// The rule action updates the `Criticality` field of a finding.
+        /// </summary>
         public readonly int? Criticality;
         /// <summary>
         /// The rule action will update the ``Note`` field of a finding.
@@ -30,8 +36,17 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// The rule action will update the ``Severity`` field of a finding.
         /// </summary>
         public readonly Outputs.AutomationRuleSeverityUpdate? Severity;
+        /// <summary>
+        /// The rule action updates the `Types` field of a finding.
+        /// </summary>
         public readonly ImmutableArray<string> Types;
+        /// <summary>
+        /// The rule action updates the `UserDefinedFields` field of a finding.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? UserDefinedFields;
+        /// <summary>
+        /// The rule action updates the `VerificationState` field of a finding.
+        /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState? VerificationState;
         /// <summary>
         /// The rule action will update the ``Workflow`` field of a finding.

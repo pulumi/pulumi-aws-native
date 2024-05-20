@@ -37,6 +37,9 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcPeeringConnection.__pulumiType;
     }
 
+    /**
+     * The ID of the peering connection.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the accepter VPC.
@@ -54,6 +57,9 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
      */
     public readonly peerVpcId!: pulumi.Output<string>;
+    /**
+     * Any tags assigned to the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the VPC.
@@ -120,6 +126,9 @@ export interface VpcPeeringConnectionArgs {
      * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
      */
     peerVpcId: pulumi.Input<string>;
+    /**
+     * Any tags assigned to the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the VPC.

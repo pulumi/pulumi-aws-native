@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class IdentityPoolPushSync
     {
+        /// <summary>
+        /// The ARNs of the Amazon SNS platform applications that could be used by clients.
+        /// </summary>
         public readonly ImmutableArray<string> ApplicationArns;
+        /// <summary>
+        /// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
+        /// </summary>
         public readonly string? RoleArn;
 
         [OutputConstructor]

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationSpekeKeyProvider
     {
+        /// <summary>
+        /// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationEncryptionContractConfiguration? EncryptionContractConfiguration;
+        /// <summary>
+        /// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
+        /// </summary>
         public readonly string RoleArn;
         /// <summary>
         /// The system IDs to include in key requests.

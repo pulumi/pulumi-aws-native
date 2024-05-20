@@ -31,6 +31,33 @@ class GlobalTableArgs:
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+               
+               > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+               > 
+               > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+               
+               You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        :param pulumi.Input[str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+               
+               - `PAY_PER_REQUEST`
+               - `PROVISIONED`
+               
+               All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+               
+               Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        :param pulumi.Input['GlobalTableSseSpecificationArgs'] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+        :param pulumi.Input['GlobalTableStreamSpecificationArgs'] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        :param pulumi.Input[str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+               
+               > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input['GlobalTableTimeToLiveSpecificationArgs'] time_to_live_specification: Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
+        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         pulumi.set(__self__, "attribute_definitions", attribute_definitions)
         pulumi.set(__self__, "key_schema", key_schema)
@@ -57,6 +84,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]:
+        """
+        A list of attributes that describe the key schema for the global table and indexes.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @attribute_definitions.setter
@@ -66,6 +96,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
+        """
+        Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -75,6 +108,15 @@ class GlobalTableArgs:
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]]:
+        """
+        Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+
+        > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+        > 
+        > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+
+        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -84,6 +126,14 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+
+        - `PAY_PER_REQUEST`
+        - `PROVISIONED`
+
+        All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -93,6 +143,11 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]]:
+        """
+        Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+
+        Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
@@ -102,6 +157,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]:
+        """
+        Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @local_secondary_indexes.setter
@@ -111,6 +169,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['GlobalTableSseSpecificationArgs']]:
+        """
+        Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -120,6 +181,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']]:
+        """
+        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        """
         return pulumi.get(self, "stream_specification")
 
     @stream_specification.setter
@@ -129,6 +193,11 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+
+        > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -138,6 +207,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']]:
+        """
+        Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
+        """
         return pulumi.get(self, "time_to_live_specification")
 
     @time_to_live_specification.setter
@@ -147,6 +219,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
+        """
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @write_on_demand_throughput_settings.setter
@@ -156,6 +231,9 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
+        """
+        Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
     @write_provisioned_throughput_settings.setter
@@ -186,6 +264,33 @@ class GlobalTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableAttributeDefinitionArgs']]]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
+        :param pulumi.Input[str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+               
+               - `PAY_PER_REQUEST`
+               - `PROVISIONED`
+               
+               All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+               
+               Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableKeySchemaArgs']]]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaSpecificationArgs']]]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+               
+               > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+               > 
+               > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+               
+               You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        :param pulumi.Input[pulumi.InputType['GlobalTableSseSpecificationArgs']] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+        :param pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        :param pulumi.Input[str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+               
+               > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']] time_to_live_specification: Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
+        :param pulumi.Input[pulumi.InputType['GlobalTableWriteOnDemandThroughputSettingsArgs']] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input[pulumi.InputType['GlobalTableWriteProvisionedThroughputSettingsArgs']] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         ...
     @overload
@@ -297,75 +402,137 @@ class GlobalTable(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Output[Sequence['outputs.GlobalTableAttributeDefinition']]:
+        """
+        A list of attributes that describe the key schema for the global table and indexes.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
+
+        - `PAY_PER_REQUEST`
+        - `PROVISIONED`
+
+        All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
+        """
         return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableGlobalSecondaryIndex']]]:
+        """
+        Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+
+        Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Output[Sequence['outputs.GlobalTableKeySchema']]:
+        """
+        Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        """
         return pulumi.get(self, "key_schema")
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableLocalSecondaryIndex']]]:
+        """
+        Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Sequence['outputs.GlobalTableReplicaSpecification']]:
+        """
+        Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+
+        > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+        > 
+        > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+
+        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+        """
         return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableSseSpecification']]:
+        """
+        Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+        """
         return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
+
+        > You must specify the `StreamSpecification` property to use this attribute.
+        """
         return pulumi.get(self, "stream_arn")
 
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableStreamSpecification']]:
+        """
+        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
+        """
         return pulumi.get(self, "stream_specification")
 
     @property
     @pulumi.getter(name="tableId")
     def table_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
+        """
         return pulumi.get(self, "table_id")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+
+        > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableTimeToLiveSpecification']]:
+        """
+        Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
+        """
         return pulumi.get(self, "time_to_live_specification")
 
     @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']]:
+        """
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteProvisionedThroughputSettings']]:
+        """
+        Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 

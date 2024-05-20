@@ -26,6 +26,7 @@ class CapacityReservationArgs:
         """
         The set of arguments for constructing a CapacityReservation resource.
         :param pulumi.Input[int] target_dpus: The number of DPUs to request to be allocated to the reservation.
+        :param pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs'] capacity_assignment_configuration: Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
         :param pulumi.Input[str] name: The reservation name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -52,6 +53,9 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="capacityAssignmentConfiguration")
     def capacity_assignment_configuration(self) -> Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']]:
+        """
+        Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+        """
         return pulumi.get(self, "capacity_assignment_configuration")
 
     @capacity_assignment_configuration.setter
@@ -98,6 +102,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CapacityReservationCapacityAssignmentConfigurationArgs']] capacity_assignment_configuration: Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
         :param pulumi.Input[str] name: The reservation name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[int] target_dpus: The number of DPUs to request to be allocated to the reservation.
@@ -196,11 +201,17 @@ class CapacityReservation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the capacity reservation.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="capacityAssignmentConfiguration")
     def capacity_assignment_configuration(self) -> pulumi.Output[Optional['outputs.CapacityReservationCapacityAssignmentConfiguration']]:
+        """
+        Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+        """
         return pulumi.get(self, "capacity_assignment_configuration")
 
     @property

@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("minAdjustmentMagnitude")]
         public Output<int?> MinAdjustmentMagnitude { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the name of a scaling policy.
+        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 

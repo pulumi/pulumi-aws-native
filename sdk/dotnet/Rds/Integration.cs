@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:Integration")]
     public partial class Integration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        /// 
+        /// You can only include this parameter if you specify the `KMSKeyId` parameter.
+        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the integration was created, in Universal Coordinated Time (UTC).
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
@@ -123,6 +131,12 @@ namespace Pulumi.AwsNative.Rds
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
+
+        /// <summary>
+        /// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+        /// 
+        /// You can only include this parameter if you specify the `KMSKeyId` parameter.
+        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());

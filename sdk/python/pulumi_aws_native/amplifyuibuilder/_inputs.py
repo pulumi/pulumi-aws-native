@@ -61,6 +61,17 @@ class ComponentActionParametersArgs:
                  target: Optional[pulumi.Input['ComponentPropertyArgs']] = None,
                  type: Optional[pulumi.Input['ComponentPropertyArgs']] = None,
                  url: Optional[pulumi.Input['ComponentPropertyArgs']] = None):
+        """
+        :param pulumi.Input['ComponentPropertyArgs'] anchor: The HTML anchor link to the location to open. Specify this value for a navigation action.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]] fields: A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+        :param pulumi.Input['ComponentPropertyArgs'] global_: Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
+        :param pulumi.Input['ComponentPropertyArgs'] id: The unique ID of the component that the `ActionParameters` apply to.
+        :param pulumi.Input[str] model: The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+        :param pulumi.Input['ComponentMutationActionSetStateParameterArgs'] state: A key-value pair that specifies the state property name and its initial value.
+        :param pulumi.Input['ComponentPropertyArgs'] target: The element within the same component to modify when the action occurs.
+        :param pulumi.Input['ComponentPropertyArgs'] type: The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
+        :param pulumi.Input['ComponentPropertyArgs'] url: The URL to the location to open. Specify this value for a navigation action.
+        """
         if anchor is not None:
             pulumi.set(__self__, "anchor", anchor)
         if fields is not None:
@@ -83,6 +94,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def anchor(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The HTML anchor link to the location to open. Specify this value for a navigation action.
+        """
         return pulumi.get(self, "anchor")
 
     @anchor.setter
@@ -92,6 +106,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]]:
+        """
+        A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+        """
         return pulumi.get(self, "fields")
 
     @fields.setter
@@ -101,6 +118,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter(name="global")
     def global_(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
+        """
         return pulumi.get(self, "global_")
 
     @global_.setter
@@ -110,6 +130,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The unique ID of the component that the `ActionParameters` apply to.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -119,6 +142,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -128,6 +154,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['ComponentMutationActionSetStateParameterArgs']]:
+        """
+        A key-value pair that specifies the state property name and its initial value.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -137,6 +166,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The element within the same component to modify when the action occurs.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -146,6 +178,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -155,6 +190,9 @@ class ComponentActionParametersArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The URL to the location to open. Specify this value for a navigation action.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -173,6 +211,16 @@ class ComponentBindingPropertiesValuePropertiesArgs:
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]] = None,
                  slot_name: Optional[pulumi.Input[str]] = None,
                  user_attribute: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: An Amazon S3 bucket.
+        :param pulumi.Input[str] default_value: The default value to assign to the property.
+        :param pulumi.Input[str] field: The field to bind the data to.
+        :param pulumi.Input[str] key: The storage key for an Amazon S3 bucket.
+        :param pulumi.Input[str] model: An Amplify DataStore model.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] predicates: A list of predicates for binding a component's properties to data.
+        :param pulumi.Input[str] slot_name: The name of a component slot.
+        :param pulumi.Input[str] user_attribute: An authenticated user attribute.
+        """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if default_value is not None:
@@ -193,6 +241,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon S3 bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -202,6 +253,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value to assign to the property.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -211,6 +265,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field to bind the data to.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -220,6 +277,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage key for an Amazon S3 bucket.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -229,6 +289,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amplify DataStore model.
+        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -238,6 +301,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter
     def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]]:
+        """
+        A list of predicates for binding a component's properties to data.
+        """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
@@ -247,6 +313,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter(name="slotName")
     def slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a component slot.
+        """
         return pulumi.get(self, "slot_name")
 
     @slot_name.setter
@@ -256,6 +325,9 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @property
     @pulumi.getter(name="userAttribute")
     def user_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        An authenticated user attribute.
+        """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter
@@ -269,6 +341,11 @@ class ComponentBindingPropertiesValueArgs:
                  binding_properties: Optional[pulumi.Input['ComponentBindingPropertiesValuePropertiesArgs']] = None,
                  default_value: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ComponentBindingPropertiesValuePropertiesArgs'] binding_properties: Describes the properties to customize with data at runtime.
+        :param pulumi.Input[str] default_value: The default value of the property.
+        :param pulumi.Input[str] type: The property type.
+        """
         if binding_properties is not None:
             pulumi.set(__self__, "binding_properties", binding_properties)
         if default_value is not None:
@@ -279,6 +356,9 @@ class ComponentBindingPropertiesValueArgs:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['ComponentBindingPropertiesValuePropertiesArgs']]:
+        """
+        Describes the properties to customize with data at runtime.
+        """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
@@ -288,6 +368,9 @@ class ComponentBindingPropertiesValueArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value of the property.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -297,6 +380,9 @@ class ComponentBindingPropertiesValueArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -313,6 +399,14 @@ class ComponentChildArgs:
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
                  events: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]] = None,
                  source_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] component_type: The type of the child component.
+        :param pulumi.Input[str] name: The name of the child component.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]] properties: Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]] children: The list of `ComponentChild` instances for this component.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]] events: Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        :param pulumi.Input[str] source_id: The unique ID of the child component in its original source system, such as Figma.
+        """
         pulumi.set(__self__, "component_type", component_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
@@ -326,6 +420,9 @@ class ComponentChildArgs:
     @property
     @pulumi.getter(name="componentType")
     def component_type(self) -> pulumi.Input[str]:
+        """
+        The type of the child component.
+        """
         return pulumi.get(self, "component_type")
 
     @component_type.setter
@@ -335,6 +432,9 @@ class ComponentChildArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the child component.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -344,6 +444,9 @@ class ComponentChildArgs:
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]:
+        """
+        Describes the properties of the child component. You can't specify `tags` as a valid property for `properties` .
+        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -353,6 +456,9 @@ class ComponentChildArgs:
     @property
     @pulumi.getter
     def children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]:
+        """
+        The list of `ComponentChild` instances for this component.
+        """
         return pulumi.get(self, "children")
 
     @children.setter
@@ -362,6 +468,9 @@ class ComponentChildArgs:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]]]:
+        """
+        Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -371,6 +480,9 @@ class ComponentChildArgs:
     @property
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the child component in its original source system, such as Figma.
+        """
         return pulumi.get(self, "source_id")
 
     @source_id.setter
@@ -388,6 +500,15 @@ class ComponentConditionPropertyArgs:
                  operator: Optional[pulumi.Input[str]] = None,
                  property: Optional[pulumi.Input[str]] = None,
                  then: Optional[pulumi.Input['ComponentPropertyArgs']] = None):
+        """
+        :param pulumi.Input['ComponentPropertyArgs'] else_: The value to assign to the property if the condition is not met.
+        :param pulumi.Input[str] field: The name of a field. Specify this when the property is a data model.
+        :param pulumi.Input[str] operand: The value of the property to evaluate.
+        :param pulumi.Input[str] operand_type: The type of the property to evaluate.
+        :param pulumi.Input[str] operator: The operator to use to perform the evaluation, such as `eq` to represent equals.
+        :param pulumi.Input[str] property: The name of the conditional property.
+        :param pulumi.Input['ComponentPropertyArgs'] then: The value to assign to the property if the condition is met.
+        """
         if else_ is not None:
             pulumi.set(__self__, "else_", else_)
         if field is not None:
@@ -406,6 +527,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter(name="else")
     def else_(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The value to assign to the property if the condition is not met.
+        """
         return pulumi.get(self, "else_")
 
     @else_.setter
@@ -415,6 +539,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a field. Specify this when the property is a data model.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -424,6 +551,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter
     def operand(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the property to evaluate.
+        """
         return pulumi.get(self, "operand")
 
     @operand.setter
@@ -433,6 +563,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter(name="operandType")
     def operand_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the property to evaluate.
+        """
         return pulumi.get(self, "operand_type")
 
     @operand_type.setter
@@ -442,6 +575,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The operator to use to perform the evaluation, such as `eq` to represent equals.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -451,6 +587,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter
     def then(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
+        """
+        The value to assign to the property if the condition is met.
+        """
         return pulumi.get(self, "then")
 
     @then.setter
@@ -460,6 +599,9 @@ class ComponentConditionPropertyArgs:
     @property
     @pulumi.getter
     def property(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the conditional property.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -474,6 +616,12 @@ class ComponentDataConfigurationArgs:
                  identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  predicate: Optional[pulumi.Input['ComponentPredicateArgs']] = None,
                  sort: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[str] model: The name of the data model to use to bind data to a component.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identifiers: A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+        :param pulumi.Input['ComponentPredicateArgs'] predicate: Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgs']]] sort: Describes how to sort the component's properties.
+        """
         pulumi.set(__self__, "model", model)
         if identifiers is not None:
             pulumi.set(__self__, "identifiers", identifiers)
@@ -485,6 +633,9 @@ class ComponentDataConfigurationArgs:
     @property
     @pulumi.getter
     def model(self) -> pulumi.Input[str]:
+        """
+        The name of the data model to use to bind data to a component.
+        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -494,6 +645,9 @@ class ComponentDataConfigurationArgs:
     @property
     @pulumi.getter
     def identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+        """
         return pulumi.get(self, "identifiers")
 
     @identifiers.setter
@@ -503,6 +657,9 @@ class ComponentDataConfigurationArgs:
     @property
     @pulumi.getter
     def predicate(self) -> Optional[pulumi.Input['ComponentPredicateArgs']]:
+        """
+        Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
+        """
         return pulumi.get(self, "predicate")
 
     @predicate.setter
@@ -512,6 +669,9 @@ class ComponentDataConfigurationArgs:
     @property
     @pulumi.getter
     def sort(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgs']]]]:
+        """
+        Describes how to sort the component's properties.
+        """
         return pulumi.get(self, "sort")
 
     @sort.setter
@@ -525,6 +685,11 @@ class ComponentEventArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  binding_event: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['ComponentActionParametersArgs']] = None):
+        """
+        :param pulumi.Input[str] action: The action to perform when a specific event is raised.
+        :param pulumi.Input[str] binding_event: Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+        :param pulumi.Input['ComponentActionParametersArgs'] parameters: Describes information about the action.
+        """
         if action is not None:
             pulumi.set(__self__, "action", action)
         if binding_event is not None:
@@ -535,6 +700,9 @@ class ComponentEventArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to perform when a specific event is raised.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -544,6 +712,9 @@ class ComponentEventArgs:
     @property
     @pulumi.getter(name="bindingEvent")
     def binding_event(self) -> Optional[pulumi.Input[str]]:
+        """
+        Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+        """
         return pulumi.get(self, "binding_event")
 
     @binding_event.setter
@@ -553,6 +724,9 @@ class ComponentEventArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['ComponentActionParametersArgs']]:
+        """
+        Describes information about the action.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -565,12 +739,19 @@ class ComponentFormBindingElementArgs:
     def __init__(__self__, *,
                  element: pulumi.Input[str],
                  property: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] element: The name of the component to retrieve a value from.
+        :param pulumi.Input[str] property: The property to retrieve a value from.
+        """
         pulumi.set(__self__, "element", element)
         pulumi.set(__self__, "property", property)
 
     @property
     @pulumi.getter
     def element(self) -> pulumi.Input[str]:
+        """
+        The name of the component to retrieve a value from.
+        """
         return pulumi.get(self, "element")
 
     @element.setter
@@ -580,6 +761,9 @@ class ComponentFormBindingElementArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The property to retrieve a value from.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -593,6 +777,11 @@ class ComponentMutationActionSetStateParameterArgs:
                  component_name: pulumi.Input[str],
                  property: pulumi.Input[str],
                  set: pulumi.Input['ComponentPropertyArgs']):
+        """
+        :param pulumi.Input[str] component_name: The name of the component that is being modified.
+        :param pulumi.Input[str] property: The name of the component property to apply the state configuration to.
+        :param pulumi.Input['ComponentPropertyArgs'] set: The state configuration to assign to the property.
+        """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "property", property)
         pulumi.set(__self__, "set", set)
@@ -600,6 +789,9 @@ class ComponentMutationActionSetStateParameterArgs:
     @property
     @pulumi.getter(name="componentName")
     def component_name(self) -> pulumi.Input[str]:
+        """
+        The name of the component that is being modified.
+        """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
@@ -609,6 +801,9 @@ class ComponentMutationActionSetStateParameterArgs:
     @property
     @pulumi.getter
     def set(self) -> pulumi.Input['ComponentPropertyArgs']:
+        """
+        The state configuration to assign to the property.
+        """
         return pulumi.get(self, "set")
 
     @set.setter
@@ -618,6 +813,9 @@ class ComponentMutationActionSetStateParameterArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The name of the component property to apply the state configuration to.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -634,6 +832,14 @@ class ComponentPredicateArgs:
                  operand_type: Optional[pulumi.Input[str]] = None,
                  operator: Optional[pulumi.Input[str]] = None,
                  or_: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] and_: A list of predicates to combine logically.
+        :param pulumi.Input[str] field: The field to query.
+        :param pulumi.Input[str] operand: The value to use when performing the evaluation.
+        :param pulumi.Input[str] operand_type: The type of value to use when performing the evaluation.
+        :param pulumi.Input[str] operator: The operator to use to perform the evaluation.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] or_: A list of predicates to combine logically.
+        """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
         if field is not None:
@@ -650,6 +856,9 @@ class ComponentPredicateArgs:
     @property
     @pulumi.getter(name="and")
     def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]]:
+        """
+        A list of predicates to combine logically.
+        """
         return pulumi.get(self, "and_")
 
     @and_.setter
@@ -659,6 +868,9 @@ class ComponentPredicateArgs:
     @property
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field to query.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -668,6 +880,9 @@ class ComponentPredicateArgs:
     @property
     @pulumi.getter
     def operand(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to use when performing the evaluation.
+        """
         return pulumi.get(self, "operand")
 
     @operand.setter
@@ -677,6 +892,9 @@ class ComponentPredicateArgs:
     @property
     @pulumi.getter(name="operandType")
     def operand_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of value to use when performing the evaluation.
+        """
         return pulumi.get(self, "operand_type")
 
     @operand_type.setter
@@ -686,6 +904,9 @@ class ComponentPredicateArgs:
     @property
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The operator to use to perform the evaluation.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -695,6 +916,9 @@ class ComponentPredicateArgs:
     @property
     @pulumi.getter(name="or")
     def or_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]]:
+        """
+        A list of predicates to combine logically.
+        """
         return pulumi.get(self, "or_")
 
     @or_.setter
@@ -707,6 +931,10 @@ class ComponentPropertyBindingPropertiesArgs:
     def __init__(__self__, *,
                  property: pulumi.Input[str],
                  field: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] property: The component property to bind to the data field.
+        :param pulumi.Input[str] field: The data field to bind the property to.
+        """
         pulumi.set(__self__, "property", property)
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -714,6 +942,9 @@ class ComponentPropertyBindingPropertiesArgs:
     @property
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data field to bind the property to.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -723,6 +954,9 @@ class ComponentPropertyBindingPropertiesArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The component property to bind to the data field.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -748,6 +982,23 @@ class ComponentPropertyArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  user_attribute: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ComponentPropertyBindingPropertiesArgs'] binding_properties: The information to bind the component property to data at runtime.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ComponentFormBindingElementArgs']]] bindings: The information to bind the component property to form data.
+        :param pulumi.Input['ComponentPropertyBindingPropertiesArgs'] collection_binding_properties: The information to bind the component property to data at runtime. Use this for collection components.
+        :param pulumi.Input[str] component_name: The name of the component that is affected by an event.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgs']]] concat: A list of component properties to concatenate to create the value to assign to this component property.
+        :param pulumi.Input['ComponentConditionPropertyArgs'] condition: The conditional expression to use to assign a value to the component property.
+        :param pulumi.Input[bool] configured: Specifies whether the user configured the property in Amplify Studio after importing it.
+        :param pulumi.Input[str] default_value: The default value to assign to the component property.
+        :param pulumi.Input[str] event: An event that occurs in your app. Use this for workflow data binding.
+        :param pulumi.Input[str] imported_value: The default value assigned to the property when the component is imported into an app.
+        :param pulumi.Input[str] model: The data model to use to assign a value to the component property.
+        :param pulumi.Input[str] property: The name of the component's property that is affected by an event.
+        :param pulumi.Input[str] type: The component type.
+        :param pulumi.Input[str] user_attribute: An authenticated user attribute to use to assign a value to the component property.
+        :param pulumi.Input[str] value: The value to assign to the component property.
+        """
         if binding_properties is not None:
             pulumi.set(__self__, "binding_properties", binding_properties)
         if bindings is not None:
@@ -782,6 +1033,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['ComponentPropertyBindingPropertiesArgs']]:
+        """
+        The information to bind the component property to data at runtime.
+        """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
@@ -791,6 +1045,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def bindings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentFormBindingElementArgs']]]]:
+        """
+        The information to bind the component property to form data.
+        """
         return pulumi.get(self, "bindings")
 
     @bindings.setter
@@ -800,6 +1057,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter(name="collectionBindingProperties")
     def collection_binding_properties(self) -> Optional[pulumi.Input['ComponentPropertyBindingPropertiesArgs']]:
+        """
+        The information to bind the component property to data at runtime. Use this for collection components.
+        """
         return pulumi.get(self, "collection_binding_properties")
 
     @collection_binding_properties.setter
@@ -809,6 +1069,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter(name="componentName")
     def component_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the component that is affected by an event.
+        """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
@@ -818,6 +1081,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def concat(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgs']]]]:
+        """
+        A list of component properties to concatenate to create the value to assign to this component property.
+        """
         return pulumi.get(self, "concat")
 
     @concat.setter
@@ -827,6 +1093,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['ComponentConditionPropertyArgs']]:
+        """
+        The conditional expression to use to assign a value to the component property.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -836,6 +1105,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def configured(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the user configured the property in Amplify Studio after importing it.
+        """
         return pulumi.get(self, "configured")
 
     @configured.setter
@@ -845,6 +1117,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value to assign to the component property.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -854,6 +1129,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def event(self) -> Optional[pulumi.Input[str]]:
+        """
+        An event that occurs in your app. Use this for workflow data binding.
+        """
         return pulumi.get(self, "event")
 
     @event.setter
@@ -863,6 +1141,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter(name="importedValue")
     def imported_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value assigned to the property when the component is imported into an app.
+        """
         return pulumi.get(self, "imported_value")
 
     @imported_value.setter
@@ -872,6 +1153,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data model to use to assign a value to the component property.
+        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -881,6 +1165,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The component type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -890,6 +1177,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter(name="userAttribute")
     def user_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        An authenticated user attribute to use to assign a value to the component property.
+        """
         return pulumi.get(self, "user_attribute")
 
     @user_attribute.setter
@@ -899,6 +1189,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to assign to the component property.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -908,6 +1201,9 @@ class ComponentPropertyArgs:
     @property
     @pulumi.getter
     def property(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the component's property that is affected by an event.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -920,12 +1216,19 @@ class ComponentSortPropertyArgs:
     def __init__(__self__, *,
                  direction: pulumi.Input['ComponentSortDirection'],
                  field: pulumi.Input[str]):
+        """
+        :param pulumi.Input['ComponentSortDirection'] direction: The direction of the sort, either ascending or descending.
+        :param pulumi.Input[str] field: The field to perform the sort on.
+        """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "field", field)
 
     @property
     @pulumi.getter
     def direction(self) -> pulumi.Input['ComponentSortDirection']:
+        """
+        The direction of the sort, either ascending or descending.
+        """
         return pulumi.get(self, "direction")
 
     @direction.setter
@@ -935,6 +1238,9 @@ class ComponentSortPropertyArgs:
     @property
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
+        """
+        The field to perform the sort on.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -947,6 +1253,10 @@ class ComponentVariantArgs:
     def __init__(__self__, *,
                  overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  variant_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, Any]] overrides: The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variant_values: The combination of variants that comprise this variant.
+        """
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
         if variant_values is not None:
@@ -955,6 +1265,9 @@ class ComponentVariantArgs:
     @property
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
@@ -964,6 +1277,9 @@ class ComponentVariantArgs:
     @property
     @pulumi.getter(name="variantValues")
     def variant_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The combination of variants that comprise this variant.
+        """
         return pulumi.get(self, "variant_values")
 
     @variant_values.setter
@@ -977,6 +1293,11 @@ class FormButtonArgs:
                  children: Optional[pulumi.Input[str]] = None,
                  excluded: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None):
+        """
+        :param pulumi.Input[str] children: Describes the button's properties.
+        :param pulumi.Input[bool] excluded: Specifies whether the button is visible on the form.
+        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: The position of the button.
+        """
         if children is not None:
             pulumi.set(__self__, "children", children)
         if excluded is not None:
@@ -987,6 +1308,9 @@ class FormButtonArgs:
     @property
     @pulumi.getter
     def children(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the button's properties.
+        """
         return pulumi.get(self, "children")
 
     @children.setter
@@ -996,6 +1320,9 @@ class FormButtonArgs:
     @property
     @pulumi.getter
     def excluded(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the button is visible on the form.
+        """
         return pulumi.get(self, "excluded")
 
     @excluded.setter
@@ -1005,6 +1332,9 @@ class FormButtonArgs:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
+        """
+        The position of the button.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -1019,6 +1349,12 @@ class FormCtaArgs:
                  clear: Optional[pulumi.Input['FormButtonArgs']] = None,
                  position: Optional[pulumi.Input['FormButtonsPosition']] = None,
                  submit: Optional[pulumi.Input['FormButtonArgs']] = None):
+        """
+        :param pulumi.Input['FormButtonArgs'] cancel: Displays a cancel button.
+        :param pulumi.Input['FormButtonArgs'] clear: Displays a clear button.
+        :param pulumi.Input['FormButtonsPosition'] position: The position of the button.
+        :param pulumi.Input['FormButtonArgs'] submit: Displays a submit button.
+        """
         if cancel is not None:
             pulumi.set(__self__, "cancel", cancel)
         if clear is not None:
@@ -1031,6 +1367,9 @@ class FormCtaArgs:
     @property
     @pulumi.getter
     def cancel(self) -> Optional[pulumi.Input['FormButtonArgs']]:
+        """
+        Displays a cancel button.
+        """
         return pulumi.get(self, "cancel")
 
     @cancel.setter
@@ -1040,6 +1379,9 @@ class FormCtaArgs:
     @property
     @pulumi.getter
     def clear(self) -> Optional[pulumi.Input['FormButtonArgs']]:
+        """
+        Displays a clear button.
+        """
         return pulumi.get(self, "clear")
 
     @clear.setter
@@ -1049,6 +1391,9 @@ class FormCtaArgs:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input['FormButtonsPosition']]:
+        """
+        The position of the button.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -1058,6 +1403,9 @@ class FormCtaArgs:
     @property
     @pulumi.getter
     def submit(self) -> Optional[pulumi.Input['FormButtonArgs']]:
+        """
+        Displays a submit button.
+        """
         return pulumi.get(self, "submit")
 
     @submit.setter
@@ -1070,12 +1418,19 @@ class FormDataTypeConfigArgs:
     def __init__(__self__, *,
                  data_source_type: pulumi.Input['FormDataSourceType'],
                  data_type_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input['FormDataSourceType'] data_source_type: The data source type, either an Amplify DataStore model or a custom data type.
+        :param pulumi.Input[str] data_type_name: The unique name of the data type you are using as the data source for the form.
+        """
         pulumi.set(__self__, "data_source_type", data_source_type)
         pulumi.set(__self__, "data_type_name", data_type_name)
 
     @property
     @pulumi.getter(name="dataSourceType")
     def data_source_type(self) -> pulumi.Input['FormDataSourceType']:
+        """
+        The data source type, either an Amplify DataStore model or a custom data type.
+        """
         return pulumi.get(self, "data_source_type")
 
     @data_source_type.setter
@@ -1085,6 +1440,9 @@ class FormDataTypeConfigArgs:
     @property
     @pulumi.getter(name="dataTypeName")
     def data_type_name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the data type you are using as the data source for the form.
+        """
         return pulumi.get(self, "data_type_name")
 
     @data_type_name.setter
@@ -1100,6 +1458,13 @@ class FormFieldConfigArgs:
                  label: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None,
                  validations: Optional[pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] excluded: Specifies whether to hide a field.
+        :param pulumi.Input['FormFieldInputConfigArgs'] input_type: Describes the configuration for the default input value to display for a field.
+        :param pulumi.Input[str] label: The label for the field.
+        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: Specifies the field position.
+        :param pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]] validations: The validations to perform on the value in the field.
+        """
         if excluded is not None:
             pulumi.set(__self__, "excluded", excluded)
         if input_type is not None:
@@ -1114,6 +1479,9 @@ class FormFieldConfigArgs:
     @property
     @pulumi.getter
     def excluded(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to hide a field.
+        """
         return pulumi.get(self, "excluded")
 
     @excluded.setter
@@ -1123,6 +1491,9 @@ class FormFieldConfigArgs:
     @property
     @pulumi.getter(name="inputType")
     def input_type(self) -> Optional[pulumi.Input['FormFieldInputConfigArgs']]:
+        """
+        Describes the configuration for the default input value to display for a field.
+        """
         return pulumi.get(self, "input_type")
 
     @input_type.setter
@@ -1132,6 +1503,9 @@ class FormFieldConfigArgs:
     @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The label for the field.
+        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -1141,6 +1515,9 @@ class FormFieldConfigArgs:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
+        """
+        Specifies the field position.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -1150,6 +1527,9 @@ class FormFieldConfigArgs:
     @property
     @pulumi.getter
     def validations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]]]:
+        """
+        The validations to perform on the value in the field.
+        """
         return pulumi.get(self, "validations")
 
     @validations.setter
@@ -1176,6 +1556,24 @@ class FormFieldInputConfigArgs:
                  step: Optional[pulumi.Input[float]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  value_mappings: Optional[pulumi.Input['FormValueMappingsArgs']] = None):
+        """
+        :param pulumi.Input[str] type: The input type for the field.
+        :param pulumi.Input[bool] default_checked: Specifies whether a field has a default value.
+        :param pulumi.Input[str] default_country_code: The default country code for a phone number.
+        :param pulumi.Input[str] default_value: The default value for the field.
+        :param pulumi.Input[str] descriptive_text: The text to display to describe the field.
+        :param pulumi.Input['FormFileUploaderFieldConfigArgs'] file_uploader_config: The configuration for the file uploader field.
+        :param pulumi.Input[bool] is_array: Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+        :param pulumi.Input[float] max_value: The maximum value to display for the field.
+        :param pulumi.Input[float] min_value: The minimum value to display for the field.
+        :param pulumi.Input[str] name: The name of the field.
+        :param pulumi.Input[str] placeholder: The text to display as a placeholder for the field.
+        :param pulumi.Input[bool] read_only: Specifies a read only field.
+        :param pulumi.Input[bool] required: Specifies a field that requires input.
+        :param pulumi.Input[float] step: The stepping increment for a numeric value in a field.
+        :param pulumi.Input[str] value: The value for the field.
+        :param pulumi.Input['FormValueMappingsArgs'] value_mappings: The information to use to customize the input fields with data at runtime.
+        """
         pulumi.set(__self__, "type", type)
         if default_checked is not None:
             pulumi.set(__self__, "default_checked", default_checked)
@@ -1211,6 +1609,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The input type for the field.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1220,6 +1621,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="defaultChecked")
     def default_checked(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a field has a default value.
+        """
         return pulumi.get(self, "default_checked")
 
     @default_checked.setter
@@ -1229,6 +1633,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="defaultCountryCode")
     def default_country_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default country code for a phone number.
+        """
         return pulumi.get(self, "default_country_code")
 
     @default_country_code.setter
@@ -1238,6 +1645,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value for the field.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -1247,6 +1657,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="descriptiveText")
     def descriptive_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text to display to describe the field.
+        """
         return pulumi.get(self, "descriptive_text")
 
     @descriptive_text.setter
@@ -1256,6 +1669,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="fileUploaderConfig")
     def file_uploader_config(self) -> Optional[pulumi.Input['FormFileUploaderFieldConfigArgs']]:
+        """
+        The configuration for the file uploader field.
+        """
         return pulumi.get(self, "file_uploader_config")
 
     @file_uploader_config.setter
@@ -1265,6 +1681,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="isArray")
     def is_array(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+        """
         return pulumi.get(self, "is_array")
 
     @is_array.setter
@@ -1274,6 +1693,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="maxValue")
     def max_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum value to display for the field.
+        """
         return pulumi.get(self, "max_value")
 
     @max_value.setter
@@ -1283,6 +1705,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="minValue")
     def min_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The minimum value to display for the field.
+        """
         return pulumi.get(self, "min_value")
 
     @min_value.setter
@@ -1292,6 +1717,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the field.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1301,6 +1729,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter
     def placeholder(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text to display as a placeholder for the field.
+        """
         return pulumi.get(self, "placeholder")
 
     @placeholder.setter
@@ -1310,6 +1741,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies a read only field.
+        """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
@@ -1319,6 +1753,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter
     def required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies a field that requires input.
+        """
         return pulumi.get(self, "required")
 
     @required.setter
@@ -1328,6 +1765,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter
     def step(self) -> Optional[pulumi.Input[float]]:
+        """
+        The stepping increment for a numeric value in a field.
+        """
         return pulumi.get(self, "step")
 
     @step.setter
@@ -1337,6 +1777,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the field.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1346,6 +1789,9 @@ class FormFieldInputConfigArgs:
     @property
     @pulumi.getter(name="valueMappings")
     def value_mappings(self) -> Optional[pulumi.Input['FormValueMappingsArgs']]:
+        """
+        The information to use to customize the input fields with data at runtime.
+        """
         return pulumi.get(self, "value_mappings")
 
     @value_mappings.setter
@@ -1408,6 +1854,12 @@ class FormFieldValidationConfigurationArgs:
                  num_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
                  str_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  validation_message: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The validation to perform on an object type. ``
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] num_values: The validation to perform on a number value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] str_values: The validation to perform on a string value.
+        :param pulumi.Input[str] validation_message: The validation message to display.
+        """
         pulumi.set(__self__, "type", type)
         if num_values is not None:
             pulumi.set(__self__, "num_values", num_values)
@@ -1419,6 +1871,9 @@ class FormFieldValidationConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The validation to perform on an object type. ``
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1428,6 +1883,9 @@ class FormFieldValidationConfigurationArgs:
     @property
     @pulumi.getter(name="numValues")
     def num_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        The validation to perform on a number value.
+        """
         return pulumi.get(self, "num_values")
 
     @num_values.setter
@@ -1437,6 +1895,9 @@ class FormFieldValidationConfigurationArgs:
     @property
     @pulumi.getter(name="strValues")
     def str_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The validation to perform on a string value.
+        """
         return pulumi.get(self, "str_values")
 
     @str_values.setter
@@ -1446,6 +1907,9 @@ class FormFieldValidationConfigurationArgs:
     @property
     @pulumi.getter(name="validationMessage")
     def validation_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The validation message to display.
+        """
         return pulumi.get(self, "validation_message")
 
     @validation_message.setter
@@ -1462,6 +1926,16 @@ class FormFileUploaderFieldConfigArgs:
                  max_file_count: Optional[pulumi.Input[float]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  show_thumbnails: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_file_types: The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
+        :param pulumi.Input['FormStorageAccessLevel'] access_level: The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
+        :param pulumi.Input[bool] is_resumable: Allows the file upload operation to be paused and resumed. The default value is `false` .
+               
+               When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
+        :param pulumi.Input[float] max_file_count: Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
+        :param pulumi.Input[float] max_size: The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
+        :param pulumi.Input[bool] show_thumbnails: Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
+        """
         pulumi.set(__self__, "accepted_file_types", accepted_file_types)
         pulumi.set(__self__, "access_level", access_level)
         if is_resumable is not None:
@@ -1476,6 +1950,9 @@ class FormFileUploaderFieldConfigArgs:
     @property
     @pulumi.getter(name="acceptedFileTypes")
     def accepted_file_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
+        """
         return pulumi.get(self, "accepted_file_types")
 
     @accepted_file_types.setter
@@ -1485,6 +1962,9 @@ class FormFileUploaderFieldConfigArgs:
     @property
     @pulumi.getter(name="accessLevel")
     def access_level(self) -> pulumi.Input['FormStorageAccessLevel']:
+        """
+        The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private` , `protected` , or `public` . For detailed information about the permissions associated with each access level, see [File access levels](https://docs.aws.amazon.com/https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation* .
+        """
         return pulumi.get(self, "access_level")
 
     @access_level.setter
@@ -1494,6 +1974,11 @@ class FormFileUploaderFieldConfigArgs:
     @property
     @pulumi.getter(name="isResumable")
     def is_resumable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows the file upload operation to be paused and resumed. The default value is `false` .
+
+        When `isResumable` is set to `true` , the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
+        """
         return pulumi.get(self, "is_resumable")
 
     @is_resumable.setter
@@ -1503,6 +1988,9 @@ class FormFileUploaderFieldConfigArgs:
     @property
     @pulumi.getter(name="maxFileCount")
     def max_file_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
+        """
         return pulumi.get(self, "max_file_count")
 
     @max_file_count.setter
@@ -1512,6 +2000,9 @@ class FormFileUploaderFieldConfigArgs:
     @property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
+        """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
@@ -1521,6 +2012,9 @@ class FormFileUploaderFieldConfigArgs:
     @property
     @pulumi.getter(name="showThumbnails")
     def show_thumbnails(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
+        """
         return pulumi.get(self, "show_thumbnails")
 
     @show_thumbnails.setter
@@ -1532,12 +2026,18 @@ class FormFileUploaderFieldConfigArgs:
 class FormInputBindingPropertiesValuePropertiesArgs:
     def __init__(__self__, *,
                  model: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] model: An Amplify DataStore model.
+        """
         if model is not None:
             pulumi.set(__self__, "model", model)
 
     @property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amplify DataStore model.
+        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -1550,6 +2050,10 @@ class FormInputBindingPropertiesValueArgs:
     def __init__(__self__, *,
                  binding_properties: Optional[pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs'] binding_properties: Describes the properties to customize with data at runtime.
+        :param pulumi.Input[str] type: The property type.
+        """
         if binding_properties is not None:
             pulumi.set(__self__, "binding_properties", binding_properties)
         if type is not None:
@@ -1558,6 +2062,9 @@ class FormInputBindingPropertiesValueArgs:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs']]:
+        """
+        Describes the properties to customize with data at runtime.
+        """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
@@ -1567,6 +2074,9 @@ class FormInputBindingPropertiesValueArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property type.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1579,6 +2089,10 @@ class FormInputValuePropertyBindingPropertiesArgs:
     def __init__(__self__, *,
                  property: pulumi.Input[str],
                  field: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] property: The form property to bind to the data field.
+        :param pulumi.Input[str] field: The data field to bind the property to.
+        """
         pulumi.set(__self__, "property", property)
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -1586,6 +2100,9 @@ class FormInputValuePropertyBindingPropertiesArgs:
     @property
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data field to bind the property to.
+        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -1595,6 +2112,9 @@ class FormInputValuePropertyBindingPropertiesArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The form property to bind to the data field.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -1608,6 +2128,11 @@ class FormInputValuePropertyArgs:
                  binding_properties: Optional[pulumi.Input['FormInputValuePropertyBindingPropertiesArgs']] = None,
                  concat: Optional[pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['FormInputValuePropertyBindingPropertiesArgs'] binding_properties: The information to bind fields to data at runtime.
+        :param pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]] concat: A list of form properties to concatenate to create the value to assign to this field property.
+        :param pulumi.Input[str] value: The value to assign to the input field.
+        """
         if binding_properties is not None:
             pulumi.set(__self__, "binding_properties", binding_properties)
         if concat is not None:
@@ -1618,6 +2143,9 @@ class FormInputValuePropertyArgs:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['FormInputValuePropertyBindingPropertiesArgs']]:
+        """
+        The information to bind fields to data at runtime.
+        """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
@@ -1627,6 +2155,9 @@ class FormInputValuePropertyArgs:
     @property
     @pulumi.getter
     def concat(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]]]:
+        """
+        A list of form properties to concatenate to create the value to assign to this field property.
+        """
         return pulumi.get(self, "concat")
 
     @concat.setter
@@ -1636,6 +2167,9 @@ class FormInputValuePropertyArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to assign to the input field.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1652,6 +2186,14 @@ class FormSectionalElementArgs:
                  orientation: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None,
                  text: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
+        :param pulumi.Input[bool] excluded: Excludes a sectional element that was generated by default for a specified data model.
+        :param pulumi.Input[float] level: Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
+        :param pulumi.Input[str] orientation: Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
+        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: Specifies the position of the text in a field for a `Text` sectional element.
+        :param pulumi.Input[str] text: The text for a `Text` sectional element.
+        """
         pulumi.set(__self__, "type", type)
         if excluded is not None:
             pulumi.set(__self__, "excluded", excluded)
@@ -1667,6 +2209,9 @@ class FormSectionalElementArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1676,6 +2221,9 @@ class FormSectionalElementArgs:
     @property
     @pulumi.getter
     def excluded(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Excludes a sectional element that was generated by default for a specified data model.
+        """
         return pulumi.get(self, "excluded")
 
     @excluded.setter
@@ -1685,6 +2233,9 @@ class FormSectionalElementArgs:
     @property
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -1694,6 +2245,9 @@ class FormSectionalElementArgs:
     @property
     @pulumi.getter
     def orientation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
+        """
         return pulumi.get(self, "orientation")
 
     @orientation.setter
@@ -1703,6 +2257,9 @@ class FormSectionalElementArgs:
     @property
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
+        """
+        Specifies the position of the text in a field for a `Text` sectional element.
+        """
         return pulumi.get(self, "position")
 
     @position.setter
@@ -1712,6 +2269,9 @@ class FormSectionalElementArgs:
     @property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text for a `Text` sectional element.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -1757,6 +2317,11 @@ class FormStyleArgs:
                  horizontal_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
                  outer_padding: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
                  vertical_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None):
+        """
+        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] horizontal_gap: The spacing for the horizontal gap.
+        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] outer_padding: The size of the outer padding for the form.
+        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] vertical_gap: The spacing for the vertical gap.
+        """
         if horizontal_gap is not None:
             pulumi.set(__self__, "horizontal_gap", horizontal_gap)
         if outer_padding is not None:
@@ -1767,6 +2332,9 @@ class FormStyleArgs:
     @property
     @pulumi.getter(name="horizontalGap")
     def horizontal_gap(self) -> Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]]:
+        """
+        The spacing for the horizontal gap.
+        """
         return pulumi.get(self, "horizontal_gap")
 
     @horizontal_gap.setter
@@ -1776,6 +2344,9 @@ class FormStyleArgs:
     @property
     @pulumi.getter(name="outerPadding")
     def outer_padding(self) -> Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]]:
+        """
+        The size of the outer padding for the form.
+        """
         return pulumi.get(self, "outer_padding")
 
     @outer_padding.setter
@@ -1785,6 +2356,9 @@ class FormStyleArgs:
     @property
     @pulumi.getter(name="verticalGap")
     def vertical_gap(self) -> Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]]:
+        """
+        The spacing for the vertical gap.
+        """
         return pulumi.get(self, "vertical_gap")
 
     @vertical_gap.setter
@@ -1797,6 +2371,10 @@ class FormValueMappingsArgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]],
                  binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]] values: The value and display value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgs']]] binding_properties: The information to bind fields to data at runtime.
+        """
         pulumi.set(__self__, "values", values)
         if binding_properties is not None:
             pulumi.set(__self__, "binding_properties", binding_properties)
@@ -1804,6 +2382,9 @@ class FormValueMappingsArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]]:
+        """
+        The value and display value pairs.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1813,6 +2394,9 @@ class FormValueMappingsArgs:
     @property
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgs']]]]:
+        """
+        The information to bind fields to data at runtime.
+        """
         return pulumi.get(self, "binding_properties")
 
     @binding_properties.setter
@@ -1825,6 +2409,10 @@ class FormValueMappingArgs:
     def __init__(__self__, *,
                  value: pulumi.Input['FormInputValuePropertyArgs'],
                  display_value: Optional[pulumi.Input['FormInputValuePropertyArgs']] = None):
+        """
+        :param pulumi.Input['FormInputValuePropertyArgs'] value: The complex object.
+        :param pulumi.Input['FormInputValuePropertyArgs'] display_value: The value to display for the complex object.
+        """
         pulumi.set(__self__, "value", value)
         if display_value is not None:
             pulumi.set(__self__, "display_value", display_value)
@@ -1832,6 +2420,9 @@ class FormValueMappingArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input['FormInputValuePropertyArgs']:
+        """
+        The complex object.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1841,6 +2432,9 @@ class FormValueMappingArgs:
     @property
     @pulumi.getter(name="displayValue")
     def display_value(self) -> Optional[pulumi.Input['FormInputValuePropertyArgs']]:
+        """
+        The value to display for the complex object.
+        """
         return pulumi.get(self, "display_value")
 
     @display_value.setter
@@ -1853,6 +2447,10 @@ class ThemeValuesArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['ThemeValueArgs']] = None):
+        """
+        :param pulumi.Input[str] key: The name of the property.
+        :param pulumi.Input['ThemeValueArgs'] value: The value of the property.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1861,6 +2459,9 @@ class ThemeValuesArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the property.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1870,6 +2471,9 @@ class ThemeValuesArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input['ThemeValueArgs']]:
+        """
+        The value of the property.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1882,6 +2486,10 @@ class ThemeValueArgs:
     def __init__(__self__, *,
                  children: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]] children: A list of key-value pairs that define the theme's properties.
+        :param pulumi.Input[str] value: The value of a theme property.
+        """
         if children is not None:
             pulumi.set(__self__, "children", children)
         if value is not None:
@@ -1890,6 +2498,9 @@ class ThemeValueArgs:
     @property
     @pulumi.getter
     def children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]]:
+        """
+        A list of key-value pairs that define the theme's properties.
+        """
         return pulumi.get(self, "children")
 
     @children.setter
@@ -1899,6 +2510,9 @@ class ThemeValueArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of a theme property.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

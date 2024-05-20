@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.TemplateVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.TemplateVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.TemplateVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The data set that is used in the empty visual. Every visual requires a dataset to render.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

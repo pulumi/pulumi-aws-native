@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The certificate ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The certificate ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,27 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
+        /// 
+        /// A value similar to the following is returned:
+        /// 
+        /// `arn:aws:iot:ap-southeast-2:123456789012:cert/a1234567b89c012d3e4fg567hij8k9l01mno1p23q45678901rs234567890t1u2`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The certificate ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The status of the certificate.
+        /// 
+        /// Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
+        /// 
+        /// The status value REGISTER_INACTIVE is deprecated and should not be used.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.CertificateStatus? Status;
 
         [OutputConstructor]

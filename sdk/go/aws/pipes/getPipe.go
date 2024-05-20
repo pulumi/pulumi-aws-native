@@ -23,23 +23,37 @@ func LookupPipe(ctx *pulumi.Context, args *LookupPipeArgs, opts ...pulumi.Invoke
 }
 
 type LookupPipeArgs struct {
+	// The name of the pipe.
 	Name string `pulumi:"name"`
 }
 
 type LookupPipeResult struct {
-	Arn                  *string                   `pulumi:"arn"`
-	CreationTime         *string                   `pulumi:"creationTime"`
-	CurrentState         *PipeStateEnum            `pulumi:"currentState"`
-	Description          *string                   `pulumi:"description"`
-	DesiredState         *PipeRequestedPipeState   `pulumi:"desiredState"`
-	Enrichment           *string                   `pulumi:"enrichment"`
+	// The ARN of the pipe.
+	Arn *string `pulumi:"arn"`
+	// The time the pipe was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The state the pipe is in.
+	CurrentState *PipeStateEnum `pulumi:"currentState"`
+	// A description of the pipe.
+	Description *string `pulumi:"description"`
+	// The state the pipe should be in.
+	DesiredState *PipeRequestedPipeState `pulumi:"desiredState"`
+	// The ARN of the enrichment resource.
+	Enrichment *string `pulumi:"enrichment"`
+	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
-	LastModifiedTime     *string                   `pulumi:"lastModifiedTime"`
-	LogConfiguration     *PipeLogConfiguration     `pulumi:"logConfiguration"`
-	RoleArn              *string                   `pulumi:"roleArn"`
-	StateReason          *string                   `pulumi:"stateReason"`
-	Tags                 map[string]string         `pulumi:"tags"`
-	Target               *string                   `pulumi:"target"`
+	// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The logging configuration settings for the pipe.
+	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
+	// The ARN of the role that allows the pipe to send data to the target.
+	RoleArn *string `pulumi:"roleArn"`
+	// The reason the pipe is in its current state.
+	StateReason *string `pulumi:"stateReason"`
+	// The list of key-value pairs to associate with the pipe.
+	Tags map[string]string `pulumi:"tags"`
+	// The ARN of the target resource.
+	Target *string `pulumi:"target"`
 }
 
 func LookupPipeOutput(ctx *pulumi.Context, args LookupPipeOutputArgs, opts ...pulumi.InvokeOption) LookupPipeResultOutput {
@@ -56,6 +70,7 @@ func LookupPipeOutput(ctx *pulumi.Context, args LookupPipeOutputArgs, opts ...pu
 }
 
 type LookupPipeOutputArgs struct {
+	// The name of the pipe.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -77,54 +92,67 @@ func (o LookupPipeResultOutput) ToLookupPipeResultOutputWithContext(ctx context.
 	return o
 }
 
+// The ARN of the pipe.
 func (o LookupPipeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The time the pipe was created.
 func (o LookupPipeResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The state the pipe is in.
 func (o LookupPipeResultOutput) CurrentState() PipeStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *PipeStateEnum { return v.CurrentState }).(PipeStateEnumPtrOutput)
 }
 
+// A description of the pipe.
 func (o LookupPipeResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The state the pipe should be in.
 func (o LookupPipeResultOutput) DesiredState() PipeRequestedPipeStatePtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *PipeRequestedPipeState { return v.DesiredState }).(PipeRequestedPipeStatePtrOutput)
 }
 
+// The ARN of the enrichment resource.
 func (o LookupPipeResultOutput) Enrichment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.Enrichment }).(pulumi.StringPtrOutput)
 }
 
+// The parameters required to set up enrichment on your pipe.
 func (o LookupPipeResultOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *PipeEnrichmentParameters { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
 }
 
+// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
 func (o LookupPipeResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// The logging configuration settings for the pipe.
 func (o LookupPipeResultOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *PipeLogConfiguration { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }
 
+// The ARN of the role that allows the pipe to send data to the target.
 func (o LookupPipeResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The reason the pipe is in its current state.
 func (o LookupPipeResultOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.StateReason }).(pulumi.StringPtrOutput)
 }
 
+// The list of key-value pairs to associate with the pipe.
 func (o LookupPipeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPipeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the target resource.
 func (o LookupPipeResultOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.Target }).(pulumi.StringPtrOutput)
 }

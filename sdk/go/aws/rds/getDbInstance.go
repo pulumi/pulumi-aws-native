@@ -141,7 +141,8 @@ type LookupDbInstanceResult struct {
 	//   +  If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the ``DBClusterSnapshotIdentifier`` must be the ARN of the shared snapshot.
 	//   +  Can't be the identifier of an Aurora DB cluster snapshot.
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
-	DbInstanceArn               *string `pulumi:"dbInstanceArn"`
+	// The Amazon Resource Name (ARN) for the DB instance.
+	DbInstanceArn *string `pulumi:"dbInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example ``db.m5.large``. Not all DB instance classes are available in all AWS-Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide* or [Aurora DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html) in the *Amazon Aurora User Guide*.
 	DbInstanceClass *string `pulumi:"dbInstanceClass"`
 	// The name of an existing DB parameter group or a reference to an [AWS::RDS::DBParameterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html) resource created in the template.
@@ -177,7 +178,8 @@ type LookupDbInstanceResult struct {
 	//  All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as ``StorageType``, ``StorageEncrypted``, or ``KmsKeyId``. If you're already using the ``DBSecurityGroups`` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
 	DbSecurityGroups []string `pulumi:"dbSecurityGroups"`
 	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
-	DbSystemId    *string `pulumi:"dbSystemId"`
+	DbSystemId *string `pulumi:"dbSystemId"`
+	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
 	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
@@ -588,6 +590,7 @@ func (o LookupDbInstanceResultOutput) DbClusterSnapshotIdentifier() pulumi.Strin
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the DB instance.
 func (o LookupDbInstanceResultOutput) DbInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbInstanceArn }).(pulumi.StringPtrOutput)
 }
@@ -642,6 +645,7 @@ func (o LookupDbInstanceResultOutput) DbSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbSystemId }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o LookupDbInstanceResultOutput) DbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbiResourceId }).(pulumi.StringPtrOutput)
 }

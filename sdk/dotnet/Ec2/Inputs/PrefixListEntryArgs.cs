@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class PrefixListEntryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CIDR block.
+        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
+        /// <summary>
+        /// A description for the entry.
+        /// 
+        /// Constraints: Up to 255 characters in length.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

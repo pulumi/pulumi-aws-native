@@ -93,9 +93,24 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
+    /**
+     * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+     */
     public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
+    /**
+     * The unique ID of the new or updated policy.
+     */
     public /*out*/ readonly policyId!: pulumi.Output<string>;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     public readonly policyStoreId!: pulumi.Output<string>;
+    /**
+     * The type of the policy. This is one of the following values:
+     *
+     * - Static
+     * - TemplateLinked
+     */
     public /*out*/ readonly policyType!: pulumi.Output<enums.verifiedpermissions.PolicyType>;
 
     /**
@@ -136,6 +151,12 @@ export class Policy extends pulumi.CustomResource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
+    /**
+     * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+     */
     definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyDefinition1PropertiesArgs>;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     policyStoreId: pulumi.Input<string>;
 }

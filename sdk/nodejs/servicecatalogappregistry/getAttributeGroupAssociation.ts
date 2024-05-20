@@ -17,12 +17,24 @@ export function getAttributeGroupAssociation(args: GetAttributeGroupAssociationA
 }
 
 export interface GetAttributeGroupAssociationArgs {
+    /**
+     * The Amazon resource name (ARN) of the application that was augmented with attributes.
+     */
     applicationArn: string;
+    /**
+     * The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+     */
     attributeGroupArn: string;
 }
 
 export interface GetAttributeGroupAssociationResult {
+    /**
+     * The Amazon resource name (ARN) of the application that was augmented with attributes.
+     */
     readonly applicationArn?: string;
+    /**
+     * The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+     */
     readonly attributeGroupArn?: string;
 }
 /**
@@ -33,6 +45,12 @@ export function getAttributeGroupAssociationOutput(args: GetAttributeGroupAssoci
 }
 
 export interface GetAttributeGroupAssociationOutputArgs {
+    /**
+     * The Amazon resource name (ARN) of the application that was augmented with attributes.
+     */
     applicationArn: pulumi.Input<string>;
+    /**
+     * The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+     */
     attributeGroupArn: pulumi.Input<string>;
 }

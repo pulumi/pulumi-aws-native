@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclBlockActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a custom response for the web request.
+        /// 
+        /// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+        /// </summary>
         [Input("customResponse")]
         public Input<Inputs.WebAclCustomResponseArgs>? CustomResponse { get; set; }
 

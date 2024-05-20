@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisReferenceLineStaticDataConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The double input of the static data.
+        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

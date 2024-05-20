@@ -31,6 +31,21 @@ class AppBlockBuilderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AppBlockBuilder resource.
+        :param pulumi.Input[str] instance_type: The instance type of the app block builder.
+        :param pulumi.Input[str] platform: The platform of the app block builder.
+               
+               *Allowed values* : `WINDOWS_SERVER_2019`
+        :param pulumi.Input['AppBlockBuilderVpcConfigArgs'] vpc_config: The VPC configuration for the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]] access_endpoints: The access endpoints of the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_block_arns: The ARN of the app block.
+               
+               *Maximum* : `1`
+        :param pulumi.Input[str] description: The description of the app block builder.
+        :param pulumi.Input[str] display_name: The display name of the app block builder.
+        :param pulumi.Input[bool] enable_default_internet_access: Indicates whether default internet access is enabled for the app block builder.
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that is applied to the app block builder.
+        :param pulumi.Input[str] name: The name of the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of the app block builder.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "platform", platform)
@@ -55,6 +70,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
+        """
+        The instance type of the app block builder.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -64,6 +82,11 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Input[str]:
+        """
+        The platform of the app block builder.
+
+        *Allowed values* : `WINDOWS_SERVER_2019`
+        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -73,6 +96,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input['AppBlockBuilderVpcConfigArgs']:
+        """
+        The VPC configuration for the app block builder.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -82,6 +108,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]]:
+        """
+        The access endpoints of the app block builder.
+        """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
@@ -91,6 +120,11 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="appBlockArns")
     def app_block_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ARN of the app block.
+
+        *Maximum* : `1`
+        """
         return pulumi.get(self, "app_block_arns")
 
     @app_block_arns.setter
@@ -100,6 +134,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the app block builder.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -109,6 +146,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the app block builder.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -118,6 +158,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether default internet access is enabled for the app block builder.
+        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
@@ -127,6 +170,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that is applied to the app block builder.
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -136,6 +182,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app block builder.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -145,6 +194,9 @@ class AppBlockBuilderArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags of the app block builder.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -174,6 +226,21 @@ class AppBlockBuilder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockBuilderAccessEndpointArgs']]]] access_endpoints: The access endpoints of the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_block_arns: The ARN of the app block.
+               
+               *Maximum* : `1`
+        :param pulumi.Input[str] description: The description of the app block builder.
+        :param pulumi.Input[str] display_name: The display name of the app block builder.
+        :param pulumi.Input[bool] enable_default_internet_access: Indicates whether default internet access is enabled for the app block builder.
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that is applied to the app block builder.
+        :param pulumi.Input[str] instance_type: The instance type of the app block builder.
+        :param pulumi.Input[str] name: The name of the app block builder.
+        :param pulumi.Input[str] platform: The platform of the app block builder.
+               
+               *Allowed values* : `WINDOWS_SERVER_2019`
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of the app block builder.
+        :param pulumi.Input[pulumi.InputType['AppBlockBuilderVpcConfigArgs']] vpc_config: The VPC configuration for the app block builder.
         """
         ...
     @overload
@@ -280,65 +347,108 @@ class AppBlockBuilder(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.AppBlockBuilderAccessEndpoint']]]:
+        """
+        The access endpoints of the app block builder.
+        """
         return pulumi.get(self, "access_endpoints")
 
     @property
     @pulumi.getter(name="appBlockArns")
     def app_block_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The ARN of the app block.
+
+        *Maximum* : `1`
+        """
         return pulumi.get(self, "app_block_arns")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the app block builder.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the app block builder was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the app block builder.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the app block builder.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether default internet access is enabled for the app block builder.
+        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM role that is applied to the app block builder.
+        """
         return pulumi.get(self, "iam_role_arn")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
+        """
+        The instance type of the app block builder.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the app block builder.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Output[str]:
+        """
+        The platform of the app block builder.
+
+        *Allowed values* : `WINDOWS_SERVER_2019`
+        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags of the app block builder.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output['outputs.AppBlockBuilderVpcConfig']:
+        """
+        The VPC configuration for the app block builder.
+        """
         return pulumi.get(self, "vpc_config")
 

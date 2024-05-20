@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.Sso
         /// Specifies whether the application is enabled or disabled
         /// </summary>
         public readonly Pulumi.AwsNative.Sso.ApplicationStatus? Status;
+        /// <summary>
+        /// Specifies tags to be attached to the application
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

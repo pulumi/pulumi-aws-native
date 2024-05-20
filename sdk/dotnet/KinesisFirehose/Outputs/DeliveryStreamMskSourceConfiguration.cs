@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamMskSourceConfiguration
     {
+        /// <summary>
+        /// The authentication configuration of the Amazon MSK cluster.
+        /// </summary>
         public readonly Outputs.DeliveryStreamAuthenticationConfiguration AuthenticationConfiguration;
+        /// <summary>
+        /// The ARN of the Amazon MSK cluster.
+        /// </summary>
         public readonly string MskClusterArn;
+        /// <summary>
+        /// The topic name within the Amazon MSK cluster.
+        /// </summary>
         public readonly string TopicName;
 
         [OutputConstructor]

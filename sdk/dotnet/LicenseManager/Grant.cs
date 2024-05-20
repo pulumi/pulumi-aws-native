@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.LicenseManager
     [AwsNativeResourceType("aws-native:licensemanager:Grant")]
     public partial class Grant : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Allowed operations for the grant.
+        /// </summary>
         [Output("allowedOperations")]
         public Output<ImmutableArray<string>> AllowedOperations { get; private set; } = null!;
 
@@ -42,9 +45,21 @@ namespace Pulumi.AwsNative.LicenseManager
         [Output("licenseArn")]
         public Output<string?> LicenseArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+        /// 
+        /// - An AWS account, which includes only the account specified.
+        /// 
+        /// - An organizational unit (OU), which includes all accounts in the OU.
+        /// 
+        /// - An organization, which will include all accounts across your organization.
+        /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
 
+        /// <summary>
+        /// Granted license status.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
@@ -101,6 +116,10 @@ namespace Pulumi.AwsNative.LicenseManager
     {
         [Input("allowedOperations")]
         private InputList<string>? _allowedOperations;
+
+        /// <summary>
+        /// Allowed operations for the grant.
+        /// </summary>
         public InputList<string> AllowedOperations
         {
             get => _allowedOperations ?? (_allowedOperations = new InputList<string>());
@@ -127,12 +146,25 @@ namespace Pulumi.AwsNative.LicenseManager
 
         [Input("principals")]
         private InputList<string>? _principals;
+
+        /// <summary>
+        /// The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
+        /// 
+        /// - An AWS account, which includes only the account specified.
+        /// 
+        /// - An organizational unit (OU), which includes all accounts in the OU.
+        /// 
+        /// - An organization, which will include all accounts across your organization.
+        /// </summary>
         public InputList<string> Principals
         {
             get => _principals ?? (_principals = new InputList<string>());
             set => _principals = value;
         }
 
+        /// <summary>
+        /// Granted license status.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

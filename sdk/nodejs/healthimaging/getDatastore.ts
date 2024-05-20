@@ -19,14 +19,32 @@ export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetDatastoreArgs {
+    /**
+     * The data store identifier.
+     */
     datastoreId: string;
 }
 
 export interface GetDatastoreResult {
+    /**
+     * The timestamp when the data store was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the data store.
+     */
     readonly datastoreArn?: string;
+    /**
+     * The data store identifier.
+     */
     readonly datastoreId?: string;
+    /**
+     * The data store status.
+     */
     readonly datastoreStatus?: enums.healthimaging.DatastoreStatus;
+    /**
+     * The timestamp when the data store was last updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -37,5 +55,8 @@ export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.I
 }
 
 export interface GetDatastoreOutputArgs {
+    /**
+     * The data store identifier.
+     */
     datastoreId: pulumi.Input<string>;
 }

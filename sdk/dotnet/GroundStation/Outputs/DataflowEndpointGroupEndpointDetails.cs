@@ -14,7 +14,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     public sealed class DataflowEndpointGroupEndpointDetails
     {
         public readonly Outputs.DataflowEndpointGroupAwsGroundStationAgentEndpoint? AwsGroundStationAgentEndpoint;
+        /// <summary>
+        /// Information about the endpoint such as name and the endpoint address.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupDataflowEndpoint? Endpoint;
+        /// <summary>
+        /// The role ARN, and IDs for security groups and subnets.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupSecurityDetails? SecurityDetails;
 
         [OutputConstructor]

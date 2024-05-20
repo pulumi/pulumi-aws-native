@@ -16,11 +16,16 @@ import (
 type Farm struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) assigned to the farm.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A description of the farm that helps identify what the farm is used for.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	DisplayName pulumi.StringOutput    `pulumi:"displayName"`
-	FarmId      pulumi.StringOutput    `pulumi:"farmId"`
-	KmsKeyArn   pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The display name of the farm.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The farm ID.
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
+	// The ARN for the KMS key.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 }
 
 // NewFarm registers a new resource with the given unique name, arguments, and options.
@@ -70,16 +75,22 @@ func (FarmState) ElementType() reflect.Type {
 }
 
 type farmArgs struct {
+	// A description of the farm that helps identify what the farm is used for.
 	Description *string `pulumi:"description"`
-	DisplayName string  `pulumi:"displayName"`
-	KmsKeyArn   *string `pulumi:"kmsKeyArn"`
+	// The display name of the farm.
+	DisplayName string `pulumi:"displayName"`
+	// The ARN for the KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // The set of arguments for constructing a Farm resource.
 type FarmArgs struct {
+	// A description of the farm that helps identify what the farm is used for.
 	Description pulumi.StringPtrInput
+	// The display name of the farm.
 	DisplayName pulumi.StringInput
-	KmsKeyArn   pulumi.StringPtrInput
+	// The ARN for the KMS key.
+	KmsKeyArn pulumi.StringPtrInput
 }
 
 func (FarmArgs) ElementType() reflect.Type {
@@ -119,22 +130,27 @@ func (o FarmOutput) ToFarmOutputWithContext(ctx context.Context) FarmOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) assigned to the farm.
 func (o FarmOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A description of the farm that helps identify what the farm is used for.
 func (o FarmOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the farm.
 func (o FarmOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The farm ID.
 func (o FarmOutput) FarmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
+// The ARN for the KMS key.
 func (o FarmOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Farm) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

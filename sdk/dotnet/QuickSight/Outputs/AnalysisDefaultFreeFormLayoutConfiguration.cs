@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultFreeFormLayoutConfiguration
     {
+        /// <summary>
+        /// Determines the screen canvas size options for a free-form layout.
+        /// </summary>
         public readonly Outputs.AnalysisFreeFormLayoutCanvasSizeOptions CanvasSizeOptions;
 
         [OutputConstructor]

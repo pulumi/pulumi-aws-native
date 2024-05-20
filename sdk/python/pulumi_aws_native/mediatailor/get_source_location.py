@@ -44,6 +44,9 @@ class GetSourceLocationResult:
     @property
     @pulumi.getter(name="accessConfiguration")
     def access_configuration(self) -> Optional['outputs.SourceLocationAccessConfiguration']:
+        """
+        The access configuration for the source location.
+        """
         return pulumi.get(self, "access_configuration")
 
     @property
@@ -57,11 +60,17 @@ class GetSourceLocationResult:
     @property
     @pulumi.getter(name="defaultSegmentDeliveryConfiguration")
     def default_segment_delivery_configuration(self) -> Optional['outputs.SourceLocationDefaultSegmentDeliveryConfiguration']:
+        """
+        The default segment delivery configuration.
+        """
         return pulumi.get(self, "default_segment_delivery_configuration")
 
     @property
     @pulumi.getter(name="httpConfiguration")
     def http_configuration(self) -> Optional['outputs.SourceLocationHttpConfiguration']:
+        """
+        The HTTP configuration for the source location.
+        """
         return pulumi.get(self, "http_configuration")
 
     @property
@@ -99,6 +108,9 @@ def get_source_location(source_location_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceLocationResult:
     """
     Definition of AWS::MediaTailor::SourceLocation Resource Type
+
+
+    :param str source_location_name: The name of the source location.
     """
     __args__ = dict()
     __args__['sourceLocationName'] = source_location_name
@@ -119,5 +131,8 @@ def get_source_location_output(source_location_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceLocationResult]:
     """
     Definition of AWS::MediaTailor::SourceLocation Resource Type
+
+
+    :param str source_location_name: The name of the source location.
     """
     ...

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetIotEventsDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the AWS IoT Events input to which dataset contents are delivered.
+        /// </summary>
         [Input("inputName", required: true)]
         public Input<string> InputName { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

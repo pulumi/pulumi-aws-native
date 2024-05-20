@@ -61,16 +61,37 @@ namespace Pulumi.AwsNative.DataSync
         /// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         /// </summary>
         public readonly string? CloudWatchLogGroupArn;
+        /// <summary>
+        /// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationNetworkInterfaceArns;
+        /// <summary>
+        /// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TaskFilterRule> Excludes;
+        /// <summary>
+        /// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TaskFilterRule> Includes;
+        /// <summary>
+        /// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        /// </summary>
         public readonly Outputs.TaskManifestConfig? ManifestConfig;
         /// <summary>
         /// The name of a task. This value is a text reference that is used to identify the task in the console.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        /// </summary>
         public readonly Outputs.TaskOptions? Options;
+        /// <summary>
+        /// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+        /// </summary>
         public readonly Outputs.TaskSchedule? Schedule;
+        /// <summary>
+        /// The ARNs of the source ENIs that were created for your subnet.
+        /// </summary>
         public readonly ImmutableArray<string> SourceNetworkInterfaceArns;
         /// <summary>
         /// The status of the task that was described.
@@ -84,6 +105,11 @@ namespace Pulumi.AwsNative.DataSync
         /// The ARN of the task.
         /// </summary>
         public readonly string? TaskArn;
+        /// <summary>
+        /// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        /// 
+        /// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        /// </summary>
         public readonly Outputs.TaskReportConfig? TaskReportConfig;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     {
         [Input("contains")]
         private InputList<string>? _contains;
+
+        /// <summary>
+        /// A "contains" condition to match for the rule.
+        /// </summary>
         public InputList<string> Contains
         {
             get => _contains ?? (_contains = new InputList<string>());
@@ -22,23 +26,37 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
 
         [Input("eq")]
         private InputList<string>? _eq;
+
+        /// <summary>
+        /// An "equals" condition to match for the rule.
+        /// </summary>
         public InputList<string> Eq
         {
             get => _eq ?? (_eq = new InputList<string>());
             set => _eq = value;
         }
 
+        /// <summary>
+        /// An "exists" condition to match for the rule.
+        /// </summary>
         [Input("exists")]
         public Input<bool>? Exists { get; set; }
 
         [Input("neq")]
         private InputList<string>? _neq;
+
+        /// <summary>
+        /// A "not equal" condition to match for the rule.
+        /// </summary>
         public InputList<string> Neq
         {
             get => _neq ?? (_neq = new InputList<string>());
             set => _neq = value;
         }
 
+        /// <summary>
+        /// The property used to define the criteria in the filter for the rule.
+        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 

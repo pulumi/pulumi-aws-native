@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// </summary>
     public sealed class NotificationChannelSnsChannelConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
 

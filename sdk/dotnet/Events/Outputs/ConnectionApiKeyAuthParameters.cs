@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionApiKeyAuthParameters
     {
+        /// <summary>
+        /// The name of the API key to use for authorization.
+        /// </summary>
         public readonly string ApiKeyName;
+        /// <summary>
+        /// The value for the API key to use for authorization.
+        /// </summary>
         public readonly string ApiKeyValue;
 
         [OutputConstructor]

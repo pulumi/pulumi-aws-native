@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("contributorDimensions", required: true)]
         private InputList<Inputs.TemplateColumnIdentifierArgs>? _contributorDimensions;
+
+        /// <summary>
+        /// The dimensions columns that are used in the contribution analysis, usually a list of `ColumnIdentifiers` .
+        /// </summary>
         public InputList<Inputs.TemplateColumnIdentifierArgs> ContributorDimensions
         {
             get => _contributorDimensions ?? (_contributorDimensions = new InputList<Inputs.TemplateColumnIdentifierArgs>());
             set => _contributorDimensions = value;
         }
 
+        /// <summary>
+        /// The measure field that is used in the contribution analysis.
+        /// </summary>
         [Input("measureFieldId", required: true)]
         public Input<string> MeasureFieldId { get; set; } = null!;
 

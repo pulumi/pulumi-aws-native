@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableFieldOption
     {
+        /// <summary>
+        /// The custom label of the pivot table field.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The field ID of the pivot table field.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The visibility of the pivot table field.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The deployment ID.
+        /// </summary>
         [Input("deploymentId", required: true)]
         public string DeploymentId { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The deployment ID.
+        /// </summary>
         [Input("deploymentId", required: true)]
         public Input<string> DeploymentId { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetDeploymentResult
     {
+        /// <summary>
+        /// The deployment ID.
+        /// </summary>
         public readonly string? DeploymentId;
         /// <summary>
         /// The description for the deployment resource.

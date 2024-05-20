@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Sso
     [OutputType]
     public sealed class GetPermissionSetResult
     {
+        /// <summary>
+        /// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference> CustomerManagedPolicyReferences;
         /// <summary>
         /// The permission set description.
@@ -80,11 +83,19 @@ namespace Pulumi.AwsNative.Sso
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? InlinePolicy;
+        /// <summary>
+        /// A structure that stores the details of the AWS managed policy.
+        /// </summary>
         public readonly ImmutableArray<string> ManagedPolicies;
         /// <summary>
         /// The permission set that the policy will be attached to
         /// </summary>
         public readonly string? PermissionSetArn;
+        /// <summary>
+        /// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+        /// 
+        /// &gt; Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly Outputs.PermissionSetPermissionsBoundary? PermissionsBoundary;
         /// <summary>
         /// The relay state URL that redirect links to any service in the AWS Management Console.
@@ -94,6 +105,9 @@ namespace Pulumi.AwsNative.Sso
         /// The length of time that a user can be signed in to an AWS account.
         /// </summary>
         public readonly string? SessionDuration;
+        /// <summary>
+        /// The tags to attach to the new `PermissionSet` .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -27,6 +27,17 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
+        :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings.
+        :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
+        :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        :param pulumi.Input[str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+               
+               By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "finding_criteria", finding_criteria)
         if action is not None:
@@ -45,6 +56,9 @@ class FilterArgs:
     @property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Input['FilterFindingCriteriaArgs']:
+        """
+        Represents the criteria to be used in the filter for querying findings.
+        """
         return pulumi.get(self, "finding_criteria")
 
     @finding_criteria.setter
@@ -54,6 +68,9 @@ class FilterArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the action that is to be applied to the findings that match the filter.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -63,6 +80,9 @@ class FilterArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,6 +92,9 @@ class FilterArgs:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -81,6 +104,9 @@ class FilterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -90,6 +116,11 @@ class FilterArgs:
     @property
     @pulumi.getter
     def rank(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+
+        By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        """
         return pulumi.get(self, "rank")
 
     @rank.setter
@@ -99,6 +130,11 @@ class FilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,6 +160,17 @@ class Filter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
+        :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        :param pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
+        :param pulumi.Input[str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+               
+               By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -210,35 +257,60 @@ class Filter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the action that is to be applied to the findings that match the filter.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Output['outputs.FilterFindingCriteria']:
+        """
+        Represents the criteria to be used in the filter for querying findings.
+        """
         return pulumi.get(self, "finding_criteria")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def rank(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+
+        By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+        """
         return pulumi.get(self, "rank")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

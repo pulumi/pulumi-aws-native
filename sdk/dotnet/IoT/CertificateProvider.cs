@@ -15,15 +15,33 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:CertificateProvider")]
     public partial class CertificateProvider : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        /// </summary>
         [Output("accountDefaultForOperations")]
         public Output<ImmutableArray<Pulumi.AwsNative.IoT.CertificateProviderOperation>> AccountDefaultForOperations { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+        /// 
+        /// `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+        /// 
+        /// A value similar to the following is returned:
+        /// 
+        /// `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the certificate provider.
+        /// </summary>
         [Output("certificateProviderName")]
         public Output<string?> CertificateProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Output("lambdaFunctionArn")]
         public Output<string> LambdaFunctionArn { get; private set; } = null!;
 
@@ -84,15 +102,25 @@ namespace Pulumi.AwsNative.IoT
     {
         [Input("accountDefaultForOperations", required: true)]
         private InputList<Pulumi.AwsNative.IoT.CertificateProviderOperation>? _accountDefaultForOperations;
+
+        /// <summary>
+        /// A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.IoT.CertificateProviderOperation> AccountDefaultForOperations
         {
             get => _accountDefaultForOperations ?? (_accountDefaultForOperations = new InputList<Pulumi.AwsNative.IoT.CertificateProviderOperation>());
             set => _accountDefaultForOperations = value;
         }
 
+        /// <summary>
+        /// The name of the certificate provider.
+        /// </summary>
         [Input("certificateProviderName")]
         public Input<string>? CertificateProviderName { get; set; }
 
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         [Input("lambdaFunctionArn", required: true)]
         public Input<string> LambdaFunctionArn { get; set; } = null!;
 

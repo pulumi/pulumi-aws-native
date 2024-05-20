@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
     public sealed class JobS3TableOutputOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
+        /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.JobS3LocationArgs> Location { get; set; } = null!;
 

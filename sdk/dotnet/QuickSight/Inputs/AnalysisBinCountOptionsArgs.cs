@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisBinCountOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options that determine the bin count value.
+        /// </summary>
         [Input("value")]
         public Input<double>? Value { get; set; }
 

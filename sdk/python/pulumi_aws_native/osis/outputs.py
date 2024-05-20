@@ -220,6 +220,7 @@ class PipelineVpcEndpoint(dict):
         An OpenSearch Ingestion Service-managed VPC endpoint that will access one or more pipelines.
         :param str vpc_endpoint_id: The unique identifier of the endpoint.
         :param str vpc_id: The ID for your VPC. AWS Privatelink generates this value when you create a VPC.
+        :param 'PipelineVpcOptions' vpc_options: Information about the VPC, including associated subnets and security groups.
         """
         if vpc_endpoint_id is not None:
             pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -247,6 +248,9 @@ class PipelineVpcEndpoint(dict):
     @property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional['outputs.PipelineVpcOptions']:
+        """
+        Information about the VPC, including associated subnets and security groups.
+        """
         return pulumi.get(self, "vpc_options")
 
 

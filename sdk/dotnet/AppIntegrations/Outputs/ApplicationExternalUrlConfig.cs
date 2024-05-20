@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppIntegrations.Outputs
     [OutputType]
     public sealed class ApplicationExternalUrlConfig
     {
+        /// <summary>
+        /// The URL to access the application.
+        /// </summary>
         public readonly string AccessUrl;
+        /// <summary>
+        /// Additional URLs to allow list if different than the access URL.
+        /// </summary>
         public readonly ImmutableArray<string> ApprovedOrigins;
 
         [OutputConstructor]

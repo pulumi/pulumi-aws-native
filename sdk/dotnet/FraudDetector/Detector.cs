@@ -69,9 +69,23 @@ namespace Pulumi.AwsNative.FraudDetector
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule execution mode for the rules included in the detector version.
+        /// 
+        /// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+        /// 
+        /// You can define and edit the rule mode at the detector version level, when it is in draft status.
+        /// 
+        /// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+        /// 
+        /// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+        /// </summary>
         [Output("ruleExecutionMode")]
         public Output<Pulumi.AwsNative.FraudDetector.DetectorRuleExecutionMode?> RuleExecutionMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The rules to include in the detector version.
+        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.DetectorRule>> Rules { get; private set; } = null!;
 
@@ -166,11 +180,26 @@ namespace Pulumi.AwsNative.FraudDetector
         [Input("eventType", required: true)]
         public Input<Inputs.DetectorEventTypeArgs> EventType { get; set; } = null!;
 
+        /// <summary>
+        /// The rule execution mode for the rules included in the detector version.
+        /// 
+        /// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+        /// 
+        /// You can define and edit the rule mode at the detector version level, when it is in draft status.
+        /// 
+        /// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+        /// 
+        /// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+        /// </summary>
         [Input("ruleExecutionMode")]
         public Input<Pulumi.AwsNative.FraudDetector.DetectorRuleExecutionMode>? RuleExecutionMode { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.DetectorRuleArgs>? _rules;
+
+        /// <summary>
+        /// The rules to include in the detector version.
+        /// </summary>
         public InputList<Inputs.DetectorRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.DetectorRuleArgs>());

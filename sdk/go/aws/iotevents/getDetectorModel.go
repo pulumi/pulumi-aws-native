@@ -29,6 +29,7 @@ type LookupDetectorModelArgs struct {
 }
 
 type LookupDetectorModelResult struct {
+	// Information that defines how a detector operates.
 	DetectorModelDefinition *DetectorModelDefinition `pulumi:"detectorModelDefinition"`
 	// A brief description of the detector model.
 	DetectorModelDescription *string `pulumi:"detectorModelDescription"`
@@ -78,6 +79,7 @@ func (o LookupDetectorModelResultOutput) ToLookupDetectorModelResultOutputWithCo
 	return o
 }
 
+// Information that defines how a detector operates.
 func (o LookupDetectorModelResultOutput) DetectorModelDefinition() DetectorModelDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupDetectorModelResult) *DetectorModelDefinition { return v.DetectorModelDefinition }).(DetectorModelDefinitionPtrOutput)
 }

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisNegativeValueConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the display mode of the negative value configuration.
+        /// </summary>
         [Input("displayMode", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisNegativeValueDisplayMode> DisplayMode { get; set; } = null!;
 

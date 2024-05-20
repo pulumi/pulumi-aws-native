@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowPardotSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Salesforce Pardot flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

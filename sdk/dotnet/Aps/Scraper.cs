@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        /// </summary>
         [Output("destination")]
         public Output<Outputs.ScraperDestination> Destination { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration in use by the scraper.
+        /// </summary>
         [Output("scrapeConfiguration")]
         public Output<Outputs.ScraperScrapeConfiguration> ScrapeConfiguration { get; private set; } = null!;
 
@@ -45,6 +51,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("scraperId")]
         public Output<string> ScraperId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon EKS cluster from which the scraper collects metrics.
+        /// </summary>
         [Output("source")]
         public Output<Outputs.ScraperSource> Source { get; private set; } = null!;
 
@@ -112,12 +121,21 @@ namespace Pulumi.AwsNative.Aps
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ScraperDestinationArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration in use by the scraper.
+        /// </summary>
         [Input("scrapeConfiguration", required: true)]
         public Input<Inputs.ScraperScrapeConfigurationArgs> ScrapeConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon EKS cluster from which the scraper collects metrics.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ScraperSourceArgs> Source { get; set; } = null!;
 

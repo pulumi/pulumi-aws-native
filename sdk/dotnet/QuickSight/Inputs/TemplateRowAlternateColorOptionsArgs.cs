@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("rowAlternateColors")]
         private InputList<string>? _rowAlternateColors;
+
+        /// <summary>
+        /// Determines the list of row alternate colors.
+        /// </summary>
         public InputList<string> RowAlternateColors
         {
             get => _rowAlternateColors ?? (_rowAlternateColors = new InputList<string>());
             set => _rowAlternateColors = value;
         }
 
+        /// <summary>
+        /// Determines the widget status.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateWidgetStatus>? Status { get; set; }
 
+        /// <summary>
+        /// The primary background color options for alternate rows.
+        /// </summary>
         [Input("usePrimaryBackgroundColor")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateWidgetStatus>? UsePrimaryBackgroundColor { get; set; }
 

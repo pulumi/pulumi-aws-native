@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialMapStyleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The base map style of the geospatial map.
+        /// </summary>
         [Input("baseMapStyle")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisBaseMapStyleType>? BaseMapStyle { get; set; }
 

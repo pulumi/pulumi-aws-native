@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAssetOptions
     {
+        /// <summary>
+        /// Determines the timezone for the analysis.
+        /// </summary>
         public readonly string? Timezone;
+        /// <summary>
+        /// Determines the week start day for an analysis.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDayOfTheWeek? WeekStart;
 
         [OutputConstructor]

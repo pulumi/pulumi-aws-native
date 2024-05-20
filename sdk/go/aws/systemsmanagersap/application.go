@@ -17,14 +17,20 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationId   pulumi.StringOutput   `pulumi:"applicationId"`
+	// The ID of the application.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The type of the application.
 	ApplicationType ApplicationTypeOutput `pulumi:"applicationType"`
 	// The ARN of the Helix application
-	Arn               pulumi.StringOutput              `pulumi:"arn"`
-	Credentials       ApplicationCredentialArrayOutput `pulumi:"credentials"`
-	Instances         pulumi.StringArrayOutput         `pulumi:"instances"`
-	SapInstanceNumber pulumi.StringPtrOutput           `pulumi:"sapInstanceNumber"`
-	Sid               pulumi.StringPtrOutput           `pulumi:"sid"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The credentials of the SAP application.
+	Credentials ApplicationCredentialArrayOutput `pulumi:"credentials"`
+	// The Amazon EC2 instances on which your SAP application is running.
+	Instances pulumi.StringArrayOutput `pulumi:"instances"`
+	// The SAP instance number of the application.
+	SapInstanceNumber pulumi.StringPtrOutput `pulumi:"sapInstanceNumber"`
+	// The System ID of the application.
+	Sid pulumi.StringPtrOutput `pulumi:"sid"`
 	// The tags of a SystemsManagerSAP application.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -82,24 +88,36 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	ApplicationId     string                  `pulumi:"applicationId"`
-	ApplicationType   ApplicationType         `pulumi:"applicationType"`
-	Credentials       []ApplicationCredential `pulumi:"credentials"`
-	Instances         []string                `pulumi:"instances"`
-	SapInstanceNumber *string                 `pulumi:"sapInstanceNumber"`
-	Sid               *string                 `pulumi:"sid"`
+	// The ID of the application.
+	ApplicationId string `pulumi:"applicationId"`
+	// The type of the application.
+	ApplicationType ApplicationType `pulumi:"applicationType"`
+	// The credentials of the SAP application.
+	Credentials []ApplicationCredential `pulumi:"credentials"`
+	// The Amazon EC2 instances on which your SAP application is running.
+	Instances []string `pulumi:"instances"`
+	// The SAP instance number of the application.
+	SapInstanceNumber *string `pulumi:"sapInstanceNumber"`
+	// The System ID of the application.
+	Sid *string `pulumi:"sid"`
 	// The tags of a SystemsManagerSAP application.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	ApplicationId     pulumi.StringInput
-	ApplicationType   ApplicationTypeInput
-	Credentials       ApplicationCredentialArrayInput
-	Instances         pulumi.StringArrayInput
+	// The ID of the application.
+	ApplicationId pulumi.StringInput
+	// The type of the application.
+	ApplicationType ApplicationTypeInput
+	// The credentials of the SAP application.
+	Credentials ApplicationCredentialArrayInput
+	// The Amazon EC2 instances on which your SAP application is running.
+	Instances pulumi.StringArrayInput
+	// The SAP instance number of the application.
 	SapInstanceNumber pulumi.StringPtrInput
-	Sid               pulumi.StringPtrInput
+	// The System ID of the application.
+	Sid pulumi.StringPtrInput
 	// The tags of a SystemsManagerSAP application.
 	Tags aws.TagArrayInput
 }
@@ -141,10 +159,12 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The ID of the application.
 func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The type of the application.
 func (o ApplicationOutput) ApplicationType() ApplicationTypeOutput {
 	return o.ApplyT(func(v *Application) ApplicationTypeOutput { return v.ApplicationType }).(ApplicationTypeOutput)
 }
@@ -154,18 +174,22 @@ func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The credentials of the SAP application.
 func (o ApplicationOutput) Credentials() ApplicationCredentialArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationCredentialArrayOutput { return v.Credentials }).(ApplicationCredentialArrayOutput)
 }
 
+// The Amazon EC2 instances on which your SAP application is running.
 func (o ApplicationOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
+// The SAP instance number of the application.
 func (o ApplicationOutput) SapInstanceNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.SapInstanceNumber }).(pulumi.StringPtrOutput)
 }
 
+// The System ID of the application.
 func (o ApplicationOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Sid }).(pulumi.StringPtrOutput)
 }

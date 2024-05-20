@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfns3LogsConfiguration
     {
+        /// <summary>
+        /// The status of S3 data event logs as a data source.
+        /// </summary>
         public readonly bool Enable;
 
         [OutputConstructor]

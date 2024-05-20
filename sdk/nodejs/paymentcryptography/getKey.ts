@@ -23,12 +23,32 @@ export interface GetKeyArgs {
 }
 
 export interface GetKeyResult {
+    /**
+     * Specifies whether the key is enabled.
+     */
     readonly enabled?: boolean;
+    /**
+     * Specifies whether the key is exportable. This data is immutable after the key is created.
+     */
     readonly exportable?: boolean;
+    /**
+     * The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+     */
     readonly keyAttributes?: outputs.paymentcryptography.KeyAttributes;
+    /**
+     * The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+     *
+     * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+     */
     readonly keyCheckValueAlgorithm?: enums.paymentcryptography.KeyCheckValueAlgorithm;
     readonly keyIdentifier?: string;
+    /**
+     * The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+     */
     readonly keyOrigin?: enums.paymentcryptography.KeyOrigin;
+    /**
+     * The state of key that is being created or deleted.
+     */
     readonly keyState?: enums.paymentcryptography.KeyState;
     readonly tags?: outputs.Tag[];
 }

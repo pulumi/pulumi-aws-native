@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
         /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The tags associated with the channel.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

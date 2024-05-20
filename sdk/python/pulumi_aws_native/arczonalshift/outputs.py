@@ -38,17 +38,27 @@ class ZonalAutoshiftConfigurationControlCondition(dict):
     def __init__(__self__, *,
                  alarm_identifier: str,
                  type: 'ZonalAutoshiftConfigurationControlConditionType'):
+        """
+        :param str alarm_identifier: The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+        :param 'ZonalAutoshiftConfigurationControlConditionType' type: The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+        """
         pulumi.set(__self__, "alarm_identifier", alarm_identifier)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="alarmIdentifier")
     def alarm_identifier(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+        """
         return pulumi.get(self, "alarm_identifier")
 
     @property
     @pulumi.getter
     def type(self) -> 'ZonalAutoshiftConfigurationControlConditionType':
+        """
+        The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+        """
         return pulumi.get(self, "type")
 
 
@@ -82,6 +92,16 @@ class ZonalAutoshiftConfigurationPracticeRunConfiguration(dict):
                  blocked_dates: Optional[Sequence[str]] = None,
                  blocked_windows: Optional[Sequence[str]] = None,
                  blocking_alarms: Optional[Sequence['outputs.ZonalAutoshiftConfigurationControlCondition']] = None):
+        """
+        :param Sequence['ZonalAutoshiftConfigurationControlCondition'] outcome_alarms: The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+        :param Sequence[str] blocked_dates: An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+               
+               Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+        :param Sequence[str] blocked_windows: An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+               
+               Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+        :param Sequence['ZonalAutoshiftConfigurationControlCondition'] blocking_alarms: An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
+        """
         pulumi.set(__self__, "outcome_alarms", outcome_alarms)
         if blocked_dates is not None:
             pulumi.set(__self__, "blocked_dates", blocked_dates)
@@ -93,21 +113,37 @@ class ZonalAutoshiftConfigurationPracticeRunConfiguration(dict):
     @property
     @pulumi.getter(name="outcomeAlarms")
     def outcome_alarms(self) -> Sequence['outputs.ZonalAutoshiftConfigurationControlCondition']:
+        """
+        The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+        """
         return pulumi.get(self, "outcome_alarms")
 
     @property
     @pulumi.getter(name="blockedDates")
     def blocked_dates(self) -> Optional[Sequence[str]]:
+        """
+        An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+
+        Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+        """
         return pulumi.get(self, "blocked_dates")
 
     @property
     @pulumi.getter(name="blockedWindows")
     def blocked_windows(self) -> Optional[Sequence[str]]:
+        """
+        An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+
+        Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+        """
         return pulumi.get(self, "blocked_windows")
 
     @property
     @pulumi.getter(name="blockingAlarms")
     def blocking_alarms(self) -> Optional[Sequence['outputs.ZonalAutoshiftConfigurationControlCondition']]:
+        """
+        An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
+        """
         return pulumi.get(self, "blocking_alarms")
 
 

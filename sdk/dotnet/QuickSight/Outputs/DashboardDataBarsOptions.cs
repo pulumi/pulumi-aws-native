@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataBarsOptions
     {
+        /// <summary>
+        /// The field ID for the data bars options.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The color of the negative data bar.
+        /// </summary>
         public readonly string? NegativeColor;
+        /// <summary>
+        /// The color of the positive data bar.
+        /// </summary>
         public readonly string? PositiveColor;
 
         [OutputConstructor]

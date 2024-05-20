@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Eks.Outputs
     [OutputType]
     public sealed class FargateProfileSelector
     {
+        /// <summary>
+        /// The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FargateProfileLabel> Labels;
+        /// <summary>
+        /// The Kubernetes `namespace` that the selector should match.
+        /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]

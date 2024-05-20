@@ -61,15 +61,31 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     [AwsNativeResourceType("aws-native:resourceexplorer2:Index")]
     public partial class Index : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the new index for the AWS Region . For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the current state of the index. For example:
+        /// 
+        /// `CREATING`
+        /// </summary>
         [Output("indexState")]
         public Output<Pulumi.AwsNative.ResourceExplorer2.IndexState> IndexState { get; private set; } = null!;
 
+        /// <summary>
+        /// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.ResourceExplorer2.IndexType> Type { get; private set; } = null!;
 
@@ -120,12 +136,19 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The specified tags are attached to only the index created in this AWS Region . The tags don't attach to any of the resources listed in the index.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.ResourceExplorer2.IndexType> Type { get; set; } = null!;
 

@@ -26,10 +26,12 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 }
 
 type LookupRouteTableArgs struct {
+	// The ID of the route table.
 	RouteTableId string `pulumi:"routeTableId"`
 }
 
 type LookupRouteTableResult struct {
+	// The ID of the route table.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// Any tags assigned to the route table.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -49,6 +51,7 @@ func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs
 }
 
 type LookupRouteTableOutputArgs struct {
+	// The ID of the route table.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 }
 
@@ -70,6 +73,7 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(
 	return o
 }
 
+// The ID of the route table.
 func (o LookupRouteTableResultOutput) RouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }

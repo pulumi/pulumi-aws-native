@@ -13,16 +13,59 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardRelativeDatesFilter
     {
+        /// <summary>
+        /// The date configuration of the filter.
+        /// </summary>
         public readonly Outputs.DashboardAnchorDateConfiguration AnchorDateConfiguration;
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+        /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// The configuration for the exclude period of the filter.
+        /// </summary>
         public readonly Outputs.DashboardExcludePeriodConfiguration? ExcludePeriodConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The minimum granularity (period granularity) of the relative dates filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? MinimumGranularity;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardFilterNullOption NullOption;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// The range date type of the filter. Choose one of the options below:
+        /// 
+        /// - `PREVIOUS`
+        /// - `THIS`
+        /// - `LAST`
+        /// - `NOW`
+        /// - `NEXT`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardRelativeDateType RelativeDateType;
+        /// <summary>
+        /// The date value of the filter.
+        /// </summary>
         public readonly double? RelativeDateValue;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity TimeGranularity;
 
         [OutputConstructor]

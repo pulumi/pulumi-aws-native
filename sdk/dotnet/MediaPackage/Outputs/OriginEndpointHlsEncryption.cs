@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         /// </summary>
         public readonly bool? RepeatExtXKey;
+        /// <summary>
+        /// Parameters for the SPEKE key provider.
+        /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionHttpParameters
     {
+        /// <summary>
+        /// Contains additional body string parameters for the connection.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConnectionParameter> BodyParameters;
+        /// <summary>
+        /// Contains additional header parameters for the connection.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConnectionParameter> HeaderParameters;
+        /// <summary>
+        /// Contains additional query string parameters for the connection.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConnectionParameter> QueryStringParameters;
 
         [OutputConstructor]

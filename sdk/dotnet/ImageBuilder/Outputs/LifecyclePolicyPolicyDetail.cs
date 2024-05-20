@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetail
     {
+        /// <summary>
+        /// Configuration details for the policy action.
+        /// </summary>
         public readonly Outputs.LifecyclePolicyAction Action;
+        /// <summary>
+        /// Additional rules to specify resources that should be exempt from policy actions.
+        /// </summary>
         public readonly Outputs.LifecyclePolicyExclusionRules? ExclusionRules;
+        /// <summary>
+        /// Specifies the resources that the lifecycle policy applies to.
+        /// </summary>
         public readonly Outputs.LifecyclePolicyFilter Filter;
 
         [OutputConstructor]

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardColumnTooltipItem
     {
+        /// <summary>
+        /// The aggregation function of the column tooltip item.
+        /// </summary>
         public readonly Outputs.DashboardAggregationFunction? Aggregation;
+        /// <summary>
+        /// The target column of the tooltip item.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The label of the tooltip item.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The visibility of the tooltip item.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

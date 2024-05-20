@@ -24,7 +24,8 @@ type CustomPlugin struct {
 	// A summary description of the custom plugin.
 	Description     pulumi.StringPtrOutput            `pulumi:"description"`
 	FileDescription CustomPluginFileDescriptionOutput `pulumi:"fileDescription"`
-	Location        CustomPluginLocationOutput        `pulumi:"location"`
+	// Information about the location of the custom plugin.
+	Location CustomPluginLocationOutput `pulumi:"location"`
 	// The name of the custom plugin.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The revision of the custom plugin.
@@ -89,8 +90,9 @@ type customPluginArgs struct {
 	// The type of the plugin file.
 	ContentType CustomPluginContentType `pulumi:"contentType"`
 	// A summary description of the custom plugin.
-	Description *string              `pulumi:"description"`
-	Location    CustomPluginLocation `pulumi:"location"`
+	Description *string `pulumi:"description"`
+	// Information about the location of the custom plugin.
+	Location CustomPluginLocation `pulumi:"location"`
 	// The name of the custom plugin.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
@@ -103,7 +105,8 @@ type CustomPluginArgs struct {
 	ContentType CustomPluginContentTypeInput
 	// A summary description of the custom plugin.
 	Description pulumi.StringPtrInput
-	Location    CustomPluginLocationInput
+	// Information about the location of the custom plugin.
+	Location CustomPluginLocationInput
 	// The name of the custom plugin.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -166,6 +169,7 @@ func (o CustomPluginOutput) FileDescription() CustomPluginFileDescriptionOutput 
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginFileDescriptionOutput { return v.FileDescription }).(CustomPluginFileDescriptionOutput)
 }
 
+// Information about the location of the custom plugin.
 func (o CustomPluginOutput) Location() CustomPluginLocationOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginLocationOutput { return v.Location }).(CustomPluginLocationOutput)
 }

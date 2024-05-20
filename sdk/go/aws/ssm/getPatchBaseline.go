@@ -29,6 +29,7 @@ type LookupPatchBaselineArgs struct {
 }
 
 type LookupPatchBaselineResult struct {
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules *PatchBaselineRuleGroup `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []string `pulumi:"approvedPatches"`
@@ -94,6 +95,7 @@ func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutputWithCo
 	return o
 }
 
+// A set of rules used to include patches in the baseline.
 func (o LookupPatchBaselineResultOutput) ApprovalRules() PatchBaselineRuleGroupPtrOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) *PatchBaselineRuleGroup { return v.ApprovalRules }).(PatchBaselineRuleGroupPtrOutput)
 }

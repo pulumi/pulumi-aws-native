@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class DetectorModelSqs
     {
+        /// <summary>
+        /// You can configure the action payload when you send a message to an Amazon SQS queue.
+        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
         /// <summary>
         /// The URL of the SQS queue where the data is written.

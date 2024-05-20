@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class EndpointReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The state of event replication.
+        /// </summary>
         [Input("state", required: true)]
         public Input<Pulumi.AwsNative.Events.EndpointReplicationState> State { get; set; } = null!;
 

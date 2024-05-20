@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowTaskPropertiesObject
     {
+        /// <summary>
+        /// The task property key.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowOperatorPropertiesKeys Key;
+        /// <summary>
+        /// The task property value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

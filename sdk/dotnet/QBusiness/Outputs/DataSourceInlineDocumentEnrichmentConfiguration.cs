@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceInlineDocumentEnrichmentConfiguration
     {
+        /// <summary>
+        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? Condition;
+        /// <summary>
+        /// `TRUE` to delete content if the condition used for the target attribute is met.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.DataSourceDocumentContentOperator? DocumentContentOperator;
+        /// <summary>
+        /// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeTarget? Target;
 
         [OutputConstructor]

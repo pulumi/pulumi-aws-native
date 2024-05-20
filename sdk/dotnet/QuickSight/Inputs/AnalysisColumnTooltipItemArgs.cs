@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisColumnTooltipItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation function of the column tooltip item.
+        /// </summary>
         [Input("aggregation")]
         public Input<Inputs.AnalysisAggregationFunctionArgs>? Aggregation { get; set; }
 
+        /// <summary>
+        /// The target column of the tooltip item.
+        /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
+        /// <summary>
+        /// The label of the tooltip item.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The visibility of the tooltip item.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

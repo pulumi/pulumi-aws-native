@@ -34,6 +34,9 @@ class GetAnalyzerResult:
     @property
     @pulumi.getter(name="archiveRules")
     def archive_rules(self) -> Optional[Sequence['outputs.AnalyzerArchiveRule']]:
+        """
+        Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+        """
         return pulumi.get(self, "archive_rules")
 
     @property

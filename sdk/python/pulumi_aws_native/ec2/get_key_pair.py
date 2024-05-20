@@ -29,11 +29,25 @@ class GetKeyPairResult:
     @property
     @pulumi.getter(name="keyFingerprint")
     def key_fingerprint(self) -> Optional[str]:
+        """
+        If you created the key pair using Amazon EC2:
+
+        - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+        - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+
+        If you imported the key pair to Amazon EC2:
+
+        - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+        """
         return pulumi.get(self, "key_fingerprint")
 
     @property
     @pulumi.getter(name="keyPairId")
     def key_pair_id(self) -> Optional[str]:
+        """
+        The ID of the key pair.
+        """
         return pulumi.get(self, "key_pair_id")
 
 

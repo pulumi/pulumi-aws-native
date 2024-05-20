@@ -53,11 +53,19 @@ export class RegexPatternSet extends pulumi.CustomResource {
      * Name of the RegexPatternSet.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The regular expression patterns in the set.
+     */
     public readonly regularExpressionList!: pulumi.Output<string[]>;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
     public readonly scope!: pulumi.Output<enums.wafv2.RegexPatternSetScope>;
+    /**
+     * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     *
+     * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -112,10 +120,18 @@ export interface RegexPatternSetArgs {
      * Name of the RegexPatternSet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The regular expression patterns in the set.
+     */
     regularExpressionList: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
     scope: pulumi.Input<enums.wafv2.RegexPatternSetScope>;
+    /**
+     * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     *
+     * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

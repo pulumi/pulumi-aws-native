@@ -29,6 +29,9 @@ export interface GetRouteResponseArgs {
      * The route ID.
      */
     routeId: string;
+    /**
+     * The route response ID.
+     */
     routeResponseId: string;
 }
 
@@ -47,6 +50,9 @@ export interface GetRouteResponseResult {
      * The route response parameters.
      */
     readonly responseParameters?: {[key: string]: outputs.apigatewayv2.RouteResponseParameterConstraints};
+    /**
+     * The route response ID.
+     */
     readonly routeResponseId?: string;
     /**
      * The route response key.
@@ -69,5 +75,8 @@ export interface GetRouteResponseOutputArgs {
      * The route ID.
      */
     routeId: pulumi.Input<string>;
+    /**
+     * The route response ID.
+     */
     routeResponseId: pulumi.Input<string>;
 }

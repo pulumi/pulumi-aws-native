@@ -57,56 +57,89 @@ class GetEmailIdentityResult:
     @property
     @pulumi.getter(name="configurationSetAttributes")
     def configuration_set_attributes(self) -> Optional['outputs.EmailIdentityConfigurationSetAttributes']:
+        """
+        Used to associate a configuration set with an email identity.
+        """
         return pulumi.get(self, "configuration_set_attributes")
 
     @property
     @pulumi.getter(name="dkimAttributes")
     def dkim_attributes(self) -> Optional['outputs.EmailIdentityDkimAttributes']:
+        """
+        An object that contains information about the DKIM attributes for the identity.
+        """
         return pulumi.get(self, "dkim_attributes")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName1")
     def dkim_dns_token_name1(self) -> Optional[str]:
+        """
+        The host name for the first token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name1")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName2")
     def dkim_dns_token_name2(self) -> Optional[str]:
+        """
+        The host name for the second token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name2")
 
     @property
     @pulumi.getter(name="dkimDnsTokenName3")
     def dkim_dns_token_name3(self) -> Optional[str]:
+        """
+        The host name for the third token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_name3")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue1")
     def dkim_dns_token_value1(self) -> Optional[str]:
+        """
+        The record value for the first token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value1")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue2")
     def dkim_dns_token_value2(self) -> Optional[str]:
+        """
+        The record value for the second token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value2")
 
     @property
     @pulumi.getter(name="dkimDnsTokenValue3")
     def dkim_dns_token_value3(self) -> Optional[str]:
+        """
+        The record value for the third token that you have to add to the DNS configuration for your domain.
+        """
         return pulumi.get(self, "dkim_dns_token_value3")
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional['outputs.EmailIdentityDkimSigningAttributes']:
+        """
+        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+        """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @property
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> Optional['outputs.EmailIdentityFeedbackAttributes']:
+        """
+        Used to enable or disable feedback forwarding for an identity.
+        """
         return pulumi.get(self, "feedback_attributes")
 
     @property
     @pulumi.getter(name="mailFromAttributes")
     def mail_from_attributes(self) -> Optional['outputs.EmailIdentityMailFromAttributes']:
+        """
+        Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        """
         return pulumi.get(self, "mail_from_attributes")
 
 

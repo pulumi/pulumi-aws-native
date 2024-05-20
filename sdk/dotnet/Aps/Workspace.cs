@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.Aps
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains information about the logging configuration for the workspace.
+        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.WorkspaceLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
 
@@ -215,6 +218,9 @@ namespace Pulumi.AwsNative.Aps
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
+        /// <summary>
+        /// Contains information about the logging configuration for the workspace.
+        /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.WorkspaceLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 

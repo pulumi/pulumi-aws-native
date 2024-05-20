@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TrainingDatasetColumnSchema struct {
-	ColumnName  string                      `pulumi:"columnName"`
+	// The name of a column.
+	ColumnName string `pulumi:"columnName"`
+	// The data type of column.
 	ColumnTypes []TrainingDatasetColumnType `pulumi:"columnTypes"`
 }
 
@@ -30,7 +32,9 @@ type TrainingDatasetColumnSchemaInput interface {
 }
 
 type TrainingDatasetColumnSchemaArgs struct {
-	ColumnName  pulumi.StringInput                  `pulumi:"columnName"`
+	// The name of a column.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The data type of column.
 	ColumnTypes TrainingDatasetColumnTypeArrayInput `pulumi:"columnTypes"`
 }
 
@@ -85,10 +89,12 @@ func (o TrainingDatasetColumnSchemaOutput) ToTrainingDatasetColumnSchemaOutputWi
 	return o
 }
 
+// The name of a column.
 func (o TrainingDatasetColumnSchemaOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v TrainingDatasetColumnSchema) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
+// The data type of column.
 func (o TrainingDatasetColumnSchemaOutput) ColumnTypes() TrainingDatasetColumnTypeArrayOutput {
 	return o.ApplyT(func(v TrainingDatasetColumnSchema) []TrainingDatasetColumnType { return v.ColumnTypes }).(TrainingDatasetColumnTypeArrayOutput)
 }
@@ -114,6 +120,7 @@ func (o TrainingDatasetColumnSchemaArrayOutput) Index(i pulumi.IntInput) Trainin
 }
 
 type TrainingDatasetDataSource struct {
+	// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
 	GlueDataSource TrainingDatasetGlueDataSource `pulumi:"glueDataSource"`
 }
 
@@ -129,6 +136,7 @@ type TrainingDatasetDataSourceInput interface {
 }
 
 type TrainingDatasetDataSourceArgs struct {
+	// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
 	GlueDataSource TrainingDatasetGlueDataSourceInput `pulumi:"glueDataSource"`
 }
 
@@ -158,13 +166,16 @@ func (o TrainingDatasetDataSourceOutput) ToTrainingDatasetDataSourceOutputWithCo
 	return o
 }
 
+// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
 func (o TrainingDatasetDataSourceOutput) GlueDataSource() TrainingDatasetGlueDataSourceOutput {
 	return o.ApplyT(func(v TrainingDatasetDataSource) TrainingDatasetGlueDataSource { return v.GlueDataSource }).(TrainingDatasetGlueDataSourceOutput)
 }
 
 type TrainingDatasetDataset struct {
+	// A DatasetInputConfig object that defines the data source and schema mapping.
 	InputConfig TrainingDatasetDatasetInputConfig `pulumi:"inputConfig"`
-	Type        TrainingDatasetDatasetType        `pulumi:"type"`
+	// What type of information is found in the dataset.
+	Type TrainingDatasetDatasetType `pulumi:"type"`
 }
 
 // TrainingDatasetDatasetInput is an input type that accepts TrainingDatasetDatasetArgs and TrainingDatasetDatasetOutput values.
@@ -179,8 +190,10 @@ type TrainingDatasetDatasetInput interface {
 }
 
 type TrainingDatasetDatasetArgs struct {
+	// A DatasetInputConfig object that defines the data source and schema mapping.
 	InputConfig TrainingDatasetDatasetInputConfigInput `pulumi:"inputConfig"`
-	Type        TrainingDatasetDatasetTypeInput        `pulumi:"type"`
+	// What type of information is found in the dataset.
+	Type TrainingDatasetDatasetTypeInput `pulumi:"type"`
 }
 
 func (TrainingDatasetDatasetArgs) ElementType() reflect.Type {
@@ -234,10 +247,12 @@ func (o TrainingDatasetDatasetOutput) ToTrainingDatasetDatasetOutputWithContext(
 	return o
 }
 
+// A DatasetInputConfig object that defines the data source and schema mapping.
 func (o TrainingDatasetDatasetOutput) InputConfig() TrainingDatasetDatasetInputConfigOutput {
 	return o.ApplyT(func(v TrainingDatasetDataset) TrainingDatasetDatasetInputConfig { return v.InputConfig }).(TrainingDatasetDatasetInputConfigOutput)
 }
 
+// What type of information is found in the dataset.
 func (o TrainingDatasetDatasetOutput) Type() TrainingDatasetDatasetTypeOutput {
 	return o.ApplyT(func(v TrainingDatasetDataset) TrainingDatasetDatasetType { return v.Type }).(TrainingDatasetDatasetTypeOutput)
 }
@@ -263,8 +278,10 @@ func (o TrainingDatasetDatasetArrayOutput) Index(i pulumi.IntInput) TrainingData
 }
 
 type TrainingDatasetDatasetInputConfig struct {
-	DataSource TrainingDatasetDataSource     `pulumi:"dataSource"`
-	Schema     []TrainingDatasetColumnSchema `pulumi:"schema"`
+	// A DataSource object that specifies the Glue data source for the training data.
+	DataSource TrainingDatasetDataSource `pulumi:"dataSource"`
+	// The schema information for the training data.
+	Schema []TrainingDatasetColumnSchema `pulumi:"schema"`
 }
 
 // TrainingDatasetDatasetInputConfigInput is an input type that accepts TrainingDatasetDatasetInputConfigArgs and TrainingDatasetDatasetInputConfigOutput values.
@@ -279,8 +296,10 @@ type TrainingDatasetDatasetInputConfigInput interface {
 }
 
 type TrainingDatasetDatasetInputConfigArgs struct {
-	DataSource TrainingDatasetDataSourceInput        `pulumi:"dataSource"`
-	Schema     TrainingDatasetColumnSchemaArrayInput `pulumi:"schema"`
+	// A DataSource object that specifies the Glue data source for the training data.
+	DataSource TrainingDatasetDataSourceInput `pulumi:"dataSource"`
+	// The schema information for the training data.
+	Schema TrainingDatasetColumnSchemaArrayInput `pulumi:"schema"`
 }
 
 func (TrainingDatasetDatasetInputConfigArgs) ElementType() reflect.Type {
@@ -309,18 +328,23 @@ func (o TrainingDatasetDatasetInputConfigOutput) ToTrainingDatasetDatasetInputCo
 	return o
 }
 
+// A DataSource object that specifies the Glue data source for the training data.
 func (o TrainingDatasetDatasetInputConfigOutput) DataSource() TrainingDatasetDataSourceOutput {
 	return o.ApplyT(func(v TrainingDatasetDatasetInputConfig) TrainingDatasetDataSource { return v.DataSource }).(TrainingDatasetDataSourceOutput)
 }
 
+// The schema information for the training data.
 func (o TrainingDatasetDatasetInputConfigOutput) Schema() TrainingDatasetColumnSchemaArrayOutput {
 	return o.ApplyT(func(v TrainingDatasetDatasetInputConfig) []TrainingDatasetColumnSchema { return v.Schema }).(TrainingDatasetColumnSchemaArrayOutput)
 }
 
 type TrainingDatasetGlueDataSource struct {
-	CatalogId    *string `pulumi:"catalogId"`
-	DatabaseName string  `pulumi:"databaseName"`
-	TableName    string  `pulumi:"tableName"`
+	// The Glue catalog that contains the training data.
+	CatalogId *string `pulumi:"catalogId"`
+	// The Glue database that contains the training data.
+	DatabaseName string `pulumi:"databaseName"`
+	// The Glue table that contains the training data.
+	TableName string `pulumi:"tableName"`
 }
 
 // TrainingDatasetGlueDataSourceInput is an input type that accepts TrainingDatasetGlueDataSourceArgs and TrainingDatasetGlueDataSourceOutput values.
@@ -335,9 +359,12 @@ type TrainingDatasetGlueDataSourceInput interface {
 }
 
 type TrainingDatasetGlueDataSourceArgs struct {
-	CatalogId    pulumi.StringPtrInput `pulumi:"catalogId"`
-	DatabaseName pulumi.StringInput    `pulumi:"databaseName"`
-	TableName    pulumi.StringInput    `pulumi:"tableName"`
+	// The Glue catalog that contains the training data.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The Glue database that contains the training data.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The Glue table that contains the training data.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (TrainingDatasetGlueDataSourceArgs) ElementType() reflect.Type {
@@ -366,20 +393,29 @@ func (o TrainingDatasetGlueDataSourceOutput) ToTrainingDatasetGlueDataSourceOutp
 	return o
 }
 
+// The Glue catalog that contains the training data.
 func (o TrainingDatasetGlueDataSourceOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrainingDatasetGlueDataSource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
+// The Glue database that contains the training data.
 func (o TrainingDatasetGlueDataSourceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TrainingDatasetGlueDataSource) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The Glue table that contains the training data.
 func (o TrainingDatasetGlueDataSourceOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TrainingDatasetGlueDataSource) string { return v.TableName }).(pulumi.StringOutput)
 }
 
 type TrainingDatasetTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with `aws:` . digits, whitespace, `_` , `.` , `:` , `/` , `=` , `+` , `@` , `-` , and `"` .
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_` , `.` , `/` , `=` , `+` , and `-` .
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Value string `pulumi:"value"`
 }
 

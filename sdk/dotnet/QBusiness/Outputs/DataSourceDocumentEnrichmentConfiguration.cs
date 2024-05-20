@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceDocumentEnrichmentConfiguration
     {
+        /// <summary>
+        /// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceInlineDocumentEnrichmentConfiguration> InlineConfigurations;
+        /// <summary>
+        /// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        /// </summary>
         public readonly Outputs.DataSourceHookConfiguration? PostExtractionHookConfiguration;
+        /// <summary>
+        /// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        /// </summary>
         public readonly Outputs.DataSourceHookConfiguration? PreExtractionHookConfiguration;
 
         [OutputConstructor]

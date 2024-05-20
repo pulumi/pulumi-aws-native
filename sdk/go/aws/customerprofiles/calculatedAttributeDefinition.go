@@ -17,18 +17,26 @@ import (
 type CalculatedAttributeDefinition struct {
 	pulumi.CustomResourceState
 
-	AttributeDetails        CalculatedAttributeDefinitionAttributeDetailsOutput `pulumi:"attributeDetails"`
-	CalculatedAttributeName pulumi.StringOutput                                 `pulumi:"calculatedAttributeName"`
-	Conditions              CalculatedAttributeDefinitionConditionsPtrOutput    `pulumi:"conditions"`
+	// Mathematical expression and a list of attribute items specified in that expression.
+	AttributeDetails CalculatedAttributeDefinitionAttributeDetailsOutput `pulumi:"attributeDetails"`
+	// The name of an attribute defined in a profile object type.
+	CalculatedAttributeName pulumi.StringOutput `pulumi:"calculatedAttributeName"`
+	// The conditions including range, object count, and threshold for the calculated attribute.
+	Conditions CalculatedAttributeDefinitionConditionsPtrOutput `pulumi:"conditions"`
 	// The timestamp of when the calculated attribute definition was created.
-	CreatedAt   pulumi.StringOutput    `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The description of the calculated attribute.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the calculated attribute.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	DomainName  pulumi.StringOutput    `pulumi:"domainName"`
+	// The unique name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The timestamp of when the calculated attribute definition was most recently edited.
-	LastUpdatedAt pulumi.StringOutput                          `pulumi:"lastUpdatedAt"`
-	Statistic     CalculatedAttributeDefinitionStatisticOutput `pulumi:"statistic"`
-	Tags          aws.TagArrayOutput                           `pulumi:"tags"`
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The aggregation operation to perform for the calculated attribute.
+	Statistic CalculatedAttributeDefinitionStatisticOutput `pulumi:"statistic"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCalculatedAttributeDefinition registers a new resource with the given unique name, arguments, and options.
@@ -88,26 +96,42 @@ func (CalculatedAttributeDefinitionState) ElementType() reflect.Type {
 }
 
 type calculatedAttributeDefinitionArgs struct {
-	AttributeDetails        CalculatedAttributeDefinitionAttributeDetails `pulumi:"attributeDetails"`
-	CalculatedAttributeName string                                        `pulumi:"calculatedAttributeName"`
-	Conditions              *CalculatedAttributeDefinitionConditions      `pulumi:"conditions"`
-	Description             *string                                       `pulumi:"description"`
-	DisplayName             *string                                       `pulumi:"displayName"`
-	DomainName              string                                        `pulumi:"domainName"`
-	Statistic               CalculatedAttributeDefinitionStatistic        `pulumi:"statistic"`
-	Tags                    []aws.Tag                                     `pulumi:"tags"`
+	// Mathematical expression and a list of attribute items specified in that expression.
+	AttributeDetails CalculatedAttributeDefinitionAttributeDetails `pulumi:"attributeDetails"`
+	// The name of an attribute defined in a profile object type.
+	CalculatedAttributeName string `pulumi:"calculatedAttributeName"`
+	// The conditions including range, object count, and threshold for the calculated attribute.
+	Conditions *CalculatedAttributeDefinitionConditions `pulumi:"conditions"`
+	// The description of the calculated attribute.
+	Description *string `pulumi:"description"`
+	// The display name of the calculated attribute.
+	DisplayName *string `pulumi:"displayName"`
+	// The unique name of the domain.
+	DomainName string `pulumi:"domainName"`
+	// The aggregation operation to perform for the calculated attribute.
+	Statistic CalculatedAttributeDefinitionStatistic `pulumi:"statistic"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CalculatedAttributeDefinition resource.
 type CalculatedAttributeDefinitionArgs struct {
-	AttributeDetails        CalculatedAttributeDefinitionAttributeDetailsInput
+	// Mathematical expression and a list of attribute items specified in that expression.
+	AttributeDetails CalculatedAttributeDefinitionAttributeDetailsInput
+	// The name of an attribute defined in a profile object type.
 	CalculatedAttributeName pulumi.StringInput
-	Conditions              CalculatedAttributeDefinitionConditionsPtrInput
-	Description             pulumi.StringPtrInput
-	DisplayName             pulumi.StringPtrInput
-	DomainName              pulumi.StringInput
-	Statistic               CalculatedAttributeDefinitionStatisticInput
-	Tags                    aws.TagArrayInput
+	// The conditions including range, object count, and threshold for the calculated attribute.
+	Conditions CalculatedAttributeDefinitionConditionsPtrInput
+	// The description of the calculated attribute.
+	Description pulumi.StringPtrInput
+	// The display name of the calculated attribute.
+	DisplayName pulumi.StringPtrInput
+	// The unique name of the domain.
+	DomainName pulumi.StringInput
+	// The aggregation operation to perform for the calculated attribute.
+	Statistic CalculatedAttributeDefinitionStatisticInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (CalculatedAttributeDefinitionArgs) ElementType() reflect.Type {
@@ -147,16 +171,19 @@ func (o CalculatedAttributeDefinitionOutput) ToCalculatedAttributeDefinitionOutp
 	return o
 }
 
+// Mathematical expression and a list of attribute items specified in that expression.
 func (o CalculatedAttributeDefinitionOutput) AttributeDetails() CalculatedAttributeDefinitionAttributeDetailsOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionAttributeDetailsOutput {
 		return v.AttributeDetails
 	}).(CalculatedAttributeDefinitionAttributeDetailsOutput)
 }
 
+// The name of an attribute defined in a profile object type.
 func (o CalculatedAttributeDefinitionOutput) CalculatedAttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringOutput { return v.CalculatedAttributeName }).(pulumi.StringOutput)
 }
 
+// The conditions including range, object count, and threshold for the calculated attribute.
 func (o CalculatedAttributeDefinitionOutput) Conditions() CalculatedAttributeDefinitionConditionsPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionConditionsPtrOutput {
 		return v.Conditions
@@ -168,14 +195,17 @@ func (o CalculatedAttributeDefinitionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The description of the calculated attribute.
 func (o CalculatedAttributeDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the calculated attribute.
 func (o CalculatedAttributeDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The unique name of the domain.
 func (o CalculatedAttributeDefinitionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -185,12 +215,14 @@ func (o CalculatedAttributeDefinitionOutput) LastUpdatedAt() pulumi.StringOutput
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// The aggregation operation to perform for the calculated attribute.
 func (o CalculatedAttributeDefinitionOutput) Statistic() CalculatedAttributeDefinitionStatisticOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) CalculatedAttributeDefinitionStatisticOutput {
 		return v.Statistic
 	}).(CalculatedAttributeDefinitionStatisticOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o CalculatedAttributeDefinitionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CalculatedAttributeDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

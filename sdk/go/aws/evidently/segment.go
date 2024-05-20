@@ -16,10 +16,14 @@ import (
 type Segment struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An optional description for this segment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Pattern     pulumi.StringPtrOutput `pulumi:"pattern"`
+	// A name for the segment.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -64,18 +68,24 @@ func (SegmentState) ElementType() reflect.Type {
 }
 
 type segmentArgs struct {
+	// An optional description for this segment.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Pattern     *string `pulumi:"pattern"`
+	// A name for the segment.
+	Name *string `pulumi:"name"`
+	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Pattern *string `pulumi:"pattern"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Segment resource.
 type SegmentArgs struct {
+	// An optional description for this segment.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Pattern     pulumi.StringPtrInput
+	// A name for the segment.
+	Name pulumi.StringPtrInput
+	// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+	Pattern pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -117,18 +127,22 @@ func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOu
 	return o
 }
 
+// The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
 func (o SegmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An optional description for this segment.
 func (o SegmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the segment.
 func (o SegmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
 func (o SegmentOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Segment) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
 }

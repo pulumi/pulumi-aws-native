@@ -37,14 +37,43 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
+    /**
+     * Describes the action for a rule.
+     */
     public readonly action!: pulumi.Output<outputs.vpclattice.RuleAction>;
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the listener.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the listener.
+     */
     public readonly listenerIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The rule match.
+     */
     public readonly match!: pulumi.Output<outputs.vpclattice.RuleMatch>;
+    /**
+     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     *
+     * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service.
+     */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The tags for the rule.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -98,11 +127,34 @@ export class Rule extends pulumi.CustomResource {
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
+    /**
+     * Describes the action for a rule.
+     */
     action: pulumi.Input<inputs.vpclattice.RuleActionArgs>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the listener.
+     */
     listenerIdentifier?: pulumi.Input<string>;
+    /**
+     * The rule match.
+     */
     match: pulumi.Input<inputs.vpclattice.RuleMatchArgs>;
+    /**
+     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     *
+     * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     */
     priority: pulumi.Input<number>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service.
+     */
     serviceIdentifier?: pulumi.Input<string>;
+    /**
+     * The tags for the rule.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

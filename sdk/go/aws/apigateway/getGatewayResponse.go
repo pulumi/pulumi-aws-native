@@ -23,10 +23,12 @@ func LookupGatewayResponse(ctx *pulumi.Context, args *LookupGatewayResponseArgs,
 }
 
 type LookupGatewayResponseArgs struct {
+	// The ID for the gateway response. For example: `abc123` .
 	Id string `pulumi:"id"`
 }
 
 type LookupGatewayResponseResult struct {
+	// The ID for the gateway response. For example: `abc123` .
 	Id *string `pulumi:"id"`
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
@@ -50,6 +52,7 @@ func LookupGatewayResponseOutput(ctx *pulumi.Context, args LookupGatewayResponse
 }
 
 type LookupGatewayResponseOutputArgs struct {
+	// The ID for the gateway response. For example: `abc123` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -71,6 +74,7 @@ func (o LookupGatewayResponseResultOutput) ToLookupGatewayResponseResultOutputWi
 	return o
 }
 
+// The ID for the gateway response. For example: `abc123` .
 func (o LookupGatewayResponseResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

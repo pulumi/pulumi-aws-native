@@ -62,16 +62,25 @@ class GetInferenceComponentResult:
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
+        """
+        The time when the inference component was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="endpointArn")
     def endpoint_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+        """
         return pulumi.get(self, "endpoint_arn")
 
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[str]:
+        """
+        The name of the endpoint that hosts the inference component.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @property
@@ -82,21 +91,33 @@ class GetInferenceComponentResult:
     @property
     @pulumi.getter(name="inferenceComponentArn")
     def inference_component_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the inference component.
+        """
         return pulumi.get(self, "inference_component_arn")
 
     @property
     @pulumi.getter(name="inferenceComponentName")
     def inference_component_name(self) -> Optional[str]:
+        """
+        The name of the inference component.
+        """
         return pulumi.get(self, "inference_component_name")
 
     @property
     @pulumi.getter(name="inferenceComponentStatus")
     def inference_component_status(self) -> Optional['InferenceComponentStatus']:
+        """
+        The status of the inference component.
+        """
         return pulumi.get(self, "inference_component_status")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The time when the inference component was last updated.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
@@ -117,6 +138,9 @@ class GetInferenceComponentResult:
     @property
     @pulumi.getter(name="variantName")
     def variant_name(self) -> Optional[str]:
+        """
+        The name of the production variant that hosts the inference component.
+        """
         return pulumi.get(self, "variant_name")
 
 
@@ -144,6 +168,9 @@ def get_inference_component(inference_component_arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceComponentResult:
     """
     Resource Type definition for AWS::SageMaker::InferenceComponent
+
+
+    :param str inference_component_arn: The Amazon Resource Name (ARN) of the inference component.
     """
     __args__ = dict()
     __args__['inferenceComponentArn'] = inference_component_arn
@@ -170,5 +197,8 @@ def get_inference_component_output(inference_component_arn: Optional[pulumi.Inpu
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceComponentResult]:
     """
     Resource Type definition for AWS::SageMaker::InferenceComponent
+
+
+    :param str inference_component_arn: The Amazon Resource Name (ARN) of the inference component.
     """
     ...

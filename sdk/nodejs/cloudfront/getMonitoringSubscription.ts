@@ -19,10 +19,16 @@ export function getMonitoringSubscription(args: GetMonitoringSubscriptionArgs, o
 }
 
 export interface GetMonitoringSubscriptionArgs {
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     distributionId: string;
 }
 
 export interface GetMonitoringSubscriptionResult {
+    /**
+     * A subscription configuration for additional CloudWatch metrics.
+     */
     readonly monitoringSubscription?: outputs.cloudfront.MonitoringSubscription;
 }
 /**
@@ -33,5 +39,8 @@ export function getMonitoringSubscriptionOutput(args: GetMonitoringSubscriptionO
 }
 
 export interface GetMonitoringSubscriptionOutputArgs {
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     distributionId: pulumi.Input<string>;
 }

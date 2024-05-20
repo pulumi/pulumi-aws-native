@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFunnelChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The category field wells of a funnel chart. Values are grouped by category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> Category;
+        /// <summary>
+        /// The value field wells of a funnel chart. Values are aggregated based on categories.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Values;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelPackageDataSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 location of the data source that is associated with a channel.
+        /// </summary>
         [Input("s3DataSource", required: true)]
         public Input<Inputs.ModelPackageS3DataSourceArgs> S3DataSource { get; set; } = null!;
 

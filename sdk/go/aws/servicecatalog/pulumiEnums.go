@@ -10,6 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The language code.
+//
+// - `jp` - Japanese
+// - `zh` - Chinese
 type CloudFormationProvisionedProductAcceptLanguage string
 
 const (
@@ -177,6 +181,13 @@ func (in *cloudFormationProvisionedProductAcceptLanguagePtr) ToCloudFormationPro
 	return pulumi.ToOutputWithContext(ctx, in).(CloudFormationProvisionedProductAcceptLanguagePtrOutput)
 }
 
+// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+//
+// Applicable only to a `CFN_STACKSET` provisioned product type.
+//
+// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
 type CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType string
 
 const (
@@ -344,6 +355,11 @@ func (in *cloudFormationProvisionedProductProvisioningPreferencesStackSetOperati
 	return pulumi.ToOutputWithContext(ctx, in).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
+// The language code.
+//
+// - `en` - English (default)
+// - `jp` - Japanese
+// - `zh` - Chinese
 type ServiceActionAcceptLanguage string
 
 const (
@@ -511,6 +527,7 @@ func (in *serviceActionAcceptLanguagePtr) ToServiceActionAcceptLanguagePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceActionAcceptLanguagePtrOutput)
 }
 
+// The self-service action definition type. For example, `SSM_AUTOMATION` .
 type ServiceActionDefinitionType string
 
 const (

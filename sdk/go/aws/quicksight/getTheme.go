@@ -24,8 +24,10 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 }
 
 type LookupThemeArgs struct {
+	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	ThemeId      string `pulumi:"themeId"`
+	// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+	ThemeId string `pulumi:"themeId"`
 }
 
 type LookupThemeResult struct {
@@ -34,12 +36,16 @@ type LookupThemeResult struct {
 	// <p>The date and time that the theme was created.</p>
 	CreatedTime *string `pulumi:"createdTime"`
 	// <p>The date and time that the theme was last updated.</p>
-	LastUpdatedTime *string                   `pulumi:"lastUpdatedTime"`
-	Name            *string                   `pulumi:"name"`
-	Permissions     []ThemeResourcePermission `pulumi:"permissions"`
-	Tags            []aws.Tag                 `pulumi:"tags"`
-	Type            *ThemeType                `pulumi:"type"`
-	Version         *ThemeVersion             `pulumi:"version"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// A display name for the theme.
+	Name *string `pulumi:"name"`
+	// A valid grouping of resource permissions to apply to the new theme.
+	Permissions []ThemeResourcePermission `pulumi:"permissions"`
+	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Theme type.
+	Type    *ThemeType    `pulumi:"type"`
+	Version *ThemeVersion `pulumi:"version"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -56,8 +62,10 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 }
 
 type LookupThemeOutputArgs struct {
+	// The ID of the AWS account where you want to store the new theme.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
-	ThemeId      pulumi.StringInput `pulumi:"themeId"`
+	// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+	ThemeId pulumi.StringInput `pulumi:"themeId"`
 }
 
 func (LookupThemeOutputArgs) ElementType() reflect.Type {
@@ -93,18 +101,22 @@ func (o LookupThemeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// A display name for the theme.
 func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A valid grouping of resource permissions to apply to the new theme.
 func (o LookupThemeResultOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeResourcePermission { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
 
+// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
 func (o LookupThemeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Theme type.
 func (o LookupThemeResultOutput) Type() ThemeTypePtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *ThemeType { return v.Type }).(ThemeTypePtrOutput)
 }

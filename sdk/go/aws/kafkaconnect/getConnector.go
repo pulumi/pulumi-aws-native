@@ -29,6 +29,7 @@ type LookupConnectorArgs struct {
 }
 
 type LookupConnectorResult struct {
+	// The connector's compute capacity settings.
 	Capacity *ConnectorCapacity `pulumi:"capacity"`
 	// Amazon Resource Name for the created Connector.
 	ConnectorArn *string `pulumi:"connectorArn"`
@@ -72,6 +73,7 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
+// The connector's compute capacity settings.
 func (o LookupConnectorResultOutput) Capacity() ConnectorCapacityPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *ConnectorCapacity { return v.Capacity }).(ConnectorCapacityPtrOutput)
 }

@@ -19,16 +19,28 @@ export function getSourceLocation(args: GetSourceLocationArgs, opts?: pulumi.Inv
 }
 
 export interface GetSourceLocationArgs {
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: string;
 }
 
 export interface GetSourceLocationResult {
+    /**
+     * The access configuration for the source location.
+     */
     readonly accessConfiguration?: outputs.mediatailor.SourceLocationAccessConfiguration;
     /**
      * <p>The ARN of the source location.</p>
      */
     readonly arn?: string;
+    /**
+     * The default segment delivery configuration.
+     */
     readonly defaultSegmentDeliveryConfiguration?: outputs.mediatailor.SourceLocationDefaultSegmentDeliveryConfiguration;
+    /**
+     * The HTTP configuration for the source location.
+     */
     readonly httpConfiguration?: outputs.mediatailor.SourceLocationHttpConfiguration;
     /**
      * <p>A list of the segment delivery configurations associated with this resource.</p>
@@ -47,5 +59,8 @@ export function getSourceLocationOutput(args: GetSourceLocationOutputArgs, opts?
 }
 
 export interface GetSourceLocationOutputArgs {
+    /**
+     * The name of the source location.
+     */
     sourceLocationName: pulumi.Input<string>;
 }

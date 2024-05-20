@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("fieldDataPathValues")]
         private InputList<Inputs.DashboardDataPathValueArgs>? _fieldDataPathValues;
+
+        /// <summary>
+        /// The data path of the pivot table's header. Used to set the collapse state.
+        /// </summary>
         public InputList<Inputs.DashboardDataPathValueArgs> FieldDataPathValues
         {
             get => _fieldDataPathValues ?? (_fieldDataPathValues = new InputList<Inputs.DashboardDataPathValueArgs>());
             set => _fieldDataPathValues = value;
         }
 
+        /// <summary>
+        /// The field ID of the pivot table that the collapse state needs to be set to.
+        /// </summary>
         [Input("fieldId")]
         public Input<string>? FieldId { get; set; }
 

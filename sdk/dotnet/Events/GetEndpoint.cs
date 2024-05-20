@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,15 +57,47 @@ namespace Pulumi.AwsNative.Events
     [OutputType]
     public sealed class GetEndpointResult
     {
+        /// <summary>
+        /// The ARN of the endpoint.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A description for the endpoint.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ID of the endpoint.
+        /// </summary>
         public readonly string? EndpointId;
+        /// <summary>
+        /// The URL of the endpoint.
+        /// </summary>
         public readonly string? EndpointUrl;
+        /// <summary>
+        /// The event buses being used by the endpoint.
+        /// 
+        /// *Exactly* : `2`
+        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointEventBus> EventBuses;
+        /// <summary>
+        /// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        /// </summary>
         public readonly Outputs.EndpointReplicationConfig? ReplicationConfig;
+        /// <summary>
+        /// The ARN of the role used by event replication for the endpoint.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The routing configuration of the endpoint.
+        /// </summary>
         public readonly Outputs.EndpointRoutingConfig? RoutingConfig;
+        /// <summary>
+        /// The main Region of the endpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.Events.EndpointState? State;
+        /// <summary>
+        /// The reason the endpoint is in its current state.
+        /// </summary>
         public readonly string? StateReason;
 
         [OutputConstructor]

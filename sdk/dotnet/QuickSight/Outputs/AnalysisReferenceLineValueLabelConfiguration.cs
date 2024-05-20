@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisReferenceLineValueLabelConfiguration
     {
+        /// <summary>
+        /// The format configuration of the value label.
+        /// </summary>
         public readonly Outputs.AnalysisNumericFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The relative position of the value label. Choose one of the following options:
+        /// 
+        /// - `BEFORE_CUSTOM_LABEL`
+        /// - `AFTER_CUSTOM_LABEL`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisReferenceLineValueLabelRelativePosition? RelativePosition;
 
         [OutputConstructor]

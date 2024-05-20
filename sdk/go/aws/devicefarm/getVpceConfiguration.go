@@ -24,16 +24,27 @@ func LookupVpceConfiguration(ctx *pulumi.Context, args *LookupVpceConfigurationA
 }
 
 type LookupVpceConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupVpceConfigurationResult struct {
-	Arn                          *string   `pulumi:"arn"`
-	ServiceDnsName               *string   `pulumi:"serviceDnsName"`
-	Tags                         []aws.Tag `pulumi:"tags"`
-	VpceConfigurationDescription *string   `pulumi:"vpceConfigurationDescription"`
-	VpceConfigurationName        *string   `pulumi:"vpceConfigurationName"`
-	VpceServiceName              *string   `pulumi:"vpceServiceName"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn *string `pulumi:"arn"`
+	// The DNS name that Device Farm will use to map to the private service you want to access.
+	ServiceDnsName *string `pulumi:"serviceDnsName"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags []aws.Tag `pulumi:"tags"`
+	// An optional description that provides details about your VPC endpoint configuration.
+	VpceConfigurationDescription *string `pulumi:"vpceConfigurationDescription"`
+	// The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+	VpceConfigurationName *string `pulumi:"vpceConfigurationName"`
+	// The name of the VPC endpoint service that you want to access from Device Farm.
+	//
+	// The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
+	VpceServiceName *string `pulumi:"vpceServiceName"`
 }
 
 func LookupVpceConfigurationOutput(ctx *pulumi.Context, args LookupVpceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupVpceConfigurationResultOutput {
@@ -50,6 +61,7 @@ func LookupVpceConfigurationOutput(ctx *pulumi.Context, args LookupVpceConfigura
 }
 
 type LookupVpceConfigurationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,26 +83,36 @@ func (o LookupVpceConfigurationResultOutput) ToLookupVpceConfigurationResultOutp
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o LookupVpceConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The DNS name that Device Farm will use to map to the private service you want to access.
 func (o LookupVpceConfigurationResultOutput) ServiceDnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.ServiceDnsName }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o LookupVpceConfigurationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An optional description that provides details about your VPC endpoint configuration.
 func (o LookupVpceConfigurationResultOutput) VpceConfigurationDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.VpceConfigurationDescription }).(pulumi.StringPtrOutput)
 }
 
+// The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
 func (o LookupVpceConfigurationResultOutput) VpceConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.VpceConfigurationName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the VPC endpoint service that you want to access from Device Farm.
+//
+// The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
 func (o LookupVpceConfigurationResultOutput) VpceServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.VpceServiceName }).(pulumi.StringPtrOutput)
 }

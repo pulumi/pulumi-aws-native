@@ -26,6 +26,9 @@ export interface GetServiceArgs {
      * The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
      */
     cluster: string;
+    /**
+     * Not currently supported in AWS CloudFormation .
+     */
     serviceArn: string;
 }
 
@@ -65,6 +68,9 @@ export interface GetServiceResult {
      * A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
     readonly loadBalancers?: outputs.ecs.ServiceLoadBalancer[];
+    /**
+     * The name of the Amazon ECS service, such as `sample-webapp` .
+     */
     readonly name?: string;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -87,6 +93,9 @@ export interface GetServiceResult {
      *  The default is ``NONE``.
      */
     readonly propagateTags?: enums.ecs.ServicePropagateTags;
+    /**
+     * Not currently supported in AWS CloudFormation .
+     */
     readonly serviceArn?: string;
     /**
      * The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
@@ -126,5 +135,8 @@ export interface GetServiceOutputArgs {
      * The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
      */
     cluster: pulumi.Input<string>;
+    /**
+     * Not currently supported in AWS CloudFormation .
+     */
     serviceArn: pulumi.Input<string>;
 }

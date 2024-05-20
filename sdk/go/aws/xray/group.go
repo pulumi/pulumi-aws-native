@@ -83,9 +83,14 @@ type Group struct {
 	// The ARN of the group that was generated on creation.
 	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
 	// The case-sensitive name of the new group. Names must be unique.
-	GroupName             pulumi.StringOutput                 `pulumi:"groupName"`
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// The structure containing configurations related to insights.
+	//
+	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
-	Tags                  aws.TagArrayOutput                  `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -131,9 +136,14 @@ type groupArgs struct {
 	// The filter expression defining criteria by which to group traces.
 	FilterExpression *string `pulumi:"filterExpression"`
 	// The case-sensitive name of the new group. Names must be unique.
-	GroupName             *string                     `pulumi:"groupName"`
+	GroupName *string `pulumi:"groupName"`
+	// The structure containing configurations related to insights.
+	//
+	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []aws.Tag                   `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -141,9 +151,14 @@ type GroupArgs struct {
 	// The filter expression defining criteria by which to group traces.
 	FilterExpression pulumi.StringPtrInput
 	// The case-sensitive name of the new group. Names must be unique.
-	GroupName             pulumi.StringPtrInput
+	GroupName pulumi.StringPtrInput
+	// The structure containing configurations related to insights.
+	//
+	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	Tags                  aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -198,10 +213,15 @@ func (o GroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// The structure containing configurations related to insights.
+//
+// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 func (o GroupOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput {
 	return o.ApplyT(func(v *Group) GroupInsightsConfigurationPtrOutput { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o GroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Group) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

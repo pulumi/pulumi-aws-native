@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceSalesforceKnowledgeArticleConfiguration
     {
+        /// <summary>
+        /// Configuration information for custom Salesforce knowledge articles.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> CustomKnowledgeArticleTypeConfigurations;
+        /// <summary>
+        /// Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState> IncludedStates;
+        /// <summary>
+        /// Configuration information for standard Salesforce knowledge articles.
+        /// </summary>
         public readonly Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? StandardKnowledgeArticleTypeConfiguration;
 
         [OutputConstructor]

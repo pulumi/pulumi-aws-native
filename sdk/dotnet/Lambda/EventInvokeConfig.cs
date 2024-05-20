@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.Lambda
     [AwsNativeResourceType("aws-native:lambda:EventInvokeConfig")]
     public partial class EventInvokeConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A destination for events after they have been sent to a function for processing.
+        /// 
+        /// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+        /// - *Queue* - The ARN of a standard SQS queue.
+        /// - *Topic* - The ARN of a standard SNS topic.
+        /// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+        /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.EventInvokeConfigDestinationConfig?> DestinationConfig { get; private set; } = null!;
 
@@ -92,6 +100,14 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class EventInvokeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A destination for events after they have been sent to a function for processing.
+        /// 
+        /// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+        /// - *Queue* - The ARN of a standard SQS queue.
+        /// - *Topic* - The ARN of a standard SNS topic.
+        /// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+        /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventInvokeConfigDestinationConfigArgs>? DestinationConfig { get; set; }
 

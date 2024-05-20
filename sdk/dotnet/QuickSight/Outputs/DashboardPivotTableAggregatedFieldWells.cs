@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableAggregatedFieldWells
     {
+        /// <summary>
+        /// The columns field well for a pivot table. Values are grouped by columns fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Columns;
+        /// <summary>
+        /// The rows field well for a pivot table. Values are grouped by rows fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Rows;
+        /// <summary>
+        /// The values field well for a pivot table. Values are aggregated based on rows and columns fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Values;
 
         [OutputConstructor]

@@ -349,6 +349,13 @@ export class Role extends pulumi.CustomResource {
         return obj['__pulumiType'] === Role.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) for the role. For example:
+     *
+     * `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+     *
+     * This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
@@ -389,6 +396,11 @@ export class Role extends pulumi.CustomResource {
      *   If an external policy (such as ``AWS::IAM::Policy`` or
      */
     public readonly policies!: pulumi.Output<outputs.iam.RolePolicy[] | undefined>;
+    /**
+     * Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+     *
+     * For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+     */
     public /*out*/ readonly roleId!: pulumi.Output<string>;
     /**
      * A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*.

@@ -41,6 +41,23 @@ export class StateMachineAlias extends pulumi.CustomResource {
      * The ARN of the alias.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
+     *
+     * CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
+     *
+     * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties. 
+     *
+     * Based on the type of deployment you want to perform, you can specify one of the following settings:
+     *
+     * - `LINEAR` - Shifts traffic to the new version in equal increments with an equal number of minutes between each increment.
+     *
+     * For example, if you specify the increment percent as `20` with an interval of `600` minutes, this deployment increases traffic by 20 percent every 600 minutes until the new version receives 100 percent of the traffic. This deployment immediately rolls back the new version if any Amazon CloudWatch alarms are triggered.
+     * - `ALL_AT_ONCE` - Shifts 100 percent of traffic to the new version immediately. CloudFormation monitors the new version and rolls it back automatically to the previous version if any CloudWatch alarms are triggered.
+     * - `CANARY` - Shifts traffic in two increments.
+     *
+     * In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
+     */
     public readonly deploymentPreference!: pulumi.Output<outputs.stepfunctions.StateMachineAliasDeploymentPreference | undefined>;
     /**
      * An optional description of the alias.
@@ -50,6 +67,13 @@ export class StateMachineAlias extends pulumi.CustomResource {
      * The alias name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+     *
+     * Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+     *
+     * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+     */
     public readonly routingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineAliasRoutingConfigurationVersion[] | undefined>;
 
     /**
@@ -86,6 +110,23 @@ export class StateMachineAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a StateMachineAlias resource.
  */
 export interface StateMachineAliasArgs {
+    /**
+     * The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
+     *
+     * CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
+     *
+     * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties. 
+     *
+     * Based on the type of deployment you want to perform, you can specify one of the following settings:
+     *
+     * - `LINEAR` - Shifts traffic to the new version in equal increments with an equal number of minutes between each increment.
+     *
+     * For example, if you specify the increment percent as `20` with an interval of `600` minutes, this deployment increases traffic by 20 percent every 600 minutes until the new version receives 100 percent of the traffic. This deployment immediately rolls back the new version if any Amazon CloudWatch alarms are triggered.
+     * - `ALL_AT_ONCE` - Shifts 100 percent of traffic to the new version immediately. CloudFormation monitors the new version and rolls it back automatically to the previous version if any CloudWatch alarms are triggered.
+     * - `CANARY` - Shifts traffic in two increments.
+     *
+     * In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
+     */
     deploymentPreference?: pulumi.Input<inputs.stepfunctions.StateMachineAliasDeploymentPreferenceArgs>;
     /**
      * An optional description of the alias.
@@ -95,5 +136,12 @@ export interface StateMachineAliasArgs {
      * The alias name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+     *
+     * Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+     *
+     * > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
+     */
     routingConfiguration?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineAliasRoutingConfigurationVersionArgs>[]>;
 }

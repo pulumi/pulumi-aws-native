@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("manifestLayout")]
         public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestManifestLayout>? ManifestLayout { get; set; }
 
+        /// <summary>
+        /// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
+        /// </summary>
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("scteMarkersSource")]
         public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestScteMarkersSource>? ScteMarkersSource { get; set; }
 
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.PackagingConfigurationStreamSelectionArgs>? StreamSelection { get; set; }
 

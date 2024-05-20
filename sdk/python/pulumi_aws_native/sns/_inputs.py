@@ -22,6 +22,14 @@ class TopicLoggingConfigArgs:
                  failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  success_feedback_sample_rate: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['TopicLoggingConfigProtocol'] protocol: Indicates one of the supported protocols for the Amazon SNS topic.
+               
+               > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
+        :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
+        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
+        """
         pulumi.set(__self__, "protocol", protocol)
         if failure_feedback_role_arn is not None:
             pulumi.set(__self__, "failure_feedback_role_arn", failure_feedback_role_arn)
@@ -33,6 +41,11 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['TopicLoggingConfigProtocol']:
+        """
+        Indicates one of the supported protocols for the Amazon SNS topic.
+
+        > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -42,6 +55,9 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
+        """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
@@ -51,6 +67,9 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
+        """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
@@ -60,6 +79,9 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
+        """
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter

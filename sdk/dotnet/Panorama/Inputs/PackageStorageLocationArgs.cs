@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.Panorama.Inputs
 
     public sealed class PackageStorageLocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The location's binary prefix.
+        /// </summary>
         [Input("binaryPrefixLocation")]
         public Input<string>? BinaryPrefixLocation { get; set; }
 
+        /// <summary>
+        /// The location's bucket.
+        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// The location's generated prefix.
+        /// </summary>
         [Input("generatedPrefixLocation")]
         public Input<string>? GeneratedPrefixLocation { get; set; }
 
+        /// <summary>
+        /// The location's manifest prefix.
+        /// </summary>
         [Input("manifestPrefixLocation")]
         public Input<string>? ManifestPrefixLocation { get; set; }
 
+        /// <summary>
+        /// The location's repo prefix.
+        /// </summary>
         [Input("repoPrefixLocation")]
         public Input<string>? RepoPrefixLocation { get; set; }
 

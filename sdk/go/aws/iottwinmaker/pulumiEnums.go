@@ -615,6 +615,7 @@ func (o ComponentTypeStatusErrorPropertiesCodePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The component type status state.
 type ComponentTypeStatusState string
 
 const (

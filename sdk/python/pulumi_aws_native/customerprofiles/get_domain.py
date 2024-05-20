@@ -93,11 +93,17 @@ class GetDomainResult:
     @property
     @pulumi.getter
     def matching(self) -> Optional['outputs.DomainMatching']:
+        """
+        The process of matching duplicate profiles.
+        """
         return pulumi.get(self, "matching")
 
     @property
     @pulumi.getter(name="ruleBasedMatching")
     def rule_based_matching(self) -> Optional['outputs.DomainRuleBasedMatching']:
+        """
+        The process of matching duplicate profiles using Rule-Based matching.
+        """
         return pulumi.get(self, "rule_based_matching")
 
     @property

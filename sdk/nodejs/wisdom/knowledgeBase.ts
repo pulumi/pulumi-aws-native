@@ -37,14 +37,41 @@ export class KnowledgeBase extends pulumi.CustomResource {
         return obj['__pulumiType'] === KnowledgeBase.__pulumiType;
     }
 
+    /**
+     * The description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the knowledge base.
+     */
     public /*out*/ readonly knowledgeBaseArn!: pulumi.Output<string>;
+    /**
+     * The ID of the knowledge base.
+     */
     public /*out*/ readonly knowledgeBaseId!: pulumi.Output<string>;
+    /**
+     * The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+     */
     public readonly knowledgeBaseType!: pulumi.Output<enums.wisdom.KnowledgeBaseType>;
+    /**
+     * The name of the knowledge base.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Information about how to render the content.
+     */
     public readonly renderingConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseRenderingConfiguration | undefined>;
+    /**
+     * This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+     */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseServerSideEncryptionConfiguration | undefined>;
+    /**
+     * The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+     */
     public readonly sourceConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseSourceConfiguration | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -92,11 +119,32 @@ export class KnowledgeBase extends pulumi.CustomResource {
  * The set of arguments for constructing a KnowledgeBase resource.
  */
 export interface KnowledgeBaseArgs {
+    /**
+     * The description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+     */
     knowledgeBaseType: pulumi.Input<enums.wisdom.KnowledgeBaseType>;
+    /**
+     * The name of the knowledge base.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Information about how to render the content.
+     */
     renderingConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseRenderingConfigurationArgs>;
+    /**
+     * This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs>;
+    /**
+     * The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+     */
     sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfigurationArgs>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

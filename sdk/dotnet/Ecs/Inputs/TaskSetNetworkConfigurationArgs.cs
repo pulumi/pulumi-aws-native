@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class TaskSetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The VPC subnets and security groups that are associated with a task.
+        /// 
+        /// &gt; All specified subnets and security groups must be from the same VPC.
+        /// </summary>
         [Input("awsVpcConfiguration")]
         public Input<Inputs.TaskSetAwsVpcConfigurationArgs>? AwsVpcConfiguration { get; set; }
 

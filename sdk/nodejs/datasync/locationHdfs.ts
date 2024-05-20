@@ -77,6 +77,9 @@ export class LocationHdfs extends pulumi.CustomResource {
      * An array of Name Node(s) of the HDFS location.
      */
     public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
+    /**
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
+     */
     public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration | undefined>;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.
@@ -188,6 +191,9 @@ export interface LocationHdfsArgs {
      * An array of Name Node(s) of the HDFS location.
      */
     nameNodes: pulumi.Input<pulumi.Input<inputs.datasync.LocationHdfsNameNodeArgs>[]>;
+    /**
+     * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
+     */
     qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfigurationArgs>;
     /**
      * Number of copies of each block that exists inside the HDFS cluster.

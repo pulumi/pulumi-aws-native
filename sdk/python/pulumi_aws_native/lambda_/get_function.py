@@ -106,6 +106,9 @@ class GetFunctionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the function.
+        """
         return pulumi.get(self, "arn")
 
     @property

@@ -16,16 +16,30 @@ export function getRegistryPolicy(args: GetRegistryPolicyArgs, opts?: pulumi.Inv
 }
 
 export interface GetRegistryPolicyArgs {
+    /**
+     * The ID of the policy.
+     */
     id: string;
 }
 
 export interface GetRegistryPolicyResult {
+    /**
+     * The ID of the policy.
+     */
     readonly id?: string;
     /**
+     * A resource-based policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
      */
     readonly policy?: any;
+    /**
+     * The name of the registry.
+     */
     readonly registryName?: string;
+    /**
+     * The revision ID of the policy.
+     */
     readonly revisionId?: string;
 }
 /**
@@ -36,5 +50,8 @@ export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?
 }
 
 export interface GetRegistryPolicyOutputArgs {
+    /**
+     * The ID of the policy.
+     */
     id: pulumi.Input<string>;
 }

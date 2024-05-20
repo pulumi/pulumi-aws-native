@@ -13,21 +13,69 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormFieldInputConfig
     {
+        /// <summary>
+        /// Specifies whether a field has a default value.
+        /// </summary>
         public readonly bool? DefaultChecked;
+        /// <summary>
+        /// The default country code for a phone number.
+        /// </summary>
         public readonly string? DefaultCountryCode;
+        /// <summary>
+        /// The default value for the field.
+        /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// The text to display to describe the field.
+        /// </summary>
         public readonly string? DescriptiveText;
+        /// <summary>
+        /// The configuration for the file uploader field.
+        /// </summary>
         public readonly Outputs.FormFileUploaderFieldConfig? FileUploaderConfig;
+        /// <summary>
+        /// Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+        /// </summary>
         public readonly bool? IsArray;
+        /// <summary>
+        /// The maximum value to display for the field.
+        /// </summary>
         public readonly double? MaxValue;
+        /// <summary>
+        /// The minimum value to display for the field.
+        /// </summary>
         public readonly double? MinValue;
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The text to display as a placeholder for the field.
+        /// </summary>
         public readonly string? Placeholder;
+        /// <summary>
+        /// Specifies a read only field.
+        /// </summary>
         public readonly bool? ReadOnly;
+        /// <summary>
+        /// Specifies a field that requires input.
+        /// </summary>
         public readonly bool? Required;
+        /// <summary>
+        /// The stepping increment for a numeric value in a field.
+        /// </summary>
         public readonly double? Step;
+        /// <summary>
+        /// The input type for the field.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The value for the field.
+        /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// The information to use to customize the input fields with data at runtime.
+        /// </summary>
         public readonly Outputs.FormValueMappings? ValueMappings;
 
         [OutputConstructor]

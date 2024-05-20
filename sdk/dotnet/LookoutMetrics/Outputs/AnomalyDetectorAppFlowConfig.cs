@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorAppFlowConfig
     {
+        /// <summary>
+        /// name of the flow.
+        /// </summary>
         public readonly string FlowName;
+        /// <summary>
+        /// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

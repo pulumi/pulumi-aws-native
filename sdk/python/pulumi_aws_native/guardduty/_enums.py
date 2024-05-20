@@ -10,5 +10,8 @@ __all__ = [
 
 
 class DetectorCfnFeatureConfigurationStatus(str, Enum):
+    """
+    Status of the feature configuration.
+    """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"

@@ -66,6 +66,9 @@ export class RegistryPolicy extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
      */
     public readonly policyText!: pulumi.Output<any>;
+    /**
+     * The account ID of the private registry the policy is associated with.
+     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
 
     /**

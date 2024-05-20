@@ -31,11 +31,15 @@ class LaunchProfileArgs:
                            These subnets must support the specified instance types. </p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid
                            version is "2021-03-31".</p>
+        :param pulumi.Input['LaunchProfileStreamConfigurationArgs'] stream_configuration: A configuration for a streaming session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this
                            launch profile.</p>
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
         pulumi.set(__self__, "launch_profile_protocol_versions", launch_profile_protocol_versions)
@@ -78,6 +82,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> pulumi.Input['LaunchProfileStreamConfigurationArgs']:
+        """
+        A configuration for a streaming session.
+        """
         return pulumi.get(self, "stream_configuration")
 
     @stream_configuration.setter
@@ -136,6 +143,11 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -168,9 +180,13 @@ class LaunchProfile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid
                            version is "2021-03-31".</p>
         :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
+        :param pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']] stream_configuration: A configuration for a streaming session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this
                            launch profile.</p>
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -287,6 +303,9 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="launchProfileId")
     def launch_profile_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the launch profile resource.
+        """
         return pulumi.get(self, "launch_profile_id")
 
     @property
@@ -309,6 +328,9 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> pulumi.Output['outputs.LaunchProfileStreamConfiguration']:
+        """
+        A configuration for a streaming session.
+        """
         return pulumi.get(self, "stream_configuration")
 
     @property
@@ -331,5 +353,10 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

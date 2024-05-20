@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileOAuthProperties
     {
+        /// <summary>
+        /// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+        /// </summary>
         public readonly string? AuthCodeUrl;
+        /// <summary>
+        /// The OAuth scopes required for OAuth type authentication.
+        /// </summary>
         public readonly ImmutableArray<string> OAuthScopes;
+        /// <summary>
+        /// The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        /// </summary>
         public readonly string? TokenUrl;
 
         [OutputConstructor]

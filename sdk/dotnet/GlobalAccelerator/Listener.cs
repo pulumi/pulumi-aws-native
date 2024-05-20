@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of port ranges for the connections from clients to the accelerator.
+        /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
 
@@ -105,6 +108,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
         [Input("portRanges", required: true)]
         private InputList<Inputs.ListenerPortRangeArgs>? _portRanges;
+
+        /// <summary>
+        /// The list of port ranges for the connections from clients to the accelerator.
+        /// </summary>
         public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangeArgs>());

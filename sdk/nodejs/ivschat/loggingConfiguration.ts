@@ -45,6 +45,9 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      * The system-generated ID of the logging configuration.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
+     */
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration>;
     /**
      * The name of the logging configuration. The value does not need to be unique.
@@ -96,6 +99,9 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
+    /**
+     * The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
+     */
     destinationConfiguration: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfigurationArgs>;
     /**
      * The name of the logging configuration. The value does not need to be unique.

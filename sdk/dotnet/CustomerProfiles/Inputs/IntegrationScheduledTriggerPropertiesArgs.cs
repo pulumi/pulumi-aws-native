@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationScheduledTriggerPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+        /// </summary>
         [Input("dataPullMode")]
         public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationScheduledTriggerPropertiesDataPullMode>? DataPullMode { get; set; }
 
+        /// <summary>
+        /// Specifies the date range for the records to import from the connector in the first flow run.
+        /// </summary>
         [Input("firstExecutionFrom")]
         public Input<double>? FirstExecutionFrom { get; set; }
 
+        /// <summary>
+        /// Specifies the scheduled end time for a scheduled-trigger flow.
+        /// </summary>
         [Input("scheduleEndTime")]
         public Input<double>? ScheduleEndTime { get; set; }
 
+        /// <summary>
+        /// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
+        /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+        /// </summary>
         [Input("scheduleOffset")]
         public Input<int>? ScheduleOffset { get; set; }
 
+        /// <summary>
+        /// Specifies the scheduled start time for a scheduled-trigger flow.
+        /// </summary>
         [Input("scheduleStartTime")]
         public Input<double>? ScheduleStartTime { get; set; }
 
+        /// <summary>
+        /// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 

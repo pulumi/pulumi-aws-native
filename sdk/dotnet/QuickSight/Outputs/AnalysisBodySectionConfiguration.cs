@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisBodySectionConfiguration
     {
+        /// <summary>
+        /// The configuration of content in a body section.
+        /// </summary>
         public readonly Outputs.AnalysisBodySectionContent Content;
+        /// <summary>
+        /// The configuration of a page break for a section.
+        /// </summary>
         public readonly Outputs.AnalysisSectionPageBreakConfiguration? PageBreakConfiguration;
+        /// <summary>
+        /// The unique identifier of a body section.
+        /// </summary>
         public readonly string SectionId;
+        /// <summary>
+        /// The style options of a body section.
+        /// </summary>
         public readonly Outputs.AnalysisSectionStyle? Style;
 
         [OutputConstructor]

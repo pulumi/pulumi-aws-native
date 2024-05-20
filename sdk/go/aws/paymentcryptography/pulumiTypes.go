@@ -14,10 +14,16 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type KeyAttributes struct {
-	KeyAlgorithm  KeyAlgorithm  `pulumi:"keyAlgorithm"`
-	KeyClass      KeyClass      `pulumi:"keyClass"`
+	// The key algorithm to be use during creation of an AWS Payment Cryptography key.
+	//
+	// For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
+	KeyAlgorithm KeyAlgorithm `pulumi:"keyAlgorithm"`
+	// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+	KeyClass KeyClass `pulumi:"keyClass"`
+	// The list of cryptographic operations that you can perform using the key.
 	KeyModesOfUse KeyModesOfUse `pulumi:"keyModesOfUse"`
-	KeyUsage      KeyUsage      `pulumi:"keyUsage"`
+	// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+	KeyUsage KeyUsage `pulumi:"keyUsage"`
 }
 
 // KeyAttributesInput is an input type that accepts KeyAttributesArgs and KeyAttributesOutput values.
@@ -32,10 +38,16 @@ type KeyAttributesInput interface {
 }
 
 type KeyAttributesArgs struct {
-	KeyAlgorithm  KeyAlgorithmInput  `pulumi:"keyAlgorithm"`
-	KeyClass      KeyClassInput      `pulumi:"keyClass"`
+	// The key algorithm to be use during creation of an AWS Payment Cryptography key.
+	//
+	// For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
+	KeyAlgorithm KeyAlgorithmInput `pulumi:"keyAlgorithm"`
+	// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+	KeyClass KeyClassInput `pulumi:"keyClass"`
+	// The list of cryptographic operations that you can perform using the key.
 	KeyModesOfUse KeyModesOfUseInput `pulumi:"keyModesOfUse"`
-	KeyUsage      KeyUsageInput      `pulumi:"keyUsage"`
+	// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+	KeyUsage KeyUsageInput `pulumi:"keyUsage"`
 }
 
 func (KeyAttributesArgs) ElementType() reflect.Type {
@@ -64,18 +76,24 @@ func (o KeyAttributesOutput) ToKeyAttributesOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The key algorithm to be use during creation of an AWS Payment Cryptography key.
+//
+// For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
 func (o KeyAttributesOutput) KeyAlgorithm() KeyAlgorithmOutput {
 	return o.ApplyT(func(v KeyAttributes) KeyAlgorithm { return v.KeyAlgorithm }).(KeyAlgorithmOutput)
 }
 
+// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
 func (o KeyAttributesOutput) KeyClass() KeyClassOutput {
 	return o.ApplyT(func(v KeyAttributes) KeyClass { return v.KeyClass }).(KeyClassOutput)
 }
 
+// The list of cryptographic operations that you can perform using the key.
 func (o KeyAttributesOutput) KeyModesOfUse() KeyModesOfUseOutput {
 	return o.ApplyT(func(v KeyAttributes) KeyModesOfUse { return v.KeyModesOfUse }).(KeyModesOfUseOutput)
 }
 
+// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
 func (o KeyAttributesOutput) KeyUsage() KeyUsageOutput {
 	return o.ApplyT(func(v KeyAttributes) KeyUsage { return v.KeyUsage }).(KeyUsageOutput)
 }
@@ -104,6 +122,9 @@ func (o KeyAttributesPtrOutput) Elem() KeyAttributesOutput {
 	}).(KeyAttributesOutput)
 }
 
+// The key algorithm to be use during creation of an AWS Payment Cryptography key.
+//
+// For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
 func (o KeyAttributesPtrOutput) KeyAlgorithm() KeyAlgorithmPtrOutput {
 	return o.ApplyT(func(v *KeyAttributes) *KeyAlgorithm {
 		if v == nil {
@@ -113,6 +134,7 @@ func (o KeyAttributesPtrOutput) KeyAlgorithm() KeyAlgorithmPtrOutput {
 	}).(KeyAlgorithmPtrOutput)
 }
 
+// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
 func (o KeyAttributesPtrOutput) KeyClass() KeyClassPtrOutput {
 	return o.ApplyT(func(v *KeyAttributes) *KeyClass {
 		if v == nil {
@@ -122,6 +144,7 @@ func (o KeyAttributesPtrOutput) KeyClass() KeyClassPtrOutput {
 	}).(KeyClassPtrOutput)
 }
 
+// The list of cryptographic operations that you can perform using the key.
 func (o KeyAttributesPtrOutput) KeyModesOfUse() KeyModesOfUsePtrOutput {
 	return o.ApplyT(func(v *KeyAttributes) *KeyModesOfUse {
 		if v == nil {
@@ -131,6 +154,7 @@ func (o KeyAttributesPtrOutput) KeyModesOfUse() KeyModesOfUsePtrOutput {
 	}).(KeyModesOfUsePtrOutput)
 }
 
+// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
 func (o KeyAttributesPtrOutput) KeyUsage() KeyUsagePtrOutput {
 	return o.ApplyT(func(v *KeyAttributes) *KeyUsage {
 		if v == nil {
@@ -141,15 +165,23 @@ func (o KeyAttributesPtrOutput) KeyUsage() KeyUsagePtrOutput {
 }
 
 type KeyModesOfUse struct {
-	Decrypt        *bool `pulumi:"decrypt"`
-	DeriveKey      *bool `pulumi:"deriveKey"`
-	Encrypt        *bool `pulumi:"encrypt"`
-	Generate       *bool `pulumi:"generate"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
+	Decrypt *bool `pulumi:"decrypt"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
+	DeriveKey *bool `pulumi:"deriveKey"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
+	Encrypt *bool `pulumi:"encrypt"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+	Generate *bool `pulumi:"generate"`
+	// Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
 	NoRestrictions *bool `pulumi:"noRestrictions"`
-	Sign           *bool `pulumi:"sign"`
-	Unwrap         *bool `pulumi:"unwrap"`
-	Verify         *bool `pulumi:"verify"`
-	Wrap           *bool `pulumi:"wrap"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
+	Sign   *bool `pulumi:"sign"`
+	Unwrap *bool `pulumi:"unwrap"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
+	Verify *bool `pulumi:"verify"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
+	Wrap *bool `pulumi:"wrap"`
 }
 
 // KeyModesOfUseInput is an input type that accepts KeyModesOfUseArgs and KeyModesOfUseOutput values.
@@ -164,15 +196,23 @@ type KeyModesOfUseInput interface {
 }
 
 type KeyModesOfUseArgs struct {
-	Decrypt        pulumi.BoolPtrInput `pulumi:"decrypt"`
-	DeriveKey      pulumi.BoolPtrInput `pulumi:"deriveKey"`
-	Encrypt        pulumi.BoolPtrInput `pulumi:"encrypt"`
-	Generate       pulumi.BoolPtrInput `pulumi:"generate"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
+	Decrypt pulumi.BoolPtrInput `pulumi:"decrypt"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
+	DeriveKey pulumi.BoolPtrInput `pulumi:"deriveKey"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
+	Encrypt pulumi.BoolPtrInput `pulumi:"encrypt"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+	Generate pulumi.BoolPtrInput `pulumi:"generate"`
+	// Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
 	NoRestrictions pulumi.BoolPtrInput `pulumi:"noRestrictions"`
-	Sign           pulumi.BoolPtrInput `pulumi:"sign"`
-	Unwrap         pulumi.BoolPtrInput `pulumi:"unwrap"`
-	Verify         pulumi.BoolPtrInput `pulumi:"verify"`
-	Wrap           pulumi.BoolPtrInput `pulumi:"wrap"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
+	Sign   pulumi.BoolPtrInput `pulumi:"sign"`
+	Unwrap pulumi.BoolPtrInput `pulumi:"unwrap"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
+	Verify pulumi.BoolPtrInput `pulumi:"verify"`
+	// Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
+	Wrap pulumi.BoolPtrInput `pulumi:"wrap"`
 }
 
 func (KeyModesOfUseArgs) ElementType() reflect.Type {
@@ -201,26 +241,32 @@ func (o KeyModesOfUseOutput) ToKeyModesOfUseOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
 func (o KeyModesOfUseOutput) Decrypt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Decrypt }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
 func (o KeyModesOfUseOutput) DeriveKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.DeriveKey }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
 func (o KeyModesOfUseOutput) Encrypt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Encrypt }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
 func (o KeyModesOfUseOutput) Generate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Generate }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
 func (o KeyModesOfUseOutput) NoRestrictions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.NoRestrictions }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
 func (o KeyModesOfUseOutput) Sign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Sign }).(pulumi.BoolPtrOutput)
 }
@@ -229,10 +275,12 @@ func (o KeyModesOfUseOutput) Unwrap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Unwrap }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
 func (o KeyModesOfUseOutput) Verify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Verify }).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
 func (o KeyModesOfUseOutput) Wrap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyModesOfUse) *bool { return v.Wrap }).(pulumi.BoolPtrOutput)
 }
@@ -261,6 +309,7 @@ func (o KeyModesOfUsePtrOutput) Elem() KeyModesOfUseOutput {
 	}).(KeyModesOfUseOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
 func (o KeyModesOfUsePtrOutput) Decrypt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -270,6 +319,7 @@ func (o KeyModesOfUsePtrOutput) Decrypt() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
 func (o KeyModesOfUsePtrOutput) DeriveKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -279,6 +329,7 @@ func (o KeyModesOfUsePtrOutput) DeriveKey() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
 func (o KeyModesOfUsePtrOutput) Encrypt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -288,6 +339,7 @@ func (o KeyModesOfUsePtrOutput) Encrypt() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
 func (o KeyModesOfUsePtrOutput) Generate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -297,6 +349,7 @@ func (o KeyModesOfUsePtrOutput) Generate() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
 func (o KeyModesOfUsePtrOutput) NoRestrictions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -306,6 +359,7 @@ func (o KeyModesOfUsePtrOutput) NoRestrictions() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
 func (o KeyModesOfUsePtrOutput) Sign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -324,6 +378,7 @@ func (o KeyModesOfUsePtrOutput) Unwrap() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
 func (o KeyModesOfUsePtrOutput) Verify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -333,6 +388,7 @@ func (o KeyModesOfUsePtrOutput) Verify() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
 func (o KeyModesOfUsePtrOutput) Wrap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyModesOfUse) *bool {
 		if v == nil {
@@ -343,7 +399,9 @@ func (o KeyModesOfUsePtrOutput) Wrap() pulumi.BoolPtrOutput {
 }
 
 type KeyTag struct {
-	Key   string  `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value *string `pulumi:"value"`
 }
 

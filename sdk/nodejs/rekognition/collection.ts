@@ -37,7 +37,13 @@ export class Collection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Collection.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name of the collection.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * ID for the collection that you are creating.
+     */
     public readonly collectionId!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -77,6 +83,9 @@ export class Collection extends pulumi.CustomResource {
  * The set of arguments for constructing a Collection resource.
  */
 export interface CollectionArgs {
+    /**
+     * ID for the collection that you are creating.
+     */
     collectionId: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

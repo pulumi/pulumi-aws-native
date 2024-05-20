@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AnnotationStoreReferenceItem struct {
+	// The reference's ARN.
 	ReferenceArn string `pulumi:"referenceArn"`
 }
 
@@ -29,6 +30,7 @@ type AnnotationStoreReferenceItemInput interface {
 }
 
 type AnnotationStoreReferenceItemArgs struct {
+	// The reference's ARN.
 	ReferenceArn pulumi.StringInput `pulumi:"referenceArn"`
 }
 
@@ -109,6 +111,7 @@ func (o AnnotationStoreReferenceItemOutput) ToAnnotationStoreReferenceItemPtrOut
 	}).(AnnotationStoreReferenceItemPtrOutput)
 }
 
+// The reference's ARN.
 func (o AnnotationStoreReferenceItemOutput) ReferenceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnnotationStoreReferenceItem) string { return v.ReferenceArn }).(pulumi.StringOutput)
 }
@@ -137,6 +140,7 @@ func (o AnnotationStoreReferenceItemPtrOutput) Elem() AnnotationStoreReferenceIt
 	}).(AnnotationStoreReferenceItemOutput)
 }
 
+// The reference's ARN.
 func (o AnnotationStoreReferenceItemPtrOutput) ReferenceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnnotationStoreReferenceItem) *string {
 		if v == nil {
@@ -147,8 +151,10 @@ func (o AnnotationStoreReferenceItemPtrOutput) ReferenceArn() pulumi.StringPtrOu
 }
 
 type AnnotationStoreSseConfig struct {
-	KeyArn *string                       `pulumi:"keyArn"`
-	Type   AnnotationStoreEncryptionType `pulumi:"type"`
+	// An encryption key ARN.
+	KeyArn *string `pulumi:"keyArn"`
+	// The encryption type.
+	Type AnnotationStoreEncryptionType `pulumi:"type"`
 }
 
 // AnnotationStoreSseConfigInput is an input type that accepts AnnotationStoreSseConfigArgs and AnnotationStoreSseConfigOutput values.
@@ -163,8 +169,10 @@ type AnnotationStoreSseConfigInput interface {
 }
 
 type AnnotationStoreSseConfigArgs struct {
-	KeyArn pulumi.StringPtrInput              `pulumi:"keyArn"`
-	Type   AnnotationStoreEncryptionTypeInput `pulumi:"type"`
+	// An encryption key ARN.
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+	// The encryption type.
+	Type AnnotationStoreEncryptionTypeInput `pulumi:"type"`
 }
 
 func (AnnotationStoreSseConfigArgs) ElementType() reflect.Type {
@@ -244,10 +252,12 @@ func (o AnnotationStoreSseConfigOutput) ToAnnotationStoreSseConfigPtrOutputWithC
 	}).(AnnotationStoreSseConfigPtrOutput)
 }
 
+// An encryption key ARN.
 func (o AnnotationStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnnotationStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o AnnotationStoreSseConfigOutput) Type() AnnotationStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v AnnotationStoreSseConfig) AnnotationStoreEncryptionType { return v.Type }).(AnnotationStoreEncryptionTypeOutput)
 }
@@ -276,6 +286,7 @@ func (o AnnotationStoreSseConfigPtrOutput) Elem() AnnotationStoreSseConfigOutput
 	}).(AnnotationStoreSseConfigOutput)
 }
 
+// An encryption key ARN.
 func (o AnnotationStoreSseConfigPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnnotationStoreSseConfig) *string {
 		if v == nil {
@@ -285,6 +296,7 @@ func (o AnnotationStoreSseConfigPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o AnnotationStoreSseConfigPtrOutput) Type() AnnotationStoreEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *AnnotationStoreSseConfig) *AnnotationStoreEncryptionType {
 		if v == nil {
@@ -597,8 +609,9 @@ func (o AnnotationStoreTsvStoreOptionsPtrOutput) Schema() AnnotationStoreSchemaV
 // Server-side encryption (SSE) settings for a store.
 type ReferenceStoreSseConfig struct {
 	// An encryption key ARN.
-	KeyArn *string                      `pulumi:"keyArn"`
-	Type   ReferenceStoreEncryptionType `pulumi:"type"`
+	KeyArn *string `pulumi:"keyArn"`
+	// The encryption type.
+	Type ReferenceStoreEncryptionType `pulumi:"type"`
 }
 
 // ReferenceStoreSseConfigInput is an input type that accepts ReferenceStoreSseConfigArgs and ReferenceStoreSseConfigOutput values.
@@ -615,8 +628,9 @@ type ReferenceStoreSseConfigInput interface {
 // Server-side encryption (SSE) settings for a store.
 type ReferenceStoreSseConfigArgs struct {
 	// An encryption key ARN.
-	KeyArn pulumi.StringPtrInput             `pulumi:"keyArn"`
-	Type   ReferenceStoreEncryptionTypeInput `pulumi:"type"`
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+	// The encryption type.
+	Type ReferenceStoreEncryptionTypeInput `pulumi:"type"`
 }
 
 func (ReferenceStoreSseConfigArgs) ElementType() reflect.Type {
@@ -702,6 +716,7 @@ func (o ReferenceStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o ReferenceStoreSseConfigOutput) Type() ReferenceStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v ReferenceStoreSseConfig) ReferenceStoreEncryptionType { return v.Type }).(ReferenceStoreEncryptionTypeOutput)
 }
@@ -740,6 +755,7 @@ func (o ReferenceStoreSseConfigPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o ReferenceStoreSseConfigPtrOutput) Type() ReferenceStoreEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *ReferenceStoreSseConfig) *ReferenceStoreEncryptionType {
 		if v == nil {
@@ -752,8 +768,9 @@ func (o ReferenceStoreSseConfigPtrOutput) Type() ReferenceStoreEncryptionTypePtr
 // Server-side encryption (SSE) settings for a store.
 type SequenceStoreSseConfig struct {
 	// An encryption key ARN.
-	KeyArn *string                     `pulumi:"keyArn"`
-	Type   SequenceStoreEncryptionType `pulumi:"type"`
+	KeyArn *string `pulumi:"keyArn"`
+	// The encryption type.
+	Type SequenceStoreEncryptionType `pulumi:"type"`
 }
 
 // SequenceStoreSseConfigInput is an input type that accepts SequenceStoreSseConfigArgs and SequenceStoreSseConfigOutput values.
@@ -770,8 +787,9 @@ type SequenceStoreSseConfigInput interface {
 // Server-side encryption (SSE) settings for a store.
 type SequenceStoreSseConfigArgs struct {
 	// An encryption key ARN.
-	KeyArn pulumi.StringPtrInput            `pulumi:"keyArn"`
-	Type   SequenceStoreEncryptionTypeInput `pulumi:"type"`
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+	// The encryption type.
+	Type SequenceStoreEncryptionTypeInput `pulumi:"type"`
 }
 
 func (SequenceStoreSseConfigArgs) ElementType() reflect.Type {
@@ -857,6 +875,7 @@ func (o SequenceStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SequenceStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o SequenceStoreSseConfigOutput) Type() SequenceStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v SequenceStoreSseConfig) SequenceStoreEncryptionType { return v.Type }).(SequenceStoreEncryptionTypeOutput)
 }
@@ -895,6 +914,7 @@ func (o SequenceStoreSseConfigPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o SequenceStoreSseConfigPtrOutput) Type() SequenceStoreEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *SequenceStoreSseConfig) *SequenceStoreEncryptionType {
 		if v == nil {
@@ -905,6 +925,7 @@ func (o SequenceStoreSseConfigPtrOutput) Type() SequenceStoreEncryptionTypePtrOu
 }
 
 type VariantStoreReferenceItem struct {
+	// The reference's ARN.
 	ReferenceArn string `pulumi:"referenceArn"`
 }
 
@@ -920,6 +941,7 @@ type VariantStoreReferenceItemInput interface {
 }
 
 type VariantStoreReferenceItemArgs struct {
+	// The reference's ARN.
 	ReferenceArn pulumi.StringInput `pulumi:"referenceArn"`
 }
 
@@ -949,13 +971,16 @@ func (o VariantStoreReferenceItemOutput) ToVariantStoreReferenceItemOutputWithCo
 	return o
 }
 
+// The reference's ARN.
 func (o VariantStoreReferenceItemOutput) ReferenceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VariantStoreReferenceItem) string { return v.ReferenceArn }).(pulumi.StringOutput)
 }
 
 type VariantStoreSseConfig struct {
-	KeyArn *string                    `pulumi:"keyArn"`
-	Type   VariantStoreEncryptionType `pulumi:"type"`
+	// An encryption key ARN.
+	KeyArn *string `pulumi:"keyArn"`
+	// The encryption type.
+	Type VariantStoreEncryptionType `pulumi:"type"`
 }
 
 // VariantStoreSseConfigInput is an input type that accepts VariantStoreSseConfigArgs and VariantStoreSseConfigOutput values.
@@ -970,8 +995,10 @@ type VariantStoreSseConfigInput interface {
 }
 
 type VariantStoreSseConfigArgs struct {
-	KeyArn pulumi.StringPtrInput           `pulumi:"keyArn"`
-	Type   VariantStoreEncryptionTypeInput `pulumi:"type"`
+	// An encryption key ARN.
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+	// The encryption type.
+	Type VariantStoreEncryptionTypeInput `pulumi:"type"`
 }
 
 func (VariantStoreSseConfigArgs) ElementType() reflect.Type {
@@ -1051,10 +1078,12 @@ func (o VariantStoreSseConfigOutput) ToVariantStoreSseConfigPtrOutputWithContext
 	}).(VariantStoreSseConfigPtrOutput)
 }
 
+// An encryption key ARN.
 func (o VariantStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VariantStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o VariantStoreSseConfigOutput) Type() VariantStoreEncryptionTypeOutput {
 	return o.ApplyT(func(v VariantStoreSseConfig) VariantStoreEncryptionType { return v.Type }).(VariantStoreEncryptionTypeOutput)
 }
@@ -1083,6 +1112,7 @@ func (o VariantStoreSseConfigPtrOutput) Elem() VariantStoreSseConfigOutput {
 	}).(VariantStoreSseConfigOutput)
 }
 
+// An encryption key ARN.
 func (o VariantStoreSseConfigPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VariantStoreSseConfig) *string {
 		if v == nil {
@@ -1092,6 +1122,7 @@ func (o VariantStoreSseConfigPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption type.
 func (o VariantStoreSseConfigPtrOutput) Type() VariantStoreEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *VariantStoreSseConfig) *VariantStoreEncryptionType {
 		if v == nil {
@@ -1102,8 +1133,10 @@ func (o VariantStoreSseConfigPtrOutput) Type() VariantStoreEncryptionTypePtrOutp
 }
 
 type WorkflowParameter struct {
+	// The parameter's description.
 	Description *string `pulumi:"description"`
-	Optional    *bool   `pulumi:"optional"`
+	// Whether the parameter is optional.
+	Optional *bool `pulumi:"optional"`
 }
 
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
@@ -1118,8 +1151,10 @@ type WorkflowParameterInput interface {
 }
 
 type WorkflowParameterArgs struct {
+	// The parameter's description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Optional    pulumi.BoolPtrInput   `pulumi:"optional"`
+	// Whether the parameter is optional.
+	Optional pulumi.BoolPtrInput `pulumi:"optional"`
 }
 
 func (WorkflowParameterArgs) ElementType() reflect.Type {
@@ -1173,10 +1208,12 @@ func (o WorkflowParameterOutput) ToWorkflowParameterOutputWithContext(ctx contex
 	return o
 }
 
+// The parameter's description.
 func (o WorkflowParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Whether the parameter is optional.
 func (o WorkflowParameterOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkflowParameter) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
 }

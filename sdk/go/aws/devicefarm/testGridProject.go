@@ -16,11 +16,18 @@ import (
 type TestGridProject struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput               `pulumi:"arn"`
-	Description pulumi.StringPtrOutput            `pulumi:"description"`
-	Name        pulumi.StringOutput               `pulumi:"name"`
-	Tags        aws.TagArrayOutput                `pulumi:"tags"`
-	VpcConfig   TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
+	// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A human-readable description for the project.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A human-readable name for the project.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewTestGridProject registers a new resource with the given unique name, arguments, and options.
@@ -63,18 +70,30 @@ func (TestGridProjectState) ElementType() reflect.Type {
 }
 
 type testGridProjectArgs struct {
-	Description *string                   `pulumi:"description"`
-	Name        *string                   `pulumi:"name"`
-	Tags        []aws.Tag                 `pulumi:"tags"`
-	VpcConfig   *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
+	// A human-readable description for the project.
+	Description *string `pulumi:"description"`
+	// A human-readable name for the project.
+	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags []aws.Tag `pulumi:"tags"`
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a TestGridProject resource.
 type TestGridProjectArgs struct {
+	// A human-readable description for the project.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        aws.TagArrayInput
-	VpcConfig   TestGridProjectVpcConfigPtrInput
+	// A human-readable name for the project.
+	Name pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayInput
+	// The VPC security groups and subnets that are attached to a project.
+	VpcConfig TestGridProjectVpcConfigPtrInput
 }
 
 func (TestGridProjectArgs) ElementType() reflect.Type {
@@ -114,22 +133,29 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o TestGridProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A human-readable description for the project.
 func (o TestGridProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A human-readable name for the project.
 func (o TestGridProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o TestGridProjectOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TestGridProject) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The VPC security groups and subnets that are attached to a project.
 func (o TestGridProjectOutput) VpcConfig() TestGridProjectVpcConfigPtrOutput {
 	return o.ApplyT(func(v *TestGridProject) TestGridProjectVpcConfigPtrOutput { return v.VpcConfig }).(TestGridProjectVpcConfigPtrOutput)
 }

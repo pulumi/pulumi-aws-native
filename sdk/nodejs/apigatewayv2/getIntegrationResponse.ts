@@ -26,6 +26,9 @@ export interface GetIntegrationResponseArgs {
      * The integration ID.
      */
     integrationId: string;
+    /**
+     * The integration response ID.
+     */
     integrationResponseId: string;
 }
 
@@ -37,6 +40,9 @@ export interface GetIntegrationResponseResult {
      *  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
      */
     readonly contentHandlingStrategy?: string;
+    /**
+     * The integration response ID.
+     */
     readonly integrationResponseId?: string;
     /**
      * The integration response key.
@@ -75,5 +81,8 @@ export interface GetIntegrationResponseOutputArgs {
      * The integration ID.
      */
     integrationId: pulumi.Input<string>;
+    /**
+     * The integration response ID.
+     */
     integrationResponseId: pulumi.Input<string>;
 }

@@ -757,6 +757,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon ECS service, such as `sample-webapp` .
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -825,6 +828,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[str]:
+        """
+        Not currently supported in AWS CloudFormation .
+        """
         return pulumi.get(self, "service_arn")
 
     @property

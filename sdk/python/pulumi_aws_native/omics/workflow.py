@@ -28,6 +28,14 @@ class WorkflowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+        :param pulumi.Input[str] definition_uri: The URI of a definition for the workflow.
+        :param pulumi.Input[str] description: The parameter's description.
+        :param pulumi.Input['WorkflowEngine'] engine: An engine for the workflow.
+        :param pulumi.Input[str] main: The path of the main definition file for the workflow.
+        :param pulumi.Input[str] name: The workflow's name.
+        :param pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]] parameter_template: The workflow's parameter template.
+        :param pulumi.Input[float] storage_capacity: The default storage capacity for the workflow runs, in gibibytes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the workflow.
         """
         if accelerators is not None:
             pulumi.set(__self__, "accelerators", accelerators)
@@ -60,6 +68,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter(name="definitionUri")
     def definition_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of a definition for the workflow.
+        """
         return pulumi.get(self, "definition_uri")
 
     @definition_uri.setter
@@ -69,6 +80,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameter's description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -78,6 +92,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input['WorkflowEngine']]:
+        """
+        An engine for the workflow.
+        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -87,6 +104,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def main(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the main definition file for the workflow.
+        """
         return pulumi.get(self, "main")
 
     @main.setter
@@ -96,6 +116,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The workflow's name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -105,6 +128,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter(name="parameterTemplate")
     def parameter_template(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]]:
+        """
+        The workflow's parameter template.
+        """
         return pulumi.get(self, "parameter_template")
 
     @parameter_template.setter
@@ -114,6 +140,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        The default storage capacity for the workflow runs, in gibibytes.
+        """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
@@ -123,6 +152,9 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags for the workflow.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -150,6 +182,14 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] definition_uri: The URI of a definition for the workflow.
+        :param pulumi.Input[str] description: The parameter's description.
+        :param pulumi.Input['WorkflowEngine'] engine: An engine for the workflow.
+        :param pulumi.Input[str] main: The path of the main definition file for the workflow.
+        :param pulumi.Input[str] name: The workflow's name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameter_template: The workflow's parameter template.
+        :param pulumi.Input[float] storage_capacity: The default storage capacity for the workflow runs, in gibibytes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the workflow.
         """
         ...
     @overload
@@ -255,65 +295,104 @@ class Workflow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN for the workflow.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The workflow's ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        When the workflow was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="definitionUri")
     def definition_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URI of a definition for the workflow.
+        """
         return pulumi.get(self, "definition_uri")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The parameter's description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional['WorkflowEngine']]:
+        """
+        An engine for the workflow.
+        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
     def main(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path of the main definition file for the workflow.
+        """
         return pulumi.get(self, "main")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The workflow's name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parameterTemplate")
     def parameter_template(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.WorkflowParameter']]]:
+        """
+        The workflow's parameter template.
+        """
         return pulumi.get(self, "parameter_template")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['WorkflowStatus']:
+        """
+        The workflow's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Output[Optional[float]]:
+        """
+        The default storage capacity for the workflow runs, in gibibytes.
+        """
         return pulumi.get(self, "storage_capacity")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags for the workflow.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['WorkflowType']:
+        """
+        The workflow's type.
+        """
         return pulumi.get(self, "type")
 

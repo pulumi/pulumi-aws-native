@@ -19,13 +19,34 @@ export function getCollaboration(args: GetCollaborationArgs, opts?: pulumi.Invok
 }
 
 export interface GetCollaborationArgs {
+    /**
+     * Returns the unique identifier of the specified collaboration.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     collaborationIdentifier: string;
 }
 
 export interface GetCollaborationResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified collaboration.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly arn?: string;
+    /**
+     * Returns the unique identifier of the specified collaboration.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly collaborationIdentifier?: string;
+    /**
+     * A description of the collaboration provided by the collaboration owner.
+     */
     readonly description?: string;
+    /**
+     * A human-readable identifier provided by the collaboration owner. Display names are not unique.
+     */
     readonly name?: string;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -40,5 +61,10 @@ export function getCollaborationOutput(args: GetCollaborationOutputArgs, opts?: 
 }
 
 export interface GetCollaborationOutputArgs {
+    /**
+     * Returns the unique identifier of the specified collaboration.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     collaborationIdentifier: pulumi.Input<string>;
 }

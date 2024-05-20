@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("aggregationField")]
         public Output<string?> AggregationField { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the aggregation query.
+        /// </summary>
         [Output("aggregationType")]
         public Output<Outputs.FleetMetricAggregationType?> AggregationType { get; private set; } = null!;
 
@@ -151,6 +154,9 @@ namespace Pulumi.AwsNative.IoT
         [Input("aggregationField")]
         public Input<string>? AggregationField { get; set; }
 
+        /// <summary>
+        /// The type of the aggregation query.
+        /// </summary>
         [Input("aggregationType")]
         public Input<Inputs.FleetMetricAggregationTypeArgs>? AggregationType { get; set; }
 

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// </summary>
     public sealed class TableScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
+        /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
         public Input<Inputs.TableTargetTrackingScalingPolicyConfigurationArgs>? TargetTrackingScalingPolicyConfiguration { get; set; }
 

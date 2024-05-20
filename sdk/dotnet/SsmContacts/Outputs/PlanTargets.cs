@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SsmContacts.Outputs
     [OutputType]
     public sealed class PlanTargets
     {
+        /// <summary>
+        /// Information about the contact channel that Incident Manager engages.
+        /// </summary>
         public readonly Outputs.PlanChannelTargetInfo? ChannelTargetInfo;
+        /// <summary>
+        /// Information about the contact that Incident Manager engages.
+        /// </summary>
         public readonly Outputs.PlanContactTargetInfo? ContactTargetInfo;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Forecast
     [AwsNativeResourceType("aws-native:forecast:Dataset")]
     public partial class Dataset : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dataset.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -42,12 +45,23 @@ namespace Pulumi.AwsNative.Forecast
         [Output("domain")]
         public Output<Pulumi.AwsNative.Forecast.DatasetDomain> Domain { get; private set; } = null!;
 
+        /// <summary>
+        /// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        /// </summary>
         [Output("encryptionConfig")]
         public Output<Outputs.EncryptionConfigProperties?> EncryptionConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        /// </summary>
         [Output("schema")]
         public Output<Outputs.SchemaProperties> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -124,14 +138,26 @@ namespace Pulumi.AwsNative.Forecast
         [Input("domain", required: true)]
         public Input<Pulumi.AwsNative.Forecast.DatasetDomain> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.EncryptionConfigPropertiesArgs>? EncryptionConfig { get; set; }
 
+        /// <summary>
+        /// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.SchemaPropertiesArgs> Schema { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

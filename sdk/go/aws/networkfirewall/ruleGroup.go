@@ -17,14 +17,25 @@ import (
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	Capacity      pulumi.IntOutput        `pulumi:"capacity"`
-	Description   pulumi.StringPtrOutput  `pulumi:"description"`
-	RuleGroup     RuleGroupTypePtrOutput  `pulumi:"ruleGroup"`
-	RuleGroupArn  pulumi.StringOutput     `pulumi:"ruleGroupArn"`
-	RuleGroupId   pulumi.StringOutput     `pulumi:"ruleGroupId"`
-	RuleGroupName pulumi.StringOutput     `pulumi:"ruleGroupName"`
-	Tags          aws.TagArrayOutput      `pulumi:"tags"`
-	Type          RuleGroupTypeEnumOutput `pulumi:"type"`
+	// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	// A description of the rule group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An object that defines the rule group rules.
+	RuleGroup RuleGroupTypePtrOutput `pulumi:"ruleGroup"`
+	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	RuleGroupArn pulumi.StringOutput `pulumi:"ruleGroupArn"`
+	// The unique ID of the `RuleGroup` resource.
+	RuleGroupId pulumi.StringOutput `pulumi:"ruleGroupId"`
+	// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+	RuleGroupName pulumi.StringOutput `pulumi:"ruleGroupName"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+	// stateless rules. If it is stateful, it contains stateful rules.
+	Type RuleGroupTypeEnumOutput `pulumi:"type"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -79,22 +90,40 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	Capacity      int               `pulumi:"capacity"`
-	Description   *string           `pulumi:"description"`
-	RuleGroup     *RuleGroupType    `pulumi:"ruleGroup"`
-	RuleGroupName *string           `pulumi:"ruleGroupName"`
-	Tags          []aws.Tag         `pulumi:"tags"`
-	Type          RuleGroupTypeEnum `pulumi:"type"`
+	// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+	Capacity int `pulumi:"capacity"`
+	// A description of the rule group.
+	Description *string `pulumi:"description"`
+	// An object that defines the rule group rules.
+	RuleGroup *RuleGroupType `pulumi:"ruleGroup"`
+	// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+	RuleGroupName *string `pulumi:"ruleGroupName"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
+	// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+	// stateless rules. If it is stateful, it contains stateful rules.
+	Type RuleGroupTypeEnum `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	Capacity      pulumi.IntInput
-	Description   pulumi.StringPtrInput
-	RuleGroup     RuleGroupTypePtrInput
+	// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+	Capacity pulumi.IntInput
+	// A description of the rule group.
+	Description pulumi.StringPtrInput
+	// An object that defines the rule group rules.
+	RuleGroup RuleGroupTypePtrInput
+	// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
 	RuleGroupName pulumi.StringPtrInput
-	Tags          aws.TagArrayInput
-	Type          RuleGroupTypeEnumInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
+	// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+	// stateless rules. If it is stateful, it contains stateful rules.
+	Type RuleGroupTypeEnumInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {
@@ -134,34 +163,45 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
+// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
 func (o RuleGroupOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
+// A description of the rule group.
 func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An object that defines the rule group rules.
 func (o RuleGroupOutput) RuleGroup() RuleGroupTypePtrOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupTypePtrOutput { return v.RuleGroup }).(RuleGroupTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the `RuleGroup` .
 func (o RuleGroupOutput) RuleGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupArn }).(pulumi.StringOutput)
 }
 
+// The unique ID of the `RuleGroup` resource.
 func (o RuleGroupOutput) RuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupId }).(pulumi.StringOutput)
 }
 
+// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
 func (o RuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o RuleGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+// stateless rules. If it is stateful, it contains stateful rules.
 func (o RuleGroupOutput) Type() RuleGroupTypeEnumOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupTypeEnumOutput { return v.Type }).(RuleGroupTypeEnumOutput)
 }

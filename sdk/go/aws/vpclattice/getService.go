@@ -24,19 +24,32 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
+	// The Amazon Resource Name (ARN) of the service.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServiceResult struct {
-	Arn            *string          `pulumi:"arn"`
-	AuthType       *ServiceAuthType `pulumi:"authType"`
-	CertificateArn *string          `pulumi:"certificateArn"`
-	CreatedAt      *string          `pulumi:"createdAt"`
-	DnsEntry       *ServiceDnsEntry `pulumi:"dnsEntry"`
-	Id             *string          `pulumi:"id"`
-	LastUpdatedAt  *string          `pulumi:"lastUpdatedAt"`
-	Status         *ServiceStatus   `pulumi:"status"`
-	Tags           []aws.Tag        `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the service.
+	Arn *string `pulumi:"arn"`
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+	AuthType *ServiceAuthType `pulumi:"authType"`
+	// The Amazon Resource Name (ARN) of the certificate.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// The date and time that the service was created, specified in ISO-8601 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The DNS information of the service.
+	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
+	// The ID of the service.
+	Id *string `pulumi:"id"`
+	// The date and time that the service was last updated, specified in ISO-8601 format.
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The status of the service.
+	Status *ServiceStatus `pulumi:"status"`
+	// The tags for the service.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -53,6 +66,7 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 }
 
 type LookupServiceOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the service.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -74,38 +88,50 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o LookupServiceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The type of IAM policy.
+//
+// - `NONE` : The resource does not use an IAM policy. This is the default.
+// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 func (o LookupServiceResultOutput) AuthType() ServiceAuthTypePtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceAuthType { return v.AuthType }).(ServiceAuthTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the certificate.
 func (o LookupServiceResultOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the service was created, specified in ISO-8601 format.
 func (o LookupServiceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The DNS information of the service.
 func (o LookupServiceResultOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceDnsEntry { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
 }
 
+// The ID of the service.
 func (o LookupServiceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the service was last updated, specified in ISO-8601 format.
 func (o LookupServiceResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The status of the service.
 func (o LookupServiceResultOutput) Status() ServiceStatusPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceStatus { return v.Status }).(ServiceStatusPtrOutput)
 }
 
+// The tags for the service.
 func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

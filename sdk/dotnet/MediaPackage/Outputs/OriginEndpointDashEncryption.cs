@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// Time (in seconds) between each encryption key rotation.
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
+        /// <summary>
+        /// Parameters for the SPEKE key provider.
+        /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

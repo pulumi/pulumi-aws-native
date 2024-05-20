@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceActiveMqBrokerParameters
     {
+        /// <summary>
+        /// The maximum number of records to include in each batch.
+        /// </summary>
         public readonly int? BatchSize;
+        /// <summary>
+        /// The credentials needed to access the resource.
+        /// </summary>
         public readonly Outputs.PipeMqBrokerAccessCredentialsProperties Credentials;
+        /// <summary>
+        /// The maximum length of a time to wait for events.
+        /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
+        /// <summary>
+        /// The name of the destination queue to consume.
+        /// </summary>
         public readonly string QueueName;
 
         [OutputConstructor]

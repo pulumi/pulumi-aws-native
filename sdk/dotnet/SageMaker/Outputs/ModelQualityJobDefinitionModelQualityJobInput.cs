@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelQualityJobDefinitionModelQualityJobInput
     {
+        /// <summary>
+        /// Input object for the batch transform job.
+        /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionBatchTransformInput? BatchTransformInput;
+        /// <summary>
+        /// Input object for the endpoint
+        /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionEndpointInput? EndpointInput;
+        /// <summary>
+        /// The ground truth label provided for the model.
+        /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input;
 
         [OutputConstructor]

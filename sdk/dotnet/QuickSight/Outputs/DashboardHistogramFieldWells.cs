@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardHistogramFieldWells
     {
+        /// <summary>
+        /// The field well configuration of a histogram.
+        /// </summary>
         public readonly Outputs.DashboardHistogramAggregatedFieldWells? HistogramAggregatedFieldWells;
 
         [OutputConstructor]

@@ -50,6 +50,9 @@ export interface GetDomainResult {
      * The domain name.
      */
     readonly domainId?: string;
+    /**
+     * A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+     */
     readonly domainSettings?: outputs.sagemaker.DomainSettings;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.

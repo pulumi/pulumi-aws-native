@@ -12,18 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDefaultSliderControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.TemplateSliderControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 
+        /// <summary>
+        /// The larger value that is displayed at the right of the slider.
+        /// </summary>
         [Input("maximumValue", required: true)]
         public Input<double> MaximumValue { get; set; } = null!;
 
+        /// <summary>
+        /// The smaller value that is displayed at the left of the slider.
+        /// </summary>
         [Input("minimumValue", required: true)]
         public Input<double> MinimumValue { get; set; } = null!;
 
+        /// <summary>
+        /// The number of increments that the slider bar is divided into.
+        /// </summary>
         [Input("stepSize", required: true)]
         public Input<double> StepSize { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the `DefaultSliderControlOptions` . Choose one of the following options:
+        /// 
+        /// - `SINGLE_POINT` : Filter against(equals) a single data point.
+        /// - `RANGE` : Filter data that is in a specified range.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSheetControlSliderType>? Type { get; set; }
 

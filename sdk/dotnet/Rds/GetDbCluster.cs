@@ -192,6 +192,15 @@ namespace Pulumi.AwsNative.Rds
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         /// </summary>
         public readonly string? PreferredMaintenanceWindow;
+        /// <summary>
+        /// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+        /// 
+        /// - `CreateDBInstance`
+        /// - `DescribeDBInstances`
+        /// - `DeleteDBInstance`
+        /// 
+        /// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+        /// </summary>
         public readonly Outputs.DbClusterReadEndpoint? ReadEndpoint;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.

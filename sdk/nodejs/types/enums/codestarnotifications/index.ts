@@ -7,6 +7,9 @@ export const NotificationRuleDetailType = {
     Full: "FULL",
 } as const;
 
+/**
+ * The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+ */
 export type NotificationRuleDetailType = (typeof NotificationRuleDetailType)[keyof typeof NotificationRuleDetailType];
 
 export const NotificationRuleStatus = {
@@ -14,4 +17,7 @@ export const NotificationRuleStatus = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+ */
 export type NotificationRuleStatus = (typeof NotificationRuleStatus)[keyof typeof NotificationRuleStatus];

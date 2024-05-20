@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardKpiProgressBarConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting of the progress bar's foreground color.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? ForegroundColor;
 
         [OutputConstructor]

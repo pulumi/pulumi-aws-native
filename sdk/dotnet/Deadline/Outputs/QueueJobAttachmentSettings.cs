@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class QueueJobAttachmentSettings
     {
+        /// <summary>
+        /// The root prefix.
+        /// </summary>
         public readonly string RootPrefix;
+        /// <summary>
+        /// The Amazon S3 bucket name.
+        /// </summary>
         public readonly string S3BucketName;
 
         [OutputConstructor]

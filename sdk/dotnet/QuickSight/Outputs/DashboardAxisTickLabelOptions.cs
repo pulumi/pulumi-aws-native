@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAxisTickLabelOptions
     {
+        /// <summary>
+        /// Determines whether or not the axis ticks are visible.
+        /// </summary>
         public readonly Outputs.DashboardLabelOptions? LabelOptions;
+        /// <summary>
+        /// The rotation angle of the axis tick labels.
+        /// </summary>
         public readonly double? RotationAngle;
 
         [OutputConstructor]

@@ -15,6 +15,9 @@ __all__ = [
 
 
 class ApiDestinationHttpMethod(str, Enum):
+    """
+    The method to use for the request to the HTTP invocation endpoint.
+    """
     GET = "GET"
     HEAD = "HEAD"
     POST = "POST"
@@ -25,12 +28,20 @@ class ApiDestinationHttpMethod(str, Enum):
 
 
 class ConnectionAuthorizationType(str, Enum):
+    """
+    The type of authorization to use for the connection.
+
+    > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+    """
     API_KEY = "API_KEY"
     BASIC = "BASIC"
     OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS"
 
 
 class ConnectionOAuthParametersHttpMethod(str, Enum):
+    """
+    The method to use for the authorization request.
+    """
     GET = "GET"
     POST = "POST"
     PUT = "PUT"
@@ -42,6 +53,9 @@ class EndpointReplicationState(str, Enum):
 
 
 class EndpointState(str, Enum):
+    """
+    The main Region of the endpoint.
+    """
     ACTIVE = "ACTIVE"
     CREATING = "CREATING"
     UPDATING = "UPDATING"

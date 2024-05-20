@@ -15,27 +15,54 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [AwsNativeResourceType("aws-native:networkfirewall:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+        /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the rule group.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that defines the rule group rules.
+        /// </summary>
         [Output("ruleGroup")]
         public Output<Outputs.RuleGroup?> RuleGroupValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         [Output("ruleGroupArn")]
         public Output<string> RuleGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the `RuleGroup` resource.
+        /// </summary>
         [Output("ruleGroupId")]
         public Output<string> RuleGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+        /// </summary>
         [Output("ruleGroupName")]
         public Output<string> RuleGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+        /// stateless rules. If it is stateful, it contains stateful rules.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.NetworkFirewall.RuleGroupTypeEnum> Type { get; private set; } = null!;
 
@@ -90,26 +117,48 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the rule group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// An object that defines the rule group rules.
+        /// </summary>
         [Input("ruleGroup")]
         public Input<Inputs.RuleGroupArgs>? RuleGroupValue { get; set; }
 
+        /// <summary>
+        /// The descriptive name of the rule group. You can't change the name of a rule group after you create it.
+        /// </summary>
         [Input("ruleGroupName")]
         public Input<string>? RuleGroupName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
+        /// stateless rules. If it is stateful, it contains stateful rules.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupTypeEnum> Type { get; set; } = null!;
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisClusterMarkerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The simple cluster marker of the cluster marker.
+        /// </summary>
         [Input("simpleClusterMarker")]
         public Input<Inputs.AnalysisSimpleClusterMarkerArgs>? SimpleClusterMarker { get; set; }
 

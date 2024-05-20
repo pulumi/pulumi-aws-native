@@ -17,6 +17,9 @@ export function getDocumentationPart(args: GetDocumentationPartArgs, opts?: pulu
 }
 
 export interface GetDocumentationPartArgs {
+    /**
+     * The ID for the documentation part.
+     */
     documentationPartId: string;
     /**
      * The string identifier of the associated RestApi.
@@ -25,6 +28,9 @@ export interface GetDocumentationPartArgs {
 }
 
 export interface GetDocumentationPartResult {
+    /**
+     * The ID for the documentation part.
+     */
     readonly documentationPartId?: string;
     /**
      * The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
@@ -39,6 +45,9 @@ export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs,
 }
 
 export interface GetDocumentationPartOutputArgs {
+    /**
+     * The ID for the documentation part.
+     */
     documentationPartId: pulumi.Input<string>;
     /**
      * The string identifier of the associated RestApi.

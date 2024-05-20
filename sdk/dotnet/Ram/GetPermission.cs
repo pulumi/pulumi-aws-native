@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ram
 
     public sealed class GetPermissionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the new permission.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ram
 
     public sealed class GetPermissionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the new permission.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,12 +57,24 @@ namespace Pulumi.AwsNative.Ram
     [OutputType]
     public sealed class GetPermissionResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the new permission.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Set to true to use this as the default permission.
         /// </summary>
         public readonly bool? IsResourceTypeDefault;
+        /// <summary>
+        /// The type of managed permission. This can be one of the following values:
+        /// 
+        /// - *AWS_MANAGED_PERMISSION* – AWS created and manages this managed permission. You can associate it with your resource shares, but you can't modify it.
+        /// - *CUSTOMER_MANAGED_PERMISSION* – You, or another principal in your account created this managed permission. You can associate it with your resource shares and create new versions that have different permissions.
+        /// </summary>
         public readonly string? PermissionType;
+        /// <summary>
+        /// Specifies a list of one or more tag key and value pairs to attach to the permission.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Version of the permission.

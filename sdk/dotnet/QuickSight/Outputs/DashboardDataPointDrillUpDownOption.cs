@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDataPointDrillUpDownOption
     {
+        /// <summary>
+        /// The status of the drill down options of data points.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]

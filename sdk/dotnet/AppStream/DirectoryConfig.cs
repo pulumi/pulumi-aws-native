@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:DirectoryConfig")]
     public partial class DirectoryConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        /// </summary>
         [Output("certificateBasedAuthProperties")]
         public Output<Outputs.DirectoryConfigCertificateBasedAuthProperties?> CertificateBasedAuthProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The fully qualified name of the directory (for example, corp.example.com).
+        /// </summary>
         [Output("directoryName")]
         public Output<string> DirectoryName { get; private set; } = null!;
 
+        /// <summary>
+        /// The distinguished names of the organizational units for computer accounts.
+        /// </summary>
         [Output("organizationalUnitDistinguishedNames")]
         public Output<ImmutableArray<string>> OrganizationalUnitDistinguishedNames { get; private set; } = null!;
 
+        /// <summary>
+        /// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
+        /// </summary>
         [Output("serviceAccountCredentials")]
         public Output<Outputs.DirectoryConfigServiceAccountCredentials> ServiceAccountCredentials { get; private set; } = null!;
 
@@ -76,20 +88,33 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class DirectoryConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.
+        /// </summary>
         [Input("certificateBasedAuthProperties")]
         public Input<Inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs>? CertificateBasedAuthProperties { get; set; }
 
+        /// <summary>
+        /// The fully qualified name of the directory (for example, corp.example.com).
+        /// </summary>
         [Input("directoryName", required: true)]
         public Input<string> DirectoryName { get; set; } = null!;
 
         [Input("organizationalUnitDistinguishedNames", required: true)]
         private InputList<string>? _organizationalUnitDistinguishedNames;
+
+        /// <summary>
+        /// The distinguished names of the organizational units for computer accounts.
+        /// </summary>
         public InputList<string> OrganizationalUnitDistinguishedNames
         {
             get => _organizationalUnitDistinguishedNames ?? (_organizationalUnitDistinguishedNames = new InputList<string>());
             set => _organizationalUnitDistinguishedNames = value;
         }
 
+        /// <summary>
+        /// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
+        /// </summary>
         [Input("serviceAccountCredentials", required: true)]
         public Input<Inputs.DirectoryConfigServiceAccountCredentialsArgs> ServiceAccountCredentials { get; set; } = null!;
 

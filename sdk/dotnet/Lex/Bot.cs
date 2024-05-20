@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex
     [AwsNativeResourceType("aws-native:lex:Bot")]
     public partial class Bot : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.Lex
         [Output("autoBuildBotLocales")]
         public Output<bool?> AutoBuildBotLocales { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
+        /// </summary>
         [Output("botFileS3Location")]
         public Output<Outputs.BotS3Location?> BotFileS3Location { get; private set; } = null!;
 
@@ -48,6 +57,9 @@ namespace Pulumi.AwsNative.Lex
         [Output("dataPrivacy")]
         public Output<Outputs.DataPrivacyProperties> DataPrivacy { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -57,12 +69,21 @@ namespace Pulumi.AwsNative.Lex
         [Output("idleSessionTtlInSeconds")]
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the bot locale.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+        /// </summary>
         [Output("testBotAliasSettings")]
         public Output<Outputs.BotTestBotAliasSettings?> TestBotAliasSettings { get; private set; } = null!;
 
@@ -123,6 +144,9 @@ namespace Pulumi.AwsNative.Lex
         [Input("autoBuildBotLocales")]
         public Input<bool>? AutoBuildBotLocales { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
+        /// </summary>
         [Input("botFileS3Location")]
         public Input<Inputs.BotS3LocationArgs>? BotFileS3Location { get; set; }
 
@@ -156,6 +180,9 @@ namespace Pulumi.AwsNative.Lex
         [Input("dataPrivacy", required: true)]
         public Input<Inputs.DataPrivacyPropertiesArgs> DataPrivacy { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -165,12 +192,21 @@ namespace Pulumi.AwsNative.Lex
         [Input("idleSessionTtlInSeconds", required: true)]
         public Input<int> IdleSessionTtlInSeconds { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the bot locale.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+        /// </summary>
         [Input("testBotAliasSettings")]
         public Input<Inputs.BotTestBotAliasSettingsArgs>? TestBotAliasSettings { get; set; }
 

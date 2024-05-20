@@ -43,6 +43,9 @@ class GetExecutionPlanResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the rescore execution plan.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -64,11 +67,17 @@ class GetExecutionPlanResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier of the rescore execution plan.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A name for the rescore execution plan.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -98,6 +107,9 @@ def get_execution_plan(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExecutionPlanResult:
     """
     A KendraRanking Rescore execution plan
+
+
+    :param str id: The identifier of the rescore execution plan.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -118,5 +130,8 @@ def get_execution_plan_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExecutionPlanResult]:
     """
     A KendraRanking Rescore execution plan
+
+
+    :param str id: The identifier of the rescore execution plan.
     """
     ...

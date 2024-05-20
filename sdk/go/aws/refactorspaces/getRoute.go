@@ -24,15 +24,21 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 }
 
 type LookupRouteArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
-	RouteIdentifier       string `pulumi:"routeIdentifier"`
+	// The unique identifier of the route.
+	RouteIdentifier string `pulumi:"routeIdentifier"`
 }
 
 type LookupRouteResult struct {
-	Arn              *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the route.
+	Arn *string `pulumi:"arn"`
+	// A mapping of Amazon API Gateway path resources to resource IDs.
 	PathResourceToId *string `pulumi:"pathResourceToId"`
-	RouteIdentifier  *string `pulumi:"routeIdentifier"`
+	// The unique identifier of the route.
+	RouteIdentifier *string `pulumi:"routeIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -51,9 +57,12 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 }
 
 type LookupRouteOutputArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
-	RouteIdentifier       pulumi.StringInput `pulumi:"routeIdentifier"`
+	// The unique identifier of the route.
+	RouteIdentifier pulumi.StringInput `pulumi:"routeIdentifier"`
 }
 
 func (LookupRouteOutputArgs) ElementType() reflect.Type {
@@ -74,14 +83,17 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the route.
 func (o LookupRouteResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A mapping of Amazon API Gateway path resources to resource IDs.
 func (o LookupRouteResultOutput) PathResourceToId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.PathResourceToId }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the route.
 func (o LookupRouteResultOutput) RouteIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.RouteIdentifier }).(pulumi.StringPtrOutput)
 }

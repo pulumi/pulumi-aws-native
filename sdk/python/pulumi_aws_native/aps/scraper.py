@@ -25,6 +25,9 @@ class ScraperArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Scraper resource.
+        :param pulumi.Input['ScraperDestinationArgs'] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        :param pulumi.Input['ScraperScrapeConfigurationArgs'] scrape_configuration: The configuration in use by the scraper.
+        :param pulumi.Input['ScraperSourceArgs'] source: The Amazon EKS cluster from which the scraper collects metrics.
         :param pulumi.Input[str] alias: Scraper alias.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -39,6 +42,9 @@ class ScraperArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input['ScraperDestinationArgs']:
+        """
+        The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -48,6 +54,9 @@ class ScraperArgs:
     @property
     @pulumi.getter(name="scrapeConfiguration")
     def scrape_configuration(self) -> pulumi.Input['ScraperScrapeConfigurationArgs']:
+        """
+        The configuration in use by the scraper.
+        """
         return pulumi.get(self, "scrape_configuration")
 
     @scrape_configuration.setter
@@ -57,6 +66,9 @@ class ScraperArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input['ScraperSourceArgs']:
+        """
+        The Amazon EKS cluster from which the scraper collects metrics.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -105,6 +117,9 @@ class Scraper(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Scraper alias.
+        :param pulumi.Input[pulumi.InputType['ScraperDestinationArgs']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        :param pulumi.Input[pulumi.InputType['ScraperScrapeConfigurationArgs']] scrape_configuration: The configuration in use by the scraper.
+        :param pulumi.Input[pulumi.InputType['ScraperSourceArgs']] source: The Amazon EKS cluster from which the scraper collects metrics.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -212,6 +227,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output['outputs.ScraperDestination']:
+        """
+        The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        """
         return pulumi.get(self, "destination")
 
     @property
@@ -225,6 +243,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter(name="scrapeConfiguration")
     def scrape_configuration(self) -> pulumi.Output['outputs.ScraperScrapeConfiguration']:
+        """
+        The configuration in use by the scraper.
+        """
         return pulumi.get(self, "scrape_configuration")
 
     @property
@@ -238,6 +259,9 @@ class Scraper(pulumi.CustomResource):
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.ScraperSource']:
+        """
+        The Amazon EKS cluster from which the scraper collects metrics.
+        """
         return pulumi.get(self, "source")
 
     @property

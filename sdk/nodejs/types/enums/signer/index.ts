@@ -15,4 +15,7 @@ export const SigningProfileSignatureValidityPeriodType = {
     Years: "YEARS",
 } as const;
 
+/**
+ * The time unit for signature validity: DAYS | MONTHS | YEARS.
+ */
 export type SigningProfileSignatureValidityPeriodType = (typeof SigningProfileSignatureValidityPeriodType)[keyof typeof SigningProfileSignatureValidityPeriodType];

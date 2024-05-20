@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
     /// </summary>
     public sealed class ResponsePlanSsmParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key parameter to use when running the Automation runbook.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The value parameter to use when running the Automation runbook.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

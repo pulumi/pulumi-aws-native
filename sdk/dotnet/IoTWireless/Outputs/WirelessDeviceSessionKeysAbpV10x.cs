@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class WirelessDeviceSessionKeysAbpV10x
     {
+        /// <summary>
+        /// The AppSKey value.
+        /// </summary>
         public readonly string AppSKey;
+        /// <summary>
+        /// The NwkKey value.
+        /// </summary>
         public readonly string NwkSKey;
 
         [OutputConstructor]

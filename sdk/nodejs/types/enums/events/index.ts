@@ -12,6 +12,9 @@ export const ApiDestinationHttpMethod = {
     Patch: "PATCH",
 } as const;
 
+/**
+ * The method to use for the request to the HTTP invocation endpoint.
+ */
 export type ApiDestinationHttpMethod = (typeof ApiDestinationHttpMethod)[keyof typeof ApiDestinationHttpMethod];
 
 export const ConnectionAuthorizationType = {
@@ -20,6 +23,11 @@ export const ConnectionAuthorizationType = {
     OauthClientCredentials: "OAUTH_CLIENT_CREDENTIALS",
 } as const;
 
+/**
+ * The type of authorization to use for the connection.
+ *
+ * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+ */
 export type ConnectionAuthorizationType = (typeof ConnectionAuthorizationType)[keyof typeof ConnectionAuthorizationType];
 
 export const ConnectionOAuthParametersHttpMethod = {
@@ -28,6 +36,9 @@ export const ConnectionOAuthParametersHttpMethod = {
     Put: "PUT",
 } as const;
 
+/**
+ * The method to use for the authorization request.
+ */
 export type ConnectionOAuthParametersHttpMethod = (typeof ConnectionOAuthParametersHttpMethod)[keyof typeof ConnectionOAuthParametersHttpMethod];
 
 export const EndpointReplicationState = {
@@ -46,6 +57,9 @@ export const EndpointState = {
     UpdateFailed: "UPDATE_FAILED",
 } as const;
 
+/**
+ * The main Region of the endpoint.
+ */
 export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
 
 export const RuleState = {

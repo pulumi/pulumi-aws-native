@@ -24,21 +24,33 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
+	// The identifier for the Amazon Q Business application.
 	ApplicationId string `pulumi:"applicationId"`
 }
 
 type LookupApplicationResult struct {
-	ApplicationArn               *string                              `pulumi:"applicationArn"`
-	ApplicationId                *string                              `pulumi:"applicationId"`
-	AttachmentsConfiguration     *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
-	CreatedAt                    *string                              `pulumi:"createdAt"`
-	Description                  *string                              `pulumi:"description"`
-	DisplayName                  *string                              `pulumi:"displayName"`
-	IdentityCenterApplicationArn *string                              `pulumi:"identityCenterApplicationArn"`
-	RoleArn                      *string                              `pulumi:"roleArn"`
-	Status                       *ApplicationStatus                   `pulumi:"status"`
-	Tags                         []aws.Tag                            `pulumi:"tags"`
-	UpdatedAt                    *string                              `pulumi:"updatedAt"`
+	// The Amazon Resource Name (ARN) of the Amazon Q Business application.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// The identifier for the Amazon Q Business application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// Configuration information for the file upload during chat feature.
+	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
+	// The Unix timestamp when the Amazon Q Business application was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// A description for the Amazon Q Business application.
+	Description *string `pulumi:"description"`
+	// The name of the Amazon Q Business application.
+	DisplayName *string `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
+	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	RoleArn *string `pulumi:"roleArn"`
+	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+	Status *ApplicationStatus `pulumi:"status"`
+	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The Unix timestamp when the Amazon Q Business application was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -55,6 +67,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
+	// The identifier for the Amazon Q Business application.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
@@ -76,48 +89,59 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q Business application.
 func (o LookupApplicationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier for the Amazon Q Business application.
 func (o LookupApplicationResultOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration information for the file upload during chat feature.
 func (o LookupApplicationResultOutput) AttachmentsConfiguration() ApplicationAttachmentsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAttachmentsConfiguration {
 		return v.AttachmentsConfiguration
 	}).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
+// The Unix timestamp when the Amazon Q Business application was created.
 func (o LookupApplicationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// A description for the Amazon Q Business application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Q Business application.
 func (o LookupApplicationResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
 func (o LookupApplicationResultOutput) IdentityCenterApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 func (o LookupApplicationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
 func (o LookupApplicationResultOutput) Status() ApplicationStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationStatus { return v.Status }).(ApplicationStatusPtrOutput)
 }
 
+// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The Unix timestamp when the Amazon Q Business application was last updated.
 func (o LookupApplicationResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

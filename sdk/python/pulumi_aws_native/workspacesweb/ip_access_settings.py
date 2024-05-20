@@ -26,6 +26,14 @@ class IpAccessSettingsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpAccessSettings resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]] ip_rules: The IP rules of the IP access settings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Additional encryption context of the IP access settings.
+        :param pulumi.Input[str] customer_managed_key: The custom managed key of the IP access settings.
+               
+               *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
+        :param pulumi.Input[str] description: The description of the IP access settings.
+        :param pulumi.Input[str] display_name: The display name of the IP access settings.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "ip_rules", ip_rules)
         if additional_encryption_context is not None:
@@ -42,6 +50,9 @@ class IpAccessSettingsArgs:
     @property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]:
+        """
+        The IP rules of the IP access settings.
+        """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
@@ -51,6 +62,9 @@ class IpAccessSettingsArgs:
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Additional encryption context of the IP access settings.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
@@ -60,6 +74,11 @@ class IpAccessSettingsArgs:
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom managed key of the IP access settings.
+
+        *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -69,6 +88,9 @@ class IpAccessSettingsArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the IP access settings.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -78,6 +100,9 @@ class IpAccessSettingsArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the IP access settings.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -87,6 +112,9 @@ class IpAccessSettingsArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the browser settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,6 +139,14 @@ class IpAccessSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Additional encryption context of the IP access settings.
+        :param pulumi.Input[str] customer_managed_key: The custom managed key of the IP access settings.
+               
+               *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
+        :param pulumi.Input[str] description: The description of the IP access settings.
+        :param pulumi.Input[str] display_name: The display name of the IP access settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAccessSettingsIpRuleArgs']]]] ip_rules: The IP rules of the IP access settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -200,45 +236,74 @@ class IpAccessSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Additional encryption context of the IP access settings.
+        """
         return pulumi.get(self, "additional_encryption_context")
 
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of web portal ARNs that this IP access settings resource is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
+        """
+        The creation date timestamp of the IP access settings.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The custom managed key of the IP access settings.
+
+        *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the IP access settings.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the IP access settings.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the IP access settings resource.
+        """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> pulumi.Output[Sequence['outputs.IpAccessSettingsIpRule']]:
+        """
+        The IP rules of the IP access settings.
+        """
         return pulumi.get(self, "ip_rules")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the browser settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 

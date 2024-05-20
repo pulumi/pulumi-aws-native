@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensAwsOrg
     {
+        /// <summary>
+        /// This resource contains the ARN of the AWS Organization.
+        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

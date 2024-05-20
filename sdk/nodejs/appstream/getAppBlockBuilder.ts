@@ -19,19 +19,54 @@ export function getAppBlockBuilder(args: GetAppBlockBuilderArgs, opts?: pulumi.I
 }
 
 export interface GetAppBlockBuilderArgs {
+    /**
+     * The name of the app block builder.
+     */
     name: string;
 }
 
 export interface GetAppBlockBuilderResult {
+    /**
+     * The access endpoints of the app block builder.
+     */
     readonly accessEndpoints?: outputs.appstream.AppBlockBuilderAccessEndpoint[];
+    /**
+     * The ARN of the app block builder.
+     */
     readonly arn?: string;
+    /**
+     * The time when the app block builder was created.
+     */
     readonly createdTime?: string;
+    /**
+     * The description of the app block builder.
+     */
     readonly description?: string;
+    /**
+     * The display name of the app block builder.
+     */
     readonly displayName?: string;
+    /**
+     * Indicates whether default internet access is enabled for the app block builder.
+     */
     readonly enableDefaultInternetAccess?: boolean;
+    /**
+     * The ARN of the IAM role that is applied to the app block builder.
+     */
     readonly iamRoleArn?: string;
+    /**
+     * The instance type of the app block builder.
+     */
     readonly instanceType?: string;
+    /**
+     * The platform of the app block builder.
+     *
+     * *Allowed values* : `WINDOWS_SERVER_2019`
+     */
     readonly platform?: string;
+    /**
+     * The VPC configuration for the app block builder.
+     */
     readonly vpcConfig?: outputs.appstream.AppBlockBuilderVpcConfig;
 }
 /**
@@ -42,5 +77,8 @@ export function getAppBlockBuilderOutput(args: GetAppBlockBuilderOutputArgs, opt
 }
 
 export interface GetAppBlockBuilderOutputArgs {
+    /**
+     * The name of the app block builder.
+     */
     name: pulumi.Input<string>;
 }

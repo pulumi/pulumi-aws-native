@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.Eks.Outputs
     [OutputType]
     public sealed class ClusterLoggingEnabledTypes
     {
+        /// <summary>
+        /// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+        /// 
+        /// &gt; When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterLoggingTypeConfig> EnabledTypes;
 
         [OutputConstructor]

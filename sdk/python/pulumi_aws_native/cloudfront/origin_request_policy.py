@@ -19,12 +19,16 @@ class OriginRequestPolicyArgs:
                  origin_request_policy_config: pulumi.Input['OriginRequestPolicyConfigArgs']):
         """
         The set of arguments for constructing a OriginRequestPolicy resource.
+        :param pulumi.Input['OriginRequestPolicyConfigArgs'] origin_request_policy_config: The origin request policy configuration.
         """
         pulumi.set(__self__, "origin_request_policy_config", origin_request_policy_config)
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyConfigArgs']:
+        """
+        The origin request policy configuration.
+        """
         return pulumi.get(self, "origin_request_policy_config")
 
     @origin_request_policy_config.setter
@@ -44,6 +48,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyConfigArgs']] origin_request_policy_config: The origin request policy configuration.
         """
         ...
     @overload
@@ -114,15 +119,24 @@ class OriginRequestPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the origin request policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Output['outputs.OriginRequestPolicyConfig']:
+        """
+        The origin request policy configuration.
+        """
         return pulumi.get(self, "origin_request_policy_config")
 

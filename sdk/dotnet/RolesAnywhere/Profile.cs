@@ -15,33 +15,63 @@ namespace Pulumi.AwsNative.RolesAnywhere
     [AwsNativeResourceType("aws-native:rolesanywhere:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The number of seconds vended session credentials will be valid for
+        /// </summary>
         [Output("durationSeconds")]
         public Output<double?> DurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The enabled status of the resource.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        /// </summary>
         [Output("managedPolicyArns")]
         public Output<ImmutableArray<string>> ManagedPolicyArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The customer specified name of the resource.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the profile.
+        /// </summary>
         [Output("profileArn")]
         public Output<string> ProfileArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique primary identifier of the Profile
+        /// </summary>
         [Output("profileId")]
         public Output<string> ProfileId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether instance properties are required in CreateSession requests with this profile.
+        /// </summary>
         [Output("requireInstanceProperties")]
         public Output<bool?> RequireInstanceProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        /// </summary>
         [Output("roleArns")]
         public Output<ImmutableArray<string>> RoleArns { get; private set; } = null!;
 
+        /// <summary>
+        /// A session policy that will applied to the trust boundary of the vended session credentials.
+        /// </summary>
         [Output("sessionPolicy")]
         public Output<string?> SessionPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of Tags.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -90,39 +120,66 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of seconds vended session credentials will be valid for
+        /// </summary>
         [Input("durationSeconds")]
         public Input<double>? DurationSeconds { get; set; }
 
+        /// <summary>
+        /// The enabled status of the resource.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("managedPolicyArns")]
         private InputList<string>? _managedPolicyArns;
+
+        /// <summary>
+        /// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+        /// </summary>
         public InputList<string> ManagedPolicyArns
         {
             get => _managedPolicyArns ?? (_managedPolicyArns = new InputList<string>());
             set => _managedPolicyArns = value;
         }
 
+        /// <summary>
+        /// The customer specified name of the resource.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies whether instance properties are required in CreateSession requests with this profile.
+        /// </summary>
         [Input("requireInstanceProperties")]
         public Input<bool>? RequireInstanceProperties { get; set; }
 
         [Input("roleArns", required: true)]
         private InputList<string>? _roleArns;
+
+        /// <summary>
+        /// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+        /// </summary>
         public InputList<string> RoleArns
         {
             get => _roleArns ?? (_roleArns = new InputList<string>());
             set => _roleArns = value;
         }
 
+        /// <summary>
+        /// A session policy that will applied to the trust boundary of the vended session credentials.
+        /// </summary>
         [Input("sessionPolicy")]
         public Input<string>? SessionPolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of Tags.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -24,10 +24,12 @@ func LookupDhcpOptions(ctx *pulumi.Context, args *LookupDhcpOptionsArgs, opts ..
 }
 
 type LookupDhcpOptionsArgs struct {
+	// The ID of the DHCP options set.
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 }
 
 type LookupDhcpOptionsResult struct {
+	// The ID of the DHCP options set.
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Any tags assigned to the DHCP options set.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -47,6 +49,7 @@ func LookupDhcpOptionsOutput(ctx *pulumi.Context, args LookupDhcpOptionsOutputAr
 }
 
 type LookupDhcpOptionsOutputArgs struct {
+	// The ID of the DHCP options set.
 	DhcpOptionsId pulumi.StringInput `pulumi:"dhcpOptionsId"`
 }
 
@@ -68,6 +71,7 @@ func (o LookupDhcpOptionsResultOutput) ToLookupDhcpOptionsResultOutputWithContex
 	return o
 }
 
+// The ID of the DHCP options set.
 func (o LookupDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDhcpOptionsResult) *string { return v.DhcpOptionsId }).(pulumi.StringPtrOutput)
 }

@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
 
         [Input("entityTypes")]
         private InputList<Inputs.DetectorEntityTypeArgs>? _entityTypes;
+
+        /// <summary>
+        /// The event type entity types.
+        /// </summary>
         public InputList<Inputs.DetectorEntityTypeArgs> EntityTypes
         {
             get => _entityTypes ?? (_entityTypes = new InputList<Inputs.DetectorEntityTypeArgs>());
@@ -40,17 +44,30 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
 
         [Input("eventVariables")]
         private InputList<Inputs.DetectorEventVariableArgs>? _eventVariables;
+
+        /// <summary>
+        /// The event type event variables.
+        /// </summary>
         public InputList<Inputs.DetectorEventVariableArgs> EventVariables
         {
             get => _eventVariables ?? (_eventVariables = new InputList<Inputs.DetectorEventVariableArgs>());
             set => _eventVariables = value;
         }
 
+        /// <summary>
+        /// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+        /// 
+        /// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        /// </summary>
         [Input("inline")]
         public Input<bool>? Inline { get; set; }
 
         [Input("labels")]
         private InputList<Inputs.DetectorLabelArgs>? _labels;
+
+        /// <summary>
+        /// The event type labels.
+        /// </summary>
         public InputList<Inputs.DetectorLabelArgs> Labels
         {
             get => _labels ?? (_labels = new InputList<Inputs.DetectorLabelArgs>());

@@ -19,14 +19,32 @@ export function getNetworkInsightsAccessScope(args: GetNetworkInsightsAccessScop
 }
 
 export interface GetNetworkInsightsAccessScopeArgs {
+    /**
+     * The ID of the Network Access Scope.
+     */
     networkInsightsAccessScopeId: string;
 }
 
 export interface GetNetworkInsightsAccessScopeResult {
+    /**
+     * The creation date.
+     */
     readonly createdDate?: string;
+    /**
+     * The ARN of the Network Access Scope.
+     */
     readonly networkInsightsAccessScopeArn?: string;
+    /**
+     * The ID of the Network Access Scope.
+     */
     readonly networkInsightsAccessScopeId?: string;
+    /**
+     * The tags.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The last updated date.
+     */
     readonly updatedDate?: string;
 }
 /**
@@ -37,5 +55,8 @@ export function getNetworkInsightsAccessScopeOutput(args: GetNetworkInsightsAcce
 }
 
 export interface GetNetworkInsightsAccessScopeOutputArgs {
+    /**
+     * The ID of the Network Access Scope.
+     */
     networkInsightsAccessScopeId: pulumi.Input<string>;
 }

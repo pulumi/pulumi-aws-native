@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFontConfiguration
     {
+        /// <summary>
+        /// Determines the color of the text.
+        /// </summary>
         public readonly string? FontColor;
+        /// <summary>
+        /// Determines the appearance of decorative lines on the text.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisFontDecoration? FontDecoration;
+        /// <summary>
+        /// The option that determines the text display size.
+        /// </summary>
         public readonly Outputs.AnalysisFontSize? FontSize;
+        /// <summary>
+        /// Determines the text display face that is inherited by the given font family.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisFontStyle? FontStyle;
+        /// <summary>
+        /// The option that determines the text display weight, or boldness.
+        /// </summary>
         public readonly Outputs.AnalysisFontWeight? FontWeight;
 
         [OutputConstructor]

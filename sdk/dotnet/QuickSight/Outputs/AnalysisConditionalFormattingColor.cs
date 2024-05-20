@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisConditionalFormattingColor
     {
+        /// <summary>
+        /// Formatting configuration for gradient color.
+        /// </summary>
         public readonly Outputs.AnalysisConditionalFormattingGradientColor? Gradient;
+        /// <summary>
+        /// Formatting configuration for solid color.
+        /// </summary>
         public readonly Outputs.AnalysisConditionalFormattingSolidColor? Solid;
 
         [OutputConstructor]

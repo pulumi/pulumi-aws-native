@@ -16,14 +16,32 @@ export function getVpcEndpointService(args: GetVpcEndpointServiceArgs, opts?: pu
 }
 
 export interface GetVpcEndpointServiceArgs {
+    /**
+     * The ID of the endpoint service.
+     */
     serviceId: string;
 }
 
 export interface GetVpcEndpointServiceResult {
+    /**
+     * Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+     */
     readonly acceptanceRequired?: boolean;
+    /**
+     * The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+     */
     readonly gatewayLoadBalancerArns?: string[];
+    /**
+     * The Amazon Resource Names (ARNs) of the Network Load Balancers.
+     */
     readonly networkLoadBalancerArns?: string[];
+    /**
+     * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+     */
     readonly payerResponsibility?: string;
+    /**
+     * The ID of the endpoint service.
+     */
     readonly serviceId?: string;
 }
 /**
@@ -34,5 +52,8 @@ export function getVpcEndpointServiceOutput(args: GetVpcEndpointServiceOutputArg
 }
 
 export interface GetVpcEndpointServiceOutputArgs {
+    /**
+     * The ID of the endpoint service.
+     */
     serviceId: pulumi.Input<string>;
 }

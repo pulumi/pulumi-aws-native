@@ -24,12 +24,15 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 }
 
 type LookupDomainArgs struct {
+	// The identifier of the domain.
 	DomainId string `pulumi:"domainId"`
 }
 
 type LookupDomainResult struct {
-	DomainId *string   `pulumi:"domainId"`
-	Tags     []aws.Tag `pulumi:"tags"`
+	// The identifier of the domain.
+	DomainId *string `pulumi:"domainId"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -46,6 +49,7 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 }
 
 type LookupDomainOutputArgs struct {
+	// The identifier of the domain.
 	DomainId pulumi.StringInput `pulumi:"domainId"`
 }
 
@@ -67,10 +71,12 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
+// The identifier of the domain.
 func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,10 +13,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilterDateTimePickerControl
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.AnalysisDateTimePickerControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `FilterDateTimePickerControl` .
+        /// </summary>
         public readonly string FilterControlId;
+        /// <summary>
+        /// The source filter ID of the `FilterDateTimePickerControl` .
+        /// </summary>
         public readonly string SourceFilterId;
+        /// <summary>
+        /// The title of the `FilterDateTimePickerControl` .
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// The type of the `FilterDropDownControl` . Choose one of the following options:
+        /// 
+        /// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
+        /// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSheetControlDateTimePickerType? Type;
 
         [OutputConstructor]

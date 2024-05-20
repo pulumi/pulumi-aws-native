@@ -94,6 +94,11 @@ class FleetAmountCapabilityArgs:
                  min: pulumi.Input[float],
                  name: pulumi.Input[str],
                  max: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] min: The minimum amount of fleet worker capability.
+        :param pulumi.Input[str] name: The name of the fleet capability.
+        :param pulumi.Input[float] max: The maximum amount of the fleet worker capability.
+        """
         pulumi.set(__self__, "min", min)
         pulumi.set(__self__, "name", name)
         if max is not None:
@@ -102,6 +107,9 @@ class FleetAmountCapabilityArgs:
     @property
     @pulumi.getter
     def min(self) -> pulumi.Input[float]:
+        """
+        The minimum amount of fleet worker capability.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -111,6 +119,9 @@ class FleetAmountCapabilityArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the fleet capability.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -120,6 +131,9 @@ class FleetAmountCapabilityArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum amount of the fleet worker capability.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -132,12 +146,19 @@ class FleetAttributeCapabilityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: The name of the fleet attribute capability for the worker.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The number of fleet attribute capabilities.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the fleet attribute capability for the worker.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -147,6 +168,9 @@ class FleetAttributeCapabilityArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The number of fleet attribute capabilities.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -588,12 +612,19 @@ class QueueJobAttachmentSettingsArgs:
     def __init__(__self__, *,
                  root_prefix: pulumi.Input[str],
                  s3_bucket_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] root_prefix: The root prefix.
+        :param pulumi.Input[str] s3_bucket_name: The Amazon S3 bucket name.
+        """
         pulumi.set(__self__, "root_prefix", root_prefix)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
 
     @property
     @pulumi.getter(name="rootPrefix")
     def root_prefix(self) -> pulumi.Input[str]:
+        """
+        The root prefix.
+        """
         return pulumi.get(self, "root_prefix")
 
     @root_prefix.setter
@@ -603,6 +634,9 @@ class QueueJobAttachmentSettingsArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 bucket name.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -616,6 +650,11 @@ class QueueJobRunAsUserArgs:
                  run_as: pulumi.Input['QueueRunAs'],
                  posix: Optional[pulumi.Input['QueuePosixUserArgs']] = None,
                  windows: Optional[pulumi.Input['QueueWindowsUserArgs']] = None):
+        """
+        :param pulumi.Input['QueueRunAs'] run_as: Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+        :param pulumi.Input['QueuePosixUserArgs'] posix: The user and group that the jobs in the queue run as.
+        :param pulumi.Input['QueueWindowsUserArgs'] windows: Identifies a Microsoft Windows user.
+        """
         pulumi.set(__self__, "run_as", run_as)
         if posix is not None:
             pulumi.set(__self__, "posix", posix)
@@ -625,6 +664,9 @@ class QueueJobRunAsUserArgs:
     @property
     @pulumi.getter(name="runAs")
     def run_as(self) -> pulumi.Input['QueueRunAs']:
+        """
+        Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+        """
         return pulumi.get(self, "run_as")
 
     @run_as.setter
@@ -634,6 +676,9 @@ class QueueJobRunAsUserArgs:
     @property
     @pulumi.getter
     def posix(self) -> Optional[pulumi.Input['QueuePosixUserArgs']]:
+        """
+        The user and group that the jobs in the queue run as.
+        """
         return pulumi.get(self, "posix")
 
     @posix.setter
@@ -643,6 +688,9 @@ class QueueJobRunAsUserArgs:
     @property
     @pulumi.getter
     def windows(self) -> Optional[pulumi.Input['QueueWindowsUserArgs']]:
+        """
+        Identifies a Microsoft Windows user.
+        """
         return pulumi.get(self, "windows")
 
     @windows.setter
@@ -655,12 +703,19 @@ class QueuePosixUserArgs:
     def __init__(__self__, *,
                  group: pulumi.Input[str],
                  user: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] group: The name of the POSIX user's group.
+        :param pulumi.Input[str] user: The name of the POSIX user.
+        """
         pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
     def group(self) -> pulumi.Input[str]:
+        """
+        The name of the POSIX user's group.
+        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -670,6 +725,9 @@ class QueuePosixUserArgs:
     @property
     @pulumi.getter
     def user(self) -> pulumi.Input[str]:
+        """
+        The name of the POSIX user.
+        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -682,12 +740,19 @@ class QueueWindowsUserArgs:
     def __init__(__self__, *,
                  password_arn: pulumi.Input[str],
                  user: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password_arn: The password ARN for the Windows user.
+        :param pulumi.Input[str] user: The user.
+        """
         pulumi.set(__self__, "password_arn", password_arn)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="passwordArn")
     def password_arn(self) -> pulumi.Input[str]:
+        """
+        The password ARN for the Windows user.
+        """
         return pulumi.get(self, "password_arn")
 
     @password_arn.setter
@@ -697,6 +762,9 @@ class QueueWindowsUserArgs:
     @property
     @pulumi.getter
     def user(self) -> pulumi.Input[str]:
+        """
+        The user.
+        """
         return pulumi.get(self, "user")
 
     @user.setter
@@ -710,6 +778,11 @@ class StorageProfileFileSystemLocationArgs:
                  name: pulumi.Input[str],
                  path: pulumi.Input[str],
                  type: pulumi.Input['StorageProfileFileSystemLocationType']):
+        """
+        :param pulumi.Input[str] name: The location name.
+        :param pulumi.Input[str] path: The file path.
+        :param pulumi.Input['StorageProfileFileSystemLocationType'] type: The type of file.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "type", type)
@@ -717,6 +790,9 @@ class StorageProfileFileSystemLocationArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The location name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -726,6 +802,9 @@ class StorageProfileFileSystemLocationArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
+        """
+        The file path.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -735,6 +814,9 @@ class StorageProfileFileSystemLocationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['StorageProfileFileSystemLocationType']:
+        """
+        The type of file.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

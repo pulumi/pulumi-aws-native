@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     [OutputType]
     public sealed class FlywheelTaskConfig
     {
+        /// <summary>
+        /// Configuration required for a document classification model.
+        /// </summary>
         public readonly Outputs.FlywheelDocumentClassificationConfig? DocumentClassificationConfig;
+        /// <summary>
+        /// Configuration required for an entity recognition model.
+        /// </summary>
         public readonly Outputs.FlywheelEntityRecognitionConfig? EntityRecognitionConfig;
+        /// <summary>
+        /// Language code for the language that the model supports.
+        /// </summary>
         public readonly Pulumi.AwsNative.Comprehend.FlywheelTaskConfigLanguageCode LanguageCode;
 
         [OutputConstructor]

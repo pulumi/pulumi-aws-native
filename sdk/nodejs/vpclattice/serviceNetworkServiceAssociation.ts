@@ -37,19 +37,61 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceNetworkServiceAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the association between the service network and the service.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the of the association between the service network and the service.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The date and time that the association was created, specified in ISO-8601 format.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The DNS information of the service.
+     */
     public readonly dnsEntry!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
+    /**
+     * The ID of the service.
+     */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service.
+     */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the service.
+     */
     public /*out*/ readonly serviceName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the service network
+     */
     public /*out*/ readonly serviceNetworkArn!: pulumi.Output<string>;
+    /**
+     * The ID of the service network.
+     */
     public /*out*/ readonly serviceNetworkId!: pulumi.Output<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     */
     public readonly serviceNetworkIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the service network.
+     */
     public /*out*/ readonly serviceNetworkName!: pulumi.Output<string>;
+    /**
+     * The status of the association between the service network and the service.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkServiceAssociationStatus>;
+    /**
+     * The tags for the association.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -104,8 +146,20 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
  */
 export interface ServiceNetworkServiceAssociationArgs {
+    /**
+     * The DNS information of the service.
+     */
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntryArgs>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service.
+     */
     serviceIdentifier?: pulumi.Input<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     */
     serviceNetworkIdentifier?: pulumi.Input<string>;
+    /**
+     * The tags for the association.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

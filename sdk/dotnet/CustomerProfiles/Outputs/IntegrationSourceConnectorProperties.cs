@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationSourceConnectorProperties
     {
+        /// <summary>
+        /// The properties that are applied when Marketo is being used as a source.
+        /// </summary>
         public readonly Outputs.IntegrationMarketoSourceProperties? Marketo;
+        /// <summary>
+        /// The properties that are applied when Amazon S3 is being used as the flow source.
+        /// </summary>
         public readonly Outputs.IntegrationS3SourceProperties? S3;
+        /// <summary>
+        /// The properties that are applied when Salesforce is being used as a source.
+        /// </summary>
         public readonly Outputs.IntegrationSalesforceSourceProperties? Salesforce;
+        /// <summary>
+        /// The properties that are applied when ServiceNow is being used as a source.
+        /// </summary>
         public readonly Outputs.IntegrationServiceNowSourceProperties? ServiceNow;
+        /// <summary>
+        /// The properties that are applied when using Zendesk as a flow source.
+        /// </summary>
         public readonly Outputs.IntegrationZendeskSourceProperties? Zendesk;
 
         [OutputConstructor]

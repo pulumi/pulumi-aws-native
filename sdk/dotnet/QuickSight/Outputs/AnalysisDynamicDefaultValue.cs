@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDynamicDefaultValue
     {
+        /// <summary>
+        /// The column that contains the default value of each user or group.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier DefaultValueColumn;
+        /// <summary>
+        /// The column that contains the group name.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier? GroupNameColumn;
+        /// <summary>
+        /// The column that contains the username.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier? UserNameColumn;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamKinesisStreamSourceConfiguration
     {
+        /// <summary>
+        /// The ARN of the source Kinesis data stream.
+        /// </summary>
         public readonly string KinesisStreamArn;
+        /// <summary>
+        /// The ARN of the role that provides access to the source Kinesis data stream.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

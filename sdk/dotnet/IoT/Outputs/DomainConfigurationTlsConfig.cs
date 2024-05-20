@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class DomainConfigurationTlsConfig
     {
+        /// <summary>
+        /// The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
+        /// </summary>
         public readonly string? SecurityPolicy;
 
         [OutputConstructor]

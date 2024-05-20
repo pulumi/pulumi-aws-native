@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisColumnSortArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation function that is defined in the column sort.
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.AnalysisAggregationFunctionArgs>? AggregationFunction { get; set; }
 
+        /// <summary>
+        /// The sort direction.
+        /// </summary>
         [Input("direction", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSortDirection> Direction { get; set; } = null!;
 

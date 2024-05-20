@@ -31,7 +31,13 @@ export interface GetBridgeSourceArgs {
 }
 
 export interface GetBridgeSourceResult {
+    /**
+     * Add a flow source to an existing bridge.
+     */
     readonly flowSource?: outputs.mediaconnect.BridgeSourceBridgeFlowSource;
+    /**
+     * Add a network source to an existing bridge.
+     */
     readonly networkSource?: outputs.mediaconnect.BridgeSourceBridgeNetworkSource;
 }
 /**

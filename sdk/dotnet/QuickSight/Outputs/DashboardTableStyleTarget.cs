@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableStyleTarget
     {
+        /// <summary>
+        /// The cell type of the table style target.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardStyledCellType CellType;
 
         [OutputConstructor]

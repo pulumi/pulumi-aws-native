@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The severity level that is assigned to the association.
 type AssociationComplianceSeverity string
 
 const (
@@ -181,6 +182,11 @@ func (in *associationComplianceSeverityPtr) ToAssociationComplianceSeverityPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(AssociationComplianceSeverityPtrOutput)
 }
 
+// The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+//
+// In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+//
+// By default, all associations use `AUTO` mode.
 type AssociationSyncCompliance string
 
 const (
@@ -1902,6 +1908,9 @@ func (in *patchBaselineOperatingSystemPtr) ToPatchBaselineOperatingSystemPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineOperatingSystemPtrOutput)
 }
 
+// The key for the filter.
+//
+// For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
 type PatchBaselinePatchFilterKey string
 
 const (
@@ -2267,6 +2276,7 @@ func (in *patchBaselineRejectedPatchesActionPtr) ToPatchBaselineRejectedPatchesA
 	return pulumi.ToOutputWithContext(ctx, in).(PatchBaselineRejectedPatchesActionPtrOutput)
 }
 
+// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
 type PatchBaselineRuleComplianceLevel string
 
 const (

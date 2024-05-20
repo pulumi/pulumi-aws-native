@@ -11,6 +11,9 @@ __all__ = [
 
 
 class GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision(str, Enum):
+    """
+    The precision for the time and date that the stream was created.
+    """
     MICROSECOND = "MICROSECOND"
     MILLISECOND = "MILLISECOND"
 

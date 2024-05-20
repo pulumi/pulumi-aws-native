@@ -855,6 +855,7 @@ func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutpu
 }
 
 type PolicyStoreSchemaDefinition struct {
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 	CedarJson *string `pulumi:"cedarJson"`
 }
 
@@ -870,6 +871,7 @@ type PolicyStoreSchemaDefinitionInput interface {
 }
 
 type PolicyStoreSchemaDefinitionArgs struct {
+	// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 	CedarJson pulumi.StringPtrInput `pulumi:"cedarJson"`
 }
 
@@ -950,6 +952,7 @@ func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutpu
 	}).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 func (o PolicyStoreSchemaDefinitionOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStoreSchemaDefinition) *string { return v.CedarJson }).(pulumi.StringPtrOutput)
 }
@@ -978,6 +981,7 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) Elem() PolicyStoreSchemaDefinition
 	}).(PolicyStoreSchemaDefinitionOutput)
 }
 
+// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
 func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStoreSchemaDefinition) *string {
 		if v == nil {
@@ -988,6 +992,14 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) CedarJson() pulumi.StringPtrOutput
 }
 
 type PolicyStoreValidationSettings struct {
+	// The validation mode currently configured for this policy store. The valid values are:
+	//
+	// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+	// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+	//
+	// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+	// >
+	// > To submit a static policy or policy template without a schema, you must turn off validation.
 	Mode PolicyStoreValidationMode `pulumi:"mode"`
 }
 
@@ -1003,6 +1015,14 @@ type PolicyStoreValidationSettingsInput interface {
 }
 
 type PolicyStoreValidationSettingsArgs struct {
+	// The validation mode currently configured for this policy store. The valid values are:
+	//
+	// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+	// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+	//
+	// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+	// >
+	// > To submit a static policy or policy template without a schema, you must turn off validation.
 	Mode PolicyStoreValidationModeInput `pulumi:"mode"`
 }
 
@@ -1032,6 +1052,14 @@ func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsOutp
 	return o
 }
 
+// The validation mode currently configured for this policy store. The valid values are:
+//
+// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+//
+// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+// >
+// > To submit a static policy or policy template without a schema, you must turn off validation.
 func (o PolicyStoreValidationSettingsOutput) Mode() PolicyStoreValidationModeOutput {
 	return o.ApplyT(func(v PolicyStoreValidationSettings) PolicyStoreValidationMode { return v.Mode }).(PolicyStoreValidationModeOutput)
 }
@@ -1060,6 +1088,14 @@ func (o PolicyStoreValidationSettingsPtrOutput) Elem() PolicyStoreValidationSett
 	}).(PolicyStoreValidationSettingsOutput)
 }
 
+// The validation mode currently configured for this policy store. The valid values are:
+//
+// - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+// - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+//
+// > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+// >
+// > To submit a static policy or policy template without a schema, you must turn off validation.
 func (o PolicyStoreValidationSettingsPtrOutput) Mode() PolicyStoreValidationModePtrOutput {
 	return o.ApplyT(func(v *PolicyStoreValidationSettings) *PolicyStoreValidationMode {
 		if v == nil {

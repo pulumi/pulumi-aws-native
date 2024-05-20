@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Logs
     [OutputType]
     public sealed class GetDestinationResult
     {
+        /// <summary>
+        /// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class DomainConfigurationServerCertificateConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        /// </summary>
         [Input("enableOcspCheck")]
         public Input<bool>? EnableOcspCheck { get; set; }
 

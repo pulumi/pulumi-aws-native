@@ -21,6 +21,8 @@ class PolicyArgs:
                  policy_store_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a Policy resource.
+        :param pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        :param pulumi.Input[str] policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "policy_store_id", policy_store_id)
@@ -28,6 +30,9 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']]:
+        """
+        Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -37,6 +42,9 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @policy_store_id.setter
@@ -111,6 +119,8 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[pulumi.InputType['PolicyDefinition0PropertiesArgs'], pulumi.InputType['PolicyDefinition1PropertiesArgs']]] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        :param pulumi.Input[str] policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
         """
         ...
     @overload
@@ -242,20 +252,35 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Any]:
+        """
+        Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the new or updated policy.
+        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        """
         return pulumi.get(self, "policy_store_id")
 
     @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output['PolicyType']:
+        """
+        The type of the policy. This is one of the following values:
+
+        - Static
+        - TemplateLinked
+        """
         return pulumi.get(self, "policy_type")
 

@@ -34,6 +34,9 @@ export interface GetSubnetGroupResult {
      * The EC2 subnet IDs for the cache subnet group.
      */
     readonly subnetIds?: string[];
+    /**
+     * A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

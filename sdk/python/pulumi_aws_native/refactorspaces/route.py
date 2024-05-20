@@ -28,7 +28,13 @@ class RouteArgs:
                  uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None):
         """
         The set of arguments for constructing a Route resource.
+        :param pulumi.Input[str] application_identifier: The unique identifier of the application.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
+        :param pulumi.Input['RouteType'] route_type: The route type of the route.
+        :param pulumi.Input[str] service_identifier: The unique identifier of the service.
+        :param pulumi.Input['RouteDefaultRouteInputArgs'] default_route: Configuration for the default route type.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input['RouteUriPathRouteInputArgs'] uri_path_route: The configuration for the URI path route type.
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
         pulumi.set(__self__, "environment_identifier", environment_identifier)
@@ -44,6 +50,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @application_identifier.setter
@@ -53,6 +62,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @environment_identifier.setter
@@ -62,6 +74,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="routeType")
     def route_type(self) -> pulumi.Input['RouteType']:
+        """
+        The route type of the route.
+        """
         return pulumi.get(self, "route_type")
 
     @route_type.setter
@@ -71,6 +86,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @service_identifier.setter
@@ -80,6 +98,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="defaultRoute")
     def default_route(self) -> Optional[pulumi.Input['RouteDefaultRouteInputArgs']]:
+        """
+        Configuration for the default route type.
+        """
         return pulumi.get(self, "default_route")
 
     @default_route.setter
@@ -101,6 +122,9 @@ class RouteArgs:
     @property
     @pulumi.getter(name="uriPathRoute")
     def uri_path_route(self) -> Optional[pulumi.Input['RouteUriPathRouteInputArgs']]:
+        """
+        The configuration for the URI path route type.
+        """
         return pulumi.get(self, "uri_path_route")
 
     @uri_path_route.setter
@@ -126,7 +150,13 @@ class Route(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_identifier: The unique identifier of the application.
+        :param pulumi.Input[pulumi.InputType['RouteDefaultRouteInputArgs']] default_route: Configuration for the default route type.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
+        :param pulumi.Input['RouteType'] route_type: The route type of the route.
+        :param pulumi.Input[str] service_identifier: The unique identifier of the service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[pulumi.InputType['RouteUriPathRouteInputArgs']] uri_path_route: The configuration for the URI path route type.
         """
         ...
     @overload
@@ -225,41 +255,65 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the route.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultRoute")
     def default_route(self) -> pulumi.Output[Optional['outputs.RouteDefaultRouteInput']]:
+        """
+        Configuration for the default route type.
+        """
         return pulumi.get(self, "default_route")
 
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @property
     @pulumi.getter(name="pathResourceToId")
     def path_resource_to_id(self) -> pulumi.Output[str]:
+        """
+        A mapping of Amazon API Gateway path resources to resource IDs.
+        """
         return pulumi.get(self, "path_resource_to_id")
 
     @property
     @pulumi.getter(name="routeIdentifier")
     def route_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the route.
+        """
         return pulumi.get(self, "route_identifier")
 
     @property
     @pulumi.getter(name="routeType")
     def route_type(self) -> pulumi.Output['RouteType']:
+        """
+        The route type of the route.
+        """
         return pulumi.get(self, "route_type")
 
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @property
@@ -273,5 +327,8 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter(name="uriPathRoute")
     def uri_path_route(self) -> pulumi.Output[Optional['outputs.RouteUriPathRouteInput']]:
+        """
+        The configuration for the URI path route type.
+        """
         return pulumi.get(self, "uri_path_route")
 

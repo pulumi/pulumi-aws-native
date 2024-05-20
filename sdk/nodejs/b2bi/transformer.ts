@@ -37,16 +37,49 @@ export class Transformer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Transformer.__pulumiType;
     }
 
+    /**
+     * Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     */
     public readonly ediType!: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties>;
+    /**
+     * Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+     */
     public readonly fileFormat!: pulumi.Output<enums.b2bi.TransformerFileFormat>;
+    /**
+     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     */
     public readonly mappingTemplate!: pulumi.Output<string>;
+    /**
+     * Returns a timestamp representing the date and time for the most recent change for the transformer object.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * Returns the descriptive name for the transformer.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     */
     public readonly sampleDocument!: pulumi.Output<string | undefined>;
+    /**
+     * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+     */
     public readonly status!: pulumi.Output<enums.b2bi.TransformerStatus>;
+    /**
+     * A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Returns an Amazon Resource Name (ARN) for a specific transformer.
+     */
     public /*out*/ readonly transformerArn!: pulumi.Output<string>;
+    /**
+     * The system-assigned unique identifier for the transformer.
+     */
     public /*out*/ readonly transformerId!: pulumi.Output<string>;
 
     /**
@@ -105,11 +138,32 @@ export class Transformer extends pulumi.CustomResource {
  * The set of arguments for constructing a Transformer resource.
  */
 export interface TransformerArgs {
+    /**
+     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     */
     ediType: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs>;
+    /**
+     * Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+     */
     fileFormat: pulumi.Input<enums.b2bi.TransformerFileFormat>;
+    /**
+     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     */
     mappingTemplate: pulumi.Input<string>;
+    /**
+     * Returns the descriptive name for the transformer.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     */
     sampleDocument?: pulumi.Input<string>;
+    /**
+     * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+     */
     status: pulumi.Input<enums.b2bi.TransformerStatus>;
+    /**
+     * A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

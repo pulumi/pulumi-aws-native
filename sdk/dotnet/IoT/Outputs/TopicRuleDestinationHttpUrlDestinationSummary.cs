@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleDestinationHttpUrlDestinationSummary
     {
+        /// <summary>
+        /// The URL used to confirm the HTTP topic rule destination URL.
+        /// </summary>
         public readonly string? ConfirmationUrl;
 
         [OutputConstructor]

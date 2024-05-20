@@ -19,12 +19,26 @@ export function getThing(args: GetThingArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetThingArgs {
+    /**
+     * The name of the thing to update.
+     *
+     * You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+     */
     thingName: string;
 }
 
 export interface GetThingResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
+     */
     readonly arn?: string;
+    /**
+     * A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
+     */
     readonly attributePayload?: outputs.iot.ThingAttributePayload;
+    /**
+     * The Id of this thing.
+     */
     readonly id?: string;
 }
 /**
@@ -35,5 +49,10 @@ export function getThingOutput(args: GetThingOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetThingOutputArgs {
+    /**
+     * The name of the thing to update.
+     *
+     * You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+     */
     thingName: pulumi.Input<string>;
 }

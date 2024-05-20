@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.KendraRanking.Inputs
 
     public sealed class ExecutionPlanCapacityUnitsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of extra capacity for your rescore execution plan.
+        /// 
+        /// A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
+        /// </summary>
         [Input("rescoreCapacityUnits", required: true)]
         public Input<int> RescoreCapacityUnits { get; set; } = null!;
 

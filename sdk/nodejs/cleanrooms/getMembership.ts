@@ -19,16 +19,50 @@ export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetMembershipArgs {
+    /**
+     * Returns the unique identifier of the specified membership.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+     */
     membershipIdentifier: string;
 }
 
 export interface GetMembershipResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified membership.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly arn?: string;
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified collaboration.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly collaborationArn?: string;
+    /**
+     * Returns the unique identifier of the specified collaboration creator account.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly collaborationCreatorAccountId?: string;
+    /**
+     * The default protected query result configuration as specified by the member who can receive results.
+     */
     readonly defaultResultConfiguration?: outputs.cleanrooms.MembershipProtectedQueryResultConfiguration;
+    /**
+     * Returns the unique identifier of the specified membership.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+     */
     readonly membershipIdentifier?: string;
+    /**
+     * The payment responsibilities accepted by the collaboration member.
+     */
     readonly paymentConfiguration?: outputs.cleanrooms.MembershipPaymentConfiguration;
+    /**
+     * An indicator as to whether query logging has been enabled or disabled for the membership.
+     */
     readonly queryLogStatus?: enums.cleanrooms.MembershipQueryLogStatus;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
@@ -43,5 +77,10 @@ export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi
 }
 
 export interface GetMembershipOutputArgs {
+    /**
+     * Returns the unique identifier of the specified membership.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+     */
     membershipIdentifier: pulumi.Input<string>;
 }

@@ -16,18 +16,30 @@ import (
 type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput                      `pulumi:"arn"`
-	AwsId                    pulumi.StringOutput                      `pulumi:"awsId"`
-	CreatedAt                pulumi.StringOutput                      `pulumi:"createdAt"`
-	SecurityGroupIds         pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
-	ServiceNetworkArn        pulumi.StringOutput                      `pulumi:"serviceNetworkArn"`
-	ServiceNetworkId         pulumi.StringOutput                      `pulumi:"serviceNetworkId"`
-	ServiceNetworkIdentifier pulumi.StringPtrOutput                   `pulumi:"serviceNetworkIdentifier"`
-	ServiceNetworkName       pulumi.StringOutput                      `pulumi:"serviceNetworkName"`
-	Status                   ServiceNetworkVpcAssociationStatusOutput `pulumi:"status"`
-	Tags                     aws.TagArrayOutput                       `pulumi:"tags"`
-	VpcId                    pulumi.StringOutput                      `pulumi:"vpcId"`
-	VpcIdentifier            pulumi.StringPtrOutput                   `pulumi:"vpcIdentifier"`
+	// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the specified association between the service network and the VPC.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The date and time that the association was created, specified in ISO-8601 format.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The Amazon Resource Name (ARN) of the service network.
+	ServiceNetworkArn pulumi.StringOutput `pulumi:"serviceNetworkArn"`
+	// The ID of the service network.
+	ServiceNetworkId pulumi.StringOutput `pulumi:"serviceNetworkId"`
+	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+	ServiceNetworkIdentifier pulumi.StringPtrOutput `pulumi:"serviceNetworkIdentifier"`
+	// The name of the service network.
+	ServiceNetworkName pulumi.StringOutput `pulumi:"serviceNetworkName"`
+	// The status of the association.
+	Status ServiceNetworkVpcAssociationStatusOutput `pulumi:"status"`
+	// The tags for the association.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the VPC.
+	VpcIdentifier pulumi.StringPtrOutput `pulumi:"vpcIdentifier"`
 }
 
 // NewServiceNetworkVpcAssociation registers a new resource with the given unique name, arguments, and options.
@@ -75,18 +87,26 @@ func (ServiceNetworkVpcAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkVpcAssociationArgs struct {
-	SecurityGroupIds         []string  `pulumi:"securityGroupIds"`
-	ServiceNetworkIdentifier *string   `pulumi:"serviceNetworkIdentifier"`
-	Tags                     []aws.Tag `pulumi:"tags"`
-	VpcIdentifier            *string   `pulumi:"vpcIdentifier"`
+	// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
+	// The tags for the association.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcIdentifier *string `pulumi:"vpcIdentifier"`
 }
 
 // The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
 type ServiceNetworkVpcAssociationArgs struct {
-	SecurityGroupIds         pulumi.StringArrayInput
+	// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+	SecurityGroupIds pulumi.StringArrayInput
+	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	Tags                     aws.TagArrayInput
-	VpcIdentifier            pulumi.StringPtrInput
+	// The tags for the association.
+	Tags aws.TagArrayInput
+	// The ID of the VPC.
+	VpcIdentifier pulumi.StringPtrInput
 }
 
 func (ServiceNetworkVpcAssociationArgs) ElementType() reflect.Type {
@@ -126,50 +146,62 @@ func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
 func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the specified association between the service network and the VPC.
 func (o ServiceNetworkVpcAssociationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The date and time that the association was created, specified in ISO-8601 format.
 func (o ServiceNetworkVpcAssociationOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 func (o ServiceNetworkVpcAssociationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service network.
 func (o ServiceNetworkVpcAssociationOutput) ServiceNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.ServiceNetworkArn }).(pulumi.StringOutput)
 }
 
+// The ID of the service network.
 func (o ServiceNetworkVpcAssociationOutput) ServiceNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.ServiceNetworkId }).(pulumi.StringOutput)
 }
 
+// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
 func (o ServiceNetworkVpcAssociationOutput) ServiceNetworkIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringPtrOutput { return v.ServiceNetworkIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The name of the service network.
 func (o ServiceNetworkVpcAssociationOutput) ServiceNetworkName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.ServiceNetworkName }).(pulumi.StringOutput)
 }
 
+// The status of the association.
 func (o ServiceNetworkVpcAssociationOutput) Status() ServiceNetworkVpcAssociationStatusOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationStatusOutput { return v.Status }).(ServiceNetworkVpcAssociationStatusOutput)
 }
 
+// The tags for the association.
 func (o ServiceNetworkVpcAssociationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC.
 func (o ServiceNetworkVpcAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC.
 func (o ServiceNetworkVpcAssociationOutput) VpcIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringPtrOutput { return v.VpcIdentifier }).(pulumi.StringPtrOutput)
 }

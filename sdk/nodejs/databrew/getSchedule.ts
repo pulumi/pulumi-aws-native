@@ -27,6 +27,9 @@ export interface GetScheduleResult {
      * Schedule cron
      */
     readonly cronExpression?: string;
+    /**
+     * A list of jobs to be run, according to the schedule.
+     */
     readonly jobNames?: string[];
 }
 /**

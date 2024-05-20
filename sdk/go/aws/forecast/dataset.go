@@ -17,6 +17,7 @@ import (
 type Dataset struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the dataset.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
 	DataFrequency pulumi.StringPtrOutput `pulumi:"dataFrequency"`
@@ -25,10 +26,15 @@ type Dataset struct {
 	// The dataset type
 	DatasetType DatasetTypeOutput `pulumi:"datasetType"`
 	// The domain associated with the dataset
-	Domain           DatasetDomainOutput                 `pulumi:"domain"`
+	Domain DatasetDomainOutput `pulumi:"domain"`
+	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig EncryptionConfigPropertiesPtrOutput `pulumi:"encryptionConfig"`
-	Schema           SchemaPropertiesOutput              `pulumi:"schema"`
-	Tags             aws.TagArrayOutput                  `pulumi:"tags"`
+	// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+	Schema SchemaPropertiesOutput `pulumi:"schema"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -91,10 +97,15 @@ type datasetArgs struct {
 	// The dataset type
 	DatasetType DatasetType `pulumi:"datasetType"`
 	// The domain associated with the dataset
-	Domain           DatasetDomain               `pulumi:"domain"`
+	Domain DatasetDomain `pulumi:"domain"`
+	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig *EncryptionConfigProperties `pulumi:"encryptionConfig"`
-	Schema           SchemaProperties            `pulumi:"schema"`
-	Tags             []aws.Tag                   `pulumi:"tags"`
+	// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+	Schema SchemaProperties `pulumi:"schema"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
@@ -106,10 +117,15 @@ type DatasetArgs struct {
 	// The dataset type
 	DatasetType DatasetTypeInput
 	// The domain associated with the dataset
-	Domain           DatasetDomainInput
+	Domain DatasetDomainInput
+	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig EncryptionConfigPropertiesPtrInput
-	Schema           SchemaPropertiesInput
-	Tags             aws.TagArrayInput
+	// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+	Schema SchemaPropertiesInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -149,6 +165,7 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the dataset.
 func (o DatasetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -173,14 +190,19 @@ func (o DatasetOutput) Domain() DatasetDomainOutput {
 	return o.ApplyT(func(v *Dataset) DatasetDomainOutput { return v.Domain }).(DatasetDomainOutput)
 }
 
+// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 func (o DatasetOutput) EncryptionConfig() EncryptionConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *Dataset) EncryptionConfigPropertiesPtrOutput { return v.EncryptionConfig }).(EncryptionConfigPropertiesPtrOutput)
 }
 
+// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 func (o DatasetOutput) Schema() SchemaPropertiesOutput {
 	return o.ApplyT(func(v *Dataset) SchemaPropertiesOutput { return v.Schema }).(SchemaPropertiesOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o DatasetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Dataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

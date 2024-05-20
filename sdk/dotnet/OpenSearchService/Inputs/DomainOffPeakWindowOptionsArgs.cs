@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainOffPeakWindowOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether off-peak window settings are enabled for the domain.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Off-peak window settings for the domain.
+        /// </summary>
         [Input("offPeakWindow")]
         public Input<Inputs.DomainOffPeakWindowArgs>? OffPeakWindow { get; set; }
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
 
     public sealed class RouteDefaultRouteInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If set to `ACTIVE` , traffic is forwarded to this route’s service after the route is created.
+        /// </summary>
         [Input("activationState", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.RouteActivationState> ActivationState { get; set; } = null!;
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleRunCommandParameters
     {
+        /// <summary>
+        /// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleRunCommandTarget> RunCommandTargets;
 
         [OutputConstructor]

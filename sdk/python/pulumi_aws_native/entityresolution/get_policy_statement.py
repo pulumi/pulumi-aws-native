@@ -36,21 +36,37 @@ class GetPolicyStatementResult:
     @property
     @pulumi.getter
     def action(self) -> Optional[Sequence[str]]:
+        """
+        The action that the principal can use on the resource.
+
+        For example, `entityresolution:GetIdMappingJob` , `entityresolution:GetMatchingJob` .
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def condition(self) -> Optional[str]:
+        """
+        A set of condition keys that you can use in key policies.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter
     def effect(self) -> Optional['PolicyStatementStatementEffect']:
+        """
+        Determines whether the permissions specified in the policy are to be allowed ( `Allow` ) or denied ( `Deny` ).
+
+        > If you set the value of the `effect` parameter to `Deny` for the `AddPolicyStatement` operation, you must also set the value of the `effect` parameter in the `policy` to `Deny` for the `PutPolicy` operation.
+        """
         return pulumi.get(self, "effect")
 
     @property
     @pulumi.getter
     def principal(self) -> Optional[Sequence[str]]:
+        """
+        The AWS service or AWS account that can access the resource defined as ARN.
+        """
         return pulumi.get(self, "principal")
 
 
@@ -71,6 +87,10 @@ def get_policy_statement(arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyStatementResult:
     """
     Policy Statement defined in AWS Entity Resolution Service
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+    :param str statement_id: A statement identifier that differentiates the statement from others in the same policy.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -91,5 +111,9 @@ def get_policy_statement_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStatementResult]:
     """
     Policy Statement defined in AWS Entity Resolution Service
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
+    :param str statement_id: A statement identifier that differentiates the statement from others in the same policy.
     """
     ...

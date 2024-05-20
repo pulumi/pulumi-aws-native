@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class QuickConnectUserQuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the flow.
+        /// </summary>
         [Input("contactFlowArn", required: true)]
         public Input<string> ContactFlowArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the user.
+        /// </summary>
         [Input("userArn", required: true)]
         public Input<string> UserArn { get; set; } = null!;
 

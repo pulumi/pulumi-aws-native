@@ -15,12 +15,23 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:Tracker")]
     public partial class Tracker : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the tracker resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description for the tracker resource.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -30,9 +41,23 @@ namespace Pulumi.AwsNative.Location
         [Output("kmsKeyEnableGeospatialQueries")]
         public Output<bool?> KmsKeyEnableGeospatialQueries { get; private set; } = null!;
 
+        /// <summary>
+        /// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the position filtering for the tracker resource.
+        /// 
+        /// Valid values:
+        /// 
+        /// - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+        /// - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+        /// - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+        /// 
+        /// This field is optional. If not specified, the default value is `TimeBased` .
+        /// </summary>
         [Output("positionFiltering")]
         public Output<Pulumi.AwsNative.Location.TrackerPositionFiltering?> PositionFiltering { get; private set; } = null!;
 
@@ -51,12 +76,29 @@ namespace Pulumi.AwsNative.Location
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+        /// </summary>
         [Output("trackerArn")]
         public Output<string> TrackerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the tracker resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique tracker resource name.
+        /// - No spaces allowed. For example, `ExampleTracker` .
+        /// </summary>
         [Output("trackerName")]
         public Output<string> TrackerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -110,6 +152,9 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class TrackerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An optional description for the tracker resource.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -119,9 +164,23 @@ namespace Pulumi.AwsNative.Location
         [Input("kmsKeyEnableGeospatialQueries")]
         public Input<bool>? KmsKeyEnableGeospatialQueries { get; set; }
 
+        /// <summary>
+        /// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Specifies the position filtering for the tracker resource.
+        /// 
+        /// Valid values:
+        /// 
+        /// - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+        /// - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+        /// - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+        /// 
+        /// This field is optional. If not specified, the default value is `TimeBased` .
+        /// </summary>
         [Input("positionFiltering")]
         public Input<Pulumi.AwsNative.Location.TrackerPositionFiltering>? PositionFiltering { get; set; }
 
@@ -146,6 +205,15 @@ namespace Pulumi.AwsNative.Location
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name for the tracker resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique tracker resource name.
+        /// - No spaces allowed. For example, `ExampleTracker` .
+        /// </summary>
         [Input("trackerName")]
         public Input<string>? TrackerName { get; set; }
 

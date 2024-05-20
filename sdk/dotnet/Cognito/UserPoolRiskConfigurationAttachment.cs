@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolRiskConfigurationAttachment")]
     public partial class UserPoolRiskConfigurationAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        /// </summary>
         [Output("accountTakeoverRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType?> AccountTakeoverRiskConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        /// </summary>
         [Output("compromisedCredentialsRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType?> CompromisedCredentialsRiskConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration to override the risk decision.
+        /// </summary>
         [Output("riskExceptionConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType?> RiskExceptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -80,18 +95,33 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolRiskConfigurationAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        /// </summary>
         [Input("accountTakeoverRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>? AccountTakeoverRiskConfiguration { get; set; }
 
+        /// <summary>
+        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>? CompromisedCredentialsRiskConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration to override the risk decision.
+        /// </summary>
         [Input("riskExceptionConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs>? RiskExceptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

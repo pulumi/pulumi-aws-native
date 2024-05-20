@@ -24,15 +24,27 @@ func LookupConfiguredTableAssociation(ctx *pulumi.Context, args *LookupConfigure
 }
 
 type LookupConfiguredTableAssociationArgs struct {
+	// Returns the unique identifier of the specified configured table association.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	ConfiguredTableAssociationIdentifier string `pulumi:"configuredTableAssociationIdentifier"`
-	MembershipIdentifier                 string `pulumi:"membershipIdentifier"`
+	// The unique ID for the membership this configured table association belongs to.
+	MembershipIdentifier string `pulumi:"membershipIdentifier"`
 }
 
 type LookupConfiguredTableAssociationResult struct {
-	Arn                                  *string `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) of the specified configured table association.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+	Arn *string `pulumi:"arn"`
+	// Returns the unique identifier of the specified configured table association.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	ConfiguredTableAssociationIdentifier *string `pulumi:"configuredTableAssociationIdentifier"`
-	Description                          *string `pulumi:"description"`
-	RoleArn                              *string `pulumi:"roleArn"`
+	// A description of the configured table association.
+	Description *string `pulumi:"description"`
+	// The service will assume this role to access catalog metadata and query the table.
+	RoleArn *string `pulumi:"roleArn"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -51,8 +63,12 @@ func LookupConfiguredTableAssociationOutput(ctx *pulumi.Context, args LookupConf
 }
 
 type LookupConfiguredTableAssociationOutputArgs struct {
+	// Returns the unique identifier of the specified configured table association.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 	ConfiguredTableAssociationIdentifier pulumi.StringInput `pulumi:"configuredTableAssociationIdentifier"`
-	MembershipIdentifier                 pulumi.StringInput `pulumi:"membershipIdentifier"`
+	// The unique ID for the membership this configured table association belongs to.
+	MembershipIdentifier pulumi.StringInput `pulumi:"membershipIdentifier"`
 }
 
 func (LookupConfiguredTableAssociationOutputArgs) ElementType() reflect.Type {
@@ -73,18 +89,26 @@ func (o LookupConfiguredTableAssociationResultOutput) ToLookupConfiguredTableAss
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified configured table association.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o LookupConfiguredTableAssociationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Returns the unique identifier of the specified configured table association.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
 func (o LookupConfiguredTableAssociationResultOutput) ConfiguredTableAssociationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableAssociationResult) *string { return v.ConfiguredTableAssociationIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A description of the configured table association.
 func (o LookupConfiguredTableAssociationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableAssociationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The service will assume this role to access catalog metadata and query the table.
 func (o LookupConfiguredTableAssociationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfiguredTableAssociationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

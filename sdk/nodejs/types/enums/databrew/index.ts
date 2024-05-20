@@ -86,6 +86,9 @@ export const JobOutputCompressionFormat = {
     Zlib: "ZLIB",
 } as const;
 
+/**
+ * The compression algorithm used to compress the output text of the job.
+ */
 export type JobOutputCompressionFormat = (typeof JobOutputCompressionFormat)[keyof typeof JobOutputCompressionFormat];
 
 export const JobOutputFormat = {
@@ -99,6 +102,9 @@ export const JobOutputFormat = {
     Tableauhyper: "TABLEAUHYPER",
 } as const;
 
+/**
+ * The data format of the output of the job.
+ */
 export type JobOutputFormat = (typeof JobOutputFormat)[keyof typeof JobOutputFormat];
 
 export const JobSampleMode = {

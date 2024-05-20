@@ -19,6 +19,9 @@ class DomainNameArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        :param pulumi.Input[str] domain_name: The domain name.
+        :param pulumi.Input[str] description: The decription for your domain name.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -28,6 +31,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
@@ -37,6 +43,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -46,6 +55,9 @@ class DomainNameArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The decription for your domain name.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,6 +79,9 @@ class DomainName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        :param pulumi.Input[str] description: The decription for your domain name.
+        :param pulumi.Input[str] domain_name: The domain name.
         """
         ...
     @overload
@@ -147,25 +162,40 @@ class DomainName(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appSyncDomainName")
     def app_sync_domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name provided by AWS AppSync .
+        """
         return pulumi.get(self, "app_sync_domain_name")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The decription for your domain name.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        The ID of your Amazon Route 53 hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateKpiConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field well configuration of a KPI visual.
+        /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateKpiFieldWellsArgs>? FieldWells { get; set; }
 
+        /// <summary>
+        /// The options that determine the presentation of a KPI visual.
+        /// </summary>
         [Input("kpiOptions")]
         public Input<Inputs.TemplateKpiOptionsArgs>? KpiOptions { get; set; }
 
+        /// <summary>
+        /// The sort configuration of a KPI visual.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplateKpiSortConfigurationArgs>? SortConfiguration { get; set; }
 

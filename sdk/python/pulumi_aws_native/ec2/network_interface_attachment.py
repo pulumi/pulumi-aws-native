@@ -27,6 +27,7 @@ class NetworkInterfaceAttachmentArgs:
         :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
         :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        :param pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs'] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -87,6 +88,9 @@ class NetworkInterfaceAttachmentArgs:
     @property
     @pulumi.getter(name="enaSrdSpecification")
     def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]:
+        """
+        Configures ENA Express for the network interface that this action attaches to the instance.
+        """
         return pulumi.get(self, "ena_srd_specification")
 
     @ena_srd_specification.setter
@@ -112,6 +116,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to true.
         :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+        :param pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
         :param pulumi.Input[str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[str] network_interface_id: The ID of the ENI that you want to attach.
         """
@@ -224,6 +229,9 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enaSrdSpecification")
     def ena_srd_specification(self) -> pulumi.Output[Optional['outputs.NetworkInterfaceAttachmentEnaSrdSpecification']]:
+        """
+        Configures ENA Express for the network interface that this action attaches to the instance.
+        """
         return pulumi.get(self, "ena_srd_specification")
 
     @property

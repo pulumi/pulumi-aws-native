@@ -17,16 +17,28 @@ import (
 type Listener struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
-	AwsId             pulumi.StringOutput         `pulumi:"awsId"`
-	DefaultAction     ListenerDefaultActionOutput `pulumi:"defaultAction"`
-	Name              pulumi.StringPtrOutput      `pulumi:"name"`
-	Port              pulumi.IntPtrOutput         `pulumi:"port"`
-	Protocol          ListenerProtocolOutput      `pulumi:"protocol"`
-	ServiceArn        pulumi.StringOutput         `pulumi:"serviceArn"`
-	ServiceId         pulumi.StringOutput         `pulumi:"serviceId"`
-	ServiceIdentifier pulumi.StringPtrOutput      `pulumi:"serviceIdentifier"`
-	Tags              aws.TagArrayOutput          `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the listener.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the listener.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+	DefaultAction ListenerDefaultActionOutput `pulumi:"defaultAction"`
+	// The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// The listener protocol.
+	Protocol ListenerProtocolOutput `pulumi:"protocol"`
+	// The Amazon Resource Name (ARN) of the service.
+	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
+	// The ID of the service.
+	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	// The ID or Amazon Resource Name (ARN) of the service.
+	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
+	// The tags for the listener.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -82,22 +94,38 @@ func (ListenerState) ElementType() reflect.Type {
 }
 
 type listenerArgs struct {
-	DefaultAction     ListenerDefaultAction `pulumi:"defaultAction"`
-	Name              *string               `pulumi:"name"`
-	Port              *int                  `pulumi:"port"`
-	Protocol          ListenerProtocol      `pulumi:"protocol"`
-	ServiceIdentifier *string               `pulumi:"serviceIdentifier"`
-	Tags              []aws.Tag             `pulumi:"tags"`
+	// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+	DefaultAction ListenerDefaultAction `pulumi:"defaultAction"`
+	// The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name *string `pulumi:"name"`
+	// The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+	Port *int `pulumi:"port"`
+	// The listener protocol.
+	Protocol ListenerProtocol `pulumi:"protocol"`
+	// The ID or Amazon Resource Name (ARN) of the service.
+	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
+	// The tags for the listener.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	DefaultAction     ListenerDefaultActionInput
-	Name              pulumi.StringPtrInput
-	Port              pulumi.IntPtrInput
-	Protocol          ListenerProtocolInput
+	// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+	DefaultAction ListenerDefaultActionInput
+	// The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrInput
+	// The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
+	Port pulumi.IntPtrInput
+	// The listener protocol.
+	Protocol ListenerProtocolInput
+	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput
-	Tags              aws.TagArrayInput
+	// The tags for the listener.
+	Tags aws.TagArrayInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {
@@ -137,42 +165,54 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the listener.
 func (o ListenerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the listener.
 func (o ListenerOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
 func (o ListenerOutput) DefaultAction() ListenerDefaultActionOutput {
 	return o.ApplyT(func(v *Listener) ListenerDefaultActionOutput { return v.DefaultAction }).(ListenerDefaultActionOutput)
 }
 
+// The name of the listener. A listener name must be unique within a service. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+//
+// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 func (o ListenerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
 func (o ListenerOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The listener protocol.
 func (o ListenerOutput) Protocol() ListenerProtocolOutput {
 	return o.ApplyT(func(v *Listener) ListenerProtocolOutput { return v.Protocol }).(ListenerProtocolOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o ListenerOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }
 
+// The ID of the service.
 func (o ListenerOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }
 
+// The ID or Amazon Resource Name (ARN) of the service.
 func (o ListenerOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the listener.
 func (o ListenerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Listener) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

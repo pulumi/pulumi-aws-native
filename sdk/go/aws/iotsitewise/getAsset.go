@@ -34,14 +34,18 @@ type LookupAssetResult struct {
 	// A description for the asset
 	AssetDescription *string `pulumi:"assetDescription"`
 	// The External ID of the asset
-	AssetExternalId  *string          `pulumi:"assetExternalId"`
+	AssetExternalId *string `pulumi:"assetExternalId"`
+	// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
 	AssetHierarchies []AssetHierarchy `pulumi:"assetHierarchies"`
 	// The ID of the asset
 	AssetId *string `pulumi:"assetId"`
 	// The ID of the asset model from which to create the asset.
 	AssetModelId *string `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset.
-	AssetName       *string         `pulumi:"assetName"`
+	AssetName *string `pulumi:"assetName"`
+	// The list of asset properties for the asset.
+	//
+	// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 	AssetProperties []AssetProperty `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -98,6 +102,7 @@ func (o LookupAssetResultOutput) AssetExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetResult) *string { return v.AssetExternalId }).(pulumi.StringPtrOutput)
 }
 
+// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
 func (o LookupAssetResultOutput) AssetHierarchies() AssetHierarchyArrayOutput {
 	return o.ApplyT(func(v LookupAssetResult) []AssetHierarchy { return v.AssetHierarchies }).(AssetHierarchyArrayOutput)
 }
@@ -117,6 +122,9 @@ func (o LookupAssetResultOutput) AssetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetResult) *string { return v.AssetName }).(pulumi.StringPtrOutput)
 }
 
+// The list of asset properties for the asset.
+//
+// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 func (o LookupAssetResultOutput) AssetProperties() AssetPropertyArrayOutput {
 	return o.ApplyT(func(v LookupAssetResult) []AssetProperty { return v.AssetProperties }).(AssetPropertyArrayOutput)
 }

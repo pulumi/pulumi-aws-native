@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFilterCrossSheetControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+        /// </summary>
         [Input("cascadingControlConfiguration")]
         public Input<Inputs.AnalysisCascadingControlConfigurationArgs>? CascadingControlConfiguration { get; set; }
 
+        /// <summary>
+        /// The ID of the `FilterCrossSheetControl` .
+        /// </summary>
         [Input("filterControlId", required: true)]
         public Input<string> FilterControlId { get; set; } = null!;
 
+        /// <summary>
+        /// The source filter ID of the `FilterCrossSheetControl` .
+        /// </summary>
         [Input("sourceFilterId", required: true)]
         public Input<string> SourceFilterId { get; set; } = null!;
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
     public sealed class RuleGroupCaptchaConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
+        /// </summary>
         [Input("immunityTimeProperty")]
         public Input<Inputs.RuleGroupImmunityTimePropertyArgs>? ImmunityTimeProperty { get; set; }
 

@@ -49,6 +49,9 @@ export class AccessPolicy extends pulumi.CustomResource {
      * The JSON policy document that is the content for the policy
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The type of access policy. Currently the only option is `data` .
+     */
     public readonly type!: pulumi.Output<enums.opensearchserverless.AccessPolicyType>;
 
     /**
@@ -101,5 +104,8 @@ export interface AccessPolicyArgs {
      * The JSON policy document that is the content for the policy
      */
     policy: pulumi.Input<string>;
+    /**
+     * The type of access policy. Currently the only option is `data` .
+     */
     type: pulumi.Input<enums.opensearchserverless.AccessPolicyType>;
 }

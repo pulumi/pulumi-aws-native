@@ -27,6 +27,9 @@ export interface GetDefaultViewAssociationResult {
      * The AWS principal that the default view is associated with, used as the unique identifier for this resource.
      */
     readonly associatedAwsPrincipal?: string;
+    /**
+     * The ARN of the view to set as the default for the AWS Region and AWS account in which you call this operation. The specified view must already exist in the specified Region.
+     */
     readonly viewArn?: string;
 }
 /**

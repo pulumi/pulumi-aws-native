@@ -16,12 +16,18 @@ import (
 type Package struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput             `pulumi:"arn"`
-	CreatedTime     pulumi.IntOutput                `pulumi:"createdTime"`
-	PackageId       pulumi.StringOutput             `pulumi:"packageId"`
-	PackageName     pulumi.StringOutput             `pulumi:"packageName"`
+	// The package's ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// When the package was created.
+	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
+	// The package's ID.
+	PackageId pulumi.StringOutput `pulumi:"packageId"`
+	// A name for the package.
+	PackageName pulumi.StringOutput `pulumi:"packageName"`
+	// A storage location.
 	StorageLocation PackageStorageLocationPtrOutput `pulumi:"storageLocation"`
-	Tags            aws.TagArrayOutput              `pulumi:"tags"`
+	// Tags for the package.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPackage registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +74,22 @@ func (PackageState) ElementType() reflect.Type {
 }
 
 type packageArgs struct {
-	PackageName     *string                 `pulumi:"packageName"`
+	// A name for the package.
+	PackageName *string `pulumi:"packageName"`
+	// A storage location.
 	StorageLocation *PackageStorageLocation `pulumi:"storageLocation"`
-	Tags            []aws.Tag               `pulumi:"tags"`
+	// Tags for the package.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Package resource.
 type PackageArgs struct {
-	PackageName     pulumi.StringPtrInput
+	// A name for the package.
+	PackageName pulumi.StringPtrInput
+	// A storage location.
 	StorageLocation PackageStorageLocationPtrInput
-	Tags            aws.TagArrayInput
+	// Tags for the package.
+	Tags aws.TagArrayInput
 }
 
 func (PackageArgs) ElementType() reflect.Type {
@@ -117,26 +129,32 @@ func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOu
 	return o
 }
 
+// The package's ARN.
 func (o PackageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// When the package was created.
 func (o PackageOutput) CreatedTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *Package) pulumi.IntOutput { return v.CreatedTime }).(pulumi.IntOutput)
 }
 
+// The package's ID.
 func (o PackageOutput) PackageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageId }).(pulumi.StringOutput)
 }
 
+// A name for the package.
 func (o PackageOutput) PackageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
 }
 
+// A storage location.
 func (o PackageOutput) StorageLocation() PackageStorageLocationPtrOutput {
 	return o.ApplyT(func(v *Package) PackageStorageLocationPtrOutput { return v.StorageLocation }).(PackageStorageLocationPtrOutput)
 }
 
+// Tags for the package.
 func (o PackageOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Package) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

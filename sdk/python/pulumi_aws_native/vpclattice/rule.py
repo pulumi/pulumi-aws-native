@@ -28,6 +28,15 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+        :param pulumi.Input['RuleActionArgs'] action: Describes the action for a rule.
+        :param pulumi.Input['RuleMatchArgs'] match: The rule match.
+        :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -44,6 +53,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input['RuleActionArgs']:
+        """
+        Describes the action for a rule.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -53,6 +65,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def match(self) -> pulumi.Input['RuleMatchArgs']:
+        """
+        The rule match.
+        """
         return pulumi.get(self, "match")
 
     @match.setter
@@ -62,6 +77,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
+        """
+        The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -71,6 +89,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_identifier")
 
     @listener_identifier.setter
@@ -80,6 +101,11 @@ class RuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -89,6 +115,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @service_identifier.setter
@@ -98,6 +127,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -123,6 +155,15 @@ class Rule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['RuleActionArgs']] action: Describes the action for a rule.
+        :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[pulumi.InputType['RuleMatchArgs']] match: The rule match.
+        :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the rule.
         """
         ...
     @overload
@@ -217,45 +258,74 @@ class Rule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.RuleAction']:
+        """
+        Describes the action for a rule.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the rule.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the listener.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_identifier")
 
     @property
     @pulumi.getter
     def match(self) -> pulumi.Output['outputs.RuleMatch']:
+        """
+        The rule match.
+        """
         return pulumi.get(self, "match")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
+        """
+        The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service.
+        """
         return pulumi.get(self, "service_identifier")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the rule.
+        """
         return pulumi.get(self, "tags")
 

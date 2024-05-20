@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the field used for the document title.
+        /// </summary>
         [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
         [Input("fieldMappings")]
         private InputList<Inputs.DataSourceToIndexFieldMappingArgs>? _fieldMappings;
+
+        /// <summary>
+        /// One or more objects that map fields in attachments to Amazon Kendra index fields.
+        /// </summary>
         public InputList<Inputs.DataSourceToIndexFieldMappingArgs> FieldMappings
         {
             get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceToIndexFieldMappingArgs>());

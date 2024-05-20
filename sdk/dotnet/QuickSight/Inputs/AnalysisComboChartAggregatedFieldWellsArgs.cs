@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("barValues")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _barValues;
+
+        /// <summary>
+        /// The aggregated `BarValues` field well of a combo chart.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> BarValues
         {
             get => _barValues ?? (_barValues = new InputList<Inputs.AnalysisMeasureFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("category")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _category;
+
+        /// <summary>
+        /// The aggregated category field wells of a combo chart.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Category
         {
             get => _category ?? (_category = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("colors")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _colors;
+
+        /// <summary>
+        /// The aggregated colors field well of a combo chart.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -38,6 +50,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("lineValues")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _lineValues;
+
+        /// <summary>
+        /// The aggregated `LineValues` field well of a combo chart.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> LineValues
         {
             get => _lineValues ?? (_lineValues = new InputList<Inputs.AnalysisMeasureFieldArgs>());

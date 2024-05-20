@@ -16,18 +16,57 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class DetectorModelAction
     {
+        /// <summary>
+        /// Information needed to clear the timer.
+        /// </summary>
         public readonly Outputs.DetectorModelClearTimer? ClearTimer;
+        /// <summary>
+        /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        /// </summary>
         public readonly Outputs.DetectorModelDynamoDBv2? DynamoDBv2;
+        /// <summary>
+        /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        /// </summary>
         public readonly Outputs.DetectorModelDynamoDb? DynamoDb;
+        /// <summary>
+        /// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.DetectorModelFirehose? Firehose;
+        /// <summary>
+        /// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+        /// </summary>
         public readonly Outputs.DetectorModelIotEvents? IotEvents;
+        /// <summary>
+        /// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+        /// </summary>
         public readonly Outputs.DetectorModelIotSiteWise? IotSiteWise;
+        /// <summary>
+        /// Publishes an MQTT message with the given topic to the AWS IoT message broker.
+        /// </summary>
         public readonly Outputs.DetectorModelIotTopicPublish? IotTopicPublish;
+        /// <summary>
+        /// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+        /// </summary>
         public readonly Outputs.DetectorModelLambda? Lambda;
+        /// <summary>
+        /// Information needed to reset the timer.
+        /// </summary>
         public readonly Outputs.DetectorModelResetTimer? ResetTimer;
+        /// <summary>
+        /// Information needed to set the timer.
+        /// </summary>
         public readonly Outputs.DetectorModelSetTimer? SetTimer;
+        /// <summary>
+        /// Sets a variable to a specified value.
+        /// </summary>
         public readonly Outputs.DetectorModelSetVariable? SetVariable;
+        /// <summary>
+        /// Sends an Amazon SNS message.
+        /// </summary>
         public readonly Outputs.DetectorModelSns? Sns;
+        /// <summary>
+        /// Sends an Amazon SNS message.
+        /// </summary>
         public readonly Outputs.DetectorModelSqs? Sqs;
 
         [OutputConstructor]

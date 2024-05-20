@@ -7,6 +7,17 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Msk
 {
+    /// <summary>
+    /// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
+    /// 
+    /// `TLS` means that client-broker communication is enabled with TLS only.
+    /// 
+    /// `TLS_PLAINTEXT` means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
+    /// 
+    /// `PLAINTEXT` means that client-broker communication is enabled in plaintext only.
+    /// 
+    /// The default value is `TLS` .
+    /// </summary>
     [EnumType]
     public readonly struct ClusterEncryptionInTransitClientBroker : IEquatable<ClusterEncryptionInTransitClientBroker>
     {
@@ -36,6 +47,9 @@ namespace Pulumi.AwsNative.Msk
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
+    /// </summary>
     [EnumType]
     public readonly struct ClusterEnhancedMonitoring : IEquatable<ClusterEnhancedMonitoring>
     {
@@ -66,6 +80,9 @@ namespace Pulumi.AwsNative.Msk
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// This controls storage mode for supported storage tiers.
+    /// </summary>
     [EnumType]
     public readonly struct ClusterStorageMode : IEquatable<ClusterStorageMode>
     {

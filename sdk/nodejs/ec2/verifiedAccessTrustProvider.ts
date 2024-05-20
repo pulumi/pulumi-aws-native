@@ -45,6 +45,9 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
      * A description for the Amazon Web Services Verified Access trust provider.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The options for device-identity trust provider.
+     */
     public readonly deviceOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderDeviceOptions | undefined>;
     /**
      * The type of device-based trust provider. Possible values: jamf|crowdstrike
@@ -54,6 +57,9 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
      * The last updated time.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * The options for an OpenID Connect-compatible user-identity trust provider.
+     */
     public readonly oidcOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderOidcOptions | undefined>;
     /**
      * The identifier to be used when working with policy rules.
@@ -138,11 +144,17 @@ export interface VerifiedAccessTrustProviderArgs {
      * A description for the Amazon Web Services Verified Access trust provider.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The options for device-identity trust provider.
+     */
     deviceOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderDeviceOptionsArgs>;
     /**
      * The type of device-based trust provider. Possible values: jamf|crowdstrike
      */
     deviceTrustProviderType?: pulumi.Input<string>;
+    /**
+     * The options for an OpenID Connect-compatible user-identity trust provider.
+     */
     oidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderOidcOptionsArgs>;
     /**
      * The identifier to be used when working with policy rules.

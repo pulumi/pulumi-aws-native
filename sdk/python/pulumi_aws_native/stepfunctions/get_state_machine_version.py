@@ -29,11 +29,17 @@ class GetStateMachineVersionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description of the state machine version.
+        """
         return pulumi.get(self, "description")
 
 
@@ -51,6 +57,9 @@ def get_state_machine_version(arn: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineVersionResult:
     """
     Resource schema for StateMachineVersion
+
+
+    :param str arn: Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -67,5 +76,8 @@ def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineVersionResult]:
     """
     Resource schema for StateMachineVersion
+
+
+    :param str arn: Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
     """
     ...

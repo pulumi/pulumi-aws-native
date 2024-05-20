@@ -34,9 +34,21 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolUiCustomizationAttachment.__pulumiType;
     }
 
+    /**
+     * The resource ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+     */
     public readonly clientId!: pulumi.Output<string>;
+    /**
+     * The CSS values in the UI customization.
+     */
     public readonly css!: pulumi.Output<string | undefined>;
+    /**
+     * The user pool ID for the user pool.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -77,7 +89,16 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
  */
 export interface UserPoolUiCustomizationAttachmentArgs {
+    /**
+     * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+     */
     clientId: pulumi.Input<string>;
+    /**
+     * The CSS values in the UI customization.
+     */
     css?: pulumi.Input<string>;
+    /**
+     * The user pool ID for the user pool.
+     */
     userPoolId: pulumi.Input<string>;
 }

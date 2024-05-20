@@ -25,6 +25,11 @@ class EnabledBaselineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EnabledBaseline resource.
+        :param pulumi.Input[str] baseline_identifier: The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+        :param pulumi.Input[str] baseline_version: The enabled version of the `Baseline` .
+        :param pulumi.Input[str] target_identifier: The target on which to enable the `Baseline` .
+        :param pulumi.Input[Sequence[pulumi.Input['EnabledBaselineParameterArgs']]] parameters: Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with input to `EnableBaseline` .
         """
         pulumi.set(__self__, "baseline_identifier", baseline_identifier)
         pulumi.set(__self__, "baseline_version", baseline_version)
@@ -37,6 +42,9 @@ class EnabledBaselineArgs:
     @property
     @pulumi.getter(name="baselineIdentifier")
     def baseline_identifier(self) -> pulumi.Input[str]:
+        """
+        The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+        """
         return pulumi.get(self, "baseline_identifier")
 
     @baseline_identifier.setter
@@ -46,6 +54,9 @@ class EnabledBaselineArgs:
     @property
     @pulumi.getter(name="baselineVersion")
     def baseline_version(self) -> pulumi.Input[str]:
+        """
+        The enabled version of the `Baseline` .
+        """
         return pulumi.get(self, "baseline_version")
 
     @baseline_version.setter
@@ -55,6 +66,9 @@ class EnabledBaselineArgs:
     @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Input[str]:
+        """
+        The target on which to enable the `Baseline` .
+        """
         return pulumi.get(self, "target_identifier")
 
     @target_identifier.setter
@@ -64,6 +78,9 @@ class EnabledBaselineArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnabledBaselineParameterArgs']]]]:
+        """
+        Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -73,6 +90,9 @@ class EnabledBaselineArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags associated with input to `EnableBaseline` .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,6 +116,11 @@ class EnabledBaseline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] baseline_identifier: The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+        :param pulumi.Input[str] baseline_version: The enabled version of the `Baseline` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledBaselineParameterArgs']]]] parameters: Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with input to `EnableBaseline` .
+        :param pulumi.Input[str] target_identifier: The target on which to enable the `Baseline` .
         """
         ...
     @overload
@@ -182,30 +207,48 @@ class EnabledBaseline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="baselineIdentifier")
     def baseline_identifier(self) -> pulumi.Output[str]:
+        """
+        The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+        """
         return pulumi.get(self, "baseline_identifier")
 
     @property
     @pulumi.getter(name="baselineVersion")
     def baseline_version(self) -> pulumi.Output[str]:
+        """
+        The enabled version of the `Baseline` .
+        """
         return pulumi.get(self, "baseline_version")
 
     @property
     @pulumi.getter(name="enabledBaselineIdentifier")
     def enabled_baseline_identifier(self) -> pulumi.Output[str]:
+        """
+        The ARN of the `EnabledBaseline` resource.
+        """
         return pulumi.get(self, "enabled_baseline_identifier")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.EnabledBaselineParameter']]]:
+        """
+        Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags associated with input to `EnableBaseline` .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Output[str]:
+        """
+        The target on which to enable the `Baseline` .
+        """
         return pulumi.get(self, "target_identifier")
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateBodySectionContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The layout configuration of a body section.
+        /// </summary>
         [Input("layout")]
         public Input<Inputs.TemplateSectionLayoutConfigurationArgs>? Layout { get; set; }
 

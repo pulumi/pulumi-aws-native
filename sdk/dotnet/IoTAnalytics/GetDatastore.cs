@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetDatastoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the data store.
+        /// </summary>
         [Input("datastoreName", required: true)]
         public string DatastoreName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetDatastoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the data store.
+        /// </summary>
         [Input("datastoreName", required: true)]
         public Input<string> DatastoreName { get; set; } = null!;
 
@@ -51,11 +57,32 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [OutputType]
     public sealed class GetDatastoreResult
     {
+        /// <summary>
+        /// Information about the partition dimensions in a data store.
+        /// </summary>
         public readonly Outputs.DatastorePartitions? DatastorePartitions;
+        /// <summary>
+        /// Where data store data is stored.
+        /// </summary>
         public readonly Outputs.DatastoreStorage? DatastoreStorage;
+        /// <summary>
+        /// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        /// 
+        /// The default file format is JSON. You can specify only one format.
+        /// 
+        /// You can't change the file format after you create the data store.
+        /// </summary>
         public readonly Outputs.DatastoreFileFormatConfiguration? FileFormatConfiguration;
         public readonly string? Id;
+        /// <summary>
+        /// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        /// </summary>
         public readonly Outputs.DatastoreRetentionPeriod? RetentionPeriod;
+        /// <summary>
+        /// Metadata which can be used to manage the data store.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

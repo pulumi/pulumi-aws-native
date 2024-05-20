@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.IvsChat.Outputs
     [OutputType]
     public sealed class LoggingConfigurationDestinationConfiguration
     {
+        /// <summary>
+        /// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        /// </summary>
         public readonly Outputs.LoggingConfigurationCloudWatchLogsDestinationConfiguration? CloudWatchLogs;
+        /// <summary>
+        /// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        /// </summary>
         public readonly Outputs.LoggingConfigurationFirehoseDestinationConfiguration? Firehose;
+        /// <summary>
+        /// An Amazon S3 destination configuration where chat activity will be logged.
+        /// </summary>
         public readonly Outputs.LoggingConfigurationS3DestinationConfiguration? S3;
 
         [OutputConstructor]

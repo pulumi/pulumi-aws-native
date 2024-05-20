@@ -41,11 +41,17 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[Sequence[str]]:
+        """
+        The ARNs of the canaries that you want to associate with this group.
+        """
         return pulumi.get(self, "resource_arns")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of key-value pairs that are associated with the group.
+        """
         return pulumi.get(self, "tags")
 
 

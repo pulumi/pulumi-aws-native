@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("mqttTopic", required: true)]
         public Input<string> MqttTopic { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
 

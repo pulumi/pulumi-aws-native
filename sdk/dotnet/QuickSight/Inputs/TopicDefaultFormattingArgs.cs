@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicDefaultFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display format. Valid values for this structure are `AUTO` , `PERCENT` , `CURRENCY` , `NUMBER` , `DATE` , and `STRING` .
+        /// </summary>
         [Input("displayFormat")]
         public Input<Pulumi.AwsNative.QuickSight.TopicDisplayFormat>? DisplayFormat { get; set; }
 
+        /// <summary>
+        /// The additional options for display formatting.
+        /// </summary>
         [Input("displayFormatOptions")]
         public Input<Inputs.TopicDisplayFormatOptionsArgs>? DisplayFormatOptions { get; set; }
 

@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationTask
     {
+        /// <summary>
+        /// The operation to be performed on the provided source fields.
+        /// </summary>
         public readonly Outputs.IntegrationConnectorOperator? ConnectorOperator;
+        /// <summary>
+        /// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        /// </summary>
         public readonly string? DestinationField;
+        /// <summary>
+        /// The source fields to which a particular task is applied.
+        /// </summary>
         public readonly ImmutableArray<string> SourceFields;
+        /// <summary>
+        /// A map used to store task-related information. The service looks for particular information based on the TaskType.
+        /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationTaskPropertiesMap> TaskProperties;
+        /// <summary>
+        /// Specifies the particular task implementation that Amazon AppFlow performs.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationTaskType TaskType;
 
         [OutputConstructor]

@@ -21,6 +21,7 @@ class UserAccessLoggingSettingsArgs:
         """
         The set of arguments for constructing a UserAccessLoggingSettings resource.
         :param pulumi.Input[str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "kinesis_stream_arn", kinesis_stream_arn)
         if tags is not None:
@@ -41,6 +42,9 @@ class UserAccessLoggingSettingsArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the user access logging settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -62,6 +66,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -135,6 +140,9 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of web portal ARNs that this user access logging settings is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
@@ -148,10 +156,16 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the user access logging settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userAccessLoggingSettingsArn")
     def user_access_logging_settings_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the user access logging settings.
+        """
         return pulumi.get(self, "user_access_logging_settings_arn")
 

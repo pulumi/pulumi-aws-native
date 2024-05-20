@@ -54,6 +54,9 @@ class GetNodegroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) associated with the managed node group.
+        """
         return pulumi.get(self, "arn")
 
     @property

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetGroupIdentifierArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the security group.
+        /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 

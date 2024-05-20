@@ -39,9 +39,14 @@ class ExperimentMetricGoalObjectArgs:
                  event_pattern: Optional[pulumi.Input[str]] = None,
                  unit_label: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['ExperimentMetricGoalObjectDesiredChange'] desired_change: `INCREASE` means that a variation with a higher number for this metric is performing better.
+               
+               `DECREASE` means that a variation with a lower number for this metric is performing better.
         :param pulumi.Input[str] entity_id_key: The JSON path to reference the entity id in the event.
+        :param pulumi.Input[str] metric_name: A name for the metric. It can include up to 255 characters.
         :param pulumi.Input[str] value_key: The JSON path to reference the numerical metric value in the event.
         :param pulumi.Input[str] event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+        :param pulumi.Input[str] unit_label: A label for the units that the metric is measuring.
         """
         pulumi.set(__self__, "desired_change", desired_change)
         pulumi.set(__self__, "entity_id_key", entity_id_key)
@@ -55,6 +60,11 @@ class ExperimentMetricGoalObjectArgs:
     @property
     @pulumi.getter(name="desiredChange")
     def desired_change(self) -> pulumi.Input['ExperimentMetricGoalObjectDesiredChange']:
+        """
+        `INCREASE` means that a variation with a higher number for this metric is performing better.
+
+        `DECREASE` means that a variation with a lower number for this metric is performing better.
+        """
         return pulumi.get(self, "desired_change")
 
     @desired_change.setter
@@ -76,6 +86,9 @@ class ExperimentMetricGoalObjectArgs:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
+        """
+        A name for the metric. It can include up to 255 characters.
+        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -109,6 +122,9 @@ class ExperimentMetricGoalObjectArgs:
     @property
     @pulumi.getter(name="unitLabel")
     def unit_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A label for the units that the metric is measuring.
+        """
         return pulumi.get(self, "unit_label")
 
     @unit_label.setter
@@ -121,6 +137,10 @@ class ExperimentOnlineAbConfigObjectArgs:
     def __init__(__self__, *,
                  control_treatment_name: Optional[pulumi.Input[str]] = None,
                  treatment_weights: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]] = None):
+        """
+        :param pulumi.Input[str] control_treatment_name: The name of the variation that is to be the default variation that the other variations are compared to.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]] treatment_weights: A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
+        """
         if control_treatment_name is not None:
             pulumi.set(__self__, "control_treatment_name", control_treatment_name)
         if treatment_weights is not None:
@@ -129,6 +149,9 @@ class ExperimentOnlineAbConfigObjectArgs:
     @property
     @pulumi.getter(name="controlTreatmentName")
     def control_treatment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variation that is to be the default variation that the other variations are compared to.
+        """
         return pulumi.get(self, "control_treatment_name")
 
     @control_treatment_name.setter
@@ -138,6 +161,9 @@ class ExperimentOnlineAbConfigObjectArgs:
     @property
     @pulumi.getter(name="treatmentWeights")
     def treatment_weights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]:
+        """
+        A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
+        """
         return pulumi.get(self, "treatment_weights")
 
     @treatment_weights.setter
@@ -223,6 +249,12 @@ class ExperimentTreatmentObjectArgs:
                  treatment_name: pulumi.Input[str],
                  variation: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] feature: The name of the feature for this experiment.
+        :param pulumi.Input[str] treatment_name: A name for this treatment. It can include up to 127 characters.
+        :param pulumi.Input[str] variation: The name of the variation to use for this treatment.
+        :param pulumi.Input[str] description: The description of the treatment.
+        """
         pulumi.set(__self__, "feature", feature)
         pulumi.set(__self__, "treatment_name", treatment_name)
         pulumi.set(__self__, "variation", variation)
@@ -232,6 +264,9 @@ class ExperimentTreatmentObjectArgs:
     @property
     @pulumi.getter
     def feature(self) -> pulumi.Input[str]:
+        """
+        The name of the feature for this experiment.
+        """
         return pulumi.get(self, "feature")
 
     @feature.setter
@@ -241,6 +276,9 @@ class ExperimentTreatmentObjectArgs:
     @property
     @pulumi.getter(name="treatmentName")
     def treatment_name(self) -> pulumi.Input[str]:
+        """
+        A name for this treatment. It can include up to 127 characters.
+        """
         return pulumi.get(self, "treatment_name")
 
     @treatment_name.setter
@@ -250,6 +288,9 @@ class ExperimentTreatmentObjectArgs:
     @property
     @pulumi.getter
     def variation(self) -> pulumi.Input[str]:
+        """
+        The name of the variation to use for this treatment.
+        """
         return pulumi.get(self, "variation")
 
     @variation.setter
@@ -259,6 +300,9 @@ class ExperimentTreatmentObjectArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the treatment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -271,12 +315,19 @@ class ExperimentTreatmentToWeightArgs:
     def __init__(__self__, *,
                  split_weight: pulumi.Input[int],
                  treatment: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] split_weight: The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+        :param pulumi.Input[str] treatment: The name of the treatment.
+        """
         pulumi.set(__self__, "split_weight", split_weight)
         pulumi.set(__self__, "treatment", treatment)
 
     @property
     @pulumi.getter(name="splitWeight")
     def split_weight(self) -> pulumi.Input[int]:
+        """
+        The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+        """
         return pulumi.get(self, "split_weight")
 
     @split_weight.setter
@@ -286,6 +337,9 @@ class ExperimentTreatmentToWeightArgs:
     @property
     @pulumi.getter
     def treatment(self) -> pulumi.Input[str]:
+        """
+        The name of the treatment.
+        """
         return pulumi.get(self, "treatment")
 
     @treatment.setter
@@ -298,6 +352,10 @@ class FeatureEntityOverrideArgs:
     def __init__(__self__, *,
                  entity_id: Optional[pulumi.Input[str]] = None,
                  variation: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] entity_id: The entity ID to be served the variation specified in `Variation` .
+        :param pulumi.Input[str] variation: The name of the variation to serve to the user session that matches the `EntityId` .
+        """
         if entity_id is not None:
             pulumi.set(__self__, "entity_id", entity_id)
         if variation is not None:
@@ -306,6 +364,9 @@ class FeatureEntityOverrideArgs:
     @property
     @pulumi.getter(name="entityId")
     def entity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The entity ID to be served the variation specified in `Variation` .
+        """
         return pulumi.get(self, "entity_id")
 
     @entity_id.setter
@@ -315,6 +376,9 @@ class FeatureEntityOverrideArgs:
     @property
     @pulumi.getter
     def variation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variation to serve to the user session that matches the `EntityId` .
+        """
         return pulumi.get(self, "variation")
 
     @variation.setter
@@ -330,6 +394,13 @@ class FeatureVariationObjectArgs:
                  long_value: Optional[pulumi.Input[float]] = None,
                  string_value: Optional[pulumi.Input[str]] = None,
                  variation_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] boolean_value: The value assigned to this variation, if the variation type is boolean.
+        :param pulumi.Input[float] double_value: The value assigned to this variation, if the variation type is a double.
+        :param pulumi.Input[float] long_value: The value assigned to this variation, if the variation type is a long.
+        :param pulumi.Input[str] string_value: The value assigned to this variation, if the variation type is a string.
+        :param pulumi.Input[str] variation_name: A name for the variation. It can include up to 127 characters.
+        """
         if boolean_value is not None:
             pulumi.set(__self__, "boolean_value", boolean_value)
         if double_value is not None:
@@ -344,6 +415,9 @@ class FeatureVariationObjectArgs:
     @property
     @pulumi.getter(name="booleanValue")
     def boolean_value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value assigned to this variation, if the variation type is boolean.
+        """
         return pulumi.get(self, "boolean_value")
 
     @boolean_value.setter
@@ -353,6 +427,9 @@ class FeatureVariationObjectArgs:
     @property
     @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The value assigned to this variation, if the variation type is a double.
+        """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
@@ -362,6 +439,9 @@ class FeatureVariationObjectArgs:
     @property
     @pulumi.getter(name="longValue")
     def long_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The value assigned to this variation, if the variation type is a long.
+        """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
@@ -371,6 +451,9 @@ class FeatureVariationObjectArgs:
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value assigned to this variation, if the variation type is a string.
+        """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
@@ -380,6 +463,9 @@ class FeatureVariationObjectArgs:
     @property
     @pulumi.getter(name="variationName")
     def variation_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the variation. It can include up to 127 characters.
+        """
         return pulumi.get(self, "variation_name")
 
     @variation_name.setter
@@ -448,6 +534,12 @@ class LaunchGroupObjectArgs:
                  group_name: pulumi.Input[str],
                  variation: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] feature: The feature that this launch is using.
+        :param pulumi.Input[str] group_name: A name for this launch group. It can include up to 127 characters.
+        :param pulumi.Input[str] variation: The feature variation to use for this launch group.
+        :param pulumi.Input[str] description: A description of the launch group.
+        """
         pulumi.set(__self__, "feature", feature)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "variation", variation)
@@ -457,6 +549,9 @@ class LaunchGroupObjectArgs:
     @property
     @pulumi.getter
     def feature(self) -> pulumi.Input[str]:
+        """
+        The feature that this launch is using.
+        """
         return pulumi.get(self, "feature")
 
     @feature.setter
@@ -466,6 +561,9 @@ class LaunchGroupObjectArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
+        """
+        A name for this launch group. It can include up to 127 characters.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -475,6 +573,9 @@ class LaunchGroupObjectArgs:
     @property
     @pulumi.getter
     def variation(self) -> pulumi.Input[str]:
+        """
+        The feature variation to use for this launch group.
+        """
         return pulumi.get(self, "variation")
 
     @variation.setter
@@ -484,6 +585,9 @@ class LaunchGroupObjectArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the launch group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -496,12 +600,21 @@ class LaunchGroupToWeightArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
                  split_weight: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] group_name: The name of the launch group. It can include up to 127 characters.
+        :param pulumi.Input[int] split_weight: The portion of launch traffic to allocate to this launch group.
+               
+               This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
+        """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "split_weight", split_weight)
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the launch group. It can include up to 127 characters.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -511,6 +624,11 @@ class LaunchGroupToWeightArgs:
     @property
     @pulumi.getter(name="splitWeight")
     def split_weight(self) -> pulumi.Input[int]:
+        """
+        The portion of launch traffic to allocate to this launch group.
+
+        This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
+        """
         return pulumi.get(self, "split_weight")
 
     @split_weight.setter
@@ -528,8 +646,10 @@ class LaunchMetricDefinitionObjectArgs:
                  unit_label: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] entity_id_key: The JSON path to reference the entity id in the event.
+        :param pulumi.Input[str] metric_name: A name for the metric. It can include up to 255 characters.
         :param pulumi.Input[str] value_key: The JSON path to reference the numerical metric value in the event.
         :param pulumi.Input[str] event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+        :param pulumi.Input[str] unit_label: A label for the units that the metric is measuring.
         """
         pulumi.set(__self__, "entity_id_key", entity_id_key)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -554,6 +674,9 @@ class LaunchMetricDefinitionObjectArgs:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
+        """
+        A name for the metric. It can include up to 255 characters.
+        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -587,6 +710,9 @@ class LaunchMetricDefinitionObjectArgs:
     @property
     @pulumi.getter(name="unitLabel")
     def unit_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A label for the units that the metric is measuring.
+        """
         return pulumi.get(self, "unit_label")
 
     @unit_label.setter
@@ -600,6 +726,11 @@ class LaunchSegmentOverrideArgs:
                  evaluation_order: pulumi.Input[int],
                  segment: pulumi.Input[str],
                  weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]):
+        """
+        :param pulumi.Input[int] evaluation_order: A number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+        :param pulumi.Input[str] segment: The ARN of the segment to use for this override.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]] weights: The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+        """
         pulumi.set(__self__, "evaluation_order", evaluation_order)
         pulumi.set(__self__, "segment", segment)
         pulumi.set(__self__, "weights", weights)
@@ -607,6 +738,9 @@ class LaunchSegmentOverrideArgs:
     @property
     @pulumi.getter(name="evaluationOrder")
     def evaluation_order(self) -> pulumi.Input[int]:
+        """
+        A number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+        """
         return pulumi.get(self, "evaluation_order")
 
     @evaluation_order.setter
@@ -616,6 +750,9 @@ class LaunchSegmentOverrideArgs:
     @property
     @pulumi.getter
     def segment(self) -> pulumi.Input[str]:
+        """
+        The ARN of the segment to use for this override.
+        """
         return pulumi.get(self, "segment")
 
     @segment.setter
@@ -625,6 +762,9 @@ class LaunchSegmentOverrideArgs:
     @property
     @pulumi.getter
     def weights(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]:
+        """
+        The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+        """
         return pulumi.get(self, "weights")
 
     @weights.setter
@@ -638,6 +778,13 @@ class LaunchStepConfigArgs:
                  group_weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
                  start_time: pulumi.Input[str],
                  segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]] group_weights: An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
+        :param pulumi.Input[str] start_time: The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]] segment_overrides: An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+               
+               For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
+        """
         pulumi.set(__self__, "group_weights", group_weights)
         pulumi.set(__self__, "start_time", start_time)
         if segment_overrides is not None:
@@ -646,6 +793,9 @@ class LaunchStepConfigArgs:
     @property
     @pulumi.getter(name="groupWeights")
     def group_weights(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]:
+        """
+        An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
+        """
         return pulumi.get(self, "group_weights")
 
     @group_weights.setter
@@ -655,6 +805,9 @@ class LaunchStepConfigArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Input[str]:
+        """
+        The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
+        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -664,6 +817,11 @@ class LaunchStepConfigArgs:
     @property
     @pulumi.getter(name="segmentOverrides")
     def segment_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]:
+        """
+        An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+
+        For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
+        """
         return pulumi.get(self, "segment_overrides")
 
     @segment_overrides.setter
@@ -676,12 +834,19 @@ class ProjectAppConfigResourceObjectArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  environment_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] application_id: The ID of the AWS AppConfig application to use for client-side evaluation.
+        :param pulumi.Input[str] environment_id: The ID of the AWS AppConfig environment to use for client-side evaluation.
+        """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "environment_id", environment_id)
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AWS AppConfig application to use for client-side evaluation.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -691,6 +856,9 @@ class ProjectAppConfigResourceObjectArgs:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AWS AppConfig environment to use for client-side evaluation.
+        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -705,6 +873,8 @@ class ProjectDataDeliveryObjectArgs:
                  s3: Optional[pulumi.Input['ProjectS3DestinationArgs']] = None):
         """
         Destinations for data.
+        :param pulumi.Input[str] log_group: If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
+        :param pulumi.Input['ProjectS3DestinationArgs'] s3: If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
         """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
@@ -714,6 +884,9 @@ class ProjectDataDeliveryObjectArgs:
     @property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
+        """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
@@ -723,6 +896,9 @@ class ProjectDataDeliveryObjectArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['ProjectS3DestinationArgs']]:
+        """
+        If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -735,6 +911,10 @@ class ProjectS3DestinationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The name of the bucket in which Evidently stores evaluation events.
+        :param pulumi.Input[str] prefix: The bucket prefix in which Evidently stores evaluation events.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -742,6 +922,9 @@ class ProjectS3DestinationArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the bucket in which Evidently stores evaluation events.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -751,6 +934,9 @@ class ProjectS3DestinationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket prefix in which Evidently stores evaluation events.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter

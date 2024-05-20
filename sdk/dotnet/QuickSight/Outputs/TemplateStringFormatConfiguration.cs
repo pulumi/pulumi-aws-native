@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateStringFormatConfiguration
     {
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         public readonly Outputs.TemplateNullValueFormatConfiguration? NullValueFormatConfiguration;
+        /// <summary>
+        /// The formatting configuration for numeric strings.
+        /// </summary>
         public readonly Outputs.TemplateNumericFormatConfiguration? NumericFormatConfiguration;
 
         [OutputConstructor]

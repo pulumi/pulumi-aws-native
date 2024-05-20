@@ -90,9 +90,24 @@ import (
 type Activity struct {
 	pulumi.CustomResourceState
 
-	Arn  pulumi.StringOutput `pulumi:"arn"`
+	// Returns the ARN of the resource.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the activity.
+	//
+	// A name must *not* contain:
+	//
+	// - white space
+	// - brackets `< > { } [ ]`
+	// - wildcard characters `? *`
+	// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
+	// - control characters ( `U+0000-001F` , `U+007F-009F` )
+	//
+	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name pulumi.StringOutput `pulumi:"name"`
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewActivity registers a new resource with the given unique name, arguments, and options.
@@ -139,13 +154,41 @@ func (ActivityState) ElementType() reflect.Type {
 }
 
 type activityArgs struct {
-	Name *string   `pulumi:"name"`
+	// The name of the activity.
+	//
+	// A name must *not* contain:
+	//
+	// - white space
+	// - brackets `< > { } [ ]`
+	// - wildcard characters `? *`
+	// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
+	// - control characters ( `U+0000-001F` , `U+007F-009F` )
+	//
+	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+	Name *string `pulumi:"name"`
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
+	// The name of the activity.
+	//
+	// A name must *not* contain:
+	//
+	// - white space
+	// - brackets `< > { } [ ]`
+	// - wildcard characters `? *`
+	// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
+	// - control characters ( `U+0000-001F` , `U+007F-009F` )
+	//
+	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name pulumi.StringPtrInput
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags aws.TagArrayInput
 }
 
@@ -186,14 +229,29 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 	return o
 }
 
+// Returns the ARN of the resource.
 func (o ActivityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the activity.
+//
+// A name must *not* contain:
+//
+// - white space
+// - brackets `< > { } [ ]`
+// - wildcard characters `? *`
+// - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
+// - control characters ( `U+0000-001F` , `U+007F-009F` )
+//
+// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 func (o ActivityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The list of tags to add to a resource.
+//
+// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 func (o ActivityOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Activity) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

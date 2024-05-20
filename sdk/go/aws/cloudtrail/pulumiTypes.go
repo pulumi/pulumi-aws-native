@@ -877,6 +877,9 @@ func (o TrailDataResourceArrayOutput) Index(i pulumi.IntInput) TrailDataResource
 
 // The type of email sending events to publish to the event destination.
 type TrailEventSelector struct {
+	// CloudTrail supports data event logging for Amazon S3 objects, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+	//
+	// For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
 	DataResources []TrailDataResource `pulumi:"dataResources"`
 	// An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
 	ExcludeManagementEventSources []string `pulumi:"excludeManagementEventSources"`
@@ -899,6 +902,9 @@ type TrailEventSelectorInput interface {
 
 // The type of email sending events to publish to the event destination.
 type TrailEventSelectorArgs struct {
+	// CloudTrail supports data event logging for Amazon S3 objects, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+	//
+	// For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
 	DataResources TrailDataResourceArrayInput `pulumi:"dataResources"`
 	// An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
 	ExcludeManagementEventSources pulumi.StringArrayInput `pulumi:"excludeManagementEventSources"`
@@ -960,6 +966,9 @@ func (o TrailEventSelectorOutput) ToTrailEventSelectorOutputWithContext(ctx cont
 	return o
 }
 
+// CloudTrail supports data event logging for Amazon S3 objects, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+//
+// For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
 func (o TrailEventSelectorOutput) DataResources() TrailDataResourceArrayOutput {
 	return o.ApplyT(func(v TrailEventSelector) []TrailDataResource { return v.DataResources }).(TrailDataResourceArrayOutput)
 }

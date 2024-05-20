@@ -81,9 +81,15 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of steps that are defined by the recipe.
+        /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.RecipeStep>> Steps { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata tags that have been applied to the recipe.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -151,6 +157,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("steps", required: true)]
         private InputList<Inputs.RecipeStepArgs>? _steps;
+
+        /// <summary>
+        /// A list of steps that are defined by the recipe.
+        /// </summary>
         public InputList<Inputs.RecipeStepArgs> Steps
         {
             get => _steps ?? (_steps = new InputList<Inputs.RecipeStepArgs>());
@@ -159,6 +169,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata tags that have been applied to the recipe.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

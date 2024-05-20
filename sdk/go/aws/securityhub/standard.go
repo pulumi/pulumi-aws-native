@@ -23,7 +23,8 @@ type Standard struct {
 	//  *Maximum*: ``100``
 	DisabledStandardsControls StandardsControlArrayOutput `pulumi:"disabledStandardsControls"`
 	// The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
-	StandardsArn             pulumi.StringOutput `pulumi:"standardsArn"`
+	StandardsArn pulumi.StringOutput `pulumi:"standardsArn"`
+	// The ARN of a resource that represents your subscription to a supported standard.
 	StandardsSubscriptionArn pulumi.StringOutput `pulumi:"standardsSubscriptionArn"`
 }
 
@@ -139,6 +140,7 @@ func (o StandardOutput) StandardsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.StandardsArn }).(pulumi.StringOutput)
 }
 
+// The ARN of a resource that represents your subscription to a supported standard.
 func (o StandardOutput) StandardsSubscriptionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.StandardsSubscriptionArn }).(pulumi.StringOutput)
 }

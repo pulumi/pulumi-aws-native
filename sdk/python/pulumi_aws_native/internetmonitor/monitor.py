@@ -33,6 +33,40 @@ class MonitorArgs:
                  traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+        :param pulumi.Input['MonitorHealthEventsConfigArgs'] health_events_config: A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
+               
+               Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Amazon CloudWatch Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
+               
+               You can also set thresholds for local health scores,, where Internet Monitor creates a health event when scores cross a threshold for one or more city-networks, in addition to creating an event when an overall score crosses a threshold.
+               
+               If you don't set a health event threshold, the default value is 95%.
+               
+               For local thresholds, you also set a minimum percentage of overall traffic that is impacted by an issue before Internet Monitor creates an event. In addition, you can disable local thresholds, for performance scores, availability scores, or both.
+               
+               For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
+        :param pulumi.Input[bool] include_linked_accounts: A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        :param pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
+        :param pulumi.Input[str] linked_account_id: The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+               
+               For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+        :param pulumi.Input[str] monitor_name: The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+               
+               > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_to_add: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
+               
+               You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together with any other resources.
+               
+               If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
+               
+               > You can specify this field for a monitor update only if the `Resources` field is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_to_remove: The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
+               
+               > You can specify this field for a monitor update only if the `Resources` field is empty.
+        :param pulumi.Input['MonitorConfigState'] status: The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for a monitor, listed as a set of *key:value* pairs.
+        :param pulumi.Input[int] traffic_percentage_to_monitor: The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
         """
         if health_events_config is not None:
             pulumi.set(__self__, "health_events_config", health_events_config)
@@ -62,6 +96,19 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="healthEventsConfig")
     def health_events_config(self) -> Optional[pulumi.Input['MonitorHealthEventsConfigArgs']]:
+        """
+        A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
+
+        Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Amazon CloudWatch Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
+
+        You can also set thresholds for local health scores,, where Internet Monitor creates a health event when scores cross a threshold for one or more city-networks, in addition to creating an event when an overall score crosses a threshold.
+
+        If you don't set a health event threshold, the default value is 95%.
+
+        For local thresholds, you also set a minimum percentage of overall traffic that is impacted by an issue before Internet Monitor creates an event. In addition, you can disable local thresholds, for performance scores, availability scores, or both.
+
+        For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
+        """
         return pulumi.get(self, "health_events_config")
 
     @health_events_config.setter
@@ -71,6 +118,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="includeLinkedAccounts")
     def include_linked_accounts(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        """
         return pulumi.get(self, "include_linked_accounts")
 
     @include_linked_accounts.setter
@@ -80,6 +130,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
     def internet_measurements_log_delivery(self) -> Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']]:
+        """
+        Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
+        """
         return pulumi.get(self, "internet_measurements_log_delivery")
 
     @internet_measurements_log_delivery.setter
@@ -89,6 +142,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="linkedAccountId")
     def linked_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        """
         return pulumi.get(self, "linked_account_id")
 
     @linked_account_id.setter
@@ -98,6 +154,11 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")
     def max_city_networks_to_monitor(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+
+        For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+        """
         return pulumi.get(self, "max_city_networks_to_monitor")
 
     @max_city_networks_to_monitor.setter
@@ -107,6 +168,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="monitorName")
     def monitor_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+        """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
@@ -116,6 +180,11 @@ class MonitorArgs:
     @property
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+
+        > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+        """
         return pulumi.get(self, "resources")
 
     @resources.setter
@@ -125,6 +194,15 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="resourcesToAdd")
     def resources_to_add(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
+
+        You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together with any other resources.
+
+        If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
+
+        > You can specify this field for a monitor update only if the `Resources` field is empty.
+        """
         return pulumi.get(self, "resources_to_add")
 
     @resources_to_add.setter
@@ -134,6 +212,11 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="resourcesToRemove")
     def resources_to_remove(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
+
+        > You can specify this field for a monitor update only if the `Resources` field is empty.
+        """
         return pulumi.get(self, "resources_to_remove")
 
     @resources_to_remove.setter
@@ -143,6 +226,9 @@ class MonitorArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['MonitorConfigState']]:
+        """
+        The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -152,6 +238,9 @@ class MonitorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for a monitor, listed as a set of *key:value* pairs.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -161,6 +250,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="trafficPercentageToMonitor")
     def traffic_percentage_to_monitor(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+        """
         return pulumi.get(self, "traffic_percentage_to_monitor")
 
     @traffic_percentage_to_monitor.setter
@@ -191,6 +283,40 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['MonitorHealthEventsConfigArgs']] health_events_config: A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
+               
+               Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Amazon CloudWatch Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
+               
+               You can also set thresholds for local health scores,, where Internet Monitor creates a health event when scores cross a threshold for one or more city-networks, in addition to creating an event when an overall score crosses a threshold.
+               
+               If you don't set a health event threshold, the default value is 95%.
+               
+               For local thresholds, you also set a minimum percentage of overall traffic that is impacted by an issue before Internet Monitor creates an event. In addition, you can disable local thresholds, for performance scores, availability scores, or both.
+               
+               For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
+        :param pulumi.Input[bool] include_linked_accounts: A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        :param pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
+        :param pulumi.Input[str] linked_account_id: The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+               
+               For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+        :param pulumi.Input[str] monitor_name: The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+               
+               > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_to_add: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
+               
+               You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together with any other resources.
+               
+               If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
+               
+               > You can specify this field for a monitor update only if the `Resources` field is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_to_remove: The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
+               
+               > You can specify this field for a monitor update only if the `Resources` field is empty.
+        :param pulumi.Input['MonitorConfigState'] status: The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for a monitor, listed as a set of *key:value* pairs.
+        :param pulumi.Input[int] traffic_percentage_to_monitor: The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
         """
         ...
     @overload
@@ -300,85 +426,158 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time when the monitor was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="healthEventsConfig")
     def health_events_config(self) -> pulumi.Output[Optional['outputs.MonitorHealthEventsConfig']]:
+        """
+        A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
+
+        Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Amazon CloudWatch Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
+
+        You can also set thresholds for local health scores,, where Internet Monitor creates a health event when scores cross a threshold for one or more city-networks, in addition to creating an event when an overall score crosses a threshold.
+
+        If you don't set a health event threshold, the default value is 95%.
+
+        For local thresholds, you also set a minimum percentage of overall traffic that is impacted by an issue before Internet Monitor creates an event. In addition, you can disable local thresholds, for performance scores, availability scores, or both.
+
+        For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
+        """
         return pulumi.get(self, "health_events_config")
 
     @property
     @pulumi.getter(name="includeLinkedAccounts")
     def include_linked_accounts(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        """
         return pulumi.get(self, "include_linked_accounts")
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
     def internet_measurements_log_delivery(self) -> pulumi.Output[Optional['outputs.MonitorInternetMeasurementsLogDelivery']]:
+        """
+        Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
+        """
         return pulumi.get(self, "internet_measurements_log_delivery")
 
     @property
     @pulumi.getter(name="linkedAccountId")
     def linked_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
+        """
         return pulumi.get(self, "linked_account_id")
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")
     def max_city_networks_to_monitor(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+
+        For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+        """
         return pulumi.get(self, "max_city_networks_to_monitor")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        The last time that the monitor was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter(name="monitorArn")
     def monitor_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the monitor.
+        """
         return pulumi.get(self, "monitor_arn")
 
     @property
     @pulumi.getter(name="monitorName")
     def monitor_name(self) -> pulumi.Output[str]:
+        """
+        The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
+        """
         return pulumi.get(self, "monitor_name")
 
     @property
     @pulumi.getter(name="processingStatus")
     def processing_status(self) -> pulumi.Output['MonitorProcessingStatusCode']:
+        """
+        The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
+        """
         return pulumi.get(self, "processing_status")
 
     @property
     @pulumi.getter(name="processingStatusInfo")
     def processing_status_info(self) -> pulumi.Output[str]:
+        """
+        Additional information about the health of the data processing for the monitor.
+        """
         return pulumi.get(self, "processing_status_info")
 
     @property
     @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+
+        > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+        """
         return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter(name="resourcesToAdd")
     def resources_to_add(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs). Resources can be Amazon Virtual Private Cloud VPCs, Network Load Balancers (NLBs), Amazon CloudFront distributions, or Amazon WorkSpaces directories.
+
+        You can add a combination of VPCs and CloudFront distributions, or you can add WorkSpaces directories, or you can add NLBs. You can't add NLBs or WorkSpaces directories together with any other resources.
+
+        If you add only VPC resources, at least one VPC must have an Internet Gateway attached to it, to make sure that it has internet connectivity.
+
+        > You can specify this field for a monitor update only if the `Resources` field is empty.
+        """
         return pulumi.get(self, "resources_to_add")
 
     @property
     @pulumi.getter(name="resourcesToRemove")
     def resources_to_remove(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The resources to remove from a monitor, which you provide as a set of Amazon Resource Names (ARNs)
+
+        > You can specify this field for a monitor update only if the `Resources` field is empty.
+        """
         return pulumi.get(self, "resources_to_remove")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['MonitorConfigState']]:
+        """
+        The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for a monitor, listed as a set of *key:value* pairs.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trafficPercentageToMonitor")
     def traffic_percentage_to_monitor(self) -> pulumi.Output[Optional[int]]:
+        """
+        The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+        """
         return pulumi.get(self, "traffic_percentage_to_monitor")
 

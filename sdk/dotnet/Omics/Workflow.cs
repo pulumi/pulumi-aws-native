@@ -18,42 +18,81 @@ namespace Pulumi.AwsNative.Omics
         [Output("accelerators")]
         public Output<Pulumi.AwsNative.Omics.WorkflowAccelerators?> Accelerators { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN for the workflow.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The workflow's ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// When the workflow was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The URI of a definition for the workflow.
+        /// </summary>
         [Output("definitionUri")]
         public Output<string?> DefinitionUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameter's description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An engine for the workflow.
+        /// </summary>
         [Output("engine")]
         public Output<Pulumi.AwsNative.Omics.WorkflowEngine?> Engine { get; private set; } = null!;
 
+        /// <summary>
+        /// The path of the main definition file for the workflow.
+        /// </summary>
         [Output("main")]
         public Output<string?> Main { get; private set; } = null!;
 
+        /// <summary>
+        /// The workflow's name.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The workflow's parameter template.
+        /// </summary>
         [Output("parameterTemplate")]
         public Output<ImmutableDictionary<string, Outputs.WorkflowParameter>?> ParameterTemplate { get; private set; } = null!;
 
+        /// <summary>
+        /// The workflow's status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Omics.WorkflowStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The default storage capacity for the workflow runs, in gibibytes.
+        /// </summary>
         [Output("storageCapacity")]
         public Output<double?> StorageCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the workflow.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The workflow's type.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Omics.WorkflowType> Type { get; private set; } = null!;
 
@@ -114,34 +153,60 @@ namespace Pulumi.AwsNative.Omics
         [Input("accelerators")]
         public Input<Pulumi.AwsNative.Omics.WorkflowAccelerators>? Accelerators { get; set; }
 
+        /// <summary>
+        /// The URI of a definition for the workflow.
+        /// </summary>
         [Input("definitionUri")]
         public Input<string>? DefinitionUri { get; set; }
 
+        /// <summary>
+        /// The parameter's description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// An engine for the workflow.
+        /// </summary>
         [Input("engine")]
         public Input<Pulumi.AwsNative.Omics.WorkflowEngine>? Engine { get; set; }
 
+        /// <summary>
+        /// The path of the main definition file for the workflow.
+        /// </summary>
         [Input("main")]
         public Input<string>? Main { get; set; }
 
+        /// <summary>
+        /// The workflow's name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameterTemplate")]
         private InputMap<Inputs.WorkflowParameterArgs>? _parameterTemplate;
+
+        /// <summary>
+        /// The workflow's parameter template.
+        /// </summary>
         public InputMap<Inputs.WorkflowParameterArgs> ParameterTemplate
         {
             get => _parameterTemplate ?? (_parameterTemplate = new InputMap<Inputs.WorkflowParameterArgs>());
             set => _parameterTemplate = value;
         }
 
+        /// <summary>
+        /// The default storage capacity for the workflow runs, in gibibytes.
+        /// </summary>
         [Input("storageCapacity")]
         public Input<double>? StorageCapacity { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags for the workflow.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

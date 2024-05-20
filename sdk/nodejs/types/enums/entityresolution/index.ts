@@ -6,6 +6,9 @@ export const IdMappingWorkflowIdMappingTechniquesIdMappingType = {
     Provider: "PROVIDER",
 } as const;
 
+/**
+ * The type of ID mapping.
+ */
 export type IdMappingWorkflowIdMappingTechniquesIdMappingType = (typeof IdMappingWorkflowIdMappingTechniquesIdMappingType)[keyof typeof IdMappingWorkflowIdMappingTechniquesIdMappingType];
 
 export const IdMappingWorkflowInputSourceType = {
@@ -13,12 +16,22 @@ export const IdMappingWorkflowInputSourceType = {
     Target: "TARGET",
 } as const;
 
+/**
+ * The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+ *
+ * The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+ *
+ * The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+ */
 export type IdMappingWorkflowInputSourceType = (typeof IdMappingWorkflowInputSourceType)[keyof typeof IdMappingWorkflowInputSourceType];
 
 export const IdNamespaceIdMappingWorkflowPropertiesIdMappingType = {
     Provider: "PROVIDER",
 } as const;
 
+/**
+ * The type of ID mapping.
+ */
 export type IdNamespaceIdMappingWorkflowPropertiesIdMappingType = (typeof IdNamespaceIdMappingWorkflowPropertiesIdMappingType)[keyof typeof IdNamespaceIdMappingWorkflowPropertiesIdMappingType];
 
 export const IdNamespaceType = {
@@ -26,6 +39,13 @@ export const IdNamespaceType = {
     Target: "TARGET",
 } as const;
 
+/**
+ * The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+ *
+ * The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+ *
+ * The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+ */
 export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
 
 export const MatchingWorkflowResolutionTechniquesResolutionType = {
@@ -34,6 +54,9 @@ export const MatchingWorkflowResolutionTechniquesResolutionType = {
     Provider: "PROVIDER",
 } as const;
 
+/**
+ * The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+ */
 export type MatchingWorkflowResolutionTechniquesResolutionType = (typeof MatchingWorkflowResolutionTechniquesResolutionType)[keyof typeof MatchingWorkflowResolutionTechniquesResolutionType];
 
 export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
@@ -41,6 +64,9 @@ export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
     ManyToMany: "MANY_TO_MANY",
 } as const;
 
+/**
+ * The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
+ */
 export type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = (typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel)[keyof typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel];
 
 export const PolicyStatementStatementEffect = {

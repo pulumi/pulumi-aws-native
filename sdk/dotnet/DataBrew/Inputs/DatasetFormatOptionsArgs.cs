@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     /// </summary>
     public sealed class DatasetFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Options that define how CSV input is to be interpreted by DataBrew.
+        /// </summary>
         [Input("csv")]
         public Input<Inputs.DatasetCsvOptionsArgs>? Csv { get; set; }
 
+        /// <summary>
+        /// Options that define how Excel input is to be interpreted by DataBrew.
+        /// </summary>
         [Input("excel")]
         public Input<Inputs.DatasetExcelOptionsArgs>? Excel { get; set; }
 
+        /// <summary>
+        /// Options that define how JSON input is to be interpreted by DataBrew.
+        /// </summary>
         [Input("json")]
         public Input<Inputs.DatasetJsonOptionsArgs>? Json { get; set; }
 

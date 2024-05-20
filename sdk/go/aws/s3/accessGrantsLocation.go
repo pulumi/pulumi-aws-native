@@ -23,8 +23,9 @@ type AccessGrantsLocation struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
-	LocationScope pulumi.StringPtrOutput       `pulumi:"locationScope"`
-	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	LocationScope pulumi.StringPtrOutput `pulumi:"locationScope"`
+	// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessGrantsLocation registers a new resource with the given unique name, arguments, and options.
@@ -74,8 +75,9 @@ type accessGrantsLocationArgs struct {
 	// The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
-	LocationScope *string             `pulumi:"locationScope"`
-	Tags          []aws.CreateOnlyTag `pulumi:"tags"`
+	LocationScope *string `pulumi:"locationScope"`
+	// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrantsLocation resource.
@@ -84,7 +86,8 @@ type AccessGrantsLocationArgs struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Descriptor for where the location actually points
 	LocationScope pulumi.StringPtrInput
-	Tags          aws.CreateOnlyTagArrayInput
+	// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AccessGrantsLocationArgs) ElementType() reflect.Type {
@@ -144,6 +147,7 @@ func (o AccessGrantsLocationOutput) LocationScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringPtrOutput { return v.LocationScope }).(pulumi.StringPtrOutput)
 }
 
+// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 func (o AccessGrantsLocationOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

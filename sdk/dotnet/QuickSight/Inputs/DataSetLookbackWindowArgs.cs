@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("size", required: true)]
         public Input<double> Size { get; set; } = null!;
 
+        /// <summary>
+        /// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR` , `DAY` , and `WEEK` .
+        /// </summary>
         [Input("sizeUnit", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetLookbackWindowSizeUnit> SizeUnit { get; set; } = null!;
 

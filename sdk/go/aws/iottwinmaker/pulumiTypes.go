@@ -1697,7 +1697,9 @@ func (o ComponentTypeRelationshipPtrOutput) TargetComponentTypeId() pulumi.Strin
 }
 
 type ComponentTypeStatus struct {
-	Error interface{}               `pulumi:"error"`
+	// The component type error.
+	Error interface{} `pulumi:"error"`
+	// The component type status state.
 	State *ComponentTypeStatusState `pulumi:"state"`
 }
 
@@ -1715,10 +1717,12 @@ func (o ComponentTypeStatusOutput) ToComponentTypeStatusOutputWithContext(ctx co
 	return o
 }
 
+// The component type error.
 func (o ComponentTypeStatusOutput) Error() pulumi.AnyOutput {
 	return o.ApplyT(func(v ComponentTypeStatus) interface{} { return v.Error }).(pulumi.AnyOutput)
 }
 
+// The component type status state.
 func (o ComponentTypeStatusOutput) State() ComponentTypeStatusStatePtrOutput {
 	return o.ApplyT(func(v ComponentTypeStatus) *ComponentTypeStatusState { return v.State }).(ComponentTypeStatusStatePtrOutput)
 }
@@ -1747,6 +1751,7 @@ func (o ComponentTypeStatusPtrOutput) Elem() ComponentTypeStatusOutput {
 	}).(ComponentTypeStatusOutput)
 }
 
+// The component type error.
 func (o ComponentTypeStatusPtrOutput) Error() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ComponentTypeStatus) interface{} {
 		if v == nil {
@@ -1756,6 +1761,7 @@ func (o ComponentTypeStatusPtrOutput) Error() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// The component type status state.
 func (o ComponentTypeStatusPtrOutput) State() ComponentTypeStatusStatePtrOutput {
 	return o.ApplyT(func(v *ComponentTypeStatus) *ComponentTypeStatusState {
 		if v == nil {

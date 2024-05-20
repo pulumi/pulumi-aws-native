@@ -104,6 +104,13 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:InstanceProfile")]
     public partial class InstanceProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the instance profile. For example:
+        /// 
+        /// `{"Fn::GetAtt" : ["MyProfile", "Arn"] }`
+        /// 
+        /// This returns a value such as `arn:aws:iam::1234567890:instance-profile/MyProfile-ASDNSDLKJ` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleVariables
     {
+        /// <summary>
+        /// A list of IP addresses and address ranges, in CIDR notation.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.RuleGroupIpSet>? IpSets;
+        /// <summary>
+        /// A list of port ranges.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.RuleGroupPortSet>? PortSets;
 
         [OutputConstructor]

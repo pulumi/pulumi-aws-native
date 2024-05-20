@@ -18,7 +18,8 @@ type Deployment struct {
 
 	// The input configuration for a canary deployment.
 	DeploymentCanarySettings DeploymentCanarySettingsPtrOutput `pulumi:"deploymentCanarySettings"`
-	DeploymentId             pulumi.StringOutput               `pulumi:"deploymentId"`
+	// The ID for the deployment. For example: `abc123` .
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// The description for the Deployment resource to create.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The string identifier of the associated RestApi.
@@ -145,6 +146,7 @@ func (o DeploymentOutput) DeploymentCanarySettings() DeploymentCanarySettingsPtr
 	return o.ApplyT(func(v *Deployment) DeploymentCanarySettingsPtrOutput { return v.DeploymentCanarySettings }).(DeploymentCanarySettingsPtrOutput)
 }
 
+// The ID for the deployment. For example: `abc123` .
 func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }

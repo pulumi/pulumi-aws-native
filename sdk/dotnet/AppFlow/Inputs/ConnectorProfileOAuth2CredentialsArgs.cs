@@ -12,18 +12,30 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileOAuth2CredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access token used to access the connector on your behalf.
+        /// </summary>
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
 
+        /// <summary>
+        /// The identifier for the desired client.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// The client secret used by the OAuth client to authenticate to the authorization server.
+        /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
         [Input("oAuthRequest")]
         public Input<Inputs.ConnectorProfileConnectorOAuthRequestArgs>? OAuthRequest { get; set; }
 
+        /// <summary>
+        /// The refresh token used to refresh an expired access token.
+        /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }
 

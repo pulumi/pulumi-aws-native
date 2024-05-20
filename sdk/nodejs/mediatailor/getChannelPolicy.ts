@@ -16,6 +16,9 @@ export function getChannelPolicy(args: GetChannelPolicyArgs, opts?: pulumi.Invok
 }
 
 export interface GetChannelPolicyArgs {
+    /**
+     * The name of the channel associated with this Channel Policy.
+     */
     channelName: string;
 }
 
@@ -35,5 +38,8 @@ export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: 
 }
 
 export interface GetChannelPolicyOutputArgs {
+    /**
+     * The name of the channel associated with this Channel Policy.
+     */
     channelName: pulumi.Input<string>;
 }

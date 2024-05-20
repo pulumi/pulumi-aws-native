@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class GameServerGroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique identifier for an existing Amazon EC2 launch template.
+        /// </summary>
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
+        /// <summary>
+        /// A readable identifier for an existing Amazon EC2 launch template.
+        /// </summary>
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
+        /// <summary>
+        /// The version of the Amazon EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

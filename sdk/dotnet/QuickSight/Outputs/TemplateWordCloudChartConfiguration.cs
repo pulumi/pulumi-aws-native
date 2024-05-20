@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWordCloudChartConfiguration
     {
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) for the word cloud category.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.TemplateWordCloudFieldWells? FieldWells;
+        /// <summary>
+        /// The sort configuration of a word cloud visual.
+        /// </summary>
         public readonly Outputs.TemplateWordCloudSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The options for a word cloud visual.
+        /// </summary>
         public readonly Outputs.TemplateWordCloudOptions? WordCloudOptions;
 
         [OutputConstructor]

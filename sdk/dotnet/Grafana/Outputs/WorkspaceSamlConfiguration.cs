@@ -20,12 +20,21 @@ namespace Pulumi.AwsNative.Grafana.Outputs
         /// List of SAML organizations allowed to access Grafana.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrganizations;
+        /// <summary>
+        /// A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceAssertionAttributes? AssertionAttributes;
+        /// <summary>
+        /// A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceIdpMetadata IdpMetadata;
         /// <summary>
         /// The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
         /// </summary>
         public readonly double? LoginValidityDuration;
+        /// <summary>
+        /// A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceRoleValues? RoleValues;
 
         [OutputConstructor]

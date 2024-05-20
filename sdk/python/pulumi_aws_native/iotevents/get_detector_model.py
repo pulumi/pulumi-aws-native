@@ -41,6 +41,9 @@ class GetDetectorModelResult:
     @property
     @pulumi.getter(name="detectorModelDefinition")
     def detector_model_definition(self) -> Optional['outputs.DetectorModelDefinition']:
+        """
+        Information that defines how a detector operates.
+        """
         return pulumi.get(self, "detector_model_definition")
 
     @property

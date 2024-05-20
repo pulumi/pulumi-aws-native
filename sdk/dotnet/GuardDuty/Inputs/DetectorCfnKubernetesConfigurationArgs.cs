@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
 
     public sealed class DetectorCfnKubernetesConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+        /// </summary>
         [Input("auditLogs", required: true)]
         public Input<Inputs.DetectorCfnKubernetesAuditLogsConfigurationArgs> AuditLogs { get; set; } = null!;
 

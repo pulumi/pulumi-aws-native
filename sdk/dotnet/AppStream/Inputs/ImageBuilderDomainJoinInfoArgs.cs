@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class ImageBuilderDomainJoinInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fully qualified name of the directory (for example, corp.example.com).
+        /// </summary>
         [Input("directoryName")]
         public Input<string>? DirectoryName { get; set; }
 
+        /// <summary>
+        /// The distinguished name of the organizational unit for computer accounts.
+        /// </summary>
         [Input("organizationalUnitDistinguishedName")]
         public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
 

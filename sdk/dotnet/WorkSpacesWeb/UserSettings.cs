@@ -15,42 +15,81 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:UserSettings")]
     public partial class UserSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The additional encryption context of the user settings.
+        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of web portal ARNs that this user settings resource is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        /// </summary>
         [Output("cookieSynchronizationConfiguration")]
         public Output<Outputs.UserSettingsCookieSynchronizationConfiguration?> CookieSynchronizationConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can copy text from the streaming session to the local device.
+        /// </summary>
         [Output("copyAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> CopyAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// The customer managed key used to encrypt sensitive information in the user settings.
+        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The amount of time that a streaming session remains active after users disconnect.
+        /// </summary>
         [Output("disconnectTimeoutInMinutes")]
         public Output<double?> DisconnectTimeoutInMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can download files from the streaming session to the local device.
+        /// </summary>
         [Output("downloadAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> DownloadAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        /// </summary>
         [Output("idleDisconnectTimeoutInMinutes")]
         public Output<double?> IdleDisconnectTimeoutInMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can paste text from the local device to the streaming session.
+        /// </summary>
         [Output("pasteAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PasteAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can print to the local device.
+        /// </summary>
         [Output("printAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PrintAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the user settings resource. A tag is a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can upload files from the local device to the streaming session.
+        /// </summary>
         [Output("uploadAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> UploadAllowed { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the user settings.
+        /// </summary>
         [Output("userSettingsArn")]
         public Output<string> UserSettingsArn { get; private set; } = null!;
 
@@ -106,44 +145,79 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
+
+        /// <summary>
+        /// The additional encryption context of the user settings.
+        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
+        /// <summary>
+        /// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        /// </summary>
         [Input("cookieSynchronizationConfiguration")]
         public Input<Inputs.UserSettingsCookieSynchronizationConfigurationArgs>? CookieSynchronizationConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies whether the user can copy text from the streaming session to the local device.
+        /// </summary>
         [Input("copyAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> CopyAllowed { get; set; } = null!;
 
+        /// <summary>
+        /// The customer managed key used to encrypt sensitive information in the user settings.
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
+        /// <summary>
+        /// The amount of time that a streaming session remains active after users disconnect.
+        /// </summary>
         [Input("disconnectTimeoutInMinutes")]
         public Input<double>? DisconnectTimeoutInMinutes { get; set; }
 
+        /// <summary>
+        /// Specifies whether the user can download files from the streaming session to the local device.
+        /// </summary>
         [Input("downloadAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> DownloadAllowed { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        /// </summary>
         [Input("idleDisconnectTimeoutInMinutes")]
         public Input<double>? IdleDisconnectTimeoutInMinutes { get; set; }
 
+        /// <summary>
+        /// Specifies whether the user can paste text from the local device to the streaming session.
+        /// </summary>
         [Input("pasteAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PasteAllowed { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can print to the local device.
+        /// </summary>
         [Input("printAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PrintAllowed { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the user settings resource. A tag is a key-value pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies whether the user can upload files from the local device to the streaming session.
+        /// </summary>
         [Input("uploadAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> UploadAllowed { get; set; } = null!;
 

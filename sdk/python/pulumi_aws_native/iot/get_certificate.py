@@ -33,16 +33,35 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the certificate. For example:
+
+        `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
+
+        A value similar to the following is returned:
+
+        `arn:aws:iot:ap-southeast-2:123456789012:cert/a1234567b89c012d3e4fg567hij8k9l01mno1p23q45678901rs234567890t1u2`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The certificate ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['CertificateStatus']:
+        """
+        The status of the certificate.
+
+        Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
+
+        The status value REGISTER_INACTIVE is deprecated and should not be used.
+        """
         return pulumi.get(self, "status")
 
 
@@ -61,6 +80,9 @@ def get_certificate(id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
+
+
+    :param str id: The certificate ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +100,8 @@ def get_certificate_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
+
+
+    :param str id: The certificate ID.
     """
     ...

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableFieldImageConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The sizing options for the table image configuration.
+        /// </summary>
         [Input("sizingOptions")]
         public Input<Inputs.DashboardTableCellImageSizingConfigurationArgs>? SizingOptions { get; set; }
 

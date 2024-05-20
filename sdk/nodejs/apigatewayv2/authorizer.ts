@@ -45,6 +45,9 @@ export class Authorizer extends pulumi.CustomResource {
      * Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for ``REQUEST`` authorizers.
      */
     public readonly authorizerCredentialsArn!: pulumi.Output<string | undefined>;
+    /**
+     * The authorizer ID.
+     */
     public /*out*/ readonly authorizerId!: pulumi.Output<string>;
     /**
      * Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are ``1.0`` and ``2.0``. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).

@@ -98,6 +98,11 @@ class AnomalySubscriptionSubscriberArgs:
                  address: pulumi.Input[str],
                  type: pulumi.Input['AnomalySubscriptionSubscriberType'],
                  status: Optional[pulumi.Input['AnomalySubscriptionSubscriberStatus']] = None):
+        """
+        :param pulumi.Input[str] address: The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+        :param pulumi.Input['AnomalySubscriptionSubscriberType'] type: The notification delivery channel.
+        :param pulumi.Input['AnomalySubscriptionSubscriberStatus'] status: Indicates if the subscriber accepts the notifications.
+        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "type", type)
         if status is not None:
@@ -106,6 +111,9 @@ class AnomalySubscriptionSubscriberArgs:
     @property
     @pulumi.getter
     def address(self) -> pulumi.Input[str]:
+        """
+        The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -115,6 +123,9 @@ class AnomalySubscriptionSubscriberArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AnomalySubscriptionSubscriberType']:
+        """
+        The notification delivery channel.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -124,6 +135,9 @@ class AnomalySubscriptionSubscriberArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['AnomalySubscriptionSubscriberStatus']]:
+        """
+        Indicates if the subscriber accepts the notifications.
+        """
         return pulumi.get(self, "status")
 
     @status.setter

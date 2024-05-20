@@ -243,6 +243,7 @@ import (
 type Queue struct {
 	pulumi.CustomResourceState
 
+	// Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
 	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
@@ -273,7 +274,8 @@ type Queue struct {
 	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*.
 	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	QueueName pulumi.StringPtrOutput `pulumi:"queueName"`
-	QueueUrl  pulumi.StringOutput    `pulumi:"queueUrl"`
+	// Returns the URLs of the queues from the policy.
+	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
 	ReceiveMessageWaitTimeSeconds pulumi.IntPtrOutput `pulumi:"receiveMessageWaitTimeSeconds"`
 	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:
@@ -521,6 +523,7 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -588,6 +591,7 @@ func (o QueueOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.QueueName }).(pulumi.StringPtrOutput)
 }
 
+// Returns the URLs of the queues from the policy.
 func (o QueueOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
 }

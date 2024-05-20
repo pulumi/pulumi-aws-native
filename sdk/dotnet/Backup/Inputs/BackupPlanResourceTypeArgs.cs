@@ -14,17 +14,28 @@ namespace Pulumi.AwsNative.Backup.Inputs
     {
         [Input("advancedBackupSettings")]
         private InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>? _advancedBackupSettings;
+
+        /// <summary>
+        /// A list of backup options for each resource type.
+        /// </summary>
         public InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs> AdvancedBackupSettings
         {
             get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>());
             set => _advancedBackupSettings = value;
         }
 
+        /// <summary>
+        /// The display name of a backup plan.
+        /// </summary>
         [Input("backupPlanName", required: true)]
         public Input<string> BackupPlanName { get; set; } = null!;
 
         [Input("backupPlanRule", required: true)]
         private InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>? _backupPlanRule;
+
+        /// <summary>
+        /// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+        /// </summary>
         public InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs> BackupPlanRule
         {
             get => _backupPlanRule ?? (_backupPlanRule = new InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>());

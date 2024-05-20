@@ -697,9 +697,20 @@ namespace Pulumi.AwsNative.Cassandra
     [AwsNativeResourceType("aws-native:cassandra:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The optional auto scaling capacity settings for a table in provisioned capacity mode.
+        /// </summary>
         [Output("autoScalingSpecifications")]
         public Output<Outputs.TableAutoScalingSpecification?> AutoScalingSpecifications { get; private set; } = null!;
 
+        /// <summary>
+        /// The billing mode for the table, which determines how you'll be charged for reads and writes:
+        /// 
+        /// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+        /// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+        /// 
+        /// If you don't specify a value for this property, then the table will use on-demand mode.
+        /// </summary>
         [Output("billingMode")]
         public Output<Outputs.TableBillingMode?> BillingMode { get; private set; } = null!;
 
@@ -721,6 +732,16 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("defaultTimeToLive")]
         public Output<int?> DefaultTimeToLive { get; private set; } = null!;
 
+        /// <summary>
+        /// The encryption at rest options for the table.
+        /// 
+        /// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+        /// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+        /// 
+        /// &gt; If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+        /// 
+        /// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         [Output("encryptionSpecification")]
         public Output<Outputs.TableEncryptionSpecification?> EncryptionSpecification { get; private set; } = null!;
 
@@ -748,6 +769,15 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("regularColumns")]
         public Output<ImmutableArray<Outputs.TableColumn>> RegularColumns { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region specific settings of a multi-Region table.
+        /// 
+        /// For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+        /// 
+        /// - `region` : The Region where these settings are applied. (Required)
+        /// - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+        /// - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+        /// </summary>
         [Output("replicaSpecifications")]
         public Output<ImmutableArray<Outputs.TableReplicaSpecification>> ReplicaSpecifications { get; private set; } = null!;
 
@@ -816,9 +846,20 @@ namespace Pulumi.AwsNative.Cassandra
 
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The optional auto scaling capacity settings for a table in provisioned capacity mode.
+        /// </summary>
         [Input("autoScalingSpecifications")]
         public Input<Inputs.TableAutoScalingSpecificationArgs>? AutoScalingSpecifications { get; set; }
 
+        /// <summary>
+        /// The billing mode for the table, which determines how you'll be charged for reads and writes:
+        /// 
+        /// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+        /// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+        /// 
+        /// If you don't specify a value for this property, then the table will use on-demand mode.
+        /// </summary>
         [Input("billingMode")]
         public Input<Inputs.TableBillingModeArgs>? BillingMode { get; set; }
 
@@ -846,6 +887,16 @@ namespace Pulumi.AwsNative.Cassandra
         [Input("defaultTimeToLive")]
         public Input<int>? DefaultTimeToLive { get; set; }
 
+        /// <summary>
+        /// The encryption at rest options for the table.
+        /// 
+        /// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+        /// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+        /// 
+        /// &gt; If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+        /// 
+        /// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
+        /// </summary>
         [Input("encryptionSpecification")]
         public Input<Inputs.TableEncryptionSpecificationArgs>? EncryptionSpecification { get; set; }
 
@@ -887,6 +938,16 @@ namespace Pulumi.AwsNative.Cassandra
 
         [Input("replicaSpecifications")]
         private InputList<Inputs.TableReplicaSpecificationArgs>? _replicaSpecifications;
+
+        /// <summary>
+        /// The AWS Region specific settings of a multi-Region table.
+        /// 
+        /// For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+        /// 
+        /// - `region` : The Region where these settings are applied. (Required)
+        /// - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+        /// - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+        /// </summary>
         public InputList<Inputs.TableReplicaSpecificationArgs> ReplicaSpecifications
         {
             get => _replicaSpecifications ?? (_replicaSpecifications = new InputList<Inputs.TableReplicaSpecificationArgs>());

@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAccessScopePacketHeaderStatementRequest
     {
+        /// <summary>
+        /// The destination addresses.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
+        /// <summary>
+        /// The destination ports.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationPorts;
+        /// <summary>
+        /// The destination prefix lists.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationPrefixLists;
+        /// <summary>
+        /// The protocols.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeProtocol> Protocols;
+        /// <summary>
+        /// The source addresses.
+        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
+        /// <summary>
+        /// The source ports.
+        /// </summary>
         public readonly ImmutableArray<string> SourcePorts;
+        /// <summary>
+        /// The source prefix lists.
+        /// </summary>
         public readonly ImmutableArray<string> SourcePrefixLists;
 
         [OutputConstructor]

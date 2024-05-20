@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event pattern.
+        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 

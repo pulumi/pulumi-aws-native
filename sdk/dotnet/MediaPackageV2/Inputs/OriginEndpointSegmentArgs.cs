@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     /// </summary>
     public sealed class OriginEndpointSegmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to use encryption for the segment.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointEncryptionArgs>? Encryption { get; set; }
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("includeIframeOnlyStreams")]
         public Input<bool>? IncludeIframeOnlyStreams { get; set; }
 
+        /// <summary>
+        /// The SCTE-35 configuration associated with the segment.
+        /// </summary>
         [Input("scte")]
         public Input<Inputs.OriginEndpointScteArgs>? Scte { get; set; }
 

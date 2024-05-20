@@ -24,6 +24,15 @@ func LookupDbClusterParameterGroup(ctx *pulumi.Context, args *LookupDbClusterPar
 }
 
 type LookupDbClusterParameterGroupArgs struct {
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName string `pulumi:"dbClusterParameterGroupName"`
 }
 
@@ -50,6 +59,15 @@ func LookupDbClusterParameterGroupOutput(ctx *pulumi.Context, args LookupDbClust
 }
 
 type LookupDbClusterParameterGroupOutputArgs struct {
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName pulumi.StringInput `pulumi:"dbClusterParameterGroupName"`
 }
 

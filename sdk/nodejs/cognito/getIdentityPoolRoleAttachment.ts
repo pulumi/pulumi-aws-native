@@ -19,12 +19,28 @@ export function getIdentityPoolRoleAttachment(args: GetIdentityPoolRoleAttachmen
 }
 
 export interface GetIdentityPoolRoleAttachmentArgs {
+    /**
+     * The resource ID.
+     */
     id: string;
 }
 
 export interface GetIdentityPoolRoleAttachmentResult {
+    /**
+     * The resource ID.
+     */
     readonly id?: string;
+    /**
+     * How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+     *
+     * If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+     *
+     * For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+     */
     readonly roleMappings?: {[key: string]: outputs.cognito.IdentityPoolRoleAttachmentRoleMapping};
+    /**
+     * The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+     */
     readonly roles?: {[key: string]: string};
 }
 /**
@@ -35,5 +51,8 @@ export function getIdentityPoolRoleAttachmentOutput(args: GetIdentityPoolRoleAtt
 }
 
 export interface GetIdentityPoolRoleAttachmentOutputArgs {
+    /**
+     * The resource ID.
+     */
     id: pulumi.Input<string>;
 }

@@ -14,6 +14,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisCustomValuesConfiguration
     {
         public readonly Outputs.AnalysisCustomParameterValues CustomValues;
+        /// <summary>
+        /// Includes the null value in custom action parameter values.
+        /// </summary>
         public readonly bool? IncludeNullValue;
 
         [OutputConstructor]

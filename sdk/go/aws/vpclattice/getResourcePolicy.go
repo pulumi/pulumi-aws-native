@@ -23,10 +23,13 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 }
 
 type LookupResourcePolicyArgs struct {
+	// An IAM policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
 type LookupResourcePolicyResult struct {
+	// The Amazon Resource Name (ARN) of the service network or service.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
@@ -45,6 +48,7 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 }
 
 type LookupResourcePolicyOutputArgs struct {
+	// An IAM policy.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -66,6 +70,8 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service network or service.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::ResourcePolicy` for more information about the expected schema for this property.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)

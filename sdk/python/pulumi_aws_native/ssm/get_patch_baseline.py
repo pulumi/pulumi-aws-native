@@ -68,6 +68,9 @@ class GetPatchBaselineResult:
     @property
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> Optional['outputs.PatchBaselineRuleGroup']:
+        """
+        A set of rules used to include patches in the baseline.
+        """
         return pulumi.get(self, "approval_rules")
 
     @property

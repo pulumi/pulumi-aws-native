@@ -31,6 +31,9 @@ class StateMachineAliasDeploymentPreferenceArgs:
                  percentage: Optional[pulumi.Input[int]] = None):
         """
         The settings to enable gradual state machine deployments.
+        :param pulumi.Input[str] state_machine_version_arn: The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+               
+               While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
         :param pulumi.Input['StateMachineAliasDeploymentPreferenceType'] type: The type of deployment to perform.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarms: A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
         :param pulumi.Input[int] interval: The time in minutes between each traffic shifting increment.
@@ -48,6 +51,11 @@ class StateMachineAliasDeploymentPreferenceArgs:
     @property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+
+        While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
+        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @state_machine_version_arn.setter
@@ -144,12 +152,18 @@ class StateMachineAliasRoutingConfigurationVersionArgs:
 class StateMachineCloudWatchLogsLogGroupArgs:
     def __init__(__self__, *,
                  log_group_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] log_group_arn: The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        """
         if log_group_arn is not None:
             pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
@@ -167,12 +181,18 @@ class StateMachineDefinitionArgs:
 class StateMachineLogDestinationArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_log_group: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']] = None):
+        """
+        :param pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs'] cloud_watch_logs_log_group: An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        """
         if cloud_watch_logs_log_group is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
 
     @property
     @pulumi.getter(name="cloudWatchLogsLogGroup")
     def cloud_watch_logs_log_group(self) -> Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]:
+        """
+        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        """
         return pulumi.get(self, "cloud_watch_logs_log_group")
 
     @cloud_watch_logs_log_group.setter
@@ -186,6 +206,11 @@ class StateMachineLoggingConfigurationArgs:
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]] = None,
                  include_execution_data: Optional[pulumi.Input[bool]] = None,
                  level: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]] destinations: An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+        :param pulumi.Input[bool] include_execution_data: Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        :param pulumi.Input['StateMachineLoggingConfigurationLevel'] level: Defines which category of execution history events are logged.
+        """
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if include_execution_data is not None:
@@ -196,6 +221,9 @@ class StateMachineLoggingConfigurationArgs:
     @property
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]:
+        """
+        An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -205,6 +233,9 @@ class StateMachineLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        """
         return pulumi.get(self, "include_execution_data")
 
     @include_execution_data.setter
@@ -214,6 +245,9 @@ class StateMachineLoggingConfigurationArgs:
     @property
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']]:
+        """
+        Defines which category of execution history events are logged.
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -227,6 +261,11 @@ class StateMachineS3LocationArgs:
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],
                  version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        :param pulumi.Input[str] key: The name of the state machine definition file (Amazon S3 object name).
+        :param pulumi.Input[str] version: For versioning-enabled buckets, a specific version of the state machine definition.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         if version is not None:
@@ -235,6 +274,9 @@ class StateMachineS3LocationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -244,6 +286,9 @@ class StateMachineS3LocationArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of the state machine definition file (Amazon S3 object name).
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -253,6 +298,9 @@ class StateMachineS3LocationArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        For versioning-enabled buckets, a specific version of the state machine definition.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -264,12 +312,18 @@ class StateMachineS3LocationArgs:
 class StateMachineTracingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: When set to `true` , X-Ray tracing is enabled.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true` , X-Ray tracing is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter

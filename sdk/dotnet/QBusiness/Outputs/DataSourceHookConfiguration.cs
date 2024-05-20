@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceHookConfiguration
     {
+        /// <summary>
+        /// The condition used for when a Lambda function should be invoked.
+        /// 
+        /// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
+        /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        /// </summary>
         public readonly string? LambdaArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+        /// </summary>
         public readonly string? S3BucketName;
 
         [OutputConstructor]

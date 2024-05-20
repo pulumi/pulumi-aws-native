@@ -79,6 +79,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter
     def authorization(self) -> Optional['outputs.OriginEndpointAuthorization']:
+        """
+        Parameters for CDN authorization.
+        """
         return pulumi.get(self, "authorization")
 
     @property
@@ -92,11 +95,17 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter(name="cmafPackage")
     def cmaf_package(self) -> Optional['outputs.OriginEndpointCmafPackage']:
+        """
+        Parameters for Common Media Application Format (CMAF) packaging.
+        """
         return pulumi.get(self, "cmaf_package")
 
     @property
     @pulumi.getter(name="dashPackage")
     def dash_package(self) -> Optional['outputs.OriginEndpointDashPackage']:
+        """
+        Parameters for DASH packaging.
+        """
         return pulumi.get(self, "dash_package")
 
     @property
@@ -110,6 +119,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter(name="hlsPackage")
     def hls_package(self) -> Optional['outputs.OriginEndpointHlsPackage']:
+        """
+        Parameters for Apple HLS packaging.
+        """
         return pulumi.get(self, "hls_package")
 
     @property
@@ -123,6 +135,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter(name="mssPackage")
     def mss_package(self) -> Optional['outputs.OriginEndpointMssPackage']:
+        """
+        Parameters for Microsoft Smooth Streaming packaging.
+        """
         return pulumi.get(self, "mss_package")
 
     @property

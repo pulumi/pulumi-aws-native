@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class MitigationActionUpdateDeviceCertificateParamsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
+        /// </summary>
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.IoT.MitigationActionUpdateDeviceCertificateParamsAction> Action { get; set; } = null!;
 

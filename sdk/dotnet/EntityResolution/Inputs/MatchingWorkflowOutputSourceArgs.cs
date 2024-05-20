@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class MatchingWorkflowOutputSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+        /// </summary>
         [Input("applyNormalization")]
         public Input<bool>? ApplyNormalization { get; set; }
 
+        /// <summary>
+        /// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
 
         [Input("output", required: true)]
         private InputList<Inputs.MatchingWorkflowOutputAttributeArgs>? _output;
+
+        /// <summary>
+        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// </summary>
         public InputList<Inputs.MatchingWorkflowOutputAttributeArgs> Output
         {
             get => _output ?? (_output = new InputList<Inputs.MatchingWorkflowOutputAttributeArgs>());

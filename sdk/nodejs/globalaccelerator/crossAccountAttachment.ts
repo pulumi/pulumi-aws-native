@@ -53,6 +53,11 @@ export class CrossAccountAttachment extends pulumi.CustomResource {
      * Resources shared using the attachment.
      */
     public readonly resources!: pulumi.Output<outputs.globalaccelerator.CrossAccountAttachmentResource[] | undefined>;
+    /**
+     * Add tags for a cross-account attachment.
+     *
+     * For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -99,5 +104,10 @@ export interface CrossAccountAttachmentArgs {
      * Resources shared using the attachment.
      */
     resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResourceArgs>[]>;
+    /**
+     * Add tags for a cross-account attachment.
+     *
+     * For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetCsvOptions
     {
+        /// <summary>
+        /// A single character that specifies the delimiter being used in the CSV file.
+        /// </summary>
         public readonly string? Delimiter;
+        /// <summary>
+        /// A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+        /// </summary>
         public readonly bool? HeaderRow;
 
         [OutputConstructor]

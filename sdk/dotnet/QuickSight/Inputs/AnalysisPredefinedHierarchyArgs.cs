@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("columns", required: true)]
         private InputList<Inputs.AnalysisColumnIdentifierArgs>? _columns;
+
+        /// <summary>
+        /// The list of columns that define the predefined hierarchy.
+        /// </summary>
         public InputList<Inputs.AnalysisColumnIdentifierArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.AnalysisColumnIdentifierArgs>());
@@ -22,12 +26,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("drillDownFilters")]
         private InputList<Inputs.AnalysisDrillDownFilterArgs>? _drillDownFilters;
+
+        /// <summary>
+        /// The option that determines the drill down filters for the predefined hierarchy.
+        /// </summary>
         public InputList<Inputs.AnalysisDrillDownFilterArgs> DrillDownFilters
         {
             get => _drillDownFilters ?? (_drillDownFilters = new InputList<Inputs.AnalysisDrillDownFilterArgs>());
             set => _drillDownFilters = value;
         }
 
+        /// <summary>
+        /// The hierarchy ID of the predefined hierarchy.
+        /// </summary>
         [Input("hierarchyId", required: true)]
         public Input<string> HierarchyId { get; set; } = null!;
 

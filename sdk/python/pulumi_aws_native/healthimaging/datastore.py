@@ -20,6 +20,9 @@ class DatastoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Datastore resource.
+        :param pulumi.Input[str] datastore_name: The data store name.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags provided when creating a data store.
         """
         if datastore_name is not None:
             pulumi.set(__self__, "datastore_name", datastore_name)
@@ -31,6 +34,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data store name.
+        """
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
@@ -40,6 +46,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -49,6 +58,9 @@ class DatastoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags provided when creating a data store.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -70,6 +82,9 @@ class Datastore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] datastore_name: The data store name.
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags provided when creating a data store.
         """
         ...
     @overload
@@ -152,40 +167,64 @@ class Datastore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the data store was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="datastoreArn")
     def datastore_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the data store.
+        """
         return pulumi.get(self, "datastore_arn")
 
     @property
     @pulumi.getter(name="datastoreId")
     def datastore_id(self) -> pulumi.Output[str]:
+        """
+        The data store identifier.
+        """
         return pulumi.get(self, "datastore_id")
 
     @property
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The data store name.
+        """
         return pulumi.get(self, "datastore_name")
 
     @property
     @pulumi.getter(name="datastoreStatus")
     def datastore_status(self) -> pulumi.Output['DatastoreStatus']:
+        """
+        The data store status.
+        """
         return pulumi.get(self, "datastore_status")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags provided when creating a data store.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the data store was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

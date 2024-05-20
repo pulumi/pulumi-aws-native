@@ -23,12 +23,26 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
+	// The certificate ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupCertificateResult struct {
-	Arn    *string            `pulumi:"arn"`
-	Id     *string            `pulumi:"id"`
+	// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+	//
+	// `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
+	//
+	// A value similar to the following is returned:
+	//
+	// `arn:aws:iot:ap-southeast-2:123456789012:cert/a1234567b89c012d3e4fg567hij8k9l01mno1p23q45678901rs234567890t1u2`
+	Arn *string `pulumi:"arn"`
+	// The certificate ID.
+	Id *string `pulumi:"id"`
+	// The status of the certificate.
+	//
+	// Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
+	//
+	// The status value REGISTER_INACTIVE is deprecated and should not be used.
 	Status *CertificateStatus `pulumi:"status"`
 }
 
@@ -46,6 +60,7 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 }
 
 type LookupCertificateOutputArgs struct {
+	// The certificate ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +82,27 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the certificate. For example:
+//
+// `{ "Fn::GetAtt": ["MyCertificate", "Arn"] }`
+//
+// A value similar to the following is returned:
+//
+// `arn:aws:iot:ap-southeast-2:123456789012:cert/a1234567b89c012d3e4fg567hij8k9l01mno1p23q45678901rs234567890t1u2`
 func (o LookupCertificateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The certificate ID.
 func (o LookupCertificateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The status of the certificate.
+//
+// Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
+//
+// The status value REGISTER_INACTIVE is deprecated and should not be used.
 func (o LookupCertificateResultOutput) Status() CertificateStatusPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *CertificateStatus { return v.Status }).(CertificateStatusPtrOutput)
 }

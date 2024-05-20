@@ -37,7 +37,8 @@ type LookupCollectionResult struct {
 	// The description of the collection
 	Description *string `pulumi:"description"`
 	// The identifier of the collection
-	Id              *string                    `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
 }
 
@@ -102,6 +103,7 @@ func (o LookupCollectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
 func (o LookupCollectionResultOutput) StandbyReplicas() CollectionStandbyReplicasPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *CollectionStandbyReplicas { return v.StandbyReplicas }).(CollectionStandbyReplicasPtrOutput)
 }

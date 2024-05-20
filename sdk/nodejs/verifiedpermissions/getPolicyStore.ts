@@ -19,14 +19,36 @@ export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetPolicyStoreArgs {
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     policyStoreId: string;
 }
 
 export interface GetPolicyStoreResult {
+    /**
+     * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+     */
     readonly arn?: string;
+    /**
+     * Descriptive text that you can provide to help with identification of the current policy store.
+     */
     readonly description?: string;
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     readonly policyStoreId?: string;
+    /**
+     * Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+     */
     readonly schema?: outputs.verifiedpermissions.PolicyStoreSchemaDefinition;
+    /**
+     * Specifies the validation setting for this policy store.
+     *
+     * Currently, the only valid and required value is `Mode` .
+     *
+     * > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+     */
     readonly validationSettings?: outputs.verifiedpermissions.PolicyStoreValidationSettings;
 }
 /**
@@ -37,5 +59,8 @@ export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulu
 }
 
 export interface GetPolicyStoreOutputArgs {
+    /**
+     * The unique ID of the new or updated policy store.
+     */
     policyStoreId: pulumi.Input<string>;
 }

@@ -13,14 +13,47 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateNumericEqualityFilter
     {
+        /// <summary>
+        /// The aggregation function of the filter.
+        /// </summary>
         public readonly Outputs.TemplateAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+        /// </summary>
         public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The match operator that is used to determine if a filter should be applied.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateNumericEqualityMatchOperator MatchOperator;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterNullOption NullOption;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateNumericFilterSelectAllOptions? SelectAllOptions;
+        /// <summary>
+        /// The input value.
+        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

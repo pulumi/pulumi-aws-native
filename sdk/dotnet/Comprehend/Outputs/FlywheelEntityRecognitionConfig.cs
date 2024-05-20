@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     [OutputType]
     public sealed class FlywheelEntityRecognitionConfig
     {
+        /// <summary>
+        /// Up to 25 entity types that the model is trained to recognize.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FlywheelEntityTypesListItem> EntityTypes;
 
         [OutputConstructor]

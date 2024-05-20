@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// A list of CodeRepositories available for use with JupyterLab apps.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpaceCodeRepository> CodeRepositories;
+        /// <summary>
+        /// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        /// </summary>
         public readonly Outputs.SpaceResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]

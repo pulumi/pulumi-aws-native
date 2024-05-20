@@ -18,9 +18,11 @@ type Bucket struct {
 	pulumi.CustomResourceState
 
 	// Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
-	AbleToUpdateBundle pulumi.BoolOutput          `pulumi:"ableToUpdateBundle"`
-	AccessRules        BucketAccessRulesPtrOutput `pulumi:"accessRules"`
-	BucketArn          pulumi.StringOutput        `pulumi:"bucketArn"`
+	AbleToUpdateBundle pulumi.BoolOutput `pulumi:"ableToUpdateBundle"`
+	// An object that describes the access rules for the bucket.
+	AccessRules BucketAccessRulesPtrOutput `pulumi:"accessRules"`
+	// The Amazon Resource Name (ARN) of the bucket.
+	BucketArn pulumi.StringOutput `pulumi:"bucketArn"`
 	// The name for the bucket.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// The ID of the bundle to use for the bucket.
@@ -84,6 +86,7 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
+	// An object that describes the access rules for the bucket.
 	AccessRules *BucketAccessRules `pulumi:"accessRules"`
 	// The name for the bucket.
 	BucketName *string `pulumi:"bucketName"`
@@ -101,6 +104,7 @@ type bucketArgs struct {
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
+	// An object that describes the access rules for the bucket.
 	AccessRules BucketAccessRulesPtrInput
 	// The name for the bucket.
 	BucketName pulumi.StringPtrInput
@@ -158,10 +162,12 @@ func (o BucketOutput) AbleToUpdateBundle() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.BoolOutput { return v.AbleToUpdateBundle }).(pulumi.BoolOutput)
 }
 
+// An object that describes the access rules for the bucket.
 func (o BucketOutput) AccessRules() BucketAccessRulesPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketAccessRulesPtrOutput { return v.AccessRules }).(BucketAccessRulesPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the bucket.
 func (o BucketOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BucketArn }).(pulumi.StringOutput)
 }

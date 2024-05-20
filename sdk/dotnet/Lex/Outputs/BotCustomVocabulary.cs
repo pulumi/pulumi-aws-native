@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotCustomVocabulary
     {
+        /// <summary>
+        /// Specifies a list of words that you expect to be used during a conversation with your bot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotCustomVocabularyItem> CustomVocabularyItems;
 
         [OutputConstructor]

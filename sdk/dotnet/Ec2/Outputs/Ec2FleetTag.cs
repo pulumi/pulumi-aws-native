@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class Ec2FleetTag
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFieldSortOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The sort configuration for a column that is not used in a field well.
+        /// </summary>
         [Input("columnSort")]
         public Input<Inputs.TemplateColumnSortArgs>? ColumnSort { get; set; }
 
+        /// <summary>
+        /// The sort configuration for a field in a field well.
+        /// </summary>
         [Input("fieldSort")]
         public Input<Inputs.TemplateFieldSortArgs>? FieldSort { get; set; }
 

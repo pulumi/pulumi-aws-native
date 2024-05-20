@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class PolicyStoreSchemaDefinition
     {
+        /// <summary>
+        /// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        /// </summary>
         public readonly string? CedarJson;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     [OutputType]
     public sealed class FlywheelDocumentClassificationConfig
     {
+        /// <summary>
+        /// One or more labels to associate with the custom classifier.
+        /// </summary>
         public readonly ImmutableArray<string> Labels;
+        /// <summary>
+        /// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Comprehend.FlywheelDocumentClassificationConfigMode Mode;
 
         [OutputConstructor]

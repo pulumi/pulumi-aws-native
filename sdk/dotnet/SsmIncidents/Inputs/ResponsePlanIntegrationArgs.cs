@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
 
     public sealed class ResponsePlanIntegrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the PagerDuty service where the response plan creates an incident.
+        /// </summary>
         [Input("pagerDutyConfiguration")]
         public Input<Inputs.ResponsePlanPagerDutyConfigurationArgs>? PagerDutyConfiguration { get; set; }
 

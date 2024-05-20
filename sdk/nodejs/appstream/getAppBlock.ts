@@ -16,11 +16,20 @@ export function getAppBlock(args: GetAppBlockArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetAppBlockArgs {
+    /**
+     * The ARN of the app block.
+     */
     arn: string;
 }
 
 export interface GetAppBlockResult {
+    /**
+     * The ARN of the app block.
+     */
     readonly arn?: string;
+    /**
+     * The time when the app block was created.
+     */
     readonly createdTime?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getAppBlockOutput(args: GetAppBlockOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetAppBlockOutputArgs {
+    /**
+     * The ARN of the app block.
+     */
     arn: pulumi.Input<string>;
 }

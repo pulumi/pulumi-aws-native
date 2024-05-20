@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.RefactorSpaces.Outputs
     [OutputType]
     public sealed class ServiceLambdaEndpointInput
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Lambda function or alias.
+        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class IndexServerSideEncryptionConfiguration
     {
+        /// <summary>
+        /// The identifier of the AWS KMS key . Amazon Kendra doesn't support asymmetric keys.
+        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

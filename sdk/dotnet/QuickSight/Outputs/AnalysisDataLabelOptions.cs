@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDataLabelOptions
     {
+        /// <summary>
+        /// Determines the visibility of the category field labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? CategoryLabelVisibility;
+        /// <summary>
+        /// The option that determines the data label type.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataLabelType> DataLabelTypes;
+        /// <summary>
+        /// Determines the color of the data labels.
+        /// </summary>
         public readonly string? LabelColor;
+        /// <summary>
+        /// Determines the content of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDataLabelContent? LabelContent;
+        /// <summary>
+        /// Determines the font configuration of the data labels.
+        /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? LabelFontConfiguration;
+        /// <summary>
+        /// Determines the visibility of the measure field labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? MeasureLabelVisibility;
+        /// <summary>
+        /// Determines whether overlap is enabled or disabled for the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDataLabelOverlap? Overlap;
+        /// <summary>
+        /// Determines the position of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisDataLabelPosition? Position;
+        /// <summary>
+        /// Determines the visibility of the total.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? TotalsVisibility;
+        /// <summary>
+        /// Determines the visibility of the data labels.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

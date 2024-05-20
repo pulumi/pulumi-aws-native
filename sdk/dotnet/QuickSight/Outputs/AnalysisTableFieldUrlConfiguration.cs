@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableFieldUrlConfiguration
     {
+        /// <summary>
+        /// The image configuration of a table field URL.
+        /// </summary>
         public readonly Outputs.AnalysisTableFieldImageConfiguration? ImageConfiguration;
+        /// <summary>
+        /// The link configuration of a table field URL.
+        /// </summary>
         public readonly Outputs.AnalysisTableFieldLinkConfiguration? LinkConfiguration;
 
         [OutputConstructor]

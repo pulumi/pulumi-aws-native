@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSectionPageBreakConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of a page break after a section.
+        /// </summary>
         [Input("after")]
         public Input<Inputs.DashboardSectionAfterPageBreakArgs>? After { get; set; }
 

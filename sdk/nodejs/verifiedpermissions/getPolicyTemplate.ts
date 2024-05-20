@@ -17,13 +17,28 @@ export function getPolicyTemplate(args: GetPolicyTemplateArgs, opts?: pulumi.Inv
 }
 
 export interface GetPolicyTemplateArgs {
+    /**
+     * The unique identifier of the policy store that contains the template.
+     */
     policyStoreId: string;
+    /**
+     * The unique identifier of the new or modified policy template.
+     */
     policyTemplateId: string;
 }
 
 export interface GetPolicyTemplateResult {
+    /**
+     * The description to attach to the new or updated policy template.
+     */
     readonly description?: string;
+    /**
+     * The unique identifier of the new or modified policy template.
+     */
     readonly policyTemplateId?: string;
+    /**
+     * Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+     */
     readonly statement?: string;
 }
 /**
@@ -34,6 +49,12 @@ export function getPolicyTemplateOutput(args: GetPolicyTemplateOutputArgs, opts?
 }
 
 export interface GetPolicyTemplateOutputArgs {
+    /**
+     * The unique identifier of the policy store that contains the template.
+     */
     policyStoreId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the new or modified policy template.
+     */
     policyTemplateId: pulumi.Input<string>;
 }

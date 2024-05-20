@@ -16,12 +16,20 @@ export function getAttributeGroup(args: GetAttributeGroupArgs, opts?: pulumi.Inv
 }
 
 export interface GetAttributeGroupArgs {
+    /**
+     * The globally unique attribute group identifier of the attribute group.
+     */
     id: string;
 }
 
 export interface GetAttributeGroupResult {
+    /**
+     * The Amazon resource name (ARN) that specifies the attribute group across services.
+     */
     readonly arn?: string;
     /**
+     * A nested object in a JSON or YAML template that supports arbitrary definitions. Represents the attributes in an attribute group that describes an application and its components.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
      */
     readonly attributes?: any;
@@ -29,11 +37,17 @@ export interface GetAttributeGroupResult {
      * The description of the attribute group. 
      */
     readonly description?: string;
+    /**
+     * The globally unique attribute group identifier of the attribute group.
+     */
     readonly id?: string;
     /**
      * The name of the attribute group. 
      */
     readonly name?: string;
+    /**
+     * Key-value pairs you can use to associate with the attribute group.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -44,5 +58,8 @@ export function getAttributeGroupOutput(args: GetAttributeGroupOutputArgs, opts?
 }
 
 export interface GetAttributeGroupOutputArgs {
+    /**
+     * The globally unique attribute group identifier of the attribute group.
+     */
     id: pulumi.Input<string>;
 }

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyResourceTag
     {
+        /// <summary>
+        /// The resource tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The resource tag value.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

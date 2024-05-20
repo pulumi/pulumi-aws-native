@@ -25,6 +25,8 @@ class ReferenceStoreArgs:
         The set of arguments for constructing a ReferenceStore resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
+        :param pulumi.Input['ReferenceStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -62,6 +64,9 @@ class ReferenceStoreArgs:
     @property
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> Optional[pulumi.Input['ReferenceStoreSseConfigArgs']]:
+        """
+        Server-side encryption (SSE) settings for the store.
+        """
         return pulumi.get(self, "sse_config")
 
     @sse_config.setter
@@ -71,6 +76,9 @@ class ReferenceStoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags for the store.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,6 +103,8 @@ class ReferenceStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
+        :param pulumi.Input[pulumi.InputType['ReferenceStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
     @overload
@@ -208,15 +218,24 @@ class ReferenceStore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="referenceStoreId")
     def reference_store_id(self) -> pulumi.Output[str]:
+        """
+        The store's ID.
+        """
         return pulumi.get(self, "reference_store_id")
 
     @property
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> pulumi.Output[Optional['outputs.ReferenceStoreSseConfig']]:
+        """
+        Server-side encryption (SSE) settings for the store.
+        """
         return pulumi.get(self, "sse_config")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags for the store.
+        """
         return pulumi.get(self, "tags")
 

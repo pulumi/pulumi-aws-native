@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetResponseHeadersPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetResponseHeadersPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetResponseHeadersPolicyResult
     {
+        /// <summary>
+        /// The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time when the response headers policy was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// A response headers policy configuration.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicyConfig? ResponseHeadersPolicyConfig;
 
         [OutputConstructor]

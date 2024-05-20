@@ -36,6 +36,9 @@ export interface GetFunctionResult {
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
     readonly architectures?: enums.lambda.FunctionArchitecturesItem[];
+    /**
+     * The Amazon Resource Name (ARN) of the function.
+     */
     readonly arn?: string;
     /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.

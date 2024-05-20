@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetVirtualMfaDeviceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         [Input("serialNumber", required: true)]
         public string SerialNumber { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetVirtualMfaDeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         [Input("serialNumber", required: true)]
         public Input<string> SerialNumber { get; set; } = null!;
 
@@ -51,8 +57,19 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetVirtualMfaDeviceResult
     {
+        /// <summary>
+        /// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        /// </summary>
         public readonly string? SerialNumber;
+        /// <summary>
+        /// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// 
+        /// &gt; If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The IAM user associated with this virtual MFA device.
+        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

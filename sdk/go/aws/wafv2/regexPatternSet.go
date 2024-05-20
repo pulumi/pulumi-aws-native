@@ -24,11 +24,15 @@ type RegexPatternSet struct {
 	// Description of the entity.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the RegexPatternSet.
-	Name                  pulumi.StringPtrOutput   `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The regular expression patterns in the set.
 	RegularExpressionList pulumi.StringArrayOutput `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScopeOutput `pulumi:"scope"`
-	Tags  aws.TagArrayOutput         `pulumi:"tags"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewRegexPatternSet registers a new resource with the given unique name, arguments, and options.
@@ -85,11 +89,15 @@ type regexPatternSetArgs struct {
 	// Description of the entity.
 	Description *string `pulumi:"description"`
 	// Name of the RegexPatternSet.
-	Name                  *string  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The regular expression patterns in the set.
 	RegularExpressionList []string `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScope `pulumi:"scope"`
-	Tags  []aws.Tag            `pulumi:"tags"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
@@ -97,11 +105,15 @@ type RegexPatternSetArgs struct {
 	// Description of the entity.
 	Description pulumi.StringPtrInput
 	// Name of the RegexPatternSet.
-	Name                  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The regular expression patterns in the set.
 	RegularExpressionList pulumi.StringArrayInput
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 	Scope RegexPatternSetScopeInput
-	Tags  aws.TagArrayInput
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags aws.TagArrayInput
 }
 
 func (RegexPatternSetArgs) ElementType() reflect.Type {
@@ -161,6 +173,7 @@ func (o RegexPatternSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The regular expression patterns in the set.
 func (o RegexPatternSetOutput) RegularExpressionList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringArrayOutput { return v.RegularExpressionList }).(pulumi.StringArrayOutput)
 }
@@ -170,6 +183,9 @@ func (o RegexPatternSetOutput) Scope() RegexPatternSetScopeOutput {
 	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetScopeOutput { return v.Scope }).(RegexPatternSetScopeOutput)
 }
 
+// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+//
+// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 func (o RegexPatternSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RegexPatternSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -26,6 +26,9 @@ export interface GetDetectorModelArgs {
 }
 
 export interface GetDetectorModelResult {
+    /**
+     * Information that defines how a detector operates.
+     */
     readonly detectorModelDefinition?: outputs.iotevents.DetectorModelDefinition;
     /**
      * A brief description of the detector model.

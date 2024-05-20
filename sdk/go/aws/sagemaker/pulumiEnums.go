@@ -2916,6 +2916,7 @@ func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPor
 	return pulumi.ToOutputWithContext(ctx, in).(DomainUserSettingsStudioWebPortalPtrOutput)
 }
 
+// The value type of a feature. Valid values are Integral, Fractional, or String.
 type FeatureGroupFeatureDefinitionFeatureType string
 
 const (
@@ -12728,6 +12729,7 @@ func (in *spaceResourceSpecInstanceTypePtr) ToSpaceResourceSpecInstanceTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(SpaceResourceSpecInstanceTypePtrOutput)
 }
 
+// Specifies the sharing type of the space.
 type SpaceSharingSettingsSharingType string
 
 const (

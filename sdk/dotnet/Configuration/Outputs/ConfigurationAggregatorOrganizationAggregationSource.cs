@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Configuration.Outputs
     [OutputType]
     public sealed class ConfigurationAggregatorOrganizationAggregationSource
     {
+        /// <summary>
+        /// If true, aggregate existing AWS Config regions and future regions.
+        /// </summary>
         public readonly bool? AllAwsRegions;
+        /// <summary>
+        /// The source regions being aggregated.
+        /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
+        /// <summary>
+        /// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

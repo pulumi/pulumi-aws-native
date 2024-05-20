@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     {
         [Input("criteriaList", required: true)]
         private InputList<Inputs.DeploymentIoTJobAbortCriteriaArgs>? _criteriaList;
+
+        /// <summary>
+        /// The list of criteria that define when and how to cancel the configuration deployment.
+        /// </summary>
         public InputList<Inputs.DeploymentIoTJobAbortCriteriaArgs> CriteriaList
         {
             get => _criteriaList ?? (_criteriaList = new InputList<Inputs.DeploymentIoTJobAbortCriteriaArgs>());

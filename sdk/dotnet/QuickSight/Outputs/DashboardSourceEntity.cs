@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSourceEntity
     {
+        /// <summary>
+        /// Source template.
+        /// </summary>
         public readonly Outputs.DashboardSourceTemplate? SourceTemplate;
 
         [OutputConstructor]

@@ -33,16 +33,29 @@ class GetIdentityPoolRoleAttachmentResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="roleMappings")
     def role_mappings(self) -> Optional[Mapping[str, 'outputs.IdentityPoolRoleAttachmentRoleMapping']]:
+        """
+        How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+
+        If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+
+        For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+        """
         return pulumi.get(self, "role_mappings")
 
     @property
     @pulumi.getter
     def roles(self) -> Optional[Mapping[str, str]]:
+        """
+        The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+        """
         return pulumi.get(self, "roles")
 
 
@@ -61,6 +74,9 @@ def get_identity_pool_role_attachment(id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolRoleAttachmentResult:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
+
+
+    :param str id: The resource ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +94,8 @@ def get_identity_pool_role_attachment_output(id: Optional[pulumi.Input[str]] = N
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolRoleAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
+
+
+    :param str id: The resource ID.
     """
     ...

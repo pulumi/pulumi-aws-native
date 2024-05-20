@@ -13,11 +13,32 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTopBottomRankedComputation
     {
+        /// <summary>
+        /// The category field that is used in a computation.
+        /// </summary>
         public readonly Outputs.DashboardDimensionField? Category;
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The result size of a top and bottom ranked computation.
+        /// </summary>
         public readonly double? ResultSize;
+        /// <summary>
+        /// The computation type. Choose one of the following options:
+        /// 
+        /// - TOP: A top ranked computation.
+        /// - BOTTOM: A bottom ranked computation.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTopBottomComputationType Type;
+        /// <summary>
+        /// The value field that is used in a computation.
+        /// </summary>
         public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolResourceServerResourceServerScopeType
     {
+        /// <summary>
+        /// A description of the scope.
+        /// </summary>
         public readonly string ScopeDescription;
+        /// <summary>
+        /// The name of the scope.
+        /// </summary>
         public readonly string ScopeName;
 
         [OutputConstructor]

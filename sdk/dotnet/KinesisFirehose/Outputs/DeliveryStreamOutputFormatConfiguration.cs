@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamOutputFormatConfiguration
     {
+        /// <summary>
+        /// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
+        /// </summary>
         public readonly Outputs.DeliveryStreamSerializer? Serializer;
 
         [OutputConstructor]

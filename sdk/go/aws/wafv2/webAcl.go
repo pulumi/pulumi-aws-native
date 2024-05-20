@@ -17,22 +17,59 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput               `pulumi:"arn"`
-	AssociationConfig    WebAclAssociationConfigPtrOutput  `pulumi:"associationConfig"`
-	AwsId                pulumi.StringOutput               `pulumi:"awsId"`
-	Capacity             pulumi.IntOutput                  `pulumi:"capacity"`
-	CaptchaConfig        WebAclCaptchaConfigPtrOutput      `pulumi:"captchaConfig"`
-	ChallengeConfig      WebAclChallengeConfigPtrOutput    `pulumi:"challengeConfig"`
+	// The Amazon Resource Name (ARN) of the web ACL.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies custom configurations for the associations between the web ACL and protected resources.
+	//
+	// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
+	//
+	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+	//
+	// For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	AssociationConfig WebAclAssociationConfigPtrOutput `pulumi:"associationConfig"`
+	// The ID of the web ACL.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The web ACL capacity units (WCUs) currently being used by this web ACL.
+	//
+	// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
+	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+	CaptchaConfig WebAclCaptchaConfigPtrOutput `pulumi:"captchaConfig"`
+	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
+	ChallengeConfig WebAclChallengeConfigPtrOutput `pulumi:"challengeConfig"`
+	// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+	//
+	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies WebAclCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
-	DefaultAction        WebAclDefaultActionOutput         `pulumi:"defaultAction"`
-	Description          pulumi.StringPtrOutput            `pulumi:"description"`
-	LabelNamespace       pulumi.StringOutput               `pulumi:"labelNamespace"`
-	Name                 pulumi.StringPtrOutput            `pulumi:"name"`
+	// The action to perform if none of the `Rules` contained in the `WebACL` match.
+	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
+	// A description of the web ACL that helps with identification.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The label namespace prefix for this web ACL. All labels added by rules in this web ACL have this prefix.
+	//
+	// The syntax for the label namespace prefix for a web ACL is the following: `awswaf:<account ID>:webacl:<web ACL name>:`
+	//
+	// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
+	LabelNamespace pulumi.StringOutput `pulumi:"labelNamespace"`
+	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Collection of Rules.
-	Rules            WebAclRuleArrayOutput        `pulumi:"rules"`
-	Scope            WebAclScopeOutput            `pulumi:"scope"`
-	Tags             aws.TagArrayOutput           `pulumi:"tags"`
-	TokenDomains     pulumi.StringArrayOutput     `pulumi:"tokenDomains"`
+	Rules WebAclRuleArrayOutput `pulumi:"rules"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	//
+	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
+	Scope WebAclScopeOutput `pulumi:"scope"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains pulumi.StringArrayOutput `pulumi:"tokenDomains"`
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig WebAclVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
@@ -90,35 +127,89 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
-	AssociationConfig    *WebAclAssociationConfig            `pulumi:"associationConfig"`
-	CaptchaConfig        *WebAclCaptchaConfig                `pulumi:"captchaConfig"`
-	ChallengeConfig      *WebAclChallengeConfig              `pulumi:"challengeConfig"`
+	// Specifies custom configurations for the associations between the web ACL and protected resources.
+	//
+	// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
+	//
+	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+	//
+	// For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
+	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
+	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
+	// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+	//
+	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies map[string]WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	DefaultAction        WebAclDefaultAction                 `pulumi:"defaultAction"`
-	Description          *string                             `pulumi:"description"`
-	Name                 *string                             `pulumi:"name"`
+	// The action to perform if none of the `Rules` contained in the `WebACL` match.
+	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
+	// A description of the web ACL that helps with identification.
+	Description *string `pulumi:"description"`
+	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
+	Name *string `pulumi:"name"`
 	// Collection of Rules.
-	Rules            []WebAclRule           `pulumi:"rules"`
-	Scope            WebAclScope            `pulumi:"scope"`
-	Tags             []aws.Tag              `pulumi:"tags"`
-	TokenDomains     []string               `pulumi:"tokenDomains"`
+	Rules []WebAclRule `pulumi:"rules"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	//
+	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
+	Scope WebAclScope `pulumi:"scope"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains []string `pulumi:"tokenDomains"`
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
-	AssociationConfig    WebAclAssociationConfigPtrInput
-	CaptchaConfig        WebAclCaptchaConfigPtrInput
-	ChallengeConfig      WebAclChallengeConfigPtrInput
+	// Specifies custom configurations for the associations between the web ACL and protected resources.
+	//
+	// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
+	//
+	// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+	//
+	// For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	AssociationConfig WebAclAssociationConfigPtrInput
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+	CaptchaConfig WebAclCaptchaConfigPtrInput
+	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
+	ChallengeConfig WebAclChallengeConfigPtrInput
+	// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
+	//
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+	//
+	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies WebAclCustomResponseBodyMapInput
-	DefaultAction        WebAclDefaultActionInput
-	Description          pulumi.StringPtrInput
-	Name                 pulumi.StringPtrInput
+	// The action to perform if none of the `Rules` contained in the `WebACL` match.
+	DefaultAction WebAclDefaultActionInput
+	// A description of the web ACL that helps with identification.
+	Description pulumi.StringPtrInput
+	// The name of the web ACL. You cannot change the name of a web ACL after you create it.
+	Name pulumi.StringPtrInput
 	// Collection of Rules.
-	Rules            WebAclRuleArrayInput
-	Scope            WebAclScopeInput
-	Tags             aws.TagArrayInput
-	TokenDomains     pulumi.StringArrayInput
+	Rules WebAclRuleArrayInput
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	//
+	// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
+	Scope WebAclScopeInput
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags aws.TagArrayInput
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains pulumi.StringArrayInput
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 	VisibilityConfig WebAclVisibilityConfigInput
 }
 
@@ -159,46 +250,73 @@ func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutpu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the web ACL.
 func (o WebAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies custom configurations for the associations between the web ACL and protected resources.
+//
+// Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
+//
+// > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
+//
+// For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
 func (o WebAclOutput) AssociationConfig() WebAclAssociationConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclAssociationConfigPtrOutput { return v.AssociationConfig }).(WebAclAssociationConfigPtrOutput)
 }
 
+// The ID of the web ACL.
 func (o WebAclOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The web ACL capacity units (WCUs) currently being used by this web ACL.
+//
+// AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
 func (o WebAclOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
+// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 func (o WebAclOutput) CaptchaConfig() WebAclCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCaptchaConfigPtrOutput { return v.CaptchaConfig }).(WebAclCaptchaConfigPtrOutput)
 }
 
+// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
 func (o WebAclOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclChallengeConfigPtrOutput { return v.ChallengeConfig }).(WebAclChallengeConfigPtrOutput)
 }
 
+// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
+//
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+//
+// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyMapOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyMapOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyMapOutput)
 }
 
+// The action to perform if none of the `Rules` contained in the `WebACL` match.
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclDefaultActionOutput { return v.DefaultAction }).(WebAclDefaultActionOutput)
 }
 
+// A description of the web ACL that helps with identification.
 func (o WebAclOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The label namespace prefix for this web ACL. All labels added by rules in this web ACL have this prefix.
+//
+// The syntax for the label namespace prefix for a web ACL is the following: `awswaf:<account ID>:webacl:<web ACL name>:`
+//
+// When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
 func (o WebAclOutput) LabelNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.LabelNamespace }).(pulumi.StringOutput)
 }
 
+// The name of the web ACL. You cannot change the name of a web ACL after you create it.
 func (o WebAclOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -208,18 +326,28 @@ func (o WebAclOutput) Rules() WebAclRuleArrayOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclRuleArrayOutput { return v.Rules }).(WebAclRuleArrayOutput)
 }
 
+// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+//
+// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+//
+// For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
 func (o WebAclOutput) Scope() WebAclScopeOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclScopeOutput { return v.Scope }).(WebAclScopeOutput)
 }
 
+// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+//
+// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 func (o WebAclOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *WebAcl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
 func (o WebAclOutput) TokenDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringArrayOutput { return v.TokenDomains }).(pulumi.StringArrayOutput)
 }
 
+// Defines and enables Amazon CloudWatch metrics and web request sample collection.
 func (o WebAclOutput) VisibilityConfig() WebAclVisibilityConfigOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclVisibilityConfigOutput { return v.VisibilityConfig }).(WebAclVisibilityConfigOutput)
 }

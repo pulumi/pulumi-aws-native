@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisLineChartSeriesSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Line styles options for a line series in `LineChartVisual` .
+        /// </summary>
         [Input("lineStyleSettings")]
         public Input<Inputs.AnalysisLineChartLineStyleSettingsArgs>? LineStyleSettings { get; set; }
 
+        /// <summary>
+        /// Marker styles options for a line series in `LineChartVisual` .
+        /// </summary>
         [Input("markerStyleSettings")]
         public Input<Inputs.AnalysisLineChartMarkerStyleSettingsArgs>? MarkerStyleSettings { get; set; }
 

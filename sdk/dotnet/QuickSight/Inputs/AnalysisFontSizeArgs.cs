@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFontSizeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The lexical name for the text size, proportional to its surrounding context.
+        /// </summary>
         [Input("relative")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisRelativeFontSize>? Relative { get; set; }
 

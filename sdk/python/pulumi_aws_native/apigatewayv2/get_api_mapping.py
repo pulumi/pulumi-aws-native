@@ -43,6 +43,9 @@ class GetApiMappingResult:
     @property
     @pulumi.getter(name="apiMappingId")
     def api_mapping_id(self) -> Optional[str]:
+        """
+        The API mapping resource ID.
+        """
         return pulumi.get(self, "api_mapping_id")
 
     @property
@@ -81,6 +84,7 @@ def get_api_mapping(api_mapping_id: Optional[str] = None,
     The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
 
+    :param str api_mapping_id: The API mapping resource ID.
     :param str domain_name: The domain name.
     """
     __args__ = dict()
@@ -104,6 +108,7 @@ def get_api_mapping_output(api_mapping_id: Optional[pulumi.Input[str]] = None,
     The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
 
+    :param str api_mapping_id: The API mapping resource ID.
     :param str domain_name: The domain name.
     """
     ...

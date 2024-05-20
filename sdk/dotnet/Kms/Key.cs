@@ -24,6 +24,11 @@ namespace Pulumi.AwsNative.Kms
     [AwsNativeResourceType("aws-native:kms:Key")]
     public partial class Key : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -60,6 +65,11 @@ namespace Pulumi.AwsNative.Kms
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 

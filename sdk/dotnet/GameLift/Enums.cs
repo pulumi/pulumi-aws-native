@@ -228,6 +228,14 @@ namespace Pulumi.AwsNative.GameLift
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether a TLS/SSL certificate is generated for a fleet.
+    /// 
+    /// Valid values include:
+    /// 
+    /// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+    /// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+    /// </summary>
     [EnumType]
     public readonly struct FleetCertificateConfigurationCertificateType : IEquatable<FleetCertificateConfigurationCertificateType>
     {

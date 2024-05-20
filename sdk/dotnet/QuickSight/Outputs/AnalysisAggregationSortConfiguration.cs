@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAggregationSortConfiguration
     {
+        /// <summary>
+        /// The function that aggregates the values in `Column` .
+        /// </summary>
         public readonly Outputs.AnalysisAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// The column that determines the sort order of aggregated values.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The sort direction of values.
+        /// 
+        /// - `ASC` : Sort in ascending order.
+        /// - `DESC` : Sort in descending order.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSortDirection SortDirection;
 
         [OutputConstructor]

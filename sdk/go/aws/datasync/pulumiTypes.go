@@ -251,6 +251,7 @@ type LocationFSxLustreTag struct {
 
 // NFS protocol configuration for FSx ONTAP file system.
 type LocationFSxOntapNfs struct {
+	// Specifies how DataSync can access a location using the NFS protocol.
 	MountOptions LocationFSxOntapNfsMountOptions `pulumi:"mountOptions"`
 }
 
@@ -267,6 +268,7 @@ type LocationFSxOntapNfsInput interface {
 
 // NFS protocol configuration for FSx ONTAP file system.
 type LocationFSxOntapNfsArgs struct {
+	// Specifies how DataSync can access a location using the NFS protocol.
 	MountOptions LocationFSxOntapNfsMountOptionsInput `pulumi:"mountOptions"`
 }
 
@@ -348,6 +350,7 @@ func (o LocationFSxOntapNfsOutput) ToLocationFSxOntapNfsPtrOutputWithContext(ctx
 	}).(LocationFSxOntapNfsPtrOutput)
 }
 
+// Specifies how DataSync can access a location using the NFS protocol.
 func (o LocationFSxOntapNfsOutput) MountOptions() LocationFSxOntapNfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOntapNfs) LocationFSxOntapNfsMountOptions { return v.MountOptions }).(LocationFSxOntapNfsMountOptionsOutput)
 }
@@ -376,6 +379,7 @@ func (o LocationFSxOntapNfsPtrOutput) Elem() LocationFSxOntapNfsOutput {
 	}).(LocationFSxOntapNfsOutput)
 }
 
+// Specifies how DataSync can access a location using the NFS protocol.
 func (o LocationFSxOntapNfsPtrOutput) MountOptions() LocationFSxOntapNfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapNfs) *LocationFSxOntapNfsMountOptions {
 		if v == nil {
@@ -527,7 +531,9 @@ func (o LocationFSxOntapNfsMountOptionsPtrOutput) Version() LocationFSxOntapNfsM
 
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxOntapProtocol struct {
+	// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 	Nfs *LocationFSxOntapNfs `pulumi:"nfs"`
+	// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 	Smb *LocationFSxOntapSmb `pulumi:"smb"`
 }
 
@@ -544,7 +550,9 @@ type LocationFSxOntapProtocolInput interface {
 
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxOntapProtocolArgs struct {
+	// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 	Nfs LocationFSxOntapNfsPtrInput `pulumi:"nfs"`
+	// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 	Smb LocationFSxOntapSmbPtrInput `pulumi:"smb"`
 }
 
@@ -626,10 +634,12 @@ func (o LocationFSxOntapProtocolOutput) ToLocationFSxOntapProtocolPtrOutputWithC
 	}).(LocationFSxOntapProtocolPtrOutput)
 }
 
+// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 func (o LocationFSxOntapProtocolOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapProtocol) *LocationFSxOntapNfs { return v.Nfs }).(LocationFSxOntapNfsPtrOutput)
 }
 
+// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 func (o LocationFSxOntapProtocolOutput) Smb() LocationFSxOntapSmbPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapProtocol) *LocationFSxOntapSmb { return v.Smb }).(LocationFSxOntapSmbPtrOutput)
 }
@@ -658,6 +668,7 @@ func (o LocationFSxOntapProtocolPtrOutput) Elem() LocationFSxOntapProtocolOutput
 	}).(LocationFSxOntapProtocolOutput)
 }
 
+// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 func (o LocationFSxOntapProtocolPtrOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapProtocol) *LocationFSxOntapNfs {
 		if v == nil {
@@ -667,6 +678,7 @@ func (o LocationFSxOntapProtocolPtrOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	}).(LocationFSxOntapNfsPtrOutput)
 }
 
+// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 func (o LocationFSxOntapProtocolPtrOutput) Smb() LocationFSxOntapSmbPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapProtocol) *LocationFSxOntapSmb {
 		if v == nil {
@@ -679,7 +691,8 @@ func (o LocationFSxOntapProtocolPtrOutput) Smb() LocationFSxOntapSmbPtrOutput {
 // SMB protocol configuration for FSx ONTAP file system.
 type LocationFSxOntapSmb struct {
 	// The name of the Windows domain that the SMB server belongs to.
-	Domain       *string                         `pulumi:"domain"`
+	Domain *string `pulumi:"domain"`
+	// Specifies how DataSync can access a location using the SMB protocol.
 	MountOptions LocationFSxOntapSmbMountOptions `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password string `pulumi:"password"`
@@ -701,7 +714,8 @@ type LocationFSxOntapSmbInput interface {
 // SMB protocol configuration for FSx ONTAP file system.
 type LocationFSxOntapSmbArgs struct {
 	// The name of the Windows domain that the SMB server belongs to.
-	Domain       pulumi.StringPtrInput                `pulumi:"domain"`
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Specifies how DataSync can access a location using the SMB protocol.
 	MountOptions LocationFSxOntapSmbMountOptionsInput `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password pulumi.StringInput `pulumi:"password"`
@@ -792,6 +806,7 @@ func (o LocationFSxOntapSmbOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapSmb) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how DataSync can access a location using the SMB protocol.
 func (o LocationFSxOntapSmbOutput) MountOptions() LocationFSxOntapSmbMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOntapSmb) LocationFSxOntapSmbMountOptions { return v.MountOptions }).(LocationFSxOntapSmbMountOptionsOutput)
 }
@@ -840,6 +855,7 @@ func (o LocationFSxOntapSmbPtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies how DataSync can access a location using the SMB protocol.
 func (o LocationFSxOntapSmbPtrOutput) MountOptions() LocationFSxOntapSmbMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapSmb) *LocationFSxOntapSmbMountOptions {
 		if v == nil {
@@ -1159,6 +1175,7 @@ func (o LocationFSxOpenZfsMountOptionsPtrOutput) Version() LocationFSxOpenZfsMou
 
 // FSx OpenZFS file system NFS protocol information
 type LocationFSxOpenZfsNfs struct {
+	// Represents the mount options that are available for DataSync to access an NFS location.
 	MountOptions LocationFSxOpenZfsMountOptions `pulumi:"mountOptions"`
 }
 
@@ -1175,6 +1192,7 @@ type LocationFSxOpenZfsNfsInput interface {
 
 // FSx OpenZFS file system NFS protocol information
 type LocationFSxOpenZfsNfsArgs struct {
+	// Represents the mount options that are available for DataSync to access an NFS location.
 	MountOptions LocationFSxOpenZfsMountOptionsInput `pulumi:"mountOptions"`
 }
 
@@ -1256,6 +1274,7 @@ func (o LocationFSxOpenZfsNfsOutput) ToLocationFSxOpenZfsNfsPtrOutputWithContext
 	}).(LocationFSxOpenZfsNfsPtrOutput)
 }
 
+// Represents the mount options that are available for DataSync to access an NFS location.
 func (o LocationFSxOpenZfsNfsOutput) MountOptions() LocationFSxOpenZfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsNfs) LocationFSxOpenZfsMountOptions { return v.MountOptions }).(LocationFSxOpenZfsMountOptionsOutput)
 }
@@ -1284,6 +1303,7 @@ func (o LocationFSxOpenZfsNfsPtrOutput) Elem() LocationFSxOpenZfsNfsOutput {
 	}).(LocationFSxOpenZfsNfsOutput)
 }
 
+// Represents the mount options that are available for DataSync to access an NFS location.
 func (o LocationFSxOpenZfsNfsPtrOutput) MountOptions() LocationFSxOpenZfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOpenZfsNfs) *LocationFSxOpenZfsMountOptions {
 		if v == nil {
@@ -1295,6 +1315,7 @@ func (o LocationFSxOpenZfsNfsPtrOutput) MountOptions() LocationFSxOpenZfsMountOp
 
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZfsProtocol struct {
+	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
 	Nfs *LocationFSxOpenZfsNfs `pulumi:"nfs"`
 }
 
@@ -1311,6 +1332,7 @@ type LocationFSxOpenZfsProtocolInput interface {
 
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZfsProtocolArgs struct {
+	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
 	Nfs LocationFSxOpenZfsNfsPtrInput `pulumi:"nfs"`
 }
 
@@ -1341,6 +1363,7 @@ func (o LocationFSxOpenZfsProtocolOutput) ToLocationFSxOpenZfsProtocolOutputWith
 	return o
 }
 
+// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
 func (o LocationFSxOpenZfsProtocolOutput) Nfs() LocationFSxOpenZfsNfsPtrOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsProtocol) *LocationFSxOpenZfsNfs { return v.Nfs }).(LocationFSxOpenZfsNfsPtrOutput)
 }

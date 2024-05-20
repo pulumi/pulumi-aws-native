@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class GetEnvironmentBlueprintConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        /// </summary>
         [Input("domainId", required: true)]
         public string DomainId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+        /// </summary>
         [Input("environmentBlueprintId", required: true)]
         public string EnvironmentBlueprintId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.DataZone
 
     public sealed class GetEnvironmentBlueprintConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+        /// </summary>
         [Input("environmentBlueprintId", required: true)]
         public Input<string> EnvironmentBlueprintId { get; set; } = null!;
 
@@ -57,13 +69,37 @@ namespace Pulumi.AwsNative.DataZone
     [OutputType]
     public sealed class GetEnvironmentBlueprintConfigurationResult
     {
+        /// <summary>
+        /// The timestamp of when an environment blueprint was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+        /// </summary>
         public readonly string? DomainId;
+        /// <summary>
+        /// The enabled AWS Regions specified in a blueprint configuration.
+        /// </summary>
         public readonly ImmutableArray<string> EnabledRegions;
+        /// <summary>
+        /// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+        /// </summary>
         public readonly string? EnvironmentBlueprintId;
+        /// <summary>
+        /// The ARN of the manage access role.
+        /// </summary>
         public readonly string? ManageAccessRoleArn;
+        /// <summary>
+        /// The ARN of the provisioning role.
+        /// </summary>
         public readonly string? ProvisioningRoleArn;
+        /// <summary>
+        /// The regional parameters of the environment blueprint.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentBlueprintConfigurationRegionalParameter> RegionalParameters;
+        /// <summary>
+        /// The timestamp of when the environment blueprint was updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

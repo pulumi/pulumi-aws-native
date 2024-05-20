@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPanelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the background color for each panel.
+        /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// Determines whether or not a background for each small multiples panel is rendered.
+        /// </summary>
         [Input("backgroundVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? BackgroundVisibility { get; set; }
 
+        /// <summary>
+        /// Sets the line color of panel borders.
+        /// </summary>
         [Input("borderColor")]
         public Input<string>? BorderColor { get; set; }
 
+        /// <summary>
+        /// Sets the line style of panel borders.
+        /// </summary>
         [Input("borderStyle")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardPanelBorderStyle>? BorderStyle { get; set; }
 
@@ -30,6 +42,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("borderThickness")]
         public Input<string>? BorderThickness { get; set; }
 
+        /// <summary>
+        /// Determines whether or not each panel displays a border.
+        /// </summary>
         [Input("borderVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? BorderVisibility { get; set; }
 
@@ -39,9 +54,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("gutterSpacing")]
         public Input<string>? GutterSpacing { get; set; }
 
+        /// <summary>
+        /// Determines whether or not negative space between sibling panels is rendered.
+        /// </summary>
         [Input("gutterVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? GutterVisibility { get; set; }
 
+        /// <summary>
+        /// Configures the title display within each small multiples panel.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.DashboardPanelTitleOptionsArgs>? Title { get; set; }
 

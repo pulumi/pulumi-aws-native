@@ -29,6 +29,9 @@ class GetDeploymentResult:
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[str]:
+        """
+        The deployment ID.
+        """
         return pulumi.get(self, "deployment_id")
 
     @property
@@ -58,6 +61,7 @@ def get_deployment(api_id: Optional[str] = None,
 
 
     :param str api_id: The API identifier.
+    :param str deployment_id: The deployment ID.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -79,5 +83,6 @@ def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str api_id: The API identifier.
+    :param str deployment_id: The deployment ID.
     """
     ...

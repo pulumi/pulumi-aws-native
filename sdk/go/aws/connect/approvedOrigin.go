@@ -44,8 +44,16 @@ import (
 type ApprovedOrigin struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	Origin     pulumi.StringOutput `pulumi:"origin"`
+	// Domain name to be added to the allow-list of the instance.
+	//
+	// *Maximum* : `267`
+	Origin pulumi.StringOutput `pulumi:"origin"`
 }
 
 // NewApprovedOrigin registers a new resource with the given unique name, arguments, and options.
@@ -99,14 +107,30 @@ func (ApprovedOriginState) ElementType() reflect.Type {
 }
 
 type approvedOriginArgs struct {
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
 	InstanceId string `pulumi:"instanceId"`
-	Origin     string `pulumi:"origin"`
+	// Domain name to be added to the allow-list of the instance.
+	//
+	// *Maximum* : `267`
+	Origin string `pulumi:"origin"`
 }
 
 // The set of arguments for constructing a ApprovedOrigin resource.
 type ApprovedOriginArgs struct {
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
 	InstanceId pulumi.StringInput
-	Origin     pulumi.StringInput
+	// Domain name to be added to the allow-list of the instance.
+	//
+	// *Maximum* : `267`
+	Origin pulumi.StringInput
 }
 
 func (ApprovedOriginArgs) ElementType() reflect.Type {
@@ -146,10 +170,18 @@ func (o ApprovedOriginOutput) ToApprovedOriginOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the instance.
+//
+// *Minimum* : `1`
+//
+// *Maximum* : `100`
 func (o ApprovedOriginOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovedOrigin) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
+// Domain name to be added to the allow-list of the instance.
+//
+// *Maximum* : `267`
 func (o ApprovedOriginOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovedOrigin) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
 }

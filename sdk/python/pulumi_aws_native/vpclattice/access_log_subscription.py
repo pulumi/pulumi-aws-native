@@ -21,6 +21,9 @@ class AccessLogSubscriptionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
+        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the access log subscription.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         if resource_identifier is not None:
@@ -31,6 +34,9 @@ class AccessLogSubscriptionArgs:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -40,6 +46,9 @@ class AccessLogSubscriptionArgs:
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service network or service.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -49,6 +58,9 @@ class AccessLogSubscriptionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the access log subscription.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -70,6 +82,9 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the access log subscription.
         """
         ...
     @overload
@@ -152,35 +167,56 @@ class AccessLogSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the access log subscription.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the access log subscription.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the access log subscription.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the service network or service.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service network or service.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the access log subscription.
+        """
         return pulumi.get(self, "tags")
 

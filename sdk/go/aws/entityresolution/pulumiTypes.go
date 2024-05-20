@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdMappingWorkflowIdMappingTechniques struct {
-	IdMappingType      *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
-	ProviderProperties *IdMappingWorkflowProviderProperties               `pulumi:"providerProperties"`
+	// The type of ID mapping.
+	IdMappingType *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
+	// An object which defines any additional configurations required by the provider service.
+	ProviderProperties *IdMappingWorkflowProviderProperties `pulumi:"providerProperties"`
 }
 
 // IdMappingWorkflowIdMappingTechniquesInput is an input type that accepts IdMappingWorkflowIdMappingTechniquesArgs and IdMappingWorkflowIdMappingTechniquesOutput values.
@@ -30,8 +32,10 @@ type IdMappingWorkflowIdMappingTechniquesInput interface {
 }
 
 type IdMappingWorkflowIdMappingTechniquesArgs struct {
-	IdMappingType      IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
-	ProviderProperties IdMappingWorkflowProviderPropertiesPtrInput               `pulumi:"providerProperties"`
+	// The type of ID mapping.
+	IdMappingType IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
+	// An object which defines any additional configurations required by the provider service.
+	ProviderProperties IdMappingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
 }
 
 func (IdMappingWorkflowIdMappingTechniquesArgs) ElementType() reflect.Type {
@@ -60,12 +64,14 @@ func (o IdMappingWorkflowIdMappingTechniquesOutput) ToIdMappingWorkflowIdMapping
 	return o
 }
 
+// The type of ID mapping.
 func (o IdMappingWorkflowIdMappingTechniquesOutput) IdMappingType() IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingTechniquesIdMappingType {
 		return v.IdMappingType
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+// An object which defines any additional configurations required by the provider service.
 func (o IdMappingWorkflowIdMappingTechniquesOutput) ProviderProperties() IdMappingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowProviderProperties {
 		return v.ProviderProperties
@@ -96,6 +102,7 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) Elem() IdMappingWorkflowI
 	}).(IdMappingWorkflowIdMappingTechniquesOutput)
 }
 
+// The type of ID mapping.
 func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) IdMappingType() IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowIdMappingTechniquesIdMappingType {
 		if v == nil {
@@ -105,6 +112,7 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) IdMappingType() IdMapping
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+// An object which defines any additional configurations required by the provider service.
 func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMappingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowProviderProperties {
 		if v == nil {
@@ -116,9 +124,15 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMa
 
 type IdMappingWorkflowInputSource struct {
 	// An Glue table ARN for the input source table or IdNamespace ARN
-	InputSourceArn string                            `pulumi:"inputSourceArn"`
-	SchemaArn      *string                           `pulumi:"schemaArn"`
-	Type           *IdMappingWorkflowInputSourceType `pulumi:"type"`
+	InputSourceArn string `pulumi:"inputSourceArn"`
+	// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
+	SchemaArn *string `pulumi:"schemaArn"`
+	// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+	//
+	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+	//
+	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	Type *IdMappingWorkflowInputSourceType `pulumi:"type"`
 }
 
 // IdMappingWorkflowInputSourceInput is an input type that accepts IdMappingWorkflowInputSourceArgs and IdMappingWorkflowInputSourceOutput values.
@@ -134,9 +148,15 @@ type IdMappingWorkflowInputSourceInput interface {
 
 type IdMappingWorkflowInputSourceArgs struct {
 	// An Glue table ARN for the input source table or IdNamespace ARN
-	InputSourceArn pulumi.StringInput                       `pulumi:"inputSourceArn"`
-	SchemaArn      pulumi.StringPtrInput                    `pulumi:"schemaArn"`
-	Type           IdMappingWorkflowInputSourceTypePtrInput `pulumi:"type"`
+	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
+	// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
+	// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+	//
+	// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+	//
+	// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
+	Type IdMappingWorkflowInputSourceTypePtrInput `pulumi:"type"`
 }
 
 func (IdMappingWorkflowInputSourceArgs) ElementType() reflect.Type {
@@ -195,10 +215,16 @@ func (o IdMappingWorkflowInputSourceOutput) InputSourceArn() pulumi.StringOutput
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
 
+// The ARN (Amazon Resource Name) that AWS Entity Resolution generated for the `SchemaMapping` .
 func (o IdMappingWorkflowInputSourceOutput) SchemaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+//
+// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+//
+// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
 func (o IdMappingWorkflowInputSourceOutput) Type() IdMappingWorkflowInputSourceTypePtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) *IdMappingWorkflowInputSourceType { return v.Type }).(IdMappingWorkflowInputSourceTypePtrOutput)
 }
@@ -361,6 +387,7 @@ func (o IdMappingWorkflowIntermediateSourceConfigurationPtrOutput) IntermediateS
 }
 
 type IdMappingWorkflowOutputSource struct {
+	// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	// The S3 path to which Entity Resolution will write the output table
 	OutputS3Path string `pulumi:"outputS3Path"`
@@ -378,6 +405,7 @@ type IdMappingWorkflowOutputSourceInput interface {
 }
 
 type IdMappingWorkflowOutputSourceArgs struct {
+	// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 	KmsArn pulumi.StringPtrInput `pulumi:"kmsArn"`
 	// The S3 path to which Entity Resolution will write the output table
 	OutputS3Path pulumi.StringInput `pulumi:"outputS3Path"`
@@ -434,6 +462,7 @@ func (o IdMappingWorkflowOutputSourceOutput) ToIdMappingWorkflowOutputSourceOutp
 	return o
 }
 
+// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 func (o IdMappingWorkflowOutputSourceOutput) KmsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowOutputSource) *string { return v.KmsArn }).(pulumi.StringPtrOutput)
 }
@@ -464,6 +493,7 @@ func (o IdMappingWorkflowOutputSourceArrayOutput) Index(i pulumi.IntInput) IdMap
 }
 
 type IdMappingWorkflowProviderProperties struct {
+	// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 	IntermediateSourceConfiguration *IdMappingWorkflowIntermediateSourceConfiguration `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
 	ProviderConfiguration map[string]string `pulumi:"providerConfiguration"`
@@ -483,6 +513,7 @@ type IdMappingWorkflowProviderPropertiesInput interface {
 }
 
 type IdMappingWorkflowProviderPropertiesArgs struct {
+	// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 	IntermediateSourceConfiguration IdMappingWorkflowIntermediateSourceConfigurationPtrInput `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
 	ProviderConfiguration pulumi.StringMapInput `pulumi:"providerConfiguration"`
@@ -567,6 +598,7 @@ func (o IdMappingWorkflowProviderPropertiesOutput) ToIdMappingWorkflowProviderPr
 	}).(IdMappingWorkflowProviderPropertiesPtrOutput)
 }
 
+// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 func (o IdMappingWorkflowProviderPropertiesOutput) IntermediateSourceConfiguration() IdMappingWorkflowIntermediateSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowProviderProperties) *IdMappingWorkflowIntermediateSourceConfiguration {
 		return v.IntermediateSourceConfiguration
@@ -607,6 +639,7 @@ func (o IdMappingWorkflowProviderPropertiesPtrOutput) Elem() IdMappingWorkflowPr
 	}).(IdMappingWorkflowProviderPropertiesOutput)
 }
 
+// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 func (o IdMappingWorkflowProviderPropertiesPtrOutput) IntermediateSourceConfiguration() IdMappingWorkflowIntermediateSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowProviderProperties) *IdMappingWorkflowIntermediateSourceConfiguration {
 		if v == nil {
@@ -645,8 +678,10 @@ type IdMappingWorkflowTag struct {
 }
 
 type IdNamespaceIdMappingWorkflowProperties struct {
-	IdMappingType      IdNamespaceIdMappingWorkflowPropertiesIdMappingType `pulumi:"idMappingType"`
-	ProviderProperties *IdNamespaceNamespaceProviderProperties             `pulumi:"providerProperties"`
+	// The type of ID mapping.
+	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingType `pulumi:"idMappingType"`
+	// An object which defines any additional configurations required by the provider service.
+	ProviderProperties *IdNamespaceNamespaceProviderProperties `pulumi:"providerProperties"`
 }
 
 // IdNamespaceIdMappingWorkflowPropertiesInput is an input type that accepts IdNamespaceIdMappingWorkflowPropertiesArgs and IdNamespaceIdMappingWorkflowPropertiesOutput values.
@@ -661,8 +696,10 @@ type IdNamespaceIdMappingWorkflowPropertiesInput interface {
 }
 
 type IdNamespaceIdMappingWorkflowPropertiesArgs struct {
-	IdMappingType      IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput `pulumi:"idMappingType"`
-	ProviderProperties IdNamespaceNamespaceProviderPropertiesPtrInput           `pulumi:"providerProperties"`
+	// The type of ID mapping.
+	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput `pulumi:"idMappingType"`
+	// An object which defines any additional configurations required by the provider service.
+	ProviderProperties IdNamespaceNamespaceProviderPropertiesPtrInput `pulumi:"providerProperties"`
 }
 
 func (IdNamespaceIdMappingWorkflowPropertiesArgs) ElementType() reflect.Type {
@@ -716,12 +753,14 @@ func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ToIdNamespaceIdMappingWork
 	return o
 }
 
+// The type of ID mapping.
 func (o IdNamespaceIdMappingWorkflowPropertiesOutput) IdMappingType() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
 	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) IdNamespaceIdMappingWorkflowPropertiesIdMappingType {
 		return v.IdMappingType
 	}).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput)
 }
 
+// An object which defines any additional configurations required by the provider service.
 func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ProviderProperties() IdNamespaceNamespaceProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) *IdNamespaceNamespaceProviderProperties {
 		return v.ProviderProperties
@@ -749,8 +788,10 @@ func (o IdNamespaceIdMappingWorkflowPropertiesArrayOutput) Index(i pulumi.IntInp
 }
 
 type IdNamespaceInputSource struct {
-	InputSourceArn string  `pulumi:"inputSourceArn"`
-	SchemaName     *string `pulumi:"schemaName"`
+	// An AWS Glue table ARN for the input source table.
+	InputSourceArn string `pulumi:"inputSourceArn"`
+	// The name of the schema.
+	SchemaName *string `pulumi:"schemaName"`
 }
 
 // IdNamespaceInputSourceInput is an input type that accepts IdNamespaceInputSourceArgs and IdNamespaceInputSourceOutput values.
@@ -765,8 +806,10 @@ type IdNamespaceInputSourceInput interface {
 }
 
 type IdNamespaceInputSourceArgs struct {
-	InputSourceArn pulumi.StringInput    `pulumi:"inputSourceArn"`
-	SchemaName     pulumi.StringPtrInput `pulumi:"schemaName"`
+	// An AWS Glue table ARN for the input source table.
+	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
+	// The name of the schema.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
 }
 
 func (IdNamespaceInputSourceArgs) ElementType() reflect.Type {
@@ -820,10 +863,12 @@ func (o IdNamespaceInputSourceOutput) ToIdNamespaceInputSourceOutputWithContext(
 	return o
 }
 
+// An AWS Glue table ARN for the input source table.
 func (o IdNamespaceInputSourceOutput) InputSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdNamespaceInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
 
+// The name of the schema.
 func (o IdNamespaceInputSourceOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdNamespaceInputSource) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
@@ -851,7 +896,8 @@ func (o IdNamespaceInputSourceArrayOutput) Index(i pulumi.IntInput) IdNamespaceI
 type IdNamespaceNamespaceProviderProperties struct {
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
 	ProviderConfiguration map[string]string `pulumi:"providerConfiguration"`
-	ProviderServiceArn    string            `pulumi:"providerServiceArn"`
+	// The Amazon Resource Name (ARN) of the provider service.
+	ProviderServiceArn string `pulumi:"providerServiceArn"`
 }
 
 // IdNamespaceNamespaceProviderPropertiesInput is an input type that accepts IdNamespaceNamespaceProviderPropertiesArgs and IdNamespaceNamespaceProviderPropertiesOutput values.
@@ -868,7 +914,8 @@ type IdNamespaceNamespaceProviderPropertiesInput interface {
 type IdNamespaceNamespaceProviderPropertiesArgs struct {
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
 	ProviderConfiguration pulumi.StringMapInput `pulumi:"providerConfiguration"`
-	ProviderServiceArn    pulumi.StringInput    `pulumi:"providerServiceArn"`
+	// The Amazon Resource Name (ARN) of the provider service.
+	ProviderServiceArn pulumi.StringInput `pulumi:"providerServiceArn"`
 }
 
 func (IdNamespaceNamespaceProviderPropertiesArgs) ElementType() reflect.Type {
@@ -953,6 +1000,7 @@ func (o IdNamespaceNamespaceProviderPropertiesOutput) ProviderConfiguration() pu
 	return o.ApplyT(func(v IdNamespaceNamespaceProviderProperties) map[string]string { return v.ProviderConfiguration }).(pulumi.StringMapOutput)
 }
 
+// The Amazon Resource Name (ARN) of the provider service.
 func (o IdNamespaceNamespaceProviderPropertiesOutput) ProviderServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdNamespaceNamespaceProviderProperties) string { return v.ProviderServiceArn }).(pulumi.StringOutput)
 }
@@ -991,6 +1039,7 @@ func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderConfiguration()
 	}).(pulumi.StringMapOutput)
 }
 
+// The Amazon Resource Name (ARN) of the provider service.
 func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderServiceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdNamespaceNamespaceProviderProperties) *string {
 		if v == nil {
@@ -1009,10 +1058,12 @@ type IdNamespaceTag struct {
 }
 
 type MatchingWorkflowInputSource struct {
+	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
 	ApplyNormalization *bool `pulumi:"applyNormalization"`
 	// An Glue table ARN for the input source table
 	InputSourceArn string `pulumi:"inputSourceArn"`
-	SchemaArn      string `pulumi:"schemaArn"`
+	// The name of the schema.
+	SchemaArn string `pulumi:"schemaArn"`
 }
 
 // MatchingWorkflowInputSourceInput is an input type that accepts MatchingWorkflowInputSourceArgs and MatchingWorkflowInputSourceOutput values.
@@ -1027,10 +1078,12 @@ type MatchingWorkflowInputSourceInput interface {
 }
 
 type MatchingWorkflowInputSourceArgs struct {
+	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
 	ApplyNormalization pulumi.BoolPtrInput `pulumi:"applyNormalization"`
 	// An Glue table ARN for the input source table
 	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
-	SchemaArn      pulumi.StringInput `pulumi:"schemaArn"`
+	// The name of the schema.
+	SchemaArn pulumi.StringInput `pulumi:"schemaArn"`
 }
 
 func (MatchingWorkflowInputSourceArgs) ElementType() reflect.Type {
@@ -1084,6 +1137,7 @@ func (o MatchingWorkflowInputSourceOutput) ToMatchingWorkflowInputSourceOutputWi
 	return o
 }
 
+// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
 func (o MatchingWorkflowInputSourceOutput) ApplyNormalization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowInputSource) *bool { return v.ApplyNormalization }).(pulumi.BoolPtrOutput)
 }
@@ -1093,6 +1147,7 @@ func (o MatchingWorkflowInputSourceOutput) InputSourceArn() pulumi.StringOutput 
 	return o.ApplyT(func(v MatchingWorkflowInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
 
+// The name of the schema.
 func (o MatchingWorkflowInputSourceOutput) SchemaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchingWorkflowInputSource) string { return v.SchemaArn }).(pulumi.StringOutput)
 }
@@ -1255,8 +1310,10 @@ func (o MatchingWorkflowIntermediateSourceConfigurationPtrOutput) IntermediateS3
 }
 
 type MatchingWorkflowOutputAttribute struct {
-	Hashed *bool  `pulumi:"hashed"`
-	Name   string `pulumi:"name"`
+	// Enables the ability to hash the column values in the output.
+	Hashed *bool `pulumi:"hashed"`
+	// A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
+	Name string `pulumi:"name"`
 }
 
 // MatchingWorkflowOutputAttributeInput is an input type that accepts MatchingWorkflowOutputAttributeArgs and MatchingWorkflowOutputAttributeOutput values.
@@ -1271,8 +1328,10 @@ type MatchingWorkflowOutputAttributeInput interface {
 }
 
 type MatchingWorkflowOutputAttributeArgs struct {
+	// Enables the ability to hash the column values in the output.
 	Hashed pulumi.BoolPtrInput `pulumi:"hashed"`
-	Name   pulumi.StringInput  `pulumi:"name"`
+	// A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (MatchingWorkflowOutputAttributeArgs) ElementType() reflect.Type {
@@ -1326,10 +1385,12 @@ func (o MatchingWorkflowOutputAttributeOutput) ToMatchingWorkflowOutputAttribute
 	return o
 }
 
+// Enables the ability to hash the column values in the output.
 func (o MatchingWorkflowOutputAttributeOutput) Hashed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowOutputAttribute) *bool { return v.Hashed }).(pulumi.BoolPtrOutput)
 }
 
+// A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
 func (o MatchingWorkflowOutputAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchingWorkflowOutputAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1355,9 +1416,12 @@ func (o MatchingWorkflowOutputAttributeArrayOutput) Index(i pulumi.IntInput) Mat
 }
 
 type MatchingWorkflowOutputSource struct {
-	ApplyNormalization *bool                             `pulumi:"applyNormalization"`
-	KmsArn             *string                           `pulumi:"kmsArn"`
-	Output             []MatchingWorkflowOutputAttribute `pulumi:"output"`
+	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+	ApplyNormalization *bool `pulumi:"applyNormalization"`
+	// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+	KmsArn *string `pulumi:"kmsArn"`
+	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	Output []MatchingWorkflowOutputAttribute `pulumi:"output"`
 	// The S3 path to which Entity Resolution will write the output table
 	OutputS3Path string `pulumi:"outputS3Path"`
 }
@@ -1374,9 +1438,12 @@ type MatchingWorkflowOutputSourceInput interface {
 }
 
 type MatchingWorkflowOutputSourceArgs struct {
-	ApplyNormalization pulumi.BoolPtrInput                       `pulumi:"applyNormalization"`
-	KmsArn             pulumi.StringPtrInput                     `pulumi:"kmsArn"`
-	Output             MatchingWorkflowOutputAttributeArrayInput `pulumi:"output"`
+	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
+	ApplyNormalization pulumi.BoolPtrInput `pulumi:"applyNormalization"`
+	// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+	KmsArn pulumi.StringPtrInput `pulumi:"kmsArn"`
+	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	Output MatchingWorkflowOutputAttributeArrayInput `pulumi:"output"`
 	// The S3 path to which Entity Resolution will write the output table
 	OutputS3Path pulumi.StringInput `pulumi:"outputS3Path"`
 }
@@ -1432,14 +1499,17 @@ func (o MatchingWorkflowOutputSourceOutput) ToMatchingWorkflowOutputSourceOutput
 	return o
 }
 
+// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
 func (o MatchingWorkflowOutputSourceOutput) ApplyNormalization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowOutputSource) *bool { return v.ApplyNormalization }).(pulumi.BoolPtrOutput)
 }
 
+// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 func (o MatchingWorkflowOutputSourceOutput) KmsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowOutputSource) *string { return v.KmsArn }).(pulumi.StringPtrOutput)
 }
 
+// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
 func (o MatchingWorkflowOutputSourceOutput) Output() MatchingWorkflowOutputAttributeArrayOutput {
 	return o.ApplyT(func(v MatchingWorkflowOutputSource) []MatchingWorkflowOutputAttribute { return v.Output }).(MatchingWorkflowOutputAttributeArrayOutput)
 }
@@ -1470,6 +1540,7 @@ func (o MatchingWorkflowOutputSourceArrayOutput) Index(i pulumi.IntInput) Matchi
 }
 
 type MatchingWorkflowProviderProperties struct {
+	// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 	IntermediateSourceConfiguration *MatchingWorkflowIntermediateSourceConfiguration `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
 	ProviderConfiguration map[string]string `pulumi:"providerConfiguration"`
@@ -1489,6 +1560,7 @@ type MatchingWorkflowProviderPropertiesInput interface {
 }
 
 type MatchingWorkflowProviderPropertiesArgs struct {
+	// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 	IntermediateSourceConfiguration MatchingWorkflowIntermediateSourceConfigurationPtrInput `pulumi:"intermediateSourceConfiguration"`
 	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
 	ProviderConfiguration pulumi.StringMapInput `pulumi:"providerConfiguration"`
@@ -1573,6 +1645,7 @@ func (o MatchingWorkflowProviderPropertiesOutput) ToMatchingWorkflowProviderProp
 	}).(MatchingWorkflowProviderPropertiesPtrOutput)
 }
 
+// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 func (o MatchingWorkflowProviderPropertiesOutput) IntermediateSourceConfiguration() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowProviderProperties) *MatchingWorkflowIntermediateSourceConfiguration {
 		return v.IntermediateSourceConfiguration
@@ -1613,6 +1686,7 @@ func (o MatchingWorkflowProviderPropertiesPtrOutput) Elem() MatchingWorkflowProv
 	}).(MatchingWorkflowProviderPropertiesOutput)
 }
 
+// The Amazon S3 location that temporarily stores your data while it processes. Your information won't be saved permanently.
 func (o MatchingWorkflowProviderPropertiesPtrOutput) IntermediateSourceConfiguration() MatchingWorkflowIntermediateSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowProviderProperties) *MatchingWorkflowIntermediateSourceConfiguration {
 		if v == nil {
@@ -1643,9 +1717,12 @@ func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulumi
 }
 
 type MatchingWorkflowResolutionTechniques struct {
-	ProviderProperties  *MatchingWorkflowProviderProperties                 `pulumi:"providerProperties"`
-	ResolutionType      *MatchingWorkflowResolutionTechniquesResolutionType `pulumi:"resolutionType"`
-	RuleBasedProperties *MatchingWorkflowRuleBasedProperties                `pulumi:"ruleBasedProperties"`
+	// The properties of the provider service.
+	ProviderProperties *MatchingWorkflowProviderProperties `pulumi:"providerProperties"`
+	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+	ResolutionType *MatchingWorkflowResolutionTechniquesResolutionType `pulumi:"resolutionType"`
+	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+	RuleBasedProperties *MatchingWorkflowRuleBasedProperties `pulumi:"ruleBasedProperties"`
 }
 
 // MatchingWorkflowResolutionTechniquesInput is an input type that accepts MatchingWorkflowResolutionTechniquesArgs and MatchingWorkflowResolutionTechniquesOutput values.
@@ -1660,9 +1737,12 @@ type MatchingWorkflowResolutionTechniquesInput interface {
 }
 
 type MatchingWorkflowResolutionTechniquesArgs struct {
-	ProviderProperties  MatchingWorkflowProviderPropertiesPtrInput                 `pulumi:"providerProperties"`
-	ResolutionType      MatchingWorkflowResolutionTechniquesResolutionTypePtrInput `pulumi:"resolutionType"`
-	RuleBasedProperties MatchingWorkflowRuleBasedPropertiesPtrInput                `pulumi:"ruleBasedProperties"`
+	// The properties of the provider service.
+	ProviderProperties MatchingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
+	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
+	ResolutionType MatchingWorkflowResolutionTechniquesResolutionTypePtrInput `pulumi:"resolutionType"`
+	// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
+	RuleBasedProperties MatchingWorkflowRuleBasedPropertiesPtrInput `pulumi:"ruleBasedProperties"`
 }
 
 func (MatchingWorkflowResolutionTechniquesArgs) ElementType() reflect.Type {
@@ -1691,18 +1771,21 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ToMatchingWorkflowResolution
 	return o
 }
 
+// The properties of the provider service.
 func (o MatchingWorkflowResolutionTechniquesOutput) ProviderProperties() MatchingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowProviderProperties {
 		return v.ProviderProperties
 	}).(MatchingWorkflowProviderPropertiesPtrOutput)
 }
 
+// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 func (o MatchingWorkflowResolutionTechniquesOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionTechniquesResolutionType {
 		return v.ResolutionType
 	}).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
 }
 
+// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
 func (o MatchingWorkflowResolutionTechniquesOutput) RuleBasedProperties() MatchingWorkflowRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleBasedProperties {
 		return v.RuleBasedProperties
@@ -1733,6 +1816,7 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) Elem() MatchingWorkflowRe
 	}).(MatchingWorkflowResolutionTechniquesOutput)
 }
 
+// The properties of the provider service.
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) ProviderProperties() MatchingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowProviderProperties {
 		if v == nil {
@@ -1742,6 +1826,7 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) ProviderProperties() Matc
 	}).(MatchingWorkflowProviderPropertiesPtrOutput)
 }
 
+// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowResolutionTechniquesResolutionType {
 		if v == nil {
@@ -1751,6 +1836,7 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) ResolutionType() Matching
 	}).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
 }
 
+// An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleBasedProperties() MatchingWorkflowRuleBasedPropertiesPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowRuleBasedProperties {
 		if v == nil {
@@ -1761,8 +1847,10 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) RuleBasedProperties() Mat
 }
 
 type MatchingWorkflowRule struct {
+	// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 	MatchingKeys []string `pulumi:"matchingKeys"`
-	RuleName     string   `pulumi:"ruleName"`
+	// A name for the matching rule.
+	RuleName string `pulumi:"ruleName"`
 }
 
 // MatchingWorkflowRuleInput is an input type that accepts MatchingWorkflowRuleArgs and MatchingWorkflowRuleOutput values.
@@ -1777,8 +1865,10 @@ type MatchingWorkflowRuleInput interface {
 }
 
 type MatchingWorkflowRuleArgs struct {
+	// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 	MatchingKeys pulumi.StringArrayInput `pulumi:"matchingKeys"`
-	RuleName     pulumi.StringInput      `pulumi:"ruleName"`
+	// A name for the matching rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
 func (MatchingWorkflowRuleArgs) ElementType() reflect.Type {
@@ -1832,10 +1922,12 @@ func (o MatchingWorkflowRuleOutput) ToMatchingWorkflowRuleOutputWithContext(ctx 
 	return o
 }
 
+// A list of `MatchingKeys` . The `MatchingKeys` must have been defined in the `SchemaMapping` . Two records are considered to match according to this rule if all of the `MatchingKeys` match.
 func (o MatchingWorkflowRuleOutput) MatchingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MatchingWorkflowRule) []string { return v.MatchingKeys }).(pulumi.StringArrayOutput)
 }
 
+// A name for the matching rule.
 func (o MatchingWorkflowRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchingWorkflowRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
@@ -1861,8 +1953,10 @@ func (o MatchingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) MatchingWorkfl
 }
 
 type MatchingWorkflowRuleBasedProperties struct {
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
-	Rules                  []MatchingWorkflowRule                                    `pulumi:"rules"`
+	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
+	Rules []MatchingWorkflowRule `pulumi:"rules"`
 }
 
 // MatchingWorkflowRuleBasedPropertiesInput is an input type that accepts MatchingWorkflowRuleBasedPropertiesArgs and MatchingWorkflowRuleBasedPropertiesOutput values.
@@ -1877,8 +1971,10 @@ type MatchingWorkflowRuleBasedPropertiesInput interface {
 }
 
 type MatchingWorkflowRuleBasedPropertiesArgs struct {
+	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
-	Rules                  MatchingWorkflowRuleArrayInput                                 `pulumi:"rules"`
+	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
+	Rules MatchingWorkflowRuleArrayInput `pulumi:"rules"`
 }
 
 func (MatchingWorkflowRuleBasedPropertiesArgs) ElementType() reflect.Type {
@@ -1958,12 +2054,14 @@ func (o MatchingWorkflowRuleBasedPropertiesOutput) ToMatchingWorkflowRuleBasedPr
 	}).(MatchingWorkflowRuleBasedPropertiesPtrOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 func (o MatchingWorkflowRuleBasedPropertiesOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		return v.AttributeMatchingModel
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput)
 }
 
+// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 func (o MatchingWorkflowRuleBasedPropertiesOutput) Rules() MatchingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) []MatchingWorkflowRule { return v.Rules }).(MatchingWorkflowRuleArrayOutput)
 }
@@ -1992,6 +2090,7 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Elem() MatchingWorkflowRul
 	}).(MatchingWorkflowRuleBasedPropertiesOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) *MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel {
 		if v == nil {
@@ -2001,6 +2100,7 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() M
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Rules() MatchingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) []MatchingWorkflowRule {
 		if v == nil {

@@ -61,22 +61,37 @@ namespace Pulumi.AwsNative.MediaPackage
         /// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Parameters for CDN authorization.
+        /// </summary>
         public readonly Outputs.OriginEndpointAuthorization? Authorization;
         /// <summary>
         /// The ID of the Channel the OriginEndpoint is associated with.
         /// </summary>
         public readonly string? ChannelId;
+        /// <summary>
+        /// Parameters for Common Media Application Format (CMAF) packaging.
+        /// </summary>
         public readonly Outputs.OriginEndpointCmafPackage? CmafPackage;
+        /// <summary>
+        /// Parameters for DASH packaging.
+        /// </summary>
         public readonly Outputs.OriginEndpointDashPackage? DashPackage;
         /// <summary>
         /// A short text description of the OriginEndpoint.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Parameters for Apple HLS packaging.
+        /// </summary>
         public readonly Outputs.OriginEndpointHlsPackage? HlsPackage;
         /// <summary>
         /// A short string appended to the end of the OriginEndpoint URL.
         /// </summary>
         public readonly string? ManifestName;
+        /// <summary>
+        /// Parameters for Microsoft Smooth Streaming packaging.
+        /// </summary>
         public readonly Outputs.OriginEndpointMssPackage? MssPackage;
         /// <summary>
         /// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination

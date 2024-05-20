@@ -120,36 +120,71 @@ namespace Pulumi.AwsNative.Events
     [AwsNativeResourceType("aws-native:events:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the endpoint.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the endpoint.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the endpoint.
+        /// </summary>
         [Output("endpointId")]
         public Output<string> EndpointId { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL of the endpoint.
+        /// </summary>
         [Output("endpointUrl")]
         public Output<string> EndpointUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The event buses being used by the endpoint.
+        /// 
+        /// *Exactly* : `2`
+        /// </summary>
         [Output("eventBuses")]
         public Output<ImmutableArray<Outputs.EndpointEventBus>> EventBuses { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        /// </summary>
         [Output("replicationConfig")]
         public Output<Outputs.EndpointReplicationConfig?> ReplicationConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the role used by event replication for the endpoint.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The routing configuration of the endpoint.
+        /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.EndpointRoutingConfig> RoutingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The main Region of the endpoint.
+        /// </summary>
         [Output("state")]
         public Output<Pulumi.AwsNative.Events.EndpointState> State { get; private set; } = null!;
 
+        /// <summary>
+        /// The reason the endpoint is in its current state.
+        /// </summary>
         [Output("stateReason")]
         public Output<string> StateReason { get; private set; } = null!;
 
@@ -202,26 +237,47 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the endpoint.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("eventBuses", required: true)]
         private InputList<Inputs.EndpointEventBusArgs>? _eventBuses;
+
+        /// <summary>
+        /// The event buses being used by the endpoint.
+        /// 
+        /// *Exactly* : `2`
+        /// </summary>
         public InputList<Inputs.EndpointEventBusArgs> EventBuses
         {
             get => _eventBuses ?? (_eventBuses = new InputList<Inputs.EndpointEventBusArgs>());
             set => _eventBuses = value;
         }
 
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        /// </summary>
         [Input("replicationConfig")]
         public Input<Inputs.EndpointReplicationConfigArgs>? ReplicationConfig { get; set; }
 
+        /// <summary>
+        /// The ARN of the role used by event replication for the endpoint.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The routing configuration of the endpoint.
+        /// </summary>
         [Input("routingConfig", required: true)]
         public Input<Inputs.EndpointRoutingConfigArgs> RoutingConfig { get; set; } = null!;
 

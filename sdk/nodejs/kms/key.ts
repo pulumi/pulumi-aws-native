@@ -46,6 +46,11 @@ export class Key extends pulumi.CustomResource {
         return obj['__pulumiType'] === Key.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Skips ("bypasses") the key policy lockout safety check. The default value is false.
@@ -72,6 +77,11 @@ export class Key extends pulumi.CustomResource {
      *  For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+     */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
      * The key policy to attach to the KMS key.

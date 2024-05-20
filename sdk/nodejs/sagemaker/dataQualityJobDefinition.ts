@@ -41,22 +41,46 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
      * The time at which the job definition was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Specifies the container that runs the monitoring job.
+     */
     public readonly dataQualityAppSpecification!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    /**
+     * Configures the constraints and baselines for the monitoring job.
+     */
     public readonly dataQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
+    /**
+     * A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
+     */
     public readonly dataQualityJobInput!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
+    /**
+     * The output configuration for monitoring jobs.
+     */
     public readonly dataQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionMonitoringOutputConfig>;
     public readonly endpointName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */
     public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    /**
+     * The name for the monitoring job definition.
+     */
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    /**
+     * Identifies the resources to deploy for a monitoring job.
+     */
     public readonly jobResources!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionMonitoringResources>;
+    /**
+     * Specifies networking configuration for the monitoring job.
+     */
     public readonly networkConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A time limit for how long the monitoring job is allowed to run before stopping.
+     */
     public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -128,18 +152,42 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a DataQualityJobDefinition resource.
  */
 export interface DataQualityJobDefinitionArgs {
+    /**
+     * Specifies the container that runs the monitoring job.
+     */
     dataQualityAppSpecification: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs>;
+    /**
+     * Configures the constraints and baselines for the monitoring job.
+     */
     dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfigArgs>;
+    /**
+     * A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
+     */
     dataQualityJobInput: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs>;
+    /**
+     * The output configuration for monitoring jobs.
+     */
     dataQualityJobOutputConfig: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionMonitoringOutputConfigArgs>;
     endpointName?: pulumi.Input<string>;
+    /**
+     * The name for the monitoring job definition.
+     */
     jobDefinitionName?: pulumi.Input<string>;
+    /**
+     * Identifies the resources to deploy for a monitoring job.
+     */
     jobResources: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionMonitoringResourcesArgs>;
+    /**
+     * Specifies networking configuration for the monitoring job.
+     */
     networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * A time limit for how long the monitoring job is allowed to run before stopping.
+     */
     stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingConditionArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

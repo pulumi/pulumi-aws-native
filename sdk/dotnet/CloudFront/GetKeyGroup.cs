@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetKeyGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the key group.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetKeyGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the key group.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetKeyGroupResult
     {
+        /// <summary>
+        /// The identifier for the key group.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The key group configuration.
+        /// </summary>
         public readonly Outputs.KeyGroupConfig? KeyGroupConfig;
+        /// <summary>
+        /// The date and time when the key group was last modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
 
         [OutputConstructor]

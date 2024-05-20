@@ -50,6 +50,9 @@ export interface GetEndpointResult {
      * The network interfaces of the endpoint.
      */
     readonly networkInterfaces?: outputs.s3outposts.EndpointNetworkInterface[];
+    /**
+     * The status of the endpoint.
+     */
     readonly status?: enums.s3outposts.EndpointStatus;
 }
 /**

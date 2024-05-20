@@ -100,11 +100,17 @@ type CustomDataIdentifierTag struct {
 }
 
 type FindingsFilterCriterionAdditionalProperties struct {
-	Eq  []string `pulumi:"eq"`
-	Gt  *int     `pulumi:"gt"`
-	Gte *int     `pulumi:"gte"`
-	Lt  *int     `pulumi:"lt"`
-	Lte *int     `pulumi:"lte"`
+	// The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+	Eq []string `pulumi:"eq"`
+	// The value for the specified property is greater than the specified value.
+	Gt *int `pulumi:"gt"`
+	// The value for the specified property is greater than or equal to the specified value.
+	Gte *int `pulumi:"gte"`
+	// The value for the specified property is less than the specified value.
+	Lt *int `pulumi:"lt"`
+	// The value for the specified property is less than or equal to the specified value.
+	Lte *int `pulumi:"lte"`
+	// The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
 	Neq []string `pulumi:"neq"`
 }
 
@@ -120,11 +126,17 @@ type FindingsFilterCriterionAdditionalPropertiesInput interface {
 }
 
 type FindingsFilterCriterionAdditionalPropertiesArgs struct {
-	Eq  pulumi.StringArrayInput `pulumi:"eq"`
-	Gt  pulumi.IntPtrInput      `pulumi:"gt"`
-	Gte pulumi.IntPtrInput      `pulumi:"gte"`
-	Lt  pulumi.IntPtrInput      `pulumi:"lt"`
-	Lte pulumi.IntPtrInput      `pulumi:"lte"`
+	// The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+	Eq pulumi.StringArrayInput `pulumi:"eq"`
+	// The value for the specified property is greater than the specified value.
+	Gt pulumi.IntPtrInput `pulumi:"gt"`
+	// The value for the specified property is greater than or equal to the specified value.
+	Gte pulumi.IntPtrInput `pulumi:"gte"`
+	// The value for the specified property is less than the specified value.
+	Lt pulumi.IntPtrInput `pulumi:"lt"`
+	// The value for the specified property is less than or equal to the specified value.
+	Lte pulumi.IntPtrInput `pulumi:"lte"`
+	// The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
 	Neq pulumi.StringArrayInput `pulumi:"neq"`
 }
 
@@ -179,26 +191,32 @@ func (o FindingsFilterCriterionAdditionalPropertiesOutput) ToFindingsFilterCrite
 	return o
 }
 
+// The value for the specified property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
 func (o FindingsFilterCriterionAdditionalPropertiesOutput) Eq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) []string { return v.Eq }).(pulumi.StringArrayOutput)
 }
 
+// The value for the specified property is greater than the specified value.
 func (o FindingsFilterCriterionAdditionalPropertiesOutput) Gt() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Gt }).(pulumi.IntPtrOutput)
 }
 
+// The value for the specified property is greater than or equal to the specified value.
 func (o FindingsFilterCriterionAdditionalPropertiesOutput) Gte() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Gte }).(pulumi.IntPtrOutput)
 }
 
+// The value for the specified property is less than the specified value.
 func (o FindingsFilterCriterionAdditionalPropertiesOutput) Lt() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Lt }).(pulumi.IntPtrOutput)
 }
 
+// The value for the specified property is less than or equal to the specified value.
 func (o FindingsFilterCriterionAdditionalPropertiesOutput) Lte() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) *int { return v.Lte }).(pulumi.IntPtrOutput)
 }
 
+// The value for the specified property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
 func (o FindingsFilterCriterionAdditionalPropertiesOutput) Neq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FindingsFilterCriterionAdditionalProperties) []string { return v.Neq }).(pulumi.StringArrayOutput)
 }
@@ -224,6 +242,7 @@ func (o FindingsFilterCriterionAdditionalPropertiesMapOutput) MapIndex(k pulumi.
 }
 
 type FindingsFilterFindingCriteria struct {
+	// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
 	Criterion map[string]FindingsFilterCriterionAdditionalProperties `pulumi:"criterion"`
 }
 
@@ -239,6 +258,7 @@ type FindingsFilterFindingCriteriaInput interface {
 }
 
 type FindingsFilterFindingCriteriaArgs struct {
+	// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
 	Criterion FindingsFilterCriterionAdditionalPropertiesMapInput `pulumi:"criterion"`
 }
 
@@ -268,6 +288,7 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaOutp
 	return o
 }
 
+// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
 func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterionAdditionalPropertiesMapOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) map[string]FindingsFilterCriterionAdditionalProperties {
 		return v.Criterion
@@ -298,6 +319,7 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCrit
 	}).(FindingsFilterFindingCriteriaOutput)
 }
 
+// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
 func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriterionAdditionalPropertiesMapOutput {
 	return o.ApplyT(func(v *FindingsFilterFindingCriteria) map[string]FindingsFilterCriterionAdditionalProperties {
 		if v == nil {

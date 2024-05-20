@@ -60,61 +60,99 @@ class GetNetworkProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the network profile.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="downlinkBandwidthBits")
     def downlink_bandwidth_bits(self) -> Optional[int]:
+        """
+        The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        """
         return pulumi.get(self, "downlink_bandwidth_bits")
 
     @property
     @pulumi.getter(name="downlinkDelayMs")
     def downlink_delay_ms(self) -> Optional[int]:
+        """
+        Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "downlink_delay_ms")
 
     @property
     @pulumi.getter(name="downlinkJitterMs")
     def downlink_jitter_ms(self) -> Optional[int]:
+        """
+        Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "downlink_jitter_ms")
 
     @property
     @pulumi.getter(name="downlinkLossPercent")
     def downlink_loss_percent(self) -> Optional[int]:
+        """
+        Proportion of received packets that fail to arrive from 0 to 100 percent.
+        """
         return pulumi.get(self, "downlink_loss_percent")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the network profile.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="uplinkBandwidthBits")
     def uplink_bandwidth_bits(self) -> Optional[int]:
+        """
+        The data throughput rate in bits per second, as an integer from 0 to 104857600.
+        """
         return pulumi.get(self, "uplink_bandwidth_bits")
 
     @property
     @pulumi.getter(name="uplinkDelayMs")
     def uplink_delay_ms(self) -> Optional[int]:
+        """
+        Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "uplink_delay_ms")
 
     @property
     @pulumi.getter(name="uplinkJitterMs")
     def uplink_jitter_ms(self) -> Optional[int]:
+        """
+        Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+        """
         return pulumi.get(self, "uplink_jitter_ms")
 
     @property
     @pulumi.getter(name="uplinkLossPercent")
     def uplink_loss_percent(self) -> Optional[int]:
+        """
+        Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+        """
         return pulumi.get(self, "uplink_loss_percent")
 
 
@@ -142,6 +180,9 @@ def get_network_profile(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkProfileResult:
     """
     AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -168,5 +209,8 @@ def get_network_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     ...

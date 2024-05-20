@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Sso.Outputs
     [OutputType]
     public sealed class PermissionSetCustomerManagedPolicyReference
     {
+        /// <summary>
+        /// The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
+        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

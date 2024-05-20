@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class RestoreTestingSelectionProtectedResourceConditions
     {
+        /// <summary>
+        /// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
+        /// </summary>
         public readonly ImmutableArray<Outputs.RestoreTestingSelectionKeyValue> StringEquals;
+        /// <summary>
+        /// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
+        /// </summary>
         public readonly ImmutableArray<Outputs.RestoreTestingSelectionKeyValue> StringNotEquals;
 
         [OutputConstructor]

@@ -17,6 +17,9 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDeploymentArgs {
+    /**
+     * The ID for the deployment. For example: `abc123` .
+     */
     deploymentId: string;
     /**
      * The string identifier of the associated RestApi.
@@ -25,6 +28,9 @@ export interface GetDeploymentArgs {
 }
 
 export interface GetDeploymentResult {
+    /**
+     * The ID for the deployment. For example: `abc123` .
+     */
     readonly deploymentId?: string;
     /**
      * The description for the Deployment resource to create.
@@ -39,6 +45,9 @@ export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi
 }
 
 export interface GetDeploymentOutputArgs {
+    /**
+     * The ID for the deployment. For example: `abc123` .
+     */
     deploymentId: pulumi.Input<string>;
     /**
      * The string identifier of the associated RestApi.

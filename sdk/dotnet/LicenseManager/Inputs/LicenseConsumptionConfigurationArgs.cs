@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
 
     public sealed class LicenseConsumptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about a borrow configuration.
+        /// </summary>
         [Input("borrowConfiguration")]
         public Input<Inputs.LicenseBorrowConfigurationArgs>? BorrowConfiguration { get; set; }
 
+        /// <summary>
+        /// Details about a provisional configuration.
+        /// </summary>
         [Input("provisionalConfiguration")]
         public Input<Inputs.LicenseProvisionalConfigurationArgs>? ProvisionalConfiguration { get; set; }
 
+        /// <summary>
+        /// Renewal frequency.
+        /// </summary>
         [Input("renewType")]
         public Input<string>? RenewType { get; set; }
 

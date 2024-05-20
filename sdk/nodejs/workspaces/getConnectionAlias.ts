@@ -19,12 +19,24 @@ export function getConnectionAlias(args: GetConnectionAliasArgs, opts?: pulumi.I
 }
 
 export interface GetConnectionAliasArgs {
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     aliasId: string;
 }
 
 export interface GetConnectionAliasResult {
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     readonly aliasId?: string;
+    /**
+     * The association status of the connection alias.
+     */
     readonly associations?: outputs.workspaces.ConnectionAliasAssociation[];
+    /**
+     * The current state of the connection alias, returned as a string.
+     */
     readonly connectionAliasState?: enums.workspaces.ConnectionAliasState;
 }
 /**
@@ -35,5 +47,8 @@ export function getConnectionAliasOutput(args: GetConnectionAliasOutputArgs, opt
 }
 
 export interface GetConnectionAliasOutputArgs {
+    /**
+     * The identifier of the connection alias, returned as a string.
+     */
     aliasId: pulumi.Input<string>;
 }

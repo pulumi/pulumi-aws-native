@@ -30,17 +30,29 @@ export interface GetLicenseResult {
      * Beneficiary of the license.
      */
     readonly beneficiary?: string;
+    /**
+     * Configuration for consumption of the license.
+     */
     readonly consumptionConfiguration?: outputs.licensemanager.LicenseConsumptionConfiguration;
+    /**
+     * License entitlements.
+     */
     readonly entitlements?: outputs.licensemanager.LicenseEntitlement[];
     /**
      * Home region for the created license.
      */
     readonly homeRegion?: string;
+    /**
+     * License issuer.
+     */
     readonly issuer?: outputs.licensemanager.LicenseIssuerData;
     /**
      * Amazon Resource Name is a unique name for each resource.
      */
     readonly licenseArn?: string;
+    /**
+     * License metadata.
+     */
     readonly licenseMetadata?: outputs.licensemanager.LicenseMetadata[];
     /**
      * Name for the created license.
@@ -54,6 +66,9 @@ export interface GetLicenseResult {
      * ProductSKU of the license.
      */
     readonly productSku?: string;
+    /**
+     * Date and time range during which the license is valid, in ISO8601-UTC format.
+     */
     readonly validity?: outputs.licensemanager.LicenseValidityDateFormat;
     /**
      * The version of the license.

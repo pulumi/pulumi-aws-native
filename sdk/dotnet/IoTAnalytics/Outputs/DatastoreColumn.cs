@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreColumn
     {
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of data. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide* .
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

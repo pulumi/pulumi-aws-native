@@ -13,21 +13,60 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableOptions
     {
+        /// <summary>
+        /// The table cell style of cells.
+        /// </summary>
         public readonly Outputs.DashboardTableCellStyle? CellStyle;
+        /// <summary>
+        /// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? CollapsedRowDimensionsVisibility;
+        /// <summary>
+        /// The table cell style of the column header.
+        /// </summary>
         public readonly Outputs.DashboardTableCellStyle? ColumnHeaderStyle;
+        /// <summary>
+        /// The visibility of the column names.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? ColumnNamesVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
         public readonly string? DefaultCellWidth;
+        /// <summary>
+        /// The metric placement (row, column) options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPivotTableMetricPlacement? MetricPlacement;
+        /// <summary>
+        /// The row alternate color options (widget status, row alternate colors).
+        /// </summary>
         public readonly Outputs.DashboardRowAlternateColorOptions? RowAlternateColorOptions;
+        /// <summary>
+        /// The table cell style of row field names.
+        /// </summary>
         public readonly Outputs.DashboardTableCellStyle? RowFieldNamesStyle;
+        /// <summary>
+        /// The table cell style of the row headers.
+        /// </summary>
         public readonly Outputs.DashboardTableCellStyle? RowHeaderStyle;
+        /// <summary>
+        /// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// </summary>
         public readonly Outputs.DashboardPivotTableRowsLabelOptions? RowsLabelOptions;
+        /// <summary>
+        /// The layout for the row dimension headers of a pivot table. Choose one of the following options.
+        /// 
+        /// - `TABULAR` : (Default) Each row field is displayed in a separate column.
+        /// - `HIERARCHY` : All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPivotTableRowsLayout? RowsLayout;
+        /// <summary>
+        /// The visibility of the single metric options.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? SingleMetricVisibility;
+        /// <summary>
+        /// Determines the visibility of the pivot table.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? ToggleButtonsVisibility;
 
         [OutputConstructor]

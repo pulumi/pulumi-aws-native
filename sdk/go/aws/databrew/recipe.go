@@ -74,9 +74,11 @@ type Recipe struct {
 	// Description of the recipe
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Recipe name
-	Name  pulumi.StringOutput          `pulumi:"name"`
-	Steps RecipeStepArrayOutput        `pulumi:"steps"`
-	Tags  aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of steps that are defined by the recipe.
+	Steps RecipeStepArrayOutput `pulumi:"steps"`
+	// Metadata tags that have been applied to the recipe.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewRecipe registers a new resource with the given unique name, arguments, and options.
@@ -130,9 +132,11 @@ type recipeArgs struct {
 	// Description of the recipe
 	Description *string `pulumi:"description"`
 	// Recipe name
-	Name  *string             `pulumi:"name"`
-	Steps []RecipeStep        `pulumi:"steps"`
-	Tags  []aws.CreateOnlyTag `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// A list of steps that are defined by the recipe.
+	Steps []RecipeStep `pulumi:"steps"`
+	// Metadata tags that have been applied to the recipe.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Recipe resource.
@@ -140,9 +144,11 @@ type RecipeArgs struct {
 	// Description of the recipe
 	Description pulumi.StringPtrInput
 	// Recipe name
-	Name  pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// A list of steps that are defined by the recipe.
 	Steps RecipeStepArrayInput
-	Tags  aws.CreateOnlyTagArrayInput
+	// Metadata tags that have been applied to the recipe.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (RecipeArgs) ElementType() reflect.Type {
@@ -192,10 +198,12 @@ func (o RecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Recipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of steps that are defined by the recipe.
 func (o RecipeOutput) Steps() RecipeStepArrayOutput {
 	return o.ApplyT(func(v *Recipe) RecipeStepArrayOutput { return v.Steps }).(RecipeStepArrayOutput)
 }
 
+// Metadata tags that have been applied to the recipe.
 func (o RecipeOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Recipe) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

@@ -53,6 +53,9 @@ export class Disk extends pulumi.CustomResource {
      * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the disk.
+     */
     public /*out*/ readonly diskArn!: pulumi.Output<string>;
     /**
      * The names to use for your new Lightsail disk.
@@ -66,6 +69,9 @@ export class Disk extends pulumi.CustomResource {
      * Check is Disk is attached state
      */
     public /*out*/ readonly isAttached!: pulumi.Output<boolean>;
+    /**
+     * The AWS Region and Availability Zone where the disk is located.
+     */
     public readonly location!: pulumi.Output<outputs.lightsail.DiskLocation | undefined>;
     /**
      * Path of the  attached Disk
@@ -161,6 +167,9 @@ export interface DiskArgs {
      * The names to use for your new Lightsail disk.
      */
     diskName?: pulumi.Input<string>;
+    /**
+     * The AWS Region and Availability Zone where the disk is located.
+     */
     location?: pulumi.Input<inputs.lightsail.DiskLocationArgs>;
     /**
      * Size of the Lightsail disk

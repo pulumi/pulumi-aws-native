@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainDefaultSpaceStorageSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default EBS storage settings for a space.
+        /// </summary>
         [Input("defaultEbsStorageSettings")]
         public Input<Inputs.DomainDefaultEbsStorageSettingsArgs>? DefaultEbsStorageSettings { get; set; }
 

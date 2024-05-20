@@ -17,16 +17,26 @@ import (
 type NetworkInsightsAccessScopeAnalysis struct {
 	pulumi.CustomResourceState
 
-	AnalyzedEniCount                      pulumi.IntOutput                                      `pulumi:"analyzedEniCount"`
-	EndDate                               pulumi.StringOutput                                   `pulumi:"endDate"`
-	FindingsFound                         NetworkInsightsAccessScopeAnalysisFindingsFoundOutput `pulumi:"findingsFound"`
-	NetworkInsightsAccessScopeAnalysisArn pulumi.StringOutput                                   `pulumi:"networkInsightsAccessScopeAnalysisArn"`
-	NetworkInsightsAccessScopeAnalysisId  pulumi.StringOutput                                   `pulumi:"networkInsightsAccessScopeAnalysisId"`
-	NetworkInsightsAccessScopeId          pulumi.StringOutput                                   `pulumi:"networkInsightsAccessScopeId"`
-	StartDate                             pulumi.StringOutput                                   `pulumi:"startDate"`
-	Status                                NetworkInsightsAccessScopeAnalysisStatusOutput        `pulumi:"status"`
-	StatusMessage                         pulumi.StringOutput                                   `pulumi:"statusMessage"`
-	Tags                                  aws.TagArrayOutput                                    `pulumi:"tags"`
+	// The number of network interfaces analyzed.
+	AnalyzedEniCount pulumi.IntOutput `pulumi:"analyzedEniCount"`
+	// The end date of the analysis.
+	EndDate pulumi.StringOutput `pulumi:"endDate"`
+	// Indicates whether there are findings (true | false | unknown).
+	FindingsFound NetworkInsightsAccessScopeAnalysisFindingsFoundOutput `pulumi:"findingsFound"`
+	// The ARN of the Network Access Scope analysis.
+	NetworkInsightsAccessScopeAnalysisArn pulumi.StringOutput `pulumi:"networkInsightsAccessScopeAnalysisArn"`
+	// The ID of the Network Access Scope analysis.
+	NetworkInsightsAccessScopeAnalysisId pulumi.StringOutput `pulumi:"networkInsightsAccessScopeAnalysisId"`
+	// The ID of the Network Access Scope.
+	NetworkInsightsAccessScopeId pulumi.StringOutput `pulumi:"networkInsightsAccessScopeId"`
+	// The start date of the analysis.
+	StartDate pulumi.StringOutput `pulumi:"startDate"`
+	// The status of the analysis (running | succeeded | failed).
+	Status NetworkInsightsAccessScopeAnalysisStatusOutput `pulumi:"status"`
+	// The status message.
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// The tags.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewNetworkInsightsAccessScopeAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -76,14 +86,18 @@ func (NetworkInsightsAccessScopeAnalysisState) ElementType() reflect.Type {
 }
 
 type networkInsightsAccessScopeAnalysisArgs struct {
-	NetworkInsightsAccessScopeId string    `pulumi:"networkInsightsAccessScopeId"`
-	Tags                         []aws.Tag `pulumi:"tags"`
+	// The ID of the Network Access Scope.
+	NetworkInsightsAccessScopeId string `pulumi:"networkInsightsAccessScopeId"`
+	// The tags.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsAccessScopeAnalysis resource.
 type NetworkInsightsAccessScopeAnalysisArgs struct {
+	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId pulumi.StringInput
-	Tags                         aws.TagArrayInput
+	// The tags.
+	Tags aws.TagArrayInput
 }
 
 func (NetworkInsightsAccessScopeAnalysisArgs) ElementType() reflect.Type {
@@ -123,50 +137,60 @@ func (o NetworkInsightsAccessScopeAnalysisOutput) ToNetworkInsightsAccessScopeAn
 	return o
 }
 
+// The number of network interfaces analyzed.
 func (o NetworkInsightsAccessScopeAnalysisOutput) AnalyzedEniCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.IntOutput { return v.AnalyzedEniCount }).(pulumi.IntOutput)
 }
 
+// The end date of the analysis.
 func (o NetworkInsightsAccessScopeAnalysisOutput) EndDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.EndDate }).(pulumi.StringOutput)
 }
 
+// Indicates whether there are findings (true | false | unknown).
 func (o NetworkInsightsAccessScopeAnalysisOutput) FindingsFound() NetworkInsightsAccessScopeAnalysisFindingsFoundOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisFindingsFoundOutput {
 		return v.FindingsFound
 	}).(NetworkInsightsAccessScopeAnalysisFindingsFoundOutput)
 }
 
+// The ARN of the Network Access Scope analysis.
 func (o NetworkInsightsAccessScopeAnalysisOutput) NetworkInsightsAccessScopeAnalysisArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput {
 		return v.NetworkInsightsAccessScopeAnalysisArn
 	}).(pulumi.StringOutput)
 }
 
+// The ID of the Network Access Scope analysis.
 func (o NetworkInsightsAccessScopeAnalysisOutput) NetworkInsightsAccessScopeAnalysisId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput {
 		return v.NetworkInsightsAccessScopeAnalysisId
 	}).(pulumi.StringOutput)
 }
 
+// The ID of the Network Access Scope.
 func (o NetworkInsightsAccessScopeAnalysisOutput) NetworkInsightsAccessScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.NetworkInsightsAccessScopeId }).(pulumi.StringOutput)
 }
 
+// The start date of the analysis.
 func (o NetworkInsightsAccessScopeAnalysisOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
 }
 
+// The status of the analysis (running | succeeded | failed).
 func (o NetworkInsightsAccessScopeAnalysisOutput) Status() NetworkInsightsAccessScopeAnalysisStatusOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) NetworkInsightsAccessScopeAnalysisStatusOutput {
 		return v.Status
 	}).(NetworkInsightsAccessScopeAnalysisStatusOutput)
 }
 
+// The status message.
 func (o NetworkInsightsAccessScopeAnalysisOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// The tags.
 func (o NetworkInsightsAccessScopeAnalysisOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

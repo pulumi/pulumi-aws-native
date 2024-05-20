@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
     {
         [Input("enabledTypes")]
         private InputList<Inputs.ClusterLoggingTypeConfigArgs>? _enabledTypes;
+
+        /// <summary>
+        /// The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
+        /// 
+        /// &gt; When updating a resource, you must include this `EnabledTypes` property if the previous CloudFormation template of the resource had it.
+        /// </summary>
         public InputList<Inputs.ClusterLoggingTypeConfigArgs> EnabledTypes
         {
             get => _enabledTypes ?? (_enabledTypes = new InputList<Inputs.ClusterLoggingTypeConfigArgs>());

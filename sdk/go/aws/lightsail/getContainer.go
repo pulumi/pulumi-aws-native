@@ -29,6 +29,7 @@ type LookupContainerArgs struct {
 }
 
 type LookupContainerResult struct {
+	// The Amazon Resource Name (ARN) of the container.
 	ContainerArn *string `pulumi:"containerArn"`
 	// Describes a container deployment configuration of an Amazon Lightsail container service.
 	ContainerServiceDeployment *ContainerServiceDeployment `pulumi:"containerServiceDeployment"`
@@ -86,6 +87,7 @@ func (o LookupContainerResultOutput) ToLookupContainerResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the container.
 func (o LookupContainerResultOutput) ContainerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerResult) *string { return v.ContainerArn }).(pulumi.StringPtrOutput)
 }

@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcEndpointArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the VPC endpoint.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the VPC endpoint.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -55,9 +61,27 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcEndpointResult
     {
+        /// <summary>
+        /// The date and time the VPC endpoint was created. For example: `Fri Sep 28 23:34:36 UTC 2018.`
+        /// </summary>
         public readonly string? CreationTimestamp;
+        /// <summary>
+        /// (Interface endpoints) The DNS entries for the endpoint. Each entry is a combination of the hosted zone ID and the DNS name. The entries are ordered as follows: regional public DNS, zonal public DNS, private DNS, and wildcard DNS. This order is not enforced for AWS Marketplace services.
+        /// 
+        /// The following is an example. In the first entry, the hosted zone ID is Z1HUB23UULQXV and the DNS name is vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com.
+        /// 
+        /// ["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com", "Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com", "Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
+        /// 
+        /// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
+        /// </summary>
         public readonly ImmutableArray<string> DnsEntries;
+        /// <summary>
+        /// The ID of the VPC endpoint.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
+        /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
         /// An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.

@@ -34,8 +34,17 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationEntitlementAssociation.__pulumiType;
     }
 
+    /**
+     * The identifier of the application.
+     */
     public readonly applicationIdentifier!: pulumi.Output<string>;
+    /**
+     * The name of the entitlement.
+     */
     public readonly entitlementName!: pulumi.Output<string>;
+    /**
+     * The name of the stack.
+     */
     public readonly stackName!: pulumi.Output<string>;
 
     /**
@@ -77,7 +86,16 @@ export class ApplicationEntitlementAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ApplicationEntitlementAssociation resource.
  */
 export interface ApplicationEntitlementAssociationArgs {
+    /**
+     * The identifier of the application.
+     */
     applicationIdentifier: pulumi.Input<string>;
+    /**
+     * The name of the entitlement.
+     */
     entitlementName: pulumi.Input<string>;
+    /**
+     * The name of the stack.
+     */
     stackName: pulumi.Input<string>;
 }

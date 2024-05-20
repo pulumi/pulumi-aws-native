@@ -23,12 +23,16 @@ func LookupPublicKey(ctx *pulumi.Context, args *LookupPublicKeyArgs, opts ...pul
 }
 
 type LookupPublicKeyArgs struct {
+	// The identifier of the public key.
 	Id string `pulumi:"id"`
 }
 
 type LookupPublicKeyResult struct {
-	CreatedTime     *string          `pulumi:"createdTime"`
-	Id              *string          `pulumi:"id"`
+	// The date and time when the public key was uploaded.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The identifier of the public key.
+	Id *string `pulumi:"id"`
+	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 	PublicKeyConfig *PublicKeyConfig `pulumi:"publicKeyConfig"`
 }
 
@@ -46,6 +50,7 @@ func LookupPublicKeyOutput(ctx *pulumi.Context, args LookupPublicKeyOutputArgs, 
 }
 
 type LookupPublicKeyOutputArgs struct {
+	// The identifier of the public key.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupPublicKeyResultOutput) ToLookupPublicKeyResultOutputWithContext(ct
 	return o
 }
 
+// The date and time when the public key was uploaded.
 func (o LookupPublicKeyResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPublicKeyResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the public key.
 func (o LookupPublicKeyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPublicKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 func (o LookupPublicKeyResultOutput) PublicKeyConfig() PublicKeyConfigPtrOutput {
 	return o.ApplyT(func(v LookupPublicKeyResult) *PublicKeyConfig { return v.PublicKeyConfig }).(PublicKeyConfigPtrOutput)
 }

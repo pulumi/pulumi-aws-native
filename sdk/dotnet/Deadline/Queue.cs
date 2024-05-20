@@ -15,36 +15,69 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        /// </summary>
         [Output("allowedStorageProfileIds")]
         public Output<ImmutableArray<string>> AllowedStorageProfileIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the queue.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The default action taken on a queue summary if a budget wasn't configured.
+        /// </summary>
         [Output("defaultBudgetAction")]
         public Output<Pulumi.AwsNative.Deadline.QueueDefaultQueueBudgetAction?> DefaultBudgetAction { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the queue that helps identify what the queue is used for.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the queue summary to update.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The farm ID.
+        /// </summary>
         [Output("farmId")]
         public Output<string?> FarmId { get; private set; } = null!;
 
+        /// <summary>
+        /// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        /// </summary>
         [Output("jobAttachmentSettings")]
         public Output<Outputs.QueueJobAttachmentSettings?> JobAttachmentSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the user for a job.
+        /// </summary>
         [Output("jobRunAsUser")]
         public Output<Outputs.QueueJobRunAsUser?> JobRunAsUser { get; private set; } = null!;
 
+        /// <summary>
+        /// The queue ID.
+        /// </summary>
         [Output("queueId")]
         public Output<string> QueueId { get; private set; } = null!;
 
+        /// <summary>
+        /// The file system location that the queue uses.
+        /// </summary>
         [Output("requiredFileSystemLocationNames")]
         public Output<ImmutableArray<string>> RequiredFileSystemLocationNames { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
@@ -99,38 +132,67 @@ namespace Pulumi.AwsNative.Deadline
     {
         [Input("allowedStorageProfileIds")]
         private InputList<string>? _allowedStorageProfileIds;
+
+        /// <summary>
+        /// The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        /// </summary>
         public InputList<string> AllowedStorageProfileIds
         {
             get => _allowedStorageProfileIds ?? (_allowedStorageProfileIds = new InputList<string>());
             set => _allowedStorageProfileIds = value;
         }
 
+        /// <summary>
+        /// The default action taken on a queue summary if a budget wasn't configured.
+        /// </summary>
         [Input("defaultBudgetAction")]
         public Input<Pulumi.AwsNative.Deadline.QueueDefaultQueueBudgetAction>? DefaultBudgetAction { get; set; }
 
+        /// <summary>
+        /// A description of the queue that helps identify what the queue is used for.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the queue summary to update.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The farm ID.
+        /// </summary>
         [Input("farmId")]
         public Input<string>? FarmId { get; set; }
 
+        /// <summary>
+        /// The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        /// </summary>
         [Input("jobAttachmentSettings")]
         public Input<Inputs.QueueJobAttachmentSettingsArgs>? JobAttachmentSettings { get; set; }
 
+        /// <summary>
+        /// Identifies the user for a job.
+        /// </summary>
         [Input("jobRunAsUser")]
         public Input<Inputs.QueueJobRunAsUserArgs>? JobRunAsUser { get; set; }
 
         [Input("requiredFileSystemLocationNames")]
         private InputList<string>? _requiredFileSystemLocationNames;
+
+        /// <summary>
+        /// The file system location that the queue uses.
+        /// </summary>
         public InputList<string> RequiredFileSystemLocationNames
         {
             get => _requiredFileSystemLocationNames ?? (_requiredFileSystemLocationNames = new InputList<string>());
             set => _requiredFileSystemLocationNames = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

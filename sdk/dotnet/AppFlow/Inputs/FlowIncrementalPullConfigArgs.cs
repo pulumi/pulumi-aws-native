@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class FlowIncrementalPullConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+        /// </summary>
         [Input("datetimeTypeFieldName")]
         public Input<string>? DatetimeTypeFieldName { get; set; }
 

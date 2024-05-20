@@ -149,6 +149,9 @@ class AttributeGroupAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) of the application that was augmented with attributes.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
@@ -162,5 +165,8 @@ class AttributeGroupAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attributeGroupArn")
     def attribute_group_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+        """
         return pulumi.get(self, "attribute_group_arn")
 

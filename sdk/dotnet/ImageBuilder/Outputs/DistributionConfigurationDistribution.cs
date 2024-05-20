@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistribution
     {
+        /// <summary>
+        /// The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.
+        /// </summary>
         public readonly Outputs.DistributionConfigurationAmiDistributionConfiguration? AmiDistributionConfiguration;
+        /// <summary>
+        /// Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.
+        /// </summary>
         public readonly Outputs.DistributionConfigurationContainerDistributionConfiguration? ContainerDistributionConfiguration;
         /// <summary>
         /// The Windows faster-launching configurations to use for AMI distribution.

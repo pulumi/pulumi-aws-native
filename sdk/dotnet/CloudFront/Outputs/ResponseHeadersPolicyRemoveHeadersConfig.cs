@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyRemoveHeadersConfig
     {
+        /// <summary>
+        /// The list of HTTP header names.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ResponseHeadersPolicyRemoveHeader> Items;
 
         [OutputConstructor]

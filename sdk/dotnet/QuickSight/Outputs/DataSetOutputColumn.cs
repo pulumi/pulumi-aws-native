@@ -24,7 +24,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The display name of the column..&lt;/p&gt;
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The sub data type of the column.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? SubType;
+        /// <summary>
+        /// The data type of the column.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataType? Type;
 
         [OutputConstructor]

@@ -80,11 +80,15 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	// The time at which the project was created.
-	CreationTime       pulumi.StringOutput    `pulumi:"creationTime"`
-	ProjectArn         pulumi.StringOutput    `pulumi:"projectArn"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The Amazon Resource Name (ARN) of the project.
+	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// The description of the project.
 	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
-	ProjectId          pulumi.StringOutput    `pulumi:"projectId"`
-	ProjectName        pulumi.StringOutput    `pulumi:"projectName"`
+	// The ID of the project. This ID is prepended to all entities associated with this project.
+	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// The name of the project.
+	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// The status of a project.
 	ProjectStatus ProjectStatusOutput `pulumi:"projectStatus"`
 	// Provisioned ServiceCatalog  Details
@@ -145,8 +149,10 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// The description of the project.
 	ProjectDescription *string `pulumi:"projectDescription"`
-	ProjectName        *string `pulumi:"projectName"`
+	// The name of the project.
+	ProjectName *string `pulumi:"projectName"`
 	// Provisioned ServiceCatalog  Details
 	ServiceCatalogProvisionedProductDetails *ServiceCatalogProvisionedProductDetailsProperties `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details
@@ -157,8 +163,10 @@ type projectArgs struct {
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// The description of the project.
 	ProjectDescription pulumi.StringPtrInput
-	ProjectName        pulumi.StringPtrInput
+	// The name of the project.
+	ProjectName pulumi.StringPtrInput
 	// Provisioned ServiceCatalog  Details
 	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesPtrInput
 	// Input ServiceCatalog Provisioning Details
@@ -209,18 +217,22 @@ func (o ProjectOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the project.
 func (o ProjectOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
+// The description of the project.
 func (o ProjectOutput) ProjectDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectDescription }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the project. This ID is prepended to all entities associated with this project.
 func (o ProjectOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
+// The name of the project.
 func (o ProjectOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }

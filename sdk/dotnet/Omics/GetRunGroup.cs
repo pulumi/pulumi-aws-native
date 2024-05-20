@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetRunGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The run group's ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetRunGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The run group's ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,14 +57,41 @@ namespace Pulumi.AwsNative.Omics
     [OutputType]
     public sealed class GetRunGroupResult
     {
+        /// <summary>
+        /// The run group's ARN.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// When the run group was created.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The run group's ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The group's maximum CPU count setting.
+        /// </summary>
         public readonly double? MaxCpus;
+        /// <summary>
+        /// The group's maximum duration setting in minutes.
+        /// </summary>
         public readonly double? MaxDuration;
+        /// <summary>
+        /// The maximum GPUs that can be used by a run group.
+        /// </summary>
         public readonly double? MaxGpus;
+        /// <summary>
+        /// The group's maximum concurrent run setting.
+        /// </summary>
         public readonly double? MaxRuns;
+        /// <summary>
+        /// The group's name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Tags for the group.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

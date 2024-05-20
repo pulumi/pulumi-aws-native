@@ -37,17 +37,41 @@ export class InferenceComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === InferenceComponent.__pulumiType;
     }
 
+    /**
+     * The time when the inference component was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+     */
     public readonly endpointArn!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the endpoint that hosts the inference component.
+     */
     public readonly endpointName!: pulumi.Output<string>;
     public /*out*/ readonly failureReason!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the inference component.
+     */
     public /*out*/ readonly inferenceComponentArn!: pulumi.Output<string>;
+    /**
+     * The name of the inference component.
+     */
     public readonly inferenceComponentName!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the inference component.
+     */
     public /*out*/ readonly inferenceComponentStatus!: pulumi.Output<enums.sagemaker.InferenceComponentStatus>;
+    /**
+     * The time when the inference component was last updated.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     public readonly runtimeConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentRuntimeConfig>;
     public readonly specification!: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The name of the production variant that hosts the inference component.
+     */
     public readonly variantName!: pulumi.Output<string>;
 
     /**
@@ -108,11 +132,23 @@ export class InferenceComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a InferenceComponent resource.
  */
 export interface InferenceComponentArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
+     */
     endpointArn?: pulumi.Input<string>;
+    /**
+     * The name of the endpoint that hosts the inference component.
+     */
     endpointName: pulumi.Input<string>;
+    /**
+     * The name of the inference component.
+     */
     inferenceComponentName?: pulumi.Input<string>;
     runtimeConfig: pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigArgs>;
     specification: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The name of the production variant that hosts the inference component.
+     */
     variantName: pulumi.Input<string>;
 }

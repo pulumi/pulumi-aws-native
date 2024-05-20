@@ -18,14 +18,25 @@ type IpSet struct {
 	pulumi.CustomResourceState
 
 	// List of IPAddresses.
-	Addresses        pulumi.StringArrayOutput    `pulumi:"addresses"`
-	Arn              pulumi.StringOutput         `pulumi:"arn"`
-	AwsId            pulumi.StringOutput         `pulumi:"awsId"`
-	Description      pulumi.StringPtrOutput      `pulumi:"description"`
+	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
+	// The Amazon Resource Name (ARN) of the IP set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the IP set.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A description of the IP set that helps with identification.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The version of the IP addresses, either `IPV4` or `IPV6` .
 	IpAddressVersion IpSetIpAddressVersionOutput `pulumi:"ipAddressVersion"`
-	Name             pulumi.StringPtrOutput      `pulumi:"name"`
-	Scope            IpSetScopeOutput            `pulumi:"scope"`
-	Tags             aws.TagArrayOutput          `pulumi:"tags"`
+	// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	Scope IpSetScopeOutput `pulumi:"scope"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -83,23 +94,41 @@ func (IpSetState) ElementType() reflect.Type {
 
 type ipSetArgs struct {
 	// List of IPAddresses.
-	Addresses        []string              `pulumi:"addresses"`
-	Description      *string               `pulumi:"description"`
+	Addresses []string `pulumi:"addresses"`
+	// A description of the IP set that helps with identification.
+	Description *string `pulumi:"description"`
+	// The version of the IP addresses, either `IPV4` or `IPV6` .
 	IpAddressVersion IpSetIpAddressVersion `pulumi:"ipAddressVersion"`
-	Name             *string               `pulumi:"name"`
-	Scope            IpSetScope            `pulumi:"scope"`
-	Tags             []aws.Tag             `pulumi:"tags"`
+	// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+	Name *string `pulumi:"name"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	Scope IpSetScope `pulumi:"scope"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
 	// List of IPAddresses.
-	Addresses        pulumi.StringArrayInput
-	Description      pulumi.StringPtrInput
+	Addresses pulumi.StringArrayInput
+	// A description of the IP set that helps with identification.
+	Description pulumi.StringPtrInput
+	// The version of the IP addresses, either `IPV4` or `IPV6` .
 	IpAddressVersion IpSetIpAddressVersionInput
-	Name             pulumi.StringPtrInput
-	Scope            IpSetScopeInput
-	Tags             aws.TagArrayInput
+	// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+	Name pulumi.StringPtrInput
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	Scope IpSetScopeInput
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags aws.TagArrayInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -144,30 +173,41 @@ func (o IpSetOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IP set.
 func (o IpSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the IP set.
 func (o IpSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A description of the IP set that helps with identification.
 func (o IpSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The version of the IP addresses, either `IPV4` or `IPV6` .
 func (o IpSetOutput) IpAddressVersion() IpSetIpAddressVersionOutput {
 	return o.ApplyT(func(v *IpSet) IpSetIpAddressVersionOutput { return v.IpAddressVersion }).(IpSetIpAddressVersionOutput)
 }
 
+// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
 func (o IpSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+//
+// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 func (o IpSetOutput) Scope() IpSetScopeOutput {
 	return o.ApplyT(func(v *IpSet) IpSetScopeOutput { return v.Scope }).(IpSetScopeOutput)
 }
 
+// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+//
+// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 func (o IpSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *IpSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

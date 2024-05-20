@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
     [OutputType]
     public sealed class InstanceNetworking
     {
+        /// <summary>
+        /// The monthly amount of data transfer, in GB, allocated for the instance
+        /// </summary>
         public readonly Outputs.InstanceMonthlyTransfer? MonthlyTransfer;
         /// <summary>
         /// Ports to the Instance.

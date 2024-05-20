@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotFulfillmentCodeHookSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
+        /// </summary>
         [Input("fulfillmentUpdatesSpecification")]
         public Input<Inputs.BotFulfillmentUpdatesSpecificationArgs>? FulfillmentUpdatesSpecification { get; set; }
 
@@ -27,6 +33,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
 
+        /// <summary>
+        /// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
+        /// </summary>
         [Input("postFulfillmentStatusSpecification")]
         public Input<Inputs.BotPostFulfillmentStatusSpecificationArgs>? PostFulfillmentStatusSpecification { get; set; }
 

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class LaunchGroupObject
     {
+        /// <summary>
+        /// A description of the launch group.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The feature that this launch is using.
+        /// </summary>
         public readonly string Feature;
+        /// <summary>
+        /// A name for this launch group. It can include up to 127 characters.
+        /// </summary>
         public readonly string GroupName;
+        /// <summary>
+        /// The feature variation to use for this launch group.
+        /// </summary>
         public readonly string Variation;
 
         [OutputConstructor]

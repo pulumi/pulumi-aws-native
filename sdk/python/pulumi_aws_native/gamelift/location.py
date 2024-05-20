@@ -20,6 +20,7 @@ class LocationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Location resource.
+        :param pulumi.Input[str] location_name: A descriptive name for the custom location.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if location_name is not None:
@@ -30,6 +31,9 @@ class LocationArgs:
     @property
     @pulumi.getter(name="locationName")
     def location_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive name for the custom location.
+        """
         return pulumi.get(self, "location_name")
 
     @location_name.setter
@@ -62,6 +66,7 @@ class Location(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] location_name: A descriptive name for the custom location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -134,11 +139,17 @@ class Location(pulumi.CustomResource):
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
+        """
         return pulumi.get(self, "location_arn")
 
     @property
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Output[str]:
+        """
+        A descriptive name for the custom location.
+        """
         return pulumi.get(self, "location_name")
 
     @property

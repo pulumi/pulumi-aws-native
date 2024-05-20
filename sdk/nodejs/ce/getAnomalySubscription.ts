@@ -19,6 +19,9 @@ export function getAnomalySubscription(args: GetAnomalySubscriptionArgs, opts?: 
 }
 
 export interface GetAnomalySubscriptionArgs {
+    /**
+     * The `AnomalySubscription` Amazon Resource Name (ARN).
+     */
     subscriptionArn: string;
 }
 
@@ -39,6 +42,9 @@ export interface GetAnomalySubscriptionResult {
      * A list of subscriber
      */
     readonly subscribers?: outputs.ce.AnomalySubscriptionSubscriber[];
+    /**
+     * The `AnomalySubscription` Amazon Resource Name (ARN).
+     */
     readonly subscriptionArn?: string;
     /**
      * The name of the subscription.
@@ -61,5 +67,8 @@ export function getAnomalySubscriptionOutput(args: GetAnomalySubscriptionOutputA
 }
 
 export interface GetAnomalySubscriptionOutputArgs {
+    /**
+     * The `AnomalySubscription` Amazon Resource Name (ARN).
+     */
     subscriptionArn: pulumi.Input<string>;
 }

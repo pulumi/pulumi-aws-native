@@ -51,12 +51,32 @@ namespace Pulumi.AwsNative.PaymentCryptography
     [OutputType]
     public sealed class GetKeyResult
     {
+        /// <summary>
+        /// Specifies whether the key is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Specifies whether the key is exportable. This data is immutable after the key is created.
+        /// </summary>
         public readonly bool? Exportable;
+        /// <summary>
+        /// The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        /// </summary>
         public readonly Outputs.KeyAttributes? KeyAttributes;
+        /// <summary>
+        /// The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+        /// 
+        /// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyCheckValueAlgorithm? KeyCheckValueAlgorithm;
         public readonly string? KeyIdentifier;
+        /// <summary>
+        /// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyOrigin? KeyOrigin;
+        /// <summary>
+        /// The state of key that is being created or deleted.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyState? KeyState;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

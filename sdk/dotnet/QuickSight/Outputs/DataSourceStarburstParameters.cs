@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The port for the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
+        /// <summary>
+        /// The product type for the Starburst data source.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSourceStarburstProductType? ProductType;
 
         [OutputConstructor]

@@ -15,15 +15,24 @@ import (
 type Theme struct {
 	pulumi.CustomResourceState
 
-	AppId           pulumi.StringPtrOutput `pulumi:"appId"`
-	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
-	CreatedAt       pulumi.StringOutput    `pulumi:"createdAt"`
+	// The unique ID for the Amplify app associated with the theme.
+	AppId pulumi.StringPtrOutput `pulumi:"appId"`
+	// The ID for the theme.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The time that the theme was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
-	ModifiedAt      pulumi.StringOutput    `pulumi:"modifiedAt"`
-	Name            pulumi.StringPtrOutput `pulumi:"name"`
-	Overrides       ThemeValuesArrayOutput `pulumi:"overrides"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	Values          ThemeValuesArrayOutput `pulumi:"values"`
+	// The time that the theme was modified.
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// The name of the theme.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Describes the properties that can be overriden to customize a theme.
+	Overrides ThemeValuesArrayOutput `pulumi:"overrides"`
+	// One or more key-value pairs to use when tagging the theme.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A list of key-value pairs that defines the properties of the theme.
+	Values ThemeValuesArrayOutput `pulumi:"values"`
 }
 
 // NewTheme registers a new resource with the given unique name, arguments, and options.
@@ -71,22 +80,34 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	AppId           *string           `pulumi:"appId"`
-	EnvironmentName *string           `pulumi:"environmentName"`
-	Name            *string           `pulumi:"name"`
-	Overrides       []ThemeValues     `pulumi:"overrides"`
-	Tags            map[string]string `pulumi:"tags"`
-	Values          []ThemeValues     `pulumi:"values"`
+	// The unique ID for the Amplify app associated with the theme.
+	AppId *string `pulumi:"appId"`
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName *string `pulumi:"environmentName"`
+	// The name of the theme.
+	Name *string `pulumi:"name"`
+	// Describes the properties that can be overriden to customize a theme.
+	Overrides []ThemeValues `pulumi:"overrides"`
+	// One or more key-value pairs to use when tagging the theme.
+	Tags map[string]string `pulumi:"tags"`
+	// A list of key-value pairs that defines the properties of the theme.
+	Values []ThemeValues `pulumi:"values"`
 }
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
-	AppId           pulumi.StringPtrInput
+	// The unique ID for the Amplify app associated with the theme.
+	AppId pulumi.StringPtrInput
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	Overrides       ThemeValuesArrayInput
-	Tags            pulumi.StringMapInput
-	Values          ThemeValuesArrayInput
+	// The name of the theme.
+	Name pulumi.StringPtrInput
+	// Describes the properties that can be overriden to customize a theme.
+	Overrides ThemeValuesArrayInput
+	// One or more key-value pairs to use when tagging the theme.
+	Tags pulumi.StringMapInput
+	// A list of key-value pairs that defines the properties of the theme.
+	Values ThemeValuesArrayInput
 }
 
 func (ThemeArgs) ElementType() reflect.Type {
@@ -126,38 +147,47 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
+// The unique ID for the Amplify app associated with the theme.
 func (o ThemeOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+// The ID for the theme.
 func (o ThemeOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The time that the theme was created.
 func (o ThemeOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the backend environment that is a part of the Amplify app.
 func (o ThemeOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
+// The time that the theme was modified.
 func (o ThemeOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// The name of the theme.
 func (o ThemeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Describes the properties that can be overriden to customize a theme.
 func (o ThemeOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Overrides }).(ThemeValuesArrayOutput)
 }
 
+// One or more key-value pairs to use when tagging the theme.
 func (o ThemeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A list of key-value pairs that defines the properties of the theme.
 func (o ThemeOutput) Values() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Values }).(ThemeValuesArrayOutput)
 }

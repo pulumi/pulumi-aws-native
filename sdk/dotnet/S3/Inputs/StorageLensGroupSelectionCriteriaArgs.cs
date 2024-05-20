@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.S3.Inputs
     {
         [Input("exclude")]
         private InputList<string>? _exclude;
+
+        /// <summary>
+        /// This property indicates which Storage Lens group ARNs to exclude from the Storage Lens group aggregation.
+        /// </summary>
         public InputList<string> Exclude
         {
             get => _exclude ?? (_exclude = new InputList<string>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         [Input("include")]
         private InputList<string>? _include;
+
+        /// <summary>
+        /// This property indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
+        /// </summary>
         public InputList<string> Include
         {
             get => _include ?? (_include = new InputList<string>());

@@ -23,20 +23,59 @@ export interface GetJobDefinitionArgs {
 }
 
 export interface GetJobDefinitionResult {
+    /**
+     * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+     */
     readonly containerProperties?: outputs.batch.JobDefinitionContainerProperties;
+    /**
+     * An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+     */
     readonly ecsProperties?: outputs.batch.JobDefinitionEcsProperties;
+    /**
+     * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+     */
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
     readonly id?: string;
+    /**
+     * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+     *
+     * > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+     */
     readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;
     /**
+     * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
     readonly parameters?: any;
+    /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+     */
     readonly platformCapabilities?: string[];
+    /**
+     * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+     */
     readonly propagateTags?: boolean;
+    /**
+     * The retry strategy to use for failed jobs that are submitted with this job definition.
+     */
     readonly retryStrategy?: outputs.batch.JobDefinitionRetryStrategy;
+    /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+     */
     readonly schedulingPriority?: number;
+    /**
+     * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+     */
     readonly timeout?: outputs.batch.JobDefinitionTimeout;
+    /**
+     * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+     *
+     * - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+     * - If the value is `multinode` , then `nodeProperties` is required.
+     *
+     * > If the job is run on Fargate resources, then `multinode` isn't supported.
+     */
     readonly type?: string;
 }
 /**

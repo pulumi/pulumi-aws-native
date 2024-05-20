@@ -21,6 +21,7 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] description: The description of the application. 
         :param pulumi.Input[str] name: The name of the application. 
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs you can use to associate with the application.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -56,6 +57,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs you can use to associate with the application.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -79,6 +83,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the application. 
         :param pulumi.Input[str] name: The name of the application. 
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs you can use to associate with the application.
         """
         ...
     @overload
@@ -183,11 +188,17 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) that specifies the application across services.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the application.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -209,5 +220,8 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value pairs you can use to associate with the application.
+        """
         return pulumi.get(self, "tags")
 

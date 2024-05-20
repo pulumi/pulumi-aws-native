@@ -12,9 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardStringValueWhenUnsetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A custom value that's used when the value of a parameter isn't set.
+        /// </summary>
         [Input("customValue")]
         public Input<string>? CustomValue { get; set; }
 
+        /// <summary>
+        /// The built-in options for default values. The value can be one of the following:
+        /// 
+        /// - `RECOMMENDED` : The recommended value.
+        /// - `NULL` : The `NULL` value.
+        /// </summary>
         [Input("valueWhenUnsetOption")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardValueWhenUnsetOption>? ValueWhenUnsetOption { get; set; }
 

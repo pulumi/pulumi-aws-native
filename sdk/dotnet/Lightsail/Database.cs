@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Lightsail
         [Output("caCertificateIdentifier")]
         public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        /// </summary>
         [Output("databaseArn")]
         public Output<string> DatabaseArn { get; private set; } = null!;
 

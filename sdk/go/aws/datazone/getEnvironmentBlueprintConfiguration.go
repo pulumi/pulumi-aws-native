@@ -23,19 +23,29 @@ func LookupEnvironmentBlueprintConfiguration(ctx *pulumi.Context, args *LookupEn
 }
 
 type LookupEnvironmentBlueprintConfigurationArgs struct {
-	DomainId               string `pulumi:"domainId"`
+	// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+	DomainId string `pulumi:"domainId"`
+	// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
 	EnvironmentBlueprintId string `pulumi:"environmentBlueprintId"`
 }
 
 type LookupEnvironmentBlueprintConfigurationResult struct {
-	CreatedAt              *string                                              `pulumi:"createdAt"`
-	DomainId               *string                                              `pulumi:"domainId"`
-	EnabledRegions         []string                                             `pulumi:"enabledRegions"`
-	EnvironmentBlueprintId *string                                              `pulumi:"environmentBlueprintId"`
-	ManageAccessRoleArn    *string                                              `pulumi:"manageAccessRoleArn"`
-	ProvisioningRoleArn    *string                                              `pulumi:"provisioningRoleArn"`
-	RegionalParameters     []EnvironmentBlueprintConfigurationRegionalParameter `pulumi:"regionalParameters"`
-	UpdatedAt              *string                                              `pulumi:"updatedAt"`
+	// The timestamp of when an environment blueprint was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+	DomainId *string `pulumi:"domainId"`
+	// The enabled AWS Regions specified in a blueprint configuration.
+	EnabledRegions []string `pulumi:"enabledRegions"`
+	// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+	EnvironmentBlueprintId *string `pulumi:"environmentBlueprintId"`
+	// The ARN of the manage access role.
+	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
+	// The ARN of the provisioning role.
+	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
+	// The regional parameters of the environment blueprint.
+	RegionalParameters []EnvironmentBlueprintConfigurationRegionalParameter `pulumi:"regionalParameters"`
+	// The timestamp of when the environment blueprint was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupEnvironmentBlueprintConfigurationOutput(ctx *pulumi.Context, args LookupEnvironmentBlueprintConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentBlueprintConfigurationResultOutput {
@@ -52,7 +62,9 @@ func LookupEnvironmentBlueprintConfigurationOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupEnvironmentBlueprintConfigurationOutputArgs struct {
-	DomainId               pulumi.StringInput `pulumi:"domainId"`
+	// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+	DomainId pulumi.StringInput `pulumi:"domainId"`
+	// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
 	EnvironmentBlueprintId pulumi.StringInput `pulumi:"environmentBlueprintId"`
 }
 
@@ -74,36 +86,44 @@ func (o LookupEnvironmentBlueprintConfigurationResultOutput) ToLookupEnvironment
 	return o
 }
 
+// The timestamp of when an environment blueprint was created.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the Amazon DataZone domain in which an environment blueprint exists.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
+// The enabled AWS Regions specified in a blueprint configuration.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) EnabledRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) []string { return v.EnabledRegions }).(pulumi.StringArrayOutput)
 }
 
+// The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) EnvironmentBlueprintId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.EnvironmentBlueprintId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the manage access role.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) ManageAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.ManageAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the provisioning role.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) ProvisioningRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The regional parameters of the environment blueprint.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) RegionalParameters() EnvironmentBlueprintConfigurationRegionalParameterArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) []EnvironmentBlueprintConfigurationRegionalParameter {
 		return v.RegionalParameters
 	}).(EnvironmentBlueprintConfigurationRegionalParameterArrayOutput)
 }
 
+// The timestamp of when the environment blueprint was updated.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

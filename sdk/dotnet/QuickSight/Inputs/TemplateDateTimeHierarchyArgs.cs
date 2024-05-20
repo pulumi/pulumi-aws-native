@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("drillDownFilters")]
         private InputList<Inputs.TemplateDrillDownFilterArgs>? _drillDownFilters;
+
+        /// <summary>
+        /// The option that determines the drill down filters for the `DateTime` hierarchy.
+        /// </summary>
         public InputList<Inputs.TemplateDrillDownFilterArgs> DrillDownFilters
         {
             get => _drillDownFilters ?? (_drillDownFilters = new InputList<Inputs.TemplateDrillDownFilterArgs>());
             set => _drillDownFilters = value;
         }
 
+        /// <summary>
+        /// The hierarchy ID of the `DateTime` hierarchy.
+        /// </summary>
         [Input("hierarchyId", required: true)]
         public Input<string> HierarchyId { get; set; } = null!;
 

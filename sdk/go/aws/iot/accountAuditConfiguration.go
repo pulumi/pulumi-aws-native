@@ -17,8 +17,18 @@ type AccountAuditConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId                             pulumi.StringOutput                                                     `pulumi:"accountId"`
-	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurationsOutput                 `pulumi:"auditCheckConfigurations"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Specifies which audit checks are enabled and disabled for this account.
+	//
+	// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+	//
+	// If an enabled check is removed from the template, it will also be disabled.
+	//
+	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+	//
+	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsOutput `pulumi:"auditCheckConfigurations"`
+	// Information about the targets to which audit notifications are sent.
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput `pulumi:"auditNotificationTargetConfigurations"`
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -78,8 +88,18 @@ func (AccountAuditConfigurationState) ElementType() reflect.Type {
 
 type accountAuditConfigurationArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId                             string                                                          `pulumi:"accountId"`
-	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurations               `pulumi:"auditCheckConfigurations"`
+	AccountId string `pulumi:"accountId"`
+	// Specifies which audit checks are enabled and disabled for this account.
+	//
+	// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+	//
+	// If an enabled check is removed from the template, it will also be disabled.
+	//
+	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+	//
+	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurations `pulumi:"auditCheckConfigurations"`
+	// Information about the targets to which audit notifications are sent.
 	AuditNotificationTargetConfigurations *AccountAuditConfigurationAuditNotificationTargetConfigurations `pulumi:"auditNotificationTargetConfigurations"`
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn string `pulumi:"roleArn"`
@@ -88,8 +108,18 @@ type accountAuditConfigurationArgs struct {
 // The set of arguments for constructing a AccountAuditConfiguration resource.
 type AccountAuditConfigurationArgs struct {
 	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-	AccountId                             pulumi.StringInput
-	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurationsInput
+	AccountId pulumi.StringInput
+	// Specifies which audit checks are enabled and disabled for this account.
+	//
+	// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+	//
+	// If an enabled check is removed from the template, it will also be disabled.
+	//
+	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+	//
+	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsInput
+	// Information about the targets to which audit notifications are sent.
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput
 	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn pulumi.StringInput
@@ -137,12 +167,22 @@ func (o AccountAuditConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Specifies which audit checks are enabled and disabled for this account.
+//
+// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+//
+// If an enabled check is removed from the template, it will also be disabled.
+//
+// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+//
+// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
 func (o AccountAuditConfigurationOutput) AuditCheckConfigurations() AccountAuditConfigurationAuditCheckConfigurationsOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditCheckConfigurationsOutput {
 		return v.AuditCheckConfigurations
 	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
 }
 
+// Information about the targets to which audit notifications are sent.
 func (o AccountAuditConfigurationOutput) AuditNotificationTargetConfigurations() AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfiguration) AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput {
 		return v.AuditNotificationTargetConfigurations

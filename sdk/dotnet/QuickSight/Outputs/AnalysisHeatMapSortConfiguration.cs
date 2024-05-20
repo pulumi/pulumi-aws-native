@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisHeatMapSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of columns that are displayed in a heat map.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? HeatMapColumnItemsLimitConfiguration;
+        /// <summary>
+        /// The column sort configuration for heat map for columns that aren't a part of a field well.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> HeatMapColumnSort;
+        /// <summary>
+        /// The limit on the number of rows that are displayed in a heat map.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? HeatMapRowItemsLimitConfiguration;
+        /// <summary>
+        /// The field sort configuration of the rows fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> HeatMapRowSort;
 
         [OutputConstructor]

@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigData
     {
+        /// <summary>
+        /// Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
+        /// </summary>
         public readonly Outputs.ConfigAntennaDownlinkConfig? AntennaDownlinkConfig;
+        /// <summary>
+        /// Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
+        /// </summary>
         public readonly Outputs.ConfigAntennaDownlinkDemodDecodeConfig? AntennaDownlinkDemodDecodeConfig;
+        /// <summary>
+        /// Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
+        /// </summary>
         public readonly Outputs.ConfigAntennaUplinkConfig? AntennaUplinkConfig;
+        /// <summary>
+        /// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
+        /// </summary>
         public readonly Outputs.ConfigDataflowEndpointConfig? DataflowEndpointConfig;
+        /// <summary>
+        /// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
+        /// </summary>
         public readonly Outputs.ConfigS3RecordingConfig? S3RecordingConfig;
+        /// <summary>
+        /// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
+        /// </summary>
         public readonly Outputs.ConfigTrackingConfig? TrackingConfig;
+        /// <summary>
+        /// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
+        /// </summary>
         public readonly Outputs.ConfigUplinkEchoConfig? UplinkEchoConfig;
 
         [OutputConstructor]

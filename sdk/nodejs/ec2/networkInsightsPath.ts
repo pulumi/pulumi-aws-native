@@ -37,19 +37,61 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsPath.__pulumiType;
     }
 
+    /**
+     * The time stamp when the path was created.
+     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+     */
     public readonly destination!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the destination.
+     */
     public /*out*/ readonly destinationArn!: pulumi.Output<string>;
+    /**
+     * The IP address of the destination.
+     */
     public readonly destinationIp!: pulumi.Output<string | undefined>;
+    /**
+     * The destination port.
+     */
     public readonly destinationPort!: pulumi.Output<number | undefined>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
+     */
     public readonly filterAtDestination!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
+     */
     public readonly filterAtSource!: pulumi.Output<outputs.ec2.NetworkInsightsPathPathFilter | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the path.
+     */
     public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
+    /**
+     * The ID of the path.
+     */
     public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
+    /**
+     * The protocol.
+     */
     public readonly protocol!: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
+    /**
+     * The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+     */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the source.
+     */
     public /*out*/ readonly sourceArn!: pulumi.Output<string>;
+    /**
+     * The IP address of the source.
+     */
     public readonly sourceIp!: pulumi.Output<string | undefined>;
+    /**
+     * The tags to add to the path.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -110,13 +152,40 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsPath resource.
  */
 export interface NetworkInsightsPathArgs {
+    /**
+     * The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.
+     */
     destination?: pulumi.Input<string>;
+    /**
+     * The IP address of the destination.
+     */
     destinationIp?: pulumi.Input<string>;
+    /**
+     * The destination port.
+     */
     destinationPort?: pulumi.Input<number>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
+     */
     filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
+     */
     filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathPathFilterArgs>;
+    /**
+     * The protocol.
+     */
     protocol: pulumi.Input<enums.ec2.NetworkInsightsPathProtocol>;
+    /**
+     * The ID or ARN of the source. If the resource is in another account, you must specify an ARN.
+     */
     source: pulumi.Input<string>;
+    /**
+     * The IP address of the source.
+     */
     sourceIp?: pulumi.Input<string>;
+    /**
+     * The tags to add to the path.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

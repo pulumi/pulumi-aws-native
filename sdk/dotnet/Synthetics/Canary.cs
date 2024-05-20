@@ -216,6 +216,9 @@ namespace Pulumi.AwsNative.Synthetics
         [Output("successRetentionPeriod")]
         public Output<int?> SuccessRetentionPeriod { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of key-value pairs that are associated with the canary.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -354,6 +357,10 @@ namespace Pulumi.AwsNative.Synthetics
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The list of key-value pairs that are associated with the canary.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

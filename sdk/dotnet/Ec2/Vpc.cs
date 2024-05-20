@@ -24,12 +24,21 @@ namespace Pulumi.AwsNative.Ec2
         [Output("cidrBlock")]
         public Output<string?> CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// The association IDs of the IPv4 CIDR blocks for the VPC. For example, [ vpc-cidr-assoc-0280ab6b ].
+        /// </summary>
         [Output("cidrBlockAssociations")]
         public Output<ImmutableArray<string>> CidrBlockAssociations { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the default network ACL for the VPC. For example, acl-814dafe3.
+        /// </summary>
         [Output("defaultNetworkAcl")]
         public Output<string> DefaultNetworkAcl { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the default security group for the VPC. For example, sg-b178e0d3.
+        /// </summary>
         [Output("defaultSecurityGroup")]
         public Output<string> DefaultSecurityGroup { get; private set; } = null!;
 
@@ -69,6 +78,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
+        /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
 
@@ -78,6 +90,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 

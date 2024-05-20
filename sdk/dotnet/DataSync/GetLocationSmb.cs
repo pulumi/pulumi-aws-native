@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.DataSync
         /// The URL of the SMB location that was described.
         /// </summary>
         public readonly string? LocationUri;
+        /// <summary>
+        /// Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        /// </summary>
         public readonly Outputs.LocationSmbMountOptions? MountOptions;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

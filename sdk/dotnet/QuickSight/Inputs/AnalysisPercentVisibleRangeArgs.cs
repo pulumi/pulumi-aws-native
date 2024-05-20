@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPercentVisibleRangeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The lower bound of the range.
+        /// </summary>
         [Input("from")]
         public Input<double>? From { get; set; }
 
+        /// <summary>
+        /// The top bound of the range.
+        /// </summary>
         [Input("to")]
         public Input<double>? To { get; set; }
 

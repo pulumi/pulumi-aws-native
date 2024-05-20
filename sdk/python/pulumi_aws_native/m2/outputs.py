@@ -84,12 +84,16 @@ class EnvironmentHighAvailabilityConfig(dict):
                  desired_capacity: int):
         """
         Defines the details of a high availability configuration.
+        :param int desired_capacity: The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
         """
         pulumi.set(__self__, "desired_capacity", desired_capacity)
 
     @property
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> int:
+        """
+        The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
+        """
         return pulumi.get(self, "desired_capacity")
 
 

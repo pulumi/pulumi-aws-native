@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicRelativeDateFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The constant used in a relative date filter.
+        /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicSingularFilterConstantArgs>? Constant { get; set; }
 
+        /// <summary>
+        /// The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are `BEFORE` , `AFTER` , and `BETWEEN` .
+        /// </summary>
         [Input("relativeDateFilterFunction")]
         public Input<Pulumi.AwsNative.QuickSight.TopicRelativeDateFilterFunction>? RelativeDateFilterFunction { get; set; }
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TopicTimeGranularity>? TimeGranularity { get; set; }
 

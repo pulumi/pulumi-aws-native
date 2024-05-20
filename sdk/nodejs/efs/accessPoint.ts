@@ -38,12 +38,18 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    /**
+     * The ID of the EFS access point.
+     */
     public /*out*/ readonly accessPointId!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
      */
     public readonly accessPointTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the access point.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The opaque string specified in the request to ensure idempotent creation.

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:KeyGroup")]
     public partial class KeyGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier for the key group.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The key group configuration.
+        /// </summary>
         [Output("keyGroupConfig")]
         public Output<Outputs.KeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the key group was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
@@ -69,6 +78,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class KeyGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key group configuration.
+        /// </summary>
         [Input("keyGroupConfig", required: true)]
         public Input<Inputs.KeyGroupConfigArgs> KeyGroupConfig { get; set; } = null!;
 

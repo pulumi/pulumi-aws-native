@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class FeatureGroupTtlDuration
     {
+        /// <summary>
+        /// `TtlDuration` time unit.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.FeatureGroupUnit? Unit;
+        /// <summary>
+        /// `TtlDuration` time value.
+        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]

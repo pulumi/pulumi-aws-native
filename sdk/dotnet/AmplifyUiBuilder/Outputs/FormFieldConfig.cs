@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormFieldConfig
     {
+        /// <summary>
+        /// Specifies whether to hide a field.
+        /// </summary>
         public readonly bool? Excluded;
+        /// <summary>
+        /// Describes the configuration for the default input value to display for a field.
+        /// </summary>
         public readonly Outputs.FormFieldInputConfig? InputType;
+        /// <summary>
+        /// The label for the field.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// Specifies the field position.
+        /// </summary>
         public readonly object? Position;
+        /// <summary>
+        /// The validations to perform on the value in the field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FormFieldValidationConfiguration> Validations;
 
         [OutputConstructor]

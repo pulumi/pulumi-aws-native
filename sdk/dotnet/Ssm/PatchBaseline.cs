@@ -259,6 +259,9 @@ namespace Pulumi.AwsNative.Ssm
     [AwsNativeResourceType("aws-native:ssm:PatchBaseline")]
     public partial class PatchBaseline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A set of rules used to include patches in the baseline.
+        /// </summary>
         [Output("approvalRules")]
         public Output<Outputs.PatchBaselineRuleGroup?> ApprovalRules { get; private set; } = null!;
 
@@ -395,6 +398,9 @@ namespace Pulumi.AwsNative.Ssm
 
     public sealed class PatchBaselineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A set of rules used to include patches in the baseline.
+        /// </summary>
         [Input("approvalRules")]
         public Input<Inputs.PatchBaselineRuleGroupArgs>? ApprovalRules { get; set; }
 

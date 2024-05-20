@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisComparisonFormatConfiguration
     {
+        /// <summary>
+        /// The number display format.
+        /// </summary>
         public readonly Outputs.AnalysisNumberDisplayFormatConfiguration? NumberDisplayFormatConfiguration;
+        /// <summary>
+        /// The percentage display format.
+        /// </summary>
         public readonly Outputs.AnalysisPercentageDisplayFormatConfiguration? PercentageDisplayFormatConfiguration;
 
         [OutputConstructor]

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("calculatedFields")]
         private InputList<Inputs.AnalysisCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// An array of calculated field definitions for the analysis.
+        /// </summary>
         public InputList<Inputs.AnalysisCalculatedFieldArgs> CalculatedFields
         {
             get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.AnalysisCalculatedFieldArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("columnConfigurations")]
         private InputList<Inputs.AnalysisColumnConfigurationArgs>? _columnConfigurations;
+
+        /// <summary>
+        /// An array of analysis-level column configurations. Column configurations can be used to set default formatting for a column to be used throughout an analysis.
+        /// </summary>
         public InputList<Inputs.AnalysisColumnConfigurationArgs> ColumnConfigurations
         {
             get => _columnConfigurations ?? (_columnConfigurations = new InputList<Inputs.AnalysisColumnConfigurationArgs>());
@@ -33,6 +41,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("dataSetIdentifierDeclarations", required: true)]
         private InputList<Inputs.AnalysisDataSetIdentifierDeclarationArgs>? _dataSetIdentifierDeclarations;
+
+        /// <summary>
+        /// An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead of dataset ARNs throughout analysis sub-structures.
+        /// </summary>
         public InputList<Inputs.AnalysisDataSetIdentifierDeclarationArgs> DataSetIdentifierDeclarations
         {
             get => _dataSetIdentifierDeclarations ?? (_dataSetIdentifierDeclarations = new InputList<Inputs.AnalysisDataSetIdentifierDeclarationArgs>());
@@ -41,17 +53,34 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("filterGroups")]
         private InputList<Inputs.AnalysisFilterGroupArgs>? _filterGroups;
+
+        /// <summary>
+        /// Filter definitions for an analysis.
+        /// 
+        /// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.AnalysisFilterGroupArgs> FilterGroups
         {
             get => _filterGroups ?? (_filterGroups = new InputList<Inputs.AnalysisFilterGroupArgs>());
             set => _filterGroups = value;
         }
 
+        /// <summary>
+        /// An array of option definitions for an analysis.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.AnalysisAssetOptionsArgs>? Options { get; set; }
 
         [Input("parameterDeclarations")]
         private InputList<Inputs.AnalysisParameterDeclarationArgs>? _parameterDeclarations;
+
+        /// <summary>
+        /// An array of parameter declarations for an analysis.
+        /// 
+        /// Parameters are named variables that can transfer a value for use by an action or an object.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.AnalysisParameterDeclarationArgs> ParameterDeclarations
         {
             get => _parameterDeclarations ?? (_parameterDeclarations = new InputList<Inputs.AnalysisParameterDeclarationArgs>());
@@ -60,6 +89,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sheets")]
         private InputList<Inputs.AnalysisSheetDefinitionArgs>? _sheets;
+
+        /// <summary>
+        /// An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
+        /// </summary>
         public InputList<Inputs.AnalysisSheetDefinitionArgs> Sheets
         {
             get => _sheets ?? (_sheets = new InputList<Inputs.AnalysisSheetDefinitionArgs>());

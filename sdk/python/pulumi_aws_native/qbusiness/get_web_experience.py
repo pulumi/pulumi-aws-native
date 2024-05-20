@@ -61,61 +61,97 @@ class GetWebExperienceResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when the Amazon Q Business application was last updated.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="defaultEndpoint")
     def default_endpoint(self) -> Optional[str]:
+        """
+        The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
+        """
         return pulumi.get(self, "default_endpoint")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the service role attached to your web experience.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="samplePromptsControlMode")
     def sample_prompts_control_mode(self) -> Optional['WebExperienceSamplePromptsControlMode']:
+        """
+        Determines whether sample prompts are enabled in the web experience for an end user.
+        """
         return pulumi.get(self, "sample_prompts_control_mode")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['WebExperienceStatus']:
+        """
+        The status of your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def subtitle(self) -> Optional[str]:
+        """
+        A subtitle to personalize your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "subtitle")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title for your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The Unix timestamp when your Amazon Q Business web experience was updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="webExperienceArn")
     def web_experience_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
+        """
         return pulumi.get(self, "web_experience_arn")
 
     @property
     @pulumi.getter(name="webExperienceId")
     def web_experience_id(self) -> Optional[str]:
+        """
+        The identifier of your Amazon Q Business web experience.
+        """
         return pulumi.get(self, "web_experience_id")
 
     @property
     @pulumi.getter(name="welcomeMessage")
     def welcome_message(self) -> Optional[str]:
+        """
+        A message in an Amazon Q Business web experience.
+        """
         return pulumi.get(self, "welcome_message")
 
 
@@ -144,6 +180,10 @@ def get_web_experience(application_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebExperienceResult:
     """
     Definition of AWS::QBusiness::WebExperience Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business web experience.
+    :param str web_experience_id: The identifier of your Amazon Q Business web experience.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -172,5 +212,9 @@ def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebExperienceResult]:
     """
     Definition of AWS::QBusiness::WebExperience Resource Type
+
+
+    :param str application_id: The identifier of the Amazon Q Business web experience.
+    :param str web_experience_id: The identifier of your Amazon Q Business web experience.
     """
     ...

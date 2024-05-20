@@ -24,13 +24,19 @@ func LookupVirtualMfaDevice(ctx *pulumi.Context, args *LookupVirtualMfaDeviceArg
 }
 
 type LookupVirtualMfaDeviceArgs struct {
+	// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
 	SerialNumber string `pulumi:"serialNumber"`
 }
 
 type LookupVirtualMfaDeviceResult struct {
-	SerialNumber *string   `pulumi:"serialNumber"`
-	Tags         []aws.Tag `pulumi:"tags"`
-	Users        []string  `pulumi:"users"`
+	// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+	SerialNumber *string `pulumi:"serialNumber"`
+	// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	//
+	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The IAM user associated with this virtual MFA device.
+	Users []string `pulumi:"users"`
 }
 
 func LookupVirtualMfaDeviceOutput(ctx *pulumi.Context, args LookupVirtualMfaDeviceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMfaDeviceResultOutput {
@@ -47,6 +53,7 @@ func LookupVirtualMfaDeviceOutput(ctx *pulumi.Context, args LookupVirtualMfaDevi
 }
 
 type LookupVirtualMfaDeviceOutputArgs struct {
+	// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
 	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
 }
 
@@ -68,14 +75,19 @@ func (o LookupVirtualMfaDeviceResultOutput) ToLookupVirtualMfaDeviceResultOutput
 	return o
 }
 
+// Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
 func (o LookupVirtualMfaDeviceResultOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualMfaDeviceResult) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
 }
 
+// A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+//
+// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
 func (o LookupVirtualMfaDeviceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVirtualMfaDeviceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The IAM user associated with this virtual MFA device.
 func (o LookupVirtualMfaDeviceResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualMfaDeviceResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }

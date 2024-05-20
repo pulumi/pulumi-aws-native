@@ -53,6 +53,7 @@ class DataLakeExpirationArgs:
                  days: Optional[pulumi.Input[int]] = None):
         """
         Provides data expiration details of Amazon Security Lake object.
+        :param pulumi.Input[int] days: The number of days before data expires in the Amazon Security Lake object.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -60,6 +61,9 @@ class DataLakeExpirationArgs:
     @property
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days before data expires in the Amazon Security Lake object.
+        """
         return pulumi.get(self, "days")
 
     @days.setter
@@ -74,6 +78,7 @@ class DataLakeLifecycleConfigurationArgs:
                  transitions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeTransitionsArgs']]]] = None):
         """
         Provides lifecycle details of Amazon Security Lake object.
+        :param pulumi.Input['DataLakeExpirationArgs'] expiration: Provides data expiration details of the Amazon Security Lake object.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeTransitionsArgs']]] transitions: Provides data storage transition details of Amazon Security Lake object.
         """
         if expiration is not None:
@@ -84,6 +89,9 @@ class DataLakeLifecycleConfigurationArgs:
     @property
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input['DataLakeExpirationArgs']]:
+        """
+        Provides data expiration details of the Amazon Security Lake object.
+        """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
@@ -110,6 +118,9 @@ class DataLakeReplicationConfigurationArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         Provides replication details of Amazon Security Lake object.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
+               
+               Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
         :param pulumi.Input[str] role_arn: Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
         """
         if regions is not None:
@@ -120,6 +131,11 @@ class DataLakeReplicationConfigurationArgs:
     @property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
+
+        Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
+        """
         return pulumi.get(self, "regions")
 
     @regions.setter

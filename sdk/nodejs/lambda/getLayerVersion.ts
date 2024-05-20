@@ -16,10 +16,16 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetLayerVersionArgs {
+    /**
+     * The ARN of the layer version.
+     */
     layerVersionArn: string;
 }
 
 export interface GetLayerVersionResult {
+    /**
+     * The ARN of the layer version.
+     */
     readonly layerVersionArn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pu
 }
 
 export interface GetLayerVersionOutputArgs {
+    /**
+     * The ARN of the layer version.
+     */
     layerVersionArn: pulumi.Input<string>;
 }

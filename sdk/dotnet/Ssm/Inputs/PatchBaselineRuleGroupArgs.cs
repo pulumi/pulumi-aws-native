@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Ssm.Inputs
     {
         [Input("patchRules")]
         private InputList<Inputs.PatchBaselineRuleArgs>? _patchRules;
+
+        /// <summary>
+        /// The rules that make up the rule group.
+        /// </summary>
         public InputList<Inputs.PatchBaselineRuleArgs> PatchRules
         {
             get => _patchRules ?? (_patchRules = new InputList<Inputs.PatchBaselineRuleArgs>());

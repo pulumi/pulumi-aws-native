@@ -37,7 +37,13 @@ export class MonitoringSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringSubscription.__pulumiType;
     }
 
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     public readonly distributionId!: pulumi.Output<string>;
+    /**
+     * A subscription configuration for additional CloudWatch metrics.
+     */
     public readonly monitoringSubscription!: pulumi.Output<outputs.cloudfront.MonitoringSubscription>;
 
     /**
@@ -74,6 +80,12 @@ export class MonitoringSubscription extends pulumi.CustomResource {
  * The set of arguments for constructing a MonitoringSubscription resource.
  */
 export interface MonitoringSubscriptionArgs {
+    /**
+     * The ID of the distribution that you are enabling metrics for.
+     */
     distributionId: pulumi.Input<string>;
+    /**
+     * A subscription configuration for additional CloudWatch metrics.
+     */
     monitoringSubscription: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionArgs>;
 }

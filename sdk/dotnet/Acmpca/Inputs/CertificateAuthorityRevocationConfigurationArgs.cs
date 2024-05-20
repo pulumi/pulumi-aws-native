@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityRevocationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+        /// </summary>
         [Input("crlConfiguration")]
         public Input<Inputs.CertificateAuthorityCrlConfigurationArgs>? CrlConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
+        /// </summary>
         [Input("ocspConfiguration")]
         public Input<Inputs.CertificateAuthorityOcspConfigurationArgs>? OcspConfiguration { get; set; }
 

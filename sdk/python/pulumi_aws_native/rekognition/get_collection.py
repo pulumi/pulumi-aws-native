@@ -30,6 +30,9 @@ class GetCollectionResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name of the collection.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -55,6 +58,9 @@ def get_collection(collection_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollectionResult:
     """
     The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
+
+
+    :param str collection_id: ID for the collection that you are creating.
     """
     __args__ = dict()
     __args__['collectionId'] = collection_id
@@ -71,5 +77,8 @@ def get_collection_output(collection_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectionResult]:
     """
     The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
+
+
+    :param str collection_id: ID for the collection that you are creating.
     """
     ...

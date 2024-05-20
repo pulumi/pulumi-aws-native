@@ -16,14 +16,22 @@ import (
 type Hypervisor struct {
 	pulumi.CustomResourceState
 
-	Host          pulumi.StringPtrOutput       `pulumi:"host"`
-	HypervisorArn pulumi.StringOutput          `pulumi:"hypervisorArn"`
-	KmsKeyArn     pulumi.StringPtrOutput       `pulumi:"kmsKeyArn"`
-	LogGroupArn   pulumi.StringPtrOutput       `pulumi:"logGroupArn"`
-	Name          pulumi.StringPtrOutput       `pulumi:"name"`
-	Password      pulumi.StringPtrOutput       `pulumi:"password"`
-	Tags          aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
-	Username      pulumi.StringPtrOutput       `pulumi:"username"`
+	// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+	Host pulumi.StringPtrOutput `pulumi:"host"`
+	// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+	HypervisorArn pulumi.StringOutput `pulumi:"hypervisorArn"`
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+	LogGroupArn pulumi.StringPtrOutput `pulumi:"logGroupArn"`
+	// The name of the hypervisor.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The password for the hypervisor.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The tags of the hypervisor configuration to import.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// The username for the hypervisor.
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
 // NewHypervisor registers a new resource with the given unique name, arguments, and options.
@@ -71,24 +79,38 @@ func (HypervisorState) ElementType() reflect.Type {
 }
 
 type hypervisorArgs struct {
-	Host        *string             `pulumi:"host"`
-	KmsKeyArn   *string             `pulumi:"kmsKeyArn"`
-	LogGroupArn *string             `pulumi:"logGroupArn"`
-	Name        *string             `pulumi:"name"`
-	Password    *string             `pulumi:"password"`
-	Tags        []aws.CreateOnlyTag `pulumi:"tags"`
-	Username    *string             `pulumi:"username"`
+	// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+	Host *string `pulumi:"host"`
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+	// The name of the hypervisor.
+	Name *string `pulumi:"name"`
+	// The password for the hypervisor.
+	Password *string `pulumi:"password"`
+	// The tags of the hypervisor configuration to import.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	// The username for the hypervisor.
+	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Hypervisor resource.
 type HypervisorArgs struct {
-	Host        pulumi.StringPtrInput
-	KmsKeyArn   pulumi.StringPtrInput
+	// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+	Host pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+	KmsKeyArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
 	LogGroupArn pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Password    pulumi.StringPtrInput
-	Tags        aws.CreateOnlyTagArrayInput
-	Username    pulumi.StringPtrInput
+	// The name of the hypervisor.
+	Name pulumi.StringPtrInput
+	// The password for the hypervisor.
+	Password pulumi.StringPtrInput
+	// The tags of the hypervisor configuration to import.
+	Tags aws.CreateOnlyTagArrayInput
+	// The username for the hypervisor.
+	Username pulumi.StringPtrInput
 }
 
 func (HypervisorArgs) ElementType() reflect.Type {
@@ -128,34 +150,42 @@ func (o HypervisorOutput) ToHypervisorOutputWithContext(ctx context.Context) Hyp
 	return o
 }
 
+// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
 func (o HypervisorOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
 func (o HypervisorOutput) HypervisorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringOutput { return v.HypervisorArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
 func (o HypervisorOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the group of gateways within the requested log.
 func (o HypervisorOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the hypervisor.
 func (o HypervisorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The password for the hypervisor.
 func (o HypervisorOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The tags of the hypervisor configuration to import.
 func (o HypervisorOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Hypervisor) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// The username for the hypervisor.
 func (o HypervisorOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }

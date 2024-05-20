@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterLoggingInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+        /// </summary>
         [Input("brokerLogs", required: true)]
         public Input<Inputs.ClusterBrokerLogsArgs> BrokerLogs { get; set; } = null!;
 

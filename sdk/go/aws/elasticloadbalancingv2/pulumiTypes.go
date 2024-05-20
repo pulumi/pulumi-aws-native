@@ -5668,10 +5668,14 @@ func (o TargetGroupTargetDescriptionArrayOutput) Index(i pulumi.IntInput) Target
 }
 
 type TrustStoreRevocationType struct {
-	NumberOfRevokedEntries *int    `pulumi:"numberOfRevokedEntries"`
-	RevocationId           *string `pulumi:"revocationId"`
-	RevocationType         *string `pulumi:"revocationType"`
-	TrustStoreArn          *string `pulumi:"trustStoreArn"`
+	// The number of revoked certificates.
+	NumberOfRevokedEntries *int `pulumi:"numberOfRevokedEntries"`
+	// The revocation ID of the revocation file.
+	RevocationId *string `pulumi:"revocationId"`
+	// The type of revocation file.
+	RevocationType *string `pulumi:"revocationType"`
+	// The Amazon Resource Name (ARN) of the trust store.
+	TrustStoreArn *string `pulumi:"trustStoreArn"`
 }
 
 type TrustStoreRevocationTypeOutput struct{ *pulumi.OutputState }
@@ -5688,18 +5692,22 @@ func (o TrustStoreRevocationTypeOutput) ToTrustStoreRevocationTypeOutputWithCont
 	return o
 }
 
+// The number of revoked certificates.
 func (o TrustStoreRevocationTypeOutput) NumberOfRevokedEntries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationType) *int { return v.NumberOfRevokedEntries }).(pulumi.IntPtrOutput)
 }
 
+// The revocation ID of the revocation file.
 func (o TrustStoreRevocationTypeOutput) RevocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationType) *string { return v.RevocationId }).(pulumi.StringPtrOutput)
 }
 
+// The type of revocation file.
 func (o TrustStoreRevocationTypeOutput) RevocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationType) *string { return v.RevocationType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the trust store.
 func (o TrustStoreRevocationTypeOutput) TrustStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationType) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
 }
@@ -5725,9 +5733,13 @@ func (o TrustStoreRevocationTypeArrayOutput) Index(i pulumi.IntInput) TrustStore
 }
 
 type TrustStoreRevocationRevocationContent struct {
-	RevocationType  *string `pulumi:"revocationType"`
-	S3Bucket        *string `pulumi:"s3Bucket"`
-	S3Key           *string `pulumi:"s3Key"`
+	// The type of revocation file.
+	RevocationType *string `pulumi:"revocationType"`
+	// The Amazon S3 bucket for the revocation file.
+	S3Bucket *string `pulumi:"s3Bucket"`
+	// The Amazon S3 path for the revocation file.
+	S3Key *string `pulumi:"s3Key"`
+	// The Amazon S3 object version of the revocation file.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 }
 
@@ -5743,9 +5755,13 @@ type TrustStoreRevocationRevocationContentInput interface {
 }
 
 type TrustStoreRevocationRevocationContentArgs struct {
-	RevocationType  pulumi.StringPtrInput `pulumi:"revocationType"`
-	S3Bucket        pulumi.StringPtrInput `pulumi:"s3Bucket"`
-	S3Key           pulumi.StringPtrInput `pulumi:"s3Key"`
+	// The type of revocation file.
+	RevocationType pulumi.StringPtrInput `pulumi:"revocationType"`
+	// The Amazon S3 bucket for the revocation file.
+	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
+	// The Amazon S3 path for the revocation file.
+	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
+	// The Amazon S3 object version of the revocation file.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 }
 
@@ -5800,18 +5816,22 @@ func (o TrustStoreRevocationRevocationContentOutput) ToTrustStoreRevocationRevoc
 	return o
 }
 
+// The type of revocation file.
 func (o TrustStoreRevocationRevocationContentOutput) RevocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.RevocationType }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 bucket for the revocation file.
 func (o TrustStoreRevocationRevocationContentOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 path for the revocation file.
 func (o TrustStoreRevocationRevocationContentOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.S3Key }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 object version of the revocation file.
 func (o TrustStoreRevocationRevocationContentOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -5837,7 +5857,9 @@ func (o TrustStoreRevocationRevocationContentArrayOutput) Index(i pulumi.IntInpu
 }
 
 type TrustStoreTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

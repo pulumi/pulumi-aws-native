@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class IndexDocumentAttributeConfiguration
     {
+        /// <summary>
+        /// The name of the document attribute.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Information about whether the document attribute can be used by an end user to search for information on their web experience.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.QBusinessIndexStatus? Search;
+        /// <summary>
+        /// The type of document attribute.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.IndexAttributeType? Type;
 
         [OutputConstructor]

@@ -57,6 +57,9 @@ export class Instance extends pulumi.CustomResource {
      * The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
      */
     public /*out*/ readonly status!: pulumi.Output<enums.sso.InstanceStatus>;
+    /**
+     * Specifies tags to be attached to the instance of IAM Identity Center.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -97,5 +100,8 @@ export interface InstanceArgs {
      * The name you want to assign to this Identity Center (SSO) Instance
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies tags to be attached to the instance of IAM Identity Center.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

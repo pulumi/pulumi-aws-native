@@ -292,12 +292,27 @@ namespace Pulumi.AwsNative.IoTAnalytics
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+        /// 
+        /// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+        /// 
+        /// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
+        /// </summary>
         [Output("pipelineActivities")]
         public Output<ImmutableArray<Outputs.PipelineActivity>> PipelineActivities { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Output("pipelineName")]
         public Output<string?> PipelineName { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata which can be used to manage the pipeline.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -352,17 +367,34 @@ namespace Pulumi.AwsNative.IoTAnalytics
     {
         [Input("pipelineActivities", required: true)]
         private InputList<Inputs.PipelineActivityArgs>? _pipelineActivities;
+
+        /// <summary>
+        /// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+        /// 
+        /// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+        /// 
+        /// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
+        /// </summary>
         public InputList<Inputs.PipelineActivityArgs> PipelineActivities
         {
             get => _pipelineActivities ?? (_pipelineActivities = new InputList<Inputs.PipelineActivityArgs>());
             set => _pipelineActivities = value;
         }
 
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata which can be used to manage the pipeline.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

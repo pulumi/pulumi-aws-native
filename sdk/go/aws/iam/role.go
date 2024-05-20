@@ -538,6 +538,11 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
+	// Returns the Amazon Resource Name (ARN) for the role. For example:
+	//
+	// `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+	//
+	// This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
 	//
@@ -564,7 +569,10 @@ type Role struct {
 	//  For information about limits on the number of inline policies that you can embed with a role, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
 	//   If an external policy (such as ``AWS::IAM::Policy`` or
 	Policies RolePolicyTypeArrayOutput `pulumi:"policies"`
-	RoleId   pulumi.StringOutput       `pulumi:"roleId"`
+	// Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+	//
+	// For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+	RoleId pulumi.StringOutput `pulumi:"roleId"`
 	// A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*.
 	//  This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both "Role1" and "role1".
 	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name.
@@ -729,6 +737,11 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the role. For example:
+//
+// `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+//
+// This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
 func (o RoleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -784,6 +797,9 @@ func (o RoleOutput) Policies() RolePolicyTypeArrayOutput {
 	return o.ApplyT(func(v *Role) RolePolicyTypeArrayOutput { return v.Policies }).(RolePolicyTypeArrayOutput)
 }
 
+// Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+//
+// For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
 func (o RoleOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.RoleId }).(pulumi.StringOutput)
 }

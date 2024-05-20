@@ -23,11 +23,30 @@ export interface GetDetectorArgs {
 }
 
 export interface GetDetectorResult {
+    /**
+     * Describes which data sources will be enabled for the detector.
+     */
     readonly dataSources?: outputs.guardduty.DetectorCfnDataSourceConfigurations;
+    /**
+     * Specifies whether the detector is to be enabled on creation.
+     */
     readonly enable?: boolean;
+    /**
+     * A list of features that will be configured for the detector.
+     */
     readonly features?: outputs.guardduty.DetectorCfnFeatureConfiguration[];
+    /**
+     * Specifies how frequently updated findings are exported.
+     */
     readonly findingPublishingFrequency?: string;
     readonly id?: string;
+    /**
+     * Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

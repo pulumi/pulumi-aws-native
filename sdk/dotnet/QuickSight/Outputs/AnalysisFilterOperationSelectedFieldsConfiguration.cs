@@ -17,7 +17,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The selected columns of a dataset.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisColumnIdentifier> SelectedColumns;
+        /// <summary>
+        /// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `ALL_FIELDS` : Applies the filter operation to all fields.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSelectedFieldOptions? SelectedFieldOptions;
+        /// <summary>
+        /// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+        /// </summary>
         public readonly ImmutableArray<string> SelectedFields;
 
         [OutputConstructor]

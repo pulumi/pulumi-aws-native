@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Eks.Inputs
     {
         [Input("labels")]
         private InputList<Inputs.FargateProfileLabelArgs>? _labels;
+
+        /// <summary>
+        /// The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
+        /// </summary>
         public InputList<Inputs.FargateProfileLabelArgs> Labels
         {
             get => _labels ?? (_labels = new InputList<Inputs.FargateProfileLabelArgs>());
             set => _labels = value;
         }
 
+        /// <summary>
+        /// The Kubernetes `namespace` that the selector should match.
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

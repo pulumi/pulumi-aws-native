@@ -71,6 +71,31 @@ class AppAutoBranchCreationConfig(dict):
                  framework: Optional[str] = None,
                  pull_request_environment_name: Optional[str] = None,
                  stage: Optional['AppAutoBranchCreationConfigStage'] = None):
+        """
+        :param Sequence[str] auto_branch_creation_patterns: Automated branch creation glob patterns for the Amplify app.
+        :param 'AppBasicAuthConfig' basic_auth_config: Sets password protection for your auto created branch.
+        :param str build_spec: The build specification (build spec) for the autocreated branch.
+        :param bool enable_auto_branch_creation: Enables automated branch creation for the Amplify app.
+        :param bool enable_auto_build: Enables auto building for the auto created branch.
+        :param bool enable_performance_mode: Enables performance mode for the branch.
+               
+               Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        :param bool enable_pull_request_preview: Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+               
+               To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+               
+               For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        :param Sequence['AppEnvironmentVariable'] environment_variables: The environment variables for the autocreated branch.
+        :param str framework: The framework for the autocreated branch.
+        :param str pull_request_environment_name: If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+               
+               To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+               
+               If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+               
+               For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        :param 'AppAutoBranchCreationConfigStage' stage: Stage for the auto created branch.
+        """
         if auto_branch_creation_patterns is not None:
             pulumi.set(__self__, "auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_config is not None:
@@ -97,56 +122,101 @@ class AppAutoBranchCreationConfig(dict):
     @property
     @pulumi.getter(name="autoBranchCreationPatterns")
     def auto_branch_creation_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Automated branch creation glob patterns for the Amplify app.
+        """
         return pulumi.get(self, "auto_branch_creation_patterns")
 
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional['outputs.AppBasicAuthConfig']:
+        """
+        Sets password protection for your auto created branch.
+        """
         return pulumi.get(self, "basic_auth_config")
 
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[str]:
+        """
+        The build specification (build spec) for the autocreated branch.
+        """
         return pulumi.get(self, "build_spec")
 
     @property
     @pulumi.getter(name="enableAutoBranchCreation")
     def enable_auto_branch_creation(self) -> Optional[bool]:
+        """
+        Enables automated branch creation for the Amplify app.
+        """
         return pulumi.get(self, "enable_auto_branch_creation")
 
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[bool]:
+        """
+        Enables auto building for the auto created branch.
+        """
         return pulumi.get(self, "enable_auto_build")
 
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[bool]:
+        """
+        Enables performance mode for the branch.
+
+        Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
+        """
         return pulumi.get(self, "enable_performance_mode")
 
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[bool]:
+        """
+        Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
+
+        To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
+
+        For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.AppEnvironmentVariable']]:
+        """
+        The environment variables for the autocreated branch.
+        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter
     def framework(self) -> Optional[str]:
+        """
+        The framework for the autocreated branch.
+        """
         return pulumi.get(self, "framework")
 
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[str]:
+        """
+        If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
+
+        To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
+
+        If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
+
+        For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @property
     @pulumi.getter
     def stage(self) -> Optional['AppAutoBranchCreationConfigStage']:
+        """
+        Stage for the auto created branch.
+        """
         return pulumi.get(self, "stage")
 
 
@@ -173,6 +243,11 @@ class AppBasicAuthConfig(dict):
                  enable_basic_auth: Optional[bool] = None,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
+        """
+        :param bool enable_basic_auth: Enables basic authorization for the Amplify app's branches.
+        :param str password: The password for basic authorization.
+        :param str username: The user name for basic authorization.
+        """
         if enable_basic_auth is not None:
             pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
         if password is not None:
@@ -183,16 +258,25 @@ class AppBasicAuthConfig(dict):
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[bool]:
+        """
+        Enables basic authorization for the Amplify app's branches.
+        """
         return pulumi.get(self, "enable_basic_auth")
 
     @property
     @pulumi.getter
     def password(self) -> Optional[str]:
+        """
+        The password for basic authorization.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> Optional[str]:
+        """
+        The user name for basic authorization.
+        """
         return pulumi.get(self, "username")
 
 
@@ -203,6 +287,18 @@ class AppCustomRule(dict):
                  target: str,
                  condition: Optional[str] = None,
                  status: Optional[str] = None):
+        """
+        :param str source: The source pattern for a URL rewrite or redirect rule.
+        :param str target: The target pattern for a URL rewrite or redirect rule.
+        :param str condition: The condition for a URL rewrite or redirect rule, such as a country code.
+        :param str status: The status code for a URL rewrite or redirect rule.
+               
+               - **200** - Represents a 200 rewrite rule.
+               - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
+               - **302** - Represents a 302 temporary redirect rule.
+               - **404** - Represents a 404 redirect rule.
+               - **404-200** - Represents a 404 rewrite rule.
+        """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if condition is not None:
@@ -213,21 +309,39 @@ class AppCustomRule(dict):
     @property
     @pulumi.getter
     def source(self) -> str:
+        """
+        The source pattern for a URL rewrite or redirect rule.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def target(self) -> str:
+        """
+        The target pattern for a URL rewrite or redirect rule.
+        """
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter
     def condition(self) -> Optional[str]:
+        """
+        The condition for a URL rewrite or redirect rule, such as a country code.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        The status code for a URL rewrite or redirect rule.
+
+        - **200** - Represents a 200 rewrite rule.
+        - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
+        - **302** - Represents a 302 temporary redirect rule.
+        - **404** - Represents a 404 redirect rule.
+        - **404-200** - Represents a 404 rewrite rule.
+        """
         return pulumi.get(self, "status")
 
 
@@ -236,17 +350,27 @@ class AppEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: The environment variable name.
+        :param str value: The environment variable value.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The environment variable name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The environment variable value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -271,12 +395,18 @@ class BranchBackend(dict):
 
     def __init__(__self__, *,
                  stack_arn: Optional[str] = None):
+        """
+        :param str stack_arn: The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+        """
         if stack_arn is not None:
             pulumi.set(__self__, "stack_arn", stack_arn)
 
     @property
     @pulumi.getter(name="stackArn")
     def stack_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+        """
         return pulumi.get(self, "stack_arn")
 
 
@@ -303,6 +433,10 @@ class BranchBasicAuthConfig(dict):
                  password: str,
                  username: str,
                  enable_basic_auth: Optional[bool] = None):
+        """
+        :param str password: The password for basic authorization.
+        :param bool enable_basic_auth: Enables basic authorization for the branch.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if enable_basic_auth is not None:
@@ -311,6 +445,9 @@ class BranchBasicAuthConfig(dict):
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        The password for basic authorization.
+        """
         return pulumi.get(self, "password")
 
     @property
@@ -321,6 +458,9 @@ class BranchBasicAuthConfig(dict):
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[bool]:
+        """
+        Enables basic authorization for the branch.
+        """
         return pulumi.get(self, "enable_basic_auth")
 
 
@@ -329,17 +469,27 @@ class BranchEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: The environment variable name.
+        :param str value: The environment variable value.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The environment variable name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The environment variable value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -370,6 +520,17 @@ class DomainCertificate(dict):
                  certificate_arn: Optional[str] = None,
                  certificate_type: Optional['DomainCertificateCertificateType'] = None,
                  certificate_verification_dns_record: Optional[str] = None):
+        """
+        :param str certificate_arn: The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+               
+               This field is required only when the certificate type is `CUSTOM` .
+        :param 'DomainCertificateCertificateType' certificate_type: The type of SSL/TLS certificate that you want to use.
+               
+               Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+               
+               Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+        :param str certificate_verification_dns_record: The DNS record for certificate verification.
+        """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if certificate_type is not None:
@@ -380,16 +541,31 @@ class DomainCertificate(dict):
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) for a custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+
+        This field is required only when the certificate type is `CUSTOM` .
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> Optional['DomainCertificateCertificateType']:
+        """
+        The type of SSL/TLS certificate that you want to use.
+
+        Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+
+        Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+        """
         return pulumi.get(self, "certificate_type")
 
     @property
     @pulumi.getter(name="certificateVerificationDnsRecord")
     def certificate_verification_dns_record(self) -> Optional[str]:
+        """
+        The DNS record for certificate verification.
+        """
         return pulumi.get(self, "certificate_verification_dns_record")
 
 
@@ -417,6 +593,16 @@ class DomainCertificateSettings(dict):
     def __init__(__self__, *,
                  certificate_type: Optional['DomainCertificateSettingsCertificateType'] = None,
                  custom_certificate_arn: Optional[str] = None):
+        """
+        :param 'DomainCertificateSettingsCertificateType' certificate_type: The certificate type.
+               
+               Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+               
+               Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+        :param str custom_certificate_arn: The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+               
+               This field is required only when the certificate type is `CUSTOM` .
+        """
         if certificate_type is not None:
             pulumi.set(__self__, "certificate_type", certificate_type)
         if custom_certificate_arn is not None:
@@ -425,11 +611,23 @@ class DomainCertificateSettings(dict):
     @property
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> Optional['DomainCertificateSettingsCertificateType']:
+        """
+        The certificate type.
+
+        Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
+
+        Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
+        """
         return pulumi.get(self, "certificate_type")
 
     @property
     @pulumi.getter(name="customCertificateArn")
     def custom_certificate_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
+
+        This field is required only when the certificate type is `CUSTOM` .
+        """
         return pulumi.get(self, "custom_certificate_arn")
 
 
@@ -455,17 +653,35 @@ class DomainSubDomainSetting(dict):
     def __init__(__self__, *,
                  branch_name: str,
                  prefix: str):
+        """
+        :param str branch_name: The branch name setting for the subdomain.
+               
+               *Length Constraints:* Minimum length of 1. Maximum length of 255.
+               
+               *Pattern:* (?s).+
+        :param str prefix: The prefix setting for the subdomain.
+        """
         pulumi.set(__self__, "branch_name", branch_name)
         pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> str:
+        """
+        The branch name setting for the subdomain.
+
+        *Length Constraints:* Minimum length of 1. Maximum length of 255.
+
+        *Pattern:* (?s).+
+        """
         return pulumi.get(self, "branch_name")
 
     @property
     @pulumi.getter
     def prefix(self) -> str:
+        """
+        The prefix setting for the subdomain.
+        """
         return pulumi.get(self, "prefix")
 
 

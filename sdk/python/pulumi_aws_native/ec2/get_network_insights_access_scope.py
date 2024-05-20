@@ -39,26 +39,41 @@ class GetNetworkInsightsAccessScopeResult:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[str]:
+        """
+        The creation date.
+        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeArn")
     def network_insights_access_scope_arn(self) -> Optional[str]:
+        """
+        The ARN of the Network Access Scope.
+        """
         return pulumi.get(self, "network_insights_access_scope_arn")
 
     @property
     @pulumi.getter(name="networkInsightsAccessScopeId")
     def network_insights_access_scope_id(self) -> Optional[str]:
+        """
+        The ID of the Network Access Scope.
+        """
         return pulumi.get(self, "network_insights_access_scope_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedDate")
     def updated_date(self) -> Optional[str]:
+        """
+        The last updated date.
+        """
         return pulumi.get(self, "updated_date")
 
 
@@ -79,6 +94,9 @@ def get_network_insights_access_scope(network_insights_access_scope_id: Optional
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAccessScopeResult:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScope
+
+
+    :param str network_insights_access_scope_id: The ID of the Network Access Scope.
     """
     __args__ = dict()
     __args__['networkInsightsAccessScopeId'] = network_insights_access_scope_id
@@ -98,5 +116,8 @@ def get_network_insights_access_scope_output(network_insights_access_scope_id: O
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScope
+
+
+    :param str network_insights_access_scope_id: The ID of the Network Access Scope.
     """
     ...

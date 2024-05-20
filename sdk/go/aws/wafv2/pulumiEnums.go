@@ -1348,6 +1348,14 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+//
+// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 type RuleGroupForwardedIpConfigurationFallbackBehavior string
 
 const (
@@ -1513,6 +1521,14 @@ func (in *ruleGroupForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroupForwa
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+//
+// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 type RuleGroupIpSetForwardedIpConfigurationFallbackBehavior string
 
 const (
@@ -1678,6 +1694,13 @@ func (in *ruleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToRuleGroup
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
+// The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+//
+// The options for this setting are the following:
+//
+// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+// - LAST - Inspect the last IP address in the list of IP addresses in the header.
+// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
 type RuleGroupIpSetForwardedIpConfigurationPosition string
 
 const (
@@ -1845,6 +1868,12 @@ func (in *ruleGroupIpSetForwardedIpConfigurationPositionPtr) ToRuleGroupIpSetFor
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 type RuleGroupJa3FingerprintFallbackBehavior string
 
 const (
@@ -2851,6 +2880,26 @@ func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupPositionalConstraintPtrOutput)
 }
 
+// Setting that indicates how to aggregate the request counts.
+//
+// > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
+//
+// - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+//
+// With this option, you must configure the `ScopeDownStatement` property.
+// - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+//
+// With this option, you must specify the aggregate keys in the `CustomKeys` property.
+//
+// To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+// - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+//
+// With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+//
+// To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+// - `IP` - Aggregate the request counts on the IP address from the web request origin.
+//
+// To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
 type RuleGroupRateBasedStatementAggregateKeyType string
 
 const (
@@ -3520,6 +3569,7 @@ func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSensitivityLevelPtrOutput)
 }
 
+// The operator to use to compare the request part to the size setting.
 type RuleGroupSizeConstraintStatementComparisonOperator string
 
 const (
@@ -3897,6 +3947,7 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTextTransformationTypePtrOutput)
 }
 
+// The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) in the *AWS WAF Developer Guide* .
 type WebAclAwsManagedRulesBotControlRuleSetInspectionLevel string
 
 const (
@@ -4230,6 +4281,14 @@ func (in *webAclBodyParsingFallbackBehaviorPtr) ToWebAclBodyParsingFallbackBehav
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+//
+// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 type WebAclForwardedIpConfigurationFallbackBehavior string
 
 const (
@@ -4395,6 +4454,14 @@ func (in *webAclForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclForwardedIp
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
+//
+// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 type WebAclIpSetForwardedIpConfigurationFallbackBehavior string
 
 const (
@@ -4560,6 +4627,13 @@ func (in *webAclIpSetForwardedIpConfigurationFallbackBehaviorPtr) ToWebAclIpSetF
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclIpSetForwardedIpConfigurationFallbackBehaviorPtrOutput)
 }
 
+// The position in the header to search for the IP address. The header can contain IP addresses of the original client and also of proxies. For example, the header value could be `10.1.1.1, 127.0.0.0, 10.10.10.10` where the first IP address identifies the original client and the rest identify proxies that the request went through.
+//
+// The options for this setting are the following:
+//
+// - FIRST - Inspect the first IP address in the list of IP addresses in the header. This is usually the client's original IP.
+// - LAST - Inspect the last IP address in the list of IP addresses in the header.
+// - ANY - Inspect all IP addresses in the header for a match. If the header contains more than 10 IP addresses, AWS WAF inspects the last 10.
 type WebAclIpSetForwardedIpConfigurationPosition string
 
 const (
@@ -4727,6 +4801,12 @@ func (in *webAclIpSetForwardedIpConfigurationPositionPtr) ToWebAclIpSetForwarded
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclIpSetForwardedIpConfigurationPositionPtrOutput)
 }
 
+// The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+//
+// You can specify the following fallback behaviors:
+//
+// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+// - `NO_MATCH` - Treat the web request as not matching the rule statement.
 type WebAclJa3FingerprintFallbackBehavior string
 
 const (
@@ -5225,6 +5305,7 @@ func (in *webAclLabelMatchScopePtr) ToWebAclLabelMatchScopePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclLabelMatchScopePtrOutput)
 }
 
+// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 type WebAclManagedRuleGroupConfigPayloadType string
 
 const (
@@ -5898,6 +5979,26 @@ func (in *webAclPositionalConstraintPtr) ToWebAclPositionalConstraintPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclPositionalConstraintPtrOutput)
 }
 
+// Setting that indicates how to aggregate the request counts.
+//
+// > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
+//
+// - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
+//
+// With this option, you must configure the `ScopeDownStatement` property.
+// - `CUSTOM_KEYS` - Aggregate the request counts using one or more web request components as the aggregate keys.
+//
+// With this option, you must specify the aggregate keys in the `CustomKeys` property.
+//
+// To aggregate on only the IP address or only the forwarded IP address, don't use custom keys. Instead, set the aggregate key type to `IP` or `FORWARDED_IP` .
+// - `FORWARDED_IP` - Aggregate the request counts on the first IP address in an HTTP header.
+//
+// With this option, you must specify the header to use in the `ForwardedIPConfig` property.
+//
+// To aggregate on a combination of the forwarded IP address with other aggregate keys, use `CUSTOM_KEYS` .
+// - `IP` - Aggregate the request counts on the IP address from the web request origin.
+//
+// To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
 type WebAclRateBasedStatementAggregateKeyType string
 
 const (
@@ -6067,6 +6168,7 @@ func (in *webAclRateBasedStatementAggregateKeyTypePtr) ToWebAclRateBasedStatemen
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+// The payload type for your account creation endpoint, either JSON or form encoded.
 type WebAclRequestInspectionAcfpPayloadType string
 
 const (
@@ -6232,6 +6334,7 @@ func (in *webAclRequestInspectionAcfpPayloadTypePtr) ToWebAclRequestInspectionAc
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclRequestInspectionAcfpPayloadTypePtrOutput)
 }
 
+// The payload type for your login endpoint, either JSON or form encoded.
 type WebAclRequestInspectionPayloadType string
 
 const (
@@ -6897,6 +7000,7 @@ func (in *webAclSensitivityLevelPtr) ToWebAclSensitivityLevelPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclSensitivityLevelPtrOutput)
 }
 
+// The operator to use to compare the request part to the size setting.
 type WebAclSizeConstraintStatementComparisonOperator string
 
 const (

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// The encryption method to use.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationHlsEncryptionEncryptionMethod? EncryptionMethod;
+        /// <summary>
+        /// Parameters for the SPEKE key provider.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

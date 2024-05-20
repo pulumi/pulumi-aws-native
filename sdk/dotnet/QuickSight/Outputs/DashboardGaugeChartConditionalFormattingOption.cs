@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGaugeChartConditionalFormattingOption
     {
+        /// <summary>
+        /// The options that determine the presentation of the arc of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardGaugeChartArcConditionalFormatting? Arc;
+        /// <summary>
+        /// The conditional formatting for the primary value of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardGaugeChartPrimaryValueConditionalFormatting? PrimaryValue;
 
         [OutputConstructor]

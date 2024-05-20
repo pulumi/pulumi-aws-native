@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetRowLevelPermissionTagConfiguration
     {
+        /// <summary>
+        /// The status of row-level security tags. If enabled, the status is `ENABLED` . If disabled, the status is `DISABLED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetStatus? Status;
         /// <summary>
         /// &lt;p&gt;A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.&lt;/p&gt;

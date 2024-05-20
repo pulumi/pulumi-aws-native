@@ -16,7 +16,9 @@ import (
 type SpotFleet struct {
 	pulumi.CustomResourceState
 
-	AwsId                      pulumi.StringOutput              `pulumi:"awsId"`
+	// The ID of the Spot Fleet.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
 }
 
@@ -85,11 +87,13 @@ func (SpotFleetState) ElementType() reflect.Type {
 }
 
 type spotFleetArgs struct {
+	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
 }
 
 // The set of arguments for constructing a SpotFleet resource.
 type SpotFleetArgs struct {
+	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataInput
 }
 
@@ -130,10 +134,12 @@ func (o SpotFleetOutput) ToSpotFleetOutputWithContext(ctx context.Context) SpotF
 	return o
 }
 
+// The ID of the Spot Fleet.
 func (o SpotFleetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotFleet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Describes the configuration of a Spot Fleet request.
 func (o SpotFleetOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataOutput {
 	return o.ApplyT(func(v *SpotFleet) SpotFleetRequestConfigDataOutput { return v.SpotFleetRequestConfigData }).(SpotFleetRequestConfigDataOutput)
 }

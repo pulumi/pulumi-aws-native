@@ -54,6 +54,9 @@ class GetScheduledQueryResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The `ARN` of the scheduled query.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -123,6 +126,9 @@ class GetScheduledQueryResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs to label the scheduled query.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -148,6 +154,9 @@ def get_scheduled_query(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledQueryResult:
     """
     The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
+
+
+    :param str arn: The `ARN` of the scheduled query.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -172,5 +181,8 @@ def get_scheduled_query_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryResult]:
     """
     The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
+
+
+    :param str arn: The `ARN` of the scheduled query.
     """
     ...

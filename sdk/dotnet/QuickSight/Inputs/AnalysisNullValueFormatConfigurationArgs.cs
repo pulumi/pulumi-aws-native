@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisNullValueFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the null string of null values.
+        /// </summary>
         [Input("nullString", required: true)]
         public Input<string> NullString { get; set; } = null!;
 

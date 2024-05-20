@@ -207,14 +207,20 @@ import (
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
 	// The name of the configuration set.
-	Name               pulumi.StringPtrOutput                      `pulumi:"name"`
-	ReputationOptions  ConfigurationSetReputationOptionsPtrOutput  `pulumi:"reputationOptions"`
-	SendingOptions     ConfigurationSetSendingOptionsPtrOutput     `pulumi:"sendingOptions"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// An object that represents the reputation settings for the configuration set.
+	ReputationOptions ConfigurationSetReputationOptionsPtrOutput `pulumi:"reputationOptions"`
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions ConfigurationSetSendingOptionsPtrOutput `pulumi:"sendingOptions"`
+	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
-	TrackingOptions    ConfigurationSetTrackingOptionsPtrOutput    `pulumi:"trackingOptions"`
-	VdmOptions         ConfigurationSetVdmOptionsPtrOutput         `pulumi:"vdmOptions"`
+	// The name of the custom open and click tracking domain associated with the configuration set.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
+	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+	VdmOptions ConfigurationSetVdmOptionsPtrOutput `pulumi:"vdmOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -261,26 +267,38 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type configurationSetArgs struct {
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// The name of the configuration set.
-	Name               *string                             `pulumi:"name"`
-	ReputationOptions  *ConfigurationSetReputationOptions  `pulumi:"reputationOptions"`
-	SendingOptions     *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
+	Name *string `pulumi:"name"`
+	// An object that represents the reputation settings for the configuration set.
+	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
+	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
-	TrackingOptions    *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
-	VdmOptions         *ConfigurationSetVdmOptions         `pulumi:"vdmOptions"`
+	// The name of the custom open and click tracking domain associated with the configuration set.
+	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
+	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+	VdmOptions *ConfigurationSetVdmOptions `pulumi:"vdmOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
 	// The name of the configuration set.
-	Name               pulumi.StringPtrInput
-	ReputationOptions  ConfigurationSetReputationOptionsPtrInput
-	SendingOptions     ConfigurationSetSendingOptionsPtrInput
+	Name pulumi.StringPtrInput
+	// An object that represents the reputation settings for the configuration set.
+	ReputationOptions ConfigurationSetReputationOptionsPtrInput
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions ConfigurationSetSendingOptionsPtrInput
+	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
-	TrackingOptions    ConfigurationSetTrackingOptionsPtrInput
-	VdmOptions         ConfigurationSetVdmOptionsPtrInput
+	// The name of the custom open and click tracking domain associated with the configuration set.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
+	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+	VdmOptions ConfigurationSetVdmOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -320,6 +338,7 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.
 	return o
 }
 
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
@@ -329,22 +348,27 @@ func (o ConfigurationSetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An object that represents the reputation settings for the configuration set.
 func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsPtrOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
+// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 func (o ConfigurationSetOutput) SendingOptions() ConfigurationSetSendingOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSendingOptionsPtrOutput { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
+// An object that contains information about the suppression list preferences for your account.
 func (o ConfigurationSetOutput) SuppressionOptions() ConfigurationSetSuppressionOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetSuppressionOptionsPtrOutput { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
+// The name of the custom open and click tracking domain associated with the configuration set.
 func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
+// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
 func (o ConfigurationSetOutput) VdmOptions() ConfigurationSetVdmOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetVdmOptionsPtrOutput { return v.VdmOptions }).(ConfigurationSetVdmOptionsPtrOutput)
 }

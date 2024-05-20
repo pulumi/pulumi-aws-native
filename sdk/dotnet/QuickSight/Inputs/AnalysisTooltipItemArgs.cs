@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTooltipItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tooltip item for the columns that are not part of a field well.
+        /// </summary>
         [Input("columnTooltipItem")]
         public Input<Inputs.AnalysisColumnTooltipItemArgs>? ColumnTooltipItem { get; set; }
 
+        /// <summary>
+        /// The tooltip item for the fields.
+        /// </summary>
         [Input("fieldTooltipItem")]
         public Input<Inputs.AnalysisFieldTooltipItemArgs>? FieldTooltipItem { get; set; }
 

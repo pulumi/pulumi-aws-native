@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -63,16 +69,25 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
         /// </summary>
         public readonly string? ApplicationTagValue;
+        /// <summary>
+        /// The Amazon resource name (ARN) that specifies the application across services.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The description of the application. 
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The identifier of the application.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The name of the application. 
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Key-value pairs you can use to associate with the application.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

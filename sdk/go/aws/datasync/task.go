@@ -74,24 +74,34 @@ type Task struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogGroupArn"`
 	// The ARN of an AWS storage resource's location.
-	DestinationLocationArn          pulumi.StringOutput         `pulumi:"destinationLocationArn"`
-	DestinationNetworkInterfaceArns pulumi.StringArrayOutput    `pulumi:"destinationNetworkInterfaceArns"`
-	Excludes                        TaskFilterRuleArrayOutput   `pulumi:"excludes"`
-	Includes                        TaskFilterRuleArrayOutput   `pulumi:"includes"`
-	ManifestConfig                  TaskManifestConfigPtrOutput `pulumi:"manifestConfig"`
+	DestinationLocationArn pulumi.StringOutput `pulumi:"destinationLocationArn"`
+	// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
+	DestinationNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"destinationNetworkInterfaceArns"`
+	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	Excludes TaskFilterRuleArrayOutput `pulumi:"excludes"`
+	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	Includes TaskFilterRuleArrayOutput `pulumi:"includes"`
+	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+	ManifestConfig TaskManifestConfigPtrOutput `pulumi:"manifestConfig"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
-	Name     pulumi.StringPtrOutput `pulumi:"name"`
-	Options  TaskOptionsPtrOutput   `pulumi:"options"`
-	Schedule TaskSchedulePtrOutput  `pulumi:"schedule"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+	Options TaskOptionsPtrOutput `pulumi:"options"`
+	// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
 	// The ARN of the source location for the task.
-	SourceLocationArn          pulumi.StringOutput      `pulumi:"sourceLocationArn"`
+	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
+	// The ARNs of the source ENIs that were created for your subnet.
 	SourceNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"sourceNetworkInterfaceArns"`
 	// The status of the task that was described.
 	Status TaskStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the task.
-	TaskArn          pulumi.StringOutput       `pulumi:"taskArn"`
+	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
+	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+	//
+	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
 	TaskReportConfig TaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
 
@@ -149,18 +159,26 @@ type taskArgs struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
 	// The ARN of an AWS storage resource's location.
-	DestinationLocationArn string              `pulumi:"destinationLocationArn"`
-	Excludes               []TaskFilterRule    `pulumi:"excludes"`
-	Includes               []TaskFilterRule    `pulumi:"includes"`
-	ManifestConfig         *TaskManifestConfig `pulumi:"manifestConfig"`
+	DestinationLocationArn string `pulumi:"destinationLocationArn"`
+	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	Excludes []TaskFilterRule `pulumi:"excludes"`
+	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	Includes []TaskFilterRule `pulumi:"includes"`
+	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+	ManifestConfig *TaskManifestConfig `pulumi:"manifestConfig"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
-	Name     *string       `pulumi:"name"`
-	Options  *TaskOptions  `pulumi:"options"`
+	Name *string `pulumi:"name"`
+	// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+	Options *TaskOptions `pulumi:"options"`
+	// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// The ARN of the source location for the task.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// An array of key-value pairs to apply to this resource.
-	Tags             []aws.Tag         `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+	//
+	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
 	TaskReportConfig *TaskReportConfig `pulumi:"taskReportConfig"`
 }
 
@@ -170,17 +188,25 @@ type TaskArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput
 	// The ARN of an AWS storage resource's location.
 	DestinationLocationArn pulumi.StringInput
-	Excludes               TaskFilterRuleArrayInput
-	Includes               TaskFilterRuleArrayInput
-	ManifestConfig         TaskManifestConfigPtrInput
+	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	Excludes TaskFilterRuleArrayInput
+	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	Includes TaskFilterRuleArrayInput
+	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+	ManifestConfig TaskManifestConfigPtrInput
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
-	Name     pulumi.StringPtrInput
-	Options  TaskOptionsPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+	Options TaskOptionsPtrInput
+	// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
 	Schedule TaskSchedulePtrInput
 	// The ARN of the source location for the task.
 	SourceLocationArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags             aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+	//
+	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
 	TaskReportConfig TaskReportConfigPtrInput
 }
 
@@ -231,18 +257,22 @@ func (o TaskOutput) DestinationLocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.DestinationLocationArn }).(pulumi.StringOutput)
 }
 
+// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
 func (o TaskOutput) DestinationNetworkInterfaceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringArrayOutput { return v.DestinationNetworkInterfaceArns }).(pulumi.StringArrayOutput)
 }
 
+// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 func (o TaskOutput) Excludes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Excludes }).(TaskFilterRuleArrayOutput)
 }
 
+// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 func (o TaskOutput) Includes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Includes }).(TaskFilterRuleArrayOutput)
 }
 
+// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 func (o TaskOutput) ManifestConfig() TaskManifestConfigPtrOutput {
 	return o.ApplyT(func(v *Task) TaskManifestConfigPtrOutput { return v.ManifestConfig }).(TaskManifestConfigPtrOutput)
 }
@@ -252,10 +282,12 @@ func (o TaskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
 func (o TaskOutput) Options() TaskOptionsPtrOutput {
 	return o.ApplyT(func(v *Task) TaskOptionsPtrOutput { return v.Options }).(TaskOptionsPtrOutput)
 }
 
+// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
 func (o TaskOutput) Schedule() TaskSchedulePtrOutput {
 	return o.ApplyT(func(v *Task) TaskSchedulePtrOutput { return v.Schedule }).(TaskSchedulePtrOutput)
 }
@@ -265,6 +297,7 @@ func (o TaskOutput) SourceLocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SourceLocationArn }).(pulumi.StringOutput)
 }
 
+// The ARNs of the source ENIs that were created for your subnet.
 func (o TaskOutput) SourceNetworkInterfaceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringArrayOutput { return v.SourceNetworkInterfaceArns }).(pulumi.StringArrayOutput)
 }
@@ -284,6 +317,9 @@ func (o TaskOutput) TaskArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.TaskArn }).(pulumi.StringOutput)
 }
 
+// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+//
+// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
 func (o TaskOutput) TaskReportConfig() TaskReportConfigPtrOutput {
 	return o.ApplyT(func(v *Task) TaskReportConfigPtrOutput { return v.TaskReportConfig }).(TaskReportConfigPtrOutput)
 }

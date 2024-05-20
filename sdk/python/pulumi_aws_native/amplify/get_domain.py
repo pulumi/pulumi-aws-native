@@ -55,16 +55,25 @@ class GetDomainResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        ARN for the Domain Association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoSubDomainCreationPatterns")
     def auto_sub_domain_creation_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Sets the branch patterns for automatic subdomain creation.
+        """
         return pulumi.get(self, "auto_sub_domain_creation_patterns")
 
     @property
     @pulumi.getter(name="autoSubDomainIamRole")
     def auto_sub_domain_iam_role(self) -> Optional[str]:
+        """
+        The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
+        """
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
     @property
@@ -75,31 +84,57 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="certificateRecord")
     def certificate_record(self) -> Optional[str]:
+        """
+        DNS Record for certificate verification.
+        """
         return pulumi.get(self, "certificate_record")
 
     @property
     @pulumi.getter(name="domainStatus")
     def domain_status(self) -> Optional[str]:
+        """
+        Status for the Domain Association.
+        """
         return pulumi.get(self, "domain_status")
 
     @property
     @pulumi.getter(name="enableAutoSubDomain")
     def enable_auto_sub_domain(self) -> Optional[bool]:
+        """
+        Enables the automated creation of subdomains for branches.
+        """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[str]:
+        """
+        Reason for the current status of the domain.
+        """
         return pulumi.get(self, "status_reason")
 
     @property
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> Optional[Sequence['outputs.DomainSubDomainSetting']]:
+        """
+        The setting for the subdomain.
+        """
         return pulumi.get(self, "sub_domain_settings")
 
     @property
     @pulumi.getter(name="updateStatus")
     def update_status(self) -> Optional[str]:
+        """
+        The status of the domain update operation that is currently in progress. The following list describes the valid update states.
+
+        - **REQUESTING_CERTIFICATE** - The certificate is in the process of being updated.
+        - **PENDING_VERIFICATION** - Indicates that an Amplify managed certificate is in the process of being verified. This occurs during the creation of a custom domain or when a custom domain is updated to use a managed certificate.
+        - **IMPORTING_CUSTOM_CERTIFICATE** - Indicates that an Amplify custom certificate is in the process of being imported. This occurs during the creation of a custom domain or when a custom domain is updated to use a custom certificate.
+        - **PENDING_DEPLOYMENT** - Indicates that the subdomain or certificate changes are being propagated.
+        - **AWAITING_APP_CNAME** - Amplify is waiting for CNAME records corresponding to subdomains to be propagated. If your custom domain is on Route 53, Amplify handles this for you automatically. For more information about custom domains, see [Setting up custom domains](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html) in the *Amplify Hosting User Guide* .
+        - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
+        - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
+        """
         return pulumi.get(self, "update_status")
 
 
@@ -125,6 +160,9 @@ def get_domain(arn: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
+
+
+    :param str arn: ARN for the Domain Association.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -149,5 +187,8 @@ def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
+
+
+    :param str arn: ARN for the Domain Association.
     """
     ...

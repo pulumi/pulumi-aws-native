@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type InAppTemplateBodyConfig struct {
+	// The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 	Alignment *InAppTemplateAlignment `pulumi:"alignment"`
-	Body      *string                 `pulumi:"body"`
-	TextColor *string                 `pulumi:"textColor"`
+	// The main body text of the message.
+	Body *string `pulumi:"body"`
+	// The color of the body text, expressed as a hex color code (such as #000000 for black).
+	TextColor *string `pulumi:"textColor"`
 }
 
 // InAppTemplateBodyConfigInput is an input type that accepts InAppTemplateBodyConfigArgs and InAppTemplateBodyConfigOutput values.
@@ -31,9 +34,12 @@ type InAppTemplateBodyConfigInput interface {
 }
 
 type InAppTemplateBodyConfigArgs struct {
+	// The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 	Alignment InAppTemplateAlignmentPtrInput `pulumi:"alignment"`
-	Body      pulumi.StringPtrInput          `pulumi:"body"`
-	TextColor pulumi.StringPtrInput          `pulumi:"textColor"`
+	// The main body text of the message.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// The color of the body text, expressed as a hex color code (such as #000000 for black).
+	TextColor pulumi.StringPtrInput `pulumi:"textColor"`
 }
 
 func (InAppTemplateBodyConfigArgs) ElementType() reflect.Type {
@@ -113,14 +119,17 @@ func (o InAppTemplateBodyConfigOutput) ToInAppTemplateBodyConfigPtrOutputWithCon
 	}).(InAppTemplateBodyConfigPtrOutput)
 }
 
+// The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 func (o InAppTemplateBodyConfigOutput) Alignment() InAppTemplateAlignmentPtrOutput {
 	return o.ApplyT(func(v InAppTemplateBodyConfig) *InAppTemplateAlignment { return v.Alignment }).(InAppTemplateAlignmentPtrOutput)
 }
 
+// The main body text of the message.
 func (o InAppTemplateBodyConfigOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateBodyConfig) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// The color of the body text, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateBodyConfigOutput) TextColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateBodyConfig) *string { return v.TextColor }).(pulumi.StringPtrOutput)
 }
@@ -149,6 +158,7 @@ func (o InAppTemplateBodyConfigPtrOutput) Elem() InAppTemplateBodyConfigOutput {
 	}).(InAppTemplateBodyConfigOutput)
 }
 
+// The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 func (o InAppTemplateBodyConfigPtrOutput) Alignment() InAppTemplateAlignmentPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateBodyConfig) *InAppTemplateAlignment {
 		if v == nil {
@@ -158,6 +168,7 @@ func (o InAppTemplateBodyConfigPtrOutput) Alignment() InAppTemplateAlignmentPtrO
 	}).(InAppTemplateAlignmentPtrOutput)
 }
 
+// The main body text of the message.
 func (o InAppTemplateBodyConfigPtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateBodyConfig) *string {
 		if v == nil {
@@ -167,6 +178,7 @@ func (o InAppTemplateBodyConfigPtrOutput) Body() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color of the body text, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateBodyConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateBodyConfig) *string {
 		if v == nil {
@@ -177,10 +189,14 @@ func (o InAppTemplateBodyConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 }
 
 type InAppTemplateButtonConfig struct {
-	Android       *InAppTemplateOverrideButtonConfiguration `pulumi:"android"`
-	DefaultConfig *InAppTemplateDefaultButtonConfiguration  `pulumi:"defaultConfig"`
-	Ios           *InAppTemplateOverrideButtonConfiguration `pulumi:"ios"`
-	Web           *InAppTemplateOverrideButtonConfiguration `pulumi:"web"`
+	// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
+	Android *InAppTemplateOverrideButtonConfiguration `pulumi:"android"`
+	// Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
+	DefaultConfig *InAppTemplateDefaultButtonConfiguration `pulumi:"defaultConfig"`
+	// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
+	Ios *InAppTemplateOverrideButtonConfiguration `pulumi:"ios"`
+	// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
+	Web *InAppTemplateOverrideButtonConfiguration `pulumi:"web"`
 }
 
 // InAppTemplateButtonConfigInput is an input type that accepts InAppTemplateButtonConfigArgs and InAppTemplateButtonConfigOutput values.
@@ -195,10 +211,14 @@ type InAppTemplateButtonConfigInput interface {
 }
 
 type InAppTemplateButtonConfigArgs struct {
-	Android       InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"android"`
-	DefaultConfig InAppTemplateDefaultButtonConfigurationPtrInput  `pulumi:"defaultConfig"`
-	Ios           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"ios"`
-	Web           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"web"`
+	// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
+	Android InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"android"`
+	// Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
+	DefaultConfig InAppTemplateDefaultButtonConfigurationPtrInput `pulumi:"defaultConfig"`
+	// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
+	Ios InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"ios"`
+	// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
+	Web InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"web"`
 }
 
 func (InAppTemplateButtonConfigArgs) ElementType() reflect.Type {
@@ -278,18 +298,22 @@ func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigPtrOutputWit
 	}).(InAppTemplateButtonConfigPtrOutput)
 }
 
+// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Android }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
+// Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
 func (o InAppTemplateButtonConfigOutput) DefaultConfig() InAppTemplateDefaultButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateDefaultButtonConfiguration { return v.DefaultConfig }).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
+// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigOutput) Ios() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Ios }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
+// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Web }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
@@ -318,6 +342,7 @@ func (o InAppTemplateButtonConfigPtrOutput) Elem() InAppTemplateButtonConfigOutp
 	}).(InAppTemplateButtonConfigOutput)
 }
 
+// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigPtrOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
@@ -327,6 +352,7 @@ func (o InAppTemplateButtonConfigPtrOutput) Android() InAppTemplateOverrideButto
 	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
+// Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
 func (o InAppTemplateButtonConfigPtrOutput) DefaultConfig() InAppTemplateDefaultButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateDefaultButtonConfiguration {
 		if v == nil {
@@ -336,6 +362,7 @@ func (o InAppTemplateButtonConfigPtrOutput) DefaultConfig() InAppTemplateDefault
 	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
+// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigPtrOutput) Ios() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
@@ -345,6 +372,7 @@ func (o InAppTemplateButtonConfigPtrOutput) Ios() InAppTemplateOverrideButtonCon
 	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
+// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigPtrOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
@@ -355,12 +383,22 @@ func (o InAppTemplateButtonConfigPtrOutput) Web() InAppTemplateOverrideButtonCon
 }
 
 type InAppTemplateDefaultButtonConfiguration struct {
-	BackgroundColor *string                    `pulumi:"backgroundColor"`
-	BorderRadius    *int                       `pulumi:"borderRadius"`
-	ButtonAction    *InAppTemplateButtonAction `pulumi:"buttonAction"`
-	Link            *string                    `pulumi:"link"`
-	Text            *string                    `pulumi:"text"`
-	TextColor       *string                    `pulumi:"textColor"`
+	// The background color of a button, expressed as a hex color code (such as #000000 for black).
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// The border radius of a button.
+	BorderRadius *int `pulumi:"borderRadius"`
+	// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+	//
+	// - `LINK` – A link to a web destination.
+	// - `DEEP_LINK` – A link to a specific page in an application.
+	// - `CLOSE` – Dismisses the message.
+	ButtonAction *InAppTemplateButtonAction `pulumi:"buttonAction"`
+	// The destination (such as a URL) for a button.
+	Link *string `pulumi:"link"`
+	// The text that appears on a button in an in-app message.
+	Text *string `pulumi:"text"`
+	// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
+	TextColor *string `pulumi:"textColor"`
 }
 
 // InAppTemplateDefaultButtonConfigurationInput is an input type that accepts InAppTemplateDefaultButtonConfigurationArgs and InAppTemplateDefaultButtonConfigurationOutput values.
@@ -375,12 +413,22 @@ type InAppTemplateDefaultButtonConfigurationInput interface {
 }
 
 type InAppTemplateDefaultButtonConfigurationArgs struct {
-	BackgroundColor pulumi.StringPtrInput             `pulumi:"backgroundColor"`
-	BorderRadius    pulumi.IntPtrInput                `pulumi:"borderRadius"`
-	ButtonAction    InAppTemplateButtonActionPtrInput `pulumi:"buttonAction"`
-	Link            pulumi.StringPtrInput             `pulumi:"link"`
-	Text            pulumi.StringPtrInput             `pulumi:"text"`
-	TextColor       pulumi.StringPtrInput             `pulumi:"textColor"`
+	// The background color of a button, expressed as a hex color code (such as #000000 for black).
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// The border radius of a button.
+	BorderRadius pulumi.IntPtrInput `pulumi:"borderRadius"`
+	// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+	//
+	// - `LINK` – A link to a web destination.
+	// - `DEEP_LINK` – A link to a specific page in an application.
+	// - `CLOSE` – Dismisses the message.
+	ButtonAction InAppTemplateButtonActionPtrInput `pulumi:"buttonAction"`
+	// The destination (such as a URL) for a button.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The text that appears on a button in an in-app message.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
+	TextColor pulumi.StringPtrInput `pulumi:"textColor"`
 }
 
 func (InAppTemplateDefaultButtonConfigurationArgs) ElementType() reflect.Type {
@@ -460,26 +508,36 @@ func (o InAppTemplateDefaultButtonConfigurationOutput) ToInAppTemplateDefaultBut
 	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
+// The background color of a button, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateDefaultButtonConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
 }
 
+// The border radius of a button.
 func (o InAppTemplateDefaultButtonConfigurationOutput) BorderRadius() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *int { return v.BorderRadius }).(pulumi.IntPtrOutput)
 }
 
+// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+//
+// - `LINK` – A link to a web destination.
+// - `DEEP_LINK` – A link to a specific page in an application.
+// - `CLOSE` – Dismisses the message.
 func (o InAppTemplateDefaultButtonConfigurationOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
 	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *InAppTemplateButtonAction { return v.ButtonAction }).(InAppTemplateButtonActionPtrOutput)
 }
 
+// The destination (such as a URL) for a button.
 func (o InAppTemplateDefaultButtonConfigurationOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
+// The text that appears on a button in an in-app message.
 func (o InAppTemplateDefaultButtonConfigurationOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
+// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateDefaultButtonConfigurationOutput) TextColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.TextColor }).(pulumi.StringPtrOutput)
 }
@@ -508,6 +566,7 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Elem() InAppTemplateDe
 	}).(InAppTemplateDefaultButtonConfigurationOutput)
 }
 
+// The background color of a button, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
 		if v == nil {
@@ -517,6 +576,7 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) BackgroundColor() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The border radius of a button.
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) BorderRadius() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *int {
 		if v == nil {
@@ -526,6 +586,11 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) BorderRadius() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+//
+// - `LINK` – A link to a web destination.
+// - `DEEP_LINK` – A link to a specific page in an application.
+// - `CLOSE` – Dismisses the message.
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *InAppTemplateButtonAction {
 		if v == nil {
@@ -535,6 +600,7 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ButtonAction() InAppTe
 	}).(InAppTemplateButtonActionPtrOutput)
 }
 
+// The destination (such as a URL) for a button.
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
 		if v == nil {
@@ -544,6 +610,7 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Link() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text that appears on a button in an in-app message.
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
 		if v == nil {
@@ -553,6 +620,7 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Text() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) TextColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
 		if v == nil {
@@ -563,9 +631,12 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) TextColor() pulumi.Str
 }
 
 type InAppTemplateHeaderConfig struct {
+	// The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 	Alignment *InAppTemplateAlignment `pulumi:"alignment"`
-	Header    *string                 `pulumi:"header"`
-	TextColor *string                 `pulumi:"textColor"`
+	// The title text of the in-app message.
+	Header *string `pulumi:"header"`
+	// The color of the title text, expressed as a hex color code (such as #000000 for black).
+	TextColor *string `pulumi:"textColor"`
 }
 
 // InAppTemplateHeaderConfigInput is an input type that accepts InAppTemplateHeaderConfigArgs and InAppTemplateHeaderConfigOutput values.
@@ -580,9 +651,12 @@ type InAppTemplateHeaderConfigInput interface {
 }
 
 type InAppTemplateHeaderConfigArgs struct {
+	// The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 	Alignment InAppTemplateAlignmentPtrInput `pulumi:"alignment"`
-	Header    pulumi.StringPtrInput          `pulumi:"header"`
-	TextColor pulumi.StringPtrInput          `pulumi:"textColor"`
+	// The title text of the in-app message.
+	Header pulumi.StringPtrInput `pulumi:"header"`
+	// The color of the title text, expressed as a hex color code (such as #000000 for black).
+	TextColor pulumi.StringPtrInput `pulumi:"textColor"`
 }
 
 func (InAppTemplateHeaderConfigArgs) ElementType() reflect.Type {
@@ -662,14 +736,17 @@ func (o InAppTemplateHeaderConfigOutput) ToInAppTemplateHeaderConfigPtrOutputWit
 	}).(InAppTemplateHeaderConfigPtrOutput)
 }
 
+// The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 func (o InAppTemplateHeaderConfigOutput) Alignment() InAppTemplateAlignmentPtrOutput {
 	return o.ApplyT(func(v InAppTemplateHeaderConfig) *InAppTemplateAlignment { return v.Alignment }).(InAppTemplateAlignmentPtrOutput)
 }
 
+// The title text of the in-app message.
 func (o InAppTemplateHeaderConfigOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateHeaderConfig) *string { return v.Header }).(pulumi.StringPtrOutput)
 }
 
+// The color of the title text, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateHeaderConfigOutput) TextColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateHeaderConfig) *string { return v.TextColor }).(pulumi.StringPtrOutput)
 }
@@ -698,6 +775,7 @@ func (o InAppTemplateHeaderConfigPtrOutput) Elem() InAppTemplateHeaderConfigOutp
 	}).(InAppTemplateHeaderConfigOutput)
 }
 
+// The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
 func (o InAppTemplateHeaderConfigPtrOutput) Alignment() InAppTemplateAlignmentPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateHeaderConfig) *InAppTemplateAlignment {
 		if v == nil {
@@ -707,6 +785,7 @@ func (o InAppTemplateHeaderConfigPtrOutput) Alignment() InAppTemplateAlignmentPt
 	}).(InAppTemplateAlignmentPtrOutput)
 }
 
+// The title text of the in-app message.
 func (o InAppTemplateHeaderConfigPtrOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateHeaderConfig) *string {
 		if v == nil {
@@ -716,6 +795,7 @@ func (o InAppTemplateHeaderConfigPtrOutput) Header() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color of the title text, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateHeaderConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateHeaderConfig) *string {
 		if v == nil {
@@ -726,12 +806,18 @@ func (o InAppTemplateHeaderConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 }
 
 type InAppTemplateInAppMessageContent struct {
-	BackgroundColor *string                    `pulumi:"backgroundColor"`
-	BodyConfig      *InAppTemplateBodyConfig   `pulumi:"bodyConfig"`
-	HeaderConfig    *InAppTemplateHeaderConfig `pulumi:"headerConfig"`
-	ImageUrl        *string                    `pulumi:"imageUrl"`
-	PrimaryBtn      *InAppTemplateButtonConfig `pulumi:"primaryBtn"`
-	SecondaryBtn    *InAppTemplateButtonConfig `pulumi:"secondaryBtn"`
+	// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// An object that contains configuration information about the header or title text of the in-app message.
+	BodyConfig *InAppTemplateBodyConfig `pulumi:"bodyConfig"`
+	// An object that contains configuration information about the header or title text of the in-app message.
+	HeaderConfig *InAppTemplateHeaderConfig `pulumi:"headerConfig"`
+	// The URL of the image that appears on an in-app message banner.
+	ImageUrl *string `pulumi:"imageUrl"`
+	// An object that contains configuration information about the primary button in an in-app message.
+	PrimaryBtn *InAppTemplateButtonConfig `pulumi:"primaryBtn"`
+	// An object that contains configuration information about the secondary button in an in-app message.
+	SecondaryBtn *InAppTemplateButtonConfig `pulumi:"secondaryBtn"`
 }
 
 // InAppTemplateInAppMessageContentInput is an input type that accepts InAppTemplateInAppMessageContentArgs and InAppTemplateInAppMessageContentOutput values.
@@ -746,12 +832,18 @@ type InAppTemplateInAppMessageContentInput interface {
 }
 
 type InAppTemplateInAppMessageContentArgs struct {
-	BackgroundColor pulumi.StringPtrInput             `pulumi:"backgroundColor"`
-	BodyConfig      InAppTemplateBodyConfigPtrInput   `pulumi:"bodyConfig"`
-	HeaderConfig    InAppTemplateHeaderConfigPtrInput `pulumi:"headerConfig"`
-	ImageUrl        pulumi.StringPtrInput             `pulumi:"imageUrl"`
-	PrimaryBtn      InAppTemplateButtonConfigPtrInput `pulumi:"primaryBtn"`
-	SecondaryBtn    InAppTemplateButtonConfigPtrInput `pulumi:"secondaryBtn"`
+	// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// An object that contains configuration information about the header or title text of the in-app message.
+	BodyConfig InAppTemplateBodyConfigPtrInput `pulumi:"bodyConfig"`
+	// An object that contains configuration information about the header or title text of the in-app message.
+	HeaderConfig InAppTemplateHeaderConfigPtrInput `pulumi:"headerConfig"`
+	// The URL of the image that appears on an in-app message banner.
+	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
+	// An object that contains configuration information about the primary button in an in-app message.
+	PrimaryBtn InAppTemplateButtonConfigPtrInput `pulumi:"primaryBtn"`
+	// An object that contains configuration information about the secondary button in an in-app message.
+	SecondaryBtn InAppTemplateButtonConfigPtrInput `pulumi:"secondaryBtn"`
 }
 
 func (InAppTemplateInAppMessageContentArgs) ElementType() reflect.Type {
@@ -805,26 +897,32 @@ func (o InAppTemplateInAppMessageContentOutput) ToInAppTemplateInAppMessageConte
 	return o
 }
 
+// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
 func (o InAppTemplateInAppMessageContentOutput) BackgroundColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
 }
 
+// An object that contains configuration information about the header or title text of the in-app message.
 func (o InAppTemplateInAppMessageContentOutput) BodyConfig() InAppTemplateBodyConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateBodyConfig { return v.BodyConfig }).(InAppTemplateBodyConfigPtrOutput)
 }
 
+// An object that contains configuration information about the header or title text of the in-app message.
 func (o InAppTemplateInAppMessageContentOutput) HeaderConfig() InAppTemplateHeaderConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateHeaderConfig { return v.HeaderConfig }).(InAppTemplateHeaderConfigPtrOutput)
 }
 
+// The URL of the image that appears on an in-app message banner.
 func (o InAppTemplateInAppMessageContentOutput) ImageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
+// An object that contains configuration information about the primary button in an in-app message.
 func (o InAppTemplateInAppMessageContentOutput) PrimaryBtn() InAppTemplateButtonConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateButtonConfig { return v.PrimaryBtn }).(InAppTemplateButtonConfigPtrOutput)
 }
 
+// An object that contains configuration information about the secondary button in an in-app message.
 func (o InAppTemplateInAppMessageContentOutput) SecondaryBtn() InAppTemplateButtonConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateButtonConfig { return v.SecondaryBtn }).(InAppTemplateButtonConfigPtrOutput)
 }
@@ -850,8 +948,14 @@ func (o InAppTemplateInAppMessageContentArrayOutput) Index(i pulumi.IntInput) In
 }
 
 type InAppTemplateOverrideButtonConfiguration struct {
+	// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+	//
+	// - `LINK` – A link to a web destination.
+	// - `DEEP_LINK` – A link to a specific page in an application.
+	// - `CLOSE` – Dismisses the message.
 	ButtonAction *InAppTemplateButtonAction `pulumi:"buttonAction"`
-	Link         *string                    `pulumi:"link"`
+	// The destination (such as a URL) for a button.
+	Link *string `pulumi:"link"`
 }
 
 // InAppTemplateOverrideButtonConfigurationInput is an input type that accepts InAppTemplateOverrideButtonConfigurationArgs and InAppTemplateOverrideButtonConfigurationOutput values.
@@ -866,8 +970,14 @@ type InAppTemplateOverrideButtonConfigurationInput interface {
 }
 
 type InAppTemplateOverrideButtonConfigurationArgs struct {
+	// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+	//
+	// - `LINK` – A link to a web destination.
+	// - `DEEP_LINK` – A link to a specific page in an application.
+	// - `CLOSE` – Dismisses the message.
 	ButtonAction InAppTemplateButtonActionPtrInput `pulumi:"buttonAction"`
-	Link         pulumi.StringPtrInput             `pulumi:"link"`
+	// The destination (such as a URL) for a button.
+	Link pulumi.StringPtrInput `pulumi:"link"`
 }
 
 func (InAppTemplateOverrideButtonConfigurationArgs) ElementType() reflect.Type {
@@ -947,10 +1057,16 @@ func (o InAppTemplateOverrideButtonConfigurationOutput) ToInAppTemplateOverrideB
 	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
+// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+//
+// - `LINK` – A link to a web destination.
+// - `DEEP_LINK` – A link to a specific page in an application.
+// - `CLOSE` – Dismisses the message.
 func (o InAppTemplateOverrideButtonConfigurationOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
 	return o.ApplyT(func(v InAppTemplateOverrideButtonConfiguration) *InAppTemplateButtonAction { return v.ButtonAction }).(InAppTemplateButtonActionPtrOutput)
 }
 
+// The destination (such as a URL) for a button.
 func (o InAppTemplateOverrideButtonConfigurationOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InAppTemplateOverrideButtonConfiguration) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
@@ -979,6 +1095,11 @@ func (o InAppTemplateOverrideButtonConfigurationPtrOutput) Elem() InAppTemplateO
 	}).(InAppTemplateOverrideButtonConfigurationOutput)
 }
 
+// The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
+//
+// - `LINK` – A link to a web destination.
+// - `DEEP_LINK` – A link to a specific page in an application.
+// - `CLOSE` – Dismisses the message.
 func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateOverrideButtonConfiguration) *InAppTemplateButtonAction {
 		if v == nil {
@@ -988,6 +1109,7 @@ func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ButtonAction() InAppT
 	}).(InAppTemplateButtonActionPtrOutput)
 }
 
+// The destination (such as a URL) for a button.
 func (o InAppTemplateOverrideButtonConfigurationPtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateOverrideButtonConfiguration) *string {
 		if v == nil {

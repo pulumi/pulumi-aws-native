@@ -17,17 +17,26 @@ import (
 type Partnership struct {
 	pulumi.CustomResourceState
 
-	Capabilities     pulumi.StringArrayOutput `pulumi:"capabilities"`
-	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
-	Email            pulumi.StringOutput      `pulumi:"email"`
-	ModifiedAt       pulumi.StringOutput      `pulumi:"modifiedAt"`
-	Name             pulumi.StringOutput      `pulumi:"name"`
-	PartnershipArn   pulumi.StringOutput      `pulumi:"partnershipArn"`
-	PartnershipId    pulumi.StringOutput      `pulumi:"partnershipId"`
-	Phone            pulumi.StringPtrOutput   `pulumi:"phone"`
-	ProfileId        pulumi.StringOutput      `pulumi:"profileId"`
-	Tags             aws.TagArrayOutput       `pulumi:"tags"`
-	TradingPartnerId pulumi.StringOutput      `pulumi:"tradingPartnerId"`
+	// Returns one or more capabilities associated with this partnership.
+	Capabilities pulumi.StringArrayOutput `pulumi:"capabilities"`
+	// Returns a timestamp for creation date and time of the partnership.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	Email     pulumi.StringOutput `pulumi:"email"`
+	// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// Returns the name of the partnership.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+	PartnershipArn pulumi.StringOutput `pulumi:"partnershipArn"`
+	// Returns the unique, system-generated identifier for a partnership.
+	PartnershipId pulumi.StringOutput    `pulumi:"partnershipId"`
+	Phone         pulumi.StringPtrOutput `pulumi:"phone"`
+	// Returns the unique, system-generated identifier for the profile connected to this partnership.
+	ProfileId pulumi.StringOutput `pulumi:"profileId"`
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Returns the unique, system-generated identifier for a trading partner.
+	TradingPartnerId pulumi.StringOutput `pulumi:"tradingPartnerId"`
 }
 
 // NewPartnership registers a new resource with the given unique name, arguments, and options.
@@ -82,22 +91,30 @@ func (PartnershipState) ElementType() reflect.Type {
 }
 
 type partnershipArgs struct {
-	Capabilities []string  `pulumi:"capabilities"`
-	Email        string    `pulumi:"email"`
-	Name         *string   `pulumi:"name"`
-	Phone        *string   `pulumi:"phone"`
-	ProfileId    string    `pulumi:"profileId"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	// Returns one or more capabilities associated with this partnership.
+	Capabilities []string `pulumi:"capabilities"`
+	Email        string   `pulumi:"email"`
+	// Returns the name of the partnership.
+	Name  *string `pulumi:"name"`
+	Phone *string `pulumi:"phone"`
+	// Returns the unique, system-generated identifier for the profile connected to this partnership.
+	ProfileId string `pulumi:"profileId"`
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Partnership resource.
 type PartnershipArgs struct {
+	// Returns one or more capabilities associated with this partnership.
 	Capabilities pulumi.StringArrayInput
 	Email        pulumi.StringInput
-	Name         pulumi.StringPtrInput
-	Phone        pulumi.StringPtrInput
-	ProfileId    pulumi.StringInput
-	Tags         aws.TagArrayInput
+	// Returns the name of the partnership.
+	Name  pulumi.StringPtrInput
+	Phone pulumi.StringPtrInput
+	// Returns the unique, system-generated identifier for the profile connected to this partnership.
+	ProfileId pulumi.StringInput
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags aws.TagArrayInput
 }
 
 func (PartnershipArgs) ElementType() reflect.Type {
@@ -137,10 +154,12 @@ func (o PartnershipOutput) ToPartnershipOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// Returns one or more capabilities associated with this partnership.
 func (o PartnershipOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringArrayOutput { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
+// Returns a timestamp for creation date and time of the partnership.
 func (o PartnershipOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -149,18 +168,22 @@ func (o PartnershipOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
+// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
 func (o PartnershipOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// Returns the name of the partnership.
 func (o PartnershipOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
 func (o PartnershipOutput) PartnershipArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.PartnershipArn }).(pulumi.StringOutput)
 }
 
+// Returns the unique, system-generated identifier for a partnership.
 func (o PartnershipOutput) PartnershipId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.PartnershipId }).(pulumi.StringOutput)
 }
@@ -169,14 +192,17 @@ func (o PartnershipOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringPtrOutput { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
+// Returns the unique, system-generated identifier for the profile connected to this partnership.
 func (o PartnershipOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
+// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o PartnershipOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Partnership) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Returns the unique, system-generated identifier for a trading partner.
 func (o PartnershipOutput) TradingPartnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.TradingPartnerId }).(pulumi.StringOutput)
 }

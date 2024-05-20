@@ -41,31 +41,58 @@ class GetCapacityReservationResult:
     @property
     @pulumi.getter(name="availableInstanceCount")
     def available_instance_count(self) -> Optional[int]:
+        """
+        Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+        """
         return pulumi.get(self, "available_instance_count")
 
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[str]:
+        """
+        The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+
+        You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+
+        If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="endDateType")
     def end_date_type(self) -> Optional[str]:
+        """
+        Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+
+        - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+        - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+        """
         return pulumi.get(self, "end_date_type")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the Capacity Reservation.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[int]:
+        """
+        The number of instances for which to reserve capacity.
+
+        Valid range: 1 - 1000
+        """
         return pulumi.get(self, "instance_count")
 
     @property
     @pulumi.getter(name="totalInstanceCount")
     def total_instance_count(self) -> Optional[int]:
+        """
+        Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+        """
         return pulumi.get(self, "total_instance_count")
 
 
@@ -87,6 +114,9 @@ def get_capacity_reservation(id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     Resource Type definition for AWS::EC2::CapacityReservation
+
+
+    :param str id: The ID of the Capacity Reservation.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -107,5 +137,8 @@ def get_capacity_reservation_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservation
+
+
+    :param str id: The ID of the Capacity Reservation.
     """
     ...

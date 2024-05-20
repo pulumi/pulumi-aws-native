@@ -378,6 +378,9 @@ namespace Pulumi.AwsNative.MediaConnect
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+    /// </summary>
     [EnumType]
     public readonly struct FlowFailoverConfigState : IEquatable<FlowFailoverConfigState>
     {

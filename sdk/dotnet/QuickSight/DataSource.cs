@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
@@ -44,15 +47,27 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        /// </summary>
         [Output("credentials")]
         public Output<Outputs.DataSourceCredentials?> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Output("dataSourceId")]
         public Output<string?> DataSourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
+        /// </summary>
         [Output("dataSourceParameters")]
         public Output<Outputs.DataSourceParameters?> DataSourceParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Error information from the last update or the creation of the data source.
+        /// </summary>
         [Output("errorInfo")]
         public Output<Outputs.DataSourceErrorInfo?> ErrorInfo { get; private set; } = null!;
 
@@ -62,24 +77,47 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A display name for the data source.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of resource permissions on the data source.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSourceResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        /// </summary>
         [Output("sslProperties")]
         public Output<Outputs.DataSourceSslProperties?> SslProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The HTTP status of the request.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QuickSight.DataSourceResourceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+        /// 
+        /// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        /// </summary>
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
 
@@ -154,46 +192,83 @@ namespace Pulumi.AwsNative.QuickSight
             set => _alternateDataSourceParameters = value;
         }
 
+        /// <summary>
+        /// The AWS account ID.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
+        /// <summary>
+        /// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
+        /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("dataSourceId")]
         public Input<string>? DataSourceId { get; set; }
 
+        /// <summary>
+        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
+        /// </summary>
         [Input("dataSourceParameters")]
         public Input<Inputs.DataSourceParametersArgs>? DataSourceParameters { get; set; }
 
+        /// <summary>
+        /// Error information from the last update or the creation of the data source.
+        /// </summary>
         [Input("errorInfo")]
         public Input<Inputs.DataSourceErrorInfoArgs>? ErrorInfo { get; set; }
 
+        /// <summary>
+        /// A display name for the data source.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.DataSourceResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// A list of resource permissions on the data source.
+        /// </summary>
         public InputList<Inputs.DataSourceResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.DataSourceResourcePermissionArgs>());
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
+        /// </summary>
         [Input("sslProperties")]
         public Input<Inputs.DataSourceSslPropertiesArgs>? SslProperties { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of the data source. To return a list of all data sources, use `ListDataSources` .
+        /// 
+        /// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
+        /// </summary>
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }
 

@@ -16,13 +16,20 @@ import (
 type QueueEnvironment struct {
 	pulumi.CustomResourceState
 
-	FarmId             pulumi.StringOutput                           `pulumi:"farmId"`
-	Name               pulumi.StringOutput                           `pulumi:"name"`
-	Priority           pulumi.IntOutput                              `pulumi:"priority"`
-	QueueEnvironmentId pulumi.StringOutput                           `pulumi:"queueEnvironmentId"`
-	QueueId            pulumi.StringOutput                           `pulumi:"queueId"`
-	Template           pulumi.StringOutput                           `pulumi:"template"`
-	TemplateType       QueueEnvironmentEnvironmentTemplateTypeOutput `pulumi:"templateType"`
+	// The identifier assigned to the farm that contains the queue.
+	FarmId pulumi.StringOutput `pulumi:"farmId"`
+	// The name of the queue environment.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The queue environment's priority.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The queue environment ID.
+	QueueEnvironmentId pulumi.StringOutput `pulumi:"queueEnvironmentId"`
+	// The unique identifier of the queue that contains the environment.
+	QueueId pulumi.StringOutput `pulumi:"queueId"`
+	// A JSON or YAML template the describes the processing environment for the queue.
+	Template pulumi.StringOutput `pulumi:"template"`
+	// Specifies whether the template for the queue environment is JSON or YAML.
+	TemplateType QueueEnvironmentEnvironmentTemplateTypeOutput `pulumi:"templateType"`
 }
 
 // NewQueueEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -85,19 +92,29 @@ func (QueueEnvironmentState) ElementType() reflect.Type {
 }
 
 type queueEnvironmentArgs struct {
-	FarmId       string                                  `pulumi:"farmId"`
-	Priority     int                                     `pulumi:"priority"`
-	QueueId      string                                  `pulumi:"queueId"`
-	Template     string                                  `pulumi:"template"`
+	// The identifier assigned to the farm that contains the queue.
+	FarmId string `pulumi:"farmId"`
+	// The queue environment's priority.
+	Priority int `pulumi:"priority"`
+	// The unique identifier of the queue that contains the environment.
+	QueueId string `pulumi:"queueId"`
+	// A JSON or YAML template the describes the processing environment for the queue.
+	Template string `pulumi:"template"`
+	// Specifies whether the template for the queue environment is JSON or YAML.
 	TemplateType QueueEnvironmentEnvironmentTemplateType `pulumi:"templateType"`
 }
 
 // The set of arguments for constructing a QueueEnvironment resource.
 type QueueEnvironmentArgs struct {
-	FarmId       pulumi.StringInput
-	Priority     pulumi.IntInput
-	QueueId      pulumi.StringInput
-	Template     pulumi.StringInput
+	// The identifier assigned to the farm that contains the queue.
+	FarmId pulumi.StringInput
+	// The queue environment's priority.
+	Priority pulumi.IntInput
+	// The unique identifier of the queue that contains the environment.
+	QueueId pulumi.StringInput
+	// A JSON or YAML template the describes the processing environment for the queue.
+	Template pulumi.StringInput
+	// Specifies whether the template for the queue environment is JSON or YAML.
 	TemplateType QueueEnvironmentEnvironmentTemplateTypeInput
 }
 
@@ -138,30 +155,37 @@ func (o QueueEnvironmentOutput) ToQueueEnvironmentOutputWithContext(ctx context.
 	return o
 }
 
+// The identifier assigned to the farm that contains the queue.
 func (o QueueEnvironmentOutput) FarmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.FarmId }).(pulumi.StringOutput)
 }
 
+// The name of the queue environment.
 func (o QueueEnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The queue environment's priority.
 func (o QueueEnvironmentOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The queue environment ID.
 func (o QueueEnvironmentOutput) QueueEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.QueueEnvironmentId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the queue that contains the environment.
 func (o QueueEnvironmentOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }
 
+// A JSON or YAML template the describes the processing environment for the queue.
 func (o QueueEnvironmentOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueueEnvironment) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
 }
 
+// Specifies whether the template for the queue environment is JSON or YAML.
 func (o QueueEnvironmentOutput) TemplateType() QueueEnvironmentEnvironmentTemplateTypeOutput {
 	return o.ApplyT(func(v *QueueEnvironment) QueueEnvironmentEnvironmentTemplateTypeOutput { return v.TemplateType }).(QueueEnvironmentEnvironmentTemplateTypeOutput)
 }

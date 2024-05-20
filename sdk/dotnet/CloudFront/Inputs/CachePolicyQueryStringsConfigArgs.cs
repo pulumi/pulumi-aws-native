@@ -12,11 +12,23 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class CachePolicyQueryStringsConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+        /// 
+        /// - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+        /// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+        /// - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
+        /// - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+        /// </summary>
         [Input("queryStringBehavior", required: true)]
         public Input<string> QueryStringBehavior { get; set; } = null!;
 
         [Input("queryStrings")]
         private InputList<string>? _queryStrings;
+
+        /// <summary>
+        /// Contains a list of query string names.
+        /// </summary>
         public InputList<string> QueryStrings
         {
             get => _queryStrings ?? (_queryStrings = new InputList<string>());

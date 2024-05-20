@@ -37,20 +37,53 @@ export class EmailIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentity.__pulumiType;
     }
 
+    /**
+     * Used to associate a configuration set with an email identity.
+     */
     public readonly configurationSetAttributes!: pulumi.Output<outputs.ses.EmailIdentityConfigurationSetAttributes | undefined>;
+    /**
+     * An object that contains information about the DKIM attributes for the identity.
+     */
     public readonly dkimAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimAttributes | undefined>;
+    /**
+     * The host name for the first token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenName1!: pulumi.Output<string>;
+    /**
+     * The host name for the second token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenName2!: pulumi.Output<string>;
+    /**
+     * The host name for the third token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenName3!: pulumi.Output<string>;
+    /**
+     * The record value for the first token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenValue1!: pulumi.Output<string>;
+    /**
+     * The record value for the second token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenValue2!: pulumi.Output<string>;
+    /**
+     * The record value for the third token that you have to add to the DNS configuration for your domain.
+     */
     public /*out*/ readonly dkimDnsTokenValue3!: pulumi.Output<string>;
+    /**
+     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+     */
     public readonly dkimSigningAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
      */
     public readonly emailIdentity!: pulumi.Output<string>;
+    /**
+     * Used to enable or disable feedback forwarding for an identity.
+     */
     public readonly feedbackAttributes!: pulumi.Output<outputs.ses.EmailIdentityFeedbackAttributes | undefined>;
+    /**
+     * Used to enable or disable the custom Mail-From domain configuration for an email identity.
+     */
     public readonly mailFromAttributes!: pulumi.Output<outputs.ses.EmailIdentityMailFromAttributes | undefined>;
 
     /**
@@ -104,13 +137,28 @@ export class EmailIdentity extends pulumi.CustomResource {
  * The set of arguments for constructing a EmailIdentity resource.
  */
 export interface EmailIdentityArgs {
+    /**
+     * Used to associate a configuration set with an email identity.
+     */
     configurationSetAttributes?: pulumi.Input<inputs.ses.EmailIdentityConfigurationSetAttributesArgs>;
+    /**
+     * An object that contains information about the DKIM attributes for the identity.
+     */
     dkimAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimAttributesArgs>;
+    /**
+     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+     */
     dkimSigningAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimSigningAttributesArgs>;
     /**
      * The email address or domain to verify.
      */
     emailIdentity: pulumi.Input<string>;
+    /**
+     * Used to enable or disable feedback forwarding for an identity.
+     */
     feedbackAttributes?: pulumi.Input<inputs.ses.EmailIdentityFeedbackAttributesArgs>;
+    /**
+     * Used to enable or disable the custom Mail-From domain configuration for an email identity.
+     */
     mailFromAttributes?: pulumi.Input<inputs.ses.EmailIdentityMailFromAttributesArgs>;
 }

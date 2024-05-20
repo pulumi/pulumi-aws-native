@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageValidationSpecification
     {
+        /// <summary>
+        /// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ModelPackageValidationProfile> ValidationProfiles;
         /// <summary>
         /// The IAM roles to be used for the validation of the model package.

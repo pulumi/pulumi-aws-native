@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationCredential struct {
+	// The type of the application credentials.
 	CredentialType *ApplicationCredentialCredentialType `pulumi:"credentialType"`
-	DatabaseName   *string                              `pulumi:"databaseName"`
-	SecretId       *string                              `pulumi:"secretId"`
+	// The name of the SAP HANA database.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+	SecretId *string `pulumi:"secretId"`
 }
 
 // ApplicationCredentialInput is an input type that accepts ApplicationCredentialArgs and ApplicationCredentialOutput values.
@@ -31,9 +34,12 @@ type ApplicationCredentialInput interface {
 }
 
 type ApplicationCredentialArgs struct {
+	// The type of the application credentials.
 	CredentialType ApplicationCredentialCredentialTypePtrInput `pulumi:"credentialType"`
-	DatabaseName   pulumi.StringPtrInput                       `pulumi:"databaseName"`
-	SecretId       pulumi.StringPtrInput                       `pulumi:"secretId"`
+	// The name of the SAP HANA database.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+	SecretId pulumi.StringPtrInput `pulumi:"secretId"`
 }
 
 func (ApplicationCredentialArgs) ElementType() reflect.Type {
@@ -87,14 +93,17 @@ func (o ApplicationCredentialOutput) ToApplicationCredentialOutputWithContext(ct
 	return o
 }
 
+// The type of the application credentials.
 func (o ApplicationCredentialOutput) CredentialType() ApplicationCredentialCredentialTypePtrOutput {
 	return o.ApplyT(func(v ApplicationCredential) *ApplicationCredentialCredentialType { return v.CredentialType }).(ApplicationCredentialCredentialTypePtrOutput)
 }
 
+// The name of the SAP HANA database.
 func (o ApplicationCredentialOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCredential) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
+// The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
 func (o ApplicationCredentialOutput) SecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCredential) *string { return v.SecretId }).(pulumi.StringPtrOutput)
 }

@@ -20,14 +20,29 @@ export function getIdentitySource(args: GetIdentitySourceArgs, opts?: pulumi.Inv
 }
 
 export interface GetIdentitySourceArgs {
+    /**
+     * The unique ID of the new or updated identity store.
+     */
     identitySourceId: string;
+    /**
+     * Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+     */
     policyStoreId: string;
 }
 
 export interface GetIdentitySourceResult {
+    /**
+     * Contains configuration information about an identity source.
+     */
     readonly configuration?: outputs.verifiedpermissions.IdentitySourceConfigurationProperties;
     readonly details?: outputs.verifiedpermissions.IdentitySourceDetails;
+    /**
+     * The unique ID of the new or updated identity store.
+     */
     readonly identitySourceId?: string;
+    /**
+     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     */
     readonly principalEntityType?: string;
 }
 /**
@@ -38,6 +53,12 @@ export function getIdentitySourceOutput(args: GetIdentitySourceOutputArgs, opts?
 }
 
 export interface GetIdentitySourceOutputArgs {
+    /**
+     * The unique ID of the new or updated identity store.
+     */
     identitySourceId: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+     */
     policyStoreId: pulumi.Input<string>;
 }

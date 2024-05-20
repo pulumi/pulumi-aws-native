@@ -341,12 +341,28 @@ func (o CertificateAuthorityAccessMethodOutput) CustomObjectIdentifier() pulumi.
 
 // Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
 type CertificateAuthorityCrlConfiguration struct {
+	// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
 	CrlDistributionPointExtensionConfiguration *CertificateAuthorityCrlDistributionPointExtensionConfiguration `pulumi:"crlDistributionPointExtensionConfiguration"`
-	CustomCname                                *string                                                         `pulumi:"customCname"`
-	Enabled                                    bool                                                            `pulumi:"enabled"`
-	ExpirationInDays                           *int                                                            `pulumi:"expirationInDays"`
-	S3BucketName                               *string                                                         `pulumi:"s3BucketName"`
-	S3ObjectAcl                                *string                                                         `pulumi:"s3ObjectAcl"`
+	// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+	//
+	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	CustomCname *string `pulumi:"customCname"`
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
+	Enabled bool `pulumi:"enabled"`
+	// Validity period of the CRL in days.
+	ExpirationInDays *int `pulumi:"expirationInDays"`
+	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+	//
+	// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
+	S3BucketName *string `pulumi:"s3BucketName"`
+	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+	//
+	// If no value is specified, the default is PUBLIC_READ.
+	//
+	// *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+	//
+	// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
+	S3ObjectAcl *string `pulumi:"s3ObjectAcl"`
 }
 
 // CertificateAuthorityCrlConfigurationInput is an input type that accepts CertificateAuthorityCrlConfigurationArgs and CertificateAuthorityCrlConfigurationOutput values.
@@ -362,12 +378,28 @@ type CertificateAuthorityCrlConfigurationInput interface {
 
 // Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
 type CertificateAuthorityCrlConfigurationArgs struct {
+	// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
 	CrlDistributionPointExtensionConfiguration CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput `pulumi:"crlDistributionPointExtensionConfiguration"`
-	CustomCname                                pulumi.StringPtrInput                                                  `pulumi:"customCname"`
-	Enabled                                    pulumi.BoolInput                                                       `pulumi:"enabled"`
-	ExpirationInDays                           pulumi.IntPtrInput                                                     `pulumi:"expirationInDays"`
-	S3BucketName                               pulumi.StringPtrInput                                                  `pulumi:"s3BucketName"`
-	S3ObjectAcl                                pulumi.StringPtrInput                                                  `pulumi:"s3ObjectAcl"`
+	// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+	//
+	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	CustomCname pulumi.StringPtrInput `pulumi:"customCname"`
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Validity period of the CRL in days.
+	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
+	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+	//
+	// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+	//
+	// If no value is specified, the default is PUBLIC_READ.
+	//
+	// *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+	//
+	// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
+	S3ObjectAcl pulumi.StringPtrInput `pulumi:"s3ObjectAcl"`
 }
 
 func (CertificateAuthorityCrlConfigurationArgs) ElementType() reflect.Type {
@@ -448,28 +480,44 @@ func (o CertificateAuthorityCrlConfigurationOutput) ToCertificateAuthorityCrlCon
 	}).(CertificateAuthorityCrlConfigurationPtrOutput)
 }
 
+// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
 func (o CertificateAuthorityCrlConfigurationOutput) CrlDistributionPointExtensionConfiguration() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *CertificateAuthorityCrlDistributionPointExtensionConfiguration {
 		return v.CrlDistributionPointExtensionConfiguration
 	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
 }
 
+// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+//
+// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 func (o CertificateAuthorityCrlConfigurationOutput) CustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 func (o CertificateAuthorityCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Validity period of the CRL in days.
 func (o CertificateAuthorityCrlConfigurationOutput) ExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
 }
 
+// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+//
+// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
 func (o CertificateAuthorityCrlConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+//
+// If no value is specified, the default is PUBLIC_READ.
+//
+// *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+//
+// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
 func (o CertificateAuthorityCrlConfigurationOutput) S3ObjectAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.S3ObjectAcl }).(pulumi.StringPtrOutput)
 }
@@ -498,6 +546,7 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) Elem() CertificateAuthori
 	}).(CertificateAuthorityCrlConfigurationOutput)
 }
 
+// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
 func (o CertificateAuthorityCrlConfigurationPtrOutput) CrlDistributionPointExtensionConfiguration() CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *CertificateAuthorityCrlDistributionPointExtensionConfiguration {
 		if v == nil {
@@ -507,6 +556,9 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) CrlDistributionPointExten
 	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
 }
 
+// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+//
+// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 func (o CertificateAuthorityCrlConfigurationPtrOutput) CustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *string {
 		if v == nil {
@@ -516,6 +568,7 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) CustomCname() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
 func (o CertificateAuthorityCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *bool {
 		if v == nil {
@@ -525,6 +578,7 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Validity period of the CRL in days.
 func (o CertificateAuthorityCrlConfigurationPtrOutput) ExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *int {
 		if v == nil {
@@ -534,6 +588,9 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) ExpirationInDays() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Name of the S3 bucket that contains the CRL. If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-policies) that allows AWS Private CA to write the CRL to your bucket.
+//
+// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
 func (o CertificateAuthorityCrlConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *string {
 		if v == nil {
@@ -543,6 +600,13 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) S3BucketName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
+//
+// If no value is specified, the default is PUBLIC_READ.
+//
+// *Note:* This default can cause CA creation to fail in some circumstances. If you have have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
+//
+// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa) .
 func (o CertificateAuthorityCrlConfigurationPtrOutput) S3ObjectAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *string {
 		if v == nil {
@@ -554,6 +618,11 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) S3ObjectAcl() pulumi.Stri
 
 // Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
 type CertificateAuthorityCrlDistributionPointExtensionConfiguration struct {
+	// Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+	//
+	// > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+	// >
+	// > This configuration cannot be enabled with a custom CNAME set.
 	OmitExtension bool `pulumi:"omitExtension"`
 }
 
@@ -570,6 +639,11 @@ type CertificateAuthorityCrlDistributionPointExtensionConfigurationInput interfa
 
 // Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
 type CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs struct {
+	// Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+	//
+	// > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+	// >
+	// > This configuration cannot be enabled with a custom CNAME set.
 	OmitExtension pulumi.BoolInput `pulumi:"omitExtension"`
 }
 
@@ -651,6 +725,11 @@ func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) To
 	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
 }
 
+// Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+//
+// > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+// >
+// > This configuration cannot be enabled with a custom CNAME set.
 func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput) OmitExtension() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateAuthorityCrlDistributionPointExtensionConfiguration) bool { return v.OmitExtension }).(pulumi.BoolOutput)
 }
@@ -679,6 +758,11 @@ func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
 	}).(CertificateAuthorityCrlDistributionPointExtensionConfigurationOutput)
 }
 
+// Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to `true` , then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.
+//
+// > Only set this if you have another way to distribute the CRL Distribution Points for certificates issued by your CA, such as the Matter Distributed Compliance Ledger.
+// >
+// > This configuration cannot be enabled with a custom CNAME set.
 func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput) OmitExtension() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCrlDistributionPointExtensionConfiguration) *bool {
 		if v == nil {
@@ -690,7 +774,9 @@ func (o CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrOutput)
 
 // Structure that contains CSR pass though extensions information.
 type CertificateAuthorityCsrExtensions struct {
-	KeyUsage                 *CertificateAuthorityKeyUsage           `pulumi:"keyUsage"`
+	// Indicates the purpose of the certificate and of the key contained in the certificate.
+	KeyUsage *CertificateAuthorityKeyUsage `pulumi:"keyUsage"`
+	// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
 	SubjectInformationAccess []CertificateAuthorityAccessDescription `pulumi:"subjectInformationAccess"`
 }
 
@@ -707,7 +793,9 @@ type CertificateAuthorityCsrExtensionsInput interface {
 
 // Structure that contains CSR pass though extensions information.
 type CertificateAuthorityCsrExtensionsArgs struct {
-	KeyUsage                 CertificateAuthorityKeyUsagePtrInput            `pulumi:"keyUsage"`
+	// Indicates the purpose of the certificate and of the key contained in the certificate.
+	KeyUsage CertificateAuthorityKeyUsagePtrInput `pulumi:"keyUsage"`
+	// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
 	SubjectInformationAccess CertificateAuthorityAccessDescriptionArrayInput `pulumi:"subjectInformationAccess"`
 }
 
@@ -789,10 +877,12 @@ func (o CertificateAuthorityCsrExtensionsOutput) ToCertificateAuthorityCsrExtens
 	}).(CertificateAuthorityCsrExtensionsPtrOutput)
 }
 
+// Indicates the purpose of the certificate and of the key contained in the certificate.
 func (o CertificateAuthorityCsrExtensionsOutput) KeyUsage() CertificateAuthorityKeyUsagePtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCsrExtensions) *CertificateAuthorityKeyUsage { return v.KeyUsage }).(CertificateAuthorityKeyUsagePtrOutput)
 }
 
+// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
 func (o CertificateAuthorityCsrExtensionsOutput) SubjectInformationAccess() CertificateAuthorityAccessDescriptionArrayOutput {
 	return o.ApplyT(func(v CertificateAuthorityCsrExtensions) []CertificateAuthorityAccessDescription {
 		return v.SubjectInformationAccess
@@ -823,6 +913,7 @@ func (o CertificateAuthorityCsrExtensionsPtrOutput) Elem() CertificateAuthorityC
 	}).(CertificateAuthorityCsrExtensionsOutput)
 }
 
+// Indicates the purpose of the certificate and of the key contained in the certificate.
 func (o CertificateAuthorityCsrExtensionsPtrOutput) KeyUsage() CertificateAuthorityKeyUsagePtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCsrExtensions) *CertificateAuthorityKeyUsage {
 		if v == nil {
@@ -832,6 +923,7 @@ func (o CertificateAuthorityCsrExtensionsPtrOutput) KeyUsage() CertificateAuthor
 	}).(CertificateAuthorityKeyUsagePtrOutput)
 }
 
+// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
 func (o CertificateAuthorityCsrExtensionsPtrOutput) SubjectInformationAccess() CertificateAuthorityAccessDescriptionArrayOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCsrExtensions) []CertificateAuthorityAccessDescription {
 		if v == nil {
@@ -1191,15 +1283,24 @@ func (o CertificateAuthorityGeneralNameOutput) UniformResourceIdentifier() pulum
 
 // Structure that contains X.509 KeyUsage information.
 type CertificateAuthorityKeyUsage struct {
-	CrlSign          *bool `pulumi:"crlSign"`
+	// Key can be used to sign CRLs.
+	CrlSign *bool `pulumi:"crlSign"`
+	// Key can be used to decipher data.
 	DataEncipherment *bool `pulumi:"dataEncipherment"`
-	DecipherOnly     *bool `pulumi:"decipherOnly"`
+	// Key can be used only to decipher data.
+	DecipherOnly *bool `pulumi:"decipherOnly"`
+	// Key can be used for digital signing.
 	DigitalSignature *bool `pulumi:"digitalSignature"`
-	EncipherOnly     *bool `pulumi:"encipherOnly"`
-	KeyAgreement     *bool `pulumi:"keyAgreement"`
-	KeyCertSign      *bool `pulumi:"keyCertSign"`
-	KeyEncipherment  *bool `pulumi:"keyEncipherment"`
-	NonRepudiation   *bool `pulumi:"nonRepudiation"`
+	// Key can be used only to encipher data.
+	EncipherOnly *bool `pulumi:"encipherOnly"`
+	// Key can be used in a key-agreement protocol.
+	KeyAgreement *bool `pulumi:"keyAgreement"`
+	// Key can be used to sign certificates.
+	KeyCertSign *bool `pulumi:"keyCertSign"`
+	// Key can be used to encipher data.
+	KeyEncipherment *bool `pulumi:"keyEncipherment"`
+	// Key can be used for non-repudiation.
+	NonRepudiation *bool `pulumi:"nonRepudiation"`
 }
 
 // CertificateAuthorityKeyUsageInput is an input type that accepts CertificateAuthorityKeyUsageArgs and CertificateAuthorityKeyUsageOutput values.
@@ -1215,15 +1316,24 @@ type CertificateAuthorityKeyUsageInput interface {
 
 // Structure that contains X.509 KeyUsage information.
 type CertificateAuthorityKeyUsageArgs struct {
-	CrlSign          pulumi.BoolPtrInput `pulumi:"crlSign"`
+	// Key can be used to sign CRLs.
+	CrlSign pulumi.BoolPtrInput `pulumi:"crlSign"`
+	// Key can be used to decipher data.
 	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
-	DecipherOnly     pulumi.BoolPtrInput `pulumi:"decipherOnly"`
+	// Key can be used only to decipher data.
+	DecipherOnly pulumi.BoolPtrInput `pulumi:"decipherOnly"`
+	// Key can be used for digital signing.
 	DigitalSignature pulumi.BoolPtrInput `pulumi:"digitalSignature"`
-	EncipherOnly     pulumi.BoolPtrInput `pulumi:"encipherOnly"`
-	KeyAgreement     pulumi.BoolPtrInput `pulumi:"keyAgreement"`
-	KeyCertSign      pulumi.BoolPtrInput `pulumi:"keyCertSign"`
-	KeyEncipherment  pulumi.BoolPtrInput `pulumi:"keyEncipherment"`
-	NonRepudiation   pulumi.BoolPtrInput `pulumi:"nonRepudiation"`
+	// Key can be used only to encipher data.
+	EncipherOnly pulumi.BoolPtrInput `pulumi:"encipherOnly"`
+	// Key can be used in a key-agreement protocol.
+	KeyAgreement pulumi.BoolPtrInput `pulumi:"keyAgreement"`
+	// Key can be used to sign certificates.
+	KeyCertSign pulumi.BoolPtrInput `pulumi:"keyCertSign"`
+	// Key can be used to encipher data.
+	KeyEncipherment pulumi.BoolPtrInput `pulumi:"keyEncipherment"`
+	// Key can be used for non-repudiation.
+	NonRepudiation pulumi.BoolPtrInput `pulumi:"nonRepudiation"`
 }
 
 func (CertificateAuthorityKeyUsageArgs) ElementType() reflect.Type {
@@ -1304,38 +1414,47 @@ func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsagePtrOut
 	}).(CertificateAuthorityKeyUsagePtrOutput)
 }
 
+// Key can be used to sign CRLs.
 func (o CertificateAuthorityKeyUsageOutput) CrlSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.CrlSign }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to decipher data.
 func (o CertificateAuthorityKeyUsageOutput) DataEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.DataEncipherment }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to decipher data.
 func (o CertificateAuthorityKeyUsageOutput) DecipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.DecipherOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for digital signing.
 func (o CertificateAuthorityKeyUsageOutput) DigitalSignature() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.DigitalSignature }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to encipher data.
 func (o CertificateAuthorityKeyUsageOutput) EncipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.EncipherOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used in a key-agreement protocol.
 func (o CertificateAuthorityKeyUsageOutput) KeyAgreement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.KeyAgreement }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to sign certificates.
 func (o CertificateAuthorityKeyUsageOutput) KeyCertSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.KeyCertSign }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to encipher data.
 func (o CertificateAuthorityKeyUsageOutput) KeyEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.KeyEncipherment }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for non-repudiation.
 func (o CertificateAuthorityKeyUsageOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.NonRepudiation }).(pulumi.BoolPtrOutput)
 }
@@ -1364,6 +1483,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) Elem() CertificateAuthorityKeyUsa
 	}).(CertificateAuthorityKeyUsageOutput)
 }
 
+// Key can be used to sign CRLs.
 func (o CertificateAuthorityKeyUsagePtrOutput) CrlSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1373,6 +1493,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) CrlSign() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to decipher data.
 func (o CertificateAuthorityKeyUsagePtrOutput) DataEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1382,6 +1503,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) DataEncipherment() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to decipher data.
 func (o CertificateAuthorityKeyUsagePtrOutput) DecipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1391,6 +1513,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) DecipherOnly() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for digital signing.
 func (o CertificateAuthorityKeyUsagePtrOutput) DigitalSignature() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1400,6 +1523,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) DigitalSignature() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to encipher data.
 func (o CertificateAuthorityKeyUsagePtrOutput) EncipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1409,6 +1533,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) EncipherOnly() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used in a key-agreement protocol.
 func (o CertificateAuthorityKeyUsagePtrOutput) KeyAgreement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1418,6 +1543,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) KeyAgreement() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to sign certificates.
 func (o CertificateAuthorityKeyUsagePtrOutput) KeyCertSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1427,6 +1553,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) KeyCertSign() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to encipher data.
 func (o CertificateAuthorityKeyUsagePtrOutput) KeyEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1436,6 +1563,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) KeyEncipherment() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for non-repudiation.
 func (o CertificateAuthorityKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
@@ -1447,7 +1575,11 @@ func (o CertificateAuthorityKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOu
 
 // Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
 type CertificateAuthorityOcspConfiguration struct {
-	Enabled         bool    `pulumi:"enabled"`
+	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+	Enabled bool `pulumi:"enabled"`
+	// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+	//
+	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	OcspCustomCname *string `pulumi:"ocspCustomCname"`
 }
 
@@ -1464,7 +1596,11 @@ type CertificateAuthorityOcspConfigurationInput interface {
 
 // Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
 type CertificateAuthorityOcspConfigurationArgs struct {
-	Enabled         pulumi.BoolInput      `pulumi:"enabled"`
+	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+	//
+	// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 	OcspCustomCname pulumi.StringPtrInput `pulumi:"ocspCustomCname"`
 }
 
@@ -1546,10 +1682,14 @@ func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspC
 	}).(CertificateAuthorityOcspConfigurationPtrOutput)
 }
 
+// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
 func (o CertificateAuthorityOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+//
+// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 func (o CertificateAuthorityOcspConfigurationOutput) OcspCustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) *string { return v.OcspCustomCname }).(pulumi.StringPtrOutput)
 }
@@ -1578,6 +1718,7 @@ func (o CertificateAuthorityOcspConfigurationPtrOutput) Elem() CertificateAuthor
 	}).(CertificateAuthorityOcspConfigurationOutput)
 }
 
+// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
 func (o CertificateAuthorityOcspConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityOcspConfiguration) *bool {
 		if v == nil {
@@ -1587,6 +1728,9 @@ func (o CertificateAuthorityOcspConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+//
+// > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
 func (o CertificateAuthorityOcspConfigurationPtrOutput) OcspCustomCname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityOcspConfiguration) *string {
 		if v == nil {
@@ -1749,7 +1893,9 @@ func (o CertificateAuthorityOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
 
 // Certificate Authority revocation information.
 type CertificateAuthorityRevocationConfiguration struct {
-	CrlConfiguration  *CertificateAuthorityCrlConfiguration  `pulumi:"crlConfiguration"`
+	// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+	CrlConfiguration *CertificateAuthorityCrlConfiguration `pulumi:"crlConfiguration"`
+	// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
 	OcspConfiguration *CertificateAuthorityOcspConfiguration `pulumi:"ocspConfiguration"`
 }
 
@@ -1766,7 +1912,9 @@ type CertificateAuthorityRevocationConfigurationInput interface {
 
 // Certificate Authority revocation information.
 type CertificateAuthorityRevocationConfigurationArgs struct {
-	CrlConfiguration  CertificateAuthorityCrlConfigurationPtrInput  `pulumi:"crlConfiguration"`
+	// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+	CrlConfiguration CertificateAuthorityCrlConfigurationPtrInput `pulumi:"crlConfiguration"`
+	// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
 	OcspConfiguration CertificateAuthorityOcspConfigurationPtrInput `pulumi:"ocspConfiguration"`
 }
 
@@ -1848,12 +1996,14 @@ func (o CertificateAuthorityRevocationConfigurationOutput) ToCertificateAuthorit
 	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
 
+// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
 func (o CertificateAuthorityRevocationConfigurationOutput) CrlConfiguration() CertificateAuthorityCrlConfigurationPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityCrlConfiguration {
 		return v.CrlConfiguration
 	}).(CertificateAuthorityCrlConfigurationPtrOutput)
 }
 
+// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
 func (o CertificateAuthorityRevocationConfigurationOutput) OcspConfiguration() CertificateAuthorityOcspConfigurationPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityOcspConfiguration {
 		return v.OcspConfiguration
@@ -1884,6 +2034,7 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) Elem() Certificate
 	}).(CertificateAuthorityRevocationConfigurationOutput)
 }
 
+// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) CrlConfiguration() CertificateAuthorityCrlConfigurationPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) *CertificateAuthorityCrlConfiguration {
 		if v == nil {
@@ -1893,6 +2044,7 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) CrlConfiguration()
 	}).(CertificateAuthorityCrlConfigurationPtrOutput)
 }
 
+// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration() CertificateAuthorityOcspConfigurationPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) *CertificateAuthorityOcspConfiguration {
 		if v == nil {
@@ -2249,7 +2401,9 @@ func (o CertificateAuthoritySubjectPtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type CertificateAuthorityTag struct {
-	Key   string  `pulumi:"key"`
+	// Key (name) of the tag.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value *string `pulumi:"value"`
 }
 

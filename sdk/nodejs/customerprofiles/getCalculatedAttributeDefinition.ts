@@ -20,24 +20,48 @@ export function getCalculatedAttributeDefinition(args: GetCalculatedAttributeDef
 }
 
 export interface GetCalculatedAttributeDefinitionArgs {
+    /**
+     * The name of an attribute defined in a profile object type.
+     */
     calculatedAttributeName: string;
+    /**
+     * The unique name of the domain.
+     */
     domainName: string;
 }
 
 export interface GetCalculatedAttributeDefinitionResult {
+    /**
+     * Mathematical expression and a list of attribute items specified in that expression.
+     */
     readonly attributeDetails?: outputs.customerprofiles.CalculatedAttributeDefinitionAttributeDetails;
+    /**
+     * The conditions including range, object count, and threshold for the calculated attribute.
+     */
     readonly conditions?: outputs.customerprofiles.CalculatedAttributeDefinitionConditions;
     /**
      * The timestamp of when the calculated attribute definition was created.
      */
     readonly createdAt?: string;
+    /**
+     * The description of the calculated attribute.
+     */
     readonly description?: string;
+    /**
+     * The display name of the calculated attribute.
+     */
     readonly displayName?: string;
     /**
      * The timestamp of when the calculated attribute definition was most recently edited.
      */
     readonly lastUpdatedAt?: string;
+    /**
+     * The aggregation operation to perform for the calculated attribute.
+     */
     readonly statistic?: enums.customerprofiles.CalculatedAttributeDefinitionStatistic;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -48,6 +72,12 @@ export function getCalculatedAttributeDefinitionOutput(args: GetCalculatedAttrib
 }
 
 export interface GetCalculatedAttributeDefinitionOutputArgs {
+    /**
+     * The name of an attribute defined in a profile object type.
+     */
     calculatedAttributeName: pulumi.Input<string>;
+    /**
+     * The unique name of the domain.
+     */
     domainName: pulumi.Input<string>;
 }

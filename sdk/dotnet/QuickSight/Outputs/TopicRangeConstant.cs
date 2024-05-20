@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicRangeConstant
     {
+        /// <summary>
+        /// The maximum value for a range constant.
+        /// </summary>
         public readonly string? Maximum;
+        /// <summary>
+        /// The minimum value for a range constant.
+        /// </summary>
         public readonly string? Minimum;
 
         [OutputConstructor]

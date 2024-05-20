@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
     public sealed class RecipeStepArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The particular action to be performed in the recipe step.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RecipeActionArgs> Action { get; set; } = null!;
 

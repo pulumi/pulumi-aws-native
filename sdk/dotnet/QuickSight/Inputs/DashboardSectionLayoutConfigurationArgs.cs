@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSectionLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The free-form layout configuration of a section.
+        /// </summary>
         [Input("freeFormLayout", required: true)]
         public Input<Inputs.DashboardFreeFormSectionLayoutConfigurationArgs> FreeFormLayout { get; set; } = null!;
 

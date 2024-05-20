@@ -19,13 +19,27 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetChannelArgs {
+    /**
+     * The name of the channel.
+     */
     channelName: string;
 }
 
 export interface GetChannelResult {
+    /**
+     * Where channel data is stored.
+     */
     readonly channelStorage?: outputs.iotanalytics.ChannelStorage;
     readonly id?: string;
+    /**
+     * How long, in days, message data is kept for the channel.
+     */
     readonly retentionPeriod?: outputs.iotanalytics.ChannelRetentionPeriod;
+    /**
+     * Metadata which can be used to manage the channel.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -36,5 +50,8 @@ export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetChannelOutputArgs {
+    /**
+     * The name of the channel.
+     */
     channelName: pulumi.Input<string>;
 }

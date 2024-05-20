@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelPackageModelMetricsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Metrics that measure bias in a model.
+        /// </summary>
         [Input("bias")]
         public Input<Inputs.ModelPackageBiasArgs>? Bias { get; set; }
 
+        /// <summary>
+        /// Metrics that help explain a model.
+        /// </summary>
         [Input("explainability")]
         public Input<Inputs.ModelPackageExplainabilityArgs>? Explainability { get; set; }
 
+        /// <summary>
+        /// Metrics that measure the quality of the input data for a model.
+        /// </summary>
         [Input("modelDataQuality")]
         public Input<Inputs.ModelPackageModelDataQualityArgs>? ModelDataQuality { get; set; }
 
+        /// <summary>
+        /// Metrics that measure the quality of a model.
+        /// </summary>
         [Input("modelQuality")]
         public Input<Inputs.ModelPackageModelQualityArgs>? ModelQuality { get; set; }
 

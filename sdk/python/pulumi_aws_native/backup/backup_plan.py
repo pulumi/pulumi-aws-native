@@ -20,6 +20,8 @@ class BackupPlanArgs:
                  backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
+        :param pulumi.Input['BackupPlanResourceTypeArgs'] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: The tags to assign to the backup plan.
         """
         pulumi.set(__self__, "backup_plan", backup_plan)
         if backup_plan_tags is not None:
@@ -28,6 +30,9 @@ class BackupPlanArgs:
     @property
     @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> pulumi.Input['BackupPlanResourceTypeArgs']:
+        """
+        Uniquely identifies the backup plan to be associated with the selection of resources.
+        """
         return pulumi.get(self, "backup_plan")
 
     @backup_plan.setter
@@ -37,6 +42,9 @@ class BackupPlanArgs:
     @property
     @pulumi.getter(name="backupPlanTags")
     def backup_plan_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags to assign to the backup plan.
+        """
         return pulumi.get(self, "backup_plan_tags")
 
     @backup_plan_tags.setter
@@ -57,6 +65,8 @@ class BackupPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: The tags to assign to the backup plan.
         """
         ...
     @overload
@@ -132,25 +142,40 @@ class BackupPlan(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> pulumi.Output['outputs.BackupPlanResourceType']:
+        """
+        Uniquely identifies the backup plan to be associated with the selection of resources.
+        """
         return pulumi.get(self, "backup_plan")
 
     @property
     @pulumi.getter(name="backupPlanArn")
     def backup_plan_arn(self) -> pulumi.Output[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+        """
         return pulumi.get(self, "backup_plan_arn")
 
     @property
     @pulumi.getter(name="backupPlanId")
     def backup_plan_id(self) -> pulumi.Output[str]:
+        """
+        Uniquely identifies a backup plan.
+        """
         return pulumi.get(self, "backup_plan_id")
 
     @property
     @pulumi.getter(name="backupPlanTags")
     def backup_plan_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags to assign to the backup plan.
+        """
         return pulumi.get(self, "backup_plan_tags")
 
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
+        """
+        Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+        """
         return pulumi.get(self, "version_id")
 

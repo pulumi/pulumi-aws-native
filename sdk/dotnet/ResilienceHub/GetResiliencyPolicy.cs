@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// Data Location Constraint of the Policy.
         /// </summary>
         public readonly Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint? DataLocationConstraint;
+        /// <summary>
+        /// The resiliency policy.
+        /// </summary>
         public readonly Outputs.ResiliencyPolicyPolicyMap? Policy;
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -74,6 +77,9 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// Name of Resiliency Policy.
         /// </summary>
         public readonly string? PolicyName;
+        /// <summary>
+        /// Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Resiliency Policy Tier.

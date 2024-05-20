@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetHostedZoneArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -68,6 +71,9 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetHostedZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -91,7 +97,15 @@ namespace Pulumi.AwsNative.Route53
         ///  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         /// </summary>
         public readonly ImmutableArray<Outputs.HostedZoneTag> HostedZoneTags;
+        /// <summary>
+        /// The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+        /// 
+        /// This attribute is not supported for private hosted zones.
+        /// </summary>
         public readonly ImmutableArray<string> NameServers;
         /// <summary>
         /// Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.

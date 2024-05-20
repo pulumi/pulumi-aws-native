@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFieldSort
     {
+        /// <summary>
+        /// The sort direction. Choose one of the following options:
+        /// 
+        /// - `ASC` : Ascending
+        /// - `DESC` : Descending
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSortDirection Direction;
+        /// <summary>
+        /// The sort configuration target field.
+        /// </summary>
         public readonly string FieldId;
 
         [OutputConstructor]

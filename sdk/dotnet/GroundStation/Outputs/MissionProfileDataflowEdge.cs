@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class MissionProfileDataflowEdge
     {
+        /// <summary>
+        /// The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
+        /// </summary>
         public readonly string? Destination;
+        /// <summary>
+        /// The ARN of the source for this dataflow edge. For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
+        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]

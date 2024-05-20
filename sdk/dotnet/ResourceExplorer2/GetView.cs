@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class GetViewArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Input("viewArn", required: true)]
         public string ViewArn { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
     public sealed class GetViewInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         [Input("viewArn", required: true)]
         public Input<string> ViewArn { get; set; } = null!;
 
@@ -51,9 +61,27 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     [OutputType]
     public sealed class GetViewResult
     {
+        /// <summary>
+        /// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+        /// 
+        /// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+        /// 
+        /// &gt; This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+        /// </summary>
         public readonly Outputs.ViewSearchFilter? Filters;
+        /// <summary>
+        /// A list of fields that provide additional information about the view.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ViewIncludedProperty> IncludedProperties;
+        /// <summary>
+        /// Tag key and value pairs that are attached to the view.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The ARN of the new view. For example:
+        /// 
+        /// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        /// </summary>
         public readonly string? ViewArn;
 
         [OutputConstructor]

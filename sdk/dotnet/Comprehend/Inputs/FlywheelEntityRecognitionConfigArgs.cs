@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
     {
         [Input("entityTypes")]
         private InputList<Inputs.FlywheelEntityTypesListItemArgs>? _entityTypes;
+
+        /// <summary>
+        /// Up to 25 entity types that the model is trained to recognize.
+        /// </summary>
         public InputList<Inputs.FlywheelEntityTypesListItemArgs> EntityTypes
         {
             get => _entityTypes ?? (_entityTypes = new InputList<Inputs.FlywheelEntityTypesListItemArgs>());

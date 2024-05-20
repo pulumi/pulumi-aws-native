@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTableAggregatedFieldWells
     {
+        /// <summary>
+        /// The group by field well for a pivot table. Values are grouped by group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> GroupBy;
+        /// <summary>
+        /// The values field well for a pivot table. Values are aggregated based on group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Values;
 
         [OutputConstructor]

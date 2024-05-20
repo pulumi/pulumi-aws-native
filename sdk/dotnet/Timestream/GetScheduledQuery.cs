@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Timestream
 
     public sealed class GetScheduledQueryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The `ARN` of the scheduled query.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Timestream
 
     public sealed class GetScheduledQueryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The `ARN` of the scheduled query.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Timestream
     [OutputType]
     public sealed class GetScheduledQueryResult
     {
+        /// <summary>
+        /// The `ARN` of the scheduled query.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
@@ -84,6 +93,9 @@ namespace Pulumi.AwsNative.Timestream
         /// Configuration of target store where scheduled query results are written to.
         /// </summary>
         public readonly string? SqTargetConfiguration;
+        /// <summary>
+        /// A list of key-value pairs to label the scheduled query.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

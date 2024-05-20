@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Formatting configuration for `DateTime` fields.
+        /// </summary>
         [Input("dateTimeFormatConfiguration")]
         public Input<Inputs.TemplateDateTimeFormatConfigurationArgs>? DateTimeFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Formatting configuration for number fields.
+        /// </summary>
         [Input("numberFormatConfiguration")]
         public Input<Inputs.TemplateNumberFormatConfigurationArgs>? NumberFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Formatting configuration for string fields.
+        /// </summary>
         [Input("stringFormatConfiguration")]
         public Input<Inputs.TemplateStringFormatConfigurationArgs>? StringFormatConfiguration { get; set; }
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetLateDataRuleConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The information needed to configure a delta time session window.
+        /// </summary>
         [Input("deltaTimeSessionWindowConfiguration")]
         public Input<Inputs.DatasetDeltaTimeSessionWindowConfigurationArgs>? DeltaTimeSessionWindowConfiguration { get; set; }
 

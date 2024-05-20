@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// Indicates whether the user can interrupt a speech prompt from the bot.
         /// </summary>
         public readonly bool? AllowInterrupt;
+        /// <summary>
+        /// A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroupsList;
 
         [OutputConstructor]

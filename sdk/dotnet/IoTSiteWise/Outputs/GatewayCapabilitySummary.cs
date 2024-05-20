@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class GatewayCapabilitySummary
     {
+        /// <summary>
+        /// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
+        /// </summary>
         public readonly string? CapabilityConfiguration;
+        /// <summary>
+        /// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        /// </summary>
         public readonly string CapabilityNamespace;
 
         [OutputConstructor]

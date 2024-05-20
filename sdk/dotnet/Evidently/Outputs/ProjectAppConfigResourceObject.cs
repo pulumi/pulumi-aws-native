@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class ProjectAppConfigResourceObject
     {
+        /// <summary>
+        /// The ID of the AWS AppConfig application to use for client-side evaluation.
+        /// </summary>
         public readonly string ApplicationId;
+        /// <summary>
+        /// The ID of the AWS AppConfig environment to use for client-side evaluation.
+        /// </summary>
         public readonly string EnvironmentId;
 
         [OutputConstructor]

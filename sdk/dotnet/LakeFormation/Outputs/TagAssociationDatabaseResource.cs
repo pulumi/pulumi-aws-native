@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
     [OutputType]
     public sealed class TagAssociationDatabaseResource
     {
+        /// <summary>
+        /// The identifier for the Data Catalog . By default, it should be the account ID of the caller.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// The name of the database resource. Unique to the Data Catalog.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

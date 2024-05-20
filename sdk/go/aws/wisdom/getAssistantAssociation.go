@@ -23,14 +23,19 @@ func LookupAssistantAssociation(ctx *pulumi.Context, args *LookupAssistantAssoci
 }
 
 type LookupAssistantAssociationArgs struct {
+	// The ID of the association.
 	AssistantAssociationId string `pulumi:"assistantAssociationId"`
-	AssistantId            string `pulumi:"assistantId"`
+	// The identifier of the Wisdom assistant.
+	AssistantId string `pulumi:"assistantId"`
 }
 
 type LookupAssistantAssociationResult struct {
-	AssistantArn            *string `pulumi:"assistantArn"`
+	// The Amazon Resource Name (ARN) of the Wisdom assistant.
+	AssistantArn *string `pulumi:"assistantArn"`
+	// The Amazon Resource Name (ARN) of the assistant association.
 	AssistantAssociationArn *string `pulumi:"assistantAssociationArn"`
-	AssistantAssociationId  *string `pulumi:"assistantAssociationId"`
+	// The ID of the association.
+	AssistantAssociationId *string `pulumi:"assistantAssociationId"`
 }
 
 func LookupAssistantAssociationOutput(ctx *pulumi.Context, args LookupAssistantAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAssistantAssociationResultOutput {
@@ -47,8 +52,10 @@ func LookupAssistantAssociationOutput(ctx *pulumi.Context, args LookupAssistantA
 }
 
 type LookupAssistantAssociationOutputArgs struct {
+	// The ID of the association.
 	AssistantAssociationId pulumi.StringInput `pulumi:"assistantAssociationId"`
-	AssistantId            pulumi.StringInput `pulumi:"assistantId"`
+	// The identifier of the Wisdom assistant.
+	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 }
 
 func (LookupAssistantAssociationOutputArgs) ElementType() reflect.Type {
@@ -69,14 +76,17 @@ func (o LookupAssistantAssociationResultOutput) ToLookupAssistantAssociationResu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Wisdom assistant.
 func (o LookupAssistantAssociationResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssistantAssociationResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the assistant association.
 func (o LookupAssistantAssociationResultOutput) AssistantAssociationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssistantAssociationResult) *string { return v.AssistantAssociationArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the association.
 func (o LookupAssistantAssociationResultOutput) AssistantAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssistantAssociationResult) *string { return v.AssistantAssociationId }).(pulumi.StringPtrOutput)
 }

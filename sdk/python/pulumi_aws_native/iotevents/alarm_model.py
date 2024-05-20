@@ -30,7 +30,10 @@ class AlarmModelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AlarmModel resource.
+        :param pulumi.Input['AlarmModelAlarmRuleArgs'] alarm_rule: Defines when your alarm is invoked.
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+        :param pulumi.Input['AlarmModelAlarmCapabilitiesArgs'] alarm_capabilities: Contains the configuration information of alarm state changes.
+        :param pulumi.Input['AlarmModelAlarmEventActionsArgs'] alarm_event_actions: Contains information about one or more alarm actions.
         :param pulumi.Input[str] alarm_model_description: A brief description of the alarm model.
         :param pulumi.Input[str] alarm_model_name: The name of the alarm model.
         :param pulumi.Input[str] key: The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
@@ -61,6 +64,9 @@ class AlarmModelArgs:
     @property
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Input['AlarmModelAlarmRuleArgs']:
+        """
+        Defines when your alarm is invoked.
+        """
         return pulumi.get(self, "alarm_rule")
 
     @alarm_rule.setter
@@ -82,6 +88,9 @@ class AlarmModelArgs:
     @property
     @pulumi.getter(name="alarmCapabilities")
     def alarm_capabilities(self) -> Optional[pulumi.Input['AlarmModelAlarmCapabilitiesArgs']]:
+        """
+        Contains the configuration information of alarm state changes.
+        """
         return pulumi.get(self, "alarm_capabilities")
 
     @alarm_capabilities.setter
@@ -91,6 +100,9 @@ class AlarmModelArgs:
     @property
     @pulumi.getter(name="alarmEventActions")
     def alarm_event_actions(self) -> Optional[pulumi.Input['AlarmModelAlarmEventActionsArgs']]:
+        """
+        Contains information about one or more alarm actions.
+        """
         return pulumi.get(self, "alarm_event_actions")
 
     @alarm_event_actions.setter
@@ -184,8 +196,11 @@ class AlarmModel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlarmModelAlarmCapabilitiesArgs']] alarm_capabilities: Contains the configuration information of alarm state changes.
+        :param pulumi.Input[pulumi.InputType['AlarmModelAlarmEventActionsArgs']] alarm_event_actions: Contains information about one or more alarm actions.
         :param pulumi.Input[str] alarm_model_description: A brief description of the alarm model.
         :param pulumi.Input[str] alarm_model_name: The name of the alarm model.
+        :param pulumi.Input[pulumi.InputType['AlarmModelAlarmRuleArgs']] alarm_rule: Defines when your alarm is invoked.
         :param pulumi.Input[str] key: The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
                
                This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
@@ -290,11 +305,17 @@ class AlarmModel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alarmCapabilities")
     def alarm_capabilities(self) -> pulumi.Output[Optional['outputs.AlarmModelAlarmCapabilities']]:
+        """
+        Contains the configuration information of alarm state changes.
+        """
         return pulumi.get(self, "alarm_capabilities")
 
     @property
     @pulumi.getter(name="alarmEventActions")
     def alarm_event_actions(self) -> pulumi.Output[Optional['outputs.AlarmModelAlarmEventActions']]:
+        """
+        Contains information about one or more alarm actions.
+        """
         return pulumi.get(self, "alarm_event_actions")
 
     @property
@@ -316,6 +337,9 @@ class AlarmModel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Output['outputs.AlarmModelAlarmRule']:
+        """
+        Defines when your alarm is invoked.
+        """
         return pulumi.get(self, "alarm_rule")
 
     @property

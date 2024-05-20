@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
     {
         [Input("destinations")]
         private InputList<Inputs.StateMachineLogDestinationArgs>? _destinations;
+
+        /// <summary>
+        /// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+        /// </summary>
         public InputList<Inputs.StateMachineLogDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.StateMachineLogDestinationArgs>());
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        /// </summary>
         [Input("includeExecutionData")]
         public Input<bool>? IncludeExecutionData { get; set; }
 
+        /// <summary>
+        /// Defines which category of execution history events are logged.
+        /// </summary>
         [Input("level")]
         public Input<Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel>? Level { get; set; }
 

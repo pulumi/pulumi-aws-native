@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSliderControlDisplayOptions
     {
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         public readonly Outputs.TemplateSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         public readonly Outputs.TemplateLabelOptions? TitleOptions;
 
         [OutputConstructor]

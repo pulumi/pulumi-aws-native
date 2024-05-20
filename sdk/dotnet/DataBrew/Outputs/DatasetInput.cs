@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetInput
     {
+        /// <summary>
+        /// The AWS Glue Data Catalog parameters for the data.
+        /// </summary>
         public readonly Outputs.DatasetDataCatalogInputDefinition? DataCatalogInputDefinition;
+        /// <summary>
+        /// Connection information for dataset input files stored in a database.
+        /// </summary>
         public readonly Outputs.DatasetDatabaseInputDefinition? DatabaseInputDefinition;
+        /// <summary>
+        /// Contains additional resource information needed for specific datasets.
+        /// </summary>
         public readonly Outputs.DatasetMetadata? Metadata;
+        /// <summary>
+        /// The Amazon S3 location where the data is stored.
+        /// </summary>
         public readonly Outputs.DatasetS3Location? S3InputDefinition;
 
         [OutputConstructor]

@@ -26,6 +26,9 @@ export interface GetNetworkInterfaceArgs {
 }
 
 export interface GetNetworkInterfaceResult {
+    /**
+     * A connection tracking specification for the network interface.
+     */
     readonly connectionTrackingSpecification?: outputs.ec2.NetworkInterfaceConnectionTrackingSpecification;
     /**
      * A description for the network interface.

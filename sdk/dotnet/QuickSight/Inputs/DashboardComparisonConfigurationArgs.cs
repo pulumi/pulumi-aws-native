@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardComparisonConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The format of the comparison.
+        /// </summary>
         [Input("comparisonFormat")]
         public Input<Inputs.DashboardComparisonFormatConfigurationArgs>? ComparisonFormat { get; set; }
 
+        /// <summary>
+        /// The method of the comparison. Choose from the following options:
+        /// 
+        /// - `DIFFERENCE`
+        /// - `PERCENT_DIFFERENCE`
+        /// - `PERCENT`
+        /// </summary>
         [Input("comparisonMethod")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardComparisonMethod>? ComparisonMethod { get; set; }
 

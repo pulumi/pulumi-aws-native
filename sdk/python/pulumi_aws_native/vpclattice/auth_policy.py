@@ -19,7 +19,10 @@ class AuthPolicyArgs:
                  resource_identifier: pulumi.Input[str]):
         """
         The set of arguments for constructing a AuthPolicy resource.
-        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        :param Any policy: The auth policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
@@ -28,6 +31,8 @@ class AuthPolicyArgs:
     @pulumi.getter
     def policy(self) -> Any:
         """
+        The auth policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -39,6 +44,9 @@ class AuthPolicyArgs:
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[str]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
@@ -59,7 +67,10 @@ class AuthPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        :param Any policy: The auth policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         """
         ...
     @overload
@@ -136,6 +147,8 @@ class AuthPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
         """
+        The auth policy.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -143,10 +156,16 @@ class AuthPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[str]:
+        """
+        The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        """
         return pulumi.get(self, "resource_identifier")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output['AuthPolicyState']:
+        """
+        The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+        """
         return pulumi.get(self, "state")
 

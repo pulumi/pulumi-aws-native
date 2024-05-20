@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSlackSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Slack flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

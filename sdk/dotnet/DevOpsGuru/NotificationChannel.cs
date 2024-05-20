@@ -131,6 +131,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A `NotificationChannelConfig` object that contains information about configured notification channels.
+        /// </summary>
         [Output("config")]
         public Output<Outputs.NotificationChannelConfig> Config { get; private set; } = null!;
 
@@ -183,6 +186,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
 
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `NotificationChannelConfig` object that contains information about configured notification channels.
+        /// </summary>
         [Input("config", required: true)]
         public Input<Inputs.NotificationChannelConfigArgs> Config { get; set; } = null!;
 

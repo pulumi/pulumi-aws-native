@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// </summary>
         [Input("clientId", required: true)]
         public string ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -57,8 +69,17 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolRiskConfigurationAttachmentResult
     {
+        /// <summary>
+        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType? AccountTakeoverRiskConfiguration;
+        /// <summary>
+        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? CompromisedCredentialsRiskConfiguration;
+        /// <summary>
+        /// The configuration to override the risk decision.
+        /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType? RiskExceptionConfiguration;
 
         [OutputConstructor]

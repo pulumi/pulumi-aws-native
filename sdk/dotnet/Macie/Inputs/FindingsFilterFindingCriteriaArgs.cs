@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Macie.Inputs
     {
         [Input("criterion")]
         private InputMap<Inputs.FindingsFilterCriterionAdditionalPropertiesArgs>? _criterion;
+
+        /// <summary>
+        /// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+        /// </summary>
         public InputMap<Inputs.FindingsFilterCriterionAdditionalPropertiesArgs> Criterion
         {
             get => _criterion ?? (_criterion = new InputMap<Inputs.FindingsFilterCriterionAdditionalPropertiesArgs>());

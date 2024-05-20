@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultGridLayoutConfiguration
     {
+        /// <summary>
+        /// Determines the screen canvas size options for a grid layout.
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutCanvasSizeOptions CanvasSizeOptions;
 
         [OutputConstructor]

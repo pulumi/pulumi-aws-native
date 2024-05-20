@@ -23,15 +23,21 @@ func LookupExtensionAssociation(ctx *pulumi.Context, args *LookupExtensionAssoci
 }
 
 type LookupExtensionAssociationArgs struct {
+	// The system-generated ID for the association.
 	Id string `pulumi:"id"`
 }
 
 type LookupExtensionAssociationResult struct {
-	Arn          *string           `pulumi:"arn"`
-	ExtensionArn *string           `pulumi:"extensionArn"`
-	Id           *string           `pulumi:"id"`
-	Parameters   map[string]string `pulumi:"parameters"`
-	ResourceArn  *string           `pulumi:"resourceArn"`
+	// The ARN of the extension defined in the association.
+	Arn *string `pulumi:"arn"`
+	// The ARN of the extension defined in the association.
+	ExtensionArn *string `pulumi:"extensionArn"`
+	// The system-generated ID for the association.
+	Id *string `pulumi:"id"`
+	// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The ARNs of applications, configuration profiles, or environments defined in the association.
+	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 func LookupExtensionAssociationOutput(ctx *pulumi.Context, args LookupExtensionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionAssociationResultOutput {
@@ -48,6 +54,7 @@ func LookupExtensionAssociationOutput(ctx *pulumi.Context, args LookupExtensionA
 }
 
 type LookupExtensionAssociationOutputArgs struct {
+	// The system-generated ID for the association.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -69,22 +76,27 @@ func (o LookupExtensionAssociationResultOutput) ToLookupExtensionAssociationResu
 	return o
 }
 
+// The ARN of the extension defined in the association.
 func (o LookupExtensionAssociationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the extension defined in the association.
 func (o LookupExtensionAssociationResultOutput) ExtensionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) *string { return v.ExtensionArn }).(pulumi.StringPtrOutput)
 }
 
+// The system-generated ID for the association.
 func (o LookupExtensionAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
 func (o LookupExtensionAssociationResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The ARNs of applications, configuration profiles, or environments defined in the association.
 func (o LookupExtensionAssociationResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionAssociationResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }

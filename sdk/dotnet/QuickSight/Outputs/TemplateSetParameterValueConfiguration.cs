@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSetParameterValueConfiguration
     {
+        /// <summary>
+        /// The destination parameter name of the `SetParameterValueConfiguration` .
+        /// </summary>
         public readonly string DestinationParameterName;
         public readonly Outputs.TemplateDestinationParameterValueConfiguration Value;
 

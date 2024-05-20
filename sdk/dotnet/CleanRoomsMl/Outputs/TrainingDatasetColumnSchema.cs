@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CleanRoomsMl.Outputs
     [OutputType]
     public sealed class TrainingDatasetColumnSchema
     {
+        /// <summary>
+        /// The name of a column.
+        /// </summary>
         public readonly string ColumnName;
+        /// <summary>
+        /// The data type of column.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRoomsMl.TrainingDatasetColumnType> ColumnTypes;
 
         [OutputConstructor]

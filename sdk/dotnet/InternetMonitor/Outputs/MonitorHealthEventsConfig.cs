@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.InternetMonitor.Outputs
     [OutputType]
     public sealed class MonitorHealthEventsConfig
     {
+        /// <summary>
+        /// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
+        /// </summary>
         public readonly Outputs.MonitorLocalHealthEventsConfig? AvailabilityLocalHealthEventsConfig;
+        /// <summary>
+        /// The health event threshold percentage set for availability scores. When the overall availability score is at or below this percentage, Internet Monitor creates a health event.
+        /// </summary>
         public readonly double? AvailabilityScoreThreshold;
+        /// <summary>
+        /// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
+        /// </summary>
         public readonly Outputs.MonitorLocalHealthEventsConfig? PerformanceLocalHealthEventsConfig;
+        /// <summary>
+        /// The health event threshold percentage set for performance scores. When the overall performance score is at or below this percentage, Internet Monitor creates a health event.
+        /// </summary>
         public readonly double? PerformanceScoreThreshold;
 
         [OutputConstructor]

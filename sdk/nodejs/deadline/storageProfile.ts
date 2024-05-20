@@ -37,10 +37,25 @@ export class StorageProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageProfile.__pulumiType;
     }
 
+    /**
+     * The display name of the storage profile summary to update.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the farm that contains the storage profile.
+     */
     public readonly farmId!: pulumi.Output<string | undefined>;
+    /**
+     * Operating system specific file system path to the storage location.
+     */
     public readonly fileSystemLocations!: pulumi.Output<outputs.deadline.StorageProfileFileSystemLocation[] | undefined>;
+    /**
+     * The operating system (OS) family.
+     */
     public readonly osFamily!: pulumi.Output<enums.deadline.StorageProfileOperatingSystemFamily>;
+    /**
+     * The storage profile ID.
+     */
     public /*out*/ readonly storageProfileId!: pulumi.Output<string>;
 
     /**
@@ -83,8 +98,20 @@ export class StorageProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a StorageProfile resource.
  */
 export interface StorageProfileArgs {
+    /**
+     * The display name of the storage profile summary to update.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The unique identifier of the farm that contains the storage profile.
+     */
     farmId?: pulumi.Input<string>;
+    /**
+     * Operating system specific file system path to the storage location.
+     */
     fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.deadline.StorageProfileFileSystemLocationArgs>[]>;
+    /**
+     * The operating system (OS) family.
+     */
     osFamily: pulumi.Input<enums.deadline.StorageProfileOperatingSystemFamily>;
 }

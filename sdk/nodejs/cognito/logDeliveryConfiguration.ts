@@ -37,8 +37,17 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDeliveryConfiguration.__pulumiType;
     }
 
+    /**
+     * A user pool ID, for example `us-east-1_EXAMPLE` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The detailed activity logging destination of a user pool.
+     */
     public readonly logConfigurations!: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
+    /**
+     * The ID of the user pool where you configured detailed activity logging.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -74,6 +83,12 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a LogDeliveryConfiguration resource.
  */
 export interface LogDeliveryConfigurationArgs {
+    /**
+     * The detailed activity logging destination of a user pool.
+     */
     logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfigurationArgs>[]>;
+    /**
+     * The ID of the user pool where you configured detailed activity logging.
+     */
     userPoolId: pulumi.Input<string>;
 }

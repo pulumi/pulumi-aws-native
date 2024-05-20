@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamAuthenticationConfiguration
     {
+        /// <summary>
+        /// The type of connectivity used to access the Amazon MSK cluster.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAuthenticationConfigurationConnectivity Connectivity;
+        /// <summary>
+        /// The ARN of the role used to access the Amazon MSK cluster.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

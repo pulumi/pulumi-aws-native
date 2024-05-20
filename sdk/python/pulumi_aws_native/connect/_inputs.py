@@ -79,6 +79,9 @@ class ConstraintsPropertiesArgs:
                  required_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]] = None):
         """
         The constraints for the task template
+        :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]] invisible_fields: Lists the fields that are invisible to agents.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]] read_only_fields: Lists the fields that are read-only to agents, and cannot be edited.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]] required_fields: Lists the fields that are required to be filled by agents.
         """
         if invisible_fields is not None:
             pulumi.set(__self__, "invisible_fields", invisible_fields)
@@ -90,6 +93,9 @@ class ConstraintsPropertiesArgs:
     @property
     @pulumi.getter(name="invisibleFields")
     def invisible_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]]]:
+        """
+        Lists the fields that are invisible to agents.
+        """
         return pulumi.get(self, "invisible_fields")
 
     @invisible_fields.setter
@@ -99,6 +105,9 @@ class ConstraintsPropertiesArgs:
     @property
     @pulumi.getter(name="readOnlyFields")
     def read_only_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]]]:
+        """
+        Lists the fields that are read-only to agents, and cannot be edited.
+        """
         return pulumi.get(self, "read_only_fields")
 
     @read_only_fields.setter
@@ -108,6 +117,9 @@ class ConstraintsPropertiesArgs:
     @property
     @pulumi.getter(name="requiredFields")
     def required_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]]:
+        """
+        Lists the fields that are required to be filled by agents.
+        """
         return pulumi.get(self, "required_fields")
 
     @required_fields.setter
@@ -1068,12 +1080,23 @@ class InstanceStorageConfigEncryptionConfigArgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input['InstanceStorageConfigEncryptionType'],
                  key_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input['InstanceStorageConfigEncryptionType'] encryption_type: The type of encryption.
+        :param pulumi.Input[str] key_id: The full ARN of the encryption key.
+               
+               > Be sure to provide the full ARN of the encryption key, not just the ID.
+               > 
+               > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
+        """
         pulumi.set(__self__, "encryption_type", encryption_type)
         pulumi.set(__self__, "key_id", key_id)
 
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input['InstanceStorageConfigEncryptionType']:
+        """
+        The type of encryption.
+        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -1083,6 +1106,13 @@ class InstanceStorageConfigEncryptionConfigArgs:
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Input[str]:
+        """
+        The full ARN of the encryption key.
+
+        > Be sure to provide the full ARN of the encryption key, not just the ID.
+        > 
+        > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
+        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -1094,11 +1124,17 @@ class InstanceStorageConfigEncryptionConfigArgs:
 class InstanceStorageConfigKinesisFirehoseConfigArgs:
     def __init__(__self__, *,
                  firehose_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
+        """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
 
     @property
     @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the delivery stream.
+        """
         return pulumi.get(self, "firehose_arn")
 
     @firehose_arn.setter
@@ -1110,11 +1146,17 @@ class InstanceStorageConfigKinesisFirehoseConfigArgs:
 class InstanceStorageConfigKinesisStreamConfigArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] stream_arn: The Amazon Resource Name (ARN) of the data stream.
+        """
         pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the data stream.
+        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
@@ -1128,6 +1170,13 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
                  encryption_config: pulumi.Input['InstanceStorageConfigEncryptionConfigArgs'],
                  prefix: pulumi.Input[str],
                  retention_period_hours: pulumi.Input[float]):
+        """
+        :param pulumi.Input['InstanceStorageConfigEncryptionConfigArgs'] encryption_config: The encryption configuration.
+        :param pulumi.Input[str] prefix: The prefix of the video stream.
+        :param pulumi.Input[float] retention_period_hours: The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+               
+               The default value is 0, indicating that the stream does not persist data.
+        """
         pulumi.set(__self__, "encryption_config", encryption_config)
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "retention_period_hours", retention_period_hours)
@@ -1135,6 +1184,9 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']:
+        """
+        The encryption configuration.
+        """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
@@ -1144,6 +1196,9 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
+        """
+        The prefix of the video stream.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -1153,6 +1208,11 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
     @property
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> pulumi.Input[float]:
+        """
+        The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+
+        The default value is 0, indicating that the stream does not persist data.
+        """
         return pulumi.get(self, "retention_period_hours")
 
     @retention_period_hours.setter
@@ -1166,6 +1226,11 @@ class InstanceStorageConfigS3ConfigArgs:
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: pulumi.Input[str],
                  encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The S3 bucket name.
+        :param pulumi.Input[str] bucket_prefix: The S3 bucket prefix.
+        :param pulumi.Input['InstanceStorageConfigEncryptionConfigArgs'] encryption_config: The Amazon S3 encryption configuration.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if encryption_config is not None:
@@ -1174,6 +1239,9 @@ class InstanceStorageConfigS3ConfigArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The S3 bucket name.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -1183,6 +1251,9 @@ class InstanceStorageConfigS3ConfigArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Input[str]:
+        """
+        The S3 bucket prefix.
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -1192,6 +1263,9 @@ class InstanceStorageConfigS3ConfigArgs:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]:
+        """
+        The Amazon S3 encryption configuration.
+        """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
@@ -1207,6 +1281,11 @@ class QueueOutboundCallerConfigArgs:
                  outbound_flow_arn: Optional[pulumi.Input[str]] = None):
         """
         The outbound caller ID name, number, and outbound whisper flow.
+        :param pulumi.Input[str] outbound_caller_id_name: The caller ID name.
+        :param pulumi.Input[str] outbound_caller_id_number_arn: The Amazon Resource Name (ARN) of the outbound caller ID number.
+               
+               > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+        :param pulumi.Input[str] outbound_flow_arn: The Amazon Resource Name (ARN) of the outbound flow.
         """
         if outbound_caller_id_name is not None:
             pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
@@ -1218,6 +1297,9 @@ class QueueOutboundCallerConfigArgs:
     @property
     @pulumi.getter(name="outboundCallerIdName")
     def outbound_caller_id_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The caller ID name.
+        """
         return pulumi.get(self, "outbound_caller_id_name")
 
     @outbound_caller_id_name.setter
@@ -1227,6 +1309,11 @@ class QueueOutboundCallerConfigArgs:
     @property
     @pulumi.getter(name="outboundCallerIdNumberArn")
     def outbound_caller_id_number_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the outbound caller ID number.
+
+        > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+        """
         return pulumi.get(self, "outbound_caller_id_number_arn")
 
     @outbound_caller_id_number_arn.setter
@@ -1236,6 +1323,9 @@ class QueueOutboundCallerConfigArgs:
     @property
     @pulumi.getter(name="outboundFlowArn")
     def outbound_flow_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the outbound flow.
+        """
         return pulumi.get(self, "outbound_flow_arn")
 
     @outbound_flow_arn.setter
@@ -1252,6 +1342,10 @@ class QuickConnectConfigArgs:
                  user_config: Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']] = None):
         """
         Configuration settings for the quick connect.
+        :param pulumi.Input['QuickConnectType'] quick_connect_type: The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        :param pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs'] phone_config: The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+        :param pulumi.Input['QuickConnectQueueQuickConnectConfigArgs'] queue_config: The queue configuration. This is required only if QuickConnectType is QUEUE.
+        :param pulumi.Input['QuickConnectUserQuickConnectConfigArgs'] user_config: The user configuration. This is required only if QuickConnectType is USER.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_config is not None:
@@ -1264,6 +1358,9 @@ class QuickConnectConfigArgs:
     @property
     @pulumi.getter(name="quickConnectType")
     def quick_connect_type(self) -> pulumi.Input['QuickConnectType']:
+        """
+        The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        """
         return pulumi.get(self, "quick_connect_type")
 
     @quick_connect_type.setter
@@ -1273,6 +1370,9 @@ class QuickConnectConfigArgs:
     @property
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> Optional[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs']]:
+        """
+        The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+        """
         return pulumi.get(self, "phone_config")
 
     @phone_config.setter
@@ -1282,6 +1382,9 @@ class QuickConnectConfigArgs:
     @property
     @pulumi.getter(name="queueConfig")
     def queue_config(self) -> Optional[pulumi.Input['QuickConnectQueueQuickConnectConfigArgs']]:
+        """
+        The queue configuration. This is required only if QuickConnectType is QUEUE.
+        """
         return pulumi.get(self, "queue_config")
 
     @queue_config.setter
@@ -1291,6 +1394,9 @@ class QuickConnectConfigArgs:
     @property
     @pulumi.getter(name="userConfig")
     def user_config(self) -> Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']]:
+        """
+        The user configuration. This is required only if QuickConnectType is USER.
+        """
         return pulumi.get(self, "user_config")
 
     @user_config.setter
@@ -1304,12 +1410,16 @@ class QuickConnectPhoneNumberQuickConnectConfigArgs:
                  phone_number: pulumi.Input[str]):
         """
         The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+        :param pulumi.Input[str] phone_number: The phone number in E.164 format.
         """
         pulumi.set(__self__, "phone_number", phone_number)
 
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> pulumi.Input[str]:
+        """
+        The phone number in E.164 format.
+        """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
@@ -1324,6 +1434,8 @@ class QuickConnectQueueQuickConnectConfigArgs:
                  queue_arn: pulumi.Input[str]):
         """
         The queue configuration. This is required only if QuickConnectType is QUEUE.
+        :param pulumi.Input[str] contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
+        :param pulumi.Input[str] queue_arn: The Amazon Resource Name (ARN) of the queue.
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "queue_arn", queue_arn)
@@ -1331,6 +1443,9 @@ class QuickConnectQueueQuickConnectConfigArgs:
     @property
     @pulumi.getter(name="contactFlowArn")
     def contact_flow_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the flow.
+        """
         return pulumi.get(self, "contact_flow_arn")
 
     @contact_flow_arn.setter
@@ -1340,6 +1455,9 @@ class QuickConnectQueueQuickConnectConfigArgs:
     @property
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the queue.
+        """
         return pulumi.get(self, "queue_arn")
 
     @queue_arn.setter
@@ -1354,6 +1472,8 @@ class QuickConnectUserQuickConnectConfigArgs:
                  user_arn: pulumi.Input[str]):
         """
         The user configuration. This is required only if QuickConnectType is USER.
+        :param pulumi.Input[str] contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
+        :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the user.
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "user_arn", user_arn)
@@ -1361,6 +1481,9 @@ class QuickConnectUserQuickConnectConfigArgs:
     @property
     @pulumi.getter(name="contactFlowArn")
     def contact_flow_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the flow.
+        """
         return pulumi.get(self, "contact_flow_arn")
 
     @contact_flow_arn.setter
@@ -1370,6 +1493,9 @@ class QuickConnectUserQuickConnectConfigArgs:
     @property
     @pulumi.getter(name="userArn")
     def user_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the user.
+        """
         return pulumi.get(self, "user_arn")
 
     @user_arn.setter
@@ -1383,12 +1509,16 @@ class RoutingProfileCrossChannelBehaviorArgs:
                  behavior_type: pulumi.Input['RoutingProfileBehaviorType']):
         """
         Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        :param pulumi.Input['RoutingProfileBehaviorType'] behavior_type: Specifies the other channels that can be routed to an agent handling their current channel.
         """
         pulumi.set(__self__, "behavior_type", behavior_type)
 
     @property
     @pulumi.getter(name="behaviorType")
     def behavior_type(self) -> pulumi.Input['RoutingProfileBehaviorType']:
+        """
+        Specifies the other channels that can be routed to an agent handling their current channel.
+        """
         return pulumi.get(self, "behavior_type")
 
     @behavior_type.setter
@@ -1404,6 +1534,15 @@ class RoutingProfileMediaConcurrencyArgs:
                  cross_channel_behavior: Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']] = None):
         """
         Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+        :param pulumi.Input['RoutingProfileChannel'] channel: The channels that agents can handle in the Contact Control Panel (CCP).
+        :param pulumi.Input[int] concurrency: The number of contacts an agent can have on a channel simultaneously.
+               
+               Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+               
+               Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+               
+               Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
+        :param pulumi.Input['RoutingProfileCrossChannelBehaviorArgs'] cross_channel_behavior: Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
@@ -1413,6 +1552,9 @@ class RoutingProfileMediaConcurrencyArgs:
     @property
     @pulumi.getter
     def channel(self) -> pulumi.Input['RoutingProfileChannel']:
+        """
+        The channels that agents can handle in the Contact Control Panel (CCP).
+        """
         return pulumi.get(self, "channel")
 
     @channel.setter
@@ -1422,6 +1564,15 @@ class RoutingProfileMediaConcurrencyArgs:
     @property
     @pulumi.getter
     def concurrency(self) -> pulumi.Input[int]:
+        """
+        The number of contacts an agent can have on a channel simultaneously.
+
+        Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+
+        Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+
+        Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
+        """
         return pulumi.get(self, "concurrency")
 
     @concurrency.setter
@@ -1431,6 +1582,9 @@ class RoutingProfileMediaConcurrencyArgs:
     @property
     @pulumi.getter(name="crossChannelBehavior")
     def cross_channel_behavior(self) -> Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']]:
+        """
+        Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
+        """
         return pulumi.get(self, "cross_channel_behavior")
 
     @cross_channel_behavior.setter
@@ -1446,6 +1600,9 @@ class RoutingProfileQueueConfigArgs:
                  queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs']):
         """
         Contains information about the queue and channel for which priority and delay can be set.
+        :param pulumi.Input[int] delay: The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+        :param pulumi.Input[int] priority: The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+        :param pulumi.Input['RoutingProfileQueueReferenceArgs'] queue_reference: Contains information about a queue resource.
         """
         pulumi.set(__self__, "delay", delay)
         pulumi.set(__self__, "priority", priority)
@@ -1454,6 +1611,9 @@ class RoutingProfileQueueConfigArgs:
     @property
     @pulumi.getter
     def delay(self) -> pulumi.Input[int]:
+        """
+        The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+        """
         return pulumi.get(self, "delay")
 
     @delay.setter
@@ -1463,6 +1623,9 @@ class RoutingProfileQueueConfigArgs:
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
+        """
+        The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -1472,6 +1635,9 @@ class RoutingProfileQueueConfigArgs:
     @property
     @pulumi.getter(name="queueReference")
     def queue_reference(self) -> pulumi.Input['RoutingProfileQueueReferenceArgs']:
+        """
+        Contains information about a queue resource.
+        """
         return pulumi.get(self, "queue_reference")
 
     @queue_reference.setter
@@ -1486,6 +1652,8 @@ class RoutingProfileQueueReferenceArgs:
                  queue_arn: pulumi.Input[str]):
         """
         Contains the channel and queue identifier for a routing profile.
+        :param pulumi.Input['RoutingProfileChannel'] channel: The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        :param pulumi.Input[str] queue_arn: The Amazon Resource Name (ARN) of the queue.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "queue_arn", queue_arn)
@@ -1493,6 +1661,9 @@ class RoutingProfileQueueReferenceArgs:
     @property
     @pulumi.getter
     def channel(self) -> pulumi.Input['RoutingProfileChannel']:
+        """
+        The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        """
         return pulumi.get(self, "channel")
 
     @channel.setter
@@ -1502,6 +1673,9 @@ class RoutingProfileQueueReferenceArgs:
     @property
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the queue.
+        """
         return pulumi.get(self, "queue_arn")
 
     @queue_arn.setter
@@ -1521,6 +1695,10 @@ class RuleActionsArgs:
                  update_case_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleUpdateCaseActionArgs']]]] = None):
         """
         The list of actions that will be executed when a rule is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]] assign_contact_category_actions: Information about the contact category action. The syntax can be empty, for example, `{}` .
+        :param pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]] event_bridge_actions: Information about the EventBridge action.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]] send_notification_actions: Information about the send notification action.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleTaskActionArgs']]] task_actions: Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
         """
         if assign_contact_category_actions is not None:
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
@@ -1540,6 +1718,9 @@ class RuleActionsArgs:
     @property
     @pulumi.getter(name="assignContactCategoryActions")
     def assign_contact_category_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]]]:
+        """
+        Information about the contact category action. The syntax can be empty, for example, `{}` .
+        """
         return pulumi.get(self, "assign_contact_category_actions")
 
     @assign_contact_category_actions.setter
@@ -1567,6 +1748,9 @@ class RuleActionsArgs:
     @property
     @pulumi.getter(name="eventBridgeActions")
     def event_bridge_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]]:
+        """
+        Information about the EventBridge action.
+        """
         return pulumi.get(self, "event_bridge_actions")
 
     @event_bridge_actions.setter
@@ -1576,6 +1760,9 @@ class RuleActionsArgs:
     @property
     @pulumi.getter(name="sendNotificationActions")
     def send_notification_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]]]:
+        """
+        Information about the send notification action.
+        """
         return pulumi.get(self, "send_notification_actions")
 
     @send_notification_actions.setter
@@ -1585,6 +1772,9 @@ class RuleActionsArgs:
     @property
     @pulumi.getter(name="taskActions")
     def task_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleTaskActionArgs']]]]:
+        """
+        Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        """
         return pulumi.get(self, "task_actions")
 
     @task_actions.setter
@@ -2127,6 +2317,8 @@ class TaskTemplateDefaultFieldValueArgs:
                  id: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
         """
         the default value for the task template's field
+        :param pulumi.Input[str] default_value: Default value for the field.
+        :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: Identifier of a field.
         """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "id", id)
@@ -2134,6 +2326,9 @@ class TaskTemplateDefaultFieldValueArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Input[str]:
+        """
+        Default value for the field.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -2143,6 +2338,9 @@ class TaskTemplateDefaultFieldValueArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        """
+        Identifier of a field.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2182,6 +2380,8 @@ class TaskTemplateFieldArgs:
                  single_select_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A task template field object.
+        :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: The unique identifier for the field.
+        :param pulumi.Input['TaskTemplateFieldType'] type: Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
         :param pulumi.Input[str] description: The description of the task template's field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] single_select_options: list of field options to be used with single select
         """
@@ -2195,6 +2395,9 @@ class TaskTemplateFieldArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
+        """
+        The unique identifier for the field.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -2204,6 +2407,9 @@ class TaskTemplateFieldArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['TaskTemplateFieldType']:
+        """
+        Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2302,6 +2508,13 @@ class UserIdentityInfoArgs:
                  secondary_email: Optional[pulumi.Input[str]] = None):
         """
         Contains information about the identity of a user.
+        :param pulumi.Input[str] email: The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+        :param pulumi.Input[str] first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        :param pulumi.Input[str] last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        :param pulumi.Input[str] mobile: The user's mobile number.
+        :param pulumi.Input[str] secondary_email: The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+               
+               *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}`
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -2317,6 +2530,9 @@ class UserIdentityInfoArgs:
     @property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -2326,6 +2542,9 @@ class UserIdentityInfoArgs:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -2335,6 +2554,9 @@ class UserIdentityInfoArgs:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -2344,6 +2566,9 @@ class UserIdentityInfoArgs:
     @property
     @pulumi.getter
     def mobile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's mobile number.
+        """
         return pulumi.get(self, "mobile")
 
     @mobile.setter
@@ -2353,6 +2578,11 @@ class UserIdentityInfoArgs:
     @property
     @pulumi.getter(name="secondaryEmail")
     def secondary_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+
+        *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}`
+        """
         return pulumi.get(self, "secondary_email")
 
     @secondary_email.setter
@@ -2369,6 +2599,12 @@ class UserPhoneConfigArgs:
                  desk_phone_number: Optional[pulumi.Input[str]] = None):
         """
         Contains information about the phone configuration settings for a user.
+        :param pulumi.Input['UserPhoneType'] phone_type: The phone type.
+        :param pulumi.Input[int] after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+               
+               > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
+        :param pulumi.Input[bool] auto_accept: The Auto accept setting.
+        :param pulumi.Input[str] desk_phone_number: The phone number for the user's desk phone.
         """
         pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
@@ -2381,6 +2617,9 @@ class UserPhoneConfigArgs:
     @property
     @pulumi.getter(name="phoneType")
     def phone_type(self) -> pulumi.Input['UserPhoneType']:
+        """
+        The phone type.
+        """
         return pulumi.get(self, "phone_type")
 
     @phone_type.setter
@@ -2390,6 +2629,11 @@ class UserPhoneConfigArgs:
     @property
     @pulumi.getter(name="afterContactWorkTimeLimit")
     def after_contact_work_time_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+
+        > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
+        """
         return pulumi.get(self, "after_contact_work_time_limit")
 
     @after_contact_work_time_limit.setter
@@ -2399,6 +2643,9 @@ class UserPhoneConfigArgs:
     @property
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The Auto accept setting.
+        """
         return pulumi.get(self, "auto_accept")
 
     @auto_accept.setter
@@ -2408,6 +2655,9 @@ class UserPhoneConfigArgs:
     @property
     @pulumi.getter(name="deskPhoneNumber")
     def desk_phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The phone number for the user's desk phone.
+        """
         return pulumi.get(self, "desk_phone_number")
 
     @desk_phone_number.setter
@@ -2423,6 +2673,9 @@ class UserProficiencyArgs:
                  level: pulumi.Input[float]):
         """
         Proficiency of a user.
+        :param pulumi.Input[str] attribute_name: The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+        :param pulumi.Input[str] attribute_value: The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+        :param pulumi.Input[float] level: The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
         """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "attribute_value", attribute_value)
@@ -2431,6 +2684,9 @@ class UserProficiencyArgs:
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
+        """
+        The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -2440,6 +2696,9 @@ class UserProficiencyArgs:
     @property
     @pulumi.getter(name="attributeValue")
     def attribute_value(self) -> pulumi.Input[str]:
+        """
+        The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+        """
         return pulumi.get(self, "attribute_value")
 
     @attribute_value.setter
@@ -2449,6 +2708,9 @@ class UserProficiencyArgs:
     @property
     @pulumi.getter
     def level(self) -> pulumi.Input[float]:
+        """
+        The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -2462,6 +2724,7 @@ class ValuesPropertiesArgs:
                  string_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The values of a predefined attribute.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_list: Predefined attribute values of type string list.
         """
         if string_list is not None:
             pulumi.set(__self__, "string_list", string_list)
@@ -2469,6 +2732,9 @@ class ValuesPropertiesArgs:
     @property
     @pulumi.getter(name="stringList")
     def string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Predefined attribute values of type string list.
+        """
         return pulumi.get(self, "string_list")
 
     @string_list.setter

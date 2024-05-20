@@ -23,10 +23,14 @@ type CollectionTag struct {
 
 // A bounding box denoting a region of interest in the frame to be analyzed.
 type StreamProcessorBoundingBox struct {
+	// Height of the bounding box as a ratio of the overall image height.
 	Height float64 `pulumi:"height"`
-	Left   float64 `pulumi:"left"`
-	Top    float64 `pulumi:"top"`
-	Width  float64 `pulumi:"width"`
+	// Left coordinate of the bounding box as a ratio of overall image width.
+	Left float64 `pulumi:"left"`
+	// Top coordinate of the bounding box as a ratio of overall image height.
+	Top float64 `pulumi:"top"`
+	// Width of the bounding box as a ratio of the overall image width.
+	Width float64 `pulumi:"width"`
 }
 
 // StreamProcessorBoundingBoxInput is an input type that accepts StreamProcessorBoundingBoxArgs and StreamProcessorBoundingBoxOutput values.
@@ -42,10 +46,14 @@ type StreamProcessorBoundingBoxInput interface {
 
 // A bounding box denoting a region of interest in the frame to be analyzed.
 type StreamProcessorBoundingBoxArgs struct {
+	// Height of the bounding box as a ratio of the overall image height.
 	Height pulumi.Float64Input `pulumi:"height"`
-	Left   pulumi.Float64Input `pulumi:"left"`
-	Top    pulumi.Float64Input `pulumi:"top"`
-	Width  pulumi.Float64Input `pulumi:"width"`
+	// Left coordinate of the bounding box as a ratio of overall image width.
+	Left pulumi.Float64Input `pulumi:"left"`
+	// Top coordinate of the bounding box as a ratio of overall image height.
+	Top pulumi.Float64Input `pulumi:"top"`
+	// Width of the bounding box as a ratio of the overall image width.
+	Width pulumi.Float64Input `pulumi:"width"`
 }
 
 func (StreamProcessorBoundingBoxArgs) ElementType() reflect.Type {
@@ -100,18 +108,22 @@ func (o StreamProcessorBoundingBoxOutput) ToStreamProcessorBoundingBoxOutputWith
 	return o
 }
 
+// Height of the bounding box as a ratio of the overall image height.
 func (o StreamProcessorBoundingBoxOutput) Height() pulumi.Float64Output {
 	return o.ApplyT(func(v StreamProcessorBoundingBox) float64 { return v.Height }).(pulumi.Float64Output)
 }
 
+// Left coordinate of the bounding box as a ratio of overall image width.
 func (o StreamProcessorBoundingBoxOutput) Left() pulumi.Float64Output {
 	return o.ApplyT(func(v StreamProcessorBoundingBox) float64 { return v.Left }).(pulumi.Float64Output)
 }
 
+// Top coordinate of the bounding box as a ratio of overall image height.
 func (o StreamProcessorBoundingBoxOutput) Top() pulumi.Float64Output {
 	return o.ApplyT(func(v StreamProcessorBoundingBox) float64 { return v.Top }).(pulumi.Float64Output)
 }
 
+// Width of the bounding box as a ratio of the overall image width.
 func (o StreamProcessorBoundingBoxOutput) Width() pulumi.Float64Output {
 	return o.ApplyT(func(v StreamProcessorBoundingBox) float64 { return v.Width }).(pulumi.Float64Output)
 }
@@ -138,6 +150,7 @@ func (o StreamProcessorBoundingBoxArrayOutput) Index(i pulumi.IntInput) StreamPr
 
 // Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
 type StreamProcessorConnectedHomeSettings struct {
+	// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
 	Labels []string `pulumi:"labels"`
 	// Minimum object class match confidence score that must be met to return a result for a recognized object.
 	MinConfidence *float64 `pulumi:"minConfidence"`
@@ -156,6 +169,7 @@ type StreamProcessorConnectedHomeSettingsInput interface {
 
 // Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
 type StreamProcessorConnectedHomeSettingsArgs struct {
+	// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
 	// Minimum object class match confidence score that must be met to return a result for a recognized object.
 	MinConfidence pulumi.Float64PtrInput `pulumi:"minConfidence"`
@@ -239,6 +253,7 @@ func (o StreamProcessorConnectedHomeSettingsOutput) ToStreamProcessorConnectedHo
 	}).(StreamProcessorConnectedHomeSettingsPtrOutput)
 }
 
+// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
 func (o StreamProcessorConnectedHomeSettingsOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StreamProcessorConnectedHomeSettings) []string { return v.Labels }).(pulumi.StringArrayOutput)
 }
@@ -272,6 +287,7 @@ func (o StreamProcessorConnectedHomeSettingsPtrOutput) Elem() StreamProcessorCon
 	}).(StreamProcessorConnectedHomeSettingsOutput)
 }
 
+// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
 func (o StreamProcessorConnectedHomeSettingsPtrOutput) Labels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StreamProcessorConnectedHomeSettings) []string {
 		if v == nil {

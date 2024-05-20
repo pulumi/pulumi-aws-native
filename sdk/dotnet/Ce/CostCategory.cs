@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.Ce
         [Output("defaultValue")]
         public Output<string?> DefaultValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The Cost Category's effective start date.
+        /// </summary>
         [Output("effectiveStart")]
         public Output<string> EffectiveStart { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the Cost Category.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule schema version in this particular Cost Category.
+        /// </summary>
         [Output("ruleVersion")]
         public Output<Pulumi.AwsNative.Ce.CostCategoryRuleVersion> RuleVersion { get; private set; } = null!;
 
@@ -103,9 +112,15 @@ namespace Pulumi.AwsNative.Ce
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
+        /// <summary>
+        /// The unique name of the Cost Category.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The rule schema version in this particular Cost Category.
+        /// </summary>
         [Input("ruleVersion", required: true)]
         public Input<Pulumi.AwsNative.Ce.CostCategoryRuleVersion> RuleVersion { get; set; } = null!;
 

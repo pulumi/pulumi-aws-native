@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class CapacityReservationCapacityAssignmentConfiguration
     {
+        /// <summary>
+        /// The list of assignments that make up the capacity assignment configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CapacityReservationCapacityAssignment> CapacityAssignments;
 
         [OutputConstructor]

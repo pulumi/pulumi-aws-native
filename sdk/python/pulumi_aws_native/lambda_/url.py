@@ -26,6 +26,7 @@ class UrlArgs:
         The set of arguments for constructing a Url resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
+        :param pulumi.Input['UrlCorsArgs'] cors: The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
         :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         """
@@ -65,6 +66,9 @@ class UrlArgs:
     @property
     @pulumi.getter
     def cors(self) -> Optional[pulumi.Input['UrlCorsArgs']]:
+        """
+        The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+        """
         return pulumi.get(self, "cors")
 
     @cors.setter
@@ -113,6 +117,7 @@ class Url(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
+        :param pulumi.Input[pulumi.InputType['UrlCorsArgs']] cors: The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
         :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -210,6 +215,9 @@ class Url(pulumi.CustomResource):
     @property
     @pulumi.getter
     def cors(self) -> pulumi.Output[Optional['outputs.UrlCors']]:
+        """
+        The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+        """
         return pulumi.get(self, "cors")
 
     @property

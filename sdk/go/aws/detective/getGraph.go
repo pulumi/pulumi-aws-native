@@ -32,8 +32,9 @@ type LookupGraphResult struct {
 	// The Detective graph ARN
 	Arn *string `pulumi:"arn"`
 	// Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
-	AutoEnableMembers *bool     `pulumi:"autoEnableMembers"`
-	Tags              []aws.Tag `pulumi:"tags"`
+	AutoEnableMembers *bool `pulumi:"autoEnableMembers"`
+	// The tag values to assign to the new behavior graph.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGraphOutput(ctx *pulumi.Context, args LookupGraphOutputArgs, opts ...pulumi.InvokeOption) LookupGraphResultOutput {
@@ -82,6 +83,7 @@ func (o LookupGraphResultOutput) AutoEnableMembers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGraphResult) *bool { return v.AutoEnableMembers }).(pulumi.BoolPtrOutput)
 }
 
+// The tag values to assign to the new behavior graph.
 func (o LookupGraphResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupGraphResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

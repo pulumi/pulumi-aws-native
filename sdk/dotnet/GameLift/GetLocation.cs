@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetLocationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A descriptive name for the custom location.
+        /// </summary>
         [Input("locationName", required: true)]
         public string LocationName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A descriptive name for the custom location.
+        /// </summary>
         [Input("locationName", required: true)]
         public Input<string> LocationName { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.GameLift
     [OutputType]
     public sealed class GetLocationResult
     {
+        /// <summary>
+        /// A unique identifier for the custom location. For example, `arn:aws:gamelift:[region]::location/location-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912` .
+        /// </summary>
         public readonly string? LocationArn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

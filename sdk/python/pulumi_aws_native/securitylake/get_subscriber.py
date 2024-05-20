@@ -59,21 +59,35 @@ class GetSubscriberResult:
     @property
     @pulumi.getter(name="accessTypes")
     def access_types(self) -> Optional[Sequence['SubscriberAccessTypesItem']]:
+        """
+        You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+
+        Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
+        """
         return pulumi.get(self, "access_types")
 
     @property
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
+        """
         return pulumi.get(self, "resource_share_arn")
 
     @property
     @pulumi.getter(name="resourceShareName")
     def resource_share_name(self) -> Optional[str]:
+        """
+        The ARN name of the Amazon Security Lake subscriber.
+        """
         return pulumi.get(self, "resource_share_name")
 
     @property
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the S3 bucket.
+        """
         return pulumi.get(self, "s3_bucket_arn")
 
     @property
@@ -87,6 +101,9 @@ class GetSubscriberResult:
     @property
     @pulumi.getter(name="subscriberArn")
     def subscriber_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Security Lake subscriber.
+        """
         return pulumi.get(self, "subscriber_arn")
 
     @property
@@ -116,6 +133,9 @@ class GetSubscriberResult:
     @property
     @pulumi.getter(name="subscriberRoleArn")
     def subscriber_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
+        """
         return pulumi.get(self, "subscriber_role_arn")
 
     @property
@@ -150,6 +170,9 @@ def get_subscriber(subscriber_arn: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriberResult:
     """
     Resource Type definition for AWS::SecurityLake::Subscriber
+
+
+    :param str subscriber_arn: The Amazon Resource Name (ARN) of the Security Lake subscriber.
     """
     __args__ = dict()
     __args__['subscriberArn'] = subscriber_arn
@@ -175,5 +198,8 @@ def get_subscriber_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriberResult]:
     """
     Resource Type definition for AWS::SecurityLake::Subscriber
+
+
+    :param str subscriber_arn: The Amazon Resource Name (ARN) of the Security Lake subscriber.
     """
     ...

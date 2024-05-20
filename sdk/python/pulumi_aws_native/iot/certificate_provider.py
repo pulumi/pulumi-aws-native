@@ -23,6 +23,9 @@ class CertificateProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateProvider resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]] account_default_for_operations: A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        :param pulumi.Input[str] lambda_function_arn: The ARN of the Lambda function.
+        :param pulumi.Input[str] certificate_provider_name: The name of the certificate provider.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "account_default_for_operations", account_default_for_operations)
@@ -35,6 +38,9 @@ class CertificateProviderArgs:
     @property
     @pulumi.getter(name="accountDefaultForOperations")
     def account_default_for_operations(self) -> pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]]:
+        """
+        A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        """
         return pulumi.get(self, "account_default_for_operations")
 
     @account_default_for_operations.setter
@@ -44,6 +50,9 @@ class CertificateProviderArgs:
     @property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Lambda function.
+        """
         return pulumi.get(self, "lambda_function_arn")
 
     @lambda_function_arn.setter
@@ -53,6 +62,9 @@ class CertificateProviderArgs:
     @property
     @pulumi.getter(name="certificateProviderName")
     def certificate_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the certificate provider.
+        """
         return pulumi.get(self, "certificate_provider_name")
 
     @certificate_provider_name.setter
@@ -87,6 +99,9 @@ class CertificateProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateProviderOperation']]] account_default_for_operations: A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        :param pulumi.Input[str] certificate_provider_name: The name of the certificate provider.
+        :param pulumi.Input[str] lambda_function_arn: The ARN of the Lambda function.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -169,21 +184,39 @@ class CertificateProvider(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountDefaultForOperations")
     def account_default_for_operations(self) -> pulumi.Output[Sequence['CertificateProviderOperation']]:
+        """
+        A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+        """
         return pulumi.get(self, "account_default_for_operations")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the certificate. For example:
+
+        `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+
+        A value similar to the following is returned:
+
+        `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="certificateProviderName")
     def certificate_provider_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the certificate provider.
+        """
         return pulumi.get(self, "certificate_provider_name")
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Lambda function.
+        """
         return pulumi.get(self, "lambda_function_arn")
 
     @property

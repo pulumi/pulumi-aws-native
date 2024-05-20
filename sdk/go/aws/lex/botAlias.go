@@ -16,17 +16,26 @@ import (
 type BotAlias struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput                   `pulumi:"arn"`
-	BotAliasId             pulumi.StringOutput                   `pulumi:"botAliasId"`
+	// The Amazon Resource Name (ARN) of the bot alias.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier of the bot alias.
+	BotAliasId pulumi.StringOutput `pulumi:"botAliasId"`
+	// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings BotAliasLocaleSettingsItemArrayOutput `pulumi:"botAliasLocaleSettings"`
-	BotAliasName           pulumi.StringOutput                   `pulumi:"botAliasName"`
-	BotAliasStatus         BotAliasStatusOutput                  `pulumi:"botAliasStatus"`
+	// The name of the bot alias.
+	BotAliasName pulumi.StringOutput `pulumi:"botAliasName"`
+	// The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+	BotAliasStatus BotAliasStatusOutput `pulumi:"botAliasStatus"`
 	// A list of tags to add to the bot alias.
-	BotAliasTags            BotAliasTagArrayOutput                   `pulumi:"botAliasTags"`
-	BotId                   pulumi.StringOutput                      `pulumi:"botId"`
-	BotVersion              pulumi.StringPtrOutput                   `pulumi:"botVersion"`
+	BotAliasTags BotAliasTagArrayOutput `pulumi:"botAliasTags"`
+	// The unique identifier of the bot.
+	BotId pulumi.StringOutput `pulumi:"botId"`
+	// The version of the bot that the bot alias references.
+	BotVersion pulumi.StringPtrOutput `pulumi:"botVersion"`
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings BotAliasConversationLogSettingsPtrOutput `pulumi:"conversationLogSettings"`
-	Description             pulumi.StringPtrOutput                   `pulumi:"description"`
+	// The description of the bot alias.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings SentimentAnalysisSettingsPropertiesPtrOutput `pulumi:"sentimentAnalysisSettings"`
 }
@@ -78,28 +87,40 @@ func (BotAliasState) ElementType() reflect.Type {
 }
 
 type botAliasArgs struct {
+	// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings []BotAliasLocaleSettingsItem `pulumi:"botAliasLocaleSettings"`
-	BotAliasName           *string                      `pulumi:"botAliasName"`
+	// The name of the bot alias.
+	BotAliasName *string `pulumi:"botAliasName"`
 	// A list of tags to add to the bot alias.
-	BotAliasTags            []BotAliasTag                    `pulumi:"botAliasTags"`
-	BotId                   string                           `pulumi:"botId"`
-	BotVersion              *string                          `pulumi:"botVersion"`
+	BotAliasTags []BotAliasTag `pulumi:"botAliasTags"`
+	// The unique identifier of the bot.
+	BotId string `pulumi:"botId"`
+	// The version of the bot that the bot alias references.
+	BotVersion *string `pulumi:"botVersion"`
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings *BotAliasConversationLogSettings `pulumi:"conversationLogSettings"`
-	Description             *string                          `pulumi:"description"`
+	// The description of the bot alias.
+	Description *string `pulumi:"description"`
 	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings *SentimentAnalysisSettingsProperties `pulumi:"sentimentAnalysisSettings"`
 }
 
 // The set of arguments for constructing a BotAlias resource.
 type BotAliasArgs struct {
+	// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings BotAliasLocaleSettingsItemArrayInput
-	BotAliasName           pulumi.StringPtrInput
+	// The name of the bot alias.
+	BotAliasName pulumi.StringPtrInput
 	// A list of tags to add to the bot alias.
-	BotAliasTags            BotAliasTagArrayInput
-	BotId                   pulumi.StringInput
-	BotVersion              pulumi.StringPtrInput
+	BotAliasTags BotAliasTagArrayInput
+	// The unique identifier of the bot.
+	BotId pulumi.StringInput
+	// The version of the bot that the bot alias references.
+	BotVersion pulumi.StringPtrInput
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings BotAliasConversationLogSettingsPtrInput
-	Description             pulumi.StringPtrInput
+	// The description of the bot alias.
+	Description pulumi.StringPtrInput
 	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
 	SentimentAnalysisSettings SentimentAnalysisSettingsPropertiesPtrInput
 }
@@ -141,22 +162,27 @@ func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAlia
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the bot alias.
 func (o BotAliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the bot alias.
 func (o BotAliasOutput) BotAliasId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotAliasId }).(pulumi.StringOutput)
 }
 
+// Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
 func (o BotAliasOutput) BotAliasLocaleSettings() BotAliasLocaleSettingsItemArrayOutput {
 	return o.ApplyT(func(v *BotAlias) BotAliasLocaleSettingsItemArrayOutput { return v.BotAliasLocaleSettings }).(BotAliasLocaleSettingsItemArrayOutput)
 }
 
+// The name of the bot alias.
 func (o BotAliasOutput) BotAliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotAliasName }).(pulumi.StringOutput)
 }
 
+// The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
 func (o BotAliasOutput) BotAliasStatus() BotAliasStatusOutput {
 	return o.ApplyT(func(v *BotAlias) BotAliasStatusOutput { return v.BotAliasStatus }).(BotAliasStatusOutput)
 }
@@ -166,18 +192,22 @@ func (o BotAliasOutput) BotAliasTags() BotAliasTagArrayOutput {
 	return o.ApplyT(func(v *BotAlias) BotAliasTagArrayOutput { return v.BotAliasTags }).(BotAliasTagArrayOutput)
 }
 
+// The unique identifier of the bot.
 func (o BotAliasOutput) BotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotId }).(pulumi.StringOutput)
 }
 
+// The version of the bot that the bot alias references.
 func (o BotAliasOutput) BotVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.BotVersion }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 func (o BotAliasOutput) ConversationLogSettings() BotAliasConversationLogSettingsPtrOutput {
 	return o.ApplyT(func(v *BotAlias) BotAliasConversationLogSettingsPtrOutput { return v.ConversationLogSettings }).(BotAliasConversationLogSettingsPtrOutput)
 }
 
+// The description of the bot alias.
 func (o BotAliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

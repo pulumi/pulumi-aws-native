@@ -37,7 +37,13 @@ export class StorageLensGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageLensGroup.__pulumiType;
     }
 
+    /**
+     * This property contains the criteria for the Storage Lens group data that is displayed
+     */
     public readonly filter!: pulumi.Output<outputs.s3.StorageLensGroupFilter>;
+    /**
+     * This property contains the Storage Lens group name.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * The ARN for the Amazon S3 Storage Lens Group.
@@ -83,7 +89,13 @@ export class StorageLensGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a StorageLensGroup resource.
  */
 export interface StorageLensGroupArgs {
+    /**
+     * This property contains the criteria for the Storage Lens group data that is displayed
+     */
     filter: pulumi.Input<inputs.s3.StorageLensGroupFilterArgs>;
+    /**
+     * This property contains the Storage Lens group name.
+     */
     name?: pulumi.Input<string>;
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.

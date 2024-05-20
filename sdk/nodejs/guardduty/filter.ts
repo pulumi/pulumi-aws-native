@@ -37,12 +37,37 @@ export class Filter extends pulumi.CustomResource {
         return obj['__pulumiType'] === Filter.__pulumiType;
     }
 
+    /**
+     * Specifies the action that is to be applied to the findings that match the filter.
+     */
     public readonly action!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+     */
     public readonly detectorId!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the criteria to be used in the filter for querying findings.
+     */
     public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
+    /**
+     * The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+     *
+     * By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+     */
     public readonly rank!: pulumi.Output<number | undefined>;
+    /**
+     * The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -86,11 +111,36 @@ export class Filter extends pulumi.CustomResource {
  * The set of arguments for constructing a Filter resource.
  */
 export interface FilterArgs {
+    /**
+     * Specifies the action that is to be applied to the findings that match the filter.
+     */
     action?: pulumi.Input<string>;
+    /**
+     * The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+     */
     detectorId?: pulumi.Input<string>;
+    /**
+     * Represents the criteria to be used in the filter for querying findings.
+     */
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteriaArgs>;
+    /**
+     * The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
+     *
+     * By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
+     */
     rank?: pulumi.Input<number>;
+    /**
+     * The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

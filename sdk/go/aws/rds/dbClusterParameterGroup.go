@@ -17,6 +17,15 @@ import (
 type DbClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dbClusterParameterGroupName"`
 	// A friendly description for this DB cluster parameter group.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -85,6 +94,15 @@ func (DbClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type dbClusterParameterGroupArgs struct {
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// A friendly description for this DB cluster parameter group.
 	Description string `pulumi:"description"`
@@ -100,6 +118,15 @@ type dbClusterParameterGroupArgs struct {
 
 // The set of arguments for constructing a DbClusterParameterGroup resource.
 type DbClusterParameterGroupArgs struct {
+	// The name of the DB cluster parameter group.
+	//
+	// Constraints:
+	//
+	// - Must not match the name of an existing DB cluster parameter group.
+	//
+	// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+	//
+	// > This value is stored as a lowercase string.
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// A friendly description for this DB cluster parameter group.
 	Description pulumi.StringInput
@@ -150,6 +177,15 @@ func (o DbClusterParameterGroupOutput) ToDbClusterParameterGroupOutputWithContex
 	return o
 }
 
+// The name of the DB cluster parameter group.
+//
+// Constraints:
+//
+// - Must not match the name of an existing DB cluster parameter group.
+//
+// If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+//
+// > This value is stored as a lowercase string.
 func (o DbClusterParameterGroupOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbClusterParameterGroup) pulumi.StringPtrOutput { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }

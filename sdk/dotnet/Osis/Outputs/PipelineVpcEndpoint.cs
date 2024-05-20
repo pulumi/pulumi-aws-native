@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Osis.Outputs
         /// The ID for your VPC. AWS Privatelink generates this value when you create a VPC.
         /// </summary>
         public readonly string? VpcId;
+        /// <summary>
+        /// Information about the VPC, including associated subnets and security groups.
+        /// </summary>
         public readonly Outputs.PipelineVpcOptions? VpcOptions;
 
         [OutputConstructor]

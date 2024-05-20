@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetSchedulingPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetSchedulingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Batch
     [OutputType]
     public sealed class GetSchedulingPolicyResult
     {
+        /// <summary>
+        /// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The fair share policy of the scheduling policy.
+        /// </summary>
         public readonly Outputs.SchedulingPolicyFairsharePolicy? FairsharePolicy;
 
         [OutputConstructor]

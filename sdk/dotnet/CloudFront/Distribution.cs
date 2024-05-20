@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:Distribution")]
     public partial class Distribution : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The distribution's identifier. For example: `E1U5RQF7T870K0` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("distributionConfig")]
         public Output<Outputs.DistributionConfig> DistributionConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 

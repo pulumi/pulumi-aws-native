@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetLoadBalancersConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Classic Load Balancers.
+        /// </summary>
         [Input("classicLoadBalancersConfig")]
         public Input<Inputs.SpotFleetClassicLoadBalancersConfigArgs>? ClassicLoadBalancersConfig { get; set; }
 
+        /// <summary>
+        /// The target groups.
+        /// </summary>
         [Input("targetGroupsConfig")]
         public Input<Inputs.SpotFleetTargetGroupsConfigArgs>? TargetGroupsConfig { get; set; }
 

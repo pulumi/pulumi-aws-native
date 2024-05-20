@@ -21,16 +21,27 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model group.
+        /// </summary>
         [Output("modelPackageGroupArn")]
         public Output<string> ModelPackageGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the model group.
+        /// </summary>
         [Output("modelPackageGroupDescription")]
         public Output<string?> ModelPackageGroupDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the model group.
+        /// </summary>
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         /// </summary>
         [Output("modelPackageGroupPolicy")]
@@ -98,13 +109,21 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ModelPackageGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description for the model group.
+        /// </summary>
         [Input("modelPackageGroupDescription")]
         public Input<string>? ModelPackageGroupDescription { get; set; }
 
+        /// <summary>
+        /// The name of the model group.
+        /// </summary>
         [Input("modelPackageGroupName")]
         public Input<string>? ModelPackageGroupName { get; set; }
 
         /// <summary>
+        /// A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         /// </summary>
         [Input("modelPackageGroupPolicy")]

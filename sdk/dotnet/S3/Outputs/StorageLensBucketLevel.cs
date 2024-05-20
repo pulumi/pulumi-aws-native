@@ -16,10 +16,25 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensBucketLevel
     {
+        /// <summary>
+        /// A property for bucket-level activity metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensActivityMetrics? ActivityMetrics;
+        /// <summary>
+        /// A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics;
+        /// <summary>
+        /// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
+        /// <summary>
+        /// A property for bucket-level detailed status code metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensDetailedStatusCodesMetrics? DetailedStatusCodesMetrics;
+        /// <summary>
+        /// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensPrefixLevel? PrefixLevel;
 
         [OutputConstructor]

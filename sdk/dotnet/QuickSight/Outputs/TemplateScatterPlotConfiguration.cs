@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateScatterPlotConfiguration
     {
+        /// <summary>
+        /// The options that determine if visual data labels are displayed.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.TemplateScatterPlotFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
+        /// <summary>
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? XAxisLabelOptions;
+        /// <summary>
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? YAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? YAxisLabelOptions;
 
         [OutputConstructor]

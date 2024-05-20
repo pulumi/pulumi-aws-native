@@ -33,11 +33,25 @@ class KeyspaceRegionListItem(str, Enum):
 
 
 class KeyspaceReplicationSpecificationReplicationStrategy(str, Enum):
+    """
+    The options are:
+
+    - `SINGLE_REGION` (optional)
+    - `MULTI_REGION`
+
+    If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
+    """
     SINGLE_REGION = "SINGLE_REGION"
     MULTI_REGION = "MULTI_REGION"
 
 
 class TableClusteringKeyColumnOrderBy(str, Enum):
+    """
+    The order in which this column's data is stored:
+
+    - `ASC` (default) - The column's data is stored in ascending order.
+    - `DESC` - The column's data is stored in descending order.
+    """
     ASC = "ASC"
     DESC = "DESC"
 

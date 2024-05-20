@@ -53,8 +53,17 @@ export class ReferenceStore extends pulumi.CustomResource {
      * A name for the store.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The store's ID.
+     */
     public /*out*/ readonly referenceStoreId!: pulumi.Output<string>;
+    /**
+     * Server-side encryption (SSE) settings for the store.
+     */
     public readonly sseConfig!: pulumi.Output<outputs.omics.ReferenceStoreSseConfig | undefined>;
+    /**
+     * Tags for the store.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -103,6 +112,12 @@ export interface ReferenceStoreArgs {
      * A name for the store.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Server-side encryption (SSE) settings for the store.
+     */
     sseConfig?: pulumi.Input<inputs.omics.ReferenceStoreSseConfigArgs>;
+    /**
+     * Tags for the store.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

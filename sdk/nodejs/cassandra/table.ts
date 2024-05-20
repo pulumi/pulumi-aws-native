@@ -513,7 +513,18 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
+    /**
+     * The optional auto scaling capacity settings for a table in provisioned capacity mode.
+     */
     public readonly autoScalingSpecifications!: pulumi.Output<outputs.cassandra.TableAutoScalingSpecification | undefined>;
+    /**
+     * The billing mode for the table, which determines how you'll be charged for reads and writes:
+     *
+     * - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+     * - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+     *
+     * If you don't specify a value for this property, then the table will use on-demand mode.
+     */
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -527,6 +538,16 @@ export class Table extends pulumi.CustomResource {
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
     public readonly defaultTimeToLive!: pulumi.Output<number | undefined>;
+    /**
+     * The encryption at rest options for the table.
+     *
+     * - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+     * - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+     *
+     * > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+     *
+     * For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
+     */
     public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
      * Name for Cassandra keyspace
@@ -544,6 +565,15 @@ export class Table extends pulumi.CustomResource {
      * Non-key columns of the table
      */
     public readonly regularColumns!: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
+    /**
+     * The AWS Region specific settings of a multi-Region table.
+     *
+     * For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+     *
+     * - `region` : The Region where these settings are applied. (Required)
+     * - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+     * - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+     */
     public readonly replicaSpecifications!: pulumi.Output<outputs.cassandra.TableReplicaSpecification[] | undefined>;
     /**
      * Name for Cassandra table
@@ -610,7 +640,18 @@ export class Table extends pulumi.CustomResource {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
+    /**
+     * The optional auto scaling capacity settings for a table in provisioned capacity mode.
+     */
     autoScalingSpecifications?: pulumi.Input<inputs.cassandra.TableAutoScalingSpecificationArgs>;
+    /**
+     * The billing mode for the table, which determines how you'll be charged for reads and writes:
+     *
+     * - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+     * - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+     *
+     * If you don't specify a value for this property, then the table will use on-demand mode.
+     */
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
     /**
      * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -624,6 +665,16 @@ export interface TableArgs {
      * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
      */
     defaultTimeToLive?: pulumi.Input<number>;
+    /**
+     * The encryption at rest options for the table.
+     *
+     * - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+     * - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+     *
+     * > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+     *
+     * For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
+     */
     encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
     /**
      * Name for Cassandra keyspace
@@ -641,6 +692,15 @@ export interface TableArgs {
      * Non-key columns of the table
      */
     regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
+    /**
+     * The AWS Region specific settings of a multi-Region table.
+     *
+     * For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
+     *
+     * - `region` : The Region where these settings are applied. (Required)
+     * - `readCapacityUnits` : The provisioned read capacity units. (Optional)
+     * - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
+     */
     replicaSpecifications?: pulumi.Input<pulumi.Input<inputs.cassandra.TableReplicaSpecificationArgs>[]>;
     /**
      * Name for Cassandra table

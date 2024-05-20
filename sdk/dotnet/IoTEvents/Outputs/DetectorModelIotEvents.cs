@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// The name of the AWS IoT Events input where the data is sent.
         /// </summary>
         public readonly string InputName;
+        /// <summary>
+        /// You can configure the action payload when you send a message to an AWS IoT Events input.
+        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
 
         [OutputConstructor]

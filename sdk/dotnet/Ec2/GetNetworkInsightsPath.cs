@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsPathArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         [Input("networkInsightsPathId", required: true)]
         public string NetworkInsightsPathId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsPathInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         [Input("networkInsightsPathId", required: true)]
         public Input<string> NetworkInsightsPathId { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkInsightsPathResult
     {
+        /// <summary>
+        /// The time stamp when the path was created.
+        /// </summary>
         public readonly string? CreatedDate;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the destination.
+        /// </summary>
         public readonly string? DestinationArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the path.
+        /// </summary>
         public readonly string? NetworkInsightsPathArn;
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         public readonly string? NetworkInsightsPathId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the source.
+        /// </summary>
         public readonly string? SourceArn;
+        /// <summary>
+        /// The tags to add to the path.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

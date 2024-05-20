@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaTailor
     [AwsNativeResourceType("aws-native:mediatailor:ChannelPolicy")]
     public partial class ChannelPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the channel associated with this Channel Policy.
+        /// </summary>
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
@@ -75,6 +78,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class ChannelPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the channel associated with this Channel Policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 

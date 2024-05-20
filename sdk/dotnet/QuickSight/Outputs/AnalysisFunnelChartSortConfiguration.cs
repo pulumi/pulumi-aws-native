@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFunnelChartSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of categories displayed.
+        /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> CategorySort;
 
         [OutputConstructor]

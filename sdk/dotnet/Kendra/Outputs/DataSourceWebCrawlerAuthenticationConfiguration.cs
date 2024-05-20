@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceWebCrawlerAuthenticationConfiguration
     {
+        /// <summary>
+        /// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials.
+        /// 
+        /// The list includes the name and port number of the website host.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceWebCrawlerBasicAuthentication> BasicAuthentication;
 
         [OutputConstructor]

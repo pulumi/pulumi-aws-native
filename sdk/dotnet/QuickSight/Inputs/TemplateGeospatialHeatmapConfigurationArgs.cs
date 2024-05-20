@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGeospatialHeatmapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color scale specification for the heatmap point style.
+        /// </summary>
         [Input("heatmapColor")]
         public Input<Inputs.TemplateGeospatialHeatmapColorScaleArgs>? HeatmapColor { get; set; }
 

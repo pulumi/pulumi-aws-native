@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardClusterMarkerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The simple cluster marker of the cluster marker.
+        /// </summary>
         [Input("simpleClusterMarker")]
         public Input<Inputs.DashboardSimpleClusterMarkerArgs>? SimpleClusterMarker { get; set; }
 

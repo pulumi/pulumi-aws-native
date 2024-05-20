@@ -16,7 +16,15 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class CrossAccountAttachmentResource
     {
+        /// <summary>
+        /// The endpoint ID for the endpoint that is specified as a AWS resource.
+        /// 
+        /// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
+        /// </summary>
         public readonly string EndpointId;
+        /// <summary>
+        /// The AWS Region where a shared endpoint resource is located.
+        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

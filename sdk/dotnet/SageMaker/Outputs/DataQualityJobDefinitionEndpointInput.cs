@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DataQualityJobDefinitionEndpointInput
     {
+        /// <summary>
+        /// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        /// </summary>
         public readonly string EndpointName;
         /// <summary>
         /// Indexes or names of the features to be excluded from analysis

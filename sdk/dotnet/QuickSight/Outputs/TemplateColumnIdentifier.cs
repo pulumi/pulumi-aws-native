@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateColumnIdentifier
     {
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
         public readonly string ColumnName;
+        /// <summary>
+        /// The data set that the column belongs to.
+        /// </summary>
         public readonly string DataSetIdentifier;
 
         [OutputConstructor]

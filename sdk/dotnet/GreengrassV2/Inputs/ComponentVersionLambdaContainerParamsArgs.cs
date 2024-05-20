@@ -14,20 +14,38 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     {
         [Input("devices")]
         private InputList<Inputs.ComponentVersionLambdaDeviceMountArgs>? _devices;
+
+        /// <summary>
+        /// The list of system devices that the container can access.
+        /// </summary>
         public InputList<Inputs.ComponentVersionLambdaDeviceMountArgs> Devices
         {
             get => _devices ?? (_devices = new InputList<Inputs.ComponentVersionLambdaDeviceMountArgs>());
             set => _devices = value;
         }
 
+        /// <summary>
+        /// The memory size of the container, expressed in kilobytes.
+        /// 
+        /// Default: `16384` (16 MB)
+        /// </summary>
         [Input("memorySizeInKb")]
         public Input<int>? MemorySizeInKb { get; set; }
 
+        /// <summary>
+        /// Whether or not the container can read information from the device's `/sys` folder.
+        /// 
+        /// Default: `false`
+        /// </summary>
         [Input("mountRoSysfs")]
         public Input<bool>? MountRoSysfs { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.ComponentVersionLambdaVolumeMountArgs>? _volumes;
+
+        /// <summary>
+        /// The list of volumes that the container can access.
+        /// </summary>
         public InputList<Inputs.ComponentVersionLambdaVolumeMountArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.ComponentVersionLambdaVolumeMountArgs>());

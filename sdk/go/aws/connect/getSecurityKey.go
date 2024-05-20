@@ -23,11 +23,18 @@ func LookupSecurityKey(ctx *pulumi.Context, args *LookupSecurityKeyArgs, opts ..
 }
 
 type LookupSecurityKeyArgs struct {
+	// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 	AssociationId string `pulumi:"associationId"`
-	InstanceId    string `pulumi:"instanceId"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId string `pulumi:"instanceId"`
 }
 
 type LookupSecurityKeyResult struct {
+	// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 	AssociationId *string `pulumi:"associationId"`
 }
 
@@ -45,8 +52,14 @@ func LookupSecurityKeyOutput(ctx *pulumi.Context, args LookupSecurityKeyOutputAr
 }
 
 type LookupSecurityKeyOutputArgs struct {
+	// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
-	InstanceId    pulumi.StringInput `pulumi:"instanceId"`
+	// The Amazon Resource Name (ARN) of the instance.
+	//
+	// *Minimum* : `1`
+	//
+	// *Maximum* : `100`
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 
 func (LookupSecurityKeyOutputArgs) ElementType() reflect.Type {
@@ -67,6 +80,7 @@ func (o LookupSecurityKeyResultOutput) ToLookupSecurityKeyResultOutputWithContex
 	return o
 }
 
+// An `AssociationId` is automatically generated when a storage config is associated with an instance.
 func (o LookupSecurityKeyResultOutput) AssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityKeyResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }

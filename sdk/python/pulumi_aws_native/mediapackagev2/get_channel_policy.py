@@ -27,6 +27,8 @@ class GetChannelPolicyResult:
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
+        The policy associated with the channel.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -46,6 +48,10 @@ def get_channel_policy(channel_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelPolicyResult:
     """
     <p>Represents a resource-based policy that allows or denies access to a channel.</p>
+
+
+    :param str channel_group_name: The name of the channel group associated with the channel policy.
+    :param str channel_name: The name of the channel associated with the channel policy.
     """
     __args__ = dict()
     __args__['channelGroupName'] = channel_group_name
@@ -63,5 +69,9 @@ def get_channel_policy_output(channel_group_name: Optional[pulumi.Input[str]] = 
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelPolicyResult]:
     """
     <p>Represents a resource-based policy that allows or denies access to a channel.</p>
+
+
+    :param str channel_group_name: The name of the channel group associated with the channel policy.
+    :param str channel_name: The name of the channel associated with the channel policy.
     """
     ...

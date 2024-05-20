@@ -17,19 +17,34 @@ import (
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput    `pulumi:"arn"`
-	Description           pulumi.StringPtrOutput `pulumi:"description"`
-	DownlinkBandwidthBits pulumi.IntPtrOutput    `pulumi:"downlinkBandwidthBits"`
-	DownlinkDelayMs       pulumi.IntPtrOutput    `pulumi:"downlinkDelayMs"`
-	DownlinkJitterMs      pulumi.IntPtrOutput    `pulumi:"downlinkJitterMs"`
-	DownlinkLossPercent   pulumi.IntPtrOutput    `pulumi:"downlinkLossPercent"`
-	Name                  pulumi.StringOutput    `pulumi:"name"`
-	ProjectArn            pulumi.StringOutput    `pulumi:"projectArn"`
-	Tags                  aws.TagArrayOutput     `pulumi:"tags"`
-	UplinkBandwidthBits   pulumi.IntPtrOutput    `pulumi:"uplinkBandwidthBits"`
-	UplinkDelayMs         pulumi.IntPtrOutput    `pulumi:"uplinkDelayMs"`
-	UplinkJitterMs        pulumi.IntPtrOutput    `pulumi:"uplinkJitterMs"`
-	UplinkLossPercent     pulumi.IntPtrOutput    `pulumi:"uplinkLossPercent"`
+	// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the network profile.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	DownlinkBandwidthBits pulumi.IntPtrOutput `pulumi:"downlinkBandwidthBits"`
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	DownlinkDelayMs pulumi.IntPtrOutput `pulumi:"downlinkDelayMs"`
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	DownlinkJitterMs pulumi.IntPtrOutput `pulumi:"downlinkJitterMs"`
+	// Proportion of received packets that fail to arrive from 0 to 100 percent.
+	DownlinkLossPercent pulumi.IntPtrOutput `pulumi:"downlinkLossPercent"`
+	// The name of the network profile.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the specified project.
+	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	UplinkBandwidthBits pulumi.IntPtrOutput `pulumi:"uplinkBandwidthBits"`
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	UplinkDelayMs pulumi.IntPtrOutput `pulumi:"uplinkDelayMs"`
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	UplinkJitterMs pulumi.IntPtrOutput `pulumi:"uplinkJitterMs"`
+	// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+	UplinkLossPercent pulumi.IntPtrOutput `pulumi:"uplinkLossPercent"`
 }
 
 // NewNetworkProfile registers a new resource with the given unique name, arguments, and options.
@@ -79,34 +94,62 @@ func (NetworkProfileState) ElementType() reflect.Type {
 }
 
 type networkProfileArgs struct {
-	Description           *string   `pulumi:"description"`
-	DownlinkBandwidthBits *int      `pulumi:"downlinkBandwidthBits"`
-	DownlinkDelayMs       *int      `pulumi:"downlinkDelayMs"`
-	DownlinkJitterMs      *int      `pulumi:"downlinkJitterMs"`
-	DownlinkLossPercent   *int      `pulumi:"downlinkLossPercent"`
-	Name                  *string   `pulumi:"name"`
-	ProjectArn            string    `pulumi:"projectArn"`
-	Tags                  []aws.Tag `pulumi:"tags"`
-	UplinkBandwidthBits   *int      `pulumi:"uplinkBandwidthBits"`
-	UplinkDelayMs         *int      `pulumi:"uplinkDelayMs"`
-	UplinkJitterMs        *int      `pulumi:"uplinkJitterMs"`
-	UplinkLossPercent     *int      `pulumi:"uplinkLossPercent"`
+	// The description of the network profile.
+	Description *string `pulumi:"description"`
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	DownlinkBandwidthBits *int `pulumi:"downlinkBandwidthBits"`
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	DownlinkDelayMs *int `pulumi:"downlinkDelayMs"`
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	DownlinkJitterMs *int `pulumi:"downlinkJitterMs"`
+	// Proportion of received packets that fail to arrive from 0 to 100 percent.
+	DownlinkLossPercent *int `pulumi:"downlinkLossPercent"`
+	// The name of the network profile.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the specified project.
+	ProjectArn string `pulumi:"projectArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags []aws.Tag `pulumi:"tags"`
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	UplinkBandwidthBits *int `pulumi:"uplinkBandwidthBits"`
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	UplinkDelayMs *int `pulumi:"uplinkDelayMs"`
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	UplinkJitterMs *int `pulumi:"uplinkJitterMs"`
+	// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+	UplinkLossPercent *int `pulumi:"uplinkLossPercent"`
 }
 
 // The set of arguments for constructing a NetworkProfile resource.
 type NetworkProfileArgs struct {
-	Description           pulumi.StringPtrInput
+	// The description of the network profile.
+	Description pulumi.StringPtrInput
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 	DownlinkBandwidthBits pulumi.IntPtrInput
-	DownlinkDelayMs       pulumi.IntPtrInput
-	DownlinkJitterMs      pulumi.IntPtrInput
-	DownlinkLossPercent   pulumi.IntPtrInput
-	Name                  pulumi.StringPtrInput
-	ProjectArn            pulumi.StringInput
-	Tags                  aws.TagArrayInput
-	UplinkBandwidthBits   pulumi.IntPtrInput
-	UplinkDelayMs         pulumi.IntPtrInput
-	UplinkJitterMs        pulumi.IntPtrInput
-	UplinkLossPercent     pulumi.IntPtrInput
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	DownlinkDelayMs pulumi.IntPtrInput
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	DownlinkJitterMs pulumi.IntPtrInput
+	// Proportion of received packets that fail to arrive from 0 to 100 percent.
+	DownlinkLossPercent pulumi.IntPtrInput
+	// The name of the network profile.
+	Name pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the specified project.
+	ProjectArn pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayInput
+	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
+	UplinkBandwidthBits pulumi.IntPtrInput
+	// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+	UplinkDelayMs pulumi.IntPtrInput
+	// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+	UplinkJitterMs pulumi.IntPtrInput
+	// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+	UplinkLossPercent pulumi.IntPtrInput
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
@@ -146,54 +189,69 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o NetworkProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the network profile.
 func (o NetworkProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 func (o NetworkProfileOutput) DownlinkBandwidthBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkBandwidthBits }).(pulumi.IntPtrOutput)
 }
 
+// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 func (o NetworkProfileOutput) DownlinkDelayMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkDelayMs }).(pulumi.IntPtrOutput)
 }
 
+// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 func (o NetworkProfileOutput) DownlinkJitterMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkJitterMs }).(pulumi.IntPtrOutput)
 }
 
+// Proportion of received packets that fail to arrive from 0 to 100 percent.
 func (o NetworkProfileOutput) DownlinkLossPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.DownlinkLossPercent }).(pulumi.IntPtrOutput)
 }
 
+// The name of the network profile.
 func (o NetworkProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the specified project.
 func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o NetworkProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 func (o NetworkProfileOutput) UplinkBandwidthBits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkBandwidthBits }).(pulumi.IntPtrOutput)
 }
 
+// Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 func (o NetworkProfileOutput) UplinkDelayMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkDelayMs }).(pulumi.IntPtrOutput)
 }
 
+// Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 func (o NetworkProfileOutput) UplinkJitterMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkJitterMs }).(pulumi.IntPtrOutput)
 }
 
+// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
 func (o NetworkProfileOutput) UplinkLossPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.IntPtrOutput { return v.UplinkLossPercent }).(pulumi.IntPtrOutput)
 }

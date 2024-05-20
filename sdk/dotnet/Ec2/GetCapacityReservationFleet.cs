@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCapacityReservationFleetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation Fleet.
+        /// </summary>
         [Input("capacityReservationFleetId", required: true)]
         public string CapacityReservationFleetId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCapacityReservationFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation Fleet.
+        /// </summary>
         [Input("capacityReservationFleetId", required: true)]
         public Input<string> CapacityReservationFleetId { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetCapacityReservationFleetResult
     {
+        /// <summary>
+        /// The ID of the Capacity Reservation Fleet.
+        /// </summary>
         public readonly string? CapacityReservationFleetId;
+        /// <summary>
+        /// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        /// </summary>
         public readonly bool? NoRemoveEndDate;
+        /// <summary>
+        /// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+        /// </summary>
         public readonly bool? RemoveEndDate;
+        /// <summary>
+        /// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+        /// </summary>
         public readonly int? TotalTargetCapacity;
 
         [OutputConstructor]

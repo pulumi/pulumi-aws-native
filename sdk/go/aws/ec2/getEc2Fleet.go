@@ -23,14 +23,21 @@ func LookupEc2Fleet(ctx *pulumi.Context, args *LookupEc2FleetArgs, opts ...pulum
 }
 
 type LookupEc2FleetArgs struct {
+	// The ID of the EC2 Fleet.
 	FleetId string `pulumi:"fleetId"`
 }
 
 type LookupEc2FleetResult struct {
-	Context                         *string                                     `pulumi:"context"`
-	ExcessCapacityTerminationPolicy *Ec2FleetExcessCapacityTerminationPolicy    `pulumi:"excessCapacityTerminationPolicy"`
-	FleetId                         *string                                     `pulumi:"fleetId"`
-	TargetCapacitySpecification     *Ec2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
+	// Reserved.
+	Context *string `pulumi:"context"`
+	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+	//
+	// Supported only for fleets of type `maintain` .
+	ExcessCapacityTerminationPolicy *Ec2FleetExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
+	// The ID of the EC2 Fleet.
+	FleetId *string `pulumi:"fleetId"`
+	// The number of units to request.
+	TargetCapacitySpecification *Ec2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
 }
 
 func LookupEc2FleetOutput(ctx *pulumi.Context, args LookupEc2FleetOutputArgs, opts ...pulumi.InvokeOption) LookupEc2FleetResultOutput {
@@ -47,6 +54,7 @@ func LookupEc2FleetOutput(ctx *pulumi.Context, args LookupEc2FleetOutputArgs, op
 }
 
 type LookupEc2FleetOutputArgs struct {
+	// The ID of the EC2 Fleet.
 	FleetId pulumi.StringInput `pulumi:"fleetId"`
 }
 
@@ -68,20 +76,26 @@ func (o LookupEc2FleetResultOutput) ToLookupEc2FleetResultOutputWithContext(ctx 
 	return o
 }
 
+// Reserved.
 func (o LookupEc2FleetResultOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEc2FleetResult) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+//
+// Supported only for fleets of type `maintain` .
 func (o LookupEc2FleetResultOutput) ExcessCapacityTerminationPolicy() Ec2FleetExcessCapacityTerminationPolicyPtrOutput {
 	return o.ApplyT(func(v LookupEc2FleetResult) *Ec2FleetExcessCapacityTerminationPolicy {
 		return v.ExcessCapacityTerminationPolicy
 	}).(Ec2FleetExcessCapacityTerminationPolicyPtrOutput)
 }
 
+// The ID of the EC2 Fleet.
 func (o LookupEc2FleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEc2FleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
+// The number of units to request.
 func (o LookupEc2FleetResultOutput) TargetCapacitySpecification() Ec2FleetTargetCapacitySpecificationRequestPtrOutput {
 	return o.ApplyT(func(v LookupEc2FleetResult) *Ec2FleetTargetCapacitySpecificationRequest {
 		return v.TargetCapacitySpecification

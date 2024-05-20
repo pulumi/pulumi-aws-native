@@ -13,8 +13,16 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupDataflowEndpoint
     {
+        /// <summary>
+        /// The address and port of an endpoint.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupSocketAddress? Address;
         public readonly int? Mtu;
+        /// <summary>
+        /// The endpoint name.
+        /// 
+        /// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

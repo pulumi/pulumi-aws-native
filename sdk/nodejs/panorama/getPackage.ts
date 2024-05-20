@@ -19,14 +19,32 @@ export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetPackageArgs {
+    /**
+     * The package's ID.
+     */
     packageId: string;
 }
 
 export interface GetPackageResult {
+    /**
+     * The package's ARN.
+     */
     readonly arn?: string;
+    /**
+     * When the package was created.
+     */
     readonly createdTime?: number;
+    /**
+     * The package's ID.
+     */
     readonly packageId?: string;
+    /**
+     * A storage location.
+     */
     readonly storageLocation?: outputs.panorama.PackageStorageLocation;
+    /**
+     * Tags for the package.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +55,8 @@ export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetPackageOutputArgs {
+    /**
+     * The package's ID.
+     */
     packageId: pulumi.Input<string>;
 }

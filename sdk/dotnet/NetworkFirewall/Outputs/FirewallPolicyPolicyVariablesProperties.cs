@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 {
 
+    /// <summary>
+    /// Contains variables that you can use to override default Suricata settings in your firewall policy.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyPolicyVariablesProperties
     {

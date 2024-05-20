@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTextControlPlaceholderOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visibility configuration of the placeholder options in a text control.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 

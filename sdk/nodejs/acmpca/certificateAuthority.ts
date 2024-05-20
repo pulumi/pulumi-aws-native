@@ -264,6 +264,9 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     public readonly subject!: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
+    /**
+     * Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of the certificate authority.
@@ -356,6 +359,9 @@ export interface CertificateAuthorityArgs {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     subject: pulumi.Input<inputs.acmpca.CertificateAuthoritySubjectArgs>;
+    /**
+     * Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of the certificate authority.

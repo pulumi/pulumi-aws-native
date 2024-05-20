@@ -43,12 +43,23 @@ export class LaunchTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === LaunchTemplate.__pulumiType;
     }
 
+    /**
+     * The default version of the launch template, such as 2.
+     *
+     * The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
+     */
     public /*out*/ readonly defaultVersionNumber!: pulumi.Output<string>;
+    /**
+     * The latest version of the launch template, such as `5` .
+     */
     public /*out*/ readonly latestVersionNumber!: pulumi.Output<string>;
     /**
      * The information for the launch template.
      */
     public readonly launchTemplateData!: pulumi.Output<outputs.ec2.LaunchTemplateData>;
+    /**
+     * The ID of the launch template.
+     */
     public /*out*/ readonly launchTemplateId!: pulumi.Output<string>;
     /**
      * A name for the launch template.

@@ -39,26 +39,41 @@ class GetBackupPlanResult:
     @property
     @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> Optional['outputs.BackupPlanResourceType']:
+        """
+        Uniquely identifies the backup plan to be associated with the selection of resources.
+        """
         return pulumi.get(self, "backup_plan")
 
     @property
     @pulumi.getter(name="backupPlanArn")
     def backup_plan_arn(self) -> Optional[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+        """
         return pulumi.get(self, "backup_plan_arn")
 
     @property
     @pulumi.getter(name="backupPlanId")
     def backup_plan_id(self) -> Optional[str]:
+        """
+        Uniquely identifies a backup plan.
+        """
         return pulumi.get(self, "backup_plan_id")
 
     @property
     @pulumi.getter(name="backupPlanTags")
     def backup_plan_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags to assign to the backup plan.
+        """
         return pulumi.get(self, "backup_plan_tags")
 
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[str]:
+        """
+        Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+        """
         return pulumi.get(self, "version_id")
 
 
@@ -79,6 +94,9 @@ def get_backup_plan(backup_plan_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPlanResult:
     """
     Resource Type definition for AWS::Backup::BackupPlan
+
+
+    :param str backup_plan_id: Uniquely identifies a backup plan.
     """
     __args__ = dict()
     __args__['backupPlanId'] = backup_plan_id
@@ -98,5 +116,8 @@ def get_backup_plan_output(backup_plan_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPlanResult]:
     """
     Resource Type definition for AWS::Backup::BackupPlan
+
+
+    :param str backup_plan_id: Uniquely identifies a backup plan.
     """
     ...

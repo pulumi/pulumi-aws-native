@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
     [OutputType]
     public sealed class DetectorRule
     {
+        /// <summary>
+        /// The rule ARN.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The time when the event type was created.
@@ -22,15 +25,35 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// The description.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The detector for which the rule is associated.
+        /// </summary>
         public readonly string? DetectorId;
+        /// <summary>
+        /// The rule expression. A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
+        /// </summary>
         public readonly string? Expression;
+        /// <summary>
+        /// The rule language.
+        /// 
+        /// Valid Value: DETECTORPL
+        /// </summary>
         public readonly Pulumi.AwsNative.FraudDetector.DetectorRuleLanguage? Language;
         /// <summary>
         /// The time when the event type was last updated.
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// The rule outcome.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorOutcome> Outcomes;
+        /// <summary>
+        /// The rule ID.
+        /// </summary>
         public readonly string? RuleId;
+        /// <summary>
+        /// The rule version.
+        /// </summary>
         public readonly string? RuleVersion;
         /// <summary>
         /// Tags associated with this event type.

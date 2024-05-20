@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePieChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The limit on the number of categories that are displayed in a pie chart.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The limit on the number of small multiples panels that are displayed.
+        /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }
 
         [Input("smallMultiplesSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _smallMultiplesSort;
+
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> SmallMultiplesSort
         {
             get => _smallMultiplesSort ?? (_smallMultiplesSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());

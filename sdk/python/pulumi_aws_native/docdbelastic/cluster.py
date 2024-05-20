@@ -32,6 +32,52 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+        :param pulumi.Input[str] admin_user_name: The name of the Amazon DocumentDB elastic clusters administrator.
+               
+               *Constraints* :
+               
+               - Must be from 1 to 63 letters or numbers.
+               - The first character must be a letter.
+               - Cannot be a reserved word.
+        :param pulumi.Input[str] auth_type: The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+        :param pulumi.Input[int] shard_capacity: The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+        :param pulumi.Input[int] shard_count: The number of shards assigned to the elastic cluster. Maximum is 32.
+        :param pulumi.Input[str] admin_user_password: The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+               
+               *Constraints* :
+               
+               - Must contain from 8 to 100 characters.
+               - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+               - A valid `AdminUserName` entry is also required.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automatic snapshots are retained.
+        :param pulumi.Input[str] cluster_name: The name of the new elastic cluster. This parameter is stored as a lowercase string.
+               
+               *Constraints* :
+               
+               - Must contain from 1 to 63 letters, numbers, or hyphens.
+               - The first character must be a letter.
+               - Cannot end with a hyphen or contain two consecutive hyphens.
+               
+               *Example* : `my-cluster`
+        :param pulumi.Input[str] kms_key_id: The KMS key identifier to use to encrypt the new elastic cluster.
+               
+               The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+               
+               If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+               
+               *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+               
+               *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+               
+               *Constraints* : Minimum 30-minute window.
+        :param pulumi.Input[int] shard_instance_count: The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The Amazon EC2 subnet IDs for the new elastic cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to be assigned to the new elastic cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with the new elastic cluster.
         """
         pulumi.set(__self__, "admin_user_name", admin_user_name)
         pulumi.set(__self__, "auth_type", auth_type)
@@ -61,6 +107,15 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon DocumentDB elastic clusters administrator.
+
+        *Constraints* :
+
+        - Must be from 1 to 63 letters or numbers.
+        - The first character must be a letter.
+        - Cannot be a reserved word.
+        """
         return pulumi.get(self, "admin_user_name")
 
     @admin_user_name.setter
@@ -70,6 +125,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Input[str]:
+        """
+        The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+        """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
@@ -79,6 +137,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> pulumi.Input[int]:
+        """
+        The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+        """
         return pulumi.get(self, "shard_capacity")
 
     @shard_capacity.setter
@@ -88,6 +149,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Input[int]:
+        """
+        The number of shards assigned to the elastic cluster. Maximum is 32.
+        """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
@@ -97,6 +161,15 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+
+        *Constraints* :
+
+        - Must contain from 8 to 100 characters.
+        - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+        - A valid `AdminUserName` entry is also required.
+        """
         return pulumi.get(self, "admin_user_password")
 
     @admin_user_password.setter
@@ -106,6 +179,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days for which automatic snapshots are retained.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
@@ -115,6 +191,17 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the new elastic cluster. This parameter is stored as a lowercase string.
+
+        *Constraints* :
+
+        - Must contain from 1 to 63 letters, numbers, or hyphens.
+        - The first character must be a letter.
+        - Cannot end with a hyphen or contain two consecutive hyphens.
+
+        *Example* : `my-cluster`
+        """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
@@ -124,6 +211,13 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key identifier to use to encrypt the new elastic cluster.
+
+        The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+
+        If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -133,6 +227,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
@@ -142,6 +239,17 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+
+        *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+
+        *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+
+        *Constraints* : Minimum 30-minute window.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -151,6 +259,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="shardInstanceCount")
     def shard_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+        """
         return pulumi.get(self, "shard_instance_count")
 
     @shard_instance_count.setter
@@ -160,6 +271,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon EC2 subnet IDs for the new elastic cluster.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -169,6 +283,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to be assigned to the new elastic cluster.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -178,6 +295,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of EC2 VPC security groups to associate with the new elastic cluster.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
@@ -210,6 +330,52 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_user_name: The name of the Amazon DocumentDB elastic clusters administrator.
+               
+               *Constraints* :
+               
+               - Must be from 1 to 63 letters or numbers.
+               - The first character must be a letter.
+               - Cannot be a reserved word.
+        :param pulumi.Input[str] admin_user_password: The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+               
+               *Constraints* :
+               
+               - Must contain from 8 to 100 characters.
+               - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+               - A valid `AdminUserName` entry is also required.
+        :param pulumi.Input[str] auth_type: The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automatic snapshots are retained.
+        :param pulumi.Input[str] cluster_name: The name of the new elastic cluster. This parameter is stored as a lowercase string.
+               
+               *Constraints* :
+               
+               - Must contain from 1 to 63 letters, numbers, or hyphens.
+               - The first character must be a letter.
+               - Cannot end with a hyphen or contain two consecutive hyphens.
+               
+               *Example* : `my-cluster`
+        :param pulumi.Input[str] kms_key_id: The KMS key identifier to use to encrypt the new elastic cluster.
+               
+               The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+               
+               If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+               
+               *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+               
+               *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+               
+               *Constraints* : Minimum 30-minute window.
+        :param pulumi.Input[int] shard_capacity: The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+        :param pulumi.Input[int] shard_count: The number of shards assigned to the elastic cluster. Maximum is 32.
+        :param pulumi.Input[int] shard_instance_count: The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The Amazon EC2 subnet IDs for the new elastic cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to be assigned to the new elastic cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with the new elastic cluster.
         """
         ...
     @overload
@@ -327,21 +493,45 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="adminUserName")
     def admin_user_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon DocumentDB elastic clusters administrator.
+
+        *Constraints* :
+
+        - Must be from 1 to 63 letters or numbers.
+        - The first character must be a letter.
+        - Cannot be a reserved word.
+        """
         return pulumi.get(self, "admin_user_name")
 
     @property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.
+
+        *Constraints* :
+
+        - Must contain from 8 to 100 characters.
+        - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
+        - A valid `AdminUserName` entry is also required.
+        """
         return pulumi.get(self, "admin_user_password")
 
     @property
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[str]:
+        """
+        The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
+        """
         return pulumi.get(self, "auth_type")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of days for which automatic snapshots are retained.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
@@ -352,55 +542,108 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> pulumi.Output[str]:
+        """
+        The URL used to connect to the elastic cluster.
+        """
         return pulumi.get(self, "cluster_endpoint")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
+        """
+        The name of the new elastic cluster. This parameter is stored as a lowercase string.
+
+        *Constraints* :
+
+        - Must contain from 1 to 63 letters, numbers, or hyphens.
+        - The first character must be a letter.
+        - Cannot end with a hyphen or contain two consecutive hyphens.
+
+        *Example* : `my-cluster`
+        """
         return pulumi.get(self, "cluster_name")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The KMS key identifier to use to encrypt the new elastic cluster.
+
+        The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.
+
+        If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+
+        *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+
+        *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+
+        *Constraints* : Minimum 30-minute window.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> pulumi.Output[int]:
+        """
+        The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+        """
         return pulumi.get(self, "shard_capacity")
 
     @property
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Output[int]:
+        """
+        The number of shards assigned to the elastic cluster. Maximum is 32.
+        """
         return pulumi.get(self, "shard_count")
 
     @property
     @pulumi.getter(name="shardInstanceCount")
     def shard_instance_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+        """
         return pulumi.get(self, "shard_instance_count")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Amazon EC2 subnet IDs for the new elastic cluster.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to be assigned to the new elastic cluster.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of EC2 VPC security groups to associate with the new elastic cluster.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 

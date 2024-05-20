@@ -155,8 +155,9 @@ type BridgeFailoverConfig struct {
 	// The type of failover you choose for this flow. FAILOVER allows switching between different streams.
 	FailoverMode BridgeFailoverModeEnum `pulumi:"failoverMode"`
 	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-	SourcePriority *BridgeSourcePriority          `pulumi:"sourcePriority"`
-	State          *BridgeFailoverConfigStateEnum `pulumi:"state"`
+	SourcePriority *BridgeSourcePriority `pulumi:"sourcePriority"`
+	// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+	State *BridgeFailoverConfigStateEnum `pulumi:"state"`
 }
 
 // BridgeFailoverConfigInput is an input type that accepts BridgeFailoverConfigArgs and BridgeFailoverConfigOutput values.
@@ -175,8 +176,9 @@ type BridgeFailoverConfigArgs struct {
 	// The type of failover you choose for this flow. FAILOVER allows switching between different streams.
 	FailoverMode BridgeFailoverModeEnumInput `pulumi:"failoverMode"`
 	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-	SourcePriority BridgeSourcePriorityPtrInput          `pulumi:"sourcePriority"`
-	State          BridgeFailoverConfigStateEnumPtrInput `pulumi:"state"`
+	SourcePriority BridgeSourcePriorityPtrInput `pulumi:"sourcePriority"`
+	// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+	State BridgeFailoverConfigStateEnumPtrInput `pulumi:"state"`
 }
 
 func (BridgeFailoverConfigArgs) ElementType() reflect.Type {
@@ -267,6 +269,7 @@ func (o BridgeFailoverConfigOutput) SourcePriority() BridgeSourcePriorityPtrOutp
 	return o.ApplyT(func(v BridgeFailoverConfig) *BridgeSourcePriority { return v.SourcePriority }).(BridgeSourcePriorityPtrOutput)
 }
 
+// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
 func (o BridgeFailoverConfigOutput) State() BridgeFailoverConfigStateEnumPtrOutput {
 	return o.ApplyT(func(v BridgeFailoverConfig) *BridgeFailoverConfigStateEnum { return v.State }).(BridgeFailoverConfigStateEnumPtrOutput)
 }
@@ -315,6 +318,7 @@ func (o BridgeFailoverConfigPtrOutput) SourcePriority() BridgeSourcePriorityPtrO
 	}).(BridgeSourcePriorityPtrOutput)
 }
 
+// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
 func (o BridgeFailoverConfigPtrOutput) State() BridgeFailoverConfigStateEnumPtrOutput {
 	return o.ApplyT(func(v *BridgeFailoverConfig) *BridgeFailoverConfigStateEnum {
 		if v == nil {
@@ -1111,6 +1115,7 @@ func (o BridgeNetworkSourcePtrOutput) Protocol() BridgeProtocolEnumPtrOutput {
 
 // The output of the bridge.
 type BridgeOutputType struct {
+	// The output of the bridge. A network output is delivered to your premises.
 	NetworkOutput *BridgeNetworkOutput `pulumi:"networkOutput"`
 }
 
@@ -1127,6 +1132,7 @@ type BridgeOutputTypeInput interface {
 
 // The output of the bridge.
 type BridgeOutputTypeArgs struct {
+	// The output of the bridge. A network output is delivered to your premises.
 	NetworkOutput BridgeNetworkOutputPtrInput `pulumi:"networkOutput"`
 }
 
@@ -1182,6 +1188,7 @@ func (o BridgeOutputTypeOutput) ToBridgeOutputTypeOutputWithContext(ctx context.
 	return o
 }
 
+// The output of the bridge. A network output is delivered to your premises.
 func (o BridgeOutputTypeOutput) NetworkOutput() BridgeNetworkOutputPtrOutput {
 	return o.ApplyT(func(v BridgeOutputType) *BridgeNetworkOutput { return v.NetworkOutput }).(BridgeNetworkOutputPtrOutput)
 }
@@ -1375,7 +1382,9 @@ func (o BridgeOutputResourceBridgeNetworkOutputPtrOutput) Ttl() pulumi.IntPtrOut
 
 // The bridge's source.
 type BridgeSourceType struct {
-	FlowSource    *BridgeFlowSource    `pulumi:"flowSource"`
+	// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+	FlowSource *BridgeFlowSource `pulumi:"flowSource"`
+	// The source of the bridge. A network source originates at your premises.
 	NetworkSource *BridgeNetworkSource `pulumi:"networkSource"`
 }
 
@@ -1392,7 +1401,9 @@ type BridgeSourceTypeInput interface {
 
 // The bridge's source.
 type BridgeSourceTypeArgs struct {
-	FlowSource    BridgeFlowSourcePtrInput    `pulumi:"flowSource"`
+	// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+	FlowSource BridgeFlowSourcePtrInput `pulumi:"flowSource"`
+	// The source of the bridge. A network source originates at your premises.
 	NetworkSource BridgeNetworkSourcePtrInput `pulumi:"networkSource"`
 }
 
@@ -1448,10 +1459,12 @@ func (o BridgeSourceTypeOutput) ToBridgeSourceTypeOutputWithContext(ctx context.
 	return o
 }
 
+// The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 func (o BridgeSourceTypeOutput) FlowSource() BridgeFlowSourcePtrOutput {
 	return o.ApplyT(func(v BridgeSourceType) *BridgeFlowSource { return v.FlowSource }).(BridgeFlowSourcePtrOutput)
 }
 
+// The source of the bridge. A network source originates at your premises.
 func (o BridgeSourceTypeOutput) NetworkSource() BridgeNetworkSourcePtrOutput {
 	return o.ApplyT(func(v BridgeSourceType) *BridgeNetworkSource { return v.NetworkSource }).(BridgeNetworkSourcePtrOutput)
 }
@@ -2846,7 +2859,8 @@ type FlowFailoverConfig struct {
 	RecoveryWindow *int `pulumi:"recoveryWindow"`
 	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
 	SourcePriority *FlowFailoverConfigSourcePriorityProperties `pulumi:"sourcePriority"`
-	State          *FlowFailoverConfigState                    `pulumi:"state"`
+	// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+	State *FlowFailoverConfigState `pulumi:"state"`
 }
 
 // FlowFailoverConfigInput is an input type that accepts FlowFailoverConfigArgs and FlowFailoverConfigOutput values.
@@ -2868,7 +2882,8 @@ type FlowFailoverConfigArgs struct {
 	RecoveryWindow pulumi.IntPtrInput `pulumi:"recoveryWindow"`
 	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
 	SourcePriority FlowFailoverConfigSourcePriorityPropertiesPtrInput `pulumi:"sourcePriority"`
-	State          FlowFailoverConfigStatePtrInput                    `pulumi:"state"`
+	// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+	State FlowFailoverConfigStatePtrInput `pulumi:"state"`
 }
 
 func (FlowFailoverConfigArgs) ElementType() reflect.Type {
@@ -2964,6 +2979,7 @@ func (o FlowFailoverConfigOutput) SourcePriority() FlowFailoverConfigSourcePrior
 	return o.ApplyT(func(v FlowFailoverConfig) *FlowFailoverConfigSourcePriorityProperties { return v.SourcePriority }).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
 }
 
+// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
 func (o FlowFailoverConfigOutput) State() FlowFailoverConfigStatePtrOutput {
 	return o.ApplyT(func(v FlowFailoverConfig) *FlowFailoverConfigState { return v.State }).(FlowFailoverConfigStatePtrOutput)
 }
@@ -3022,6 +3038,7 @@ func (o FlowFailoverConfigPtrOutput) SourcePriority() FlowFailoverConfigSourcePr
 	}).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
 }
 
+// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
 func (o FlowFailoverConfigPtrOutput) State() FlowFailoverConfigStatePtrOutput {
 	return o.ApplyT(func(v *FlowFailoverConfig) *FlowFailoverConfigState {
 		if v == nil {

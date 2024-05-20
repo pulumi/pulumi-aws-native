@@ -137,6 +137,9 @@ class ClientCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the client certificate. For example: `abc123` .
+        """
         return pulumi.get(self, "client_certificate_id")
 
     @property

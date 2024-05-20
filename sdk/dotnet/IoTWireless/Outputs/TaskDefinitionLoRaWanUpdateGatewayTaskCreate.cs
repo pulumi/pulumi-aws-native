@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class TaskDefinitionLoRaWanUpdateGatewayTaskCreate
     {
+        /// <summary>
+        /// The version of the gateways that should receive the update.
+        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWanGatewayVersion? CurrentVersion;
+        /// <summary>
+        /// The CRC of the signature private key to check.
+        /// </summary>
         public readonly int? SigKeyCrc;
+        /// <summary>
+        /// The signature used to verify the update firmware.
+        /// </summary>
         public readonly string? UpdateSignature;
+        /// <summary>
+        /// The firmware version to update the gateway to.
+        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWanGatewayVersion? UpdateVersion;
 
         [OutputConstructor]

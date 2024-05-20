@@ -32,11 +32,14 @@ class TaskTemplateArgs:
         """
         The set of arguments for constructing a TaskTemplate resource.
         :param pulumi.Input[str] instance_arn: The identifier (arn) of the instance.
+        :param pulumi.Input[str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input['ConstraintsPropertiesArgs'] constraints: The constraints for the task template
         :param pulumi.Input[str] contact_flow_arn: The identifier of the contact flow.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateFieldArgs']]] fields: The list of task template's fields
         :param pulumi.Input[str] name: The name of the task template.
+        :param pulumi.Input['TaskTemplateStatus'] status: The status of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -74,6 +77,9 @@ class TaskTemplateArgs:
     @property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+        """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
@@ -107,6 +113,9 @@ class TaskTemplateArgs:
     @property
     @pulumi.getter
     def defaults(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]]]:
+        """
+        The default values for fields when a task is created by referencing this template.
+        """
         return pulumi.get(self, "defaults")
 
     @defaults.setter
@@ -152,6 +161,9 @@ class TaskTemplateArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['TaskTemplateStatus']]:
+        """
+        The status of the task template.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -192,12 +204,15 @@ class TaskTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input[pulumi.InputType['ConstraintsPropertiesArgs']] constraints: The constraints for the task template
         :param pulumi.Input[str] contact_flow_arn: The identifier of the contact flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateDefaultFieldValueArgs']]]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateFieldArgs']]]] fields: The list of task template's fields
         :param pulumi.Input[str] instance_arn: The identifier (arn) of the instance.
         :param pulumi.Input[str] name: The name of the task template.
+        :param pulumi.Input['TaskTemplateStatus'] status: The status of the task template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         """
         ...
@@ -302,6 +317,9 @@ class TaskTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+        """
         return pulumi.get(self, "client_token")
 
     @property
@@ -323,6 +341,9 @@ class TaskTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def defaults(self) -> pulumi.Output[Optional[Sequence['outputs.TaskTemplateDefaultFieldValue']]]:
+        """
+        The default values for fields when a task is created by referencing this template.
+        """
         return pulumi.get(self, "defaults")
 
     @property
@@ -360,6 +381,9 @@ class TaskTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['TaskTemplateStatus']]:
+        """
+        The status of the task template.
+        """
         return pulumi.get(self, "status")
 
     @property

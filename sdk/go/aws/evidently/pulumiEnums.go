@@ -10,6 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `INCREASE` means that a variation with a higher number for this metric is performing better.
+//
+// `DECREASE` means that a variation with a lower number for this metric is performing better.
 type ExperimentMetricGoalObjectDesiredChange string
 
 const (
@@ -175,6 +178,7 @@ func (in *experimentMetricGoalObjectDesiredChangePtr) ToExperimentMetricGoalObje
 	return pulumi.ToOutputWithContext(ctx, in).(ExperimentMetricGoalObjectDesiredChangePtrOutput)
 }
 
+// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 type FeatureEvaluationStrategy string
 
 const (

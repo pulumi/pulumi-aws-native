@@ -13,13 +13,25 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowCustomConnectorDestinationProperties
     {
+        /// <summary>
+        /// The custom properties that are specific to the connector when it's used as a destination in the flow.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
+        /// <summary>
+        /// The entity specified in the custom connector as a destination in the flow.
+        /// </summary>
         public readonly string EntityName;
+        /// <summary>
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
+        /// </summary>
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
         /// List of fields used as ID when performing a write operation.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
+        /// <summary>
+        /// Specifies the type of write operation to be performed in the custom connector when it's used as destination.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowWriteOperationType? WriteOperationType;
 
         [OutputConstructor]

@@ -73,21 +73,33 @@ class GetTaskResult:
     @property
     @pulumi.getter(name="destinationNetworkInterfaceArns")
     def destination_network_interface_arns(self) -> Optional[Sequence[str]]:
+        """
+        The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
+        """
         return pulumi.get(self, "destination_network_interface_arns")
 
     @property
     @pulumi.getter
     def excludes(self) -> Optional[Sequence['outputs.TaskFilterRule']]:
+        """
+        Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional[Sequence['outputs.TaskFilterRule']]:
+        """
+        Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        """
         return pulumi.get(self, "includes")
 
     @property
     @pulumi.getter(name="manifestConfig")
     def manifest_config(self) -> Optional['outputs.TaskManifestConfig']:
+        """
+        The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        """
         return pulumi.get(self, "manifest_config")
 
     @property
@@ -101,16 +113,25 @@ class GetTaskResult:
     @property
     @pulumi.getter
     def options(self) -> Optional['outputs.TaskOptions']:
+        """
+        Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        """
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
     def schedule(self) -> Optional['outputs.TaskSchedule']:
+        """
+        Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="sourceNetworkInterfaceArns")
     def source_network_interface_arns(self) -> Optional[Sequence[str]]:
+        """
+        The ARNs of the source ENIs that were created for your subnet.
+        """
         return pulumi.get(self, "source_network_interface_arns")
 
     @property
@@ -140,6 +161,11 @@ class GetTaskResult:
     @property
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> Optional['outputs.TaskReportConfig']:
+        """
+        Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+
+        When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        """
         return pulumi.get(self, "task_report_config")
 
 

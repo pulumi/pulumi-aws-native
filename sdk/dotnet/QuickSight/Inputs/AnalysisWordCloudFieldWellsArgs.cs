@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisWordCloudFieldWellsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregated field wells of a word cloud.
+        /// </summary>
         [Input("wordCloudAggregatedFieldWells")]
         public Input<Inputs.AnalysisWordCloudAggregatedFieldWellsArgs>? WordCloudAggregatedFieldWells { get; set; }
 

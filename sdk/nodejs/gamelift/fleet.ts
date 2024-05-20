@@ -57,6 +57,13 @@ export class Fleet extends pulumi.CustomResource {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     public readonly computeType!: pulumi.Output<enums.gamelift.FleetComputeType | undefined>;
+    /**
+     * *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+     *
+     * *Used with:* `CreateFleet`
+     */
     public readonly containerGroupsConfiguration!: pulumi.Output<outputs.gamelift.FleetContainerGroupsConfiguration | undefined>;
     /**
      * A human-readable description of a fleet.
@@ -90,6 +97,11 @@ export class Fleet extends pulumi.CustomResource {
      * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
      */
     public readonly instanceRoleCredentialsProvider!: pulumi.Output<enums.gamelift.FleetInstanceRoleCredentialsProvider | undefined>;
+    /**
+     * A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
+     *
+     * When using this parameter, Amazon GameLift requires you to include your home location in the request.
+     */
     public readonly locations!: pulumi.Output<outputs.gamelift.FleetLocationConfiguration[] | undefined>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
@@ -254,6 +266,13 @@ export interface FleetArgs {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     computeType?: pulumi.Input<enums.gamelift.FleetComputeType>;
+    /**
+     * *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
+     *
+     * Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
+     *
+     * *Used with:* `CreateFleet`
+     */
     containerGroupsConfiguration?: pulumi.Input<inputs.gamelift.FleetContainerGroupsConfigurationArgs>;
     /**
      * A human-readable description of a fleet.
@@ -283,6 +302,11 @@ export interface FleetArgs {
      * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
      */
     instanceRoleCredentialsProvider?: pulumi.Input<enums.gamelift.FleetInstanceRoleCredentialsProvider>;
+    /**
+     * A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
+     *
+     * When using this parameter, Amazon GameLift requires you to include your home location in the request.
+     */
     locations?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetLocationConfigurationArgs>[]>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()

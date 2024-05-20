@@ -13,14 +13,41 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentActionParameters
     {
+        /// <summary>
+        /// The HTML anchor link to the location to open. Specify this value for a navigation action.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Anchor;
+        /// <summary>
+        /// A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentProperty>? Fields;
+        /// <summary>
+        /// Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Global;
+        /// <summary>
+        /// The unique ID of the component that the `ActionParameters` apply to.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Id;
+        /// <summary>
+        /// The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+        /// </summary>
         public readonly string? Model;
+        /// <summary>
+        /// A key-value pair that specifies the state property name and its initial value.
+        /// </summary>
         public readonly Outputs.ComponentMutationActionSetStateParameter? State;
+        /// <summary>
+        /// The element within the same component to modify when the action occurs.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Target;
+        /// <summary>
+        /// The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Type;
+        /// <summary>
+        /// The URL to the location to open. Specify this value for a navigation action.
+        /// </summary>
         public readonly Outputs.ComponentProperty? Url;
 
         [OutputConstructor]

@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// The domain name.
         /// </summary>
         public readonly string? DomainId;
+        /// <summary>
+        /// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        /// </summary>
         public readonly Outputs.DomainSettings? DomainSettings;
         /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.

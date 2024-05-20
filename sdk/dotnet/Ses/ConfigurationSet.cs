@@ -185,6 +185,9 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:ConfigurationSet")]
     public partial class ConfigurationSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        /// </summary>
         [Output("deliveryOptions")]
         public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
 
@@ -194,18 +197,33 @@ namespace Pulumi.AwsNative.Ses
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that represents the reputation settings for the configuration set.
+        /// </summary>
         [Output("reputationOptions")]
         public Output<Outputs.ConfigurationSetReputationOptions?> ReputationOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        /// </summary>
         [Output("sendingOptions")]
         public Output<Outputs.ConfigurationSetSendingOptions?> SendingOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that contains information about the suppression list preferences for your account.
+        /// </summary>
         [Output("suppressionOptions")]
         public Output<Outputs.ConfigurationSetSuppressionOptions?> SuppressionOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the custom open and click tracking domain associated with the configuration set.
+        /// </summary>
         [Output("trackingOptions")]
         public Output<Outputs.ConfigurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+        /// </summary>
         [Output("vdmOptions")]
         public Output<Outputs.ConfigurationSetVdmOptions?> VdmOptions { get; private set; } = null!;
 
@@ -258,6 +276,9 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class ConfigurationSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        /// </summary>
         [Input("deliveryOptions")]
         public Input<Inputs.ConfigurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
 
@@ -267,18 +288,33 @@ namespace Pulumi.AwsNative.Ses
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An object that represents the reputation settings for the configuration set.
+        /// </summary>
         [Input("reputationOptions")]
         public Input<Inputs.ConfigurationSetReputationOptionsArgs>? ReputationOptions { get; set; }
 
+        /// <summary>
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        /// </summary>
         [Input("sendingOptions")]
         public Input<Inputs.ConfigurationSetSendingOptionsArgs>? SendingOptions { get; set; }
 
+        /// <summary>
+        /// An object that contains information about the suppression list preferences for your account.
+        /// </summary>
         [Input("suppressionOptions")]
         public Input<Inputs.ConfigurationSetSuppressionOptionsArgs>? SuppressionOptions { get; set; }
 
+        /// <summary>
+        /// The name of the custom open and click tracking domain associated with the configuration set.
+        /// </summary>
         [Input("trackingOptions")]
         public Input<Inputs.ConfigurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
 
+        /// <summary>
+        /// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+        /// </summary>
         [Input("vdmOptions")]
         public Input<Inputs.ConfigurationSetVdmOptionsArgs>? VdmOptions { get; set; }
 

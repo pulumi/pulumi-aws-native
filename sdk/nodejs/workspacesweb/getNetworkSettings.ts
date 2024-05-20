@@ -19,15 +19,42 @@ export function getNetworkSettings(args: GetNetworkSettingsArgs, opts?: pulumi.I
 }
 
 export interface GetNetworkSettingsArgs {
+    /**
+     * The ARN of the network settings.
+     */
     networkSettingsArn: string;
 }
 
 export interface GetNetworkSettingsResult {
+    /**
+     * A list of web portal ARNs that this network settings is associated with.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * The ARN of the network settings.
+     */
     readonly networkSettingsArn?: string;
+    /**
+     * One or more security groups used to control access from streaming instances to your VPC.
+     *
+     * *Pattern* : `^[\w+\-]+$`
+     */
     readonly securityGroupIds?: string[];
+    /**
+     * The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
+     *
+     * *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
+     */
     readonly subnetIds?: string[];
+    /**
+     * The tags to add to the network settings resource. A tag is a key-value pair.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The VPC that streaming instances will connect to.
+     *
+     * *Pattern* : `^vpc-[0-9a-z]*$`
+     */
     readonly vpcId?: string;
 }
 /**
@@ -38,5 +65,8 @@ export function getNetworkSettingsOutput(args: GetNetworkSettingsOutputArgs, opt
 }
 
 export interface GetNetworkSettingsOutputArgs {
+    /**
+     * The ARN of the network settings.
+     */
     networkSettingsArn: pulumi.Input<string>;
 }

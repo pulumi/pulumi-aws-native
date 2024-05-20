@@ -59,12 +59,21 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:CloudFrontOriginAccessIdentity")]
     public partial class CloudFrontOriginAccessIdentity : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The current configuration information for the identity.
+        /// </summary>
         [Output("cloudFrontOriginAccessIdentityConfig")]
         public Output<Outputs.CloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
+        /// </summary>
         [Output("s3CanonicalUserId")]
         public Output<string> S3CanonicalUserId { get; private set; } = null!;
 
@@ -113,6 +122,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class CloudFrontOriginAccessIdentityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The current configuration information for the identity.
+        /// </summary>
         [Input("cloudFrontOriginAccessIdentityConfig", required: true)]
         public Input<Inputs.CloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;
 

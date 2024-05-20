@@ -17,17 +17,28 @@ import (
 type Retriever struct {
 	pulumi.CustomResourceState
 
-	ApplicationId pulumi.StringOutput    `pulumi:"applicationId"`
-	Configuration pulumi.AnyOutput       `pulumi:"configuration"`
-	CreatedAt     pulumi.StringOutput    `pulumi:"createdAt"`
-	DisplayName   pulumi.StringOutput    `pulumi:"displayName"`
-	RetrieverArn  pulumi.StringOutput    `pulumi:"retrieverArn"`
-	RetrieverId   pulumi.StringOutput    `pulumi:"retrieverId"`
-	RoleArn       pulumi.StringPtrOutput `pulumi:"roleArn"`
-	Status        RetrieverStatusOutput  `pulumi:"status"`
-	Tags          aws.TagArrayOutput     `pulumi:"tags"`
-	Type          RetrieverTypeOutput    `pulumi:"type"`
-	UpdatedAt     pulumi.StringOutput    `pulumi:"updatedAt"`
+	// The identifier of the Amazon Q Business application using the retriever.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Provides information on how the retriever used for your Amazon Q Business application is configured.
+	Configuration pulumi.AnyOutput `pulumi:"configuration"`
+	// The Unix timestamp when the retriever was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The name of your retriever.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
+	RetrieverArn pulumi.StringOutput `pulumi:"retrieverArn"`
+	// The identifier of the retriever used by your Amazon Q Business application.
+	RetrieverId pulumi.StringOutput `pulumi:"retrieverId"`
+	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The status of your retriever.
+	Status RetrieverStatusOutput `pulumi:"status"`
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of your retriever.
+	Type RetrieverTypeOutput `pulumi:"type"`
+	// The Unix timestamp when the retriever was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewRetriever registers a new resource with the given unique name, arguments, and options.
@@ -87,22 +98,34 @@ func (RetrieverState) ElementType() reflect.Type {
 }
 
 type retrieverArgs struct {
-	ApplicationId string        `pulumi:"applicationId"`
-	Configuration interface{}   `pulumi:"configuration"`
-	DisplayName   string        `pulumi:"displayName"`
-	RoleArn       *string       `pulumi:"roleArn"`
-	Tags          []aws.Tag     `pulumi:"tags"`
-	Type          RetrieverType `pulumi:"type"`
+	// The identifier of the Amazon Q Business application using the retriever.
+	ApplicationId string `pulumi:"applicationId"`
+	// Provides information on how the retriever used for your Amazon Q Business application is configured.
+	Configuration interface{} `pulumi:"configuration"`
+	// The name of your retriever.
+	DisplayName string `pulumi:"displayName"`
+	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+	RoleArn *string `pulumi:"roleArn"`
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of your retriever.
+	Type RetrieverType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Retriever resource.
 type RetrieverArgs struct {
+	// The identifier of the Amazon Q Business application using the retriever.
 	ApplicationId pulumi.StringInput
+	// Provides information on how the retriever used for your Amazon Q Business application is configured.
 	Configuration pulumi.Input
-	DisplayName   pulumi.StringInput
-	RoleArn       pulumi.StringPtrInput
-	Tags          aws.TagArrayInput
-	Type          RetrieverTypeInput
+	// The name of your retriever.
+	DisplayName pulumi.StringInput
+	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+	RoleArn pulumi.StringPtrInput
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	Tags aws.TagArrayInput
+	// The type of your retriever.
+	Type RetrieverTypeInput
 }
 
 func (RetrieverArgs) ElementType() reflect.Type {
@@ -142,46 +165,57 @@ func (o RetrieverOutput) ToRetrieverOutputWithContext(ctx context.Context) Retri
 	return o
 }
 
+// The identifier of the Amazon Q Business application using the retriever.
 func (o RetrieverOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Provides information on how the retriever used for your Amazon Q Business application is configured.
 func (o RetrieverOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// The Unix timestamp when the retriever was created.
 func (o RetrieverOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name of your retriever.
 func (o RetrieverOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
 func (o RetrieverOutput) RetrieverArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringOutput { return v.RetrieverArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the retriever used by your Amazon Q Business application.
 func (o RetrieverOutput) RetrieverId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringOutput { return v.RetrieverId }).(pulumi.StringOutput)
 }
 
+// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
 func (o RetrieverOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of your retriever.
 func (o RetrieverOutput) Status() RetrieverStatusOutput {
 	return o.ApplyT(func(v *Retriever) RetrieverStatusOutput { return v.Status }).(RetrieverStatusOutput)
 }
 
+// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o RetrieverOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Retriever) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of your retriever.
 func (o RetrieverOutput) Type() RetrieverTypeOutput {
 	return o.ApplyT(func(v *Retriever) RetrieverTypeOutput { return v.Type }).(RetrieverTypeOutput)
 }
 
+// The Unix timestamp when the retriever was last updated.
 func (o RetrieverOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Retriever) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

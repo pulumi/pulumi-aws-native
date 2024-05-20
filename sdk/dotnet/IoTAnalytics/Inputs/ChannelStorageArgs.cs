@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class ChannelStorageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
+        /// </summary>
         [Input("customerManagedS3")]
         public Input<Inputs.ChannelCustomerManagedS3Args>? CustomerManagedS3 { get; set; }
 
+        /// <summary>
+        /// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+        /// </summary>
         [Input("serviceManagedS3")]
         public Input<Inputs.ChannelServiceManagedS3Args>? ServiceManagedS3 { get; set; }
 

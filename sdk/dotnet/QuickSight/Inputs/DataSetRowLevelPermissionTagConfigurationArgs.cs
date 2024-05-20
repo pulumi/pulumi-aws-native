@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetRowLevelPermissionTagConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of row-level security tags. If enabled, the status is `ENABLED` . If disabled, the status is `DISABLED` .
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetStatus>? Status { get; set; }
 

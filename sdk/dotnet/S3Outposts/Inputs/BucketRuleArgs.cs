@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.S3Outposts.BucketRuleStatus>? Status { get; set; }
 

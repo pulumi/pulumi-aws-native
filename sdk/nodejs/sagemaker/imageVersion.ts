@@ -39,11 +39,36 @@ export class ImageVersion extends pulumi.CustomResource {
 
     public readonly alias!: pulumi.Output<string | undefined>;
     public readonly aliases!: pulumi.Output<string[] | undefined>;
+    /**
+     * The container image that the SageMaker image version is based on.
+     */
     public readonly baseImage!: pulumi.Output<string>;
+    /**
+     * The URI of the container image version referenced by ImageVersion.
+     */
     public /*out*/ readonly containerImage!: pulumi.Output<string>;
     public readonly horovod!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the parent Image.
+     */
     public /*out*/ readonly imageArn!: pulumi.Output<string>;
+    /**
+     * The name of the parent image.
+     *
+     * *Length Constraints* : Minimum length of 1. Maximum length of 63.
+     *
+     * *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+     */
     public readonly imageName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the image version.
+     *
+     * *Type* : String
+     *
+     * *Length Constraints* : Maximum length of 256.
+     *
+     * *Pattern* : `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*&#47;[0-9]+$`
+     */
     public /*out*/ readonly imageVersionArn!: pulumi.Output<string>;
     public readonly jobType!: pulumi.Output<enums.sagemaker.ImageVersionJobType | undefined>;
     public readonly mlFramework!: pulumi.Output<string | undefined>;
@@ -51,6 +76,9 @@ export class ImageVersion extends pulumi.CustomResource {
     public readonly programmingLang!: pulumi.Output<string | undefined>;
     public readonly releaseNotes!: pulumi.Output<string | undefined>;
     public readonly vendorGuidance!: pulumi.Output<enums.sagemaker.ImageVersionVendorGuidance | undefined>;
+    /**
+     * The version of the image.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -115,8 +143,18 @@ export class ImageVersion extends pulumi.CustomResource {
 export interface ImageVersionArgs {
     alias?: pulumi.Input<string>;
     aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The container image that the SageMaker image version is based on.
+     */
     baseImage: pulumi.Input<string>;
     horovod?: pulumi.Input<boolean>;
+    /**
+     * The name of the parent image.
+     *
+     * *Length Constraints* : Minimum length of 1. Maximum length of 63.
+     *
+     * *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+     */
     imageName: pulumi.Input<string>;
     jobType?: pulumi.Input<enums.sagemaker.ImageVersionJobType>;
     mlFramework?: pulumi.Input<string>;

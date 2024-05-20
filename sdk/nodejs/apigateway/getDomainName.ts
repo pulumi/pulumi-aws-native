@@ -19,20 +19,58 @@ export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDomainNameArgs {
+    /**
+     * The custom domain name as an API host name, for example, `my-api.example.com` .
+     */
     domainName: string;
 }
 
 export interface GetDomainNameResult {
+    /**
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     */
     readonly certificateArn?: string;
+    /**
+     * The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
+     *
+     * Example: `d111111abcdef8.cloudfront.net`
+     */
     readonly distributionDomainName?: string;
+    /**
+     * The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
+     */
     readonly distributionHostedZoneId?: string;
+    /**
+     * The endpoint configuration of this DomainName showing the endpoint types of the domain name.
+     */
     readonly endpointConfiguration?: outputs.apigateway.DomainNameEndpointConfiguration;
+    /**
+     * The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
+     */
     readonly mutualTlsAuthentication?: outputs.apigateway.DomainNameMutualTlsAuthentication;
+    /**
+     * The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
+     */
     readonly ownershipVerificationCertificateArn?: string;
+    /**
+     * The reference to an AWS -managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+     */
     readonly regionalCertificateArn?: string;
+    /**
+     * The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name.
+     */
     readonly regionalDomainName?: string;
+    /**
+     * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
+     */
     readonly regionalHostedZoneId?: string;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+     */
     readonly securityPolicy?: string;
+    /**
+     * The collection of tags. Each tag element is associated with a given resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -43,5 +81,8 @@ export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi
 }
 
 export interface GetDomainNameOutputArgs {
+    /**
+     * The custom domain name as an API host name, for example, `my-api.example.com` .
+     */
     domainName: pulumi.Input<string>;
 }

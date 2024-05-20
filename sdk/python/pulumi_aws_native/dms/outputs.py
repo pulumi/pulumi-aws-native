@@ -60,6 +60,10 @@ class MigrationProjectDataProviderDescriptor(dict):
                  secrets_manager_secret_id: Optional[str] = None):
         """
         It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+        :param str data_provider_arn: The Amazon Resource Name (ARN) of the data provider.
+        :param str data_provider_name: The user-friendly name of the data provider.
+        :param str secrets_manager_access_role_arn: The ARN of the role used to access AWS Secrets Manager.
+        :param str secrets_manager_secret_id: The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
         """
         if data_provider_arn is not None:
             pulumi.set(__self__, "data_provider_arn", data_provider_arn)
@@ -75,6 +79,9 @@ class MigrationProjectDataProviderDescriptor(dict):
     @property
     @pulumi.getter(name="dataProviderArn")
     def data_provider_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the data provider.
+        """
         return pulumi.get(self, "data_provider_arn")
 
     @property
@@ -85,16 +92,25 @@ class MigrationProjectDataProviderDescriptor(dict):
     @property
     @pulumi.getter(name="dataProviderName")
     def data_provider_name(self) -> Optional[str]:
+        """
+        The user-friendly name of the data provider.
+        """
         return pulumi.get(self, "data_provider_name")
 
     @property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
     def secrets_manager_access_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role used to access AWS Secrets Manager.
+        """
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
     @property
     @pulumi.getter(name="secretsManagerSecretId")
     def secrets_manager_secret_id(self) -> Optional[str]:
+        """
+        The identifier of the AWS Secrets Manager Secret used to store access credentials for the data provider.
+        """
         return pulumi.get(self, "secrets_manager_secret_id")
 
 
@@ -148,6 +164,23 @@ class ReplicationConfigComputeConfig(dict):
                  vpc_security_group_ids: Optional[Sequence[str]] = None):
         """
         Configuration parameters for provisioning a AWS DMS Serverless replication
+        :param int max_capacity_units: Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
+        :param str availability_zone: The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
+        :param str dns_name_servers: A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
+        :param str kms_key_id: An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+               
+               If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+               
+               AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
+        :param int min_capacity_units: Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
+        :param bool multi_az: Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
+        :param str preferred_maintenance_window: The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+               
+               The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+               
+               Constraints include a minimum 30-minute window.
+        :param str replication_subnet_group_id: Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
+        :param Sequence[str] vpc_security_group_ids: Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         pulumi.set(__self__, "max_capacity_units", max_capacity_units)
         if availability_zone is not None:
@@ -170,46 +203,81 @@ class ReplicationConfigComputeConfig(dict):
     @property
     @pulumi.getter(name="maxCapacityUnits")
     def max_capacity_units(self) -> int:
+        """
+        Specifies the maximum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for AWS DMS Serverless is 384. The `MaxCapacityUnits` parameter is the only DCU parameter you are required to specify.
+        """
         return pulumi.get(self, "max_capacity_units")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
+        """
+        The Availability Zone where the AWS DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's AWS Region , for example, `"us-west-2"` . You can't set this parameter if the `MultiAZ` parameter is set to `true` .
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="dnsNameServers")
     def dns_name_servers(self) -> Optional[str]:
+        """
+        A list of custom DNS name servers supported for the AWS DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the AWS DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: `"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"`
+        """
         return pulumi.get(self, "dns_name_servers")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
+        """
+        An AWS Key Management Service ( AWS KMS ) key Amazon Resource Name (ARN) that is used to encrypt the data during AWS DMS Serverless replication.
+
+        If you don't specify a value for the `KmsKeyId` parameter, AWS DMS uses your default encryption key.
+
+        AWS KMS creates the default encryption key for your Amazon Web Services account. Your AWS account has a different default encryption key for each AWS Region .
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="minCapacityUnits")
     def min_capacity_units(self) -> Optional[int]:
+        """
+        Specifies the minimum value of the AWS DMS capacity units (DCUs) for which a given AWS DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for AWS DMS Serverless is 1. If you don't set this value, AWS DMS sets this parameter to the minimum DCU value allowed, 1. If there is no current source activity, AWS DMS scales down your replication until it reaches the value specified in `MinCapacityUnits` .
+        """
         return pulumi.get(self, "min_capacity_units")
 
     @property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[bool]:
+        """
+        Specifies whether the AWS DMS Serverless replication is a Multi-AZ deployment. You can't set the `AvailabilityZone` parameter if the `MultiAZ` parameter is set to `true` .
+        """
         return pulumi.get(self, "multi_az")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[str]:
+        """
+        The weekly time range during which system maintenance can occur for the AWS DMS Serverless replication, in Universal Coordinated Time (UTC). The format is `ddd:hh24:mi-ddd:hh24:mi` .
+
+        The default is a 30-minute window selected at random from an 8-hour block of time per AWS Region . This maintenance occurs on a random day of the week. Valid values for days of the week include `Mon` , `Tue` , `Wed` , `Thu` , `Fri` , `Sat` , and `Sun` .
+
+        Constraints include a minimum 30-minute window.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> Optional[str]:
+        """
+        Specifies a subnet group identifier to associate with the AWS DMS Serverless replication.
+        """
         return pulumi.get(self, "replication_subnet_group_id")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the virtual private cloud (VPC) security group to use with the AWS DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 

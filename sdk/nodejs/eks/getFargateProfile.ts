@@ -31,6 +31,9 @@ export interface GetFargateProfileArgs {
 }
 
 export interface GetFargateProfileResult {
+    /**
+     * The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:fargateprofile/myCluster/myFargateProfile/1cb1a11a-1dc1-1d11-cf11-1111f11fa111` .
+     */
     readonly arn?: string;
     /**
      * An array of key-value pairs to apply to this resource.

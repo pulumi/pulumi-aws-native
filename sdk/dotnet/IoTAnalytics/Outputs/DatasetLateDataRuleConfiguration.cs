@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetLateDataRuleConfiguration
     {
+        /// <summary>
+        /// The information needed to configure a delta time session window.
+        /// </summary>
         public readonly Outputs.DatasetDeltaTimeSessionWindowConfiguration? DeltaTimeSessionWindowConfiguration;
 
         [OutputConstructor]

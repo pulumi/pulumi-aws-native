@@ -31,7 +31,8 @@ type Application struct {
 	PortalOptions ApplicationPortalOptionsConfigurationPtrOutput `pulumi:"portalOptions"`
 	// Specifies whether the application is enabled or disabled
 	Status ApplicationStatusPtrOutput `pulumi:"status"`
-	Tags   aws.TagArrayOutput         `pulumi:"tags"`
+	// Specifies tags to be attached to the application
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,8 @@ type applicationArgs struct {
 	PortalOptions *ApplicationPortalOptionsConfiguration `pulumi:"portalOptions"`
 	// Specifies whether the application is enabled or disabled
 	Status *ApplicationStatus `pulumi:"status"`
-	Tags   []aws.Tag          `pulumi:"tags"`
+	// Specifies tags to be attached to the application
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -114,7 +116,8 @@ type ApplicationArgs struct {
 	PortalOptions ApplicationPortalOptionsConfigurationPtrInput
 	// Specifies whether the application is enabled or disabled
 	Status ApplicationStatusPtrInput
-	Tags   aws.TagArrayInput
+	// Specifies tags to be attached to the application
+	Tags aws.TagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -189,6 +192,7 @@ func (o ApplicationOutput) Status() ApplicationStatusPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationStatusPtrOutput { return v.Status }).(ApplicationStatusPtrOutput)
 }
 
+// Specifies tags to be attached to the application
 func (o ApplicationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

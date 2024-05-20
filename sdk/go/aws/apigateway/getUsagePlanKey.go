@@ -23,10 +23,12 @@ func LookupUsagePlanKey(ctx *pulumi.Context, args *LookupUsagePlanKeyArgs, opts 
 }
 
 type LookupUsagePlanKeyArgs struct {
+	// The ID for the usage plan key. For example: `abc123` .
 	Id string `pulumi:"id"`
 }
 
 type LookupUsagePlanKeyResult struct {
+	// The ID for the usage plan key. For example: `abc123` .
 	Id *string `pulumi:"id"`
 }
 
@@ -44,6 +46,7 @@ func LookupUsagePlanKeyOutput(ctx *pulumi.Context, args LookupUsagePlanKeyOutput
 }
 
 type LookupUsagePlanKeyOutputArgs struct {
+	// The ID for the usage plan key. For example: `abc123` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupUsagePlanKeyResultOutput) ToLookupUsagePlanKeyResultOutputWithCont
 	return o
 }
 
+// The ID for the usage plan key. For example: `abc123` .
 func (o LookupUsagePlanKeyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

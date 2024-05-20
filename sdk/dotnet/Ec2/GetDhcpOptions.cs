@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetDhcpOptionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the DHCP options set.
+        /// </summary>
         [Input("dhcpOptionsId", required: true)]
         public string DhcpOptionsId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetDhcpOptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the DHCP options set.
+        /// </summary>
         [Input("dhcpOptionsId", required: true)]
         public Input<string> DhcpOptionsId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetDhcpOptionsResult
     {
+        /// <summary>
+        /// The ID of the DHCP options set.
+        /// </summary>
         public readonly string? DhcpOptionsId;
         /// <summary>
         /// Any tags assigned to the DHCP options set.

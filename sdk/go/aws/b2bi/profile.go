@@ -17,17 +17,25 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
-	BusinessName pulumi.StringOutput    `pulumi:"businessName"`
-	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
-	Email        pulumi.StringPtrOutput `pulumi:"email"`
-	LogGroupName pulumi.StringOutput    `pulumi:"logGroupName"`
-	Logging      ProfileLoggingOutput   `pulumi:"logging"`
-	ModifiedAt   pulumi.StringOutput    `pulumi:"modifiedAt"`
-	Name         pulumi.StringOutput    `pulumi:"name"`
-	Phone        pulumi.StringOutput    `pulumi:"phone"`
-	ProfileArn   pulumi.StringOutput    `pulumi:"profileArn"`
-	ProfileId    pulumi.StringOutput    `pulumi:"profileId"`
-	Tags         aws.TagArrayOutput     `pulumi:"tags"`
+	// Returns the name for the business associated with this profile.
+	BusinessName pulumi.StringOutput `pulumi:"businessName"`
+	// Returns the timestamp for creation date and time of the profile.
+	CreatedAt pulumi.StringOutput    `pulumi:"createdAt"`
+	Email     pulumi.StringPtrOutput `pulumi:"email"`
+	// Returns the name of the logging group.
+	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+	// Specifies whether or not logging is enabled for this profile.
+	Logging ProfileLoggingOutput `pulumi:"logging"`
+	// Returns the timestamp that identifies the most recent date and time that the profile was modified.
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// Returns the display name for profile.
+	Name  pulumi.StringOutput `pulumi:"name"`
+	Phone pulumi.StringOutput `pulumi:"phone"`
+	// Returns an Amazon Resource Name (ARN) for the profile.
+	ProfileArn pulumi.StringOutput `pulumi:"profileArn"`
+	ProfileId  pulumi.StringOutput `pulumi:"profileId"`
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -83,22 +91,30 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	BusinessName string         `pulumi:"businessName"`
-	Email        *string        `pulumi:"email"`
-	Logging      ProfileLogging `pulumi:"logging"`
-	Name         *string        `pulumi:"name"`
-	Phone        string         `pulumi:"phone"`
-	Tags         []aws.Tag      `pulumi:"tags"`
+	// Returns the name for the business associated with this profile.
+	BusinessName string  `pulumi:"businessName"`
+	Email        *string `pulumi:"email"`
+	// Specifies whether or not logging is enabled for this profile.
+	Logging ProfileLogging `pulumi:"logging"`
+	// Returns the display name for profile.
+	Name  *string `pulumi:"name"`
+	Phone string  `pulumi:"phone"`
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
+	// Returns the name for the business associated with this profile.
 	BusinessName pulumi.StringInput
 	Email        pulumi.StringPtrInput
-	Logging      ProfileLoggingInput
-	Name         pulumi.StringPtrInput
-	Phone        pulumi.StringInput
-	Tags         aws.TagArrayInput
+	// Specifies whether or not logging is enabled for this profile.
+	Logging ProfileLoggingInput
+	// Returns the display name for profile.
+	Name  pulumi.StringPtrInput
+	Phone pulumi.StringInput
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	Tags aws.TagArrayInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -138,10 +154,12 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// Returns the name for the business associated with this profile.
 func (o ProfileOutput) BusinessName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.BusinessName }).(pulumi.StringOutput)
 }
 
+// Returns the timestamp for creation date and time of the profile.
 func (o ProfileOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -150,18 +168,22 @@ func (o ProfileOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
+// Returns the name of the logging group.
 func (o ProfileOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
+// Specifies whether or not logging is enabled for this profile.
 func (o ProfileOutput) Logging() ProfileLoggingOutput {
 	return o.ApplyT(func(v *Profile) ProfileLoggingOutput { return v.Logging }).(ProfileLoggingOutput)
 }
 
+// Returns the timestamp that identifies the most recent date and time that the profile was modified.
 func (o ProfileOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// Returns the display name for profile.
 func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -170,6 +192,7 @@ func (o ProfileOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Phone }).(pulumi.StringOutput)
 }
 
+// Returns an Amazon Resource Name (ARN) for the profile.
 func (o ProfileOutput) ProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileArn }).(pulumi.StringOutput)
 }
@@ -178,6 +201,7 @@ func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
+// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o ProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Profile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

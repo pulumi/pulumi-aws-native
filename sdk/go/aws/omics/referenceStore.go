@@ -22,10 +22,13 @@ type ReferenceStore struct {
 	// A description for the store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A name for the store.
-	Name             pulumi.StringOutput              `pulumi:"name"`
-	ReferenceStoreId pulumi.StringOutput              `pulumi:"referenceStoreId"`
-	SseConfig        ReferenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
-	Tags             pulumi.StringMapOutput           `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The store's ID.
+	ReferenceStoreId pulumi.StringOutput `pulumi:"referenceStoreId"`
+	// Server-side encryption (SSE) settings for the store.
+	SseConfig ReferenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
+	// Tags for the store.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewReferenceStore registers a new resource with the given unique name, arguments, and options.
@@ -78,9 +81,11 @@ type referenceStoreArgs struct {
 	// A description for the store.
 	Description *string `pulumi:"description"`
 	// A name for the store.
-	Name      *string                  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig *ReferenceStoreSseConfig `pulumi:"sseConfig"`
-	Tags      map[string]string        `pulumi:"tags"`
+	// Tags for the store.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReferenceStore resource.
@@ -88,9 +93,11 @@ type ReferenceStoreArgs struct {
 	// A description for the store.
 	Description pulumi.StringPtrInput
 	// A name for the store.
-	Name      pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig ReferenceStoreSseConfigPtrInput
-	Tags      pulumi.StringMapInput
+	// Tags for the store.
+	Tags pulumi.StringMapInput
 }
 
 func (ReferenceStoreArgs) ElementType() reflect.Type {
@@ -150,14 +157,17 @@ func (o ReferenceStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReferenceStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The store's ID.
 func (o ReferenceStoreOutput) ReferenceStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReferenceStore) pulumi.StringOutput { return v.ReferenceStoreId }).(pulumi.StringOutput)
 }
 
+// Server-side encryption (SSE) settings for the store.
 func (o ReferenceStoreOutput) SseConfig() ReferenceStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *ReferenceStore) ReferenceStoreSseConfigPtrOutput { return v.SseConfig }).(ReferenceStoreSseConfigPtrOutput)
 }
 
+// Tags for the store.
 func (o ReferenceStoreOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReferenceStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

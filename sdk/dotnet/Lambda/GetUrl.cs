@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Lambda
         /// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.UrlAuthType? AuthType;
+        /// <summary>
+        /// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+        /// </summary>
         public readonly Outputs.UrlCors? Cors;
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the function associated with the Function URL.

@@ -42,6 +42,9 @@ export class Crl extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+     */
     public readonly trustAnchorArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -85,5 +88,8 @@ export interface CrlArgs {
     enabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+     */
     trustAnchorArn?: pulumi.Input<string>;
 }

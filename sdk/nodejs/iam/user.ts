@@ -38,6 +38,9 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::User` resource. For example: `arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A list of group names to which you want to add the user.

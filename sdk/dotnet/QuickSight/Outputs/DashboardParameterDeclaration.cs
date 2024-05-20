@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardParameterDeclaration
     {
+        /// <summary>
+        /// A parameter declaration for the `DateTime` data type.
+        /// </summary>
         public readonly Outputs.DashboardDateTimeParameterDeclaration? DateTimeParameterDeclaration;
+        /// <summary>
+        /// A parameter declaration for the `Decimal` data type.
+        /// </summary>
         public readonly Outputs.DashboardDecimalParameterDeclaration? DecimalParameterDeclaration;
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// </summary>
         public readonly Outputs.DashboardIntegerParameterDeclaration? IntegerParameterDeclaration;
+        /// <summary>
+        /// A parameter declaration for the `String` data type.
+        /// </summary>
         public readonly Outputs.DashboardStringParameterDeclaration? StringParameterDeclaration;
 
         [OutputConstructor]

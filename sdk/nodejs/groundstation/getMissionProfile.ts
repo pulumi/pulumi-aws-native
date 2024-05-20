@@ -20,11 +20,20 @@ export function getMissionProfile(args: GetMissionProfileArgs, opts?: pulumi.Inv
 }
 
 export interface GetMissionProfileArgs {
+    /**
+     * The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     arn: string;
+    /**
+     * The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     id: string;
 }
 
 export interface GetMissionProfileResult {
+    /**
+     * The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     readonly arn?: string;
     /**
      * Post-pass time needed after the contact.
@@ -34,7 +43,13 @@ export interface GetMissionProfileResult {
      * Pre-pass time needed before the contact.
      */
     readonly contactPrePassDurationSeconds?: number;
+    /**
+     * A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+     */
     readonly dataflowEdges?: outputs.groundstation.MissionProfileDataflowEdge[];
+    /**
+     * The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     readonly id?: string;
     /**
      * Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
@@ -44,6 +59,9 @@ export interface GetMissionProfileResult {
      * A name used to identify a mission profile.
      */
     readonly name?: string;
+    /**
+     * The region of the mission profile.
+     */
     readonly region?: string;
     /**
      * The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
@@ -53,7 +71,13 @@ export interface GetMissionProfileResult {
      * The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
      */
     readonly streamsKmsRole?: string;
+    /**
+     * Tags assigned to the mission profile.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+     */
     readonly trackingConfigArn?: string;
 }
 /**
@@ -64,6 +88,12 @@ export function getMissionProfileOutput(args: GetMissionProfileOutputArgs, opts?
 }
 
 export interface GetMissionProfileOutputArgs {
+    /**
+     * The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     arn: pulumi.Input<string>;
+    /**
+     * The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     id: pulumi.Input<string>;
 }

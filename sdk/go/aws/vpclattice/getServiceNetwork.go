@@ -24,16 +24,26 @@ func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, o
 }
 
 type LookupServiceNetworkArgs struct {
+	// The Amazon Resource Name (ARN) of the service network.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServiceNetworkResult struct {
-	Arn           *string                 `pulumi:"arn"`
-	AuthType      *ServiceNetworkAuthType `pulumi:"authType"`
-	CreatedAt     *string                 `pulumi:"createdAt"`
-	Id            *string                 `pulumi:"id"`
-	LastUpdatedAt *string                 `pulumi:"lastUpdatedAt"`
-	Tags          []aws.Tag               `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the service network.
+	Arn *string `pulumi:"arn"`
+	// The type of IAM policy.
+	//
+	// - `NONE` : The resource does not use an IAM policy. This is the default.
+	// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+	AuthType *ServiceNetworkAuthType `pulumi:"authType"`
+	// The date and time that the service network was created, specified in ISO-8601 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ID of the service network.
+	Id *string `pulumi:"id"`
+	// The date and time of the last update, specified in ISO-8601 format.
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The tags for the service network.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkResultOutput {
@@ -50,6 +60,7 @@ func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOu
 }
 
 type LookupServiceNetworkOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the service network.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,26 +82,35 @@ func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the service network.
 func (o LookupServiceNetworkResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The type of IAM policy.
+//
+// - `NONE` : The resource does not use an IAM policy. This is the default.
+// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 func (o LookupServiceNetworkResultOutput) AuthType() ServiceNetworkAuthTypePtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) *ServiceNetworkAuthType { return v.AuthType }).(ServiceNetworkAuthTypePtrOutput)
 }
 
+// The date and time that the service network was created, specified in ISO-8601 format.
 func (o LookupServiceNetworkResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service network.
 func (o LookupServiceNetworkResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of the last update, specified in ISO-8601 format.
 func (o LookupServiceNetworkResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the service network.
 func (o LookupServiceNetworkResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

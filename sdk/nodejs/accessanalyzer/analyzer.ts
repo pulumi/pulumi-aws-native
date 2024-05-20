@@ -82,6 +82,9 @@ export class Analyzer extends pulumi.CustomResource {
      * Analyzer name
      */
     public readonly analyzerName!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+     */
     public readonly archiveRules!: pulumi.Output<outputs.accessanalyzer.AnalyzerArchiveRule[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the analyzer
@@ -143,6 +146,9 @@ export interface AnalyzerArgs {
      * Analyzer name
      */
     analyzerName?: pulumi.Input<string>;
+    /**
+     * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+     */
     archiveRules?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerArchiveRuleArgs>[]>;
     /**
      * An array of key-value pairs to apply to this resource.

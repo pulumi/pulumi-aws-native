@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDataPathColor
     {
+        /// <summary>
+        /// The color that needs to be applied to the element.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// The element that the color needs to be applied to.
+        /// </summary>
         public readonly Outputs.TemplateDataPathValue Element;
+        /// <summary>
+        /// The time granularity of the field that the color needs to be applied to.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? TimeGranularity;
 
         [OutputConstructor]

@@ -16,13 +16,16 @@ import (
 type ExecutionPlan struct {
 	pulumi.CustomResourceState
 
-	Arn   pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the rescore execution plan.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The identifier of the rescore execution plan.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Capacity units
 	CapacityUnits ExecutionPlanCapacityUnitsConfigurationPtrOutput `pulumi:"capacityUnits"`
 	// A description for the execution plan
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
+	// A name for the rescore execution plan.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags for labeling the execution plan
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -71,7 +74,8 @@ type executionPlanArgs struct {
 	CapacityUnits *ExecutionPlanCapacityUnitsConfiguration `pulumi:"capacityUnits"`
 	// A description for the execution plan
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
+	// A name for the rescore execution plan.
+	Name *string `pulumi:"name"`
 	// Tags for labeling the execution plan
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -82,7 +86,8 @@ type ExecutionPlanArgs struct {
 	CapacityUnits ExecutionPlanCapacityUnitsConfigurationPtrInput
 	// A description for the execution plan
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// A name for the rescore execution plan.
+	Name pulumi.StringPtrInput
 	// Tags for labeling the execution plan
 	Tags aws.TagArrayInput
 }
@@ -124,10 +129,12 @@ func (o ExecutionPlanOutput) ToExecutionPlanOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the rescore execution plan.
 func (o ExecutionPlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExecutionPlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The identifier of the rescore execution plan.
 func (o ExecutionPlanOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExecutionPlan) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -142,6 +149,7 @@ func (o ExecutionPlanOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExecutionPlan) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the rescore execution plan.
 func (o ExecutionPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExecutionPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

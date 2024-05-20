@@ -21,17 +21,27 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("allowInterrupt")]
         public Input<bool>? AllowInterrupt { get; set; }
 
+        /// <summary>
+        /// The maximum number of times the bot tries to elicit a response from the user using this prompt.
+        /// </summary>
         [Input("maxRetries", required: true)]
         public Input<int> MaxRetries { get; set; } = null!;
 
         [Input("messageGroupsList", required: true)]
         private InputList<Inputs.BotMessageGroupArgs>? _messageGroupsList;
+
+        /// <summary>
+        /// A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.
+        /// </summary>
         public InputList<Inputs.BotMessageGroupArgs> MessageGroupsList
         {
             get => _messageGroupsList ?? (_messageGroupsList = new InputList<Inputs.BotMessageGroupArgs>());
             set => _messageGroupsList = value;
         }
 
+        /// <summary>
+        /// Indicates how a message is selected from a message group among retries.
+        /// </summary>
         [Input("messageSelectionStrategy")]
         public Input<Pulumi.AwsNative.Lex.BotMessageSelectionStrategy>? MessageSelectionStrategy { get; set; }
 

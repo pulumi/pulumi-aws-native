@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Ecr
     [OutputType]
     public sealed class GetRepositoryResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
@@ -80,6 +83,9 @@ namespace Pulumi.AwsNative.Ecr
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? RepositoryPolicyText;
+        /// <summary>
+        /// Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+        /// </summary>
         public readonly string? RepositoryUri;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

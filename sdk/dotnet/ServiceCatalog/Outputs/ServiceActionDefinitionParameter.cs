@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
     [OutputType]
     public sealed class ServiceActionDefinitionParameter
     {
+        /// <summary>
+        /// The parameter key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value of the parameter.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

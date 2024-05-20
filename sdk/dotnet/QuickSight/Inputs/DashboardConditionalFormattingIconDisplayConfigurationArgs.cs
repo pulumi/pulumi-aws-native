@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardConditionalFormattingIconDisplayConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the icon display configuration.
+        /// </summary>
         [Input("iconDisplayOption")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardConditionalFormattingIconDisplayOption>? IconDisplayOption { get; set; }
 

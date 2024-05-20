@@ -23,12 +23,16 @@ func LookupKnowledgeBase(ctx *pulumi.Context, args *LookupKnowledgeBaseArgs, opt
 }
 
 type LookupKnowledgeBaseArgs struct {
+	// The ID of the knowledge base.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 }
 
 type LookupKnowledgeBaseResult struct {
-	KnowledgeBaseArn       *string                              `pulumi:"knowledgeBaseArn"`
-	KnowledgeBaseId        *string                              `pulumi:"knowledgeBaseId"`
+	// The Amazon Resource Name (ARN) of the knowledge base.
+	KnowledgeBaseArn *string `pulumi:"knowledgeBaseArn"`
+	// The ID of the knowledge base.
+	KnowledgeBaseId *string `pulumi:"knowledgeBaseId"`
+	// Information about how to render the content.
 	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
 }
 
@@ -46,6 +50,7 @@ func LookupKnowledgeBaseOutput(ctx *pulumi.Context, args LookupKnowledgeBaseOutp
 }
 
 type LookupKnowledgeBaseOutputArgs struct {
+	// The ID of the knowledge base.
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupKnowledgeBaseResultOutput) ToLookupKnowledgeBaseResultOutputWithCo
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the knowledge base.
 func (o LookupKnowledgeBaseResultOutput) KnowledgeBaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *string { return v.KnowledgeBaseArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the knowledge base.
 func (o LookupKnowledgeBaseResultOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *string { return v.KnowledgeBaseId }).(pulumi.StringPtrOutput)
 }
 
+// Information about how to render the content.
 func (o LookupKnowledgeBaseResultOutput) RenderingConfiguration() KnowledgeBaseRenderingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *KnowledgeBaseRenderingConfiguration {
 		return v.RenderingConfiguration

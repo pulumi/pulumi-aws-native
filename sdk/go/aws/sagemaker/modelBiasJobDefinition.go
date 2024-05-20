@@ -21,16 +21,24 @@ type ModelBiasJobDefinition struct {
 	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
 	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn          pulumi.StringOutput                                    `pulumi:"jobDefinitionArn"`
-	JobDefinitionName         pulumi.StringPtrOutput                                 `pulumi:"jobDefinitionName"`
-	JobResources              ModelBiasJobDefinitionMonitoringResourcesOutput        `pulumi:"jobResources"`
-	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecificationOutput  `pulumi:"modelBiasAppSpecification"`
-	ModelBiasBaselineConfig   ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput `pulumi:"modelBiasBaselineConfig"`
-	ModelBiasJobInput         ModelBiasJobDefinitionModelBiasJobInputOutput          `pulumi:"modelBiasJobInput"`
-	ModelBiasJobOutputConfig  ModelBiasJobDefinitionMonitoringOutputConfigOutput     `pulumi:"modelBiasJobOutputConfig"`
-	NetworkConfig             ModelBiasJobDefinitionNetworkConfigPtrOutput           `pulumi:"networkConfig"`
+	JobDefinitionArn pulumi.StringOutput `pulumi:"jobDefinitionArn"`
+	// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+	JobDefinitionName pulumi.StringPtrOutput `pulumi:"jobDefinitionName"`
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelBiasJobDefinitionMonitoringResourcesOutput `pulumi:"jobResources"`
+	// Configures the model bias job to run a specified Docker container image.
+	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecificationOutput `pulumi:"modelBiasAppSpecification"`
+	// The baseline configuration for a model bias job.
+	ModelBiasBaselineConfig ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput `pulumi:"modelBiasBaselineConfig"`
+	// Inputs for the model bias job.
+	ModelBiasJobInput ModelBiasJobDefinitionModelBiasJobInputOutput `pulumi:"modelBiasJobInput"`
+	// The output configuration for monitoring jobs.
+	ModelBiasJobOutputConfig ModelBiasJobDefinitionMonitoringOutputConfigOutput `pulumi:"modelBiasJobOutputConfig"`
+	// Networking options for a model bias job.
+	NetworkConfig ModelBiasJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           pulumi.StringOutput                              `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelBiasJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -105,16 +113,24 @@ func (ModelBiasJobDefinitionState) ElementType() reflect.Type {
 }
 
 type modelBiasJobDefinitionArgs struct {
-	EndpointName              *string                                         `pulumi:"endpointName"`
-	JobDefinitionName         *string                                         `pulumi:"jobDefinitionName"`
-	JobResources              ModelBiasJobDefinitionMonitoringResources       `pulumi:"jobResources"`
+	EndpointName *string `pulumi:"endpointName"`
+	// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+	JobDefinitionName *string `pulumi:"jobDefinitionName"`
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelBiasJobDefinitionMonitoringResources `pulumi:"jobResources"`
+	// Configures the model bias job to run a specified Docker container image.
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecification `pulumi:"modelBiasAppSpecification"`
-	ModelBiasBaselineConfig   *ModelBiasJobDefinitionModelBiasBaselineConfig  `pulumi:"modelBiasBaselineConfig"`
-	ModelBiasJobInput         ModelBiasJobDefinitionModelBiasJobInput         `pulumi:"modelBiasJobInput"`
-	ModelBiasJobOutputConfig  ModelBiasJobDefinitionMonitoringOutputConfig    `pulumi:"modelBiasJobOutputConfig"`
-	NetworkConfig             *ModelBiasJobDefinitionNetworkConfig            `pulumi:"networkConfig"`
+	// The baseline configuration for a model bias job.
+	ModelBiasBaselineConfig *ModelBiasJobDefinitionModelBiasBaselineConfig `pulumi:"modelBiasBaselineConfig"`
+	// Inputs for the model bias job.
+	ModelBiasJobInput ModelBiasJobDefinitionModelBiasJobInput `pulumi:"modelBiasJobInput"`
+	// The output configuration for monitoring jobs.
+	ModelBiasJobOutputConfig ModelBiasJobDefinitionMonitoringOutputConfig `pulumi:"modelBiasJobOutputConfig"`
+	// Networking options for a model bias job.
+	NetworkConfig *ModelBiasJobDefinitionNetworkConfig `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           string                                   `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition *ModelBiasJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -122,16 +138,24 @@ type modelBiasJobDefinitionArgs struct {
 
 // The set of arguments for constructing a ModelBiasJobDefinition resource.
 type ModelBiasJobDefinitionArgs struct {
-	EndpointName              pulumi.StringPtrInput
-	JobDefinitionName         pulumi.StringPtrInput
-	JobResources              ModelBiasJobDefinitionMonitoringResourcesInput
+	EndpointName pulumi.StringPtrInput
+	// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
+	JobDefinitionName pulumi.StringPtrInput
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelBiasJobDefinitionMonitoringResourcesInput
+	// Configures the model bias job to run a specified Docker container image.
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecificationInput
-	ModelBiasBaselineConfig   ModelBiasJobDefinitionModelBiasBaselineConfigPtrInput
-	ModelBiasJobInput         ModelBiasJobDefinitionModelBiasJobInputInput
-	ModelBiasJobOutputConfig  ModelBiasJobDefinitionMonitoringOutputConfigInput
-	NetworkConfig             ModelBiasJobDefinitionNetworkConfigPtrInput
+	// The baseline configuration for a model bias job.
+	ModelBiasBaselineConfig ModelBiasJobDefinitionModelBiasBaselineConfigPtrInput
+	// Inputs for the model bias job.
+	ModelBiasJobInput ModelBiasJobDefinitionModelBiasJobInputInput
+	// The output configuration for monitoring jobs.
+	ModelBiasJobOutputConfig ModelBiasJobDefinitionMonitoringOutputConfigInput
+	// Networking options for a model bias job.
+	NetworkConfig ModelBiasJobDefinitionNetworkConfigPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           pulumi.StringInput
+	RoleArn pulumi.StringInput
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelBiasJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -188,38 +212,45 @@ func (o ModelBiasJobDefinitionOutput) JobDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
 }
 
+// The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
 func (o ModelBiasJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
+// Identifies the resources to deploy for a monitoring job.
 func (o ModelBiasJobDefinitionOutput) JobResources() ModelBiasJobDefinitionMonitoringResourcesOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionMonitoringResourcesOutput { return v.JobResources }).(ModelBiasJobDefinitionMonitoringResourcesOutput)
 }
 
+// Configures the model bias job to run a specified Docker container image.
 func (o ModelBiasJobDefinitionOutput) ModelBiasAppSpecification() ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
 		return v.ModelBiasAppSpecification
 	}).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput)
 }
 
+// The baseline configuration for a model bias job.
 func (o ModelBiasJobDefinitionOutput) ModelBiasBaselineConfig() ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput {
 		return v.ModelBiasBaselineConfig
 	}).(ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput)
 }
 
+// Inputs for the model bias job.
 func (o ModelBiasJobDefinitionOutput) ModelBiasJobInput() ModelBiasJobDefinitionModelBiasJobInputOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasJobInputOutput {
 		return v.ModelBiasJobInput
 	}).(ModelBiasJobDefinitionModelBiasJobInputOutput)
 }
 
+// The output configuration for monitoring jobs.
 func (o ModelBiasJobDefinitionOutput) ModelBiasJobOutputConfig() ModelBiasJobDefinitionMonitoringOutputConfigOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionMonitoringOutputConfigOutput {
 		return v.ModelBiasJobOutputConfig
 	}).(ModelBiasJobDefinitionMonitoringOutputConfigOutput)
 }
 
+// Networking options for a model bias job.
 func (o ModelBiasJobDefinitionOutput) NetworkConfig() ModelBiasJobDefinitionNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionNetworkConfigPtrOutput { return v.NetworkConfig }).(ModelBiasJobDefinitionNetworkConfigPtrOutput)
 }
@@ -229,6 +260,7 @@ func (o ModelBiasJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A time limit for how long the monitoring job is allowed to run before stopping.
 func (o ModelBiasJobDefinitionOutput) StoppingCondition() ModelBiasJobDefinitionStoppingConditionPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionStoppingConditionPtrOutput {
 		return v.StoppingCondition

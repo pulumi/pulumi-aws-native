@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("colors")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _colors;
+
+        /// <summary>
+        /// The color field well of a tree map. Values are grouped by aggregations based on group by fields.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.AnalysisMeasureFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("groups")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _groups;
+
+        /// <summary>
+        /// The group by field well of a tree map. Values are grouped based on group by fields.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Groups
         {
             get => _groups ?? (_groups = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sizes")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _sizes;
+
+        /// <summary>
+        /// The size field well of a tree map. Values are aggregated based on group by fields.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Sizes
         {
             get => _sizes ?? (_sizes = new InputList<Inputs.AnalysisMeasureFieldArgs>());

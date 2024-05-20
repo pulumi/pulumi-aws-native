@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleMatch
     {
+        /// <summary>
+        /// The HTTP criteria that a rule must match.
+        /// </summary>
         public readonly Outputs.RuleHttpMatch HttpMatch;
 
         [OutputConstructor]

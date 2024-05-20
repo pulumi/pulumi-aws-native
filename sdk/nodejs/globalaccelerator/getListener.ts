@@ -34,6 +34,9 @@ export interface GetListenerResult {
      * The Amazon Resource Name (ARN) of the listener.
      */
     readonly listenerArn?: string;
+    /**
+     * The list of port ranges for the connections from clients to the accelerator.
+     */
     readonly portRanges?: outputs.globalaccelerator.ListenerPortRange[];
     /**
      * The protocol for the listener.

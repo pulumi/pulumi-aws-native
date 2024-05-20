@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamDynamicPartitioningConfiguration
     {
+        /// <summary>
+        /// Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
+        /// </summary>
         public readonly Outputs.DeliveryStreamRetryOptions? RetryOptions;
 
         [OutputConstructor]

@@ -34,6 +34,9 @@ class GetStorageLensGroupResult:
     @property
     @pulumi.getter
     def filter(self) -> Optional['outputs.StorageLensGroupFilter']:
+        """
+        This property contains the criteria for the Storage Lens group data that is displayed
+        """
         return pulumi.get(self, "filter")
 
     @property
@@ -68,6 +71,9 @@ def get_storage_lens_group(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageLensGroupResult:
     """
     The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
+
+
+    :param str name: This property contains the Storage Lens group name.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -85,5 +91,8 @@ def get_storage_lens_group_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageLensGroupResult]:
     """
     The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
+
+
+    :param str name: This property contains the Storage Lens group name.
     """
     ...

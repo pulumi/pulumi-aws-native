@@ -32,16 +32,25 @@ class GetPolicyTemplateResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description to attach to the new or updated policy template.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="policyTemplateId")
     def policy_template_id(self) -> Optional[str]:
+        """
+        The unique identifier of the new or modified policy template.
+        """
         return pulumi.get(self, "policy_template_id")
 
     @property
     @pulumi.getter
     def statement(self) -> Optional[str]:
+        """
+        Specifies the content that you want to use for the new policy template, written in the Cedar policy language.
+        """
         return pulumi.get(self, "statement")
 
 
@@ -61,6 +70,10 @@ def get_policy_template(policy_store_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyTemplateResult:
     """
     Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
+
+
+    :param str policy_store_id: The unique identifier of the policy store that contains the template.
+    :param str policy_template_id: The unique identifier of the new or modified policy template.
     """
     __args__ = dict()
     __args__['policyStoreId'] = policy_store_id
@@ -80,5 +93,9 @@ def get_policy_template_output(policy_store_id: Optional[pulumi.Input[str]] = No
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyTemplateResult]:
     """
     Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
+
+
+    :param str policy_store_id: The unique identifier of the policy store that contains the template.
+    :param str policy_template_id: The unique identifier of the new or modified policy template.
     """
     ...

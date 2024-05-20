@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("required")]
         public Input<bool>? Required { get; set; }
 
+        /// <summary>
+        /// The data type of the parameter.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.AgentType> Type { get; set; } = null!;
 

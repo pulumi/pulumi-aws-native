@@ -37,6 +37,9 @@ export class ProactiveEngagement extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProactiveEngagement.__pulumiType;
     }
 
+    /**
+     * The ID of the account that submitted the template.
+     */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
      * A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
     /// </summary>
     public sealed class ProfilingGroupChannelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The channel ID.
+        /// </summary>
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }
 
+        /// <summary>
+        /// The channel URI.
+        /// </summary>
         [Input("channelUri", required: true)]
         public Input<string> ChannelUri { get; set; } = null!;
 

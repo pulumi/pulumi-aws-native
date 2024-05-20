@@ -37,12 +37,33 @@ export class Assistant extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assistant.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The ID of the Wisdom assistant.
+     */
     public /*out*/ readonly assistantId!: pulumi.Output<string>;
+    /**
+     * The description of the assistant.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the assistant.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+     */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.AssistantServerSideEncryptionConfiguration | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * The type of assistant.
+     */
     public readonly type!: pulumi.Output<enums.wisdom.AssistantType>;
 
     /**
@@ -86,9 +107,24 @@ export class Assistant extends pulumi.CustomResource {
  * The set of arguments for constructing a Assistant resource.
  */
 export interface AssistantArgs {
+    /**
+     * The description of the assistant.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the assistant.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.AssistantServerSideEncryptionConfigurationArgs>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    /**
+     * The type of assistant.
+     */
     type: pulumi.Input<enums.wisdom.AssistantType>;
 }

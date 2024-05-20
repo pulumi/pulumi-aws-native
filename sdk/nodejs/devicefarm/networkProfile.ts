@@ -37,18 +37,59 @@ export class NetworkProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkProfile.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The description of the network profile.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+     */
     public readonly downlinkBandwidthBits!: pulumi.Output<number | undefined>;
+    /**
+     * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+     */
     public readonly downlinkDelayMs!: pulumi.Output<number | undefined>;
+    /**
+     * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+     */
     public readonly downlinkJitterMs!: pulumi.Output<number | undefined>;
+    /**
+     * Proportion of received packets that fail to arrive from 0 to 100 percent.
+     */
     public readonly downlinkLossPercent!: pulumi.Output<number | undefined>;
+    /**
+     * The name of the network profile.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the specified project.
+     */
     public readonly projectArn!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+     */
     public readonly uplinkBandwidthBits!: pulumi.Output<number | undefined>;
+    /**
+     * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+     */
     public readonly uplinkDelayMs!: pulumi.Output<number | undefined>;
+    /**
+     * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+     */
     public readonly uplinkJitterMs!: pulumi.Output<number | undefined>;
+    /**
+     * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+     */
     public readonly uplinkLossPercent!: pulumi.Output<number | undefined>;
 
     /**
@@ -104,16 +145,54 @@ export class NetworkProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkProfile resource.
  */
 export interface NetworkProfileArgs {
+    /**
+     * The description of the network profile.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+     */
     downlinkBandwidthBits?: pulumi.Input<number>;
+    /**
+     * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+     */
     downlinkDelayMs?: pulumi.Input<number>;
+    /**
+     * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+     */
     downlinkJitterMs?: pulumi.Input<number>;
+    /**
+     * Proportion of received packets that fail to arrive from 0 to 100 percent.
+     */
     downlinkLossPercent?: pulumi.Input<number>;
+    /**
+     * The name of the network profile.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the specified project.
+     */
     projectArn: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+     */
     uplinkBandwidthBits?: pulumi.Input<number>;
+    /**
+     * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+     */
     uplinkDelayMs?: pulumi.Input<number>;
+    /**
+     * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+     */
     uplinkJitterMs?: pulumi.Input<number>;
+    /**
+     * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+     */
     uplinkLossPercent?: pulumi.Input<number>;
 }

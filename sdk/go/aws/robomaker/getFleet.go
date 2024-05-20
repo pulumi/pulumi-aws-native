@@ -23,11 +23,14 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 }
 
 type LookupFleetArgs struct {
+	// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupFleetResult struct {
-	Arn  *string           `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+	Arn *string `pulumi:"arn"`
+	// The list of all tags added to the fleet.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -45,6 +48,7 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 }
 
 type LookupFleetOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupFleetResultOutput) ToLookupFleetResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
 func (o LookupFleetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The list of all tags added to the fleet.
 func (o LookupFleetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFleetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

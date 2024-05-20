@@ -26,6 +26,12 @@ class KeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
+        :param pulumi.Input[bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
+        :param pulumi.Input['KeyAttributesArgs'] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        :param pulumi.Input[bool] enabled: Specifies whether the key is enabled.
+        :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+               
+               For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
         """
         pulumi.set(__self__, "exportable", exportable)
         pulumi.set(__self__, "key_attributes", key_attributes)
@@ -39,6 +45,9 @@ class KeyArgs:
     @property
     @pulumi.getter
     def exportable(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether the key is exportable. This data is immutable after the key is created.
+        """
         return pulumi.get(self, "exportable")
 
     @exportable.setter
@@ -48,6 +57,9 @@ class KeyArgs:
     @property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> pulumi.Input['KeyAttributesArgs']:
+        """
+        The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        """
         return pulumi.get(self, "key_attributes")
 
     @key_attributes.setter
@@ -57,6 +69,9 @@ class KeyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the key is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -66,6 +81,11 @@ class KeyArgs:
     @property
     @pulumi.getter(name="keyCheckValueAlgorithm")
     def key_check_value_algorithm(self) -> Optional[pulumi.Input['KeyCheckValueAlgorithm']]:
+        """
+        The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+
+        For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @key_check_value_algorithm.setter
@@ -98,6 +118,12 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Specifies whether the key is enabled.
+        :param pulumi.Input[bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
+        :param pulumi.Input[pulumi.InputType['KeyAttributesArgs']] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+               
+               For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
         """
         ...
     @overload
@@ -184,21 +210,35 @@ class Key(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the key is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def exportable(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether the key is exportable. This data is immutable after the key is created.
+        """
         return pulumi.get(self, "exportable")
 
     @property
     @pulumi.getter(name="keyAttributes")
     def key_attributes(self) -> pulumi.Output['outputs.KeyAttributes']:
+        """
+        The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        """
         return pulumi.get(self, "key_attributes")
 
     @property
     @pulumi.getter(name="keyCheckValueAlgorithm")
     def key_check_value_algorithm(self) -> pulumi.Output[Optional['KeyCheckValueAlgorithm']]:
+        """
+        The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
+
+        For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        """
         return pulumi.get(self, "key_check_value_algorithm")
 
     @property
@@ -209,11 +249,17 @@ class Key(pulumi.CustomResource):
     @property
     @pulumi.getter(name="keyOrigin")
     def key_origin(self) -> pulumi.Output['KeyOrigin']:
+        """
+        The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
+        """
         return pulumi.get(self, "key_origin")
 
     @property
     @pulumi.getter(name="keyState")
     def key_state(self) -> pulumi.Output['KeyState']:
+        """
+        The state of key that is being created or deleted.
+        """
         return pulumi.get(self, "key_state")
 
     @property

@@ -26,11 +26,29 @@ export interface GetConfigurationSetArgs {
 }
 
 export interface GetConfigurationSetResult {
+    /**
+     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     */
     readonly deliveryOptions?: outputs.ses.ConfigurationSetDeliveryOptions;
+    /**
+     * An object that represents the reputation settings for the configuration set.
+     */
     readonly reputationOptions?: outputs.ses.ConfigurationSetReputationOptions;
+    /**
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     */
     readonly sendingOptions?: outputs.ses.ConfigurationSetSendingOptions;
+    /**
+     * An object that contains information about the suppression list preferences for your account.
+     */
     readonly suppressionOptions?: outputs.ses.ConfigurationSetSuppressionOptions;
+    /**
+     * The name of the custom open and click tracking domain associated with the configuration set.
+     */
     readonly trackingOptions?: outputs.ses.ConfigurationSetTrackingOptions;
+    /**
+     * The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+     */
     readonly vdmOptions?: outputs.ses.ConfigurationSetVdmOptions;
 }
 /**

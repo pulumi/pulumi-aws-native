@@ -40,16 +40,27 @@ class GetThingGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The thing group ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The thing group ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[str]:
+        """
+        The dynamic thing group search query string.
+
+        The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+        """
         return pulumi.get(self, "query_string")
 
     @property
@@ -63,6 +74,9 @@ class GetThingGroupResult:
     @property
     @pulumi.getter(name="thingGroupProperties")
     def thing_group_properties(self) -> Optional['outputs.ThingGroupPropertiesProperties']:
+        """
+        Thing group properties.
+        """
         return pulumi.get(self, "thing_group_properties")
 
 
@@ -83,6 +97,9 @@ def get_thing_group(thing_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThingGroupResult:
     """
     Resource Type definition for AWS::IoT::ThingGroup
+
+
+    :param str thing_group_name: The thing group name.
     """
     __args__ = dict()
     __args__['thingGroupName'] = thing_group_name
@@ -102,5 +119,8 @@ def get_thing_group_output(thing_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingGroupResult]:
     """
     Resource Type definition for AWS::IoT::ThingGroup
+
+
+    :param str thing_group_name: The thing group name.
     """
     ...

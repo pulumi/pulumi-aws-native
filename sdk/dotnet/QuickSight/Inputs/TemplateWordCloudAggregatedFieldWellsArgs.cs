@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("groupBy")]
         private InputList<Inputs.TemplateDimensionFieldArgs>? _groupBy;
+
+        /// <summary>
+        /// The group by field well of a word cloud. Values are grouped by group by fields.
+        /// </summary>
         public InputList<Inputs.TemplateDimensionFieldArgs> GroupBy
         {
             get => _groupBy ?? (_groupBy = new InputList<Inputs.TemplateDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("size")]
         private InputList<Inputs.TemplateMeasureFieldArgs>? _size;
+
+        /// <summary>
+        /// The size field well of a word cloud. Values are aggregated based on group by fields.
+        /// </summary>
         public InputList<Inputs.TemplateMeasureFieldArgs> Size
         {
             get => _size ?? (_size = new InputList<Inputs.TemplateMeasureFieldArgs>());

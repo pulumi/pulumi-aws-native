@@ -34,12 +34,23 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityPoolPrincipalTag.__pulumiType;
     }
 
+    /**
+     * The identity pool that you want to associate with this principal tag map.
+     */
     public readonly identityPoolId!: pulumi.Output<string>;
+    /**
+     * The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+     */
     public readonly identityProviderName!: pulumi.Output<string>;
     /**
+     * A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
      */
     public readonly principalTags!: pulumi.Output<any | undefined>;
+    /**
+     * Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+     */
     public readonly useDefaults!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -80,11 +91,22 @@ export class IdentityPoolPrincipalTag extends pulumi.CustomResource {
  * The set of arguments for constructing a IdentityPoolPrincipalTag resource.
  */
 export interface IdentityPoolPrincipalTagArgs {
+    /**
+     * The identity pool that you want to associate with this principal tag map.
+     */
     identityPoolId: pulumi.Input<string>;
+    /**
+     * The identity pool identity provider (IdP) that you want to associate with this principal tag map.
+     */
     identityProviderName: pulumi.Input<string>;
     /**
+     * A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
      */
     principalTags?: any;
+    /**
+     * Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+     */
     useDefaults?: pulumi.Input<boolean>;
 }

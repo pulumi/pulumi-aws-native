@@ -14,10 +14,16 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TopicLoggingConfig struct {
-	FailureFeedbackRoleArn    *string                    `pulumi:"failureFeedbackRoleArn"`
-	Protocol                  TopicLoggingConfigProtocol `pulumi:"protocol"`
-	SuccessFeedbackRoleArn    *string                    `pulumi:"successFeedbackRoleArn"`
-	SuccessFeedbackSampleRate *string                    `pulumi:"successFeedbackSampleRate"`
+	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
+	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
+	// Indicates one of the supported protocols for the Amazon SNS topic.
+	//
+	// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+	Protocol TopicLoggingConfigProtocol `pulumi:"protocol"`
+	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
+	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
+	// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
+	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
 // TopicLoggingConfigInput is an input type that accepts TopicLoggingConfigArgs and TopicLoggingConfigOutput values.
@@ -32,10 +38,16 @@ type TopicLoggingConfigInput interface {
 }
 
 type TopicLoggingConfigArgs struct {
-	FailureFeedbackRoleArn    pulumi.StringPtrInput           `pulumi:"failureFeedbackRoleArn"`
-	Protocol                  TopicLoggingConfigProtocolInput `pulumi:"protocol"`
-	SuccessFeedbackRoleArn    pulumi.StringPtrInput           `pulumi:"successFeedbackRoleArn"`
-	SuccessFeedbackSampleRate pulumi.StringPtrInput           `pulumi:"successFeedbackSampleRate"`
+	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
+	FailureFeedbackRoleArn pulumi.StringPtrInput `pulumi:"failureFeedbackRoleArn"`
+	// Indicates one of the supported protocols for the Amazon SNS topic.
+	//
+	// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
+	Protocol TopicLoggingConfigProtocolInput `pulumi:"protocol"`
+	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
+	SuccessFeedbackRoleArn pulumi.StringPtrInput `pulumi:"successFeedbackRoleArn"`
+	// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
+	SuccessFeedbackSampleRate pulumi.StringPtrInput `pulumi:"successFeedbackSampleRate"`
 }
 
 func (TopicLoggingConfigArgs) ElementType() reflect.Type {
@@ -89,18 +101,24 @@ func (o TopicLoggingConfigOutput) ToTopicLoggingConfigOutputWithContext(ctx cont
 	return o
 }
 
+// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
 func (o TopicLoggingConfigOutput) FailureFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.FailureFeedbackRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Indicates one of the supported protocols for the Amazon SNS topic.
+//
+// > At least one of the other three `LoggingConfig` properties is recommend along with `Protocol` .
 func (o TopicLoggingConfigOutput) Protocol() TopicLoggingConfigProtocolOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) TopicLoggingConfigProtocol { return v.Protocol }).(TopicLoggingConfigProtocolOutput)
 }
 
+// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
 func (o TopicLoggingConfigOutput) SuccessFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.SuccessFeedbackRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
 func (o TopicLoggingConfigOutput) SuccessFeedbackSampleRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.SuccessFeedbackSampleRate }).(pulumi.StringPtrOutput)
 }

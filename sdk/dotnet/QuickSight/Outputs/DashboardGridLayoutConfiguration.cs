@@ -14,6 +14,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardGridLayoutConfiguration
     {
         public readonly Outputs.DashboardGridLayoutCanvasSizeOptions? CanvasSizeOptions;
+        /// <summary>
+        /// The elements that are included in a grid layout.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardGridLayoutElement> Elements;
 
         [OutputConstructor]

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
     [OutputType]
     public sealed class WorkgroupEndpoint
     {
+        /// <summary>
+        /// The DNS address of the VPC endpoint.
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// The port that Amazon Redshift Serverless listens on.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// An array of `VpcEndpoint` objects.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WorkgroupVpcEndpoint> VpcEndpoints;
 
         [OutputConstructor]

@@ -217,6 +217,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("dbClusterSnapshotIdentifier")]
         public Output<string?> DbClusterSnapshotIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB instance.
+        /// </summary>
         [Output("dbInstanceArn")]
         public Output<string> DbInstanceArn { get; private set; } = null!;
 
@@ -361,6 +364,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("dbSystemId")]
         public Output<string> DbSystemId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        /// </summary>
         [Output("dbiResourceId")]
         public Output<string> DbiResourceId { get; private set; } = null!;
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowEventBridgeDestinationProperties
     {
+        /// <summary>
+        /// The object specified in the Amplitude flow source.
+        /// </summary>
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
+        /// <summary>
+        /// The object specified in the Amazon EventBridge flow destination.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

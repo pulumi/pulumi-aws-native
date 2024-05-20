@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineTracingConfiguration
     {
+        /// <summary>
+        /// When set to `true` , X-Ray tracing is enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

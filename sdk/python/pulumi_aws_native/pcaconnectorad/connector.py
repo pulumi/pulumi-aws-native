@@ -22,6 +22,10 @@ class ConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
+        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
+        :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
+        :param pulumi.Input['ConnectorVpcInformationArgs'] vpc_information: Information of the VPC and security group(s) used with the connector.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a connector consisting of a key-value pair.
         """
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         pulumi.set(__self__, "directory_id", directory_id)
@@ -32,6 +36,9 @@ class ConnectorArgs:
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate authority being used.
+        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -41,6 +48,9 @@ class ConnectorArgs:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Active Directory.
+        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -50,6 +60,9 @@ class ConnectorArgs:
     @property
     @pulumi.getter(name="vpcInformation")
     def vpc_information(self) -> pulumi.Input['ConnectorVpcInformationArgs']:
+        """
+        Information of the VPC and security group(s) used with the connector.
+        """
         return pulumi.get(self, "vpc_information")
 
     @vpc_information.setter
@@ -59,6 +72,9 @@ class ConnectorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata assigned to a connector consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +97,10 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
+        :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a connector consisting of a key-value pair.
+        :param pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']] vpc_information: Information of the VPC and security group(s) used with the connector.
         """
         ...
     @overload
@@ -164,25 +184,40 @@ class Connector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate authority being used.
+        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        """
         return pulumi.get(self, "connector_arn")
 
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Active Directory.
+        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata assigned to a connector consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcInformation")
     def vpc_information(self) -> pulumi.Output['outputs.ConnectorVpcInformation']:
+        """
+        Information of the VPC and security group(s) used with the connector.
+        """
         return pulumi.get(self, "vpc_information")
 

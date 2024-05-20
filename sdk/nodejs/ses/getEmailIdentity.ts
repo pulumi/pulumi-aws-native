@@ -26,16 +26,49 @@ export interface GetEmailIdentityArgs {
 }
 
 export interface GetEmailIdentityResult {
+    /**
+     * Used to associate a configuration set with an email identity.
+     */
     readonly configurationSetAttributes?: outputs.ses.EmailIdentityConfigurationSetAttributes;
+    /**
+     * An object that contains information about the DKIM attributes for the identity.
+     */
     readonly dkimAttributes?: outputs.ses.EmailIdentityDkimAttributes;
+    /**
+     * The host name for the first token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenName1?: string;
+    /**
+     * The host name for the second token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenName2?: string;
+    /**
+     * The host name for the third token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenName3?: string;
+    /**
+     * The record value for the first token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenValue1?: string;
+    /**
+     * The record value for the second token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenValue2?: string;
+    /**
+     * The record value for the third token that you have to add to the DNS configuration for your domain.
+     */
     readonly dkimDnsTokenValue3?: string;
+    /**
+     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+     */
     readonly dkimSigningAttributes?: outputs.ses.EmailIdentityDkimSigningAttributes;
+    /**
+     * Used to enable or disable feedback forwarding for an identity.
+     */
     readonly feedbackAttributes?: outputs.ses.EmailIdentityFeedbackAttributes;
+    /**
+     * Used to enable or disable the custom Mail-From domain configuration for an email identity.
+     */
     readonly mailFromAttributes?: outputs.ses.EmailIdentityMailFromAttributes;
 }
 /**

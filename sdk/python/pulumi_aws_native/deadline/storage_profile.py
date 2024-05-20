@@ -23,6 +23,10 @@ class StorageProfileArgs:
                  file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]] = None):
         """
         The set of arguments for constructing a StorageProfile resource.
+        :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
+        :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
+        :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]] file_system_locations: Operating system specific file system path to the storage location.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "os_family", os_family)
@@ -34,6 +38,9 @@ class StorageProfileArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the storage profile summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -43,6 +50,9 @@ class StorageProfileArgs:
     @property
     @pulumi.getter(name="osFamily")
     def os_family(self) -> pulumi.Input['StorageProfileOperatingSystemFamily']:
+        """
+        The operating system (OS) family.
+        """
         return pulumi.get(self, "os_family")
 
     @os_family.setter
@@ -52,6 +62,9 @@ class StorageProfileArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the farm that contains the storage profile.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -61,6 +74,9 @@ class StorageProfileArgs:
     @property
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]]:
+        """
+        Operating system specific file system path to the storage location.
+        """
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
@@ -83,6 +99,10 @@ class StorageProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
+        :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageProfileFileSystemLocationArgs']]]] file_system_locations: Operating system specific file system path to the storage location.
+        :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         """
         ...
     @overload
@@ -164,25 +184,40 @@ class StorageProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The display name of the storage profile summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique identifier of the farm that contains the storage profile.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.StorageProfileFileSystemLocation']]]:
+        """
+        Operating system specific file system path to the storage location.
+        """
         return pulumi.get(self, "file_system_locations")
 
     @property
     @pulumi.getter(name="osFamily")
     def os_family(self) -> pulumi.Output['StorageProfileOperatingSystemFamily']:
+        """
+        The operating system (OS) family.
+        """
         return pulumi.get(self, "os_family")
 
     @property
     @pulumi.getter(name="storageProfileId")
     def storage_profile_id(self) -> pulumi.Output[str]:
+        """
+        The storage profile ID.
+        """
         return pulumi.get(self, "storage_profile_id")
 

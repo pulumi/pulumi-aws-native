@@ -16,11 +16,20 @@ export function getSimulationApplicationVersion(args: GetSimulationApplicationVe
 }
 
 export interface GetSimulationApplicationVersionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application version.
+     */
     arn: string;
 }
 
 export interface GetSimulationApplicationVersionResult {
+    /**
+     * The simulation application version.
+     */
     readonly applicationVersion?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application version.
+     */
     readonly arn?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getSimulationApplicationVersionOutput(args: GetSimulationApplica
 }
 
 export interface GetSimulationApplicationVersionOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application version.
+     */
     arn: pulumi.Input<string>;
 }

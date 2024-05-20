@@ -94,5 +94,8 @@ class LogAnomalyDetectionIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
+        """
         return pulumi.get(self, "account_id")
 

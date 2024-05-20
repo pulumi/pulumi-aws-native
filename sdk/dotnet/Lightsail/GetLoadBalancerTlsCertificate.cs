@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
         /// </summary>
         public readonly bool? IsAttached;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+        /// </summary>
         public readonly string? LoadBalancerTlsCertificateArn;
         /// <summary>
         /// The validation status of the SSL/TLS certificate.

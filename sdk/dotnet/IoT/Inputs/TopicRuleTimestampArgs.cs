@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleTimestampArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The precision of the timestamp value that results from the expression described in `value` .
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
+        /// <summary>
+        /// An expression that returns a long epoch time value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

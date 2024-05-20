@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("dateTimeValues")]
         private InputList<string>? _dateTimeValues;
+
+        /// <summary>
+        /// A list of datetime-type parameter values.
+        /// </summary>
         public InputList<string> DateTimeValues
         {
             get => _dateTimeValues ?? (_dateTimeValues = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("decimalValues")]
         private InputList<double>? _decimalValues;
+
+        /// <summary>
+        /// A list of decimal-type parameter values.
+        /// </summary>
         public InputList<double> DecimalValues
         {
             get => _decimalValues ?? (_decimalValues = new InputList<double>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("integerValues")]
         private InputList<double>? _integerValues;
+
+        /// <summary>
+        /// A list of integer-type parameter values.
+        /// </summary>
         public InputList<double> IntegerValues
         {
             get => _integerValues ?? (_integerValues = new InputList<double>());
@@ -38,6 +50,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("stringValues")]
         private InputList<string>? _stringValues;
+
+        /// <summary>
+        /// A list of string-type parameter values.
+        /// </summary>
         public InputList<string> StringValues
         {
             get => _stringValues ?? (_stringValues = new InputList<string>());

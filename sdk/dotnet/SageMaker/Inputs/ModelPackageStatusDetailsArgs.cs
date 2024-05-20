@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         [Input("validationStatuses")]
         private InputList<Inputs.ModelPackageStatusItemArgs>? _validationStatuses;
+
+        /// <summary>
+        /// The validation status of the model package.
+        /// </summary>
         public InputList<Inputs.ModelPackageStatusItemArgs> ValidationStatuses
         {
             get => _validationStatuses ?? (_validationStatuses = new InputList<Inputs.ModelPackageStatusItemArgs>());

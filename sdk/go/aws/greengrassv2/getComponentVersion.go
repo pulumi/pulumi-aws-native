@@ -23,14 +23,21 @@ func LookupComponentVersion(ctx *pulumi.Context, args *LookupComponentVersionArg
 }
 
 type LookupComponentVersionArgs struct {
+	// The ARN of the component version.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupComponentVersionResult struct {
-	Arn              *string           `pulumi:"arn"`
-	ComponentName    *string           `pulumi:"componentName"`
-	ComponentVersion *string           `pulumi:"componentVersion"`
-	Tags             map[string]string `pulumi:"tags"`
+	// The ARN of the component version.
+	Arn *string `pulumi:"arn"`
+	// The name of the component.
+	ComponentName *string `pulumi:"componentName"`
+	// The version of the component.
+	ComponentVersion *string `pulumi:"componentVersion"`
+	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupComponentVersionOutput(ctx *pulumi.Context, args LookupComponentVersionOutputArgs, opts ...pulumi.InvokeOption) LookupComponentVersionResultOutput {
@@ -47,6 +54,7 @@ func LookupComponentVersionOutput(ctx *pulumi.Context, args LookupComponentVersi
 }
 
 type LookupComponentVersionOutputArgs struct {
+	// The ARN of the component version.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68,18 +76,24 @@ func (o LookupComponentVersionResultOutput) ToLookupComponentVersionResultOutput
 	return o
 }
 
+// The ARN of the component version.
 func (o LookupComponentVersionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentVersionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the component.
 func (o LookupComponentVersionResultOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentVersionResult) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
 }
 
+// The version of the component.
 func (o LookupComponentVersionResultOutput) ComponentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentVersionResult) *string { return v.ComponentVersion }).(pulumi.StringPtrOutput)
 }
 
+// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+//
+// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
 func (o LookupComponentVersionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupComponentVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

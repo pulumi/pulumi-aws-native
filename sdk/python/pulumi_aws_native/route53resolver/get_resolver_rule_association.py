@@ -26,6 +26,9 @@ class GetResolverRuleAssociationResult:
     @property
     @pulumi.getter(name="resolverRuleAssociationId")
     def resolver_rule_association_id(self) -> Optional[str]:
+        """
+        The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+        """
         return pulumi.get(self, "resolver_rule_association_id")
 
 
@@ -42,6 +45,9 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[str] = 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverRuleAssociationResult:
     """
     In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
+
+
+    :param str resolver_rule_association_id: The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
     """
     __args__ = dict()
     __args__['resolverRuleAssociationId'] = resolver_rule_association_id
@@ -57,5 +63,8 @@ def get_resolver_rule_association_output(resolver_rule_association_id: Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleAssociationResult]:
     """
     In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
+
+
+    :param str resolver_rule_association_id: The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
     """
     ...

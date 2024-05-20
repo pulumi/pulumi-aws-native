@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Redshift.Inputs
 
     public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS address of the cluster. This property is read only.
+        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
+        /// <summary>
+        /// The port that the database engine is listening on. This property is read only.
+        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisColumnHierarchyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that determines the hierarchy of any `DateTime` fields.
+        /// </summary>
         [Input("dateTimeHierarchy")]
         public Input<Inputs.AnalysisDateTimeHierarchyArgs>? DateTimeHierarchy { get; set; }
 
+        /// <summary>
+        /// The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.
+        /// </summary>
         [Input("explicitHierarchy")]
         public Input<Inputs.AnalysisExplicitHierarchyArgs>? ExplicitHierarchy { get; set; }
 
+        /// <summary>
+        /// The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.
+        /// </summary>
         [Input("predefinedHierarchy")]
         public Input<Inputs.AnalysisPredefinedHierarchyArgs>? PredefinedHierarchy { get; set; }
 

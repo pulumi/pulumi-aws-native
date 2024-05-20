@@ -28,10 +28,20 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetKeyArgs {
+    /**
+     * The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+     */
     keyId: string;
 }
 
 export interface GetKeyResult {
+    /**
+     * The Amazon Resource Name (ARN) of the KMS key, such as `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * For information about the key ARN of a KMS key, see [Key ARN](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN) in the *AWS Key Management Service Developer Guide* .
+     */
     readonly arn?: string;
     /**
      * A description of the KMS key. Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
@@ -51,6 +61,11 @@ export interface GetKeyResult {
      *  For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
      */
     readonly enabled?: boolean;
+    /**
+     * The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+     */
     readonly keyId?: string;
     /**
      * The key policy to attach to the KMS key.
@@ -154,5 +169,10 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetKeyOutputArgs {
+    /**
+     * The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
+     */
     keyId: pulumi.Input<string>;
 }

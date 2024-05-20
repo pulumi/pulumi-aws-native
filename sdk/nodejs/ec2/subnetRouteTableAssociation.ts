@@ -34,6 +34,9 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetRouteTableAssociation.__pulumiType;
     }
 
+    /**
+     * The ID of the subnet route table association.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The ID of the route table.

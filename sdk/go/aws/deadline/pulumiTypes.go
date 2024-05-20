@@ -310,9 +310,12 @@ func (o FleetAcceleratorTotalMemoryMiBRangePtrOutput) Min() pulumi.IntPtrOutput 
 }
 
 type FleetAmountCapability struct {
-	Max  *float64 `pulumi:"max"`
-	Min  float64  `pulumi:"min"`
-	Name string   `pulumi:"name"`
+	// The maximum amount of the fleet worker capability.
+	Max *float64 `pulumi:"max"`
+	// The minimum amount of fleet worker capability.
+	Min float64 `pulumi:"min"`
+	// The name of the fleet capability.
+	Name string `pulumi:"name"`
 }
 
 // FleetAmountCapabilityInput is an input type that accepts FleetAmountCapabilityArgs and FleetAmountCapabilityOutput values.
@@ -327,9 +330,12 @@ type FleetAmountCapabilityInput interface {
 }
 
 type FleetAmountCapabilityArgs struct {
-	Max  pulumi.Float64PtrInput `pulumi:"max"`
-	Min  pulumi.Float64Input    `pulumi:"min"`
-	Name pulumi.StringInput     `pulumi:"name"`
+	// The maximum amount of the fleet worker capability.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of fleet worker capability.
+	Min pulumi.Float64Input `pulumi:"min"`
+	// The name of the fleet capability.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (FleetAmountCapabilityArgs) ElementType() reflect.Type {
@@ -383,14 +389,17 @@ func (o FleetAmountCapabilityOutput) ToFleetAmountCapabilityOutputWithContext(ct
 	return o
 }
 
+// The maximum amount of the fleet worker capability.
 func (o FleetAmountCapabilityOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetAmountCapability) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of fleet worker capability.
 func (o FleetAmountCapabilityOutput) Min() pulumi.Float64Output {
 	return o.ApplyT(func(v FleetAmountCapability) float64 { return v.Min }).(pulumi.Float64Output)
 }
 
+// The name of the fleet capability.
 func (o FleetAmountCapabilityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetAmountCapability) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -416,7 +425,9 @@ func (o FleetAmountCapabilityArrayOutput) Index(i pulumi.IntInput) FleetAmountCa
 }
 
 type FleetAttributeCapability struct {
-	Name   string   `pulumi:"name"`
+	// The name of the fleet attribute capability for the worker.
+	Name string `pulumi:"name"`
+	// The number of fleet attribute capabilities.
 	Values []string `pulumi:"values"`
 }
 
@@ -432,7 +443,9 @@ type FleetAttributeCapabilityInput interface {
 }
 
 type FleetAttributeCapabilityArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// The name of the fleet attribute capability for the worker.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of fleet attribute capabilities.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -487,10 +500,12 @@ func (o FleetAttributeCapabilityOutput) ToFleetAttributeCapabilityOutputWithCont
 	return o
 }
 
+// The name of the fleet attribute capability for the worker.
 func (o FleetAttributeCapabilityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetAttributeCapability) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of fleet attribute capabilities.
 func (o FleetAttributeCapabilityOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetAttributeCapability) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -516,7 +531,9 @@ func (o FleetAttributeCapabilityArrayOutput) Index(i pulumi.IntInput) FleetAttri
 }
 
 type FleetCapabilities struct {
-	Amounts    []FleetAmountCapability    `pulumi:"amounts"`
+	// Amount capabilities of the fleet.
+	Amounts []FleetAmountCapability `pulumi:"amounts"`
+	// Attribute capabilities of the fleet.
 	Attributes []FleetAttributeCapability `pulumi:"attributes"`
 }
 
@@ -534,10 +551,12 @@ func (o FleetCapabilitiesOutput) ToFleetCapabilitiesOutputWithContext(ctx contex
 	return o
 }
 
+// Amount capabilities of the fleet.
 func (o FleetCapabilitiesOutput) Amounts() FleetAmountCapabilityArrayOutput {
 	return o.ApplyT(func(v FleetCapabilities) []FleetAmountCapability { return v.Amounts }).(FleetAmountCapabilityArrayOutput)
 }
 
+// Attribute capabilities of the fleet.
 func (o FleetCapabilitiesOutput) Attributes() FleetAttributeCapabilityArrayOutput {
 	return o.ApplyT(func(v FleetCapabilities) []FleetAttributeCapability { return v.Attributes }).(FleetAttributeCapabilityArrayOutput)
 }
@@ -566,6 +585,7 @@ func (o FleetCapabilitiesPtrOutput) Elem() FleetCapabilitiesOutput {
 	}).(FleetCapabilitiesOutput)
 }
 
+// Amount capabilities of the fleet.
 func (o FleetCapabilitiesPtrOutput) Amounts() FleetAmountCapabilityArrayOutput {
 	return o.ApplyT(func(v *FleetCapabilities) []FleetAmountCapability {
 		if v == nil {
@@ -575,6 +595,7 @@ func (o FleetCapabilitiesPtrOutput) Amounts() FleetAmountCapabilityArrayOutput {
 	}).(FleetAmountCapabilityArrayOutput)
 }
 
+// Attribute capabilities of the fleet.
 func (o FleetCapabilitiesPtrOutput) Attributes() FleetAttributeCapabilityArrayOutput {
 	return o.ApplyT(func(v *FleetCapabilities) []FleetAttributeCapability {
 		if v == nil {
@@ -1819,7 +1840,9 @@ func (o FleetVCpuCountRangePtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type QueueJobAttachmentSettings struct {
-	RootPrefix   string `pulumi:"rootPrefix"`
+	// The root prefix.
+	RootPrefix string `pulumi:"rootPrefix"`
+	// The Amazon S3 bucket name.
 	S3BucketName string `pulumi:"s3BucketName"`
 }
 
@@ -1835,7 +1858,9 @@ type QueueJobAttachmentSettingsInput interface {
 }
 
 type QueueJobAttachmentSettingsArgs struct {
-	RootPrefix   pulumi.StringInput `pulumi:"rootPrefix"`
+	// The root prefix.
+	RootPrefix pulumi.StringInput `pulumi:"rootPrefix"`
+	// The Amazon S3 bucket name.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
 }
 
@@ -1916,10 +1941,12 @@ func (o QueueJobAttachmentSettingsOutput) ToQueueJobAttachmentSettingsPtrOutputW
 	}).(QueueJobAttachmentSettingsPtrOutput)
 }
 
+// The root prefix.
 func (o QueueJobAttachmentSettingsOutput) RootPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v QueueJobAttachmentSettings) string { return v.RootPrefix }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 bucket name.
 func (o QueueJobAttachmentSettingsOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v QueueJobAttachmentSettings) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
@@ -1948,6 +1975,7 @@ func (o QueueJobAttachmentSettingsPtrOutput) Elem() QueueJobAttachmentSettingsOu
 	}).(QueueJobAttachmentSettingsOutput)
 }
 
+// The root prefix.
 func (o QueueJobAttachmentSettingsPtrOutput) RootPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueJobAttachmentSettings) *string {
 		if v == nil {
@@ -1957,6 +1985,7 @@ func (o QueueJobAttachmentSettingsPtrOutput) RootPrefix() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 bucket name.
 func (o QueueJobAttachmentSettingsPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueJobAttachmentSettings) *string {
 		if v == nil {
@@ -1967,8 +1996,11 @@ func (o QueueJobAttachmentSettingsPtrOutput) S3BucketName() pulumi.StringPtrOutp
 }
 
 type QueueJobRunAsUser struct {
-	Posix   *QueuePosixUser   `pulumi:"posix"`
-	RunAs   QueueRunAs        `pulumi:"runAs"`
+	// The user and group that the jobs in the queue run as.
+	Posix *QueuePosixUser `pulumi:"posix"`
+	// Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+	RunAs QueueRunAs `pulumi:"runAs"`
+	// Identifies a Microsoft Windows user.
 	Windows *QueueWindowsUser `pulumi:"windows"`
 }
 
@@ -1984,8 +2016,11 @@ type QueueJobRunAsUserInput interface {
 }
 
 type QueueJobRunAsUserArgs struct {
-	Posix   QueuePosixUserPtrInput   `pulumi:"posix"`
-	RunAs   QueueRunAsInput          `pulumi:"runAs"`
+	// The user and group that the jobs in the queue run as.
+	Posix QueuePosixUserPtrInput `pulumi:"posix"`
+	// Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+	RunAs QueueRunAsInput `pulumi:"runAs"`
+	// Identifies a Microsoft Windows user.
 	Windows QueueWindowsUserPtrInput `pulumi:"windows"`
 }
 
@@ -2066,14 +2101,17 @@ func (o QueueJobRunAsUserOutput) ToQueueJobRunAsUserPtrOutputWithContext(ctx con
 	}).(QueueJobRunAsUserPtrOutput)
 }
 
+// The user and group that the jobs in the queue run as.
 func (o QueueJobRunAsUserOutput) Posix() QueuePosixUserPtrOutput {
 	return o.ApplyT(func(v QueueJobRunAsUser) *QueuePosixUser { return v.Posix }).(QueuePosixUserPtrOutput)
 }
 
+// Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
 func (o QueueJobRunAsUserOutput) RunAs() QueueRunAsOutput {
 	return o.ApplyT(func(v QueueJobRunAsUser) QueueRunAs { return v.RunAs }).(QueueRunAsOutput)
 }
 
+// Identifies a Microsoft Windows user.
 func (o QueueJobRunAsUserOutput) Windows() QueueWindowsUserPtrOutput {
 	return o.ApplyT(func(v QueueJobRunAsUser) *QueueWindowsUser { return v.Windows }).(QueueWindowsUserPtrOutput)
 }
@@ -2102,6 +2140,7 @@ func (o QueueJobRunAsUserPtrOutput) Elem() QueueJobRunAsUserOutput {
 	}).(QueueJobRunAsUserOutput)
 }
 
+// The user and group that the jobs in the queue run as.
 func (o QueueJobRunAsUserPtrOutput) Posix() QueuePosixUserPtrOutput {
 	return o.ApplyT(func(v *QueueJobRunAsUser) *QueuePosixUser {
 		if v == nil {
@@ -2111,6 +2150,7 @@ func (o QueueJobRunAsUserPtrOutput) Posix() QueuePosixUserPtrOutput {
 	}).(QueuePosixUserPtrOutput)
 }
 
+// Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
 func (o QueueJobRunAsUserPtrOutput) RunAs() QueueRunAsPtrOutput {
 	return o.ApplyT(func(v *QueueJobRunAsUser) *QueueRunAs {
 		if v == nil {
@@ -2120,6 +2160,7 @@ func (o QueueJobRunAsUserPtrOutput) RunAs() QueueRunAsPtrOutput {
 	}).(QueueRunAsPtrOutput)
 }
 
+// Identifies a Microsoft Windows user.
 func (o QueueJobRunAsUserPtrOutput) Windows() QueueWindowsUserPtrOutput {
 	return o.ApplyT(func(v *QueueJobRunAsUser) *QueueWindowsUser {
 		if v == nil {
@@ -2130,8 +2171,10 @@ func (o QueueJobRunAsUserPtrOutput) Windows() QueueWindowsUserPtrOutput {
 }
 
 type QueuePosixUser struct {
+	// The name of the POSIX user's group.
 	Group string `pulumi:"group"`
-	User  string `pulumi:"user"`
+	// The name of the POSIX user.
+	User string `pulumi:"user"`
 }
 
 // QueuePosixUserInput is an input type that accepts QueuePosixUserArgs and QueuePosixUserOutput values.
@@ -2146,8 +2189,10 @@ type QueuePosixUserInput interface {
 }
 
 type QueuePosixUserArgs struct {
+	// The name of the POSIX user's group.
 	Group pulumi.StringInput `pulumi:"group"`
-	User  pulumi.StringInput `pulumi:"user"`
+	// The name of the POSIX user.
+	User pulumi.StringInput `pulumi:"user"`
 }
 
 func (QueuePosixUserArgs) ElementType() reflect.Type {
@@ -2227,10 +2272,12 @@ func (o QueuePosixUserOutput) ToQueuePosixUserPtrOutputWithContext(ctx context.C
 	}).(QueuePosixUserPtrOutput)
 }
 
+// The name of the POSIX user's group.
 func (o QueuePosixUserOutput) Group() pulumi.StringOutput {
 	return o.ApplyT(func(v QueuePosixUser) string { return v.Group }).(pulumi.StringOutput)
 }
 
+// The name of the POSIX user.
 func (o QueuePosixUserOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v QueuePosixUser) string { return v.User }).(pulumi.StringOutput)
 }
@@ -2259,6 +2306,7 @@ func (o QueuePosixUserPtrOutput) Elem() QueuePosixUserOutput {
 	}).(QueuePosixUserOutput)
 }
 
+// The name of the POSIX user's group.
 func (o QueuePosixUserPtrOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueuePosixUser) *string {
 		if v == nil {
@@ -2268,6 +2316,7 @@ func (o QueuePosixUserPtrOutput) Group() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the POSIX user.
 func (o QueuePosixUserPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueuePosixUser) *string {
 		if v == nil {
@@ -2278,8 +2327,10 @@ func (o QueuePosixUserPtrOutput) User() pulumi.StringPtrOutput {
 }
 
 type QueueWindowsUser struct {
+	// The password ARN for the Windows user.
 	PasswordArn string `pulumi:"passwordArn"`
-	User        string `pulumi:"user"`
+	// The user.
+	User string `pulumi:"user"`
 }
 
 // QueueWindowsUserInput is an input type that accepts QueueWindowsUserArgs and QueueWindowsUserOutput values.
@@ -2294,8 +2345,10 @@ type QueueWindowsUserInput interface {
 }
 
 type QueueWindowsUserArgs struct {
+	// The password ARN for the Windows user.
 	PasswordArn pulumi.StringInput `pulumi:"passwordArn"`
-	User        pulumi.StringInput `pulumi:"user"`
+	// The user.
+	User pulumi.StringInput `pulumi:"user"`
 }
 
 func (QueueWindowsUserArgs) ElementType() reflect.Type {
@@ -2375,10 +2428,12 @@ func (o QueueWindowsUserOutput) ToQueueWindowsUserPtrOutputWithContext(ctx conte
 	}).(QueueWindowsUserPtrOutput)
 }
 
+// The password ARN for the Windows user.
 func (o QueueWindowsUserOutput) PasswordArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QueueWindowsUser) string { return v.PasswordArn }).(pulumi.StringOutput)
 }
 
+// The user.
 func (o QueueWindowsUserOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v QueueWindowsUser) string { return v.User }).(pulumi.StringOutput)
 }
@@ -2407,6 +2462,7 @@ func (o QueueWindowsUserPtrOutput) Elem() QueueWindowsUserOutput {
 	}).(QueueWindowsUserOutput)
 }
 
+// The password ARN for the Windows user.
 func (o QueueWindowsUserPtrOutput) PasswordArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueWindowsUser) *string {
 		if v == nil {
@@ -2416,6 +2472,7 @@ func (o QueueWindowsUserPtrOutput) PasswordArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user.
 func (o QueueWindowsUserPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueueWindowsUser) *string {
 		if v == nil {
@@ -2426,8 +2483,11 @@ func (o QueueWindowsUserPtrOutput) User() pulumi.StringPtrOutput {
 }
 
 type StorageProfileFileSystemLocation struct {
-	Name string                               `pulumi:"name"`
-	Path string                               `pulumi:"path"`
+	// The location name.
+	Name string `pulumi:"name"`
+	// The file path.
+	Path string `pulumi:"path"`
+	// The type of file.
 	Type StorageProfileFileSystemLocationType `pulumi:"type"`
 }
 
@@ -2443,8 +2503,11 @@ type StorageProfileFileSystemLocationInput interface {
 }
 
 type StorageProfileFileSystemLocationArgs struct {
-	Name pulumi.StringInput                        `pulumi:"name"`
-	Path pulumi.StringInput                        `pulumi:"path"`
+	// The location name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The file path.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The type of file.
 	Type StorageProfileFileSystemLocationTypeInput `pulumi:"type"`
 }
 
@@ -2499,14 +2562,17 @@ func (o StorageProfileFileSystemLocationOutput) ToStorageProfileFileSystemLocati
 	return o
 }
 
+// The location name.
 func (o StorageProfileFileSystemLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageProfileFileSystemLocation) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The file path.
 func (o StorageProfileFileSystemLocationOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageProfileFileSystemLocation) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// The type of file.
 func (o StorageProfileFileSystemLocationOutput) Type() StorageProfileFileSystemLocationTypeOutput {
 	return o.ApplyT(func(v StorageProfileFileSystemLocation) StorageProfileFileSystemLocationType { return v.Type }).(StorageProfileFileSystemLocationTypeOutput)
 }

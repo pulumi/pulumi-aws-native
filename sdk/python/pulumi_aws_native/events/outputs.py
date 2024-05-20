@@ -75,17 +75,27 @@ class ConnectionApiKeyAuthParameters(dict):
     def __init__(__self__, *,
                  api_key_name: str,
                  api_key_value: str):
+        """
+        :param str api_key_name: The name of the API key to use for authorization.
+        :param str api_key_value: The value for the API key to use for authorization.
+        """
         pulumi.set(__self__, "api_key_name", api_key_name)
         pulumi.set(__self__, "api_key_value", api_key_value)
 
     @property
     @pulumi.getter(name="apiKeyName")
     def api_key_name(self) -> str:
+        """
+        The name of the API key to use for authorization.
+        """
         return pulumi.get(self, "api_key_name")
 
     @property
     @pulumi.getter(name="apiKeyValue")
     def api_key_value(self) -> str:
+        """
+        The value for the API key to use for authorization.
+        """
         return pulumi.get(self, "api_key_value")
 
 
@@ -119,6 +129,12 @@ class ConnectionAuthParameters(dict):
                  basic_auth_parameters: Optional['outputs.ConnectionBasicAuthParameters'] = None,
                  invocation_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
                  o_auth_parameters: Optional['outputs.ConnectionOAuthParameters'] = None):
+        """
+        :param 'ConnectionApiKeyAuthParameters' api_key_auth_parameters: The API Key parameters to use for authorization.
+        :param 'ConnectionBasicAuthParameters' basic_auth_parameters: The authorization parameters for Basic authorization.
+        :param 'ConnectionHttpParameters' invocation_http_parameters: Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
+        :param 'ConnectionOAuthParameters' o_auth_parameters: The OAuth parameters to use for authorization.
+        """
         if api_key_auth_parameters is not None:
             pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
         if basic_auth_parameters is not None:
@@ -131,21 +147,33 @@ class ConnectionAuthParameters(dict):
     @property
     @pulumi.getter(name="apiKeyAuthParameters")
     def api_key_auth_parameters(self) -> Optional['outputs.ConnectionApiKeyAuthParameters']:
+        """
+        The API Key parameters to use for authorization.
+        """
         return pulumi.get(self, "api_key_auth_parameters")
 
     @property
     @pulumi.getter(name="basicAuthParameters")
     def basic_auth_parameters(self) -> Optional['outputs.ConnectionBasicAuthParameters']:
+        """
+        The authorization parameters for Basic authorization.
+        """
         return pulumi.get(self, "basic_auth_parameters")
 
     @property
     @pulumi.getter(name="invocationHttpParameters")
     def invocation_http_parameters(self) -> Optional['outputs.ConnectionHttpParameters']:
+        """
+        Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
+        """
         return pulumi.get(self, "invocation_http_parameters")
 
     @property
     @pulumi.getter(name="oAuthParameters")
     def o_auth_parameters(self) -> Optional['outputs.ConnectionOAuthParameters']:
+        """
+        The OAuth parameters to use for authorization.
+        """
         return pulumi.get(self, "o_auth_parameters")
 
 
@@ -154,17 +182,27 @@ class ConnectionBasicAuthParameters(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
+        """
+        :param str password: The password associated with the user name to use for Basic authorization.
+        :param str username: The user name to use for Basic authorization.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        The password associated with the user name to use for Basic authorization.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        The user name to use for Basic authorization.
+        """
         return pulumi.get(self, "username")
 
 
@@ -192,17 +230,27 @@ class ConnectionClientParameters(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str):
+        """
+        :param str client_id: The client ID to use for OAuth authorization.
+        :param str client_secret: The client secret assciated with the client ID to use for OAuth authorization.
+        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
+        """
+        The client ID to use for OAuth authorization.
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> str:
+        """
+        The client secret assciated with the client ID to use for OAuth authorization.
+        """
         return pulumi.get(self, "client_secret")
 
 
@@ -233,6 +281,11 @@ class ConnectionHttpParameters(dict):
                  body_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
                  header_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
                  query_string_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None):
+        """
+        :param Sequence['ConnectionParameter'] body_parameters: Contains additional body string parameters for the connection.
+        :param Sequence['ConnectionParameter'] header_parameters: Contains additional header parameters for the connection.
+        :param Sequence['ConnectionParameter'] query_string_parameters: Contains additional query string parameters for the connection.
+        """
         if body_parameters is not None:
             pulumi.set(__self__, "body_parameters", body_parameters)
         if header_parameters is not None:
@@ -243,16 +296,25 @@ class ConnectionHttpParameters(dict):
     @property
     @pulumi.getter(name="bodyParameters")
     def body_parameters(self) -> Optional[Sequence['outputs.ConnectionParameter']]:
+        """
+        Contains additional body string parameters for the connection.
+        """
         return pulumi.get(self, "body_parameters")
 
     @property
     @pulumi.getter(name="headerParameters")
     def header_parameters(self) -> Optional[Sequence['outputs.ConnectionParameter']]:
+        """
+        Contains additional header parameters for the connection.
+        """
         return pulumi.get(self, "header_parameters")
 
     @property
     @pulumi.getter(name="queryStringParameters")
     def query_string_parameters(self) -> Optional[Sequence['outputs.ConnectionParameter']]:
+        """
+        Contains additional query string parameters for the connection.
+        """
         return pulumi.get(self, "query_string_parameters")
 
 
@@ -286,6 +348,12 @@ class ConnectionOAuthParameters(dict):
                  client_parameters: 'outputs.ConnectionClientParameters',
                  http_method: 'ConnectionOAuthParametersHttpMethod',
                  o_auth_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None):
+        """
+        :param str authorization_endpoint: The URL to the authorization endpoint when OAuth is specified as the authorization type.
+        :param 'ConnectionClientParameters' client_parameters: A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+        :param 'ConnectionOAuthParametersHttpMethod' http_method: The method to use for the authorization request.
+        :param 'ConnectionHttpParameters' o_auth_http_parameters: A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_parameters", client_parameters)
         pulumi.set(__self__, "http_method", http_method)
@@ -295,21 +363,33 @@ class ConnectionOAuthParameters(dict):
     @property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> str:
+        """
+        The URL to the authorization endpoint when OAuth is specified as the authorization type.
+        """
         return pulumi.get(self, "authorization_endpoint")
 
     @property
     @pulumi.getter(name="clientParameters")
     def client_parameters(self) -> 'outputs.ConnectionClientParameters':
+        """
+        A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+        """
         return pulumi.get(self, "client_parameters")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> 'ConnectionOAuthParametersHttpMethod':
+        """
+        The method to use for the authorization request.
+        """
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter(name="oAuthHttpParameters")
     def o_auth_http_parameters(self) -> Optional['outputs.ConnectionHttpParameters']:
+        """
+        A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+        """
         return pulumi.get(self, "o_auth_http_parameters")
 
 
@@ -336,6 +416,11 @@ class ConnectionParameter(dict):
                  key: str,
                  value: str,
                  is_value_secret: Optional[bool] = None):
+        """
+        :param str key: The key for a query string parameter.
+        :param str value: The value associated with the key for the query string parameter.
+        :param bool is_value_secret: Specifies whether the value is secret.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if is_value_secret is not None:
@@ -344,16 +429,25 @@ class ConnectionParameter(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key for a query string parameter.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value associated with the key for the query string parameter.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[bool]:
+        """
+        Specifies whether the value is secret.
+        """
         return pulumi.get(self, "is_value_secret")
 
 
@@ -410,17 +504,27 @@ class EndpointFailoverConfig(dict):
     def __init__(__self__, *,
                  primary: 'outputs.EndpointPrimary',
                  secondary: 'outputs.EndpointSecondary'):
+        """
+        :param 'EndpointPrimary' primary: The main Region of the endpoint.
+        :param 'EndpointSecondary' secondary: The Region that events are routed to when failover is triggered or event replication is enabled.
+        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "secondary", secondary)
 
     @property
     @pulumi.getter
     def primary(self) -> 'outputs.EndpointPrimary':
+        """
+        The main Region of the endpoint.
+        """
         return pulumi.get(self, "primary")
 
     @property
     @pulumi.getter
     def secondary(self) -> 'outputs.EndpointSecondary':
+        """
+        The Region that events are routed to when failover is triggered or event replication is enabled.
+        """
         return pulumi.get(self, "secondary")
 
 
@@ -445,11 +549,17 @@ class EndpointPrimary(dict):
 
     def __init__(__self__, *,
                  health_check: str):
+        """
+        :param str health_check: The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
         pulumi.set(__self__, "health_check", health_check)
 
     @property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> str:
+        """
+        The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
         return pulumi.get(self, "health_check")
 
 
@@ -457,11 +567,17 @@ class EndpointPrimary(dict):
 class EndpointReplicationConfig(dict):
     def __init__(__self__, *,
                  state: 'EndpointReplicationState'):
+        """
+        :param 'EndpointReplicationState' state: The state of event replication.
+        """
         pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
     def state(self) -> 'EndpointReplicationState':
+        """
+        The state of event replication.
+        """
         return pulumi.get(self, "state")
 
 
@@ -486,11 +602,17 @@ class EndpointRoutingConfig(dict):
 
     def __init__(__self__, *,
                  failover_config: 'outputs.EndpointFailoverConfig'):
+        """
+        :param 'EndpointFailoverConfig' failover_config: The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.
+        """
         pulumi.set(__self__, "failover_config", failover_config)
 
     @property
     @pulumi.getter(name="failoverConfig")
     def failover_config(self) -> 'outputs.EndpointFailoverConfig':
+        """
+        The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.
+        """
         return pulumi.get(self, "failover_config")
 
 
@@ -498,11 +620,17 @@ class EndpointRoutingConfig(dict):
 class EndpointSecondary(dict):
     def __init__(__self__, *,
                  route: str):
+        """
+        :param str route: Defines the secondary Region.
+        """
         pulumi.set(__self__, "route", route)
 
     @property
     @pulumi.getter
     def route(self) -> str:
+        """
+        Defines the secondary Region.
+        """
         return pulumi.get(self, "route")
 
 
@@ -527,11 +655,21 @@ class RuleAppSyncParameters(dict):
 
     def __init__(__self__, *,
                  graph_ql_operation: str):
+        """
+        :param str graph_ql_operation: The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.
+               
+               For more information, see [Operations](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations) in the *AWS AppSync User Guide* .
+        """
         pulumi.set(__self__, "graph_ql_operation", graph_ql_operation)
 
     @property
     @pulumi.getter(name="graphQlOperation")
     def graph_ql_operation(self) -> str:
+        """
+        The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.
+
+        For more information, see [Operations](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations) in the *AWS AppSync User Guide* .
+        """
         return pulumi.get(self, "graph_ql_operation")
 
 
@@ -560,6 +698,11 @@ class RuleAwsVpcConfiguration(dict):
                  subnets: Sequence[str],
                  assign_public_ip: Optional[str] = None,
                  security_groups: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] subnets: Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+        :param str assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
+        :param Sequence[str] security_groups: Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+        """
         pulumi.set(__self__, "subnets", subnets)
         if assign_public_ip is not None:
             pulumi.set(__self__, "assign_public_ip", assign_public_ip)
@@ -569,16 +712,25 @@ class RuleAwsVpcConfiguration(dict):
     @property
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
+        """
+        Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+        """
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[str]:
+        """
+        Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
+        """
         return pulumi.get(self, "assign_public_ip")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+        """
         return pulumi.get(self, "security_groups")
 
 
@@ -586,12 +738,18 @@ class RuleAwsVpcConfiguration(dict):
 class RuleBatchArrayProperties(dict):
     def __init__(__self__, *,
                  size: Optional[int] = None):
+        """
+        :param int size: The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+        """
         if size is not None:
             pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
     def size(self) -> Optional[int]:
+        """
+        The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+        """
         return pulumi.get(self, "size")
 
 
@@ -625,6 +783,12 @@ class RuleBatchParameters(dict):
                  job_name: str,
                  array_properties: Optional['outputs.RuleBatchArrayProperties'] = None,
                  retry_strategy: Optional['outputs.RuleBatchRetryStrategy'] = None):
+        """
+        :param str job_definition: The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+        :param str job_name: The name to use for this execution of the job, if the target is an AWS Batch job.
+        :param 'RuleBatchArrayProperties' array_properties: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+        :param 'RuleBatchRetryStrategy' retry_strategy: The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+        """
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
         if array_properties is not None:
@@ -635,21 +799,33 @@ class RuleBatchParameters(dict):
     @property
     @pulumi.getter(name="jobDefinition")
     def job_definition(self) -> str:
+        """
+        The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+        """
         return pulumi.get(self, "job_definition")
 
     @property
     @pulumi.getter(name="jobName")
     def job_name(self) -> str:
+        """
+        The name to use for this execution of the job, if the target is an AWS Batch job.
+        """
         return pulumi.get(self, "job_name")
 
     @property
     @pulumi.getter(name="arrayProperties")
     def array_properties(self) -> Optional['outputs.RuleBatchArrayProperties']:
+        """
+        The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+        """
         return pulumi.get(self, "array_properties")
 
     @property
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional['outputs.RuleBatchRetryStrategy']:
+        """
+        The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+        """
         return pulumi.get(self, "retry_strategy")
 
 
@@ -657,12 +833,18 @@ class RuleBatchParameters(dict):
 class RuleBatchRetryStrategy(dict):
     def __init__(__self__, *,
                  attempts: Optional[int] = None):
+        """
+        :param int attempts: The number of times to attempt to retry, if the job fails. Valid values are 1–10.
+        """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
 
     @property
     @pulumi.getter
     def attempts(self) -> Optional[int]:
+        """
+        The number of times to attempt to retry, if the job fails. Valid values are 1–10.
+        """
         return pulumi.get(self, "attempts")
 
 
@@ -689,6 +871,11 @@ class RuleCapacityProviderStrategyItem(dict):
                  capacity_provider: str,
                  base: Optional[int] = None,
                  weight: Optional[int] = None):
+        """
+        :param str capacity_provider: The short name of the capacity provider.
+        :param int base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+        :param int weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+        """
         pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
             pulumi.set(__self__, "base", base)
@@ -698,16 +885,25 @@ class RuleCapacityProviderStrategyItem(dict):
     @property
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> str:
+        """
+        The short name of the capacity provider.
+        """
         return pulumi.get(self, "capacity_provider")
 
     @property
     @pulumi.getter
     def base(self) -> Optional[int]:
+        """
+        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+        """
         return pulumi.get(self, "base")
 
     @property
     @pulumi.getter
     def weight(self) -> Optional[int]:
+        """
+        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+        """
         return pulumi.get(self, "weight")
 
 
@@ -715,12 +911,18 @@ class RuleCapacityProviderStrategyItem(dict):
 class RuleDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None):
+        """
+        :param str arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -782,6 +984,28 @@ class RuleEcsParameters(dict):
                  reference_id: Optional[str] = None,
                  tag_list: Optional[Sequence['outputs.RuleTag']] = None,
                  task_count: Optional[int] = None):
+        """
+        :param str task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS task.
+        :param Sequence['RuleCapacityProviderStrategyItem'] capacity_provider_strategy: The capacity provider strategy to use for the task.
+               
+               If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
+        :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
+        :param bool enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        :param str group: Specifies an ECS task group for the task. The maximum length is 255 characters.
+        :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
+        :param 'RuleNetworkConfiguration' network_configuration: Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+               
+               If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
+        :param Sequence['RulePlacementConstraint'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
+        :param Sequence['RulePlacementStrategy'] placement_strategies: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
+               
+               This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        :param str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
+        :param str reference_id: The reference ID to use for the task.
+        :param Sequence['RuleTag'] tag_list: The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
+        :param int task_count: The number of tasks to create based on `TaskDefinition` . The default is 1.
+        """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
             pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
@@ -813,71 +1037,119 @@ class RuleEcsParameters(dict):
     @property
     @pulumi.getter(name="taskDefinitionArn")
     def task_definition_arn(self) -> str:
+        """
+        The ARN of the task definition to use if the event target is an Amazon ECS task.
+        """
         return pulumi.get(self, "task_definition_arn")
 
     @property
     @pulumi.getter(name="capacityProviderStrategy")
     def capacity_provider_strategy(self) -> Optional[Sequence['outputs.RuleCapacityProviderStrategyItem']]:
+        """
+        The capacity provider strategy to use for the task.
+
+        If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
+        """
         return pulumi.get(self, "capacity_provider_strategy")
 
     @property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[bool]:
+        """
+        Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
+        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> Optional[bool]:
+        """
+        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        """
         return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter
     def group(self) -> Optional[str]:
+        """
+        Specifies an ECS task group for the task. The maximum length is 255 characters.
+        """
         return pulumi.get(self, "group")
 
     @property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[str]:
+        """
+        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         return pulumi.get(self, "launch_type")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional['outputs.RuleNetworkConfiguration']:
+        """
+        Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+
+        If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Optional[Sequence['outputs.RulePlacementConstraint']]:
+        """
+        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
+        """
         return pulumi.get(self, "placement_constraints")
 
     @property
     @pulumi.getter(name="placementStrategies")
     def placement_strategies(self) -> Optional[Sequence['outputs.RulePlacementStrategy']]:
+        """
+        The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        """
         return pulumi.get(self, "placement_strategies")
 
     @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[str]:
+        """
+        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
+
+        This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         return pulumi.get(self, "platform_version")
 
     @property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[str]:
+        """
+        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @property
     @pulumi.getter(name="referenceId")
     def reference_id(self) -> Optional[str]:
+        """
+        The reference ID to use for the task.
+        """
         return pulumi.get(self, "reference_id")
 
     @property
     @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[Sequence['outputs.RuleTag']]:
+        """
+        The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
+        """
         return pulumi.get(self, "tag_list")
 
     @property
     @pulumi.getter(name="taskCount")
     def task_count(self) -> Optional[int]:
+        """
+        The number of tasks to create based on `TaskDefinition` . The default is 1.
+        """
         return pulumi.get(self, "task_count")
 
 
@@ -908,6 +1180,11 @@ class RuleHttpParameters(dict):
                  header_parameters: Optional[Mapping[str, str]] = None,
                  path_parameter_values: Optional[Sequence[str]] = None,
                  query_string_parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] header_parameters: The headers that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+        :param Sequence[str] path_parameter_values: The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards ("*").
+        :param Mapping[str, str] query_string_parameters: The query string keys/values that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+        """
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -918,16 +1195,25 @@ class RuleHttpParameters(dict):
     @property
     @pulumi.getter(name="headerParameters")
     def header_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The headers that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+        """
         return pulumi.get(self, "header_parameters")
 
     @property
     @pulumi.getter(name="pathParameterValues")
     def path_parameter_values(self) -> Optional[Sequence[str]]:
+        """
+        The path parameter values to be used to populate API Gateway API or EventBridge ApiDestination path wildcards ("*").
+        """
         return pulumi.get(self, "path_parameter_values")
 
     @property
     @pulumi.getter(name="queryStringParameters")
     def query_string_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The query string keys/values that need to be sent as part of request invoking the API Gateway API or EventBridge ApiDestination.
+        """
         return pulumi.get(self, "query_string_parameters")
 
 
@@ -955,6 +1241,54 @@ class RuleInputTransformer(dict):
     def __init__(__self__, *,
                  input_template: str,
                  input_paths_map: Optional[Mapping[str, str]] = None):
+        """
+        :param str input_template: Input template where you specify placeholders that will be filled with the values of the keys from `InputPathsMap` to customize the data sent to the target. Enclose each `InputPathsMaps` value in brackets: < *value* >
+               
+               If `InputTemplate` is a JSON object (surrounded by curly braces), the following restrictions apply:
+               
+               - The placeholder cannot be used as an object key.
+               
+               The following example shows the syntax for using `InputPathsMap` and `InputTemplate` .
+               
+               `"InputTransformer":`
+               
+               `{`
+               
+               `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+               
+               `"InputTemplate": "<instance> is in state <status>"`
+               
+               `}`
+               
+               To have the `InputTemplate` include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:
+               
+               `"InputTransformer":`
+               
+               `{`
+               
+               `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+               
+               `"InputTemplate": "<instance> is in state \\"<status>\\""`
+               
+               `}`
+               
+               The `InputTemplate` can also be valid JSON with varibles in quotes or out, as in the following example:
+               
+               `"InputTransformer":`
+               
+               `{`
+               
+               `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+               
+               `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \\"<status>\\""}'`
+               
+               `}`
+        :param Mapping[str, str] input_paths_map: Map of JSON paths to be extracted from the event. You can then insert these in the template in `InputTemplate` to produce the output you want to be sent to the target.
+               
+               `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
+               
+               The keys cannot start with " AWS ."
+        """
         pulumi.set(__self__, "input_template", input_template)
         if input_paths_map is not None:
             pulumi.set(__self__, "input_paths_map", input_paths_map)
@@ -962,11 +1296,61 @@ class RuleInputTransformer(dict):
     @property
     @pulumi.getter(name="inputTemplate")
     def input_template(self) -> str:
+        """
+        Input template where you specify placeholders that will be filled with the values of the keys from `InputPathsMap` to customize the data sent to the target. Enclose each `InputPathsMaps` value in brackets: < *value* >
+
+        If `InputTemplate` is a JSON object (surrounded by curly braces), the following restrictions apply:
+
+        - The placeholder cannot be used as an object key.
+
+        The following example shows the syntax for using `InputPathsMap` and `InputTemplate` .
+
+        `"InputTransformer":`
+
+        `{`
+
+        `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+
+        `"InputTemplate": "<instance> is in state <status>"`
+
+        `}`
+
+        To have the `InputTemplate` include quote marks within a JSON string, escape each quote marks with a slash, as in the following example:
+
+        `"InputTransformer":`
+
+        `{`
+
+        `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+
+        `"InputTemplate": "<instance> is in state \\"<status>\\""`
+
+        `}`
+
+        The `InputTemplate` can also be valid JSON with varibles in quotes or out, as in the following example:
+
+        `"InputTransformer":`
+
+        `{`
+
+        `"InputPathsMap": {"instance": "$.detail.instance","status": "$.detail.status"},`
+
+        `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \\"<status>\\""}'`
+
+        `}`
+        """
         return pulumi.get(self, "input_template")
 
     @property
     @pulumi.getter(name="inputPathsMap")
     def input_paths_map(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of JSON paths to be extracted from the event. You can then insert these in the template in `InputTemplate` to produce the output you want to be sent to the target.
+
+        `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
+
+        The keys cannot start with " AWS ."
+        """
         return pulumi.get(self, "input_paths_map")
 
 
@@ -991,11 +1375,17 @@ class RuleKinesisParameters(dict):
 
     def __init__(__self__, *,
                  partition_key_path: str):
+        """
+        :param str partition_key_path: The JSON path to be extracted from the event and used as the partition key. For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
+        """
         pulumi.set(__self__, "partition_key_path", partition_key_path)
 
     @property
     @pulumi.getter(name="partitionKeyPath")
     def partition_key_path(self) -> str:
+        """
+        The JSON path to be extracted from the event and used as the partition key. For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
+        """
         return pulumi.get(self, "partition_key_path")
 
 
@@ -1020,12 +1410,18 @@ class RuleNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  aws_vpc_configuration: Optional['outputs.RuleAwsVpcConfiguration'] = None):
+        """
+        :param 'RuleAwsVpcConfiguration' aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+        """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
 
     @property
     @pulumi.getter(name="awsVpcConfiguration")
     def aws_vpc_configuration(self) -> Optional['outputs.RuleAwsVpcConfiguration']:
+        """
+        Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+        """
         return pulumi.get(self, "aws_vpc_configuration")
 
 
@@ -1034,6 +1430,10 @@ class RulePlacementConstraint(dict):
     def __init__(__self__, *,
                  expression: Optional[str] = None,
                  type: Optional[str] = None):
+        """
+        :param str expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
+        :param str type: The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
+        """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
         if type is not None:
@@ -1042,11 +1442,17 @@ class RulePlacementConstraint(dict):
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
+        """
+        A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
+        """
         return pulumi.get(self, "type")
 
 
@@ -1055,6 +1461,10 @@ class RulePlacementStrategy(dict):
     def __init__(__self__, *,
                  field: Optional[str] = None,
                  type: Optional[str] = None):
+        """
+        :param str field: The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
+        """
         if field is not None:
             pulumi.set(__self__, "field", field)
         if type is not None:
@@ -1063,11 +1473,17 @@ class RulePlacementStrategy(dict):
     @property
     @pulumi.getter
     def field(self) -> Optional[str]:
+        """
+        The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
+        """
         return pulumi.get(self, "field")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
+        """
         return pulumi.get(self, "type")
 
 
@@ -1104,6 +1520,15 @@ class RuleRedshiftDataParameters(dict):
                  sqls: Optional[Sequence[str]] = None,
                  statement_name: Optional[str] = None,
                  with_event: Optional[bool] = None):
+        """
+        :param str database: The name of the database. Required when authenticating using temporary credentials.
+        :param str db_user: The database user name. Required when authenticating using temporary credentials.
+        :param str secret_manager_arn: The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
+        :param str sql: The SQL statement text to run.
+        :param Sequence[str] sqls: One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.
+        :param str statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        :param bool with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        """
         pulumi.set(__self__, "database", database)
         if db_user is not None:
             pulumi.set(__self__, "db_user", db_user)
@@ -1121,36 +1546,57 @@ class RuleRedshiftDataParameters(dict):
     @property
     @pulumi.getter
     def database(self) -> str:
+        """
+        The name of the database. Required when authenticating using temporary credentials.
+        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[str]:
+        """
+        The database user name. Required when authenticating using temporary credentials.
+        """
         return pulumi.get(self, "db_user")
 
     @property
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> Optional[str]:
+        """
+        The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
+        """
         return pulumi.get(self, "secret_manager_arn")
 
     @property
     @pulumi.getter
     def sql(self) -> Optional[str]:
+        """
+        The SQL statement text to run.
+        """
         return pulumi.get(self, "sql")
 
     @property
     @pulumi.getter
     def sqls(self) -> Optional[Sequence[str]]:
+        """
+        One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.
+        """
         return pulumi.get(self, "sqls")
 
     @property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[str]:
+        """
+        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        """
         return pulumi.get(self, "statement_name")
 
     @property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[bool]:
+        """
+        Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        """
         return pulumi.get(self, "with_event")
 
 
@@ -1178,6 +1624,10 @@ class RuleRetryPolicy(dict):
     def __init__(__self__, *,
                  maximum_event_age_in_seconds: Optional[int] = None,
                  maximum_retry_attempts: Optional[int] = None):
+        """
+        :param int maximum_event_age_in_seconds: The maximum amount of time, in seconds, to continue to make retry attempts.
+        :param int maximum_retry_attempts: The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
+        """
         if maximum_event_age_in_seconds is not None:
             pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -1186,11 +1636,17 @@ class RuleRetryPolicy(dict):
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
     def maximum_event_age_in_seconds(self) -> Optional[int]:
+        """
+        The maximum amount of time, in seconds, to continue to make retry attempts.
+        """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @property
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[int]:
+        """
+        The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
+        """
         return pulumi.get(self, "maximum_retry_attempts")
 
 
@@ -1215,11 +1671,17 @@ class RuleRunCommandParameters(dict):
 
     def __init__(__self__, *,
                  run_command_targets: Sequence['outputs.RuleRunCommandTarget']):
+        """
+        :param Sequence['RuleRunCommandTarget'] run_command_targets: Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+        """
         pulumi.set(__self__, "run_command_targets", run_command_targets)
 
     @property
     @pulumi.getter(name="runCommandTargets")
     def run_command_targets(self) -> Sequence['outputs.RuleRunCommandTarget']:
+        """
+        Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+        """
         return pulumi.get(self, "run_command_targets")
 
 
@@ -1228,17 +1690,27 @@ class RuleRunCommandTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
+        """
+        :param str key: Can be either `tag:` *tag-key* or `InstanceIds` .
+        :param Sequence[str] values: If `Key` is `tag:` *tag-key* , `Values` is a list of tag values. If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Can be either `tag:` *tag-key* or `InstanceIds` .
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        If `Key` is `tag:` *tag-key* , `Values` is a list of tag values. If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
+        """
         return pulumi.get(self, "values")
 
 
@@ -1247,17 +1719,27 @@ class RuleSageMakerPipelineParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        :param str name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1282,12 +1764,18 @@ class RuleSageMakerPipelineParameters(dict):
 
     def __init__(__self__, *,
                  pipeline_parameter_list: Optional[Sequence['outputs.RuleSageMakerPipelineParameter']] = None):
+        """
+        :param Sequence['RuleSageMakerPipelineParameter'] pipeline_parameter_list: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
         if pipeline_parameter_list is not None:
             pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
 
     @property
     @pulumi.getter(name="pipelineParameterList")
     def pipeline_parameter_list(self) -> Optional[Sequence['outputs.RuleSageMakerPipelineParameter']]:
+        """
+        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
         return pulumi.get(self, "pipeline_parameter_list")
 
 
@@ -1312,11 +1800,17 @@ class RuleSqsParameters(dict):
 
     def __init__(__self__, *,
                  message_group_id: str):
+        """
+        :param str message_group_id: The FIFO message group ID to use as the target.
+        """
         pulumi.set(__self__, "message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageGroupId")
     def message_group_id(self) -> str:
+        """
+        The FIFO message group ID to use as the target.
+        """
         return pulumi.get(self, "message_group_id")
 
 
@@ -1325,6 +1819,10 @@ class RuleTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str key: A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+        :param str value: The value for the specified tag key.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1333,11 +1831,17 @@ class RuleTag(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value for the specified tag key.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1404,6 +1908,33 @@ class RuleTarget(dict):
                  run_command_parameters: Optional['outputs.RuleRunCommandParameters'] = None,
                  sage_maker_pipeline_parameters: Optional['outputs.RuleSageMakerPipelineParameters'] = None,
                  sqs_parameters: Optional['outputs.RuleSqsParameters'] = None):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the target.
+        :param str id: The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
+        :param 'RuleAppSyncParameters' app_sync_parameters: Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
+        :param 'RuleBatchParameters' batch_parameters: If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
+        :param 'RuleDeadLetterConfig' dead_letter_config: The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
+        :param 'RuleEcsParameters' ecs_parameters: Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
+        :param 'RuleHttpParameters' http_parameters: Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+               
+               If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
+        :param str input: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+        :param str input_path: The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+        :param 'RuleInputTransformer' input_transformer: Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
+        :param 'RuleKinesisParameters' kinesis_parameters: The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        :param 'RuleRedshiftDataParameters' redshift_data_parameters: Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+               
+               If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        :param 'RuleRetryPolicy' retry_policy: The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+        :param 'RuleRunCommandParameters' run_command_parameters: Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+        :param 'RuleSageMakerPipelineParameters' sage_maker_pipeline_parameters: Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+               
+               If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+        :param 'RuleSqsParameters' sqs_parameters: Contains the message group ID to use when the target is a FIFO queue.
+               
+               If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
         if app_sync_parameters is not None:
@@ -1440,86 +1971,145 @@ class RuleTarget(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the target.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="appSyncParameters")
     def app_sync_parameters(self) -> Optional['outputs.RuleAppSyncParameters']:
+        """
+        Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
+        """
         return pulumi.get(self, "app_sync_parameters")
 
     @property
     @pulumi.getter(name="batchParameters")
     def batch_parameters(self) -> Optional['outputs.RuleBatchParameters']:
+        """
+        If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
+        """
         return pulumi.get(self, "batch_parameters")
 
     @property
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional['outputs.RuleDeadLetterConfig']:
+        """
+        The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
+        """
         return pulumi.get(self, "dead_letter_config")
 
     @property
     @pulumi.getter(name="ecsParameters")
     def ecs_parameters(self) -> Optional['outputs.RuleEcsParameters']:
+        """
+        Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
+        """
         return pulumi.get(self, "ecs_parameters")
 
     @property
     @pulumi.getter(name="httpParameters")
     def http_parameters(self) -> Optional['outputs.RuleHttpParameters']:
+        """
+        Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+
+        If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
+        """
         return pulumi.get(self, "http_parameters")
 
     @property
     @pulumi.getter
     def input(self) -> Optional[str]:
+        """
+        Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
+        """
         return pulumi.get(self, "input")
 
     @property
     @pulumi.getter(name="inputPath")
     def input_path(self) -> Optional[str]:
+        """
+        The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
+        """
         return pulumi.get(self, "input_path")
 
     @property
     @pulumi.getter(name="inputTransformer")
     def input_transformer(self) -> Optional['outputs.RuleInputTransformer']:
+        """
+        Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
+        """
         return pulumi.get(self, "input_transformer")
 
     @property
     @pulumi.getter(name="kinesisParameters")
     def kinesis_parameters(self) -> Optional['outputs.RuleKinesisParameters']:
+        """
+        The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        """
         return pulumi.get(self, "kinesis_parameters")
 
     @property
     @pulumi.getter(name="redshiftDataParameters")
     def redshift_data_parameters(self) -> Optional['outputs.RuleRedshiftDataParameters']:
+        """
+        Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+
+        If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        """
         return pulumi.get(self, "redshift_data_parameters")
 
     @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional['outputs.RuleRetryPolicy']:
+        """
+        The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+        """
         return pulumi.get(self, "retry_policy")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="runCommandParameters")
     def run_command_parameters(self) -> Optional['outputs.RuleRunCommandParameters']:
+        """
+        Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+        """
         return pulumi.get(self, "run_command_parameters")
 
     @property
     @pulumi.getter(name="sageMakerPipelineParameters")
     def sage_maker_pipeline_parameters(self) -> Optional['outputs.RuleSageMakerPipelineParameters']:
+        """
+        Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+
+        If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+        """
         return pulumi.get(self, "sage_maker_pipeline_parameters")
 
     @property
     @pulumi.getter(name="sqsParameters")
     def sqs_parameters(self) -> Optional['outputs.RuleSqsParameters']:
+        """
+        Contains the message group ID to use when the target is a FIFO queue.
+
+        If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+        """
         return pulumi.get(self, "sqs_parameters")
 
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class DirectoryConfigServiceAccountCredentials
     {
+        /// <summary>
+        /// The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        /// </summary>
         public readonly string AccountName;
+        /// <summary>
+        /// The password for the account.
+        /// </summary>
         public readonly string AccountPassword;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePivotFieldSortOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID for the field sort options.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The sort by field for the field sort options.
+        /// </summary>
         [Input("sortBy", required: true)]
         public Input<Inputs.TemplatePivotTableSortByArgs> SortBy { get; set; } = null!;
 

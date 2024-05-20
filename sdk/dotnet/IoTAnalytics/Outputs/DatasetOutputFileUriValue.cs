@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetOutputFileUriValue
     {
+        /// <summary>
+        /// The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
+        /// </summary>
         public readonly string FileName;
 
         [OutputConstructor]

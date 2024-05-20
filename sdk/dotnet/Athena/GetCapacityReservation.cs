@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Athena
 
     public sealed class GetCapacityReservationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the capacity reservation.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Athena
 
     public sealed class GetCapacityReservationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the capacity reservation.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -55,7 +61,13 @@ namespace Pulumi.AwsNative.Athena
         /// The number of DPUs Athena has provisioned and allocated for the reservation
         /// </summary>
         public readonly int? AllocatedDpus;
+        /// <summary>
+        /// The ARN of the capacity reservation.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+        /// </summary>
         public readonly Outputs.CapacityReservationCapacityAssignmentConfiguration? CapacityAssignmentConfiguration;
         /// <summary>
         /// The date and time the reservation was created.

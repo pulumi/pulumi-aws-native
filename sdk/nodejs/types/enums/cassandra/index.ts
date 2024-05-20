@@ -28,6 +28,14 @@ export const KeyspaceReplicationSpecificationReplicationStrategy = {
     MultiRegion: "MULTI_REGION",
 } as const;
 
+/**
+ * The options are:
+ *
+ * - `SINGLE_REGION` (optional)
+ * - `MULTI_REGION`
+ *
+ * If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
+ */
 export type KeyspaceReplicationSpecificationReplicationStrategy = (typeof KeyspaceReplicationSpecificationReplicationStrategy)[keyof typeof KeyspaceReplicationSpecificationReplicationStrategy];
 
 export const TableClusteringKeyColumnOrderBy = {
@@ -35,6 +43,12 @@ export const TableClusteringKeyColumnOrderBy = {
     Desc: "DESC",
 } as const;
 
+/**
+ * The order in which this column's data is stored:
+ *
+ * - `ASC` (default) - The column's data is stored in ascending order.
+ * - `DESC` - The column's data is stored in descending order.
+ */
 export type TableClusteringKeyColumnOrderBy = (typeof TableClusteringKeyColumnOrderBy)[keyof typeof TableClusteringKeyColumnOrderBy];
 
 export const TableEncryptionType = {

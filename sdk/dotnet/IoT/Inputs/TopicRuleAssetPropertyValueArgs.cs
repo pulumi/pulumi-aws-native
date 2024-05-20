@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleAssetPropertyValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+        /// </summary>
         [Input("quality")]
         public Input<string>? Quality { get; set; }
 
+        /// <summary>
+        /// The asset property value timestamp.
+        /// </summary>
         [Input("timestamp", required: true)]
         public Input<Inputs.TopicRuleAssetPropertyTimestampArgs> Timestamp { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the asset property.
+        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.TopicRuleAssetPropertyVariantArgs> Value { get; set; } = null!;
 

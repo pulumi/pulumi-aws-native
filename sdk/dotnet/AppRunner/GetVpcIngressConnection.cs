@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.AppRunner
         /// The Domain name associated with the VPC Ingress Connection.
         /// </summary>
         public readonly string? DomainName;
+        /// <summary>
+        /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
+        /// </summary>
         public readonly Outputs.VpcIngressConnectionIngressVpcConfiguration? IngressVpcConfiguration;
         /// <summary>
         /// The current status of the VpcIngressConnection.

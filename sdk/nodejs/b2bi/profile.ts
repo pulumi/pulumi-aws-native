@@ -37,16 +37,40 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
+    /**
+     * Returns the name for the business associated with this profile.
+     */
     public readonly businessName!: pulumi.Output<string>;
+    /**
+     * Returns the timestamp for creation date and time of the profile.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly email!: pulumi.Output<string | undefined>;
+    /**
+     * Returns the name of the logging group.
+     */
     public /*out*/ readonly logGroupName!: pulumi.Output<string>;
+    /**
+     * Specifies whether or not logging is enabled for this profile.
+     */
     public readonly logging!: pulumi.Output<enums.b2bi.ProfileLogging>;
+    /**
+     * Returns the timestamp that identifies the most recent date and time that the profile was modified.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * Returns the display name for profile.
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly phone!: pulumi.Output<string>;
+    /**
+     * Returns an Amazon Resource Name (ARN) for the profile.
+     */
     public /*out*/ readonly profileArn!: pulumi.Output<string>;
     public /*out*/ readonly profileId!: pulumi.Output<string>;
+    /**
+     * A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -104,10 +128,22 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * Returns the name for the business associated with this profile.
+     */
     businessName: pulumi.Input<string>;
     email?: pulumi.Input<string>;
+    /**
+     * Specifies whether or not logging is enabled for this profile.
+     */
     logging: pulumi.Input<enums.b2bi.ProfileLogging>;
+    /**
+     * Returns the display name for profile.
+     */
     name?: pulumi.Input<string>;
     phone: pulumi.Input<string>;
+    /**
+     * A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

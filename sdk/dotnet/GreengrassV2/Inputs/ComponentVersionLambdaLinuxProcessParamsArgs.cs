@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
 
     public sealed class ComponentVersionLambdaLinuxProcessParamsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameters for the container in which the Lambda function runs.
+        /// </summary>
         [Input("containerParams")]
         public Input<Inputs.ComponentVersionLambdaContainerParamsArgs>? ContainerParams { get; set; }
 
+        /// <summary>
+        /// The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+        /// 
+        /// Default: `GreengrassContainer`
+        /// </summary>
         [Input("isolationMode")]
         public Input<Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaLinuxProcessParamsIsolationMode>? IsolationMode { get; set; }
 

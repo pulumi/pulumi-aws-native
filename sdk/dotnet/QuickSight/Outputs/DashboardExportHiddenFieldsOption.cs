@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardExportHiddenFieldsOption
     {
+        /// <summary>
+        /// The status of the export hidden fields options of a dashbaord.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]

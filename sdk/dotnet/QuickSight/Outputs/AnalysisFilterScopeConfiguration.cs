@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilterScopeConfiguration
     {
+        /// <summary>
+        /// The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration` , this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
+        /// </summary>
         public readonly Outputs.AnalysisAllSheetsFilterScopeConfiguration? AllSheets;
+        /// <summary>
+        /// The configuration for applying a filter to specific sheets.
+        /// </summary>
         public readonly Outputs.AnalysisSelectedSheetsFilterScopeConfiguration? SelectedSheets;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardConditionalFormattingGradientColor
     {
+        /// <summary>
+        /// Determines the color.
+        /// </summary>
         public readonly Outputs.DashboardGradientColor Color;
+        /// <summary>
+        /// The expression that determines the formatting configuration for gradient color.
+        /// </summary>
         public readonly string Expression;
 
         [OutputConstructor]

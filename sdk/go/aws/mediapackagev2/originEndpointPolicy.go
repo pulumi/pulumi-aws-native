@@ -16,9 +16,14 @@ import (
 type OriginEndpointPolicy struct {
 	pulumi.CustomResourceState
 
-	ChannelGroupName   pulumi.StringOutput `pulumi:"channelGroupName"`
-	ChannelName        pulumi.StringOutput `pulumi:"channelName"`
+	// The name of the channel group associated with the origin endpoint policy.
+	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
+	// The channel name associated with the origin endpoint policy.
+	ChannelName pulumi.StringOutput `pulumi:"channelName"`
+	// The name of the origin endpoint associated with the origin endpoint policy.
 	OriginEndpointName pulumi.StringOutput `pulumi:"originEndpointName"`
+	// The policy associated with the origin endpoint.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 }
@@ -81,18 +86,28 @@ func (OriginEndpointPolicyState) ElementType() reflect.Type {
 }
 
 type originEndpointPolicyArgs struct {
-	ChannelGroupName   string `pulumi:"channelGroupName"`
-	ChannelName        string `pulumi:"channelName"`
+	// The name of the channel group associated with the origin endpoint policy.
+	ChannelGroupName string `pulumi:"channelGroupName"`
+	// The channel name associated with the origin endpoint policy.
+	ChannelName string `pulumi:"channelName"`
+	// The name of the origin endpoint associated with the origin endpoint policy.
 	OriginEndpointName string `pulumi:"originEndpointName"`
+	// The policy associated with the origin endpoint.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a OriginEndpointPolicy resource.
 type OriginEndpointPolicyArgs struct {
-	ChannelGroupName   pulumi.StringInput
-	ChannelName        pulumi.StringInput
+	// The name of the channel group associated with the origin endpoint policy.
+	ChannelGroupName pulumi.StringInput
+	// The channel name associated with the origin endpoint policy.
+	ChannelName pulumi.StringInput
+	// The name of the origin endpoint associated with the origin endpoint policy.
 	OriginEndpointName pulumi.StringInput
+	// The policy associated with the origin endpoint.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 	Policy pulumi.Input
 }
@@ -134,18 +149,23 @@ func (o OriginEndpointPolicyOutput) ToOriginEndpointPolicyOutputWithContext(ctx 
 	return o
 }
 
+// The name of the channel group associated with the origin endpoint policy.
 func (o OriginEndpointPolicyOutput) ChannelGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
+// The channel name associated with the origin endpoint policy.
 func (o OriginEndpointPolicyOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// The name of the origin endpoint associated with the origin endpoint policy.
 func (o OriginEndpointPolicyOutput) OriginEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) pulumi.StringOutput { return v.OriginEndpointName }).(pulumi.StringOutput)
 }
 
+// The policy associated with the origin endpoint.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 func (o OriginEndpointPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)

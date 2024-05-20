@@ -57,6 +57,17 @@ export class Agent extends pulumi.CustomResource {
      * ARN of a IAM role.
      */
     public readonly agentResourceRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the agent and whether it is ready for use. The following statuses are possible:
+     *
+     * - CREATING – The agent is being created.
+     * - PREPARING – The agent is being prepared.
+     * - PREPARED – The agent is prepared and ready to be invoked.
+     * - NOT_PREPARED – The agent has been created but not yet prepared.
+     * - FAILED – The agent API operation failed.
+     * - UPDATING – The agent is being updated.
+     * - DELETING – The agent is being deleted.
+     */
     public /*out*/ readonly agentStatus!: pulumi.Output<enums.bedrock.AgentStatus>;
     /**
      * Draft Agent Version.
@@ -102,6 +113,9 @@ export class Agent extends pulumi.CustomResource {
      * Time Stamp.
      */
     public /*out*/ readonly preparedAt!: pulumi.Output<string>;
+    /**
+     * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+     */
     public readonly promptOverrideConfiguration!: pulumi.Output<outputs.bedrock.AgentPromptOverrideConfiguration | undefined>;
     /**
      * The recommended actions users can take to resolve an error in failureReasons.
@@ -111,7 +125,19 @@ export class Agent extends pulumi.CustomResource {
      * Specifies whether to allow deleting agent while it is in use.
      */
     public readonly skipResourceInUseCheckOnDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     public readonly testAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
@@ -226,11 +252,26 @@ export interface AgentArgs {
      * List of Agent Knowledge Bases
      */
     knowledgeBases?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseArgs>[]>;
+    /**
+     * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+     */
     promptOverrideConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptOverrideConfigurationArgs>;
     /**
      * Specifies whether to allow deleting agent while it is in use.
      */
     skipResourceInUseCheckOnDelete?: pulumi.Input<boolean>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     testAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

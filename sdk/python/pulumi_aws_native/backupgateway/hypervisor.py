@@ -25,6 +25,13 @@ class HypervisorArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Hypervisor resource.
+        :param pulumi.Input[str] host: The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+        :param pulumi.Input[str] log_group_arn: The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+        :param pulumi.Input[str] name: The name of the hypervisor.
+        :param pulumi.Input[str] password: The password for the hypervisor.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags of the hypervisor configuration to import.
+        :param pulumi.Input[str] username: The username for the hypervisor.
         """
         if host is not None:
             pulumi.set(__self__, "host", host)
@@ -44,6 +51,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -53,6 +63,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -62,6 +75,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+        """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
@@ -71,6 +87,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the hypervisor.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -80,6 +99,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the hypervisor.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -89,6 +111,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags of the hypervisor configuration to import.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -98,6 +123,9 @@ class HypervisorArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for the hypervisor.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -123,6 +151,13 @@ class Hypervisor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] host: The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+        :param pulumi.Input[str] log_group_arn: The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+        :param pulumi.Input[str] name: The name of the hypervisor.
+        :param pulumi.Input[str] password: The password for the hypervisor.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags of the hypervisor configuration to import.
+        :param pulumi.Input[str] username: The username for the hypervisor.
         """
         ...
     @overload
@@ -209,40 +244,64 @@ class Hypervisor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def host(self) -> pulumi.Output[Optional[str]]:
+        """
+        The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter(name="hypervisorArn")
     def hypervisor_arn(self) -> pulumi.Output[str]:
+        """
+        Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+        """
         return pulumi.get(self, "hypervisor_arn")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the group of gateways within the requested log.
+        """
         return pulumi.get(self, "log_group_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the hypervisor.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password for the hypervisor.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags of the hypervisor configuration to import.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
+        """
+        The username for the hypervisor.
+        """
         return pulumi.get(self, "username")
 

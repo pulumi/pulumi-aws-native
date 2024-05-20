@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialMapStyleOptions
     {
+        /// <summary>
+        /// The base map style of the geospatial map.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisBaseMapStyleType? BaseMapStyle;
 
         [OutputConstructor]

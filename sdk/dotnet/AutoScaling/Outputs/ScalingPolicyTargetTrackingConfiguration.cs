@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyTargetTrackingConfiguration
     {
+        /// <summary>
+        /// A customized metric. You must specify either a predefined metric or a customized metric.
+        /// </summary>
         public readonly Outputs.ScalingPolicyCustomizedMetricSpecification? CustomizedMetricSpecification;
+        /// <summary>
+        /// Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is `false` .
+        /// </summary>
         public readonly bool? DisableScaleIn;
+        /// <summary>
+        /// A predefined metric. You must specify either a predefined metric or a customized metric.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredefinedMetricSpecification? PredefinedMetricSpecification;
+        /// <summary>
+        /// The target value for the metric.
+        /// 
+        /// &gt; Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
+        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

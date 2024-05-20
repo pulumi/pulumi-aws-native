@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The container type associated with the origin endpoint configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType? ContainerType;
         /// <summary>
         /// &lt;p&gt;The date and time the origin endpoint was created.&lt;/p&gt;
@@ -82,11 +85,17 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The date and time the origin endpoint was modified.&lt;/p&gt;
         /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The segment associated with the origin endpoint.
+        /// </summary>
         public readonly Outputs.OriginEndpointSegment? Segment;
         /// <summary>
         /// &lt;p&gt;The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).&lt;/p&gt;
         /// </summary>
         public readonly int? StartoverWindowSeconds;
+        /// <summary>
+        /// The tags associated with the origin endpoint.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

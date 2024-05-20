@@ -186,12 +186,18 @@ class PolicyStaticPolicyDefinitionArgs:
 class PolicyStoreSchemaDefinitionArgs:
     def __init__(__self__, *,
                  cedar_json: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        """
         if cedar_json is not None:
             pulumi.set(__self__, "cedar_json", cedar_json)
 
     @property
     @pulumi.getter(name="cedarJson")
     def cedar_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        """
         return pulumi.get(self, "cedar_json")
 
     @cedar_json.setter
@@ -203,11 +209,31 @@ class PolicyStoreSchemaDefinitionArgs:
 class PolicyStoreValidationSettingsArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['PolicyStoreValidationMode']):
+        """
+        :param pulumi.Input['PolicyStoreValidationMode'] mode: The validation mode currently configured for this policy store. The valid values are:
+               
+               - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+               - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+               
+               > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+               > 
+               > To submit a static policy or policy template without a schema, you must turn off validation.
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Input['PolicyStoreValidationMode']:
+        """
+        The validation mode currently configured for this policy store. The valid values are:
+
+        - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+        - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+
+        > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+        > 
+        > To submit a static policy or policy template without a schema, you must turn off validation.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter

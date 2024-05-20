@@ -28,6 +28,15 @@ class QueueArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Queue resource.
+        :param pulumi.Input[str] display_name: The display name of the queue summary to update.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_storage_profile_ids: The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        :param pulumi.Input['QueueDefaultQueueBudgetAction'] default_budget_action: The default action taken on a queue summary if a budget wasn't configured.
+        :param pulumi.Input[str] description: A description of the queue that helps identify what the queue is used for.
+        :param pulumi.Input[str] farm_id: The farm ID.
+        :param pulumi.Input['QueueJobAttachmentSettingsArgs'] job_attachment_settings: The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        :param pulumi.Input['QueueJobRunAsUserArgs'] job_run_as_user: Identifies the user for a job.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] required_file_system_location_names: The file system location that the queue uses.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         """
         pulumi.set(__self__, "display_name", display_name)
         if allowed_storage_profile_ids is not None:
@@ -50,6 +59,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the queue summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -59,6 +71,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="allowedStorageProfileIds")
     def allowed_storage_profile_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        """
         return pulumi.get(self, "allowed_storage_profile_ids")
 
     @allowed_storage_profile_ids.setter
@@ -68,6 +83,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="defaultBudgetAction")
     def default_budget_action(self) -> Optional[pulumi.Input['QueueDefaultQueueBudgetAction']]:
+        """
+        The default action taken on a queue summary if a budget wasn't configured.
+        """
         return pulumi.get(self, "default_budget_action")
 
     @default_budget_action.setter
@@ -77,6 +95,9 @@ class QueueArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the queue that helps identify what the queue is used for.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,6 +107,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The farm ID.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -95,6 +119,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="jobAttachmentSettings")
     def job_attachment_settings(self) -> Optional[pulumi.Input['QueueJobAttachmentSettingsArgs']]:
+        """
+        The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        """
         return pulumi.get(self, "job_attachment_settings")
 
     @job_attachment_settings.setter
@@ -104,6 +131,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="jobRunAsUser")
     def job_run_as_user(self) -> Optional[pulumi.Input['QueueJobRunAsUserArgs']]:
+        """
+        Identifies the user for a job.
+        """
         return pulumi.get(self, "job_run_as_user")
 
     @job_run_as_user.setter
@@ -113,6 +143,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="requiredFileSystemLocationNames")
     def required_file_system_location_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The file system location that the queue uses.
+        """
         return pulumi.get(self, "required_file_system_location_names")
 
     @required_file_system_location_names.setter
@@ -122,6 +155,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -149,6 +185,15 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_storage_profile_ids: The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        :param pulumi.Input['QueueDefaultQueueBudgetAction'] default_budget_action: The default action taken on a queue summary if a budget wasn't configured.
+        :param pulumi.Input[str] description: A description of the queue that helps identify what the queue is used for.
+        :param pulumi.Input[str] display_name: The display name of the queue summary to update.
+        :param pulumi.Input[str] farm_id: The farm ID.
+        :param pulumi.Input[pulumi.InputType['QueueJobAttachmentSettingsArgs']] job_attachment_settings: The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        :param pulumi.Input[pulumi.InputType['QueueJobRunAsUserArgs']] job_run_as_user: Identifies the user for a job.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] required_file_system_location_names: The file system location that the queue uses.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         """
         ...
     @overload
@@ -245,55 +290,88 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedStorageProfileIds")
     def allowed_storage_profile_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
+        """
         return pulumi.get(self, "allowed_storage_profile_ids")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the queue.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultBudgetAction")
     def default_budget_action(self) -> pulumi.Output[Optional['QueueDefaultQueueBudgetAction']]:
+        """
+        The default action taken on a queue summary if a budget wasn't configured.
+        """
         return pulumi.get(self, "default_budget_action")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the queue that helps identify what the queue is used for.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The display name of the queue summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The farm ID.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="jobAttachmentSettings")
     def job_attachment_settings(self) -> pulumi.Output[Optional['outputs.QueueJobAttachmentSettings']]:
+        """
+        The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
+        """
         return pulumi.get(self, "job_attachment_settings")
 
     @property
     @pulumi.getter(name="jobRunAsUser")
     def job_run_as_user(self) -> pulumi.Output[Optional['outputs.QueueJobRunAsUser']]:
+        """
+        Identifies the user for a job.
+        """
         return pulumi.get(self, "job_run_as_user")
 
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Output[str]:
+        """
+        The queue ID.
+        """
         return pulumi.get(self, "queue_id")
 
     @property
     @pulumi.getter(name="requiredFileSystemLocationNames")
     def required_file_system_location_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The file system location that the queue uses.
+        """
         return pulumi.get(self, "required_file_system_location_names")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
+        """
         return pulumi.get(self, "role_arn")
 

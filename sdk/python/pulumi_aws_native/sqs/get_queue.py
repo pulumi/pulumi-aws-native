@@ -72,6 +72,9 @@ class GetQueueResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -148,6 +151,9 @@ class GetQueueResult:
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> Optional[str]:
+        """
+        Returns the URLs of the queues from the policy.
+        """
         return pulumi.get(self, "queue_url")
 
     @property
@@ -256,6 +262,9 @@ def get_queue(queue_url: Optional[str] = None,
       +  To successfully create a new queue, you must provide a queue name that adheres to the [limits related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html) and is unique within the scope of your queues.
 
      For more information about creating FIFO (first-in-first-out) queues, see [Creating an queue ()](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/screate-queue-cloudformation.html) in the *Developer Guide*.
+
+
+    :param str queue_url: Returns the URLs of the queues from the policy.
     """
     __args__ = dict()
     __args__['queueUrl'] = queue_url
@@ -294,5 +303,8 @@ def get_queue_output(queue_url: Optional[pulumi.Input[str]] = None,
       +  To successfully create a new queue, you must provide a queue name that adheres to the [limits related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html) and is unique within the scope of your queues.
 
      For more information about creating FIFO (first-in-first-out) queues, see [Creating an queue ()](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/screate-queue-cloudformation.html) in the *Developer Guide*.
+
+
+    :param str queue_url: Returns the URLs of the queues from the policy.
     """
     ...

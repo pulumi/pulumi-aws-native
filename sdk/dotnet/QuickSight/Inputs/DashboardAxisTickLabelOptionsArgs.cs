@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardAxisTickLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not the axis ticks are visible.
+        /// </summary>
         [Input("labelOptions")]
         public Input<Inputs.DashboardLabelOptionsArgs>? LabelOptions { get; set; }
 
+        /// <summary>
+        /// The rotation angle of the axis tick labels.
+        /// </summary>
         [Input("rotationAngle")]
         public Input<double>? RotationAngle { get; set; }
 

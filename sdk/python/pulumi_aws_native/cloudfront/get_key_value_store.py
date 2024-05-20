@@ -35,16 +35,25 @@ class GetKeyValueStoreResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the key value store.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def comment(self) -> Optional[str]:
+        """
+        A comment for the key value store.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique Id for the key value store.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -69,6 +78,9 @@ def get_key_value_store(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyValueStoreResult:
     """
     Resource Type definition for AWS::CloudFront::KeyValueStore
+
+
+    :param str name: The name of the key value store.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -87,5 +99,8 @@ def get_key_value_store_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyValueStoreResult]:
     """
     Resource Type definition for AWS::CloudFront::KeyValueStore
+
+
+    :param str name: The name of the key value store.
     """
     ...

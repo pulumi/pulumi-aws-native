@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetAppArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN for the Amplify App.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class GetAppInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ARN for the Amplify App.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,20 +57,67 @@ namespace Pulumi.AwsNative.Amplify
     [OutputType]
     public sealed class GetAppResult
     {
+        /// <summary>
+        /// Unique Id for the Amplify App.
+        /// </summary>
         public readonly string? AppId;
+        /// <summary>
+        /// Name for the Amplify App.
+        /// </summary>
         public readonly string? AppName;
+        /// <summary>
+        /// ARN for the Amplify App.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The build specification (build spec) for an Amplify app.
+        /// </summary>
         public readonly string? BuildSpec;
+        /// <summary>
+        /// The custom HTTP headers for an Amplify app.
+        /// </summary>
         public readonly string? CustomHeaders;
+        /// <summary>
+        /// The custom rewrite and redirect rules for an Amplify app.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AppCustomRule> CustomRules;
+        /// <summary>
+        /// Default domain for the Amplify App.
+        /// </summary>
         public readonly string? DefaultDomain;
+        /// <summary>
+        /// The description of the Amplify app.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+        /// </summary>
         public readonly bool? EnableBranchAutoDeletion;
+        /// <summary>
+        /// The environment variables for the Amplify app.
+        /// 
+        /// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
+        /// <summary>
+        /// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
+        /// </summary>
         public readonly string? IamServiceRole;
+        /// <summary>
+        /// The name of the Amplify app.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Amplify.AppPlatform? Platform;
+        /// <summary>
+        /// The Git repository for the Amplify app.
+        /// </summary>
         public readonly string? Repository;
+        /// <summary>
+        /// The tag for an Amplify app.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

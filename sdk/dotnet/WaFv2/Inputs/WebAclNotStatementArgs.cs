@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
     public sealed class WebAclNotStatementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The statement to negate. You can use any statement that can be nested.
+        /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.WebAclStatementArgs> Statement { get; set; } = null!;
 

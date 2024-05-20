@@ -19,15 +19,36 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetRuleArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     arn: string;
 }
 
 export interface GetRuleResult {
+    /**
+     * Describes the action for a rule.
+     */
     readonly action?: outputs.vpclattice.RuleAction;
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     readonly arn?: string;
+    /**
+     * The ID of the listener.
+     */
     readonly id?: string;
+    /**
+     * The rule match.
+     */
     readonly match?: outputs.vpclattice.RuleMatch;
+    /**
+     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     */
     readonly priority?: number;
+    /**
+     * The tags for the rule.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +59,8 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetRuleOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the rule.
+     */
     arn: pulumi.Input<string>;
 }

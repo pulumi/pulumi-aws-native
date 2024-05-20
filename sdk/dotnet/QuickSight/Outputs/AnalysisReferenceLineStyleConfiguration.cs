@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisReferenceLineStyleConfiguration
     {
+        /// <summary>
+        /// The hex color of the reference line.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The pattern type of the line style. Choose one of the following options:
+        /// 
+        /// - `SOLID`
+        /// - `DASHED`
+        /// - `DOTTED`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisReferenceLinePatternType? Pattern;
 
         [OutputConstructor]

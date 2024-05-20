@@ -30,11 +30,17 @@ class GetLogDeliveryConfigurationResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        A user pool ID, for example `us-east-1_EXAMPLE` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> Optional[Sequence['outputs.LogDeliveryConfigurationLogConfiguration']]:
+        """
+        The detailed activity logging destination of a user pool.
+        """
         return pulumi.get(self, "log_configurations")
 
 
@@ -52,6 +58,9 @@ def get_log_delivery_configuration(id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogDeliveryConfigurationResult:
     """
     Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
+
+
+    :param str id: A user pool ID, for example `us-east-1_EXAMPLE` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -68,5 +77,8 @@ def get_log_delivery_configuration_output(id: Optional[pulumi.Input[str]] = None
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogDeliveryConfigurationResult]:
     """
     Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
+
+
+    :param str id: A user pool ID, for example `us-east-1_EXAMPLE` .
     """
     ...

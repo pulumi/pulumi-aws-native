@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,14 +57,44 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetServiceResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The type of IAM policy.
+        /// 
+        /// - `NONE` : The resource does not use an IAM policy. This is the default.
+        /// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceAuthType? AuthType;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate.
+        /// </summary>
         public readonly string? CertificateArn;
+        /// <summary>
+        /// The date and time that the service was created, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The DNS information of the service.
+        /// </summary>
         public readonly Outputs.ServiceDnsEntry? DnsEntry;
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The date and time that the service was last updated, specified in ISO-8601 format.
+        /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// The status of the service.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceStatus? Status;
+        /// <summary>
+        /// The tags for the service.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

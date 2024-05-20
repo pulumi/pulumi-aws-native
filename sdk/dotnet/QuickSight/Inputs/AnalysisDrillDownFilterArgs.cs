@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDrillDownFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category type drill down filter. This filter is used for string type columns.
+        /// </summary>
         [Input("categoryFilter")]
         public Input<Inputs.AnalysisCategoryDrillDownFilterArgs>? CategoryFilter { get; set; }
 
+        /// <summary>
+        /// The numeric equality type drill down filter. This filter is used for number type columns.
+        /// </summary>
         [Input("numericEqualityFilter")]
         public Input<Inputs.AnalysisNumericEqualityDrillDownFilterArgs>? NumericEqualityFilter { get; set; }
 
+        /// <summary>
+        /// The time range drill down filter. This filter is used for date time columns.
+        /// </summary>
         [Input("timeRangeFilter")]
         public Input<Inputs.AnalysisTimeRangeDrillDownFilterArgs>? TimeRangeFilter { get; set; }
 

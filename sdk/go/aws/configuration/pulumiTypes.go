@@ -956,9 +956,12 @@ func (o ConfigRuleSourceDetailArrayOutput) Index(i pulumi.IntInput) ConfigRuleSo
 }
 
 type ConfigurationAggregatorAccountAggregationSource struct {
-	AccountIds    []string `pulumi:"accountIds"`
-	AllAwsRegions *bool    `pulumi:"allAwsRegions"`
-	AwsRegions    []string `pulumi:"awsRegions"`
+	// The 12-digit account ID of the account being aggregated.
+	AccountIds []string `pulumi:"accountIds"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllAwsRegions *bool `pulumi:"allAwsRegions"`
+	// The source regions being aggregated.
+	AwsRegions []string `pulumi:"awsRegions"`
 }
 
 // ConfigurationAggregatorAccountAggregationSourceInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs and ConfigurationAggregatorAccountAggregationSourceOutput values.
@@ -973,9 +976,12 @@ type ConfigurationAggregatorAccountAggregationSourceInput interface {
 }
 
 type ConfigurationAggregatorAccountAggregationSourceArgs struct {
-	AccountIds    pulumi.StringArrayInput `pulumi:"accountIds"`
-	AllAwsRegions pulumi.BoolPtrInput     `pulumi:"allAwsRegions"`
-	AwsRegions    pulumi.StringArrayInput `pulumi:"awsRegions"`
+	// The 12-digit account ID of the account being aggregated.
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllAwsRegions pulumi.BoolPtrInput `pulumi:"allAwsRegions"`
+	// The source regions being aggregated.
+	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
 }
 
 func (ConfigurationAggregatorAccountAggregationSourceArgs) ElementType() reflect.Type {
@@ -1029,14 +1035,17 @@ func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAg
 	return o
 }
 
+// The 12-digit account ID of the account being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AllAwsRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) *bool { return v.AllAwsRegions }).(pulumi.BoolPtrOutput)
 }
 
+// The source regions being aggregated.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -1062,9 +1071,12 @@ func (o ConfigurationAggregatorAccountAggregationSourceArrayOutput) Index(i pulu
 }
 
 type ConfigurationAggregatorOrganizationAggregationSource struct {
-	AllAwsRegions *bool    `pulumi:"allAwsRegions"`
-	AwsRegions    []string `pulumi:"awsRegions"`
-	RoleArn       string   `pulumi:"roleArn"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllAwsRegions *bool `pulumi:"allAwsRegions"`
+	// The source regions being aggregated.
+	AwsRegions []string `pulumi:"awsRegions"`
+	// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // ConfigurationAggregatorOrganizationAggregationSourceInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs and ConfigurationAggregatorOrganizationAggregationSourceOutput values.
@@ -1079,9 +1091,12 @@ type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
 }
 
 type ConfigurationAggregatorOrganizationAggregationSourceArgs struct {
-	AllAwsRegions pulumi.BoolPtrInput     `pulumi:"allAwsRegions"`
-	AwsRegions    pulumi.StringArrayInput `pulumi:"awsRegions"`
-	RoleArn       pulumi.StringInput      `pulumi:"roleArn"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllAwsRegions pulumi.BoolPtrInput `pulumi:"allAwsRegions"`
+	// The source regions being aggregated.
+	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
+	// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ConfigurationAggregatorOrganizationAggregationSourceArgs) ElementType() reflect.Type {
@@ -1161,14 +1176,17 @@ func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurat
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AllAwsRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) *bool { return v.AllAwsRegions }).(pulumi.BoolPtrOutput)
 }
 
+// The source regions being aggregated.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
+// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1197,6 +1215,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() Co
 	}).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
 }
 
+// If true, aggregate existing AWS Config regions and future regions.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllAwsRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *bool {
 		if v == nil {
@@ -1206,6 +1225,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllAwsReg
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The source regions being aggregated.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) []string {
 		if v == nil {
@@ -1215,6 +1235,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AwsRegion
 	}).(pulumi.StringArrayOutput)
 }
 
+// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *string {
 		if v == nil {
@@ -1234,7 +1255,9 @@ type ConfigurationAggregatorTag struct {
 
 // Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackInputParameter struct {
-	ParameterName  string `pulumi:"parameterName"`
+	// One part of a key-value pair.
+	ParameterName string `pulumi:"parameterName"`
+	// Another part of the key-value pair.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -1251,7 +1274,9 @@ type ConformancePackInputParameterInput interface {
 
 // Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackInputParameterArgs struct {
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	// One part of a key-value pair.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Another part of the key-value pair.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -1307,10 +1332,12 @@ func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutp
 	return o
 }
 
+// One part of a key-value pair.
 func (o ConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
+// Another part of the key-value pair.
 func (o ConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -1337,7 +1364,9 @@ func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) Confo
 
 // Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameter struct {
-	ParameterName  string `pulumi:"parameterName"`
+	// One part of a key-value pair.
+	ParameterName string `pulumi:"parameterName"`
+	// One part of a key-value pair.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -1354,7 +1383,9 @@ type OrganizationConformancePackConformancePackInputParameterInput interface {
 
 // Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameterArgs struct {
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	// One part of a key-value pair.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// One part of a key-value pair.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -1410,10 +1441,12 @@ func (o OrganizationConformancePackConformancePackInputParameterOutput) ToOrgani
 	return o
 }
 
+// One part of a key-value pair.
 func (o OrganizationConformancePackConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConformancePackConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
+// One part of a key-value pair.
 func (o OrganizationConformancePackConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConformancePackConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -1448,7 +1481,11 @@ type StoredQueryTag struct {
 
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
 type TemplateSsmDocumentDetailsProperties struct {
-	DocumentName    *string `pulumi:"documentName"`
+	// The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
+	DocumentName *string `pulumi:"documentName"`
+	// The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+	//
+	// > This field is optional.
 	DocumentVersion *string `pulumi:"documentVersion"`
 }
 
@@ -1465,7 +1502,11 @@ type TemplateSsmDocumentDetailsPropertiesInput interface {
 
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
 type TemplateSsmDocumentDetailsPropertiesArgs struct {
-	DocumentName    pulumi.StringPtrInput `pulumi:"documentName"`
+	// The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
+	DocumentName pulumi.StringPtrInput `pulumi:"documentName"`
+	// The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+	//
+	// > This field is optional.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
 }
 
@@ -1547,10 +1588,14 @@ func (o TemplateSsmDocumentDetailsPropertiesOutput) ToTemplateSsmDocumentDetails
 	}).(TemplateSsmDocumentDetailsPropertiesPtrOutput)
 }
 
+// The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
 func (o TemplateSsmDocumentDetailsPropertiesOutput) DocumentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSsmDocumentDetailsProperties) *string { return v.DocumentName }).(pulumi.StringPtrOutput)
 }
 
+// The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+//
+// > This field is optional.
 func (o TemplateSsmDocumentDetailsPropertiesOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSsmDocumentDetailsProperties) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
@@ -1579,6 +1624,7 @@ func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) Elem() TemplateSsmDocumen
 	}).(TemplateSsmDocumentDetailsPropertiesOutput)
 }
 
+// The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, AWS Config checks only your account and AWS Region for the SSM document.
 func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) DocumentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSsmDocumentDetailsProperties) *string {
 		if v == nil {
@@ -1588,6 +1634,9 @@ func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) DocumentName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the SSM document to use to create a conformance pack. By default, AWS Config uses the latest version.
+//
+// > This field is optional.
 func (o TemplateSsmDocumentDetailsPropertiesPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSsmDocumentDetailsProperties) *string {
 		if v == nil {

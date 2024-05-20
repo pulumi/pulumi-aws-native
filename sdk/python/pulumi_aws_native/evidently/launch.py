@@ -29,7 +29,14 @@ class LaunchArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Launch resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        :param pulumi.Input[str] project: The name or ARN of the project that you want to create the launch in.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+        :param pulumi.Input[str] description: An optional description for the launch.
         :param pulumi.Input['LaunchExecutionStatusObjectArgs'] execution_status: Start or Stop Launch Launch. Default is not started.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]] metric_monitors: An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+        :param pulumi.Input[str] name: The name for the launch. It can include up to 127 characters.
+        :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "groups", groups)
@@ -51,6 +58,9 @@ class LaunchArgs:
     @property
     @pulumi.getter
     def groups(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]]:
+        """
+        An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -60,6 +70,9 @@ class LaunchArgs:
     @property
     @pulumi.getter
     def project(self) -> pulumi.Input[str]:
+        """
+        The name or ARN of the project that you want to create the launch in.
+        """
         return pulumi.get(self, "project")
 
     @project.setter
@@ -69,6 +82,9 @@ class LaunchArgs:
     @property
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]]:
+        """
+        An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+        """
         return pulumi.get(self, "scheduled_splits_config")
 
     @scheduled_splits_config.setter
@@ -78,6 +94,9 @@ class LaunchArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description for the launch.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,6 +118,9 @@ class LaunchArgs:
     @property
     @pulumi.getter(name="metricMonitors")
     def metric_monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]]]:
+        """
+        An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+        """
         return pulumi.get(self, "metric_monitors")
 
     @metric_monitors.setter
@@ -108,6 +130,9 @@ class LaunchArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the launch. It can include up to 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,6 +142,9 @@ class LaunchArgs:
     @property
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> Optional[pulumi.Input[str]]:
+        """
+        When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+        """
         return pulumi.get(self, "randomization_salt")
 
     @randomization_salt.setter
@@ -156,7 +184,14 @@ class Launch(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: An optional description for the launch.
         :param pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']] execution_status: Start or Stop Launch Launch. Default is not started.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]] metric_monitors: An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+        :param pulumi.Input[str] name: The name for the launch. It can include up to 127 characters.
+        :param pulumi.Input[str] project: The name or ARN of the project that you want to create the launch in.
+        :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -256,11 +291,17 @@ class Launch(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description for the launch.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -274,31 +315,49 @@ class Launch(pulumi.CustomResource):
     @property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Sequence['outputs.LaunchGroupObject']]:
+        """
+        An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="metricMonitors")
     def metric_monitors(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchMetricDefinitionObject']]]:
+        """
+        An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+        """
         return pulumi.get(self, "metric_monitors")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name for the launch. It can include up to 127 characters.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def project(self) -> pulumi.Output[str]:
+        """
+        The name or ARN of the project that you want to create the launch in.
+        """
         return pulumi.get(self, "project")
 
     @property
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> pulumi.Output[Optional[str]]:
+        """
+        When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+        """
         return pulumi.get(self, "randomization_salt")
 
     @property
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> pulumi.Output[Sequence['outputs.LaunchStepConfig']]:
+        """
+        An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+        """
         return pulumi.get(self, "scheduled_splits_config")
 
     @property

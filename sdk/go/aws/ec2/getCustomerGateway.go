@@ -24,10 +24,12 @@ func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs,
 }
 
 type LookupCustomerGatewayArgs struct {
+	// The ID of the customer gateway.
 	CustomerGatewayId string `pulumi:"customerGatewayId"`
 }
 
 type LookupCustomerGatewayResult struct {
+	// The ID of the customer gateway.
 	CustomerGatewayId *string `pulumi:"customerGatewayId"`
 	// One or more tags for the customer gateway.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -47,6 +49,7 @@ func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGateway
 }
 
 type LookupCustomerGatewayOutputArgs struct {
+	// The ID of the customer gateway.
 	CustomerGatewayId pulumi.StringInput `pulumi:"customerGatewayId"`
 }
 
@@ -68,6 +71,7 @@ func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWi
 	return o
 }
 
+// The ID of the customer gateway.
 func (o LookupCustomerGatewayResultOutput) CustomerGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomerGatewayResult) *string { return v.CustomerGatewayId }).(pulumi.StringPtrOutput)
 }

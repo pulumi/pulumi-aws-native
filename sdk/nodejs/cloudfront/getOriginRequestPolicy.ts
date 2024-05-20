@@ -19,12 +19,24 @@ export function getOriginRequestPolicy(args: GetOriginRequestPolicyArgs, opts?: 
 }
 
 export interface GetOriginRequestPolicyArgs {
+    /**
+     * The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+     */
     id: string;
 }
 
 export interface GetOriginRequestPolicyResult {
+    /**
+     * The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+     */
     readonly id?: string;
+    /**
+     * The date and time when the origin request policy was last modified.
+     */
     readonly lastModifiedTime?: string;
+    /**
+     * The origin request policy configuration.
+     */
     readonly originRequestPolicyConfig?: outputs.cloudfront.OriginRequestPolicyConfig;
 }
 /**
@@ -35,5 +47,8 @@ export function getOriginRequestPolicyOutput(args: GetOriginRequestPolicyOutputA
 }
 
 export interface GetOriginRequestPolicyOutputArgs {
+    /**
+     * The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+     */
     id: pulumi.Input<string>;
 }

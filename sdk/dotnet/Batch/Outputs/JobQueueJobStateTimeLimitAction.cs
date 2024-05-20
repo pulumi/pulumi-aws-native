@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobQueueJobStateTimeLimitAction
     {
+        /// <summary>
+        /// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
+        /// </summary>
         public readonly Pulumi.AwsNative.Batch.JobQueueJobStateTimeLimitActionAction Action;
+        /// <summary>
+        /// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).
+        /// </summary>
         public readonly int MaxTimeSeconds;
+        /// <summary>
+        /// The reason to log for the action being taken.
+        /// </summary>
         public readonly string Reason;
+        /// <summary>
+        /// The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Batch.JobQueueJobStateTimeLimitActionState State;
 
         [OutputConstructor]

@@ -1030,6 +1030,7 @@ func (in *domainJobScheduleDayOfTheWeekPtr) ToDomainJobScheduleDayOfTheWeekPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DomainJobScheduleDayOfTheWeekPtrOutput)
 }
 
+// The status of rule-based matching rule.
 type DomainRuleBasedMatchingStatus string
 
 const (
@@ -2336,6 +2337,7 @@ func (in *integrationSalesforceConnectorOperatorPtr) ToIntegrationSalesforceConn
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
+// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
 type IntegrationScheduledTriggerPropertiesDataPullMode string
 
 const (

@@ -37,17 +37,53 @@ export class PackageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackageVersion.__pulumiType;
     }
 
+    /**
+     * Whether the package version is the latest version.
+     */
     public /*out*/ readonly isLatestPatch!: pulumi.Output<boolean>;
+    /**
+     * Whether to mark the new version as the latest version.
+     */
     public readonly markLatest!: pulumi.Output<boolean | undefined>;
+    /**
+     * An owner account.
+     */
     public readonly ownerAccount!: pulumi.Output<string | undefined>;
+    /**
+     * The package version's ARN.
+     */
     public /*out*/ readonly packageArn!: pulumi.Output<string>;
+    /**
+     * A package ID.
+     */
     public readonly packageId!: pulumi.Output<string>;
+    /**
+     * The package version's name.
+     */
     public /*out*/ readonly packageName!: pulumi.Output<string>;
+    /**
+     * A package version.
+     */
     public readonly packageVersion!: pulumi.Output<string>;
+    /**
+     * A patch version.
+     */
     public readonly patchVersion!: pulumi.Output<string>;
+    /**
+     * The package version's registered time.
+     */
     public /*out*/ readonly registeredTime!: pulumi.Output<number>;
+    /**
+     * The package version's status.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.panorama.PackageVersionStatus>;
+    /**
+     * The package version's status description.
+     */
     public /*out*/ readonly statusDescription!: pulumi.Output<string>;
+    /**
+     * If the version was marked latest, the new version to maker as latest.
+     */
     public readonly updatedLatestPatchVersion!: pulumi.Output<string | undefined>;
 
     /**
@@ -107,10 +143,28 @@ export class PackageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a PackageVersion resource.
  */
 export interface PackageVersionArgs {
+    /**
+     * Whether to mark the new version as the latest version.
+     */
     markLatest?: pulumi.Input<boolean>;
+    /**
+     * An owner account.
+     */
     ownerAccount?: pulumi.Input<string>;
+    /**
+     * A package ID.
+     */
     packageId: pulumi.Input<string>;
+    /**
+     * A package version.
+     */
     packageVersion: pulumi.Input<string>;
+    /**
+     * A patch version.
+     */
     patchVersion: pulumi.Input<string>;
+    /**
+     * If the version was marked latest, the new version to maker as latest.
+     */
     updatedLatestPatchVersion?: pulumi.Input<string>;
 }

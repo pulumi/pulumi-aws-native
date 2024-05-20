@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockBuilderArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the app block builder.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class GetAppBlockBuilderInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the app block builder.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,15 +57,47 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetAppBlockBuilderResult
     {
+        /// <summary>
+        /// The access endpoints of the app block builder.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AppBlockBuilderAccessEndpoint> AccessEndpoints;
+        /// <summary>
+        /// The ARN of the app block builder.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The time when the app block builder was created.
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The description of the app block builder.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the app block builder.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// Indicates whether default internet access is enabled for the app block builder.
+        /// </summary>
         public readonly bool? EnableDefaultInternetAccess;
+        /// <summary>
+        /// The ARN of the IAM role that is applied to the app block builder.
+        /// </summary>
         public readonly string? IamRoleArn;
+        /// <summary>
+        /// The instance type of the app block builder.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// The platform of the app block builder.
+        /// 
+        /// *Allowed values* : `WINDOWS_SERVER_2019`
+        /// </summary>
         public readonly string? Platform;
+        /// <summary>
+        /// The VPC configuration for the app block builder.
+        /// </summary>
         public readonly Outputs.AppBlockBuilderVpcConfig? VpcConfig;
 
         [OutputConstructor]

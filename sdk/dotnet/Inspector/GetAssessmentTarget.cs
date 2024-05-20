@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTargetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Inspector
 
     public sealed class GetAssessmentTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Inspector
     [OutputType]
     public sealed class GetAssessmentTargetResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+        /// </summary>
         public readonly string? ResourceGroupArn;
 
         [OutputConstructor]

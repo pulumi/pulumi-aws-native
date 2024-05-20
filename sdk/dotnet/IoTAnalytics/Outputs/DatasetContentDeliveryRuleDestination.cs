@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetContentDeliveryRuleDestination
     {
+        /// <summary>
+        /// Configuration information for delivery of dataset contents to AWS IoT Events .
+        /// </summary>
         public readonly Outputs.DatasetIotEventsDestinationConfiguration? IotEventsDestinationConfiguration;
+        /// <summary>
+        /// Configuration information for delivery of dataset contents to Amazon S3.
+        /// </summary>
         public readonly Outputs.DatasetS3DestinationConfiguration? S3DestinationConfiguration;
 
         [OutputConstructor]

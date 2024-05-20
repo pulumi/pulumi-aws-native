@@ -26,7 +26,8 @@ type Instance struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
 	Status InstanceStatusOutput `pulumi:"status"`
-	Tags   aws.TagArrayOutput   `pulumi:"tags"`
+	// Specifies tags to be attached to the instance of IAM Identity Center.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +71,8 @@ func (InstanceState) ElementType() reflect.Type {
 
 type instanceArgs struct {
 	// The name you want to assign to this Identity Center (SSO) Instance
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Specifies tags to be attached to the instance of IAM Identity Center.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -78,6 +80,7 @@ type instanceArgs struct {
 type InstanceArgs struct {
 	// The name you want to assign to this Identity Center (SSO) Instance
 	Name pulumi.StringPtrInput
+	// Specifies tags to be attached to the instance of IAM Identity Center.
 	Tags aws.TagArrayInput
 }
 
@@ -143,6 +146,7 @@ func (o InstanceOutput) Status() InstanceStatusOutput {
 	return o.ApplyT(func(v *Instance) InstanceStatusOutput { return v.Status }).(InstanceStatusOutput)
 }
 
+// Specifies tags to be attached to the instance of IAM Identity Center.
 func (o InstanceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Instance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

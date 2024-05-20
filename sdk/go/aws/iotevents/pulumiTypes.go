@@ -300,7 +300,9 @@ func (o AlarmModelAlarmActionArrayOutput) Index(i pulumi.IntInput) AlarmModelAla
 
 // Contains the configuration information of alarm state changes
 type AlarmModelAlarmCapabilities struct {
-	AcknowledgeFlow             *AlarmModelAcknowledgeFlow             `pulumi:"acknowledgeFlow"`
+	// Specifies whether to get notified for alarm state changes.
+	AcknowledgeFlow *AlarmModelAcknowledgeFlow `pulumi:"acknowledgeFlow"`
+	// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 	InitializationConfiguration *AlarmModelInitializationConfiguration `pulumi:"initializationConfiguration"`
 }
 
@@ -317,7 +319,9 @@ type AlarmModelAlarmCapabilitiesInput interface {
 
 // Contains the configuration information of alarm state changes
 type AlarmModelAlarmCapabilitiesArgs struct {
-	AcknowledgeFlow             AlarmModelAcknowledgeFlowPtrInput             `pulumi:"acknowledgeFlow"`
+	// Specifies whether to get notified for alarm state changes.
+	AcknowledgeFlow AlarmModelAcknowledgeFlowPtrInput `pulumi:"acknowledgeFlow"`
+	// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 	InitializationConfiguration AlarmModelInitializationConfigurationPtrInput `pulumi:"initializationConfiguration"`
 }
 
@@ -399,10 +403,12 @@ func (o AlarmModelAlarmCapabilitiesOutput) ToAlarmModelAlarmCapabilitiesPtrOutpu
 	}).(AlarmModelAlarmCapabilitiesPtrOutput)
 }
 
+// Specifies whether to get notified for alarm state changes.
 func (o AlarmModelAlarmCapabilitiesOutput) AcknowledgeFlow() AlarmModelAcknowledgeFlowPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmCapabilities) *AlarmModelAcknowledgeFlow { return v.AcknowledgeFlow }).(AlarmModelAcknowledgeFlowPtrOutput)
 }
 
+// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 func (o AlarmModelAlarmCapabilitiesOutput) InitializationConfiguration() AlarmModelInitializationConfigurationPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmCapabilities) *AlarmModelInitializationConfiguration {
 		return v.InitializationConfiguration
@@ -433,6 +439,7 @@ func (o AlarmModelAlarmCapabilitiesPtrOutput) Elem() AlarmModelAlarmCapabilities
 	}).(AlarmModelAlarmCapabilitiesOutput)
 }
 
+// Specifies whether to get notified for alarm state changes.
 func (o AlarmModelAlarmCapabilitiesPtrOutput) AcknowledgeFlow() AlarmModelAcknowledgeFlowPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAlarmCapabilities) *AlarmModelAcknowledgeFlow {
 		if v == nil {
@@ -442,6 +449,7 @@ func (o AlarmModelAlarmCapabilitiesPtrOutput) AcknowledgeFlow() AlarmModelAcknow
 	}).(AlarmModelAcknowledgeFlowPtrOutput)
 }
 
+// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 func (o AlarmModelAlarmCapabilitiesPtrOutput) InitializationConfiguration() AlarmModelInitializationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAlarmCapabilities) *AlarmModelInitializationConfiguration {
 		if v == nil {
@@ -453,6 +461,7 @@ func (o AlarmModelAlarmCapabilitiesPtrOutput) InitializationConfiguration() Alar
 
 // Contains information about one or more alarm actions.
 type AlarmModelAlarmEventActions struct {
+	// Specifies one or more supported actions to receive notifications when the alarm state changes.
 	AlarmActions []AlarmModelAlarmAction `pulumi:"alarmActions"`
 }
 
@@ -469,6 +478,7 @@ type AlarmModelAlarmEventActionsInput interface {
 
 // Contains information about one or more alarm actions.
 type AlarmModelAlarmEventActionsArgs struct {
+	// Specifies one or more supported actions to receive notifications when the alarm state changes.
 	AlarmActions AlarmModelAlarmActionArrayInput `pulumi:"alarmActions"`
 }
 
@@ -550,6 +560,7 @@ func (o AlarmModelAlarmEventActionsOutput) ToAlarmModelAlarmEventActionsPtrOutpu
 	}).(AlarmModelAlarmEventActionsPtrOutput)
 }
 
+// Specifies one or more supported actions to receive notifications when the alarm state changes.
 func (o AlarmModelAlarmEventActionsOutput) AlarmActions() AlarmModelAlarmActionArrayOutput {
 	return o.ApplyT(func(v AlarmModelAlarmEventActions) []AlarmModelAlarmAction { return v.AlarmActions }).(AlarmModelAlarmActionArrayOutput)
 }
@@ -578,6 +589,7 @@ func (o AlarmModelAlarmEventActionsPtrOutput) Elem() AlarmModelAlarmEventActions
 	}).(AlarmModelAlarmEventActionsOutput)
 }
 
+// Specifies one or more supported actions to receive notifications when the alarm state changes.
 func (o AlarmModelAlarmEventActionsPtrOutput) AlarmActions() AlarmModelAlarmActionArrayOutput {
 	return o.ApplyT(func(v *AlarmModelAlarmEventActions) []AlarmModelAlarmAction {
 		if v == nil {
@@ -589,6 +601,7 @@ func (o AlarmModelAlarmEventActionsPtrOutput) AlarmActions() AlarmModelAlarmActi
 
 // Defines when your alarm is invoked.
 type AlarmModelAlarmRule struct {
+	// A rule that compares an input property value to a threshold value with a comparison operator.
 	SimpleRule *AlarmModelSimpleRule `pulumi:"simpleRule"`
 }
 
@@ -605,6 +618,7 @@ type AlarmModelAlarmRuleInput interface {
 
 // Defines when your alarm is invoked.
 type AlarmModelAlarmRuleArgs struct {
+	// A rule that compares an input property value to a threshold value with a comparison operator.
 	SimpleRule AlarmModelSimpleRulePtrInput `pulumi:"simpleRule"`
 }
 
@@ -635,6 +649,7 @@ func (o AlarmModelAlarmRuleOutput) ToAlarmModelAlarmRuleOutputWithContext(ctx co
 	return o
 }
 
+// A rule that compares an input property value to a threshold value with a comparison operator.
 func (o AlarmModelAlarmRuleOutput) SimpleRule() AlarmModelSimpleRulePtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmRule) *AlarmModelSimpleRule { return v.SimpleRule }).(AlarmModelSimpleRulePtrOutput)
 }
@@ -663,6 +678,7 @@ func (o AlarmModelAlarmRulePtrOutput) Elem() AlarmModelAlarmRuleOutput {
 	}).(AlarmModelAlarmRuleOutput)
 }
 
+// A rule that compares an input property value to a threshold value with a comparison operator.
 func (o AlarmModelAlarmRulePtrOutput) SimpleRule() AlarmModelSimpleRulePtrOutput {
 	return o.ApplyT(func(v *AlarmModelAlarmRule) *AlarmModelSimpleRule {
 		if v == nil {
@@ -3421,19 +3437,32 @@ type AlarmModelTag struct {
 
 // The actions to be performed.
 type DetectorModelAction struct {
-	ClearTimer      *DetectorModelClearTimer      `pulumi:"clearTimer"`
-	DynamoDBv2      *DetectorModelDynamoDBv2      `pulumi:"dynamoDBv2"`
-	DynamoDb        *DetectorModelDynamoDb        `pulumi:"dynamoDb"`
-	Firehose        *DetectorModelFirehose        `pulumi:"firehose"`
-	IotEvents       *DetectorModelIotEvents       `pulumi:"iotEvents"`
-	IotSiteWise     *DetectorModelIotSiteWise     `pulumi:"iotSiteWise"`
+	// Information needed to clear the timer.
+	ClearTimer *DetectorModelClearTimer `pulumi:"clearTimer"`
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	DynamoDBv2 *DetectorModelDynamoDBv2 `pulumi:"dynamoDBv2"`
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	DynamoDb *DetectorModelDynamoDb `pulumi:"dynamoDb"`
+	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+	Firehose *DetectorModelFirehose `pulumi:"firehose"`
+	// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+	IotEvents *DetectorModelIotEvents `pulumi:"iotEvents"`
+	// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+	IotSiteWise *DetectorModelIotSiteWise `pulumi:"iotSiteWise"`
+	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
 	IotTopicPublish *DetectorModelIotTopicPublish `pulumi:"iotTopicPublish"`
-	Lambda          *DetectorModelLambda          `pulumi:"lambda"`
-	ResetTimer      *DetectorModelResetTimer      `pulumi:"resetTimer"`
-	SetTimer        *DetectorModelSetTimer        `pulumi:"setTimer"`
-	SetVariable     *DetectorModelSetVariable     `pulumi:"setVariable"`
-	Sns             *DetectorModelSns             `pulumi:"sns"`
-	Sqs             *DetectorModelSqs             `pulumi:"sqs"`
+	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+	Lambda *DetectorModelLambda `pulumi:"lambda"`
+	// Information needed to reset the timer.
+	ResetTimer *DetectorModelResetTimer `pulumi:"resetTimer"`
+	// Information needed to set the timer.
+	SetTimer *DetectorModelSetTimer `pulumi:"setTimer"`
+	// Sets a variable to a specified value.
+	SetVariable *DetectorModelSetVariable `pulumi:"setVariable"`
+	// Sends an Amazon SNS message.
+	Sns *DetectorModelSns `pulumi:"sns"`
+	// Sends an Amazon SNS message.
+	Sqs *DetectorModelSqs `pulumi:"sqs"`
 }
 
 // DetectorModelActionInput is an input type that accepts DetectorModelActionArgs and DetectorModelActionOutput values.
@@ -3449,19 +3478,32 @@ type DetectorModelActionInput interface {
 
 // The actions to be performed.
 type DetectorModelActionArgs struct {
-	ClearTimer      DetectorModelClearTimerPtrInput      `pulumi:"clearTimer"`
-	DynamoDBv2      DetectorModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
-	DynamoDb        DetectorModelDynamoDbPtrInput        `pulumi:"dynamoDb"`
-	Firehose        DetectorModelFirehosePtrInput        `pulumi:"firehose"`
-	IotEvents       DetectorModelIotEventsPtrInput       `pulumi:"iotEvents"`
-	IotSiteWise     DetectorModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
+	// Information needed to clear the timer.
+	ClearTimer DetectorModelClearTimerPtrInput `pulumi:"clearTimer"`
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	DynamoDBv2 DetectorModelDynamoDBv2PtrInput `pulumi:"dynamoDBv2"`
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	DynamoDb DetectorModelDynamoDbPtrInput `pulumi:"dynamoDb"`
+	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+	Firehose DetectorModelFirehosePtrInput `pulumi:"firehose"`
+	// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+	IotEvents DetectorModelIotEventsPtrInput `pulumi:"iotEvents"`
+	// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+	IotSiteWise DetectorModelIotSiteWisePtrInput `pulumi:"iotSiteWise"`
+	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
 	IotTopicPublish DetectorModelIotTopicPublishPtrInput `pulumi:"iotTopicPublish"`
-	Lambda          DetectorModelLambdaPtrInput          `pulumi:"lambda"`
-	ResetTimer      DetectorModelResetTimerPtrInput      `pulumi:"resetTimer"`
-	SetTimer        DetectorModelSetTimerPtrInput        `pulumi:"setTimer"`
-	SetVariable     DetectorModelSetVariablePtrInput     `pulumi:"setVariable"`
-	Sns             DetectorModelSnsPtrInput             `pulumi:"sns"`
-	Sqs             DetectorModelSqsPtrInput             `pulumi:"sqs"`
+	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+	Lambda DetectorModelLambdaPtrInput `pulumi:"lambda"`
+	// Information needed to reset the timer.
+	ResetTimer DetectorModelResetTimerPtrInput `pulumi:"resetTimer"`
+	// Information needed to set the timer.
+	SetTimer DetectorModelSetTimerPtrInput `pulumi:"setTimer"`
+	// Sets a variable to a specified value.
+	SetVariable DetectorModelSetVariablePtrInput `pulumi:"setVariable"`
+	// Sends an Amazon SNS message.
+	Sns DetectorModelSnsPtrInput `pulumi:"sns"`
+	// Sends an Amazon SNS message.
+	Sqs DetectorModelSqsPtrInput `pulumi:"sqs"`
 }
 
 func (DetectorModelActionArgs) ElementType() reflect.Type {
@@ -3516,54 +3558,67 @@ func (o DetectorModelActionOutput) ToDetectorModelActionOutputWithContext(ctx co
 	return o
 }
 
+// Information needed to clear the timer.
 func (o DetectorModelActionOutput) ClearTimer() DetectorModelClearTimerPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelClearTimer { return v.ClearTimer }).(DetectorModelClearTimerPtrOutput)
 }
 
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
 func (o DetectorModelActionOutput) DynamoDBv2() DetectorModelDynamoDBv2PtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDBv2 { return v.DynamoDBv2 }).(DetectorModelDynamoDBv2PtrOutput)
 }
 
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
 func (o DetectorModelActionOutput) DynamoDb() DetectorModelDynamoDbPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDb { return v.DynamoDb }).(DetectorModelDynamoDbPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 func (o DetectorModelActionOutput) Firehose() DetectorModelFirehosePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelFirehose { return v.Firehose }).(DetectorModelFirehosePtrOutput)
 }
 
+// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
 func (o DetectorModelActionOutput) IotEvents() DetectorModelIotEventsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotEvents { return v.IotEvents }).(DetectorModelIotEventsPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
 func (o DetectorModelActionOutput) IotSiteWise() DetectorModelIotSiteWisePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotSiteWise { return v.IotSiteWise }).(DetectorModelIotSiteWisePtrOutput)
 }
 
+// Publishes an MQTT message with the given topic to the AWS IoT message broker.
 func (o DetectorModelActionOutput) IotTopicPublish() DetectorModelIotTopicPublishPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotTopicPublish { return v.IotTopicPublish }).(DetectorModelIotTopicPublishPtrOutput)
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 func (o DetectorModelActionOutput) Lambda() DetectorModelLambdaPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelLambda { return v.Lambda }).(DetectorModelLambdaPtrOutput)
 }
 
+// Information needed to reset the timer.
 func (o DetectorModelActionOutput) ResetTimer() DetectorModelResetTimerPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelResetTimer { return v.ResetTimer }).(DetectorModelResetTimerPtrOutput)
 }
 
+// Information needed to set the timer.
 func (o DetectorModelActionOutput) SetTimer() DetectorModelSetTimerPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSetTimer { return v.SetTimer }).(DetectorModelSetTimerPtrOutput)
 }
 
+// Sets a variable to a specified value.
 func (o DetectorModelActionOutput) SetVariable() DetectorModelSetVariablePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSetVariable { return v.SetVariable }).(DetectorModelSetVariablePtrOutput)
 }
 
+// Sends an Amazon SNS message.
 func (o DetectorModelActionOutput) Sns() DetectorModelSnsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSns { return v.Sns }).(DetectorModelSnsPtrOutput)
 }
 
+// Sends an Amazon SNS message.
 func (o DetectorModelActionOutput) Sqs() DetectorModelSqsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSqs { return v.Sqs }).(DetectorModelSqsPtrOutput)
 }
@@ -3750,9 +3805,11 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.Str
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyValue struct {
 	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
-	Quality   *string                              `pulumi:"quality"`
+	Quality *string `pulumi:"quality"`
+	// The timestamp associated with the asset property value. The default is the current event time.
 	Timestamp *DetectorModelAssetPropertyTimestamp `pulumi:"timestamp"`
-	Value     DetectorModelAssetPropertyVariant    `pulumi:"value"`
+	// The value to send to an asset property.
+	Value DetectorModelAssetPropertyVariant `pulumi:"value"`
 }
 
 // DetectorModelAssetPropertyValueInput is an input type that accepts DetectorModelAssetPropertyValueArgs and DetectorModelAssetPropertyValueOutput values.
@@ -3769,9 +3826,11 @@ type DetectorModelAssetPropertyValueInput interface {
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyValueArgs struct {
 	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
-	Quality   pulumi.StringPtrInput                       `pulumi:"quality"`
+	Quality pulumi.StringPtrInput `pulumi:"quality"`
+	// The timestamp associated with the asset property value. The default is the current event time.
 	Timestamp DetectorModelAssetPropertyTimestampPtrInput `pulumi:"timestamp"`
-	Value     DetectorModelAssetPropertyVariantInput      `pulumi:"value"`
+	// The value to send to an asset property.
+	Value DetectorModelAssetPropertyVariantInput `pulumi:"value"`
 }
 
 func (DetectorModelAssetPropertyValueArgs) ElementType() reflect.Type {
@@ -3857,10 +3916,12 @@ func (o DetectorModelAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp associated with the asset property value. The default is the current event time.
 func (o DetectorModelAssetPropertyValueOutput) Timestamp() DetectorModelAssetPropertyTimestampPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyTimestamp { return v.Timestamp }).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
+// The value to send to an asset property.
 func (o DetectorModelAssetPropertyValueOutput) Value() DetectorModelAssetPropertyVariantOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) DetectorModelAssetPropertyVariant { return v.Value }).(DetectorModelAssetPropertyVariantOutput)
 }
@@ -3899,6 +3960,7 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Quality() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The timestamp associated with the asset property value. The default is the current event time.
 func (o DetectorModelAssetPropertyValuePtrOutput) Timestamp() DetectorModelAssetPropertyTimestampPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyTimestamp {
 		if v == nil {
@@ -3908,6 +3970,7 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Timestamp() DetectorModelAsset
 	}).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
+// The value to send to an asset property.
 func (o DetectorModelAssetPropertyValuePtrOutput) Value() DetectorModelAssetPropertyVariantPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyVariant {
 		if v == nil {
@@ -4116,6 +4179,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringP
 
 // Information needed to clear the timer.
 type DetectorModelClearTimer struct {
+	// The name of the timer to clear.
 	TimerName string `pulumi:"timerName"`
 }
 
@@ -4132,6 +4196,7 @@ type DetectorModelClearTimerInput interface {
 
 // Information needed to clear the timer.
 type DetectorModelClearTimerArgs struct {
+	// The name of the timer to clear.
 	TimerName pulumi.StringInput `pulumi:"timerName"`
 }
 
@@ -4213,6 +4278,7 @@ func (o DetectorModelClearTimerOutput) ToDetectorModelClearTimerPtrOutputWithCon
 	}).(DetectorModelClearTimerPtrOutput)
 }
 
+// The name of the timer to clear.
 func (o DetectorModelClearTimerOutput) TimerName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelClearTimer) string { return v.TimerName }).(pulumi.StringOutput)
 }
@@ -4241,6 +4307,7 @@ func (o DetectorModelClearTimerPtrOutput) Elem() DetectorModelClearTimerOutput {
 	}).(DetectorModelClearTimerOutput)
 }
 
+// The name of the timer to clear.
 func (o DetectorModelClearTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelClearTimer) *string {
 		if v == nil {
@@ -4362,6 +4429,9 @@ func (o DetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOu
 //
 // You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBv2 struct {
+	// Information needed to configure the payload.
+	//
+	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
@@ -4382,6 +4452,9 @@ type DetectorModelDynamoDBv2Input interface {
 //
 // You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBv2Args struct {
+	// Information needed to configure the payload.
+	//
+	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
@@ -4467,6 +4540,9 @@ func (o DetectorModelDynamoDBv2Output) ToDetectorModelDynamoDBv2PtrOutputWithCon
 	}).(DetectorModelDynamoDBv2PtrOutput)
 }
 
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 func (o DetectorModelDynamoDBv2Output) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDBv2) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -4500,6 +4576,9 @@ func (o DetectorModelDynamoDBv2PtrOutput) Elem() DetectorModelDynamoDBv2Output {
 	}).(DetectorModelDynamoDBv2Output)
 }
 
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 func (o DetectorModelDynamoDBv2PtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDBv2) *DetectorModelPayload {
 		if v == nil {
@@ -4542,8 +4621,11 @@ type DetectorModelDynamoDb struct {
 	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation *string               `pulumi:"operation"`
-	Payload   *DetectorModelPayload `pulumi:"payload"`
+	Operation *string `pulumi:"operation"`
+	// Information needed to configure the payload.
+	//
+	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
 	//
 	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
@@ -4598,8 +4680,11 @@ type DetectorModelDynamoDbArgs struct {
 	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation pulumi.StringPtrInput        `pulumi:"operation"`
-	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// Information needed to configure the payload.
+	//
+	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
 	//
 	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
@@ -4732,6 +4817,9 @@ func (o DetectorModelDynamoDbOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 func (o DetectorModelDynamoDbOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -4847,6 +4935,9 @@ func (o DetectorModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 func (o DetectorModelDynamoDbPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *DetectorModelPayload {
 		if v == nil {
@@ -5035,8 +5126,9 @@ func (o DetectorModelEventArrayOutput) Index(i pulumi.IntInput) DetectorModelEve
 // Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type DetectorModelFirehose struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName string                `pulumi:"deliveryStreamName"`
-	Payload            *DetectorModelPayload `pulumi:"payload"`
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
+	// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+	Payload *DetectorModelPayload `pulumi:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 	Separator *string `pulumi:"separator"`
 }
@@ -5055,8 +5147,9 @@ type DetectorModelFirehoseInput interface {
 // Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type DetectorModelFirehoseArgs struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName pulumi.StringInput           `pulumi:"deliveryStreamName"`
-	Payload            DetectorModelPayloadPtrInput `pulumi:"payload"`
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
+	// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
@@ -5144,6 +5237,7 @@ func (o DetectorModelFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
 func (o DetectorModelFirehoseOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelFirehose) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -5187,6 +5281,7 @@ func (o DetectorModelFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
 func (o DetectorModelFirehosePtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelFirehose) *DetectorModelPayload {
 		if v == nil {
@@ -5209,8 +5304,9 @@ func (o DetectorModelFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 // Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEvents struct {
 	// The name of the AWS IoT Events input where the data is sent.
-	InputName string                `pulumi:"inputName"`
-	Payload   *DetectorModelPayload `pulumi:"payload"`
+	InputName string `pulumi:"inputName"`
+	// You can configure the action payload when you send a message to an AWS IoT Events input.
+	Payload *DetectorModelPayload `pulumi:"payload"`
 }
 
 // DetectorModelIotEventsInput is an input type that accepts DetectorModelIotEventsArgs and DetectorModelIotEventsOutput values.
@@ -5227,8 +5323,9 @@ type DetectorModelIotEventsInput interface {
 // Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEventsArgs struct {
 	// The name of the AWS IoT Events input where the data is sent.
-	InputName pulumi.StringInput           `pulumi:"inputName"`
-	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// You can configure the action payload when you send a message to an AWS IoT Events input.
+	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (DetectorModelIotEventsArgs) ElementType() reflect.Type {
@@ -5314,6 +5411,7 @@ func (o DetectorModelIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) string { return v.InputName }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you send a message to an AWS IoT Events input.
 func (o DetectorModelIotEventsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -5352,6 +5450,7 @@ func (o DetectorModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you send a message to an AWS IoT Events input.
 func (o DetectorModelIotEventsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotEvents) *DetectorModelPayload {
 		if v == nil {
@@ -5370,7 +5469,8 @@ type DetectorModelIotSiteWise struct {
 	// The alias of the asset property. You can also specify an expression.
 	PropertyAlias *string `pulumi:"propertyAlias"`
 	// The ID of the asset property. You can specify an expression.
-	PropertyId    *string                         `pulumi:"propertyId"`
+	PropertyId *string `pulumi:"propertyId"`
+	// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 	PropertyValue DetectorModelAssetPropertyValue `pulumi:"propertyValue"`
 }
 
@@ -5394,7 +5494,8 @@ type DetectorModelIotSiteWiseArgs struct {
 	// The alias of the asset property. You can also specify an expression.
 	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
 	// The ID of the asset property. You can specify an expression.
-	PropertyId    pulumi.StringPtrInput                `pulumi:"propertyId"`
+	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
+	// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 	PropertyValue DetectorModelAssetPropertyValueInput `pulumi:"propertyValue"`
 }
 
@@ -5496,6 +5597,7 @@ func (o DetectorModelIotSiteWiseOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
+// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 func (o DetectorModelIotSiteWiseOutput) PropertyValue() DetectorModelAssetPropertyValueOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) DetectorModelAssetPropertyValue { return v.PropertyValue }).(DetectorModelAssetPropertyValueOutput)
 }
@@ -5564,6 +5666,7 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 func (o DetectorModelIotSiteWisePtrOutput) PropertyValue() DetectorModelAssetPropertyValuePtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *DetectorModelAssetPropertyValue {
 		if v == nil {
@@ -5576,8 +5679,9 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyValue() DetectorModelAssetPro
 // Information required to publish the MQTT message through the AWS IoT message broker.
 type DetectorModelIotTopicPublish struct {
 	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
-	MqttTopic string                `pulumi:"mqttTopic"`
-	Payload   *DetectorModelPayload `pulumi:"payload"`
+	MqttTopic string `pulumi:"mqttTopic"`
+	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+	Payload *DetectorModelPayload `pulumi:"payload"`
 }
 
 // DetectorModelIotTopicPublishInput is an input type that accepts DetectorModelIotTopicPublishArgs and DetectorModelIotTopicPublishOutput values.
@@ -5594,8 +5698,9 @@ type DetectorModelIotTopicPublishInput interface {
 // Information required to publish the MQTT message through the AWS IoT message broker.
 type DetectorModelIotTopicPublishArgs struct {
 	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
-	MqttTopic pulumi.StringInput           `pulumi:"mqttTopic"`
-	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
+	MqttTopic pulumi.StringInput `pulumi:"mqttTopic"`
+	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (DetectorModelIotTopicPublishArgs) ElementType() reflect.Type {
@@ -5681,6 +5786,7 @@ func (o DetectorModelIotTopicPublishOutput) MqttTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) string { return v.MqttTopic }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you publish a message to an AWS IoT Core topic.
 func (o DetectorModelIotTopicPublishOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -5719,6 +5825,7 @@ func (o DetectorModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you publish a message to an AWS IoT Core topic.
 func (o DetectorModelIotTopicPublishPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotTopicPublish) *DetectorModelPayload {
 		if v == nil {
@@ -5730,8 +5837,9 @@ func (o DetectorModelIotTopicPublishPtrOutput) Payload() DetectorModelPayloadPtr
 
 type DetectorModelLambda struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn string                `pulumi:"functionArn"`
-	Payload     *DetectorModelPayload `pulumi:"payload"`
+	FunctionArn string `pulumi:"functionArn"`
+	// You can configure the action payload when you send a message to a Lambda function.
+	Payload *DetectorModelPayload `pulumi:"payload"`
 }
 
 // DetectorModelLambdaInput is an input type that accepts DetectorModelLambdaArgs and DetectorModelLambdaOutput values.
@@ -5747,8 +5855,9 @@ type DetectorModelLambdaInput interface {
 
 type DetectorModelLambdaArgs struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn pulumi.StringInput           `pulumi:"functionArn"`
-	Payload     DetectorModelPayloadPtrInput `pulumi:"payload"`
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// You can configure the action payload when you send a message to a Lambda function.
+	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (DetectorModelLambdaArgs) ElementType() reflect.Type {
@@ -5833,6 +5942,7 @@ func (o DetectorModelLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you send a message to a Lambda function.
 func (o DetectorModelLambdaOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelLambda) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -5871,6 +5981,7 @@ func (o DetectorModelLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you send a message to a Lambda function.
 func (o DetectorModelLambdaPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelLambda) *DetectorModelPayload {
 		if v == nil {
@@ -6963,6 +7074,7 @@ func (o DetectorModelSetVariablePtrOutput) VariableName() pulumi.StringPtrOutput
 
 // Information required to publish the Amazon SNS message.
 type DetectorModelSns struct {
+	// You can configure the action payload when you send a message as an Amazon SNS push notification.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The ARN of the Amazon SNS target where the message is sent.
 	TargetArn string `pulumi:"targetArn"`
@@ -6981,6 +7093,7 @@ type DetectorModelSnsInput interface {
 
 // Information required to publish the Amazon SNS message.
 type DetectorModelSnsArgs struct {
+	// You can configure the action payload when you send a message as an Amazon SNS push notification.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The ARN of the Amazon SNS target where the message is sent.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
@@ -7064,6 +7177,7 @@ func (o DetectorModelSnsOutput) ToDetectorModelSnsPtrOutputWithContext(ctx conte
 	}).(DetectorModelSnsPtrOutput)
 }
 
+// You can configure the action payload when you send a message as an Amazon SNS push notification.
 func (o DetectorModelSnsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelSns) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -7097,6 +7211,7 @@ func (o DetectorModelSnsPtrOutput) Elem() DetectorModelSnsOutput {
 	}).(DetectorModelSnsOutput)
 }
 
+// You can configure the action payload when you send a message as an Amazon SNS push notification.
 func (o DetectorModelSnsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSns) *DetectorModelPayload {
 		if v == nil {
@@ -7117,6 +7232,7 @@ func (o DetectorModelSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type DetectorModelSqs struct {
+	// You can configure the action payload when you send a message to an Amazon SQS queue.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The URL of the SQS queue where the data is written.
 	QueueUrl string `pulumi:"queueUrl"`
@@ -7136,6 +7252,7 @@ type DetectorModelSqsInput interface {
 }
 
 type DetectorModelSqsArgs struct {
+	// You can configure the action payload when you send a message to an Amazon SQS queue.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The URL of the SQS queue where the data is written.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
@@ -7220,6 +7337,7 @@ func (o DetectorModelSqsOutput) ToDetectorModelSqsPtrOutputWithContext(ctx conte
 	}).(DetectorModelSqsPtrOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon SQS queue.
 func (o DetectorModelSqsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelSqs) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -7258,6 +7376,7 @@ func (o DetectorModelSqsPtrOutput) Elem() DetectorModelSqsOutput {
 	}).(DetectorModelSqsOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon SQS queue.
 func (o DetectorModelSqsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSqs) *DetectorModelPayload {
 		if v == nil {
@@ -7289,8 +7408,11 @@ func (o DetectorModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 
 // Information that defines a state of a detector.
 type DetectorModelStateType struct {
+	// When entering this state, perform these `actions` if the `condition` is TRUE.
 	OnEnter *DetectorModelOnEnter `pulumi:"onEnter"`
-	OnExit  *DetectorModelOnExit  `pulumi:"onExit"`
+	// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+	OnExit *DetectorModelOnExit `pulumi:"onExit"`
+	// When an input is received and the `condition` is TRUE, perform the specified `actions` .
 	OnInput *DetectorModelOnInput `pulumi:"onInput"`
 	// The name of the state.
 	StateName string `pulumi:"stateName"`
@@ -7309,8 +7431,11 @@ type DetectorModelStateTypeInput interface {
 
 // Information that defines a state of a detector.
 type DetectorModelStateTypeArgs struct {
+	// When entering this state, perform these `actions` if the `condition` is TRUE.
 	OnEnter DetectorModelOnEnterPtrInput `pulumi:"onEnter"`
-	OnExit  DetectorModelOnExitPtrInput  `pulumi:"onExit"`
+	// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+	OnExit DetectorModelOnExitPtrInput `pulumi:"onExit"`
+	// When an input is received and the `condition` is TRUE, perform the specified `actions` .
 	OnInput DetectorModelOnInputPtrInput `pulumi:"onInput"`
 	// The name of the state.
 	StateName pulumi.StringInput `pulumi:"stateName"`
@@ -7368,14 +7493,17 @@ func (o DetectorModelStateTypeOutput) ToDetectorModelStateTypeOutputWithContext(
 	return o
 }
 
+// When entering this state, perform these `actions` if the `condition` is TRUE.
 func (o DetectorModelStateTypeOutput) OnEnter() DetectorModelOnEnterPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnEnter { return v.OnEnter }).(DetectorModelOnEnterPtrOutput)
 }
 
+// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
 func (o DetectorModelStateTypeOutput) OnExit() DetectorModelOnExitPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnExit { return v.OnExit }).(DetectorModelOnExitPtrOutput)
 }
 
+// When an input is received and the `condition` is TRUE, perform the specified `actions` .
 func (o DetectorModelStateTypeOutput) OnInput() DetectorModelOnInputPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnInput { return v.OnInput }).(DetectorModelOnInputPtrOutput)
 }

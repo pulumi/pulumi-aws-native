@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableOptions
     {
+        /// <summary>
+        /// The table cell style of table cells.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? CellStyle;
+        /// <summary>
+        /// The table cell style of a table header.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellStyle? HeaderStyle;
+        /// <summary>
+        /// The orientation (vertical, horizontal) for a table.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTableOrientation? Orientation;
+        /// <summary>
+        /// The row alternate color options (widget status, row alternate colors) for a table.
+        /// </summary>
         public readonly Outputs.AnalysisRowAlternateColorOptions? RowAlternateColorOptions;
 
         [OutputConstructor]

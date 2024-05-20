@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:KnowledgeBase")]
     public partial class KnowledgeBase : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the knowledge base.
+        /// </summary>
         [Output("knowledgeBaseArn")]
         public Output<string> KnowledgeBaseArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the knowledge base.
+        /// </summary>
         [Output("knowledgeBaseId")]
         public Output<string> KnowledgeBaseId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+        /// </summary>
         [Output("knowledgeBaseType")]
         public Output<Pulumi.AwsNative.Wisdom.KnowledgeBaseType> KnowledgeBaseType { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the knowledge base.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about how to render the content.
+        /// </summary>
         [Output("renderingConfiguration")]
         public Output<Outputs.KnowledgeBaseRenderingConfiguration?> RenderingConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.KnowledgeBaseServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        /// </summary>
         [Output("sourceConfiguration")]
         public Output<Outputs.KnowledgeBaseSourceConfiguration?> SourceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -96,26 +123,48 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class KnowledgeBaseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+        /// </summary>
         [Input("knowledgeBaseType", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.KnowledgeBaseType> KnowledgeBaseType { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the knowledge base.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Information about how to render the content.
+        /// </summary>
         [Input("renderingConfiguration")]
         public Input<Inputs.KnowledgeBaseRenderingConfigurationArgs>? RenderingConfiguration { get; set; }
 
+        /// <summary>
+        /// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.KnowledgeBaseServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.KnowledgeBaseSourceConfigurationArgs>? SourceConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

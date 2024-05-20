@@ -37,12 +37,33 @@ export class AccessLogSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessLogSubscription.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the access log subscription.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the access log subscription.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+     */
     public readonly destinationArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the access log subscription.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * The ID of the service network or service.
+     */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network or service.
+     */
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The tags for the access log subscription.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -86,7 +107,16 @@ export class AccessLogSubscription extends pulumi.CustomResource {
  * The set of arguments for constructing a AccessLogSubscription resource.
  */
 export interface AccessLogSubscriptionArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+     */
     destinationArn: pulumi.Input<string>;
+    /**
+     * The ID or Amazon Resource Name (ARN) of the service network or service.
+     */
     resourceIdentifier?: pulumi.Input<string>;
+    /**
+     * The tags for the access log subscription.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

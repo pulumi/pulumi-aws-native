@@ -20,6 +20,9 @@ export const StateMachineLoggingConfigurationLevel = {
     Off: "OFF",
 } as const;
 
+/**
+ * Defines which category of execution history events are logged.
+ */
 export type StateMachineLoggingConfigurationLevel = (typeof StateMachineLoggingConfigurationLevel)[keyof typeof StateMachineLoggingConfigurationLevel];
 
 export const StateMachineType = {
@@ -27,4 +30,7 @@ export const StateMachineType = {
     Express: "EXPRESS",
 } as const;
 
+/**
+ * Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+ */
 export type StateMachineType = (typeof StateMachineType)[keyof typeof StateMachineType];

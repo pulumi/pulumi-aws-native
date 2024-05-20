@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     {
         [Input("rule", required: true)]
         private InputList<string>? _rule;
+
+        /// <summary>
+        /// A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
+        /// </summary>
         public InputList<string> Rule
         {
             get => _rule ?? (_rule = new InputList<string>());

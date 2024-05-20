@@ -64,6 +64,11 @@ class AnalysisTemplateAnalysisParameter(dict):
                  name: str,
                  type: 'AnalysisTemplateAnalysisParameterType',
                  default_value: Optional[str] = None):
+        """
+        :param str name: The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+        :param 'AnalysisTemplateAnalysisParameterType' type: The type of parameter.
+        :param str default_value: Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if default_value is not None:
@@ -72,16 +77,25 @@ class AnalysisTemplateAnalysisParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> 'AnalysisTemplateAnalysisParameterType':
+        """
+        The type of parameter.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[str]:
+        """
+        Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+        """
         return pulumi.get(self, "default_value")
 
 
@@ -106,11 +120,17 @@ class AnalysisTemplateAnalysisSchema(dict):
 
     def __init__(__self__, *,
                  referenced_tables: Sequence[str]):
+        """
+        :param Sequence[str] referenced_tables: The tables referenced in the analysis schema.
+        """
         pulumi.set(__self__, "referenced_tables", referenced_tables)
 
     @property
     @pulumi.getter(name="referencedTables")
     def referenced_tables(self) -> Sequence[str]:
+        """
+        The tables referenced in the analysis schema.
+        """
         return pulumi.get(self, "referenced_tables")
 
 
@@ -118,11 +138,17 @@ class AnalysisTemplateAnalysisSchema(dict):
 class AnalysisTemplateAnalysisSource(dict):
     def __init__(__self__, *,
                  text: str):
+        """
+        :param str text: The query text.
+        """
         pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
     def text(self) -> str:
+        """
+        The query text.
+        """
         return pulumi.get(self, "text")
 
 
@@ -156,6 +182,12 @@ class CollaborationDataEncryptionMetadata(dict):
                  allow_duplicates: bool,
                  allow_joins_on_columns_with_different_names: bool,
                  preserve_nulls: bool):
+        """
+        :param bool allow_cleartext: Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
+        :param bool allow_duplicates: Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
+        :param bool allow_joins_on_columns_with_different_names: Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
+        :param bool preserve_nulls: Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
+        """
         pulumi.set(__self__, "allow_cleartext", allow_cleartext)
         pulumi.set(__self__, "allow_duplicates", allow_duplicates)
         pulumi.set(__self__, "allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
@@ -164,21 +196,33 @@ class CollaborationDataEncryptionMetadata(dict):
     @property
     @pulumi.getter(name="allowCleartext")
     def allow_cleartext(self) -> bool:
+        """
+        Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
+        """
         return pulumi.get(self, "allow_cleartext")
 
     @property
     @pulumi.getter(name="allowDuplicates")
     def allow_duplicates(self) -> bool:
+        """
+        Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
+        """
         return pulumi.get(self, "allow_duplicates")
 
     @property
     @pulumi.getter(name="allowJoinsOnColumnsWithDifferentNames")
     def allow_joins_on_columns_with_different_names(self) -> bool:
+        """
+        Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
+        """
         return pulumi.get(self, "allow_joins_on_columns_with_different_names")
 
     @property
     @pulumi.getter(name="preserveNulls")
     def preserve_nulls(self) -> bool:
+        """
+        Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
+        """
         return pulumi.get(self, "preserve_nulls")
 
 
@@ -212,6 +256,16 @@ class CollaborationMemberSpecification(dict):
                  display_name: str,
                  member_abilities: Sequence['CollaborationMemberAbility'],
                  payment_configuration: Optional['outputs.CollaborationPaymentConfiguration'] = None):
+        """
+        :param str account_id: The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+        :param str display_name: The member's display name.
+        :param Sequence['CollaborationMemberAbility'] member_abilities: The abilities granted to the collaboration member.
+               
+               *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        :param 'CollaborationPaymentConfiguration' payment_configuration: The collaboration member's payment responsibilities set by the collaboration creator.
+               
+               If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_abilities", member_abilities)
@@ -221,21 +275,37 @@ class CollaborationMemberSpecification(dict):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
+        """
+        The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
+        """
+        The member's display name.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="memberAbilities")
     def member_abilities(self) -> Sequence['CollaborationMemberAbility']:
+        """
+        The abilities granted to the collaboration member.
+
+        *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        """
         return pulumi.get(self, "member_abilities")
 
     @property
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional['outputs.CollaborationPaymentConfiguration']:
+        """
+        The collaboration member's payment responsibilities set by the collaboration creator.
+
+        If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
+        """
         return pulumi.get(self, "payment_configuration")
 
 
@@ -260,11 +330,17 @@ class CollaborationPaymentConfiguration(dict):
 
     def __init__(__self__, *,
                  query_compute: 'outputs.CollaborationQueryComputePaymentConfig'):
+        """
+        :param 'CollaborationQueryComputePaymentConfig' query_compute: The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        """
         pulumi.set(__self__, "query_compute", query_compute)
 
     @property
     @pulumi.getter(name="queryCompute")
     def query_compute(self) -> 'outputs.CollaborationQueryComputePaymentConfig':
+        """
+        The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        """
         return pulumi.get(self, "query_compute")
 
 
@@ -289,11 +365,25 @@ class CollaborationQueryComputePaymentConfig(dict):
 
     def __init__(__self__, *,
                  is_responsible: bool):
+        """
+        :param bool is_responsible: Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+               
+               Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+               
+               If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> bool:
+        """
+        Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+
+        Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+
+        If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
         return pulumi.get(self, "is_responsible")
 
 
@@ -381,17 +471,27 @@ class ConfiguredTableAnalysisRule(dict):
     def __init__(__self__, *,
                  policy: 'outputs.ConfiguredTableAnalysisRulePolicy',
                  type: 'ConfiguredTableAnalysisRuleType'):
+        """
+        :param 'ConfiguredTableAnalysisRulePolicy' policy: A policy that describes the associated data usage limitations.
+        :param 'ConfiguredTableAnalysisRuleType' type: The type of analysis rule.
+        """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def policy(self) -> 'outputs.ConfiguredTableAnalysisRulePolicy':
+        """
+        A policy that describes the associated data usage limitations.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter
     def type(self) -> 'ConfiguredTableAnalysisRuleType':
+        """
+        The type of analysis rule.
+        """
         return pulumi.get(self, "type")
 
 
@@ -581,11 +681,17 @@ class ConfiguredTableAnalysisRuleList(dict):
 class ConfiguredTableAnalysisRulePolicy(dict):
     def __init__(__self__, *,
                  v1: Any):
+        """
+        :param Union['ConfiguredTableAnalysisRulePolicyV10Properties', 'ConfiguredTableAnalysisRulePolicyV11Properties', 'ConfiguredTableAnalysisRulePolicyV12Properties'] v1: Controls on the query specifications that can be run on a configured table.
+        """
         pulumi.set(__self__, "v1", v1)
 
     @property
     @pulumi.getter
     def v1(self) -> Any:
+        """
+        Controls on the query specifications that can be run on a configured table.
+        """
         return pulumi.get(self, "v1")
 
 
@@ -673,17 +779,27 @@ class ConfiguredTableGlueTableReference(dict):
     def __init__(__self__, *,
                  database_name: str,
                  table_name: str):
+        """
+        :param str database_name: The name of the database the AWS Glue table belongs to.
+        :param str table_name: The name of the AWS Glue table.
+        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        The name of the database the AWS Glue table belongs to.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The name of the AWS Glue table.
+        """
         return pulumi.get(self, "table_name")
 
 
@@ -691,11 +807,17 @@ class ConfiguredTableGlueTableReference(dict):
 class ConfiguredTableTableReference(dict):
     def __init__(__self__, *,
                  glue: 'outputs.ConfiguredTableGlueTableReference'):
+        """
+        :param 'ConfiguredTableGlueTableReference' glue: If present, a reference to the AWS Glue table referred to by this table reference.
+        """
         pulumi.set(__self__, "glue", glue)
 
     @property
     @pulumi.getter
     def glue(self) -> 'outputs.ConfiguredTableGlueTableReference':
+        """
+        If present, a reference to the AWS Glue table referred to by this table reference.
+        """
         return pulumi.get(self, "glue")
 
 
@@ -720,11 +842,17 @@ class MembershipPaymentConfiguration(dict):
 
     def __init__(__self__, *,
                  query_compute: 'outputs.MembershipQueryComputePaymentConfig'):
+        """
+        :param 'MembershipQueryComputePaymentConfig' query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
+        """
         pulumi.set(__self__, "query_compute", query_compute)
 
     @property
     @pulumi.getter(name="queryCompute")
     def query_compute(self) -> 'outputs.MembershipQueryComputePaymentConfig':
+        """
+        The payment responsibilities accepted by the collaboration member for query compute costs.
+        """
         return pulumi.get(self, "query_compute")
 
 
@@ -732,11 +860,17 @@ class MembershipPaymentConfiguration(dict):
 class MembershipProtectedQueryOutputConfiguration(dict):
     def __init__(__self__, *,
                  s3: 'outputs.MembershipProtectedQueryS3OutputConfiguration'):
+        """
+        :param 'MembershipProtectedQueryS3OutputConfiguration' s3: Required configuration for a protected query with an `S3` output type.
+        """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
     def s3(self) -> 'outputs.MembershipProtectedQueryS3OutputConfiguration':
+        """
+        Required configuration for a protected query with an `S3` output type.
+        """
         return pulumi.get(self, "s3")
 
 
@@ -764,6 +898,10 @@ class MembershipProtectedQueryResultConfiguration(dict):
     def __init__(__self__, *,
                  output_configuration: 'outputs.MembershipProtectedQueryOutputConfiguration',
                  role_arn: Optional[str] = None):
+        """
+        :param 'MembershipProtectedQueryOutputConfiguration' output_configuration: Configuration for protected query results.
+        :param str role_arn: The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+        """
         pulumi.set(__self__, "output_configuration", output_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -771,11 +909,17 @@ class MembershipProtectedQueryResultConfiguration(dict):
     @property
     @pulumi.getter(name="outputConfiguration")
     def output_configuration(self) -> 'outputs.MembershipProtectedQueryOutputConfiguration':
+        """
+        Configuration for protected query results.
+        """
         return pulumi.get(self, "output_configuration")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -804,6 +948,11 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
                  bucket: str,
                  result_format: 'MembershipResultFormat',
                  key_prefix: Optional[str] = None):
+        """
+        :param str bucket: The S3 bucket to unload the protected query results.
+        :param 'MembershipResultFormat' result_format: Intended file format of the result.
+        :param str key_prefix: The S3 prefix to unload the protected query results.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "result_format", result_format)
         if key_prefix is not None:
@@ -812,16 +961,25 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        The S3 bucket to unload the protected query results.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="resultFormat")
     def result_format(self) -> 'MembershipResultFormat':
+        """
+        Intended file format of the result.
+        """
         return pulumi.get(self, "result_format")
 
     @property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
+        """
+        The S3 prefix to unload the protected query results.
+        """
         return pulumi.get(self, "key_prefix")
 
 
@@ -846,16 +1004,39 @@ class MembershipQueryComputePaymentConfig(dict):
 
     def __init__(__self__, *,
                  is_responsible: bool):
+        """
+        :param bool is_responsible: Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+               
+               If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+               
+               An error message is returned for the following reasons:
+               
+               - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+               - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> bool:
+        """
+        Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+
+        If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
+        """
         return pulumi.get(self, "is_responsible")
 
 
 @pulumi.output_type
 class ParametersProperties(dict):
+    """
+    Specifies the epislon and noise parameters for the privacy budget template.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -876,17 +1057,28 @@ class ParametersProperties(dict):
     def __init__(__self__, *,
                  epsilon: int,
                  users_noise_per_query: int):
+        """
+        Specifies the epislon and noise parameters for the privacy budget template.
+        :param int epsilon: The epsilon value that you want to use.
+        :param int users_noise_per_query: Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
+        """
         pulumi.set(__self__, "epsilon", epsilon)
         pulumi.set(__self__, "users_noise_per_query", users_noise_per_query)
 
     @property
     @pulumi.getter
     def epsilon(self) -> int:
+        """
+        The epsilon value that you want to use.
+        """
         return pulumi.get(self, "epsilon")
 
     @property
     @pulumi.getter(name="usersNoisePerQuery")
     def users_noise_per_query(self) -> int:
+        """
+        Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
+        """
         return pulumi.get(self, "users_noise_per_query")
 
 

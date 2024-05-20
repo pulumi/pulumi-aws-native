@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleBaselineConfig
     {
+        /// <summary>
+        /// The Amazon S3 URI for the constraints resource.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleConstraintsResource? ConstraintsResource;
+        /// <summary>
+        /// The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleStatisticsResource? StatisticsResource;
 
         [OutputConstructor]

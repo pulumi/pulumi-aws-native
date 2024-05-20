@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolCustomSmsSender
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        /// </summary>
         public readonly string? LambdaArn;
+        /// <summary>
+        /// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
+        /// </summary>
         public readonly string? LambdaVersion;
 
         [OutputConstructor]

@@ -17,16 +17,26 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
-	DurationSeconds           pulumi.Float64PtrOutput  `pulumi:"durationSeconds"`
-	Enabled                   pulumi.BoolPtrOutput     `pulumi:"enabled"`
-	ManagedPolicyArns         pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
-	Name                      pulumi.StringOutput      `pulumi:"name"`
-	ProfileArn                pulumi.StringOutput      `pulumi:"profileArn"`
-	ProfileId                 pulumi.StringOutput      `pulumi:"profileId"`
-	RequireInstanceProperties pulumi.BoolPtrOutput     `pulumi:"requireInstanceProperties"`
-	RoleArns                  pulumi.StringArrayOutput `pulumi:"roleArns"`
-	SessionPolicy             pulumi.StringPtrOutput   `pulumi:"sessionPolicy"`
-	Tags                      aws.TagArrayOutput       `pulumi:"tags"`
+	// The number of seconds vended session credentials will be valid for
+	DurationSeconds pulumi.Float64PtrOutput `pulumi:"durationSeconds"`
+	// The enabled status of the resource.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
+	// The customer specified name of the resource.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARN of the profile.
+	ProfileArn pulumi.StringOutput `pulumi:"profileArn"`
+	// The unique primary identifier of the Profile
+	ProfileId pulumi.StringOutput `pulumi:"profileId"`
+	// Specifies whether instance properties are required in CreateSession requests with this profile.
+	RequireInstanceProperties pulumi.BoolPtrOutput `pulumi:"requireInstanceProperties"`
+	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+	RoleArns pulumi.StringArrayOutput `pulumi:"roleArns"`
+	// A session policy that will applied to the trust boundary of the vended session credentials.
+	SessionPolicy pulumi.StringPtrOutput `pulumi:"sessionPolicy"`
+	// A list of Tags.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -72,26 +82,42 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	DurationSeconds           *float64  `pulumi:"durationSeconds"`
-	Enabled                   *bool     `pulumi:"enabled"`
-	ManagedPolicyArns         []string  `pulumi:"managedPolicyArns"`
-	Name                      *string   `pulumi:"name"`
-	RequireInstanceProperties *bool     `pulumi:"requireInstanceProperties"`
-	RoleArns                  []string  `pulumi:"roleArns"`
-	SessionPolicy             *string   `pulumi:"sessionPolicy"`
-	Tags                      []aws.Tag `pulumi:"tags"`
+	// The number of seconds vended session credentials will be valid for
+	DurationSeconds *float64 `pulumi:"durationSeconds"`
+	// The enabled status of the resource.
+	Enabled *bool `pulumi:"enabled"`
+	// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// The customer specified name of the resource.
+	Name *string `pulumi:"name"`
+	// Specifies whether instance properties are required in CreateSession requests with this profile.
+	RequireInstanceProperties *bool `pulumi:"requireInstanceProperties"`
+	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+	RoleArns []string `pulumi:"roleArns"`
+	// A session policy that will applied to the trust boundary of the vended session credentials.
+	SessionPolicy *string `pulumi:"sessionPolicy"`
+	// A list of Tags.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	DurationSeconds           pulumi.Float64PtrInput
-	Enabled                   pulumi.BoolPtrInput
-	ManagedPolicyArns         pulumi.StringArrayInput
-	Name                      pulumi.StringPtrInput
+	// The number of seconds vended session credentials will be valid for
+	DurationSeconds pulumi.Float64PtrInput
+	// The enabled status of the resource.
+	Enabled pulumi.BoolPtrInput
+	// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
+	ManagedPolicyArns pulumi.StringArrayInput
+	// The customer specified name of the resource.
+	Name pulumi.StringPtrInput
+	// Specifies whether instance properties are required in CreateSession requests with this profile.
 	RequireInstanceProperties pulumi.BoolPtrInput
-	RoleArns                  pulumi.StringArrayInput
-	SessionPolicy             pulumi.StringPtrInput
-	Tags                      aws.TagArrayInput
+	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
+	RoleArns pulumi.StringArrayInput
+	// A session policy that will applied to the trust boundary of the vended session credentials.
+	SessionPolicy pulumi.StringPtrInput
+	// A list of Tags.
+	Tags aws.TagArrayInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -131,42 +157,52 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// The number of seconds vended session credentials will be valid for
 func (o ProfileOutput) DurationSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.Float64PtrOutput { return v.DurationSeconds }).(pulumi.Float64PtrOutput)
 }
 
+// The enabled status of the resource.
 func (o ProfileOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
 func (o ProfileOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }
 
+// The customer specified name of the resource.
 func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARN of the profile.
 func (o ProfileOutput) ProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileArn }).(pulumi.StringOutput)
 }
 
+// The unique primary identifier of the Profile
 func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
+// Specifies whether instance properties are required in CreateSession requests with this profile.
 func (o ProfileOutput) RequireInstanceProperties() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.BoolPtrOutput { return v.RequireInstanceProperties }).(pulumi.BoolPtrOutput)
 }
 
+// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
 func (o ProfileOutput) RoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.RoleArns }).(pulumi.StringArrayOutput)
 }
 
+// A session policy that will applied to the trust boundary of the vended session credentials.
 func (o ProfileOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
+// A list of Tags.
 func (o ProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Profile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

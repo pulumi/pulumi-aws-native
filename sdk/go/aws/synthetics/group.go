@@ -19,9 +19,11 @@ type Group struct {
 	// Id of the group.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Name of the group.
-	Name         pulumi.StringOutput      `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARNs of the canaries that you want to associate with this group.
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
-	Tags         aws.TagArrayOutput       `pulumi:"tags"`
+	// The list of key-value pairs that are associated with the group.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -69,17 +71,21 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	// Name of the group.
-	Name         *string   `pulumi:"name"`
-	ResourceArns []string  `pulumi:"resourceArns"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// The ARNs of the canaries that you want to associate with this group.
+	ResourceArns []string `pulumi:"resourceArns"`
+	// The list of key-value pairs that are associated with the group.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// Name of the group.
-	Name         pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The ARNs of the canaries that you want to associate with this group.
 	ResourceArns pulumi.StringArrayInput
-	Tags         aws.TagArrayInput
+	// The list of key-value pairs that are associated with the group.
+	Tags aws.TagArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -129,10 +135,12 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARNs of the canaries that you want to associate with this group.
 func (o GroupOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
+// The list of key-value pairs that are associated with the group.
 func (o GroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Group) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeBatchJobDependencyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The job ID of the AWS Batch job that's associated with this dependency.
+        /// </summary>
         [Input("jobId")]
         public Input<string>? JobId { get; set; }
 
+        /// <summary>
+        /// The type of the job dependency.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Pipes.PipeBatchJobDependencyType>? Type { get; set; }
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetPipelineArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("pipelineName", required: true)]
         public string PipelineName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetPipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("pipelineName", required: true)]
         public Input<string> PipelineName { get; set; } = null!;
 
@@ -52,7 +58,19 @@ namespace Pulumi.AwsNative.IoTAnalytics
     public sealed class GetPipelineResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+        /// 
+        /// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+        /// 
+        /// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineActivity> PipelineActivities;
+        /// <summary>
+        /// Metadata which can be used to manage the pipeline.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

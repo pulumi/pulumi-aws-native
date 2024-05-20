@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableCellStyle
     {
+        /// <summary>
+        /// The background color for the table cells.
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// The borders for the table cells.
+        /// </summary>
         public readonly Outputs.DashboardGlobalTableBorderOptions? Border;
+        /// <summary>
+        /// The font configuration of the table cells.
+        /// </summary>
         public readonly Outputs.DashboardFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// The height color for the table cells.
+        /// </summary>
         public readonly double? Height;
+        /// <summary>
+        /// The horizontal text alignment (left, center, right, auto) for the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardHorizontalTextAlignment? HorizontalTextAlignment;
+        /// <summary>
+        /// The text wrap (none, wrap) for the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTextWrap? TextWrap;
+        /// <summary>
+        /// The vertical text alignment (top, middle, bottom) for the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVerticalTextAlignment? VerticalTextAlignment;
+        /// <summary>
+        /// The visibility of the table cells.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

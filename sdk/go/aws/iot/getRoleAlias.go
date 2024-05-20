@@ -24,14 +24,21 @@ func LookupRoleAlias(ctx *pulumi.Context, args *LookupRoleAliasArgs, opts ...pul
 }
 
 type LookupRoleAliasArgs struct {
+	// The role alias.
 	RoleAlias string `pulumi:"roleAlias"`
 }
 
 type LookupRoleAliasResult struct {
-	CredentialDurationSeconds *int      `pulumi:"credentialDurationSeconds"`
-	RoleAliasArn              *string   `pulumi:"roleAliasArn"`
-	RoleArn                   *string   `pulumi:"roleArn"`
-	Tags                      []aws.Tag `pulumi:"tags"`
+	// The number of seconds for which the credential is valid.
+	CredentialDurationSeconds *int `pulumi:"credentialDurationSeconds"`
+	// The role alias ARN.
+	RoleAliasArn *string `pulumi:"roleAliasArn"`
+	// The role ARN.
+	RoleArn *string `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRoleAliasOutput(ctx *pulumi.Context, args LookupRoleAliasOutputArgs, opts ...pulumi.InvokeOption) LookupRoleAliasResultOutput {
@@ -48,6 +55,7 @@ func LookupRoleAliasOutput(ctx *pulumi.Context, args LookupRoleAliasOutputArgs, 
 }
 
 type LookupRoleAliasOutputArgs struct {
+	// The role alias.
 	RoleAlias pulumi.StringInput `pulumi:"roleAlias"`
 }
 
@@ -69,18 +77,24 @@ func (o LookupRoleAliasResultOutput) ToLookupRoleAliasResultOutputWithContext(ct
 	return o
 }
 
+// The number of seconds for which the credential is valid.
 func (o LookupRoleAliasResultOutput) CredentialDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) *int { return v.CredentialDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The role alias ARN.
 func (o LookupRoleAliasResultOutput) RoleAliasArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) *string { return v.RoleAliasArn }).(pulumi.StringPtrOutput)
 }
 
+// The role ARN.
 func (o LookupRoleAliasResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupRoleAliasResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

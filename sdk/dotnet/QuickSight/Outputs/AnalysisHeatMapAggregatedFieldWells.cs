@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisHeatMapAggregatedFieldWells
     {
+        /// <summary>
+        /// The columns field well of a heat map.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Columns;
+        /// <summary>
+        /// The rows field well of a heat map.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Rows;
+        /// <summary>
+        /// The values field well of a heat map.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Values;
 
         [OutputConstructor]

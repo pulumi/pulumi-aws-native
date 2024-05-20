@@ -44,31 +44,49 @@ class GetRuleResult:
     @property
     @pulumi.getter
     def action(self) -> Optional['outputs.RuleAction']:
+        """
+        Describes the action for a rule.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the rule.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the listener.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def match(self) -> Optional['outputs.RuleMatch']:
+        """
+        The rule match.
+        """
         return pulumi.get(self, "match")
 
     @property
     @pulumi.getter
     def priority(self) -> Optional[int]:
+        """
+        The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the rule.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -90,6 +108,9 @@ def get_rule(arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the rule.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -110,5 +131,8 @@ def get_rule_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the rule.
     """
     ...

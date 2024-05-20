@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
     [OutputType]
     public sealed class AccessPointTransformationConfiguration
     {
+        /// <summary>
+        /// A container for the action of an Object Lambda Access Point configuration. Valid inputs are `GetObject` , `HeadObject` , `ListObjects` , and `ListObjectsV2` .
+        /// </summary>
         public readonly ImmutableArray<string> Actions;
+        /// <summary>
+        /// A container for the content transformation of an Object Lambda Access Point configuration. Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
+        /// </summary>
         public readonly Outputs.AccessPointTransformationConfigurationContentTransformationProperties ContentTransformation;
 
         [OutputConstructor]

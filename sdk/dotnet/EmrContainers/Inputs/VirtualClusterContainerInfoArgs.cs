@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.EmrContainers.Inputs
 
     public sealed class VirtualClusterContainerInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The information about the Amazon EKS cluster.
+        /// </summary>
         [Input("eksInfo", required: true)]
         public Input<Inputs.VirtualClusterEksInfoArgs> EksInfo { get; set; } = null!;
 

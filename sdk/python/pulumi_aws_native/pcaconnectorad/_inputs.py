@@ -53,11 +53,17 @@ __all__ = [
 class ConnectorVpcInformationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The security groups used with the connector. You can use a maximum of 4 security groups with a connector.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -571,6 +577,10 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
     def __init__(__self__, *,
                  auto_enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
                  enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None):
+        """
+        :param pulumi.Input['TemplateGroupAccessControlEntryAccessRight'] auto_enroll: Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
+        :param pulumi.Input['TemplateGroupAccessControlEntryAccessRight'] enroll: Allow or deny an Active Directory group from enrolling certificates issued against a template.
+        """
         if auto_enroll is not None:
             pulumi.set(__self__, "auto_enroll", auto_enroll)
         if enroll is not None:
@@ -579,6 +589,9 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
     @property
     @pulumi.getter(name="autoEnroll")
     def auto_enroll(self) -> Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]:
+        """
+        Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
+        """
         return pulumi.get(self, "auto_enroll")
 
     @auto_enroll.setter
@@ -588,6 +601,9 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
     @property
     @pulumi.getter
     def enroll(self) -> Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']]:
+        """
+        Allow or deny an Active Directory group from enrolling certificates issued against a template.
+        """
         return pulumi.get(self, "enroll")
 
     @enroll.setter

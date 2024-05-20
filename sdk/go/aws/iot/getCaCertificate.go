@@ -24,15 +24,29 @@ func LookupCaCertificate(ctx *pulumi.Context, args *LookupCaCertificateArgs, opt
 }
 
 type LookupCaCertificateArgs struct {
+	// The CA certificate ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupCaCertificateResult struct {
-	Arn                    *string                              `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+	//
+	// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+	//
+	// A value similar to the following is returned:
+	//
+	// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
+	Arn *string `pulumi:"arn"`
+	// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 	AutoRegistrationStatus *CaCertificateAutoRegistrationStatus `pulumi:"autoRegistrationStatus"`
-	Id                     *string                              `pulumi:"id"`
-	RegistrationConfig     *CaCertificateRegistrationConfig     `pulumi:"registrationConfig"`
-	Status                 *CaCertificateStatus                 `pulumi:"status"`
+	// The CA certificate ID.
+	Id *string `pulumi:"id"`
+	// Information about the registration configuration.
+	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
+	// The status of the CA certificate.
+	//
+	// Valid values are "ACTIVE" and "INACTIVE".
+	Status *CaCertificateStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -51,6 +65,7 @@ func LookupCaCertificateOutput(ctx *pulumi.Context, args LookupCaCertificateOutp
 }
 
 type LookupCaCertificateOutputArgs struct {
+	// The CA certificate ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -72,24 +87,37 @@ func (o LookupCaCertificateResultOutput) ToLookupCaCertificateResultOutputWithCo
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the CA certificate. For example:
+//
+// `{ "Fn::GetAtt": ["MyCACertificate", "Arn"] }`
+//
+// A value similar to the following is returned:
+//
+// `arn:aws:iot:us-east-1:123456789012:cacert/a6be6b84559801927e35a8f901fae08b5971d78d1562e29504ff9663b276a5f5`
 func (o LookupCaCertificateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Whether the CA certificate is configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE".
 func (o LookupCaCertificateResultOutput) AutoRegistrationStatus() CaCertificateAutoRegistrationStatusPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *CaCertificateAutoRegistrationStatus {
 		return v.AutoRegistrationStatus
 	}).(CaCertificateAutoRegistrationStatusPtrOutput)
 }
 
+// The CA certificate ID.
 func (o LookupCaCertificateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Information about the registration configuration.
 func (o LookupCaCertificateResultOutput) RegistrationConfig() CaCertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *CaCertificateRegistrationConfig { return v.RegistrationConfig }).(CaCertificateRegistrationConfigPtrOutput)
 }
 
+// The status of the CA certificate.
+//
+// Valid values are "ACTIVE" and "INACTIVE".
 func (o LookupCaCertificateResultOutput) Status() CaCertificateStatusPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *CaCertificateStatus { return v.Status }).(CaCertificateStatusPtrOutput)
 }

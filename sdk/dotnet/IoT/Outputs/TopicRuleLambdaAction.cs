@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleLambdaAction
     {
+        /// <summary>
+        /// The ARN of the Lambda function.
+        /// </summary>
         public readonly string? FunctionArn;
 
         [OutputConstructor]

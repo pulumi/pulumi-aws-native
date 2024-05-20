@@ -111,6 +111,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("throughput")]
         public Output<int?> Throughput { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the volume.
+        /// </summary>
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
 

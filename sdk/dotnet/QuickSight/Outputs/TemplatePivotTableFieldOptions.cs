@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePivotTableFieldOptions
     {
+        /// <summary>
+        /// The collapse state options for the pivot table field options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplatePivotTableFieldCollapseStateOption> CollapseStateOptions;
+        /// <summary>
+        /// The data path options for the pivot table field options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplatePivotTableDataPathOption> DataPathOptions;
+        /// <summary>
+        /// The selected field options for the pivot table field options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplatePivotTableFieldOption> SelectedFieldOptions;
 
         [OutputConstructor]

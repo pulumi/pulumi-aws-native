@@ -18,13 +18,15 @@ type Robot struct {
 
 	// The target architecture of the robot.
 	Architecture RobotArchitectureOutput `pulumi:"architecture"`
-	Arn          pulumi.StringOutput     `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the robot.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet pulumi.StringPtrOutput `pulumi:"fleet"`
 	// The Greengrass group id.
 	GreengrassGroupId pulumi.StringOutput `pulumi:"greengrassGroupId"`
 	// The name for the robot.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// A map that contains tag keys and tag values that are attached to the robot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -88,7 +90,8 @@ type robotArgs struct {
 	// The Greengrass group id.
 	GreengrassGroupId string `pulumi:"greengrassGroupId"`
 	// The name for the robot.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A map that contains tag keys and tag values that are attached to the robot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -102,6 +105,7 @@ type RobotArgs struct {
 	GreengrassGroupId pulumi.StringInput
 	// The name for the robot.
 	Name pulumi.StringPtrInput
+	// A map that contains tag keys and tag values that are attached to the robot.
 	Tags pulumi.StringMapInput
 }
 
@@ -147,6 +151,7 @@ func (o RobotOutput) Architecture() RobotArchitectureOutput {
 	return o.ApplyT(func(v *Robot) RobotArchitectureOutput { return v.Architecture }).(RobotArchitectureOutput)
 }
 
+// The Amazon Resource Name (ARN) of the robot.
 func (o RobotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Robot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -166,6 +171,7 @@ func (o RobotOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Robot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A map that contains tag keys and tag values that are attached to the robot.
 func (o RobotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Robot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

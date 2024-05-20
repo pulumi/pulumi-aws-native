@@ -7,6 +7,11 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Evidently
 {
+    /// <summary>
+    /// `INCREASE` means that a variation with a higher number for this metric is performing better.
+    /// 
+    /// `DECREASE` means that a variation with a lower number for this metric is performing better.
+    /// </summary>
     [EnumType]
     public readonly struct ExperimentMetricGoalObjectDesiredChange : IEquatable<ExperimentMetricGoalObjectDesiredChange>
     {
@@ -35,6 +40,9 @@ namespace Pulumi.AwsNative.Evidently
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+    /// </summary>
     [EnumType]
     public readonly struct FeatureEvaluationStrategy : IEquatable<FeatureEvaluationStrategy>
     {

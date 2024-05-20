@@ -23,13 +23,17 @@ func LookupCloudFrontOriginAccessIdentity(ctx *pulumi.Context, args *LookupCloud
 }
 
 type LookupCloudFrontOriginAccessIdentityArgs struct {
+	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 	Id string `pulumi:"id"`
 }
 
 type LookupCloudFrontOriginAccessIdentityResult struct {
+	// The current configuration information for the identity.
 	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`
-	Id                                   *string                               `pulumi:"id"`
-	S3CanonicalUserId                    *string                               `pulumi:"s3CanonicalUserId"`
+	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+	Id *string `pulumi:"id"`
+	// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
+	S3CanonicalUserId *string `pulumi:"s3CanonicalUserId"`
 }
 
 func LookupCloudFrontOriginAccessIdentityOutput(ctx *pulumi.Context, args LookupCloudFrontOriginAccessIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFrontOriginAccessIdentityResultOutput {
@@ -46,6 +50,7 @@ func LookupCloudFrontOriginAccessIdentityOutput(ctx *pulumi.Context, args Lookup
 }
 
 type LookupCloudFrontOriginAccessIdentityOutputArgs struct {
+	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,16 +72,19 @@ func (o LookupCloudFrontOriginAccessIdentityResultOutput) ToLookupCloudFrontOrig
 	return o
 }
 
+// The current configuration information for the identity.
 func (o LookupCloudFrontOriginAccessIdentityResultOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigPtrOutput {
 	return o.ApplyT(func(v LookupCloudFrontOriginAccessIdentityResult) *CloudFrontOriginAccessIdentityConfig {
 		return v.CloudFrontOriginAccessIdentityConfig
 	}).(CloudFrontOriginAccessIdentityConfigPtrOutput)
 }
 
+// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 func (o LookupCloudFrontOriginAccessIdentityResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFrontOriginAccessIdentityResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
 func (o LookupCloudFrontOriginAccessIdentityResultOutput) S3CanonicalUserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFrontOriginAccessIdentityResult) *string { return v.S3CanonicalUserId }).(pulumi.StringPtrOutput)
 }

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [AwsNativeResourceType("aws-native:pcaconnectorad:DirectoryRegistration")]
     public partial class DirectoryRegistration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the Active Directory.
+        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        /// </summary>
         [Output("directoryRegistrationArn")]
         public Output<string> DirectoryRegistrationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata assigned to a directory registration consisting of a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -73,11 +82,18 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class DirectoryRegistrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Active Directory.
+        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata assigned to a directory registration consisting of a key-value pair.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

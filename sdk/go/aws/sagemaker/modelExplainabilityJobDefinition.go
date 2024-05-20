@@ -21,16 +21,24 @@ type ModelExplainabilityJobDefinition struct {
 	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
 	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
-	JobDefinitionArn                    pulumi.StringOutput                                                        `pulumi:"jobDefinitionArn"`
-	JobDefinitionName                   pulumi.StringPtrOutput                                                     `pulumi:"jobDefinitionName"`
-	JobResources                        ModelExplainabilityJobDefinitionMonitoringResourcesOutput                  `pulumi:"jobResources"`
-	ModelExplainabilityAppSpecification ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput  `pulumi:"modelExplainabilityAppSpecification"`
-	ModelExplainabilityBaselineConfig   ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput `pulumi:"modelExplainabilityBaselineConfig"`
-	ModelExplainabilityJobInput         ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput          `pulumi:"modelExplainabilityJobInput"`
-	ModelExplainabilityJobOutputConfig  ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput               `pulumi:"modelExplainabilityJobOutputConfig"`
-	NetworkConfig                       ModelExplainabilityJobDefinitionNetworkConfigPtrOutput                     `pulumi:"networkConfig"`
+	JobDefinitionArn pulumi.StringOutput `pulumi:"jobDefinitionArn"`
+	// The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+	JobDefinitionName pulumi.StringPtrOutput `pulumi:"jobDefinitionName"`
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelExplainabilityJobDefinitionMonitoringResourcesOutput `pulumi:"jobResources"`
+	// Configures the model explainability job to run a specified Docker container image.
+	ModelExplainabilityAppSpecification ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput `pulumi:"modelExplainabilityAppSpecification"`
+	// The baseline configuration for a model explainability job.
+	ModelExplainabilityBaselineConfig ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput `pulumi:"modelExplainabilityBaselineConfig"`
+	// Inputs for the model explainability job.
+	ModelExplainabilityJobInput ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput `pulumi:"modelExplainabilityJobInput"`
+	// The output configuration for monitoring jobs.
+	ModelExplainabilityJobOutputConfig ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput `pulumi:"modelExplainabilityJobOutputConfig"`
+	// Networking options for a model explainability job.
+	NetworkConfig ModelExplainabilityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           pulumi.StringOutput                                        `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelExplainabilityJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -105,16 +113,24 @@ func (ModelExplainabilityJobDefinitionState) ElementType() reflect.Type {
 }
 
 type modelExplainabilityJobDefinitionArgs struct {
-	EndpointName                        *string                                                             `pulumi:"endpointName"`
-	JobDefinitionName                   *string                                                             `pulumi:"jobDefinitionName"`
-	JobResources                        ModelExplainabilityJobDefinitionMonitoringResources                 `pulumi:"jobResources"`
+	EndpointName *string `pulumi:"endpointName"`
+	// The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+	JobDefinitionName *string `pulumi:"jobDefinitionName"`
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelExplainabilityJobDefinitionMonitoringResources `pulumi:"jobResources"`
+	// Configures the model explainability job to run a specified Docker container image.
 	ModelExplainabilityAppSpecification ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification `pulumi:"modelExplainabilityAppSpecification"`
-	ModelExplainabilityBaselineConfig   *ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig  `pulumi:"modelExplainabilityBaselineConfig"`
-	ModelExplainabilityJobInput         ModelExplainabilityJobDefinitionModelExplainabilityJobInput         `pulumi:"modelExplainabilityJobInput"`
-	ModelExplainabilityJobOutputConfig  ModelExplainabilityJobDefinitionMonitoringOutputConfig              `pulumi:"modelExplainabilityJobOutputConfig"`
-	NetworkConfig                       *ModelExplainabilityJobDefinitionNetworkConfig                      `pulumi:"networkConfig"`
+	// The baseline configuration for a model explainability job.
+	ModelExplainabilityBaselineConfig *ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig `pulumi:"modelExplainabilityBaselineConfig"`
+	// Inputs for the model explainability job.
+	ModelExplainabilityJobInput ModelExplainabilityJobDefinitionModelExplainabilityJobInput `pulumi:"modelExplainabilityJobInput"`
+	// The output configuration for monitoring jobs.
+	ModelExplainabilityJobOutputConfig ModelExplainabilityJobDefinitionMonitoringOutputConfig `pulumi:"modelExplainabilityJobOutputConfig"`
+	// Networking options for a model explainability job.
+	NetworkConfig *ModelExplainabilityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           string                                             `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition *ModelExplainabilityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -122,16 +138,24 @@ type modelExplainabilityJobDefinitionArgs struct {
 
 // The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
 type ModelExplainabilityJobDefinitionArgs struct {
-	EndpointName                        pulumi.StringPtrInput
-	JobDefinitionName                   pulumi.StringPtrInput
-	JobResources                        ModelExplainabilityJobDefinitionMonitoringResourcesInput
+	EndpointName pulumi.StringPtrInput
+	// The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+	JobDefinitionName pulumi.StringPtrInput
+	// Identifies the resources to deploy for a monitoring job.
+	JobResources ModelExplainabilityJobDefinitionMonitoringResourcesInput
+	// Configures the model explainability job to run a specified Docker container image.
 	ModelExplainabilityAppSpecification ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationInput
-	ModelExplainabilityBaselineConfig   ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrInput
-	ModelExplainabilityJobInput         ModelExplainabilityJobDefinitionModelExplainabilityJobInputInput
-	ModelExplainabilityJobOutputConfig  ModelExplainabilityJobDefinitionMonitoringOutputConfigInput
-	NetworkConfig                       ModelExplainabilityJobDefinitionNetworkConfigPtrInput
+	// The baseline configuration for a model explainability job.
+	ModelExplainabilityBaselineConfig ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrInput
+	// Inputs for the model explainability job.
+	ModelExplainabilityJobInput ModelExplainabilityJobDefinitionModelExplainabilityJobInputInput
+	// The output configuration for monitoring jobs.
+	ModelExplainabilityJobOutputConfig ModelExplainabilityJobDefinitionMonitoringOutputConfigInput
+	// Networking options for a model explainability job.
+	NetworkConfig ModelExplainabilityJobDefinitionNetworkConfigPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn           pulumi.StringInput
+	RoleArn pulumi.StringInput
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelExplainabilityJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -188,40 +212,47 @@ func (o ModelExplainabilityJobDefinitionOutput) JobDefinitionArn() pulumi.String
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringOutput { return v.JobDefinitionArn }).(pulumi.StringOutput)
 }
 
+// The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
 func (o ModelExplainabilityJobDefinitionOutput) JobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringPtrOutput { return v.JobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
+// Identifies the resources to deploy for a monitoring job.
 func (o ModelExplainabilityJobDefinitionOutput) JobResources() ModelExplainabilityJobDefinitionMonitoringResourcesOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionMonitoringResourcesOutput {
 		return v.JobResources
 	}).(ModelExplainabilityJobDefinitionMonitoringResourcesOutput)
 }
 
+// Configures the model explainability job to run a specified Docker container image.
 func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityAppSpecification() ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput {
 		return v.ModelExplainabilityAppSpecification
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput)
 }
 
+// The baseline configuration for a model explainability job.
 func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityBaselineConfig() ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput {
 		return v.ModelExplainabilityBaselineConfig
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput)
 }
 
+// Inputs for the model explainability job.
 func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityJobInput() ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput {
 		return v.ModelExplainabilityJobInput
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput)
 }
 
+// The output configuration for monitoring jobs.
 func (o ModelExplainabilityJobDefinitionOutput) ModelExplainabilityJobOutputConfig() ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput {
 		return v.ModelExplainabilityJobOutputConfig
 	}).(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput)
 }
 
+// Networking options for a model explainability job.
 func (o ModelExplainabilityJobDefinitionOutput) NetworkConfig() ModelExplainabilityJobDefinitionNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionNetworkConfigPtrOutput {
 		return v.NetworkConfig
@@ -233,6 +264,7 @@ func (o ModelExplainabilityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// A time limit for how long the monitoring job is allowed to run before stopping.
 func (o ModelExplainabilityJobDefinitionOutput) StoppingCondition() ModelExplainabilityJobDefinitionStoppingConditionPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinition) ModelExplainabilityJobDefinitionStoppingConditionPtrOutput {
 		return v.StoppingCondition

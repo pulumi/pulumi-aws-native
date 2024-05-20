@@ -74,6 +74,9 @@ class GetListenerResult:
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_arn")
 
     @property
@@ -131,6 +134,9 @@ def get_listener(listener_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
     Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+
+
+    :param str listener_arn: The Amazon Resource Name (ARN) of the listener.
     """
     __args__ = dict()
     __args__['listenerArn'] = listener_arn
@@ -153,5 +159,8 @@ def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
     Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+
+
+    :param str listener_arn: The Amazon Resource Name (ARN) of the listener.
     """
     ...

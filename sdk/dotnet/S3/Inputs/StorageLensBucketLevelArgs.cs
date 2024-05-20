@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensBucketLevelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A property for bucket-level activity metrics for S3 Storage Lens.
+        /// </summary>
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensActivityMetricsArgs>? ActivityMetrics { get; set; }
 
+        /// <summary>
+        /// A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+        /// </summary>
         [Input("advancedCostOptimizationMetrics")]
         public Input<Inputs.StorageLensAdvancedCostOptimizationMetricsArgs>? AdvancedCostOptimizationMetrics { get; set; }
 
+        /// <summary>
+        /// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        /// </summary>
         [Input("advancedDataProtectionMetrics")]
         public Input<Inputs.StorageLensAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
 
+        /// <summary>
+        /// A property for bucket-level detailed status code metrics for S3 Storage Lens.
+        /// </summary>
         [Input("detailedStatusCodesMetrics")]
         public Input<Inputs.StorageLensDetailedStatusCodesMetricsArgs>? DetailedStatusCodesMetrics { get; set; }
 
+        /// <summary>
+        /// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
+        /// </summary>
         [Input("prefixLevel")]
         public Input<Inputs.StorageLensPrefixLevelArgs>? PrefixLevel { get; set; }
 

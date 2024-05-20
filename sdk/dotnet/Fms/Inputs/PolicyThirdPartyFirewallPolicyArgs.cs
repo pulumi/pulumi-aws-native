@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Fms.Inputs
     /// </summary>
     public sealed class PolicyThirdPartyFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines the deployment model to use for the third-party firewall policy.
+        /// </summary>
         [Input("firewallDeploymentModel", required: true)]
         public Input<Pulumi.AwsNative.Fms.PolicyFirewallDeploymentModel> FirewallDeploymentModel { get; set; } = null!;
 

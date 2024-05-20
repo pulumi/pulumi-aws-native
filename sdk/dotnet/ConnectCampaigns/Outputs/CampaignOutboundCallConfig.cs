@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Outputs
     [OutputType]
     public sealed class CampaignOutboundCallConfig
     {
+        /// <summary>
+        /// Whether answering machine detection has been enabled.
+        /// </summary>
         public readonly Outputs.CampaignAnswerMachineDetectionConfig? AnswerMachineDetectionConfig;
         /// <summary>
         /// The identifier of the contact flow for the outbound call.

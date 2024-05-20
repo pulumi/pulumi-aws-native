@@ -16,10 +16,25 @@ namespace Pulumi.AwsNative.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentLoggingConfiguration
     {
+        /// <summary>
+        /// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? DagProcessingLogs;
+        /// <summary>
+        /// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? SchedulerLogs;
+        /// <summary>
+        /// Defines the task logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? TaskLogs;
+        /// <summary>
+        /// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WebserverLogs;
+        /// <summary>
+        /// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
+        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WorkerLogs;
 
         [OutputConstructor]

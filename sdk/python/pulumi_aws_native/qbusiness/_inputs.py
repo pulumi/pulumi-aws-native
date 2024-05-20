@@ -45,11 +45,17 @@ __all__ = [
 class ApplicationAttachmentsConfigurationArgs:
     def __init__(__self__, *,
                  attachments_control_mode: pulumi.Input['ApplicationAttachmentsControlMode']):
+        """
+        :param pulumi.Input['ApplicationAttachmentsControlMode'] attachments_control_mode: Status information about whether file upload functionality is activated or deactivated for your end user.
+        """
         pulumi.set(__self__, "attachments_control_mode", attachments_control_mode)
 
     @property
     @pulumi.getter(name="attachmentsControlMode")
     def attachments_control_mode(self) -> pulumi.Input['ApplicationAttachmentsControlMode']:
+        """
+        Status information about whether file upload functionality is activated or deactivated for your end user.
+        """
         return pulumi.get(self, "attachments_control_mode")
 
     @attachments_control_mode.setter
@@ -61,12 +67,18 @@ class ApplicationAttachmentsConfigurationArgs:
 class ApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -80,6 +92,19 @@ class DataSourceDocumentAttributeConditionArgs:
                  key: pulumi.Input[str],
                  operator: pulumi.Input['DataSourceDocumentEnrichmentConditionOperator'],
                  value: Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]] = None):
+        """
+        :param pulumi.Input[str] key: The identifier of the document attribute used for the condition.
+               
+               For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+               
+               Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+        :param pulumi.Input['DataSourceDocumentEnrichmentConditionOperator'] operator: The identifier of the document attribute used for the condition.
+               
+               For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+               
+               Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
+        :param pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']] value: The value of a document attribute. You can only provide one value for a document attribute.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "operator", operator)
         if value is not None:
@@ -88,6 +113,13 @@ class DataSourceDocumentAttributeConditionArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The identifier of the document attribute used for the condition.
+
+        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+
+        Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -97,6 +129,13 @@ class DataSourceDocumentAttributeConditionArgs:
     @property
     @pulumi.getter
     def operator(self) -> pulumi.Input['DataSourceDocumentEnrichmentConditionOperator']:
+        """
+        The identifier of the document attribute used for the condition.
+
+        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+
+        Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -106,6 +145,9 @@ class DataSourceDocumentAttributeConditionArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]:
+        """
+        The value of a document attribute. You can only provide one value for a document attribute.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -119,6 +161,11 @@ class DataSourceDocumentAttributeTargetArgs:
                  key: pulumi.Input[str],
                  attribute_value_operator: Optional[pulumi.Input['DataSourceAttributeValueOperator']] = None,
                  value: Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]] = None):
+        """
+        :param pulumi.Input[str] key: The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+        :param pulumi.Input['DataSourceAttributeValueOperator'] attribute_value_operator: `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
+        :param pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']] value: The value of a document attribute. You can only provide one value for a document attribute.
+        """
         pulumi.set(__self__, "key", key)
         if attribute_value_operator is not None:
             pulumi.set(__self__, "attribute_value_operator", attribute_value_operator)
@@ -128,6 +175,9 @@ class DataSourceDocumentAttributeTargetArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -137,6 +187,9 @@ class DataSourceDocumentAttributeTargetArgs:
     @property
     @pulumi.getter(name="attributeValueOperator")
     def attribute_value_operator(self) -> Optional[pulumi.Input['DataSourceAttributeValueOperator']]:
+        """
+        `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
+        """
         return pulumi.get(self, "attribute_value_operator")
 
     @attribute_value_operator.setter
@@ -146,6 +199,9 @@ class DataSourceDocumentAttributeTargetArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgs', 'DataSourceDocumentAttributeValue1PropertiesArgs', 'DataSourceDocumentAttributeValue2PropertiesArgs', 'DataSourceDocumentAttributeValue3PropertiesArgs']]]:
+        """
+        The value of a document attribute. You can only provide one value for a document attribute.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -223,6 +279,11 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
                  inline_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]] = None,
                  post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
                  pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+        :param pulumi.Input['DataSourceHookConfigurationArgs'] post_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        :param pulumi.Input['DataSourceHookConfigurationArgs'] pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        """
         if inline_configurations is not None:
             pulumi.set(__self__, "inline_configurations", inline_configurations)
         if post_extraction_hook_configuration is not None:
@@ -233,6 +294,9 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="inlineConfigurations")
     def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgs']]]]:
+        """
+        Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+        """
         return pulumi.get(self, "inline_configurations")
 
     @inline_configurations.setter
@@ -242,6 +306,9 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="postExtractionHookConfiguration")
     def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+        """
+        Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        """
         return pulumi.get(self, "post_extraction_hook_configuration")
 
     @post_extraction_hook_configuration.setter
@@ -251,6 +318,9 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="preExtractionHookConfiguration")
     def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceHookConfigurationArgs']]:
+        """
+        Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        """
         return pulumi.get(self, "pre_extraction_hook_configuration")
 
     @pre_extraction_hook_configuration.setter
@@ -265,6 +335,14 @@ class DataSourceHookConfigurationArgs:
                  lambda_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] invocation_condition: The condition used for when a Lambda function should be invoked.
+               
+               For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
+        :param pulumi.Input[str] lambda_arn: The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+        :param pulumi.Input[str] s3_bucket_name: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+        """
         if invocation_condition is not None:
             pulumi.set(__self__, "invocation_condition", invocation_condition)
         if lambda_arn is not None:
@@ -277,6 +355,11 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="invocationCondition")
     def invocation_condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+        """
+        The condition used for when a Lambda function should be invoked.
+
+        For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
+        """
         return pulumi.get(self, "invocation_condition")
 
     @invocation_condition.setter
@@ -286,6 +369,9 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        """
         return pulumi.get(self, "lambda_arn")
 
     @lambda_arn.setter
@@ -295,6 +381,9 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -304,6 +393,9 @@ class DataSourceHookConfigurationArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -317,6 +409,11 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
                  condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
                  document_content_operator: Optional[pulumi.Input['DataSourceDocumentContentOperator']] = None,
                  target: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']] = None):
+        """
+        :param pulumi.Input['DataSourceDocumentAttributeConditionArgs'] condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+        :param pulumi.Input['DataSourceDocumentContentOperator'] document_content_operator: `TRUE` to delete content if the condition used for the target attribute is met.
+        :param pulumi.Input['DataSourceDocumentAttributeTargetArgs'] target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+        """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
         if document_content_operator is not None:
@@ -327,6 +424,9 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']]:
+        """
+        Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -336,6 +436,9 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter(name="documentContentOperator")
     def document_content_operator(self) -> Optional[pulumi.Input['DataSourceDocumentContentOperator']]:
+        """
+        `TRUE` to delete content if the condition used for the target attribute is met.
+        """
         return pulumi.get(self, "document_content_operator")
 
     @document_content_operator.setter
@@ -345,6 +448,9 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]:
+        """
+        Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -357,12 +463,19 @@ class DataSourceVpcConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -372,6 +485,9 @@ class DataSourceVpcConfigurationArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -383,12 +499,18 @@ class DataSourceVpcConfigurationArgs:
 class IndexCapacityConfigurationArgs:
     def __init__(__self__, *,
                  units: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] units: The number of storage units configured for an Amazon Q Business index.
+        """
         if units is not None:
             pulumi.set(__self__, "units", units)
 
     @property
     @pulumi.getter
     def units(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of storage units configured for an Amazon Q Business index.
+        """
         return pulumi.get(self, "units")
 
     @units.setter
@@ -402,6 +524,11 @@ class IndexDocumentAttributeConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  search: Optional[pulumi.Input['QBusinessIndexStatus']] = None,
                  type: Optional[pulumi.Input['IndexAttributeType']] = None):
+        """
+        :param pulumi.Input[str] name: The name of the document attribute.
+        :param pulumi.Input['QBusinessIndexStatus'] search: Information about whether the document attribute can be used by an end user to search for information on their web experience.
+        :param pulumi.Input['IndexAttributeType'] type: The type of document attribute.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if search is not None:
@@ -412,6 +539,9 @@ class IndexDocumentAttributeConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the document attribute.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -421,6 +551,9 @@ class IndexDocumentAttributeConfigurationArgs:
     @property
     @pulumi.getter
     def search(self) -> Optional[pulumi.Input['QBusinessIndexStatus']]:
+        """
+        Information about whether the document attribute can be used by an end user to search for information on their web experience.
+        """
         return pulumi.get(self, "search")
 
     @search.setter
@@ -430,6 +563,9 @@ class IndexDocumentAttributeConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['IndexAttributeType']]:
+        """
+        The type of document attribute.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -550,6 +686,11 @@ class PluginCustomPluginConfigurationArgs:
                  api_schema: pulumi.Input[Union['PluginApiSchema0PropertiesArgs', 'PluginApiSchema1PropertiesArgs']],
                  api_schema_type: pulumi.Input['PluginApiSchemaType'],
                  description: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Union['PluginApiSchema0PropertiesArgs', 'PluginApiSchema1PropertiesArgs']] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+        :param pulumi.Input['PluginApiSchemaType'] api_schema_type: The type of OpenAPI schema to use.
+        :param pulumi.Input[str] description: A description for your custom plugin configuration.
+        """
         pulumi.set(__self__, "api_schema", api_schema)
         pulumi.set(__self__, "api_schema_type", api_schema_type)
         pulumi.set(__self__, "description", description)
@@ -557,6 +698,9 @@ class PluginCustomPluginConfigurationArgs:
     @property
     @pulumi.getter(name="apiSchema")
     def api_schema(self) -> pulumi.Input[Union['PluginApiSchema0PropertiesArgs', 'PluginApiSchema1PropertiesArgs']]:
+        """
+        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+        """
         return pulumi.get(self, "api_schema")
 
     @api_schema.setter
@@ -566,6 +710,9 @@ class PluginCustomPluginConfigurationArgs:
     @property
     @pulumi.getter(name="apiSchemaType")
     def api_schema_type(self) -> pulumi.Input['PluginApiSchemaType']:
+        """
+        The type of OpenAPI schema to use.
+        """
         return pulumi.get(self, "api_schema_type")
 
     @api_schema_type.setter
@@ -575,6 +722,9 @@ class PluginCustomPluginConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        A description for your custom plugin configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter

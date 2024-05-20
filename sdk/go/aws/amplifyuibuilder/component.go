@@ -15,23 +15,40 @@ import (
 type Component struct {
 	pulumi.CustomResourceState
 
-	AppId                pulumi.StringPtrOutput                   `pulumi:"appId"`
-	AwsId                pulumi.StringOutput                      `pulumi:"awsId"`
-	BindingProperties    ComponentBindingPropertiesValueMapOutput `pulumi:"bindingProperties"`
-	Children             ComponentChildArrayOutput                `pulumi:"children"`
-	CollectionProperties ComponentDataConfigurationMapOutput      `pulumi:"collectionProperties"`
-	ComponentType        pulumi.StringPtrOutput                   `pulumi:"componentType"`
-	CreatedAt            pulumi.StringOutput                      `pulumi:"createdAt"`
-	EnvironmentName      pulumi.StringPtrOutput                   `pulumi:"environmentName"`
-	Events               ComponentEventMapOutput                  `pulumi:"events"`
-	ModifiedAt           pulumi.StringOutput                      `pulumi:"modifiedAt"`
-	Name                 pulumi.StringPtrOutput                   `pulumi:"name"`
-	Overrides            pulumi.MapOutput                         `pulumi:"overrides"`
-	Properties           ComponentPropertyMapOutput               `pulumi:"properties"`
-	SchemaVersion        pulumi.StringPtrOutput                   `pulumi:"schemaVersion"`
-	SourceId             pulumi.StringPtrOutput                   `pulumi:"sourceId"`
-	Tags                 pulumi.StringMapOutput                   `pulumi:"tags"`
-	Variants             ComponentVariantArrayOutput              `pulumi:"variants"`
+	// The unique ID of the Amplify app associated with the component.
+	AppId pulumi.StringPtrOutput `pulumi:"appId"`
+	// The unique ID of the component.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+	BindingProperties ComponentBindingPropertiesValueMapOutput `pulumi:"bindingProperties"`
+	// A list of the component's `ComponentChild` instances.
+	Children ComponentChildArrayOutput `pulumi:"children"`
+	// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+	CollectionProperties ComponentDataConfigurationMapOutput `pulumi:"collectionProperties"`
+	// The type of the component. This can be an Amplify custom UI component or another custom component.
+	ComponentType pulumi.StringPtrOutput `pulumi:"componentType"`
+	// The time that the component was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
+	// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+	Events ComponentEventMapOutput `pulumi:"events"`
+	// The time that the component was modified.
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// The name of the component.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+	Overrides pulumi.MapOutput `pulumi:"overrides"`
+	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+	Properties ComponentPropertyMapOutput `pulumi:"properties"`
+	// The schema version of the component when it was imported.
+	SchemaVersion pulumi.StringPtrOutput `pulumi:"schemaVersion"`
+	// The unique ID of the component in its original source system, such as Figma.
+	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
+	// One or more key-value pairs to use when tagging the component.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A list of the component's variants. A variant is a unique style configuration of a main component.
+	Variants ComponentVariantArrayOutput `pulumi:"variants"`
 }
 
 // NewComponent registers a new resource with the given unique name, arguments, and options.
@@ -79,38 +96,66 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
-	AppId                *string                                    `pulumi:"appId"`
-	BindingProperties    map[string]ComponentBindingPropertiesValue `pulumi:"bindingProperties"`
-	Children             []ComponentChild                           `pulumi:"children"`
-	CollectionProperties map[string]ComponentDataConfiguration      `pulumi:"collectionProperties"`
-	ComponentType        *string                                    `pulumi:"componentType"`
-	EnvironmentName      *string                                    `pulumi:"environmentName"`
-	Events               map[string]ComponentEvent                  `pulumi:"events"`
-	Name                 *string                                    `pulumi:"name"`
-	Overrides            map[string]interface{}                     `pulumi:"overrides"`
-	Properties           map[string]ComponentProperty               `pulumi:"properties"`
-	SchemaVersion        *string                                    `pulumi:"schemaVersion"`
-	SourceId             *string                                    `pulumi:"sourceId"`
-	Tags                 map[string]string                          `pulumi:"tags"`
-	Variants             []ComponentVariant                         `pulumi:"variants"`
+	// The unique ID of the Amplify app associated with the component.
+	AppId *string `pulumi:"appId"`
+	// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+	BindingProperties map[string]ComponentBindingPropertiesValue `pulumi:"bindingProperties"`
+	// A list of the component's `ComponentChild` instances.
+	Children []ComponentChild `pulumi:"children"`
+	// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+	CollectionProperties map[string]ComponentDataConfiguration `pulumi:"collectionProperties"`
+	// The type of the component. This can be an Amplify custom UI component or another custom component.
+	ComponentType *string `pulumi:"componentType"`
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName *string `pulumi:"environmentName"`
+	// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+	Events map[string]ComponentEvent `pulumi:"events"`
+	// The name of the component.
+	Name *string `pulumi:"name"`
+	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+	Overrides map[string]interface{} `pulumi:"overrides"`
+	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+	Properties map[string]ComponentProperty `pulumi:"properties"`
+	// The schema version of the component when it was imported.
+	SchemaVersion *string `pulumi:"schemaVersion"`
+	// The unique ID of the component in its original source system, such as Figma.
+	SourceId *string `pulumi:"sourceId"`
+	// One or more key-value pairs to use when tagging the component.
+	Tags map[string]string `pulumi:"tags"`
+	// A list of the component's variants. A variant is a unique style configuration of a main component.
+	Variants []ComponentVariant `pulumi:"variants"`
 }
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
-	AppId                pulumi.StringPtrInput
-	BindingProperties    ComponentBindingPropertiesValueMapInput
-	Children             ComponentChildArrayInput
+	// The unique ID of the Amplify app associated with the component.
+	AppId pulumi.StringPtrInput
+	// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+	BindingProperties ComponentBindingPropertiesValueMapInput
+	// A list of the component's `ComponentChild` instances.
+	Children ComponentChildArrayInput
+	// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties ComponentDataConfigurationMapInput
-	ComponentType        pulumi.StringPtrInput
-	EnvironmentName      pulumi.StringPtrInput
-	Events               ComponentEventMapInput
-	Name                 pulumi.StringPtrInput
-	Overrides            pulumi.MapInput
-	Properties           ComponentPropertyMapInput
-	SchemaVersion        pulumi.StringPtrInput
-	SourceId             pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
-	Variants             ComponentVariantArrayInput
+	// The type of the component. This can be an Amplify custom UI component or another custom component.
+	ComponentType pulumi.StringPtrInput
+	// The name of the backend environment that is a part of the Amplify app.
+	EnvironmentName pulumi.StringPtrInput
+	// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+	Events ComponentEventMapInput
+	// The name of the component.
+	Name pulumi.StringPtrInput
+	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+	Overrides pulumi.MapInput
+	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+	Properties ComponentPropertyMapInput
+	// The schema version of the component when it was imported.
+	SchemaVersion pulumi.StringPtrInput
+	// The unique ID of the component in its original source system, such as Figma.
+	SourceId pulumi.StringPtrInput
+	// One or more key-value pairs to use when tagging the component.
+	Tags pulumi.StringMapInput
+	// A list of the component's variants. A variant is a unique style configuration of a main component.
+	Variants ComponentVariantArrayInput
 }
 
 func (ComponentArgs) ElementType() reflect.Type {
@@ -150,70 +195,87 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
+// The unique ID of the Amplify app associated with the component.
 func (o ComponentOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the component.
 func (o ComponentOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
 func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesValueMapOutput {
 	return o.ApplyT(func(v *Component) ComponentBindingPropertiesValueMapOutput { return v.BindingProperties }).(ComponentBindingPropertiesValueMapOutput)
 }
 
+// A list of the component's `ComponentChild` instances.
 func (o ComponentOutput) Children() ComponentChildArrayOutput {
 	return o.ApplyT(func(v *Component) ComponentChildArrayOutput { return v.Children }).(ComponentChildArrayOutput)
 }
 
+// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 func (o ComponentOutput) CollectionProperties() ComponentDataConfigurationMapOutput {
 	return o.ApplyT(func(v *Component) ComponentDataConfigurationMapOutput { return v.CollectionProperties }).(ComponentDataConfigurationMapOutput)
 }
 
+// The type of the component. This can be an Amplify custom UI component or another custom component.
 func (o ComponentOutput) ComponentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.ComponentType }).(pulumi.StringPtrOutput)
 }
 
+// The time that the component was created.
 func (o ComponentOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the backend environment that is a part of the Amplify app.
 func (o ComponentOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
+// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
 func (o ComponentOutput) Events() ComponentEventMapOutput {
 	return o.ApplyT(func(v *Component) ComponentEventMapOutput { return v.Events }).(ComponentEventMapOutput)
 }
 
+// The time that the component was modified.
 func (o ComponentOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// The name of the component.
 func (o ComponentOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
 func (o ComponentOutput) Overrides() pulumi.MapOutput {
 	return o.ApplyT(func(v *Component) pulumi.MapOutput { return v.Overrides }).(pulumi.MapOutput)
 }
 
+// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
 func (o ComponentOutput) Properties() ComponentPropertyMapOutput {
 	return o.ApplyT(func(v *Component) ComponentPropertyMapOutput { return v.Properties }).(ComponentPropertyMapOutput)
 }
 
+// The schema version of the component when it was imported.
 func (o ComponentOutput) SchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the component in its original source system, such as Figma.
 func (o ComponentOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
 }
 
+// One or more key-value pairs to use when tagging the component.
 func (o ComponentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A list of the component's variants. A variant is a unique style configuration of a main component.
 func (o ComponentOutput) Variants() ComponentVariantArrayOutput {
 	return o.ApplyT(func(v *Component) ComponentVariantArrayOutput { return v.Variants }).(ComponentVariantArrayOutput)
 }

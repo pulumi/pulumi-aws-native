@@ -16,13 +16,35 @@ export function getComponentVersion(args: GetComponentVersionArgs, opts?: pulumi
 }
 
 export interface GetComponentVersionArgs {
+    /**
+     * The ARN of the component version.
+     */
     arn: string;
 }
 
 export interface GetComponentVersionResult {
+    /**
+     * The ARN of the component version.
+     */
     readonly arn?: string;
+    /**
+     * The name of the component.
+     */
     readonly componentName?: string;
+    /**
+     * The version of the component.
+     */
     readonly componentVersion?: string;
+    /**
+     * Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+     *
+     * This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+     *
+     * ```json
+     * "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+     * }
+     * ```
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -33,5 +55,8 @@ export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, o
 }
 
 export interface GetComponentVersionOutputArgs {
+    /**
+     * The ARN of the component version.
+     */
     arn: pulumi.Input<string>;
 }

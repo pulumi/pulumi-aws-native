@@ -19,13 +19,28 @@ export function getBrowserSettings(args: GetBrowserSettingsArgs, opts?: pulumi.I
 }
 
 export interface GetBrowserSettingsArgs {
+    /**
+     * The ARN of the browser settings.
+     */
     browserSettingsArn: string;
 }
 
 export interface GetBrowserSettingsResult {
+    /**
+     * A list of web portal ARNs that the browser settings resource is associated with.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+     */
     readonly browserPolicy?: string;
+    /**
+     * The ARN of the browser settings.
+     */
     readonly browserSettingsArn?: string;
+    /**
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -36,5 +51,8 @@ export function getBrowserSettingsOutput(args: GetBrowserSettingsOutputArgs, opt
 }
 
 export interface GetBrowserSettingsOutputArgs {
+    /**
+     * The ARN of the browser settings.
+     */
     browserSettingsArn: pulumi.Input<string>;
 }

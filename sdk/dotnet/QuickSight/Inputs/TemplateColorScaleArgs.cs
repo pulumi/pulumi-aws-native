@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateColorScaleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the color fill type.
+        /// </summary>
         [Input("colorFillType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateColorFillType> ColorFillType { get; set; } = null!;
 
         [Input("colors", required: true)]
         private InputList<Inputs.TemplateDataColorArgs>? _colors;
+
+        /// <summary>
+        /// Determines the list of colors that are applied to the visual.
+        /// </summary>
         public InputList<Inputs.TemplateDataColorArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.TemplateDataColorArgs>());
             set => _colors = value;
         }
 
+        /// <summary>
+        /// Determines the color that is applied to null values.
+        /// </summary>
         [Input("nullValueColor")]
         public Input<Inputs.TemplateDataColorArgs>? NullValueColor { get; set; }
 

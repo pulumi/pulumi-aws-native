@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormDataTypeConfig
     {
+        /// <summary>
+        /// The data source type, either an Amplify DataStore model or a custom data type.
+        /// </summary>
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.FormDataSourceType DataSourceType;
+        /// <summary>
+        /// The unique name of the data type you are using as the data source for the form.
+        /// </summary>
         public readonly string DataTypeName;
 
         [OutputConstructor]

@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolUiCustomizationAttachment")]
     public partial class UserPoolUiCustomizationAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// The CSS values in the UI customization.
+        /// </summary>
         [Output("css")]
         public Output<string?> Css { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -77,12 +89,21 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolUiCustomizationAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The CSS values in the UI customization.
+        /// </summary>
         [Input("css")]
         public Input<string>? Css { get; set; }
 
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

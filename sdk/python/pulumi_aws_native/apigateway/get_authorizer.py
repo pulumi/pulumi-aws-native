@@ -69,6 +69,9 @@ class GetAuthorizerResult:
     @property
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[str]:
+        """
+        The ID for the authorizer. For example: `abc123` .
+        """
         return pulumi.get(self, "authorizer_id")
 
     @property
@@ -153,6 +156,7 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 
 
+    :param str authorizer_id: The ID for the authorizer. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
@@ -182,6 +186,7 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 
 
+    :param str authorizer_id: The ID for the authorizer. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

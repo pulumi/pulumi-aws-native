@@ -53,9 +53,47 @@ class EnvironmentArgs:
                    "core.dags_folder": "{AIRFLOW_HOME}/dags"
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
+        :param pulumi.Input[str] airflow_version: The version of Apache Airflow to use for the environment. If no value is specified, defaults to the latest version.
+               
+               If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
+               
+               *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
+        :param pulumi.Input[str] dag_s3_path: The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
+        :param pulumi.Input['EnvironmentEndpointManagement'] endpoint_management: Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
+        :param pulumi.Input[str] environment_class: The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
+        :param pulumi.Input[str] kms_key: The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
+        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
+        :param pulumi.Input[int] max_workers: The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
+        :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
+        :param pulumi.Input[str] name: The name of your Amazon MWAA environment.
+        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
+        :param pulumi.Input[str] plugins_s3_object_version: The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        :param pulumi.Input[str] plugins_s3_path: The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        :param pulumi.Input[str] requirements_s3_object_version: The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        :param pulumi.Input[str] requirements_s3_path: The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. Valid values:
+               
+               - *v2* - Accepts between 2 to 5. Defaults to 2.
+               - *v1* - Accepts 1.
+        :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
+        :param pulumi.Input[str] startup_script_s3_object_version: The version of the startup shell script in your Amazon S3 bucket. You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.
+               
+               Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example:
+               
+               `3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo`
+               
+               For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+        :param pulumi.Input[str] startup_script_s3_path: The relative path to the startup shell script in your Amazon S3 bucket. For example, `s3://mwaa-environment/startup.sh` .
+               
+               Amazon MWAA runs the script as your environment starts, and before running the Apache Airflow process. You can use this script to install dependencies, modify Apache Airflow configuration options, and set environment variables. For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
         :param Any tags: A map of tags for the environment.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
+        :param pulumi.Input['EnvironmentWebserverAccessMode'] webserver_access_mode: The Apache Airflow *Web server* access mode. To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
+        :param pulumi.Input[str] weekly_maintenance_window_start: The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
+               
+               - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
         """
         if airflow_configuration_options is not None:
             pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
@@ -129,6 +167,13 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="airflowVersion")
     def airflow_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Apache Airflow to use for the environment. If no value is specified, defaults to the latest version.
+
+        If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
+
+        *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
+        """
         return pulumi.get(self, "airflow_version")
 
     @airflow_version.setter
@@ -138,6 +183,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
+        """
         return pulumi.get(self, "dag_s3_path")
 
     @dag_s3_path.setter
@@ -147,6 +195,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="endpointManagement")
     def endpoint_management(self) -> Optional[pulumi.Input['EnvironmentEndpointManagement']]:
+        """
+        Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
+        """
         return pulumi.get(self, "endpoint_management")
 
     @endpoint_management.setter
@@ -156,6 +207,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="environmentClass")
     def environment_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+        """
         return pulumi.get(self, "environment_class")
 
     @environment_class.setter
@@ -165,6 +219,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -174,6 +231,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -183,6 +243,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
+        """
+        The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
+        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -192,6 +255,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
+        """
         return pulumi.get(self, "max_workers")
 
     @max_workers.setter
@@ -201,6 +267,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="minWorkers")
     def min_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
+        """
         return pulumi.get(self, "min_workers")
 
     @min_workers.setter
@@ -210,6 +279,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your Amazon MWAA environment.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -219,6 +291,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']]:
+        """
+        The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
+        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -228,6 +303,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="pluginsS3ObjectVersion")
     def plugins_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @plugins_s3_object_version.setter
@@ -237,6 +315,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="pluginsS3Path")
     def plugins_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        """
         return pulumi.get(self, "plugins_s3_path")
 
     @plugins_s3_path.setter
@@ -246,6 +327,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="requirementsS3ObjectVersion")
     def requirements_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @requirements_s3_object_version.setter
@@ -255,6 +339,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="requirementsS3Path")
     def requirements_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        """
         return pulumi.get(self, "requirements_s3_path")
 
     @requirements_s3_path.setter
@@ -264,6 +351,12 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def schedulers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of schedulers that you want to run in your environment. Valid values:
+
+        - *v2* - Accepts between 2 to 5. Defaults to 2.
+        - *v1* - Accepts 1.
+        """
         return pulumi.get(self, "schedulers")
 
     @schedulers.setter
@@ -273,6 +366,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
+        """
         return pulumi.get(self, "source_bucket_arn")
 
     @source_bucket_arn.setter
@@ -282,6 +378,15 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="startupScriptS3ObjectVersion")
     def startup_script_s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the startup shell script in your Amazon S3 bucket. You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.
+
+        Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example:
+
+        `3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo`
+
+        For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+        """
         return pulumi.get(self, "startup_script_s3_object_version")
 
     @startup_script_s3_object_version.setter
@@ -291,6 +396,11 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="startupScriptS3Path")
     def startup_script_s3_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative path to the startup shell script in your Amazon S3 bucket. For example, `s3://mwaa-environment/startup.sh` .
+
+        Amazon MWAA runs the script as your environment starts, and before running the Apache Airflow process. You can use this script to install dependencies, modify Apache Airflow configuration options, and set environment variables. For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+        """
         return pulumi.get(self, "startup_script_s3_path")
 
     @startup_script_s3_path.setter
@@ -314,6 +424,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> Optional[pulumi.Input['EnvironmentWebserverAccessMode']]:
+        """
+        The Apache Airflow *Web server* access mode. To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
+        """
         return pulumi.get(self, "webserver_access_mode")
 
     @webserver_access_mode.setter
@@ -323,6 +436,11 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
+
+        - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
+        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
@@ -375,9 +493,47 @@ class Environment(pulumi.CustomResource):
                    "core.dags_folder": "{AIRFLOW_HOME}/dags"
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
+        :param pulumi.Input[str] airflow_version: The version of Apache Airflow to use for the environment. If no value is specified, defaults to the latest version.
+               
+               If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
+               
+               *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
+        :param pulumi.Input[str] dag_s3_path: The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
+        :param pulumi.Input['EnvironmentEndpointManagement'] endpoint_management: Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
+        :param pulumi.Input[str] environment_class: The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
+        :param pulumi.Input[str] kms_key: The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
+        :param pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']] logging_configuration: The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
+        :param pulumi.Input[int] max_workers: The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
+        :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
+        :param pulumi.Input[str] name: The name of your Amazon MWAA environment.
+        :param pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']] network_configuration: The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
+        :param pulumi.Input[str] plugins_s3_object_version: The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        :param pulumi.Input[str] plugins_s3_path: The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        :param pulumi.Input[str] requirements_s3_object_version: The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        :param pulumi.Input[str] requirements_s3_path: The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. Valid values:
+               
+               - *v2* - Accepts between 2 to 5. Defaults to 2.
+               - *v1* - Accepts 1.
+        :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
+        :param pulumi.Input[str] startup_script_s3_object_version: The version of the startup shell script in your Amazon S3 bucket. You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.
+               
+               Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example:
+               
+               `3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo`
+               
+               For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+        :param pulumi.Input[str] startup_script_s3_path: The relative path to the startup shell script in your Amazon S3 bucket. For example, `s3://mwaa-environment/startup.sh` .
+               
+               Amazon MWAA runs the script as your environment starts, and before running the Apache Airflow process. You can use this script to install dependencies, modify Apache Airflow configuration options, and set environment variables. For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
         :param Any tags: A map of tags for the environment.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MWAA::Environment` for more information about the expected schema for this property.
+        :param pulumi.Input['EnvironmentWebserverAccessMode'] webserver_access_mode: The Apache Airflow *Web server* access mode. To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
+        :param pulumi.Input[str] weekly_maintenance_window_start: The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
+               
+               - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
         """
         ...
     @overload
@@ -538,111 +694,192 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="airflowVersion")
     def airflow_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of Apache Airflow to use for the environment. If no value is specified, defaults to the latest version.
+
+        If you specify a newer version number for an existing environment, the version update requires some service interruption before taking effect.
+
+        *Allowed Values* : `1.10.12` | `2.0.2` | `2.2.2` | `2.4.3` | `2.5.1` | `2.6.3` | `2.7.2` (latest)
+        """
         return pulumi.get(self, "airflow_version")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN for the Amazon MWAA environment.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="celeryExecutorQueue")
     def celery_executor_queue(self) -> pulumi.Output[str]:
+        """
+        The queue ARN for the environment's [Celery Executor](https://docs.aws.amazon.com/https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/executor/celery.html) . Amazon MWAA uses a Celery Executor to distribute tasks across multiple workers. When you create an environment in a shared VPC, you must provide access to the Celery Executor queue from your VPC.
+        """
         return pulumi.get(self, "celery_executor_queue")
 
     @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the DAGs folder on your Amazon S3 bucket. For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
+        """
         return pulumi.get(self, "dag_s3_path")
 
     @property
     @pulumi.getter(name="databaseVpcEndpointService")
     def database_vpc_endpoint_service(self) -> pulumi.Output[str]:
+        """
+        The VPC endpoint for the environment's Amazon RDS database.
+        """
         return pulumi.get(self, "database_vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="endpointManagement")
     def endpoint_management(self) -> pulumi.Output[Optional['EnvironmentEndpointManagement']]:
+        """
+        Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA. If set to `SERVICE` , Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER` , you must create, and manage, the VPC endpoints in your VPC.
+        """
         return pulumi.get(self, "endpoint_management")
 
     @property
     @pulumi.getter(name="environmentClass")
     def environment_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        The environment class type. Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
+        """
         return pulumi.get(self, "environment_class")
 
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
+        """
         return pulumi.get(self, "kms_key")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.EnvironmentLoggingConfiguration']]:
+        """
+        The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
+        """
         return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
+        """
         return pulumi.get(self, "max_workers")
 
     @property
     @pulumi.getter(name="minWorkers")
     def min_workers(self) -> pulumi.Output[Optional[int]]:
+        """
+        The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
+        """
         return pulumi.get(self, "min_workers")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of your Amazon MWAA environment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.EnvironmentNetworkConfiguration']]:
+        """
+        The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="pluginsS3ObjectVersion")
     def plugins_s3_object_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        """
         return pulumi.get(self, "plugins_s3_object_version")
 
     @property
     @pulumi.getter(name="pluginsS3Path")
     def plugins_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
+        """
         return pulumi.get(self, "plugins_s3_path")
 
     @property
     @pulumi.getter(name="requirementsS3ObjectVersion")
     def requirements_s3_object_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        """
         return pulumi.get(self, "requirements_s3_object_version")
 
     @property
     @pulumi.getter(name="requirementsS3Path")
     def requirements_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
+        """
         return pulumi.get(self, "requirements_s3_path")
 
     @property
     @pulumi.getter
     def schedulers(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of schedulers that you want to run in your environment. Valid values:
+
+        - *v2* - Accepts between 2 to 5. Defaults to 2.
+        - *v1* - Accepts 1.
+        """
         return pulumi.get(self, "schedulers")
 
     @property
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
+        """
         return pulumi.get(self, "source_bucket_arn")
 
     @property
     @pulumi.getter(name="startupScriptS3ObjectVersion")
     def startup_script_s3_object_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the startup shell script in your Amazon S3 bucket. You must specify the [version ID](https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html) that Amazon S3 assigns to the file every time you update the script.
+
+        Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more than 1,024 bytes long. The following is an example:
+
+        `3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo`
+
+        For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+        """
         return pulumi.get(self, "startup_script_s3_object_version")
 
     @property
     @pulumi.getter(name="startupScriptS3Path")
     def startup_script_s3_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The relative path to the startup shell script in your Amazon S3 bucket. For example, `s3://mwaa-environment/startup.sh` .
+
+        Amazon MWAA runs the script as your environment starts, and before running the Apache Airflow process. You can use this script to install dependencies, modify Apache Airflow configuration options, and set environment variables. For more information, see [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html) .
+        """
         return pulumi.get(self, "startup_script_s3_path")
 
     @property
@@ -658,20 +895,34 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="webserverAccessMode")
     def webserver_access_mode(self) -> pulumi.Output[Optional['EnvironmentWebserverAccessMode']]:
+        """
+        The Apache Airflow *Web server* access mode. To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
+        """
         return pulumi.get(self, "webserver_access_mode")
 
     @property
     @pulumi.getter(name="webserverUrl")
     def webserver_url(self) -> pulumi.Output[str]:
+        """
+        The URL of your Apache Airflow UI.
+        """
         return pulumi.get(self, "webserver_url")
 
     @property
     @pulumi.getter(name="webserverVpcEndpointService")
     def webserver_vpc_endpoint_service(self) -> pulumi.Output[str]:
+        """
+        The VPC endpoint for the environment's web server.
+        """
         return pulumi.get(self, "webserver_vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> pulumi.Output[Optional[str]]:
+        """
+        The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` . For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
+
+        - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\\\d|2[0-3]):(00|30)
+        """
         return pulumi.get(self, "weekly_maintenance_window_start")
 

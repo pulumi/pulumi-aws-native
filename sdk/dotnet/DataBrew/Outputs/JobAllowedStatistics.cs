@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobAllowedStatistics
     {
+        /// <summary>
+        /// One or more column statistics to allow for columns that contain detected entities.
+        /// </summary>
         public readonly ImmutableArray<string> Statistics;
 
         [OutputConstructor]

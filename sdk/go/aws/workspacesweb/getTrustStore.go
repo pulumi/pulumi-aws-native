@@ -24,14 +24,19 @@ func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...p
 }
 
 type LookupTrustStoreArgs struct {
+	// The ARN of the trust store.
 	TrustStoreArn string `pulumi:"trustStoreArn"`
 }
 
 type LookupTrustStoreResult struct {
-	AssociatedPortalArns []string  `pulumi:"associatedPortalArns"`
-	CertificateList      []string  `pulumi:"certificateList"`
-	Tags                 []aws.Tag `pulumi:"tags"`
-	TrustStoreArn        *string   `pulumi:"trustStoreArn"`
+	// A list of web portal ARNs that this trust store is associated with.
+	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// A list of CA certificates to be added to the trust store.
+	CertificateList []string `pulumi:"certificateList"`
+	// The tags to add to the trust store. A tag is a key-value pair.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the trust store.
+	TrustStoreArn *string `pulumi:"trustStoreArn"`
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
@@ -48,6 +53,7 @@ func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs
 }
 
 type LookupTrustStoreOutputArgs struct {
+	// The ARN of the trust store.
 	TrustStoreArn pulumi.StringInput `pulumi:"trustStoreArn"`
 }
 
@@ -69,18 +75,22 @@ func (o LookupTrustStoreResultOutput) ToLookupTrustStoreResultOutputWithContext(
 	return o
 }
 
+// A list of web portal ARNs that this trust store is associated with.
 func (o LookupTrustStoreResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// A list of CA certificates to be added to the trust store.
 func (o LookupTrustStoreResultOutput) CertificateList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) []string { return v.CertificateList }).(pulumi.StringArrayOutput)
 }
 
+// The tags to add to the trust store. A tag is a key-value pair.
 func (o LookupTrustStoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the trust store.
 func (o LookupTrustStoreResultOutput) TrustStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
 }

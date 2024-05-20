@@ -108,11 +108,35 @@ export class Datastore extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The name of the data store.
+     */
     public readonly datastoreName!: pulumi.Output<string | undefined>;
+    /**
+     * Information about the partition dimensions in a data store.
+     */
     public readonly datastorePartitions!: pulumi.Output<outputs.iotanalytics.DatastorePartitions | undefined>;
+    /**
+     * Where data store data is stored.
+     */
     public readonly datastoreStorage!: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
+    /**
+     * Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+     *
+     * The default file format is JSON. You can specify only one format.
+     *
+     * You can't change the file format after you create the data store.
+     */
     public readonly fileFormatConfiguration!: pulumi.Output<outputs.iotanalytics.DatastoreFileFormatConfiguration | undefined>;
+    /**
+     * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+     */
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatastoreRetentionPeriod | undefined>;
+    /**
+     * Metadata which can be used to manage the data store.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -153,10 +177,34 @@ export class Datastore extends pulumi.CustomResource {
  * The set of arguments for constructing a Datastore resource.
  */
 export interface DatastoreArgs {
+    /**
+     * The name of the data store.
+     */
     datastoreName?: pulumi.Input<string>;
+    /**
+     * Information about the partition dimensions in a data store.
+     */
     datastorePartitions?: pulumi.Input<inputs.iotanalytics.DatastorePartitionsArgs>;
+    /**
+     * Where data store data is stored.
+     */
     datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreStorageArgs>;
+    /**
+     * Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+     *
+     * The default file format is JSON. You can specify only one format.
+     *
+     * You can't change the file format after you create the data store.
+     */
     fileFormatConfiguration?: pulumi.Input<inputs.iotanalytics.DatastoreFileFormatConfigurationArgs>;
+    /**
+     * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+     */
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatastoreRetentionPeriodArgs>;
+    /**
+     * Metadata which can be used to manage the data store.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

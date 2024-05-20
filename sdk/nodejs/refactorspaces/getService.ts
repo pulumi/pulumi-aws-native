@@ -21,13 +21,28 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetServiceArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: string;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: string;
+    /**
+     * The unique identifier of the service.
+     */
     serviceIdentifier: string;
 }
 
 export interface GetServiceResult {
+    /**
+     * The Amazon Resource Name (ARN) of the service.
+     */
     readonly arn?: string;
+    /**
+     * The unique identifier of the service.
+     */
     readonly serviceIdentifier?: string;
     /**
      * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
@@ -42,7 +57,16 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetServiceOutputArgs {
+    /**
+     * The unique identifier of the application.
+     */
     applicationIdentifier: pulumi.Input<string>;
+    /**
+     * The unique identifier of the environment.
+     */
     environmentIdentifier: pulumi.Input<string>;
+    /**
+     * The unique identifier of the service.
+     */
     serviceIdentifier: pulumi.Input<string>;
 }

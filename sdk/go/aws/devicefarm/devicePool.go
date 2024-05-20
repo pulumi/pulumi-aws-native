@@ -17,13 +17,24 @@ import (
 type DevicePool struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput       `pulumi:"arn"`
-	Description pulumi.StringPtrOutput    `pulumi:"description"`
-	MaxDevices  pulumi.IntPtrOutput       `pulumi:"maxDevices"`
-	Name        pulumi.StringOutput       `pulumi:"name"`
-	ProjectArn  pulumi.StringOutput       `pulumi:"projectArn"`
-	Rules       DevicePoolRuleArrayOutput `pulumi:"rules"`
-	Tags        aws.TagArrayOutput        `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The device pool's description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices pulumi.IntPtrOutput `pulumi:"maxDevices"`
+	// The device pool's name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARN of the project for the device pool.
+	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// The device pool's rules.
+	Rules DevicePoolRuleArrayOutput `pulumi:"rules"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDevicePool registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +87,42 @@ func (DevicePoolState) ElementType() reflect.Type {
 }
 
 type devicePoolArgs struct {
-	Description *string          `pulumi:"description"`
-	MaxDevices  *int             `pulumi:"maxDevices"`
-	Name        *string          `pulumi:"name"`
-	ProjectArn  string           `pulumi:"projectArn"`
-	Rules       []DevicePoolRule `pulumi:"rules"`
-	Tags        []aws.Tag        `pulumi:"tags"`
+	// The device pool's description.
+	Description *string `pulumi:"description"`
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices *int `pulumi:"maxDevices"`
+	// The device pool's name.
+	Name *string `pulumi:"name"`
+	// The ARN of the project for the device pool.
+	ProjectArn string `pulumi:"projectArn"`
+	// The device pool's rules.
+	Rules []DevicePoolRule `pulumi:"rules"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DevicePool resource.
 type DevicePoolArgs struct {
+	// The device pool's description.
 	Description pulumi.StringPtrInput
-	MaxDevices  pulumi.IntPtrInput
-	Name        pulumi.StringPtrInput
-	ProjectArn  pulumi.StringInput
-	Rules       DevicePoolRuleArrayInput
-	Tags        aws.TagArrayInput
+	// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+	//
+	// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+	MaxDevices pulumi.IntPtrInput
+	// The device pool's name.
+	Name pulumi.StringPtrInput
+	// The ARN of the project for the device pool.
+	ProjectArn pulumi.StringInput
+	// The device pool's rules.
+	Rules DevicePoolRuleArrayInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags aws.TagArrayInput
 }
 
 func (DevicePoolArgs) ElementType() reflect.Type {
@@ -131,30 +162,41 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o DevicePoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The device pool's description.
 func (o DevicePoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+//
+// By specifying the maximum number of devices, you can control the costs that you incur by running tests.
 func (o DevicePoolOutput) MaxDevices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.IntPtrOutput { return v.MaxDevices }).(pulumi.IntPtrOutput)
 }
 
+// The device pool's name.
 func (o DevicePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARN of the project for the device pool.
 func (o DevicePoolOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
+// The device pool's rules.
 func (o DevicePoolOutput) Rules() DevicePoolRuleArrayOutput {
 	return o.ApplyT(func(v *DevicePool) DevicePoolRuleArrayOutput { return v.Rules }).(DevicePoolRuleArrayOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o DevicePoolOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DevicePool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

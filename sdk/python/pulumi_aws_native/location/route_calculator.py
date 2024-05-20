@@ -24,6 +24,30 @@ class RouteCalculatorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
+        :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
+               
+               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+               
+               Valid values include:
+               
+               - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on street networks and traffic coverage](https://docs.aws.amazon.com/https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm) .
+               
+               Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.
+               - `Grab` – Grab provides routing functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+               - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
+               
+               For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        :param pulumi.Input[str] calculator_name: The name of the route calculator resource.
+               
+               Requirements:
+               
+               - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+               - Must be a unique Route calculator resource name.
+               - No spaces allowed. For example, `ExampleRouteCalculator` .
+        :param pulumi.Input[str] description: The optional description for the route calculator resource.
+        :param pulumi.Input['RouteCalculatorPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
+               
+               *Allowed Values* : `RequestBasedUsage`
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "data_source", data_source)
@@ -39,6 +63,21 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
+        """
+        Specifies the data provider of traffic and road network data.
+
+        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+
+        Valid values include:
+
+        - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on street networks and traffic coverage](https://docs.aws.amazon.com/https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm) .
+
+        Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.
+        - `Grab` – Grab provides routing functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+        - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
+
+        For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
@@ -48,6 +87,15 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter(name="calculatorName")
     def calculator_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route calculator resource.
+
+        Requirements:
+
+        - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+        - Must be a unique Route calculator resource name.
+        - No spaces allowed. For example, `ExampleRouteCalculator` .
+        """
         return pulumi.get(self, "calculator_name")
 
     @calculator_name.setter
@@ -57,6 +105,9 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The optional description for the route calculator resource.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -66,6 +117,11 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> Optional[pulumi.Input['RouteCalculatorPricingPlan']]:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -101,6 +157,30 @@ class RouteCalculator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] calculator_name: The name of the route calculator resource.
+               
+               Requirements:
+               
+               - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+               - Must be a unique Route calculator resource name.
+               - No spaces allowed. For example, `ExampleRouteCalculator` .
+        :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
+               
+               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+               
+               Valid values include:
+               
+               - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on street networks and traffic coverage](https://docs.aws.amazon.com/https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm) .
+               
+               Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.
+               - `Grab` – Grab provides routing functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+               - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
+               
+               For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        :param pulumi.Input[str] description: The optional description for the route calculator resource.
+        :param pulumi.Input['RouteCalculatorPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
+               
+               *Allowed Values* : `RequestBasedUsage`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -190,36 +270,81 @@ class RouteCalculator(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="calculatorArn")
     def calculator_arn(self) -> pulumi.Output[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        """
         return pulumi.get(self, "calculator_arn")
 
     @property
     @pulumi.getter(name="calculatorName")
     def calculator_name(self) -> pulumi.Output[str]:
+        """
+        The name of the route calculator resource.
+
+        Requirements:
+
+        - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+        - Must be a unique Route calculator resource name.
+        - No spaces allowed. For example, `ExampleRouteCalculator` .
+        """
         return pulumi.get(self, "calculator_name")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[str]:
+        """
+        Specifies the data provider of traffic and road network data.
+
+        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+
+        Valid values include:
+
+        - `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) 's coverage in your region of interest, see [Esri details on street networks and traffic coverage](https://docs.aws.amazon.com/https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm) .
+
+        Route calculators that use Esri as a data source only calculate routes that are shorter than 400 km.
+        - `Grab` – Grab provides routing functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) ' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+        - `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) ' coverage in your region of interest, see [HERE car routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html) and [HERE truck routing coverage](https://docs.aws.amazon.com/https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html) .
+
+        For additional information , see [Data providers](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) on the *Amazon Location Service Developer Guide* .
+        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The optional description for the route calculator resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[Optional['RouteCalculatorPricingPlan']]:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @property
@@ -233,5 +358,8 @@ class RouteCalculator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 

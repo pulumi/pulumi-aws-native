@@ -19,13 +19,30 @@ export function getEc2Fleet(args: GetEc2FleetArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetEc2FleetArgs {
+    /**
+     * The ID of the EC2 Fleet.
+     */
     fleetId: string;
 }
 
 export interface GetEc2FleetResult {
+    /**
+     * Reserved.
+     */
     readonly context?: string;
+    /**
+     * Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+     *
+     * Supported only for fleets of type `maintain` .
+     */
     readonly excessCapacityTerminationPolicy?: enums.ec2.Ec2FleetExcessCapacityTerminationPolicy;
+    /**
+     * The ID of the EC2 Fleet.
+     */
     readonly fleetId?: string;
+    /**
+     * The number of units to request.
+     */
     readonly targetCapacitySpecification?: outputs.ec2.Ec2FleetTargetCapacitySpecificationRequest;
 }
 /**
@@ -36,5 +53,8 @@ export function getEc2FleetOutput(args: GetEc2FleetOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetEc2FleetOutputArgs {
+    /**
+     * The ID of the EC2 Fleet.
+     */
     fleetId: pulumi.Input<string>;
 }

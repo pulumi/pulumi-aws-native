@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicNamedEntityDefinitionMetricArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation of a named entity. Valid values for this structure are `SUM` , `MIN` , `MAX` , `COUNT` , `AVERAGE` , `DISTINCT_COUNT` , `STDEV` , `STDEVP` , `VAR` , `VARP` , `PERCENTILE` , `MEDIAN` , and `CUSTOM` .
+        /// </summary>
         [Input("aggregation")]
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedEntityAggType>? Aggregation { get; set; }
 
         [Input("aggregationFunctionParameters")]
         private InputMap<string>? _aggregationFunctionParameters;
+
+        /// <summary>
+        /// The additional parameters for an aggregation function.
+        /// </summary>
         public InputMap<string> AggregationFunctionParameters
         {
             get => _aggregationFunctionParameters ?? (_aggregationFunctionParameters = new InputMap<string>());

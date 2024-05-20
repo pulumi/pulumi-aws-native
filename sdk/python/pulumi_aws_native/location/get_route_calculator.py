@@ -46,26 +46,47 @@ class GetRouteCalculatorResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="calculatorArn")
     def calculator_arn(self) -> Optional[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:route-calculator/ExampleCalculator`
+        """
         return pulumi.get(self, "calculator_arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The timestamp for when the route calculator resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The optional description for the route calculator resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> Optional['RouteCalculatorPricingPlan']:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @property
@@ -79,6 +100,9 @@ class GetRouteCalculatorResult:
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        The timestamp for when the route calculator resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -101,6 +125,15 @@ def get_route_calculator(calculator_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteCalculatorResult:
     """
     Definition of AWS::Location::RouteCalculator Resource Type
+
+
+    :param str calculator_name: The name of the route calculator resource.
+           
+           Requirements:
+           
+           - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+           - Must be a unique Route calculator resource name.
+           - No spaces allowed. For example, `ExampleRouteCalculator` .
     """
     __args__ = dict()
     __args__['calculatorName'] = calculator_name
@@ -122,5 +155,14 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteCalculatorResult]:
     """
     Definition of AWS::Location::RouteCalculator Resource Type
+
+
+    :param str calculator_name: The name of the route calculator resource.
+           
+           Requirements:
+           
+           - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
+           - Must be a unique Route calculator resource name.
+           - No spaces allowed. For example, `ExampleRouteCalculator` .
     """
     ...

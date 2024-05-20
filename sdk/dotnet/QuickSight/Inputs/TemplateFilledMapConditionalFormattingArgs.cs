@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("conditionalFormattingOptions", required: true)]
         private InputList<Inputs.TemplateFilledMapConditionalFormattingOptionArgs>? _conditionalFormattingOptions;
+
+        /// <summary>
+        /// Conditional formatting options of a `FilledMapVisual` .
+        /// </summary>
         public InputList<Inputs.TemplateFilledMapConditionalFormattingOptionArgs> ConditionalFormattingOptions
         {
             get => _conditionalFormattingOptions ?? (_conditionalFormattingOptions = new InputList<Inputs.TemplateFilledMapConditionalFormattingOptionArgs>());

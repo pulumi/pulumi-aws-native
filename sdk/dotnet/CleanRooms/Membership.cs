@@ -15,27 +15,59 @@ namespace Pulumi.AwsNative.CleanRooms
     [AwsNativeResourceType("aws-native:cleanrooms:Membership")]
     public partial class Membership : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified membership.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("collaborationArn")]
         public Output<string> CollaborationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique identifier of the specified collaboration creator account.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Output("collaborationCreatorAccountId")]
         public Output<string> CollaborationCreatorAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the associated collaboration.
+        /// </summary>
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The default protected query result configuration as specified by the member who can receive results.
+        /// </summary>
         [Output("defaultResultConfiguration")]
         public Output<Outputs.MembershipProtectedQueryResultConfiguration?> DefaultResultConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique identifier of the specified membership.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+        /// </summary>
         [Output("membershipIdentifier")]
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The payment responsibilities accepted by the collaboration member.
+        /// </summary>
         [Output("paymentConfiguration")]
         public Output<Outputs.MembershipPaymentConfiguration?> PaymentConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// An indicator as to whether query logging has been enabled or disabled for the membership.
+        /// </summary>
         [Output("queryLogStatus")]
         public Output<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; private set; } = null!;
 
@@ -94,15 +126,27 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class MembershipArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique ID for the associated collaboration.
+        /// </summary>
         [Input("collaborationIdentifier", required: true)]
         public Input<string> CollaborationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The default protected query result configuration as specified by the member who can receive results.
+        /// </summary>
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipProtectedQueryResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
 
+        /// <summary>
+        /// The payment responsibilities accepted by the collaboration member.
+        /// </summary>
         [Input("paymentConfiguration")]
         public Input<Inputs.MembershipPaymentConfigurationArgs>? PaymentConfiguration { get; set; }
 
+        /// <summary>
+        /// An indicator as to whether query logging has been enabled or disabled for the membership.
+        /// </summary>
         [Input("queryLogStatus", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; set; } = null!;
 

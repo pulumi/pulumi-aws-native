@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class AppBlockScriptDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameters used in the run path for the script.
+        /// </summary>
         [Input("executableParameters")]
         public Input<string>? ExecutableParameters { get; set; }
 
+        /// <summary>
+        /// The run path for the script.
+        /// </summary>
         [Input("executablePath", required: true)]
         public Input<string> ExecutablePath { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 object location of the script.
+        /// </summary>
         [Input("scriptS3Location", required: true)]
         public Input<Inputs.AppBlockS3LocationArgs> ScriptS3Location { get; set; } = null!;
 
+        /// <summary>
+        /// The run timeout, in seconds, for the script.
+        /// </summary>
         [Input("timeoutInSeconds", required: true)]
         public Input<int> TimeoutInSeconds { get; set; } = null!;
 

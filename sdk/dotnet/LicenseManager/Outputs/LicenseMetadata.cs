@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.LicenseManager.Outputs
     [OutputType]
     public sealed class LicenseMetadata
     {
+        /// <summary>
+        /// The key name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

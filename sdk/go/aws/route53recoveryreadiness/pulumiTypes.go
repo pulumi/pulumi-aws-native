@@ -37,7 +37,8 @@ type ResourceSetDnsTargetResource struct {
 	// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
 	RecordSetId *string `pulumi:"recordSetId"`
 	// The type of DNS record of the target resource.
-	RecordType     *string                    `pulumi:"recordType"`
+	RecordType *string `pulumi:"recordType"`
+	// The target resource that the Route 53 record points to.
 	TargetResource *ResourceSetTargetResource `pulumi:"targetResource"`
 }
 
@@ -61,7 +62,8 @@ type ResourceSetDnsTargetResourceArgs struct {
 	// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
 	// The type of DNS record of the target resource.
-	RecordType     pulumi.StringPtrInput             `pulumi:"recordType"`
+	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
+	// The target resource that the Route 53 record points to.
 	TargetResource ResourceSetTargetResourcePtrInput `pulumi:"targetResource"`
 }
 
@@ -163,6 +165,7 @@ func (o ResourceSetDnsTargetResourceOutput) RecordType() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ResourceSetDnsTargetResource) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
+// The target resource that the Route 53 record points to.
 func (o ResourceSetDnsTargetResourceOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetDnsTargetResource) *ResourceSetTargetResource { return v.TargetResource }).(ResourceSetTargetResourcePtrOutput)
 }
@@ -231,6 +234,7 @@ func (o ResourceSetDnsTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The target resource that the Route 53 record points to.
 func (o ResourceSetDnsTargetResourcePtrOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetDnsTargetResource) *ResourceSetTargetResource {
 		if v == nil {
@@ -542,7 +546,8 @@ func (o ResourceSetR53ResourceRecordPtrOutput) RecordSetId() pulumi.StringPtrOut
 // The resource element of a ResourceSet
 type ResourceSetResource struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
-	ComponentId       *string                       `pulumi:"componentId"`
+	ComponentId *string `pulumi:"componentId"`
+	// A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
 	DnsTargetResource *ResourceSetDnsTargetResource `pulumi:"dnsTargetResource"`
 	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 	ReadinessScopes []string `pulumi:"readinessScopes"`
@@ -564,7 +569,8 @@ type ResourceSetResourceInput interface {
 // The resource element of a ResourceSet
 type ResourceSetResourceArgs struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
-	ComponentId       pulumi.StringPtrInput                `pulumi:"componentId"`
+	ComponentId pulumi.StringPtrInput `pulumi:"componentId"`
+	// A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
 	DnsTargetResource ResourceSetDnsTargetResourcePtrInput `pulumi:"dnsTargetResource"`
 	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 	ReadinessScopes pulumi.StringArrayInput `pulumi:"readinessScopes"`
@@ -629,6 +635,7 @@ func (o ResourceSetResourceOutput) ComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *string { return v.ComponentId }).(pulumi.StringPtrOutput)
 }
 
+// A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
 func (o ResourceSetResourceOutput) DnsTargetResource() ResourceSetDnsTargetResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *ResourceSetDnsTargetResource { return v.DnsTargetResource }).(ResourceSetDnsTargetResourcePtrOutput)
 }
@@ -670,7 +677,9 @@ type ResourceSetTag struct {
 
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResource struct {
-	NlbResource *ResourceSetNlbResource       `pulumi:"nlbResource"`
+	// The Network Load Balancer resource that a DNS target resource points to.
+	NlbResource *ResourceSetNlbResource `pulumi:"nlbResource"`
+	// The Route 53 resource that a DNS target resource record points to.
 	R53Resource *ResourceSetR53ResourceRecord `pulumi:"r53Resource"`
 }
 
@@ -687,7 +696,9 @@ type ResourceSetTargetResourceInput interface {
 
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResourceArgs struct {
-	NlbResource ResourceSetNlbResourcePtrInput       `pulumi:"nlbResource"`
+	// The Network Load Balancer resource that a DNS target resource points to.
+	NlbResource ResourceSetNlbResourcePtrInput `pulumi:"nlbResource"`
+	// The Route 53 resource that a DNS target resource record points to.
 	R53Resource ResourceSetR53ResourceRecordPtrInput `pulumi:"r53Resource"`
 }
 
@@ -769,10 +780,12 @@ func (o ResourceSetTargetResourceOutput) ToResourceSetTargetResourcePtrOutputWit
 	}).(ResourceSetTargetResourcePtrOutput)
 }
 
+// The Network Load Balancer resource that a DNS target resource points to.
 func (o ResourceSetTargetResourceOutput) NlbResource() ResourceSetNlbResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetNlbResource { return v.NlbResource }).(ResourceSetNlbResourcePtrOutput)
 }
 
+// The Route 53 resource that a DNS target resource record points to.
 func (o ResourceSetTargetResourceOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
 	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetR53ResourceRecord { return v.R53Resource }).(ResourceSetR53ResourceRecordPtrOutput)
 }
@@ -801,6 +814,7 @@ func (o ResourceSetTargetResourcePtrOutput) Elem() ResourceSetTargetResourceOutp
 	}).(ResourceSetTargetResourceOutput)
 }
 
+// The Network Load Balancer resource that a DNS target resource points to.
 func (o ResourceSetTargetResourcePtrOutput) NlbResource() ResourceSetNlbResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetNlbResource {
 		if v == nil {
@@ -810,6 +824,7 @@ func (o ResourceSetTargetResourcePtrOutput) NlbResource() ResourceSetNlbResource
 	}).(ResourceSetNlbResourcePtrOutput)
 }
 
+// The Route 53 resource that a DNS target resource record points to.
 func (o ResourceSetTargetResourcePtrOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
 	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetR53ResourceRecord {
 		if v == nil {

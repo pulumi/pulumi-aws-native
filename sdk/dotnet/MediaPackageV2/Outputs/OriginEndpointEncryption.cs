@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).&lt;/p&gt;
         /// </summary>
         public readonly string? ConstantInitializationVector;
+        /// <summary>
+        /// The encryption method to use.
+        /// </summary>
         public readonly Outputs.OriginEndpointEncryptionMethod EncryptionMethod;
         /// <summary>
         /// &lt;p&gt;The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.&lt;/p&gt;
@@ -27,6 +30,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         ///          &lt;/p&gt;
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
+        /// <summary>
+        /// The SPEKE key provider to use for encryption.
+        /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

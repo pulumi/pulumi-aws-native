@@ -23,11 +23,14 @@ func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArg
 }
 
 type LookupSchedulingPolicyArgs struct {
+	// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupSchedulingPolicyResult struct {
-	Arn             *string                          `pulumi:"arn"`
+	// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+	Arn *string `pulumi:"arn"`
+	// The fair share policy of the scheduling policy.
 	FairsharePolicy *SchedulingPolicyFairsharePolicy `pulumi:"fairsharePolicy"`
 }
 
@@ -45,6 +48,7 @@ func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPoli
 }
 
 type LookupSchedulingPolicyOutputArgs struct {
+	// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupSchedulingPolicyResultOutput) ToLookupSchedulingPolicyResultOutput
 	return o
 }
 
+// Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
 func (o LookupSchedulingPolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The fair share policy of the scheduling policy.
 func (o LookupSchedulingPolicyResultOutput) FairsharePolicy() SchedulingPolicyFairsharePolicyPtrOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) *SchedulingPolicyFairsharePolicy { return v.FairsharePolicy }).(SchedulingPolicyFairsharePolicyPtrOutput)
 }

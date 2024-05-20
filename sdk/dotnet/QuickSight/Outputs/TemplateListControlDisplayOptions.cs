@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateListControlDisplayOptions
     {
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         public readonly Outputs.TemplateSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
+        /// <summary>
+        /// The configuration of the search options in a list control.
+        /// </summary>
         public readonly Outputs.TemplateListControlSearchOptions? SearchOptions;
+        /// <summary>
+        /// The configuration of the `Select all` options in a list control.
+        /// </summary>
         public readonly Outputs.TemplateListControlSelectAllOptions? SelectAllOptions;
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         public readonly Outputs.TemplateLabelOptions? TitleOptions;
 
         [OutputConstructor]

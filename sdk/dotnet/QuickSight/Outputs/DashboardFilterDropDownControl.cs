@@ -13,12 +13,36 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterDropDownControl
     {
+        /// <summary>
+        /// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+        /// </summary>
         public readonly Outputs.DashboardCascadingControlConfiguration? CascadingControlConfiguration;
+        /// <summary>
+        /// The display options of the `FilterDropDownControl` .
+        /// </summary>
         public readonly Outputs.DashboardDropDownControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `FilterDropDownControl` .
+        /// </summary>
         public readonly string FilterControlId;
+        /// <summary>
+        /// A list of selectable values that are used in a control.
+        /// </summary>
         public readonly Outputs.DashboardFilterSelectableValues? SelectableValues;
+        /// <summary>
+        /// The source filter ID of the `FilterDropDownControl` .
+        /// </summary>
         public readonly string SourceFilterId;
+        /// <summary>
+        /// The title of the `FilterDropDownControl` .
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// The type of the `FilterDropDownControl` . Choose one of the following options:
+        /// 
+        /// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
+        /// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSheetControlListType? Type;
 
         [OutputConstructor]

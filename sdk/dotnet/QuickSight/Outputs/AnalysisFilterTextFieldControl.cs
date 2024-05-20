@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilterTextFieldControl
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.AnalysisTextFieldControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `FilterTextFieldControl` .
+        /// </summary>
         public readonly string FilterControlId;
+        /// <summary>
+        /// The source filter ID of the `FilterTextFieldControl` .
+        /// </summary>
         public readonly string SourceFilterId;
+        /// <summary>
+        /// The title of the `FilterTextFieldControl` .
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

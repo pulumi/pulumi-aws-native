@@ -24,14 +24,25 @@ func LookupCollaboration(ctx *pulumi.Context, args *LookupCollaborationArgs, opt
 }
 
 type LookupCollaborationArgs struct {
+	// Returns the unique identifier of the specified collaboration.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	CollaborationIdentifier string `pulumi:"collaborationIdentifier"`
 }
 
 type LookupCollaborationResult struct {
-	Arn                     *string `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+	//
+	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+	Arn *string `pulumi:"arn"`
+	// Returns the unique identifier of the specified collaboration.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	CollaborationIdentifier *string `pulumi:"collaborationIdentifier"`
-	Description             *string `pulumi:"description"`
-	Name                    *string `pulumi:"name"`
+	// A description of the collaboration provided by the collaboration owner.
+	Description *string `pulumi:"description"`
+	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+	Name *string `pulumi:"name"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -50,6 +61,9 @@ func LookupCollaborationOutput(ctx *pulumi.Context, args LookupCollaborationOutp
 }
 
 type LookupCollaborationOutputArgs struct {
+	// Returns the unique identifier of the specified collaboration.
+	//
+	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	CollaborationIdentifier pulumi.StringInput `pulumi:"collaborationIdentifier"`
 }
 
@@ -71,18 +85,26 @@ func (o LookupCollaborationResultOutput) ToLookupCollaborationResultOutputWithCo
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+//
+// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o LookupCollaborationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollaborationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Returns the unique identifier of the specified collaboration.
+//
+// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 func (o LookupCollaborationResultOutput) CollaborationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollaborationResult) *string { return v.CollaborationIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A description of the collaboration provided by the collaboration owner.
 func (o LookupCollaborationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollaborationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 func (o LookupCollaborationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollaborationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

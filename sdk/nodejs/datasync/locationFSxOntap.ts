@@ -49,6 +49,9 @@ export class LocationFSxOntap extends pulumi.CustomResource {
      * The URL of the FSx ONTAP file system that was described.
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
+    /**
+     * Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+     */
     public readonly protocol!: pulumi.Output<outputs.datasync.LocationFSxOntapProtocol | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
@@ -113,6 +116,9 @@ export class LocationFSxOntap extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationFSxOntap resource.
  */
 export interface LocationFSxOntapArgs {
+    /**
+     * Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
+     */
     protocol?: pulumi.Input<inputs.datasync.LocationFSxOntapProtocolArgs>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx ONTAP file system.

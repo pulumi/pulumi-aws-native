@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("quality")]
         public Input<string>? Quality { get; set; }
 
+        /// <summary>
+        /// The timestamp associated with the asset property value. The default is the current event time.
+        /// </summary>
         [Input("timestamp")]
         public Input<Inputs.DetectorModelAssetPropertyTimestampArgs>? Timestamp { get; set; }
 
+        /// <summary>
+        /// The value to send to an asset property.
+        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.DetectorModelAssetPropertyVariantArgs> Value { get; set; } = null!;
 

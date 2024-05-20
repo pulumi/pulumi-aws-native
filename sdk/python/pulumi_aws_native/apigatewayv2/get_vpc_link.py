@@ -32,6 +32,9 @@ class GetVpcLinkResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the VPC link.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -45,6 +48,9 @@ class GetVpcLinkResult:
     @property
     @pulumi.getter(name="vpcLinkId")
     def vpc_link_id(self) -> Optional[str]:
+        """
+        The VPC link ID.
+        """
         return pulumi.get(self, "vpc_link_id")
 
 
@@ -63,6 +69,9 @@ def get_vpc_link(vpc_link_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcLinkResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::VpcLink
+
+
+    :param str vpc_link_id: The VPC link ID.
     """
     __args__ = dict()
     __args__['vpcLinkId'] = vpc_link_id
@@ -80,5 +89,8 @@ def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::VpcLink
+
+
+    :param str vpc_link_id: The VPC link ID.
     """
     ...

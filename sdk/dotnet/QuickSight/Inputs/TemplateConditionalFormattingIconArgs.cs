@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateConditionalFormattingIconArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the custom condition for an icon set.
+        /// </summary>
         [Input("customCondition")]
         public Input<Inputs.TemplateConditionalFormattingCustomIconConditionArgs>? CustomCondition { get; set; }
 
+        /// <summary>
+        /// Formatting configuration for icon set.
+        /// </summary>
         [Input("iconSet")]
         public Input<Inputs.TemplateConditionalFormattingIconSetArgs>? IconSet { get; set; }
 

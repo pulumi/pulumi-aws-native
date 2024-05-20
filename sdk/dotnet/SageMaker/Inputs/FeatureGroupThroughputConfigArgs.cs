@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("provisionedWriteCapacityUnits")]
         public Input<int>? ProvisionedWriteCapacityUnits { get; set; }
 
+        /// <summary>
+        /// The mode used for your feature group throughput: `ON_DEMAND` or `PROVISIONED` .
+        /// </summary>
         [Input("throughputMode", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.FeatureGroupThroughputMode> ThroughputMode { get; set; } = null!;
 

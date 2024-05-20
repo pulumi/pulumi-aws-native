@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("httpPackageConfigurations")]
         public Output<ImmutableArray<Outputs.VodSourceHttpPackageConfiguration>> HttpPackageConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the source location that the VOD source is associated with.
+        /// </summary>
         [Output("sourceLocationName")]
         public Output<string> SourceLocationName { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the VOD source.
+        /// </summary>
         [Output("vodSourceName")]
         public Output<string> VodSourceName { get; private set; } = null!;
 
@@ -101,6 +107,9 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _httpPackageConfigurations = value;
         }
 
+        /// <summary>
+        /// The name of the source location that the VOD source is associated with.
+        /// </summary>
         [Input("sourceLocationName", required: true)]
         public Input<string> SourceLocationName { get; set; } = null!;
 
@@ -116,6 +125,9 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the VOD source.
+        /// </summary>
         [Input("vodSourceName")]
         public Input<string>? VodSourceName { get; set; }
 

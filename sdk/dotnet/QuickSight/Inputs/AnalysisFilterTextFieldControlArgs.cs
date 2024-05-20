@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisFilterTextFieldControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.AnalysisTextFieldControlDisplayOptionsArgs>? DisplayOptions { get; set; }
 
+        /// <summary>
+        /// The ID of the `FilterTextFieldControl` .
+        /// </summary>
         [Input("filterControlId", required: true)]
         public Input<string> FilterControlId { get; set; } = null!;
 
+        /// <summary>
+        /// The source filter ID of the `FilterTextFieldControl` .
+        /// </summary>
         [Input("sourceFilterId", required: true)]
         public Input<string> SourceFilterId { get; set; } = null!;
 
+        /// <summary>
+        /// The title of the `FilterTextFieldControl` .
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

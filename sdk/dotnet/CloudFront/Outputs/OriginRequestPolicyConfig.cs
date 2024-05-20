@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class OriginRequestPolicyConfig
     {
+        /// <summary>
+        /// A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// The cookies from viewer requests to include in origin requests.
+        /// </summary>
         public readonly Outputs.OriginRequestPolicyCookiesConfig CookiesConfig;
+        /// <summary>
+        /// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
+        /// </summary>
         public readonly Outputs.OriginRequestPolicyHeadersConfig HeadersConfig;
+        /// <summary>
+        /// A unique name to identify the origin request policy.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The URL query strings from viewer requests to include in origin requests.
+        /// </summary>
         public readonly Outputs.OriginRequestPolicyQueryStringsConfig QueryStringsConfig;
 
         [OutputConstructor]

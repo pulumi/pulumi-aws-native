@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensPrefixLevel
     {
+        /// <summary>
+        /// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensPrefixLevelStorageMetrics StorageMetrics;
 
         [OutputConstructor]

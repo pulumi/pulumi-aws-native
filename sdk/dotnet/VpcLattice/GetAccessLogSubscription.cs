@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetAccessLogSubscriptionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the access log subscription.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetAccessLogSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the access log subscription.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetAccessLogSubscriptionResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the access log subscription.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+        /// </summary>
         public readonly string? DestinationArn;
+        /// <summary>
+        /// The ID of the access log subscription.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the access log subscription.
+        /// </summary>
         public readonly string? ResourceArn;
+        /// <summary>
+        /// The ID of the service network or service.
+        /// </summary>
         public readonly string? ResourceId;
+        /// <summary>
+        /// The tags for the access log subscription.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

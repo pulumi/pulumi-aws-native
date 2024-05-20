@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class RecipeStep
     {
+        /// <summary>
+        /// The particular action to be performed in the recipe step.
+        /// </summary>
         public readonly Outputs.RecipeAction Action;
         /// <summary>
         /// Condition expressions applied to the step action

@@ -16,13 +16,28 @@ export function getFarm(args: GetFarmArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetFarmArgs {
+    /**
+     * The Amazon Resource Name (ARN) assigned to the farm.
+     */
     arn: string;
 }
 
 export interface GetFarmResult {
+    /**
+     * The Amazon Resource Name (ARN) assigned to the farm.
+     */
     readonly arn?: string;
+    /**
+     * A description of the farm that helps identify what the farm is used for.
+     */
     readonly description?: string;
+    /**
+     * The display name of the farm.
+     */
     readonly displayName?: string;
+    /**
+     * The farm ID.
+     */
     readonly farmId?: string;
 }
 /**
@@ -33,5 +48,8 @@ export function getFarmOutput(args: GetFarmOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetFarmOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) assigned to the farm.
+     */
     arn: pulumi.Input<string>;
 }

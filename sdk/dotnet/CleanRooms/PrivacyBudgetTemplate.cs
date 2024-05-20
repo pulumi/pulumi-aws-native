@@ -15,30 +15,59 @@ namespace Pulumi.AwsNative.CleanRooms
     [AwsNativeResourceType("aws-native:cleanrooms:PrivacyBudgetTemplate")]
     public partial class PrivacyBudgetTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the privacy budget template.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// How often the privacy budget refreshes.
+        /// 
+        /// &gt; If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+        /// </summary>
         [Output("autoRefresh")]
         public Output<Pulumi.AwsNative.CleanRooms.PrivacyBudgetTemplateAutoRefresh> AutoRefresh { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the collaboration that contains this privacy budget template.
+        /// </summary>
         [Output("collaborationArn")]
         public Output<string> CollaborationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the collaboration that contains this privacy budget template.
+        /// </summary>
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+        /// </summary>
         [Output("membershipArn")]
         public Output<string> MembershipArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Output("membershipIdentifier")]
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the epislon and noise parameters for the privacy budget template.
+        /// </summary>
         [Output("parameters")]
         public Output<Outputs.ParametersProperties> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+        /// </summary>
         [Output("privacyBudgetTemplateIdentifier")]
         public Output<string> PrivacyBudgetTemplateIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the type of the privacy budget template.
+        /// </summary>
         [Output("privacyBudgetType")]
         public Output<Pulumi.AwsNative.CleanRooms.PrivacyBudgetTemplatePrivacyBudgetType> PrivacyBudgetType { get; private set; } = null!;
 
@@ -99,15 +128,29 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class PrivacyBudgetTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// How often the privacy budget refreshes.
+        /// 
+        /// &gt; If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+        /// </summary>
         [Input("autoRefresh", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.PrivacyBudgetTemplateAutoRefresh> AutoRefresh { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the epislon and noise parameters for the privacy budget template.
+        /// </summary>
         [Input("parameters", required: true)]
         public Input<Inputs.ParametersPropertiesArgs> Parameters { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the type of the privacy budget template.
+        /// </summary>
         [Input("privacyBudgetType", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.PrivacyBudgetTemplatePrivacyBudgetType> PrivacyBudgetType { get; set; } = null!;
 

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class LaunchGroupObjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the launch group.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The feature that this launch is using.
+        /// </summary>
         [Input("feature", required: true)]
         public Input<string> Feature { get; set; } = null!;
 
+        /// <summary>
+        /// A name for this launch group. It can include up to 127 characters.
+        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The feature variation to use for this launch group.
+        /// </summary>
         [Input("variation", required: true)]
         public Input<string> Variation { get; set; } = null!;
 

@@ -72,6 +72,11 @@ class GetCrossAccountAttachmentResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Add tags for a cross-account attachment.
+
+        For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+        """
         return pulumi.get(self, "tags")
 
 

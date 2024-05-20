@@ -19,23 +19,44 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetBotArgs {
+    /**
+     * The unique identifier of the bot.
+     */
     id: string;
 }
 
 export interface GetBotResult {
+    /**
+     * The Amazon Resource Name (ARN) of the bot.
+     */
     readonly arn?: string;
     /**
      * Data privacy setting of the Bot.
      */
     readonly dataPrivacy?: outputs.lex.DataPrivacyProperties;
+    /**
+     * The description of the version.
+     */
     readonly description?: string;
+    /**
+     * The unique identifier of the bot.
+     */
     readonly id?: string;
     /**
      * IdleSessionTTLInSeconds of the resource
      */
     readonly idleSessionTtlInSeconds?: number;
+    /**
+     * The name of the bot locale.
+     */
     readonly name?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+     */
     readonly roleArn?: string;
+    /**
+     * Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+     */
     readonly testBotAliasSettings?: outputs.lex.BotTestBotAliasSettings;
 }
 /**
@@ -46,5 +67,8 @@ export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetBotOutputArgs {
+    /**
+     * The unique identifier of the bot.
+     */
     id: pulumi.Input<string>;
 }

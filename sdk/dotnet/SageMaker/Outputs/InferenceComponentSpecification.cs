@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceComponentSpecification
     {
+        /// <summary>
+        /// The compute resources allocated to run the model assigned to the inference component.
+        /// </summary>
         public readonly Outputs.InferenceComponentComputeResourceRequirements ComputeResourceRequirements;
+        /// <summary>
+        /// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
+        /// </summary>
         public readonly Outputs.InferenceComponentContainerSpecification? Container;
+        /// <summary>
+        /// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        /// </summary>
         public readonly string? ModelName;
+        /// <summary>
+        /// Settings that take effect while the model container starts up.
+        /// </summary>
         public readonly Outputs.InferenceComponentStartupParameters? StartupParameters;
 
         [OutputConstructor]

@@ -38,14 +38,36 @@ export class BackupVault extends pulumi.CustomResource {
     }
 
     /**
+     * A resource-based policy that is used to manage access permissions on the target backup vault.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
      */
     public readonly accessPolicy!: pulumi.Output<any | undefined>;
+    /**
+     * An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+     */
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    /**
+     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+     */
     public readonly backupVaultName!: pulumi.Output<string>;
+    /**
+     * The tags to assign to the backup vault.
+     */
     public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+     *
+     * To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+     */
     public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+     */
     public readonly lockConfiguration!: pulumi.Output<outputs.backup.BackupVaultLockConfigurationType | undefined>;
+    /**
+     * The SNS event notifications for the specified backup vault.
+     */
     public readonly notifications!: pulumi.Output<outputs.backup.BackupVaultNotificationObjectType | undefined>;
 
     /**
@@ -87,12 +109,31 @@ export class BackupVault extends pulumi.CustomResource {
  */
 export interface BackupVaultArgs {
     /**
+     * A resource-based policy that is used to manage access permissions on the target backup vault.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
      */
     accessPolicy?: any;
+    /**
+     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+     */
     backupVaultName?: pulumi.Input<string>;
+    /**
+     * The tags to assign to the backup vault.
+     */
     backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+     *
+     * To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+     */
     encryptionKeyArn?: pulumi.Input<string>;
+    /**
+     * Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+     */
     lockConfiguration?: pulumi.Input<inputs.backup.BackupVaultLockConfigurationTypeArgs>;
+    /**
+     * The SNS event notifications for the specified backup vault.
+     */
     notifications?: pulumi.Input<inputs.backup.BackupVaultNotificationObjectTypeArgs>;
 }

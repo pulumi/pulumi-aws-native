@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDatasetParameter
     {
+        /// <summary>
+        /// A date time parameter that is created in the dataset.
+        /// </summary>
         public readonly Outputs.DataSetDateTimeDatasetParameter? DateTimeDatasetParameter;
+        /// <summary>
+        /// A decimal parameter that is created in the dataset.
+        /// </summary>
         public readonly Outputs.DataSetDecimalDatasetParameter? DecimalDatasetParameter;
+        /// <summary>
+        /// An integer parameter that is created in the dataset.
+        /// </summary>
         public readonly Outputs.DataSetIntegerDatasetParameter? IntegerDatasetParameter;
+        /// <summary>
+        /// A string parameter that is created in the dataset.
+        /// </summary>
         public readonly Outputs.DataSetStringDatasetParameter? StringDatasetParameter;
 
         [OutputConstructor]

@@ -39,21 +39,47 @@ class GetImageResult:
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the image.
+
+        *Type* : String
+
+        *Length Constraints* : Maximum length of 256.
+
+        *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
+        """
         return pulumi.get(self, "image_arn")
 
     @property
     @pulumi.getter(name="imageDescription")
     def image_description(self) -> Optional[str]:
+        """
+        The description of the image.
+        """
         return pulumi.get(self, "image_description")
 
     @property
     @pulumi.getter(name="imageDisplayName")
     def image_display_name(self) -> Optional[str]:
+        """
+        The display name of the image.
+
+        *Length Constraints* : Minimum length of 1. Maximum length of 128.
+
+        *Pattern* : `^\\S(.*\\S)?$`
+        """
         return pulumi.get(self, "image_display_name")
 
     @property
     @pulumi.getter(name="imageRoleArn")
     def image_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+
+        *Length Constraints* : Minimum length of 20. Maximum length of 2048.
+
+        *Pattern* : `^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$`
+        """
         return pulumi.get(self, "image_role_arn")
 
     @property
@@ -82,6 +108,15 @@ def get_image(image_arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Resource Type definition for AWS::SageMaker::Image
+
+
+    :param str image_arn: The Amazon Resource Name (ARN) of the image.
+           
+           *Type* : String
+           
+           *Length Constraints* : Maximum length of 256.
+           
+           *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
     """
     __args__ = dict()
     __args__['imageArn'] = image_arn
@@ -101,5 +136,14 @@ def get_image_output(image_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Resource Type definition for AWS::SageMaker::Image
+
+
+    :param str image_arn: The Amazon Resource Name (ARN) of the image.
+           
+           *Type* : String
+           
+           *Length Constraints* : Maximum length of 256.
+           
+           *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
     """
     ...

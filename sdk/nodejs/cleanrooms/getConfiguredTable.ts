@@ -19,14 +19,38 @@ export function getConfiguredTable(args: GetConfiguredTableArgs, opts?: pulumi.I
 }
 
 export interface GetConfiguredTableArgs {
+    /**
+     * Returns the unique identifier of the specified configured table.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     configuredTableIdentifier: string;
 }
 
 export interface GetConfiguredTableResult {
+    /**
+     * The entire created analysis rule.
+     */
     readonly analysisRules?: outputs.cleanrooms.ConfiguredTableAnalysisRule[];
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified configured table.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     readonly arn?: string;
+    /**
+     * Returns the unique identifier of the specified configured table.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     readonly configuredTableIdentifier?: string;
+    /**
+     * A description for the configured table.
+     */
     readonly description?: string;
+    /**
+     * A name for the configured table.
+     */
     readonly name?: string;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -41,5 +65,10 @@ export function getConfiguredTableOutput(args: GetConfiguredTableOutputArgs, opt
 }
 
 export interface GetConfiguredTableOutputArgs {
+    /**
+     * Returns the unique identifier of the specified configured table.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     configuredTableIdentifier: pulumi.Input<string>;
 }

@@ -60,11 +60,17 @@ export class Schedule extends pulumi.CustomResource {
      * Schedule cron
      */
     public readonly cronExpression!: pulumi.Output<string>;
+    /**
+     * A list of jobs to be run, according to the schedule.
+     */
     public readonly jobNames!: pulumi.Output<string[] | undefined>;
     /**
      * Schedule Name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Metadata tags that have been applied to the schedule.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -106,10 +112,16 @@ export interface ScheduleArgs {
      * Schedule cron
      */
     cronExpression: pulumi.Input<string>;
+    /**
+     * A list of jobs to be run, according to the schedule.
+     */
     jobNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Schedule Name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Metadata tags that have been applied to the schedule.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

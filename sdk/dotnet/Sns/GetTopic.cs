@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of an Amazon SNS topic.
+        /// </summary>
         [Input("topicArn", required: true)]
         public string TopicArn { get; set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the ARN of an Amazon SNS topic.
+        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 
@@ -77,6 +83,17 @@ namespace Pulumi.AwsNative.Sns
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? DataProtectionPolicy;
+        /// <summary>
+        /// The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+        /// 
+        /// - HTTP
+        /// - Amazon Kinesis Data Firehose
+        /// - AWS Lambda
+        /// - Platform application endpoint
+        /// - Amazon Simple Queue Service
+        /// 
+        /// Once configured, log entries are sent to Amazon CloudWatch Logs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicLoggingConfig> DeliveryStatusLogging;
         /// <summary>
         /// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
@@ -101,6 +118,9 @@ namespace Pulumi.AwsNative.Sns
         ///   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Returns the ARN of an Amazon SNS topic.
+        /// </summary>
         public readonly string? TopicArn;
         /// <summary>
         /// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.

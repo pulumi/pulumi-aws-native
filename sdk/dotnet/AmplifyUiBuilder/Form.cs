@@ -15,42 +15,81 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [AwsNativeResourceType("aws-native:amplifyuibuilder:Form")]
     public partial class Form : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique ID of the Amplify app associated with the form.
+        /// </summary>
         [Output("appId")]
         public Output<string?> AppId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the form.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The `FormCTA` object that stores the call to action configuration for the form.
+        /// </summary>
         [Output("cta")]
         public Output<Outputs.FormCta?> Cta { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of data source to use to create the form.
+        /// </summary>
         [Output("dataType")]
         public Output<Outputs.FormDataTypeConfig?> DataType { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration information for the form's fields.
+        /// </summary>
         [Output("fields")]
         public Output<ImmutableDictionary<string, Outputs.FormFieldConfig>?> Fields { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to perform a create or update action on the form.
+        /// </summary>
         [Output("formActionType")]
         public Output<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType?> FormActionType { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies an icon or decoration to display on the form.
+        /// </summary>
         [Output("labelDecorator")]
         public Output<Pulumi.AwsNative.AmplifyUiBuilder.FormLabelDecorator?> LabelDecorator { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the form.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The schema version of the form.
+        /// </summary>
         [Output("schemaVersion")]
         public Output<string?> SchemaVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        /// </summary>
         [Output("sectionalElements")]
         public Output<ImmutableDictionary<string, Outputs.FormSectionalElement>?> SectionalElements { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for the form's style.
+        /// </summary>
         [Output("style")]
         public Output<Outputs.FormStyle?> Style { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the form data.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -104,51 +143,90 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class FormArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique ID of the Amplify app associated with the form.
+        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
+        /// <summary>
+        /// The `FormCTA` object that stores the call to action configuration for the form.
+        /// </summary>
         [Input("cta")]
         public Input<Inputs.FormCtaArgs>? Cta { get; set; }
 
+        /// <summary>
+        /// The type of data source to use to create the form.
+        /// </summary>
         [Input("dataType")]
         public Input<Inputs.FormDataTypeConfigArgs>? DataType { get; set; }
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
 
         [Input("fields")]
         private InputMap<Inputs.FormFieldConfigArgs>? _fields;
+
+        /// <summary>
+        /// The configuration information for the form's fields.
+        /// </summary>
         public InputMap<Inputs.FormFieldConfigArgs> Fields
         {
             get => _fields ?? (_fields = new InputMap<Inputs.FormFieldConfigArgs>());
             set => _fields = value;
         }
 
+        /// <summary>
+        /// Specifies whether to perform a create or update action on the form.
+        /// </summary>
         [Input("formActionType")]
         public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType>? FormActionType { get; set; }
 
+        /// <summary>
+        /// Specifies an icon or decoration to display on the form.
+        /// </summary>
         [Input("labelDecorator")]
         public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormLabelDecorator>? LabelDecorator { get; set; }
 
+        /// <summary>
+        /// The name of the form.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The schema version of the form.
+        /// </summary>
         [Input("schemaVersion")]
         public Input<string>? SchemaVersion { get; set; }
 
         [Input("sectionalElements")]
         private InputMap<Inputs.FormSectionalElementArgs>? _sectionalElements;
+
+        /// <summary>
+        /// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+        /// </summary>
         public InputMap<Inputs.FormSectionalElementArgs> SectionalElements
         {
             get => _sectionalElements ?? (_sectionalElements = new InputMap<Inputs.FormSectionalElementArgs>());
             set => _sectionalElements = value;
         }
 
+        /// <summary>
+        /// The configuration for the form's style.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.FormStyleArgs>? Style { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the form data.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

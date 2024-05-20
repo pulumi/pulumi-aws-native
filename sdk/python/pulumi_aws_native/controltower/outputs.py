@@ -20,6 +20,10 @@ class EnabledBaselineParameter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[Any] = None):
+        """
+        :param str key: A string denoting the parameter key.
+        :param Union[str, Any, float, Sequence[Union[bool, float, Any, str]], bool] value: A low-level `Document` object of any type (for example, a Java Object).
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -28,11 +32,17 @@ class EnabledBaselineParameter(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        A string denoting the parameter key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[Any]:
+        """
+        A low-level `Document` object of any type (for example, a Java Object).
+        """
         return pulumi.get(self, "value")
 
 
@@ -41,17 +51,27 @@ class EnabledControlParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: Any):
+        """
+        :param str key: The key of a key/value pair. It is of type `string` .
+        :param Union[Sequence[Union[str, float, Any, bool]], str, float, Any, bool] value: The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of a key/value pair. It is of type `string` .
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Any:
+        """
+        The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
+        """
         return pulumi.get(self, "value")
 
 

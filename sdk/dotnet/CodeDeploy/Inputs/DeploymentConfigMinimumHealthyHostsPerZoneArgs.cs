@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
 
     public sealed class DeploymentConfigMinimumHealthyHostsPerZoneArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The `type` associated with the `MinimumHealthyHostsPerZone` option.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The `value` associated with the `MinimumHealthyHostsPerZone` option.
+        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

@@ -37,18 +37,57 @@ export class Plugin extends pulumi.CustomResource {
         return obj['__pulumiType'] === Plugin.__pulumiType;
     }
 
+    /**
+     * The identifier of the application that will contain the plugin.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * Authentication configuration information for an Amazon Q Business plugin.
+     */
     public readonly authConfiguration!: pulumi.Output<outputs.qbusiness.PluginAuthConfiguration0Properties | outputs.qbusiness.PluginAuthConfiguration1Properties | outputs.qbusiness.PluginAuthConfiguration2Properties>;
+    /**
+     * The current status of a plugin. A plugin is modified asynchronously.
+     */
     public /*out*/ readonly buildStatus!: pulumi.Output<enums.qbusiness.PluginBuildStatus>;
+    /**
+     * The timestamp for when the plugin was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Configuration information required to create a custom plugin.
+     */
     public readonly customPluginConfiguration!: pulumi.Output<outputs.qbusiness.PluginCustomPluginConfiguration | undefined>;
+    /**
+     * The name of the plugin.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a plugin.
+     */
     public /*out*/ readonly pluginArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the plugin.
+     */
     public /*out*/ readonly pluginId!: pulumi.Output<string>;
+    /**
+     * The plugin server URL used for configuration.
+     */
     public readonly serverUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The current status of the plugin.
+     */
     public readonly state!: pulumi.Output<enums.qbusiness.PluginState | undefined>;
+    /**
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of the plugin.
+     */
     public readonly type!: pulumi.Output<enums.qbusiness.PluginType>;
+    /**
+     * The timestamp for when the plugin was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -113,12 +152,36 @@ export class Plugin extends pulumi.CustomResource {
  * The set of arguments for constructing a Plugin resource.
  */
 export interface PluginArgs {
+    /**
+     * The identifier of the application that will contain the plugin.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * Authentication configuration information for an Amazon Q Business plugin.
+     */
     authConfiguration: pulumi.Input<inputs.qbusiness.PluginAuthConfiguration0PropertiesArgs | inputs.qbusiness.PluginAuthConfiguration1PropertiesArgs | inputs.qbusiness.PluginAuthConfiguration2PropertiesArgs>;
+    /**
+     * Configuration information required to create a custom plugin.
+     */
     customPluginConfiguration?: pulumi.Input<inputs.qbusiness.PluginCustomPluginConfigurationArgs>;
+    /**
+     * The name of the plugin.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The plugin server URL used for configuration.
+     */
     serverUrl?: pulumi.Input<string>;
+    /**
+     * The current status of the plugin.
+     */
     state?: pulumi.Input<enums.qbusiness.PluginState>;
+    /**
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The type of the plugin.
+     */
     type: pulumi.Input<enums.qbusiness.PluginType>;
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("breakdowns")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _breakdowns;
+
+        /// <summary>
+        /// The breakdown field wells of a waterfall visual.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> Breakdowns
         {
             get => _breakdowns ?? (_breakdowns = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("categories")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _categories;
+
+        /// <summary>
+        /// The category field wells of a waterfall visual.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> Categories
         {
             get => _categories ?? (_categories = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.DashboardMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The value field wells of a waterfall visual.
+        /// </summary>
         public InputList<Inputs.DashboardMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.DashboardMeasureFieldArgs>());

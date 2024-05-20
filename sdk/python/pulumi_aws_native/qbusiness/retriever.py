@@ -27,6 +27,12 @@ class RetrieverArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Retriever resource.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application using the retriever.
+        :param pulumi.Input[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration1PropertiesArgs']] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
+        :param pulumi.Input[str] display_name: The name of your retriever.
+        :param pulumi.Input['RetrieverType'] type: The type of your retriever.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration", configuration)
@@ -40,6 +46,9 @@ class RetrieverArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q Business application using the retriever.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -49,6 +58,9 @@ class RetrieverArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Union['RetrieverConfiguration0PropertiesArgs', 'RetrieverConfiguration1PropertiesArgs']]:
+        """
+        Provides information on how the retriever used for your Amazon Q Business application is configured.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -58,6 +70,9 @@ class RetrieverArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of your retriever.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -67,6 +82,9 @@ class RetrieverArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['RetrieverType']:
+        """
+        The type of your retriever.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -76,6 +94,9 @@ class RetrieverArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -85,6 +106,9 @@ class RetrieverArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -109,6 +133,12 @@ class Retriever(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application using the retriever.
+        :param pulumi.Input[Union[pulumi.InputType['RetrieverConfiguration0PropertiesArgs'], pulumi.InputType['RetrieverConfiguration1PropertiesArgs']]] configuration: Provides information on how the retriever used for your Amazon Q Business application is configured.
+        :param pulumi.Input[str] display_name: The name of your retriever.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input['RetrieverType'] type: The type of your retriever.
         """
         ...
     @overload
@@ -208,55 +238,88 @@ class Retriever(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q Business application using the retriever.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
+        """
+        Provides information on how the retriever used for your Amazon Q Business application is configured.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the retriever was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of your retriever.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="retrieverArn")
     def retriever_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
+        """
         return pulumi.get(self, "retriever_arn")
 
     @property
     @pulumi.getter(name="retrieverId")
     def retriever_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the retriever used by your Amazon Q Business application.
+        """
         return pulumi.get(self, "retriever_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['RetrieverStatus']:
+        """
+        The status of your retriever.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['RetrieverType']:
+        """
+        The type of your retriever.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the retriever was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

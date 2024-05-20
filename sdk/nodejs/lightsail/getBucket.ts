@@ -30,7 +30,13 @@ export interface GetBucketResult {
      * Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
      */
     readonly ableToUpdateBundle?: boolean;
+    /**
+     * An object that describes the access rules for the bucket.
+     */
     readonly accessRules?: outputs.lightsail.BucketAccessRules;
+    /**
+     * The Amazon Resource Name (ARN) of the bucket.
+     */
     readonly bucketArn?: string;
     /**
      * The ID of the bundle to use for the bucket.

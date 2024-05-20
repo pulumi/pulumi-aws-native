@@ -181,6 +181,8 @@ class ChannelRequestOutputItemArgs:
         <p>The output configuration for this channel.</p>
         :param pulumi.Input[str] manifest_name: <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
         :param pulumi.Input[str] source_group: <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
+        :param pulumi.Input['ChannelDashPlaylistSettingsArgs'] dash_playlist_settings: DASH manifest configuration parameters.
+        :param pulumi.Input['ChannelHlsPlaylistSettingsArgs'] hls_playlist_settings: HLS playlist configuration parameters.
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
         pulumi.set(__self__, "source_group", source_group)
@@ -216,6 +218,9 @@ class ChannelRequestOutputItemArgs:
     @property
     @pulumi.getter(name="dashPlaylistSettings")
     def dash_playlist_settings(self) -> Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']]:
+        """
+        DASH manifest configuration parameters.
+        """
         return pulumi.get(self, "dash_playlist_settings")
 
     @dash_playlist_settings.setter
@@ -225,6 +230,9 @@ class ChannelRequestOutputItemArgs:
     @property
     @pulumi.getter(name="hlsPlaylistSettings")
     def hls_playlist_settings(self) -> Optional[pulumi.Input['ChannelHlsPlaylistSettingsArgs']]:
+        """
+        HLS playlist configuration parameters.
+        """
         return pulumi.get(self, "hls_playlist_settings")
 
     @hls_playlist_settings.setter
@@ -305,6 +313,7 @@ class LiveSourceHttpPackageConfigurationArgs:
         <p>The HTTP package configuration properties for the requested VOD source.</p>
         :param pulumi.Input[str] path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
         :param pulumi.Input[str] source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        :param pulumi.Input['LiveSourceType'] type: The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "source_group", source_group)
@@ -337,6 +346,9 @@ class LiveSourceHttpPackageConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['LiveSourceType']:
+        """
+        The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -654,6 +666,18 @@ class SourceLocationAccessConfigurationArgs:
                  secrets_manager_access_token_configuration: Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']] = None):
         """
         <p>Access configuration parameters.</p>
+        :param pulumi.Input['SourceLocationAccessType'] access_type: The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+               
+               `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+               
+               Before you can use `S3_SIGV4` , you must meet these requirements:
+               
+               • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+               
+               • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+               
+               • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
+        :param pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs'] secrets_manager_access_token_configuration: AWS Secrets Manager access token configuration parameters.
         """
         if access_type is not None:
             pulumi.set(__self__, "access_type", access_type)
@@ -663,6 +687,19 @@ class SourceLocationAccessConfigurationArgs:
     @property
     @pulumi.getter(name="accessType")
     def access_type(self) -> Optional[pulumi.Input['SourceLocationAccessType']]:
+        """
+        The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
+
+        `S3_SIGV4` - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.
+
+        Before you can use `S3_SIGV4` , you must meet these requirements:
+
+        • You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.
+
+        • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
+
+        • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
+        """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
@@ -672,6 +709,9 @@ class SourceLocationAccessConfigurationArgs:
     @property
     @pulumi.getter(name="secretsManagerAccessTokenConfiguration")
     def secrets_manager_access_token_configuration(self) -> Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']]:
+        """
+        AWS Secrets Manager access token configuration parameters.
+        """
         return pulumi.get(self, "secrets_manager_access_token_configuration")
 
     @secrets_manager_access_token_configuration.setter
@@ -832,6 +872,7 @@ class VodSourceHttpPackageConfigurationArgs:
         <p>The HTTP package configuration properties for the requested VOD source.</p>
         :param pulumi.Input[str] path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
         :param pulumi.Input[str] source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
+        :param pulumi.Input['VodSourceType'] type: The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "source_group", source_group)
@@ -864,6 +905,9 @@ class VodSourceHttpPackageConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['VodSourceType']:
+        """
+        The streaming protocol for this package configuration. Supported values are `HLS` and `DASH` .
+        """
         return pulumi.get(self, "type")
 
     @type.setter

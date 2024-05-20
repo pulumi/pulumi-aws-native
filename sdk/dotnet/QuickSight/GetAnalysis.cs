@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetAnalysisArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        /// </summary>
         [Input("analysisId", required: true)]
         public string AnalysisId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account where you are creating an analysis.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetAnalysisInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
+        /// </summary>
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account where you are creating an analysis.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
@@ -81,11 +93,19 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+        /// 
+        /// To specify no permissions, omit `Permissions` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisResourcePermission> Permissions;
         /// <summary>
         /// &lt;p&gt;A list of the associated sheets with the unique identifier and name of each sheet.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheet> Sheets;
+        /// <summary>
+        /// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;

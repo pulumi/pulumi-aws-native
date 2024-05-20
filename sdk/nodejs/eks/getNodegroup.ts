@@ -23,6 +23,9 @@ export interface GetNodegroupArgs {
 }
 
 export interface GetNodegroupResult {
+    /**
+     * The Amazon Resource Name (ARN) associated with the managed node group.
+     */
     readonly arn?: string;
     readonly id?: string;
     /**

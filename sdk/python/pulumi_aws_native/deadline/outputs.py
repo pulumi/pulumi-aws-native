@@ -80,6 +80,11 @@ class FleetAmountCapability(dict):
                  min: float,
                  name: str,
                  max: Optional[float] = None):
+        """
+        :param float min: The minimum amount of fleet worker capability.
+        :param str name: The name of the fleet capability.
+        :param float max: The maximum amount of the fleet worker capability.
+        """
         pulumi.set(__self__, "min", min)
         pulumi.set(__self__, "name", name)
         if max is not None:
@@ -88,16 +93,25 @@ class FleetAmountCapability(dict):
     @property
     @pulumi.getter
     def min(self) -> float:
+        """
+        The minimum amount of fleet worker capability.
+        """
         return pulumi.get(self, "min")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the fleet capability.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def max(self) -> Optional[float]:
+        """
+        The maximum amount of the fleet worker capability.
+        """
         return pulumi.get(self, "max")
 
 
@@ -106,17 +120,27 @@ class FleetAttributeCapability(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        :param str name: The name of the fleet attribute capability for the worker.
+        :param Sequence[str] values: The number of fleet attribute capabilities.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the fleet attribute capability for the worker.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        The number of fleet attribute capabilities.
+        """
         return pulumi.get(self, "values")
 
 
@@ -125,6 +149,10 @@ class FleetCapabilities(dict):
     def __init__(__self__, *,
                  amounts: Optional[Sequence['outputs.FleetAmountCapability']] = None,
                  attributes: Optional[Sequence['outputs.FleetAttributeCapability']] = None):
+        """
+        :param Sequence['FleetAmountCapability'] amounts: Amount capabilities of the fleet.
+        :param Sequence['FleetAttributeCapability'] attributes: Attribute capabilities of the fleet.
+        """
         if amounts is not None:
             pulumi.set(__self__, "amounts", amounts)
         if attributes is not None:
@@ -133,11 +161,17 @@ class FleetCapabilities(dict):
     @property
     @pulumi.getter
     def amounts(self) -> Optional[Sequence['outputs.FleetAmountCapability']]:
+        """
+        Amount capabilities of the fleet.
+        """
         return pulumi.get(self, "amounts")
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.FleetAttributeCapability']]:
+        """
+        Attribute capabilities of the fleet.
+        """
         return pulumi.get(self, "attributes")
 
 
@@ -619,17 +653,27 @@ class QueueJobAttachmentSettings(dict):
     def __init__(__self__, *,
                  root_prefix: str,
                  s3_bucket_name: str):
+        """
+        :param str root_prefix: The root prefix.
+        :param str s3_bucket_name: The Amazon S3 bucket name.
+        """
         pulumi.set(__self__, "root_prefix", root_prefix)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
 
     @property
     @pulumi.getter(name="rootPrefix")
     def root_prefix(self) -> str:
+        """
+        The root prefix.
+        """
         return pulumi.get(self, "root_prefix")
 
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
+        """
+        The Amazon S3 bucket name.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
 
@@ -656,6 +700,11 @@ class QueueJobRunAsUser(dict):
                  run_as: 'QueueRunAs',
                  posix: Optional['outputs.QueuePosixUser'] = None,
                  windows: Optional['outputs.QueueWindowsUser'] = None):
+        """
+        :param 'QueueRunAs' run_as: Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+        :param 'QueuePosixUser' posix: The user and group that the jobs in the queue run as.
+        :param 'QueueWindowsUser' windows: Identifies a Microsoft Windows user.
+        """
         pulumi.set(__self__, "run_as", run_as)
         if posix is not None:
             pulumi.set(__self__, "posix", posix)
@@ -665,16 +714,25 @@ class QueueJobRunAsUser(dict):
     @property
     @pulumi.getter(name="runAs")
     def run_as(self) -> 'QueueRunAs':
+        """
+        Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
+        """
         return pulumi.get(self, "run_as")
 
     @property
     @pulumi.getter
     def posix(self) -> Optional['outputs.QueuePosixUser']:
+        """
+        The user and group that the jobs in the queue run as.
+        """
         return pulumi.get(self, "posix")
 
     @property
     @pulumi.getter
     def windows(self) -> Optional['outputs.QueueWindowsUser']:
+        """
+        Identifies a Microsoft Windows user.
+        """
         return pulumi.get(self, "windows")
 
 
@@ -683,17 +741,27 @@ class QueuePosixUser(dict):
     def __init__(__self__, *,
                  group: str,
                  user: str):
+        """
+        :param str group: The name of the POSIX user's group.
+        :param str user: The name of the POSIX user.
+        """
         pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
     def group(self) -> str:
+        """
+        The name of the POSIX user's group.
+        """
         return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
     def user(self) -> str:
+        """
+        The name of the POSIX user.
+        """
         return pulumi.get(self, "user")
 
 
@@ -719,17 +787,27 @@ class QueueWindowsUser(dict):
     def __init__(__self__, *,
                  password_arn: str,
                  user: str):
+        """
+        :param str password_arn: The password ARN for the Windows user.
+        :param str user: The user.
+        """
         pulumi.set(__self__, "password_arn", password_arn)
         pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="passwordArn")
     def password_arn(self) -> str:
+        """
+        The password ARN for the Windows user.
+        """
         return pulumi.get(self, "password_arn")
 
     @property
     @pulumi.getter
     def user(self) -> str:
+        """
+        The user.
+        """
         return pulumi.get(self, "user")
 
 
@@ -739,6 +817,11 @@ class StorageProfileFileSystemLocation(dict):
                  name: str,
                  path: str,
                  type: 'StorageProfileFileSystemLocationType'):
+        """
+        :param str name: The location name.
+        :param str path: The file path.
+        :param 'StorageProfileFileSystemLocationType' type: The type of file.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "type", type)
@@ -746,16 +829,25 @@ class StorageProfileFileSystemLocation(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The location name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The file path.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def type(self) -> 'StorageProfileFileSystemLocationType':
+        """
+        The type of file.
+        """
         return pulumi.get(self, "type")
 
 

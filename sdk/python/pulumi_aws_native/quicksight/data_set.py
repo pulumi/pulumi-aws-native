@@ -38,13 +38,24 @@ class DataSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
+        :param pulumi.Input[str] data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        :param pulumi.Input['DataSetRefreshPropertiesArgs'] data_set_refresh_properties: The refresh properties of a dataset.
+        :param pulumi.Input['DataSetUsageConfigurationArgs'] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]] field_folders: The folder that contains fields and nested subfolders for your dataset.
+        :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
+        :param pulumi.Input['DataSetIngestionWaitPolicyArgs'] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
+        :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
+        :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The element you can use to define tags for row-level security.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         if aws_account_id is not None:
@@ -85,6 +96,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -120,6 +134,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
@@ -129,6 +146,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="dataSetRefreshProperties")
     def data_set_refresh_properties(self) -> Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]:
+        """
+        The refresh properties of a dataset.
+        """
         return pulumi.get(self, "data_set_refresh_properties")
 
     @data_set_refresh_properties.setter
@@ -138,6 +158,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="dataSetUsageConfiguration")
     def data_set_usage_configuration(self) -> Optional[pulumi.Input['DataSetUsageConfigurationArgs']]:
+        """
+        The usage configuration to apply to child datasets that reference this dataset as a source.
+        """
         return pulumi.get(self, "data_set_usage_configuration")
 
     @data_set_usage_configuration.setter
@@ -159,6 +182,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="fieldFolders")
     def field_folders(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]]:
+        """
+        The folder that contains fields and nested subfolders for your dataset.
+        """
         return pulumi.get(self, "field_folders")
 
     @field_folders.setter
@@ -168,6 +194,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="importMode")
     def import_mode(self) -> Optional[pulumi.Input['DataSetImportMode']]:
+        """
+        Indicates whether you want to import the data into SPICE.
+        """
         return pulumi.get(self, "import_mode")
 
     @import_mode.setter
@@ -177,6 +206,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="ingestionWaitPolicy")
     def ingestion_wait_policy(self) -> Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']]:
+        """
+        The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        """
         return pulumi.get(self, "ingestion_wait_policy")
 
     @ingestion_wait_policy.setter
@@ -186,6 +218,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="logicalTableMap")
     def logical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]]:
+        """
+        Configures the combination and transformation of the data from the physical tables.
+        """
         return pulumi.get(self, "logical_table_map")
 
     @logical_table_map.setter
@@ -219,6 +254,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="physicalTableMap")
     def physical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]]:
+        """
+        Declares the physical tables that are available in the underlying data sources.
+        """
         return pulumi.get(self, "physical_table_map")
 
     @physical_table_map.setter
@@ -228,6 +266,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']]:
+        """
+        The row-level security configuration for the data that you want to create.
+        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @row_level_permission_data_set.setter
@@ -237,6 +278,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="rowLevelPermissionTagConfiguration")
     def row_level_permission_tag_configuration(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']]:
+        """
+        The element you can use to define tags for row-level security.
+        """
         return pulumi.get(self, "row_level_permission_tag_configuration")
 
     @row_level_permission_tag_configuration.setter
@@ -284,13 +328,24 @@ class DataSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
+        :param pulumi.Input[str] data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        :param pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']] data_set_refresh_properties: The refresh properties of a dataset.
+        :param pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]] field_folders: The folder that contains fields and nested subfolders for your dataset.
+        :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
+        :param pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the dataset.</p>
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
+        :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
+        :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']] row_level_permission_tag_configuration: The element you can use to define tags for row-level security.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         ...
@@ -424,6 +479,9 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account ID.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
@@ -464,16 +522,25 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
+        """
         return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter(name="dataSetRefreshProperties")
     def data_set_refresh_properties(self) -> pulumi.Output[Optional['outputs.DataSetRefreshProperties']]:
+        """
+        The refresh properties of a dataset.
+        """
         return pulumi.get(self, "data_set_refresh_properties")
 
     @property
     @pulumi.getter(name="dataSetUsageConfiguration")
     def data_set_usage_configuration(self) -> pulumi.Output[Optional['outputs.DataSetUsageConfiguration']]:
+        """
+        The usage configuration to apply to child datasets that reference this dataset as a source.
+        """
         return pulumi.get(self, "data_set_usage_configuration")
 
     @property
@@ -487,16 +554,25 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fieldFolders")
     def field_folders(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetFieldFolder']]]:
+        """
+        The folder that contains fields and nested subfolders for your dataset.
+        """
         return pulumi.get(self, "field_folders")
 
     @property
     @pulumi.getter(name="importMode")
     def import_mode(self) -> pulumi.Output[Optional['DataSetImportMode']]:
+        """
+        Indicates whether you want to import the data into SPICE.
+        """
         return pulumi.get(self, "import_mode")
 
     @property
     @pulumi.getter(name="ingestionWaitPolicy")
     def ingestion_wait_policy(self) -> pulumi.Output[Optional['outputs.DataSetIngestionWaitPolicy']]:
+        """
+        The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
+        """
         return pulumi.get(self, "ingestion_wait_policy")
 
     @property
@@ -510,6 +586,9 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logicalTableMap")
     def logical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetLogicalTable']]]:
+        """
+        Configures the combination and transformation of the data from the physical tables.
+        """
         return pulumi.get(self, "logical_table_map")
 
     @property
@@ -540,16 +619,25 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="physicalTableMap")
     def physical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetPhysicalTable']]]:
+        """
+        Declares the physical tables that are available in the underlying data sources.
+        """
         return pulumi.get(self, "physical_table_map")
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionDataSet']]:
+        """
+        The row-level security configuration for the data that you want to create.
+        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @property
     @pulumi.getter(name="rowLevelPermissionTagConfiguration")
     def row_level_permission_tag_configuration(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionTagConfiguration']]:
+        """
+        The element you can use to define tags for row-level security.
+        """
         return pulumi.get(self, "row_level_permission_tag_configuration")
 
     @property

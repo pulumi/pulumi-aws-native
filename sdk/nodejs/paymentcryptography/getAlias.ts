@@ -16,10 +16,18 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetAliasArgs {
+    /**
+     * A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+     *
+     * > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+     */
     aliasName: string;
 }
 
 export interface GetAliasResult {
+    /**
+     * The `KeyARN` of the key associated with the alias.
+     */
     readonly keyArn?: string;
 }
 /**
@@ -30,5 +38,10 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetAliasOutputArgs {
+    /**
+     * A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+     *
+     * > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+     */
     aliasName: pulumi.Input<string>;
 }

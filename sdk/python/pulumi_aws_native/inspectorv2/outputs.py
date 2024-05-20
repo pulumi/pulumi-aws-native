@@ -379,6 +379,39 @@ class FilterCriteria(dict):
                  vulnerability_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  vulnerability_source: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  vulnerable_packages: Optional[Sequence['outputs.FilterPackageFilter']] = None):
+        """
+        :param Sequence['FilterStringFilter'] aws_account_id: Details of the AWS account IDs used to filter findings.
+        :param Sequence['FilterStringFilter'] component_id: Details of the component IDs used to filter findings.
+        :param Sequence['FilterStringFilter'] component_type: Details of the component types used to filter findings.
+        :param Sequence['FilterStringFilter'] ec2_instance_image_id: Details of the Amazon EC2 instance image IDs used to filter findings.
+        :param Sequence['FilterStringFilter'] ec2_instance_subnet_id: Details of the Amazon EC2 instance subnet IDs used to filter findings.
+        :param Sequence['FilterStringFilter'] ec2_instance_vpc_id: Details of the Amazon EC2 instance VPC IDs used to filter findings.
+        :param Sequence['FilterStringFilter'] ecr_image_architecture: Details of the Amazon ECR image architecture types used to filter findings.
+        :param Sequence['FilterStringFilter'] ecr_image_hash: Details of the Amazon ECR image hashes used to filter findings.
+        :param Sequence['FilterDateFilter'] ecr_image_pushed_at: Details on the Amazon ECR image push date and time used to filter findings.
+        :param Sequence['FilterStringFilter'] ecr_image_registry: Details on the Amazon ECR registry used to filter findings.
+        :param Sequence['FilterStringFilter'] ecr_image_repository_name: Details on the name of the Amazon ECR repository used to filter findings.
+        :param Sequence['FilterStringFilter'] ecr_image_tags: The tags attached to the Amazon ECR container image.
+        :param Sequence['FilterStringFilter'] finding_arn: Details on the finding ARNs used to filter findings.
+        :param Sequence['FilterStringFilter'] finding_status: Details on the finding status types used to filter findings.
+        :param Sequence['FilterStringFilter'] finding_type: Details on the finding types used to filter findings.
+        :param Sequence['FilterDateFilter'] first_observed_at: Details on the date and time a finding was first seen used to filter findings.
+        :param Sequence['FilterNumberFilter'] inspector_score: The Amazon Inspector score to filter on.
+        :param Sequence['FilterDateFilter'] last_observed_at: Details on the date and time a finding was last seen used to filter findings.
+        :param Sequence['FilterStringFilter'] network_protocol: Details on network protocol used to filter findings.
+        :param Sequence['FilterPortRangeFilter'] port_range: Details on the port ranges used to filter findings.
+        :param Sequence['FilterStringFilter'] related_vulnerabilities: Details on the related vulnerabilities used to filter findings.
+        :param Sequence['FilterStringFilter'] resource_id: Details on the resource IDs used to filter findings.
+        :param Sequence['FilterMapFilter'] resource_tags: Details on the resource tags used to filter findings.
+        :param Sequence['FilterStringFilter'] resource_type: Details on the resource types used to filter findings.
+        :param Sequence['FilterStringFilter'] severity: Details on the severity used to filter findings.
+        :param Sequence['FilterStringFilter'] title: Details on the finding title used to filter findings.
+        :param Sequence['FilterDateFilter'] updated_at: Details on the date and time a finding was last updated at used to filter findings.
+        :param Sequence['FilterStringFilter'] vendor_severity: Details on the vendor severity used to filter findings.
+        :param Sequence['FilterStringFilter'] vulnerability_id: Details on the vulnerability ID used to filter findings.
+        :param Sequence['FilterStringFilter'] vulnerability_source: Details on the vulnerability score to filter findings by.
+        :param Sequence['FilterPackageFilter'] vulnerable_packages: Details on the vulnerable packages used to filter findings.
+        """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if component_id is not None:
@@ -445,156 +478,249 @@ class FilterCriteria(dict):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the AWS account IDs used to filter findings.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="componentId")
     def component_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the component IDs used to filter findings.
+        """
         return pulumi.get(self, "component_id")
 
     @property
     @pulumi.getter(name="componentType")
     def component_type(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the component types used to filter findings.
+        """
         return pulumi.get(self, "component_type")
 
     @property
     @pulumi.getter(name="ec2InstanceImageId")
     def ec2_instance_image_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the Amazon EC2 instance image IDs used to filter findings.
+        """
         return pulumi.get(self, "ec2_instance_image_id")
 
     @property
     @pulumi.getter(name="ec2InstanceSubnetId")
     def ec2_instance_subnet_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the Amazon EC2 instance subnet IDs used to filter findings.
+        """
         return pulumi.get(self, "ec2_instance_subnet_id")
 
     @property
     @pulumi.getter(name="ec2InstanceVpcId")
     def ec2_instance_vpc_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the Amazon EC2 instance VPC IDs used to filter findings.
+        """
         return pulumi.get(self, "ec2_instance_vpc_id")
 
     @property
     @pulumi.getter(name="ecrImageArchitecture")
     def ecr_image_architecture(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the Amazon ECR image architecture types used to filter findings.
+        """
         return pulumi.get(self, "ecr_image_architecture")
 
     @property
     @pulumi.getter(name="ecrImageHash")
     def ecr_image_hash(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details of the Amazon ECR image hashes used to filter findings.
+        """
         return pulumi.get(self, "ecr_image_hash")
 
     @property
     @pulumi.getter(name="ecrImagePushedAt")
     def ecr_image_pushed_at(self) -> Optional[Sequence['outputs.FilterDateFilter']]:
+        """
+        Details on the Amazon ECR image push date and time used to filter findings.
+        """
         return pulumi.get(self, "ecr_image_pushed_at")
 
     @property
     @pulumi.getter(name="ecrImageRegistry")
     def ecr_image_registry(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the Amazon ECR registry used to filter findings.
+        """
         return pulumi.get(self, "ecr_image_registry")
 
     @property
     @pulumi.getter(name="ecrImageRepositoryName")
     def ecr_image_repository_name(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the name of the Amazon ECR repository used to filter findings.
+        """
         return pulumi.get(self, "ecr_image_repository_name")
 
     @property
     @pulumi.getter(name="ecrImageTags")
     def ecr_image_tags(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        The tags attached to the Amazon ECR container image.
+        """
         return pulumi.get(self, "ecr_image_tags")
 
     @property
     @pulumi.getter(name="findingArn")
     def finding_arn(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the finding ARNs used to filter findings.
+        """
         return pulumi.get(self, "finding_arn")
 
     @property
     @pulumi.getter(name="findingStatus")
     def finding_status(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the finding status types used to filter findings.
+        """
         return pulumi.get(self, "finding_status")
 
     @property
     @pulumi.getter(name="findingType")
     def finding_type(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the finding types used to filter findings.
+        """
         return pulumi.get(self, "finding_type")
 
     @property
     @pulumi.getter(name="firstObservedAt")
     def first_observed_at(self) -> Optional[Sequence['outputs.FilterDateFilter']]:
+        """
+        Details on the date and time a finding was first seen used to filter findings.
+        """
         return pulumi.get(self, "first_observed_at")
 
     @property
     @pulumi.getter(name="inspectorScore")
     def inspector_score(self) -> Optional[Sequence['outputs.FilterNumberFilter']]:
+        """
+        The Amazon Inspector score to filter on.
+        """
         return pulumi.get(self, "inspector_score")
 
     @property
     @pulumi.getter(name="lastObservedAt")
     def last_observed_at(self) -> Optional[Sequence['outputs.FilterDateFilter']]:
+        """
+        Details on the date and time a finding was last seen used to filter findings.
+        """
         return pulumi.get(self, "last_observed_at")
 
     @property
     @pulumi.getter(name="networkProtocol")
     def network_protocol(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on network protocol used to filter findings.
+        """
         return pulumi.get(self, "network_protocol")
 
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[Sequence['outputs.FilterPortRangeFilter']]:
+        """
+        Details on the port ranges used to filter findings.
+        """
         return pulumi.get(self, "port_range")
 
     @property
     @pulumi.getter(name="relatedVulnerabilities")
     def related_vulnerabilities(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the related vulnerabilities used to filter findings.
+        """
         return pulumi.get(self, "related_vulnerabilities")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the resource IDs used to filter findings.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['outputs.FilterMapFilter']]:
+        """
+        Details on the resource tags used to filter findings.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the resource types used to filter findings.
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter
     def severity(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the severity used to filter findings.
+        """
         return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def title(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the finding title used to filter findings.
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[Sequence['outputs.FilterDateFilter']]:
+        """
+        Details on the date and time a finding was last updated at used to filter findings.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="vendorSeverity")
     def vendor_severity(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the vendor severity used to filter findings.
+        """
         return pulumi.get(self, "vendor_severity")
 
     @property
     @pulumi.getter(name="vulnerabilityId")
     def vulnerability_id(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the vulnerability ID used to filter findings.
+        """
         return pulumi.get(self, "vulnerability_id")
 
     @property
     @pulumi.getter(name="vulnerabilitySource")
     def vulnerability_source(self) -> Optional[Sequence['outputs.FilterStringFilter']]:
+        """
+        Details on the vulnerability score to filter findings by.
+        """
         return pulumi.get(self, "vulnerability_source")
 
     @property
     @pulumi.getter(name="vulnerablePackages")
     def vulnerable_packages(self) -> Optional[Sequence['outputs.FilterPackageFilter']]:
+        """
+        Details on the vulnerable packages used to filter findings.
+        """
         return pulumi.get(self, "vulnerable_packages")
 
 

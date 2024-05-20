@@ -52,46 +52,73 @@ class GetApplicationInstanceResult:
     @property
     @pulumi.getter(name="applicationInstanceId")
     def application_instance_id(self) -> Optional[str]:
+        """
+        The application instance's ID.
+        """
         return pulumi.get(self, "application_instance_id")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The application instance's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[int]:
+        """
+        The application instance's created time.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="defaultRuntimeContextDeviceName")
     def default_runtime_context_device_name(self) -> Optional[str]:
+        """
+        The application instance's default runtime context device name.
+        """
         return pulumi.get(self, "default_runtime_context_device_name")
 
     @property
     @pulumi.getter(name="healthStatus")
     def health_status(self) -> Optional['ApplicationInstanceHealthStatus']:
+        """
+        The application instance's health status.
+        """
         return pulumi.get(self, "health_status")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[int]:
+        """
+        The application instance's last updated time.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['ApplicationInstanceStatus']:
+        """
+        The application instance's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusDescription")
     def status_description(self) -> Optional[str]:
+        """
+        The application instance's status description.
+        """
         return pulumi.get(self, "status_description")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags for the application instance.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -116,6 +143,9 @@ def get_application_instance(application_instance_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationInstanceResult:
     """
     Schema for ApplicationInstance CloudFormation Resource
+
+
+    :param str application_instance_id: The application instance's ID.
     """
     __args__ = dict()
     __args__['applicationInstanceId'] = application_instance_id
@@ -139,5 +169,8 @@ def get_application_instance_output(application_instance_id: Optional[pulumi.Inp
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationInstanceResult]:
     """
     Schema for ApplicationInstance CloudFormation Resource
+
+
+    :param str application_instance_id: The application instance's ID.
     """
     ...

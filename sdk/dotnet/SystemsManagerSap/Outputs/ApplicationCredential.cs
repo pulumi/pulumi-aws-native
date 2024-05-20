@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.SystemsManagerSap.Outputs
     [OutputType]
     public sealed class ApplicationCredential
     {
+        /// <summary>
+        /// The type of the application credentials.
+        /// </summary>
         public readonly Pulumi.AwsNative.SystemsManagerSap.ApplicationCredentialCredentialType? CredentialType;
+        /// <summary>
+        /// The name of the SAP HANA database.
+        /// </summary>
         public readonly string? DatabaseName;
+        /// <summary>
+        /// The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+        /// </summary>
         public readonly string? SecretId;
 
         [OutputConstructor]

@@ -20,7 +20,13 @@ export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.Invok
 }
 
 export interface GetVpcConnectionArgs {
+    /**
+     * The AWS account ID of the account where you want to create a new VPC connection.
+     */
     awsAccountId: string;
+    /**
+     * The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+     */
     vpcConnectionId: string;
 }
 
@@ -29,24 +35,45 @@ export interface GetVpcConnectionResult {
      * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
      */
     readonly arn?: string;
+    /**
+     * The availability status of the VPC connection.
+     */
     readonly availabilityStatus?: enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus;
     /**
      * <p>The time that the VPC connection was created.</p>
      */
     readonly createdTime?: string;
+    /**
+     * A list of IP addresses of DNS resolver endpoints for the VPC connection.
+     */
     readonly dnsResolvers?: string[];
     /**
      * <p>The time that the VPC connection was last updated.</p>
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * The display name for the VPC connection.
+     */
     readonly name?: string;
     /**
      * <p>A list of network interfaces.</p>
      */
     readonly networkInterfaces?: outputs.quicksight.VpcConnectionNetworkInterface[];
+    /**
+     * The ARN of the IAM role associated with the VPC connection.
+     */
     readonly roleArn?: string;
+    /**
+     * The Amazon EC2 security group IDs associated with the VPC connection.
+     */
     readonly securityGroupIds?: string[];
+    /**
+     * The HTTP status of the request.
+     */
     readonly status?: enums.quicksight.VpcConnectionVpcConnectionResourceStatus;
+    /**
+     * A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
@@ -61,6 +88,12 @@ export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: 
 }
 
 export interface GetVpcConnectionOutputArgs {
+    /**
+     * The AWS account ID of the account where you want to create a new VPC connection.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+     */
     vpcConnectionId: pulumi.Input<string>;
 }

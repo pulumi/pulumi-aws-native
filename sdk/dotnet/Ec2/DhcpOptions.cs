@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:DhcpOptions")]
     public partial class DhcpOptions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the DHCP options set.
+        /// </summary>
         [Output("dhcpOptionsId")]
         public Output<string> DhcpOptionsId { get; private set; } = null!;
 

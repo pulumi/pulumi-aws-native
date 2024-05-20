@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Sso
     [AwsNativeResourceType("aws-native:sso:PermissionSet")]
     public partial class PermissionSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
+        /// </summary>
         [Output("customerManagedPolicyReferences")]
         public Output<ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference>> CustomerManagedPolicyReferences { get; private set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Sso
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that stores the details of the AWS managed policy.
+        /// </summary>
         [Output("managedPolicies")]
         public Output<ImmutableArray<string>> ManagedPolicies { get; private set; } = null!;
 
@@ -53,6 +59,11 @@ namespace Pulumi.AwsNative.Sso
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+        /// 
+        /// &gt; Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("permissionsBoundary")]
         public Output<Outputs.PermissionSetPermissionsBoundary?> PermissionsBoundary { get; private set; } = null!;
 
@@ -68,6 +79,9 @@ namespace Pulumi.AwsNative.Sso
         [Output("sessionDuration")]
         public Output<string?> SessionDuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to attach to the new `PermissionSet` .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -123,6 +137,10 @@ namespace Pulumi.AwsNative.Sso
     {
         [Input("customerManagedPolicyReferences")]
         private InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs>? _customerManagedPolicyReferences;
+
+        /// <summary>
+        /// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
+        /// </summary>
         public InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs> CustomerManagedPolicyReferences
         {
             get => _customerManagedPolicyReferences ?? (_customerManagedPolicyReferences = new InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs>());
@@ -151,6 +169,10 @@ namespace Pulumi.AwsNative.Sso
 
         [Input("managedPolicies")]
         private InputList<string>? _managedPolicies;
+
+        /// <summary>
+        /// A structure that stores the details of the AWS managed policy.
+        /// </summary>
         public InputList<string> ManagedPolicies
         {
             get => _managedPolicies ?? (_managedPolicies = new InputList<string>());
@@ -163,6 +185,11 @@ namespace Pulumi.AwsNative.Sso
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+        /// 
+        /// &gt; Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
+        /// </summary>
         [Input("permissionsBoundary")]
         public Input<Inputs.PermissionSetPermissionsBoundaryArgs>? PermissionsBoundary { get; set; }
 
@@ -180,6 +207,10 @@ namespace Pulumi.AwsNative.Sso
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to attach to the new `PermissionSet` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

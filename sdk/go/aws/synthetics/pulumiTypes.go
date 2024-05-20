@@ -257,11 +257,17 @@ func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScre
 }
 
 type CanaryCode struct {
-	Handler           string  `pulumi:"handler"`
-	S3Bucket          *string `pulumi:"s3Bucket"`
-	S3Key             *string `pulumi:"s3Key"`
-	S3ObjectVersion   *string `pulumi:"s3ObjectVersion"`
-	Script            *string `pulumi:"script"`
+	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+	Handler string `pulumi:"handler"`
+	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
+	S3Bucket *string `pulumi:"s3Bucket"`
+	// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+	S3Key *string `pulumi:"s3Key"`
+	// The S3 version ID of your script.
+	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
+	// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
+	Script *string `pulumi:"script"`
+	// The ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
 }
 
@@ -277,11 +283,17 @@ type CanaryCodeInput interface {
 }
 
 type CanaryCodeArgs struct {
-	Handler           pulumi.StringInput    `pulumi:"handler"`
-	S3Bucket          pulumi.StringPtrInput `pulumi:"s3Bucket"`
-	S3Key             pulumi.StringPtrInput `pulumi:"s3Key"`
-	S3ObjectVersion   pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
-	Script            pulumi.StringPtrInput `pulumi:"script"`
+	// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+	Handler pulumi.StringInput `pulumi:"handler"`
+	// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
+	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
+	// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
+	// The S3 version ID of your script.
+	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
+	// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// The ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn pulumi.StringPtrInput `pulumi:"sourceLocationArn"`
 }
 
@@ -311,26 +323,32 @@ func (o CanaryCodeOutput) ToCanaryCodeOutputWithContext(ctx context.Context) Can
 	return o
 }
 
+// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
 	return o.ApplyT(func(v CanaryCode) string { return v.Handler }).(pulumi.StringOutput)
 }
 
+// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 func (o CanaryCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
 
+// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
 func (o CanaryCodeOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3Key }).(pulumi.StringPtrOutput)
 }
 
+// The S3 version ID of your script.
 func (o CanaryCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
+// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
 func (o CanaryCodeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Lambda layer where Synthetics stores the canary script code.
 func (o CanaryCodeOutput) SourceLocationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.SourceLocationArn }).(pulumi.StringPtrOutput)
 }
@@ -359,6 +377,7 @@ func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
 	}).(CanaryCodeOutput)
 }
 
+// The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
 func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -368,6 +387,7 @@ func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
 func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -377,6 +397,7 @@ func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
 func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -386,6 +407,7 @@ func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 version ID of your script.
 func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -395,6 +417,7 @@ func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
 func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -404,6 +427,7 @@ func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Lambda layer where Synthetics stores the canary script code.
 func (o CanaryCodePtrOutput) SourceLocationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -764,8 +788,18 @@ func (o CanaryS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type CanarySchedule struct {
+	// How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
 	DurationInSeconds *string `pulumi:"durationInSeconds"`
-	Expression        string  `pulumi:"expression"`
+	// A `rate` expression or a `cron` expression that defines how often the canary is to run.
+	//
+	// For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+	//
+	// For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+	//
+	// Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+	//
+	// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+	Expression string `pulumi:"expression"`
 }
 
 // CanaryScheduleInput is an input type that accepts CanaryScheduleArgs and CanaryScheduleOutput values.
@@ -780,8 +814,18 @@ type CanaryScheduleInput interface {
 }
 
 type CanaryScheduleArgs struct {
+	// How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
 	DurationInSeconds pulumi.StringPtrInput `pulumi:"durationInSeconds"`
-	Expression        pulumi.StringInput    `pulumi:"expression"`
+	// A `rate` expression or a `cron` expression that defines how often the canary is to run.
+	//
+	// For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+	//
+	// For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+	//
+	// Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+	//
+	// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
 func (CanaryScheduleArgs) ElementType() reflect.Type {
@@ -810,10 +854,20 @@ func (o CanaryScheduleOutput) ToCanaryScheduleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
 func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *string { return v.DurationInSeconds }).(pulumi.StringPtrOutput)
 }
 
+// A `rate` expression or a `cron` expression that defines how often the canary is to run.
+//
+// For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+//
+// For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+//
+// Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+//
+// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -842,6 +896,7 @@ func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
 	}).(CanaryScheduleOutput)
 }
 
+// How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
 func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *string {
 		if v == nil {
@@ -851,6 +906,15 @@ func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `rate` expression or a `cron` expression that defines how often the canary is to run.
+//
+// For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+//
+// For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+//
+// Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+//
+// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
 func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *string {
 		if v == nil {
@@ -1025,9 +1089,12 @@ func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotAr
 }
 
 type CanaryVpcConfig struct {
+	// The IDs of the security groups for this canary.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	VpcId            *string  `pulumi:"vpcId"`
+	// The IDs of the subnets where this canary is to run.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC where this canary is to run.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // CanaryVpcConfigInput is an input type that accepts CanaryVpcConfigArgs and CanaryVpcConfigOutput values.
@@ -1042,9 +1109,12 @@ type CanaryVpcConfigInput interface {
 }
 
 type CanaryVpcConfigArgs struct {
+	// The IDs of the security groups for this canary.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// The IDs of the subnets where this canary is to run.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC where this canary is to run.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (CanaryVpcConfigArgs) ElementType() reflect.Type {
@@ -1124,14 +1194,17 @@ func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context
 	}).(CanaryVpcConfigPtrOutput)
 }
 
+// The IDs of the security groups for this canary.
 func (o CanaryVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The IDs of the subnets where this canary is to run.
 func (o CanaryVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC where this canary is to run.
 func (o CanaryVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -1160,6 +1233,7 @@ func (o CanaryVpcConfigPtrOutput) Elem() CanaryVpcConfigOutput {
 	}).(CanaryVpcConfigOutput)
 }
 
+// The IDs of the security groups for this canary.
 func (o CanaryVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) []string {
 		if v == nil {
@@ -1169,6 +1243,7 @@ func (o CanaryVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The IDs of the subnets where this canary is to run.
 func (o CanaryVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) []string {
 		if v == nil {
@@ -1178,6 +1253,7 @@ func (o CanaryVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the VPC where this canary is to run.
 func (o CanaryVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryVpcConfig) *string {
 		if v == nil {

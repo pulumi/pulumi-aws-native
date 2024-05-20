@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:InternetGateway")]
     public partial class InternetGateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the internet gateway.
+        /// </summary>
         [Output("internetGatewayId")]
         public Output<string> InternetGatewayId { get; private set; } = null!;
 

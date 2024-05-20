@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigTrackingConfig
     {
+        /// <summary>
+        /// Specifies whether or not to use autotrack. `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.ConfigTrackingConfigAutotrack? Autotrack;
 
         [OutputConstructor]

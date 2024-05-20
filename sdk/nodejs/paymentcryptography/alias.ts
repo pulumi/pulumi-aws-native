@@ -34,7 +34,15 @@ export class Alias extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alias.__pulumiType;
     }
 
+    /**
+     * A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+     *
+     * > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+     */
     public readonly aliasName!: pulumi.Output<string>;
+    /**
+     * The `KeyARN` of the key associated with the alias.
+     */
     public readonly keyArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -65,6 +73,14 @@ export class Alias extends pulumi.CustomResource {
  * The set of arguments for constructing a Alias resource.
  */
 export interface AliasArgs {
+    /**
+     * A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+     *
+     * > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+     */
     aliasName?: pulumi.Input<string>;
+    /**
+     * The `KeyARN` of the key associated with the alias.
+     */
     keyArn?: pulumi.Input<string>;
 }

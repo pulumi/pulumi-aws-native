@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPivotTableCellConditionalFormatting
     {
+        /// <summary>
+        /// The field ID of the cell for conditional formatting.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The scope of the cell for conditional formatting.
+        /// </summary>
         public readonly Outputs.DashboardPivotTableConditionalFormattingScope? Scope;
+        /// <summary>
+        /// A list of cell scopes for conditional formatting.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardPivotTableConditionalFormattingScope> Scopes;
+        /// <summary>
+        /// The text format of the cell for conditional formatting.
+        /// </summary>
         public readonly Outputs.DashboardTextConditionalFormat? TextFormat;
 
         [OutputConstructor]

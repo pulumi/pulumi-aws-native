@@ -37,15 +37,47 @@ export class AppBlock extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppBlock.__pulumiType;
     }
 
+    /**
+     * The ARN of the app block.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The time when the app block was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The description of the app block.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the app block.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the app block.
+     *
+     * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The packaging type of the app block.
+     */
     public readonly packagingType!: pulumi.Output<string | undefined>;
+    /**
+     * The post setup script details of the app block.
+     */
     public readonly postSetupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
+    /**
+     * The setup script details of the app block.
+     */
     public readonly setupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
+    /**
+     * The source S3 location of the app block.
+     */
     public readonly sourceS3Location!: pulumi.Output<outputs.appstream.AppBlockS3Location>;
+    /**
+     * The tags of the app block.
+     */
     public readonly tags!: pulumi.Output<(outputs.appstream.AppBlockTag0Properties | outputs.appstream.AppBlockTag1Properties)[] | undefined>;
 
     /**
@@ -95,12 +127,38 @@ export class AppBlock extends pulumi.CustomResource {
  * The set of arguments for constructing a AppBlock resource.
  */
 export interface AppBlockArgs {
+    /**
+     * The description of the app block.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the app block.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The name of the app block.
+     *
+     * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The packaging type of the app block.
+     */
     packagingType?: pulumi.Input<string>;
+    /**
+     * The post setup script details of the app block.
+     */
     postSetupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
+    /**
+     * The setup script details of the app block.
+     */
     setupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
+    /**
+     * The source S3 location of the app block.
+     */
     sourceS3Location: pulumi.Input<inputs.appstream.AppBlockS3LocationArgs>;
+    /**
+     * The tags of the app block.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockTag0PropertiesArgs | inputs.appstream.AppBlockTag1PropertiesArgs>[]>;
 }

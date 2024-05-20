@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageDriftCheckBias
     {
+        /// <summary>
+        /// The bias config file for a model.
+        /// </summary>
         public readonly Outputs.ModelPackageFileSource? ConfigFile;
+        /// <summary>
+        /// The post-training constraints.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? PostTrainingConstraints;
+        /// <summary>
+        /// The pre-training constraints.
+        /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? PreTrainingConstraints;
 
         [OutputConstructor]

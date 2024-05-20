@@ -37,12 +37,37 @@ export class DevicePool extends pulumi.CustomResource {
         return obj['__pulumiType'] === DevicePool.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The device pool's description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+     *
+     * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+     */
     public readonly maxDevices!: pulumi.Output<number | undefined>;
+    /**
+     * The device pool's name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of the project for the device pool.
+     */
     public readonly projectArn!: pulumi.Output<string>;
+    /**
+     * The device pool's rules.
+     */
     public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -89,10 +114,32 @@ export class DevicePool extends pulumi.CustomResource {
  * The set of arguments for constructing a DevicePool resource.
  */
 export interface DevicePoolArgs {
+    /**
+     * The device pool's description.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+     *
+     * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+     */
     maxDevices?: pulumi.Input<number>;
+    /**
+     * The device pool's name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the project for the device pool.
+     */
     projectArn: pulumi.Input<string>;
+    /**
+     * The device pool's rules.
+     */
     rules: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRuleArgs>[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -37,6 +37,9 @@ export class DhcpOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DhcpOptions.__pulumiType;
     }
 
+    /**
+     * The ID of the DHCP options set.
+     */
     public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
      * This value is used to complete unqualified DNS hostnames.

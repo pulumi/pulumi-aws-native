@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        /// <summary>
+        /// Specifies how DataSync can access a location using the SMB protocol.
+        /// </summary>
         [Input("mountOptions", required: true)]
         public Input<Inputs.LocationFSxOntapSmbMountOptionsArgs> MountOptions { get; set; } = null!;
 

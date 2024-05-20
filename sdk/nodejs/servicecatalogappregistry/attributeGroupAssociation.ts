@@ -38,11 +38,17 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
      * The name or the Id of the Application.
      */
     public readonly application!: pulumi.Output<string>;
+    /**
+     * The Amazon resource name (ARN) of the application that was augmented with attributes.
+     */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
      * The name or the Id of the AttributeGroup.
      */
     public readonly attributeGroup!: pulumi.Output<string>;
+    /**
+     * The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+     */
     public /*out*/ readonly attributeGroupArn!: pulumi.Output<string>;
 
     /**

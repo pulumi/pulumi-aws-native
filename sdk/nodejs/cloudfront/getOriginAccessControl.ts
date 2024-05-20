@@ -19,11 +19,20 @@ export function getOriginAccessControl(args: GetOriginAccessControlArgs, opts?: 
 }
 
 export interface GetOriginAccessControlArgs {
+    /**
+     * The unique identifier of the origin access control.
+     */
     id: string;
 }
 
 export interface GetOriginAccessControlResult {
+    /**
+     * The unique identifier of the origin access control.
+     */
     readonly id?: string;
+    /**
+     * The origin access control.
+     */
     readonly originAccessControlConfig?: outputs.cloudfront.OriginAccessControlConfig;
 }
 /**
@@ -34,5 +43,8 @@ export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputA
 }
 
 export interface GetOriginAccessControlOutputArgs {
+    /**
+     * The unique identifier of the origin access control.
+     */
     id: pulumi.Input<string>;
 }

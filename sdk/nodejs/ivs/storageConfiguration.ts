@@ -45,6 +45,9 @@ export class StorageConfiguration extends pulumi.CustomResource {
      * Storage Configuration Name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
+     */
     public readonly s3!: pulumi.Output<outputs.ivs.StorageConfigurationS3StorageConfiguration>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
@@ -90,6 +93,9 @@ export interface StorageConfigurationArgs {
      * Storage Configuration Name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
+     */
     s3: pulumi.Input<inputs.ivs.StorageConfigurationS3StorageConfigurationArgs>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.

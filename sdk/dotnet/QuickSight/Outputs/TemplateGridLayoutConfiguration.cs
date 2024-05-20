@@ -14,6 +14,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateGridLayoutConfiguration
     {
         public readonly Outputs.TemplateGridLayoutCanvasSizeOptions? CanvasSizeOptions;
+        /// <summary>
+        /// The elements that are included in a grid layout.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateGridLayoutElement> Elements;
 
         [OutputConstructor]

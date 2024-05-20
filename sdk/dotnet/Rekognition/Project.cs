@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Rekognition
     [AwsNativeResourceType("aws-native:rekognition:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name of the project.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the project to create.
+        /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
@@ -70,6 +76,9 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the project to create.
+        /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 

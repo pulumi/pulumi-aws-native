@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ComponentEventArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to perform when a specific event is raised.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
+        /// </summary>
         [Input("bindingEvent")]
         public Input<string>? BindingEvent { get; set; }
 
+        /// <summary>
+        /// Describes information about the action.
+        /// </summary>
         [Input("parameters")]
         public Input<Inputs.ComponentActionParametersArgs>? Parameters { get; set; }
 

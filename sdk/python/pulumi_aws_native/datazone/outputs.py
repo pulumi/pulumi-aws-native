@@ -703,6 +703,8 @@ class DomainSingleSignOn(dict):
                  user_assignment: Optional['DomainUserAssignment'] = None):
         """
         The single-sign on configuration of the Amazon DataZone domain.
+        :param 'DomainAuthType' type: The type of single sign-on in Amazon DataZone.
+        :param 'DomainUserAssignment' user_assignment: The single sign-on user assignment in Amazon DataZone.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -712,11 +714,17 @@ class DomainSingleSignOn(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional['DomainAuthType']:
+        """
+        The type of single sign-on in Amazon DataZone.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="userAssignment")
     def user_assignment(self) -> Optional['DomainUserAssignment']:
+        """
+        The single sign-on user assignment in Amazon DataZone.
+        """
         return pulumi.get(self, "user_assignment")
 
 
@@ -725,6 +733,10 @@ class EnvironmentBlueprintConfigurationRegionalParameter(dict):
     def __init__(__self__, *,
                  parameters: Optional[Mapping[str, str]] = None,
                  region: Optional[str] = None):
+        """
+        :param Mapping[str, str] parameters: A string to string map containing parameters for the region.
+        :param str region: The region specified in the environment parameter.
+        """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if region is not None:
@@ -733,11 +745,17 @@ class EnvironmentBlueprintConfigurationRegionalParameter(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A string to string map containing parameters for the region.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        The region specified in the environment parameter.
+        """
         return pulumi.get(self, "region")
 
 

@@ -29,3 +29,4 @@ sdk/java/gradlew.bat
 sdk/python/venv
 sdk/python/README.md
 .mono
+aws-cloudformation-docs/

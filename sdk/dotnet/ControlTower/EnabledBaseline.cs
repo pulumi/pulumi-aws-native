@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.ControlTower
     [AwsNativeResourceType("aws-native:controltower:EnabledBaseline")]
     public partial class EnabledBaseline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+        /// </summary>
         [Output("baselineIdentifier")]
         public Output<string> BaselineIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The enabled version of the `Baseline` .
+        /// </summary>
         [Output("baselineVersion")]
         public Output<string> BaselineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the `EnabledBaseline` resource.
+        /// </summary>
         [Output("enabledBaselineIdentifier")]
         public Output<string> EnabledBaselineIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.EnabledBaselineParameter>> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags associated with input to `EnableBaseline` .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The target on which to enable the `Baseline` .
+        /// </summary>
         [Output("targetIdentifier")]
         public Output<string> TargetIdentifier { get; private set; } = null!;
 
@@ -83,14 +101,24 @@ namespace Pulumi.AwsNative.ControlTower
 
     public sealed class EnabledBaselineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
+        /// </summary>
         [Input("baselineIdentifier", required: true)]
         public Input<string> BaselineIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The enabled version of the `Baseline` .
+        /// </summary>
         [Input("baselineVersion", required: true)]
         public Input<string> BaselineVersion { get; set; } = null!;
 
         [Input("parameters")]
         private InputList<Inputs.EnabledBaselineParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
+        /// </summary>
         public InputList<Inputs.EnabledBaselineParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.EnabledBaselineParameterArgs>());
@@ -99,12 +127,19 @@ namespace Pulumi.AwsNative.ControlTower
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags associated with input to `EnableBaseline` .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The target on which to enable the `Baseline` .
+        /// </summary>
         [Input("targetIdentifier", required: true)]
         public Input<string> TargetIdentifier { get; set; } = null!;
 

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetStringDatasetParameter
     {
+        /// <summary>
+        /// A list of default values for a given string dataset parameter type. This structure only accepts static values.
+        /// </summary>
         public readonly Outputs.DataSetStringDatasetParameterDefaultValues? DefaultValues;
         /// <summary>
         /// &lt;p&gt;An identifier for the string parameter that is created in the dataset.&lt;/p&gt;
@@ -25,6 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The name of the string parameter that is created in the dataset.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value type of the dataset parameter. Valid values are `single value` or `multi value` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType ValueType;
 
         [OutputConstructor]

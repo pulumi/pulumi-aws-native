@@ -37,6 +37,9 @@ export class Connector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connector.__pulumiType;
     }
 
+    /**
+     * The connector's compute capacity settings.
+     */
     public readonly capacity!: pulumi.Output<outputs.kafkaconnect.ConnectorCapacity>;
     /**
      * Amazon Resource Name for the created Connector.
@@ -54,13 +57,25 @@ export class Connector extends pulumi.CustomResource {
      * The name of the connector.
      */
     public readonly connectorName!: pulumi.Output<string>;
+    /**
+     * The details of the Apache Kafka cluster to which the connector is connected.
+     */
     public readonly kafkaCluster!: pulumi.Output<outputs.kafkaconnect.ConnectorKafkaCluster>;
+    /**
+     * The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
+     */
     public readonly kafkaClusterClientAuthentication!: pulumi.Output<outputs.kafkaconnect.ConnectorKafkaClusterClientAuthentication>;
+    /**
+     * Details of encryption in transit to the Apache Kafka cluster.
+     */
     public readonly kafkaClusterEncryptionInTransit!: pulumi.Output<outputs.kafkaconnect.ConnectorKafkaClusterEncryptionInTransit>;
     /**
      * The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
      */
     public readonly kafkaConnectVersion!: pulumi.Output<string>;
+    /**
+     * The settings for delivering connector logs to Amazon CloudWatch Logs.
+     */
     public readonly logDelivery!: pulumi.Output<outputs.kafkaconnect.ConnectorLogDelivery | undefined>;
     /**
      * List of plugins to use with the connector.
@@ -74,6 +89,9 @@ export class Connector extends pulumi.CustomResource {
      * A collection of tags associated with a resource
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The worker configurations that are in use with the connector.
+     */
     public readonly workerConfiguration!: pulumi.Output<outputs.kafkaconnect.ConnectorWorkerConfiguration | undefined>;
 
     /**
@@ -152,6 +170,9 @@ export class Connector extends pulumi.CustomResource {
  * The set of arguments for constructing a Connector resource.
  */
 export interface ConnectorArgs {
+    /**
+     * The connector's compute capacity settings.
+     */
     capacity: pulumi.Input<inputs.kafkaconnect.ConnectorCapacityArgs>;
     /**
      * The configuration for the connector.
@@ -165,13 +186,25 @@ export interface ConnectorArgs {
      * The name of the connector.
      */
     connectorName?: pulumi.Input<string>;
+    /**
+     * The details of the Apache Kafka cluster to which the connector is connected.
+     */
     kafkaCluster: pulumi.Input<inputs.kafkaconnect.ConnectorKafkaClusterArgs>;
+    /**
+     * The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
+     */
     kafkaClusterClientAuthentication: pulumi.Input<inputs.kafkaconnect.ConnectorKafkaClusterClientAuthenticationArgs>;
+    /**
+     * Details of encryption in transit to the Apache Kafka cluster.
+     */
     kafkaClusterEncryptionInTransit: pulumi.Input<inputs.kafkaconnect.ConnectorKafkaClusterEncryptionInTransitArgs>;
     /**
      * The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
      */
     kafkaConnectVersion: pulumi.Input<string>;
+    /**
+     * The settings for delivering connector logs to Amazon CloudWatch Logs.
+     */
     logDelivery?: pulumi.Input<inputs.kafkaconnect.ConnectorLogDeliveryArgs>;
     /**
      * List of plugins to use with the connector.
@@ -185,5 +218,8 @@ export interface ConnectorArgs {
      * A collection of tags associated with a resource
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The worker configurations that are in use with the connector.
+     */
     workerConfiguration?: pulumi.Input<inputs.kafkaconnect.ConnectorWorkerConfigurationArgs>;
 }

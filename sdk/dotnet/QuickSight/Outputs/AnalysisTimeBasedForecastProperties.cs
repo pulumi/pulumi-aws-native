@@ -13,11 +13,32 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTimeBasedForecastProperties
     {
+        /// <summary>
+        /// The lower boundary setup of a forecast computation.
+        /// </summary>
         public readonly double? LowerBoundary;
+        /// <summary>
+        /// The periods backward setup of a forecast computation.
+        /// </summary>
         public readonly double? PeriodsBackward;
+        /// <summary>
+        /// The periods forward setup of a forecast computation.
+        /// </summary>
         public readonly double? PeriodsForward;
+        /// <summary>
+        /// The prediction interval setup of a forecast computation.
+        /// </summary>
         public readonly double? PredictionInterval;
+        /// <summary>
+        /// The seasonality setup of a forecast computation. Choose one of the following options:
+        /// 
+        /// - `NULL` : The input is set to `NULL` .
+        /// - `NON_NULL` : The input is set to a custom value.
+        /// </summary>
         public readonly double? Seasonality;
+        /// <summary>
+        /// The upper boundary setup of a forecast computation.
+        /// </summary>
         public readonly double? UpperBoundary;
 
         [OutputConstructor]

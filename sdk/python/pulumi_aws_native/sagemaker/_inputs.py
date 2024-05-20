@@ -336,12 +336,19 @@ class AppImageConfigCustomImageContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key that identifies a container environment variable.
+        :param pulumi.Input[str] value: The value of the container environment variable.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key that identifies a container environment variable.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -351,6 +358,9 @@ class AppImageConfigCustomImageContainerEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the container environment variable.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -582,6 +592,7 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
         """
         The batch transform input for a monitoring job.
         :param pulumi.Input[str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param pulumi.Input['DataQualityJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -612,6 +623,9 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
     @property
     @pulumi.getter(name="datasetFormat")
     def dataset_format(self) -> pulumi.Input['DataQualityJobDefinitionDatasetFormatArgs']:
+        """
+        The dataset format for your batch transform job.
+        """
         return pulumi.get(self, "dataset_format")
 
     @dataset_format.setter
@@ -895,6 +909,9 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
                  statistics_resource: Optional[pulumi.Input['DataQualityJobDefinitionStatisticsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        :param pulumi.Input[str] baselining_job_name: The name of the job that performs baselining for the data quality monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionStatisticsResourceArgs'] statistics_resource: Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -906,6 +923,9 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the job that performs baselining for the data quality monitoring job.
+        """
         return pulumi.get(self, "baselining_job_name")
 
     @baselining_job_name.setter
@@ -915,6 +935,9 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional[pulumi.Input['DataQualityJobDefinitionConstraintsResourceArgs']]:
+        """
+        The constraints resource for a monitoring job.
+        """
         return pulumi.get(self, "constraints_resource")
 
     @constraints_resource.setter
@@ -924,6 +947,9 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
     @property
     @pulumi.getter(name="statisticsResource")
     def statistics_resource(self) -> Optional[pulumi.Input['DataQualityJobDefinitionStatisticsResourceArgs']]:
+        """
+        Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        """
         return pulumi.get(self, "statistics_resource")
 
     @statistics_resource.setter
@@ -938,6 +964,8 @@ class DataQualityJobDefinitionDataQualityJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
+        :param pulumi.Input['DataQualityJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
         """
         if batch_transform_input is not None:
             pulumi.set(__self__, "batch_transform_input", batch_transform_input)
@@ -947,6 +975,9 @@ class DataQualityJobDefinitionDataQualityJobInputArgs:
     @property
     @pulumi.getter(name="batchTransformInput")
     def batch_transform_input(self) -> Optional[pulumi.Input['DataQualityJobDefinitionBatchTransformInputArgs']]:
+        """
+        Input object for the batch transform job.
+        """
         return pulumi.get(self, "batch_transform_input")
 
     @batch_transform_input.setter
@@ -956,6 +987,9 @@ class DataQualityJobDefinitionDataQualityJobInputArgs:
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputArgs']]:
+        """
+        Input object for the endpoint
+        """
         return pulumi.get(self, "endpoint_input")
 
     @endpoint_input.setter
@@ -1017,6 +1051,7 @@ class DataQualityJobDefinitionEndpointInputArgs:
                  s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
+        :param pulumi.Input[str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['DataQualityJobDefinitionEndpointInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1034,6 +1069,9 @@ class DataQualityJobDefinitionEndpointInputArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -1158,12 +1196,16 @@ class DataQualityJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['DataQualityJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> pulumi.Input['DataQualityJobDefinitionS3OutputArgs']:
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved.
+        """
         return pulumi.get(self, "s3_output")
 
     @s3_output.setter
@@ -1177,12 +1219,16 @@ class DataQualityJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['DataQualityJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Input['DataQualityJobDefinitionClusterConfigArgs']:
+        """
+        The configuration for the cluster resources used to run the processing job.
+        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -1200,6 +1246,7 @@ class DataQualityJobDefinitionNetworkConfigArgs:
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param pulumi.Input['DataQualityJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -1235,6 +1282,9 @@ class DataQualityJobDefinitionNetworkConfigArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['DataQualityJobDefinitionVpcConfigArgs']]:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -1556,12 +1606,18 @@ class DomainCodeRepositoryArgs:
 class DomainCustomFileSystemConfigArgs:
     def __init__(__self__, *,
                  efs_file_system_config: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']] = None):
+        """
+        :param pulumi.Input['DomainEfsFileSystemConfigArgs'] efs_file_system_config: The settings for a custom Amazon EFS file system.
+        """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
 
     @property
     @pulumi.getter(name="efsFileSystemConfig")
     def efs_file_system_config(self) -> Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']]:
+        """
+        The settings for a custom Amazon EFS file system.
+        """
         return pulumi.get(self, "efs_file_system_config")
 
     @efs_file_system_config.setter
@@ -1628,12 +1684,19 @@ class DomainCustomPosixUserConfigArgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[int],
                  uid: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] gid: The POSIX group ID.
+        :param pulumi.Input[int] uid: The POSIX user ID.
+        """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
 
     @property
     @pulumi.getter
     def gid(self) -> pulumi.Input[int]:
+        """
+        The POSIX group ID.
+        """
         return pulumi.get(self, "gid")
 
     @gid.setter
@@ -1643,6 +1706,9 @@ class DomainCustomPosixUserConfigArgs:
     @property
     @pulumi.getter
     def uid(self) -> pulumi.Input[int]:
+        """
+        The POSIX user ID.
+        """
         return pulumi.get(self, "uid")
 
     @uid.setter
@@ -1825,6 +1891,7 @@ class DomainDefaultSpaceStorageSettingsArgs:
                  default_ebs_storage_settings: Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']] = None):
         """
         Default storage settings for a space.
+        :param pulumi.Input['DomainDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a space.
         """
         if default_ebs_storage_settings is not None:
             pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
@@ -1832,6 +1899,9 @@ class DomainDefaultSpaceStorageSettingsArgs:
     @property
     @pulumi.getter(name="defaultEbsStorageSettings")
     def default_ebs_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']]:
+        """
+        The default EBS storage settings for a space.
+        """
         return pulumi.get(self, "default_ebs_storage_settings")
 
     @default_ebs_storage_settings.setter
@@ -1884,6 +1954,10 @@ class DomainEfsFileSystemConfigArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
                  file_system_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
             pulumi.set(__self__, "file_system_path", file_system_path)
@@ -1891,6 +1965,9 @@ class DomainEfsFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of your Amazon EFS file system.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -1900,6 +1977,9 @@ class DomainEfsFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter
@@ -1985,6 +2065,7 @@ class DomainJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None):
         """
         The JupyterServer app settings.
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -1992,6 +2073,9 @@ class DomainJupyterServerAppSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -2047,6 +2131,7 @@ class DomainRSessionAppSettingsArgs:
         """
         A collection of settings that apply to an RSessionGateway app.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -2068,6 +2153,9 @@ class DomainRSessionAppSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -2125,6 +2213,7 @@ class DomainRStudioServerProDomainSettingsArgs:
         """
         A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
         :param pulumi.Input[str] domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
         :param pulumi.Input[str] r_studio_connect_url: A URL pointing to an RStudio Connect server.
         :param pulumi.Input[str] r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
         """
@@ -2151,6 +2240,9 @@ class DomainRStudioServerProDomainSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -2261,6 +2353,8 @@ class DomainSettingsArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A collection of Domain settings.
+        :param pulumi.Input['DomainDockerSettingsArgs'] docker_settings: A collection of settings that configure the domain's Docker interaction.
+        :param pulumi.Input['DomainRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the `RStudioServerPro` Domain-level app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         if docker_settings is not None:
@@ -2273,6 +2367,9 @@ class DomainSettingsArgs:
     @property
     @pulumi.getter(name="dockerSettings")
     def docker_settings(self) -> Optional[pulumi.Input['DomainDockerSettingsArgs']]:
+        """
+        A collection of settings that configure the domain's Docker interaction.
+        """
         return pulumi.get(self, "docker_settings")
 
     @docker_settings.setter
@@ -2282,6 +2379,9 @@ class DomainSettingsArgs:
     @property
     @pulumi.getter(name="rStudioServerProDomainSettings")
     def r_studio_server_pro_domain_settings(self) -> Optional[pulumi.Input['DomainRStudioServerProDomainSettingsArgs']]:
+        """
+        A collection of settings that configure the `RStudioServerPro` Domain-level app.
+        """
         return pulumi.get(self, "r_studio_server_pro_domain_settings")
 
     @r_studio_server_pro_domain_settings.setter
@@ -2377,11 +2477,18 @@ class DomainUserSettingsArgs:
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input[str] execution_role: The execution role for the user.
+        :param pulumi.Input['DomainCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        :param pulumi.Input['DomainCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
         :param pulumi.Input[str] default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
+        :param pulumi.Input['DomainJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application.
         :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
+        :param pulumi.Input['DomainRSessionAppSettingsArgs'] r_session_app_settings: A collection of settings that configure the `RSessionGateway` app.
+        :param pulumi.Input['DomainRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the `RStudioServerPro` app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['DomainSharingSettingsArgs'] sharing_settings: The sharing settings.
+        :param pulumi.Input['DomainDefaultSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a space.
         :param pulumi.Input['DomainUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -2427,6 +2534,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="codeEditorAppSettings")
     def code_editor_app_settings(self) -> Optional[pulumi.Input['DomainCodeEditorAppSettingsArgs']]:
+        """
+        The Code Editor application settings.
+        """
         return pulumi.get(self, "code_editor_app_settings")
 
     @code_editor_app_settings.setter
@@ -2436,6 +2546,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]]:
+        """
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        """
         return pulumi.get(self, "custom_file_system_configs")
 
     @custom_file_system_configs.setter
@@ -2445,6 +2558,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="customPosixUserConfig")
     def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']]:
+        """
+        Details about the POSIX identity that is used for file system operations.
+        """
         return pulumi.get(self, "custom_posix_user_config")
 
     @custom_posix_user_config.setter
@@ -2466,6 +2582,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="jupyterLabAppSettings")
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']]:
+        """
+        The settings for the JupyterLab application.
+        """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
     @jupyter_lab_app_settings.setter
@@ -2499,6 +2618,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="rSessionAppSettings")
     def r_session_app_settings(self) -> Optional[pulumi.Input['DomainRSessionAppSettingsArgs']]:
+        """
+        A collection of settings that configure the `RSessionGateway` app.
+        """
         return pulumi.get(self, "r_session_app_settings")
 
     @r_session_app_settings.setter
@@ -2508,6 +2630,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="rStudioServerProAppSettings")
     def r_studio_server_pro_app_settings(self) -> Optional[pulumi.Input['DomainRStudioServerProAppSettingsArgs']]:
+        """
+        A collection of settings that configure user interaction with the `RStudioServerPro` app.
+        """
         return pulumi.get(self, "r_studio_server_pro_app_settings")
 
     @r_studio_server_pro_app_settings.setter
@@ -2541,6 +2666,9 @@ class DomainUserSettingsArgs:
     @property
     @pulumi.getter(name="spaceStorageSettings")
     def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']]:
+        """
+        The storage settings for a space.
+        """
         return pulumi.get(self, "space_storage_settings")
 
     @space_storage_settings.setter
@@ -2566,6 +2694,11 @@ class FeatureGroupDataCatalogConfigArgs:
                  catalog: pulumi.Input[str],
                  database: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] catalog: The name of the Glue table catalog.
+        :param pulumi.Input[str] database: The name of the Glue table database.
+        :param pulumi.Input[str] table_name: The name of the Glue table.
+        """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "table_name", table_name)
@@ -2573,6 +2706,9 @@ class FeatureGroupDataCatalogConfigArgs:
     @property
     @pulumi.getter
     def catalog(self) -> pulumi.Input[str]:
+        """
+        The name of the Glue table catalog.
+        """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
@@ -2582,6 +2718,9 @@ class FeatureGroupDataCatalogConfigArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
+        """
+        The name of the Glue table database.
+        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -2591,6 +2730,9 @@ class FeatureGroupDataCatalogConfigArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Glue table.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -2603,12 +2745,29 @@ class FeatureGroupFeatureDefinitionArgs:
     def __init__(__self__, *,
                  feature_name: pulumi.Input[str],
                  feature_type: pulumi.Input['FeatureGroupFeatureDefinitionFeatureType']):
+        """
+        :param pulumi.Input[str] feature_name: The name of a feature. The type must be a string. `FeatureName` cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
+               
+               The name:
+               
+               - Must start with an alphanumeric character.
+               - Can only include alphanumeric characters, underscores, and hyphens. Spaces are not allowed.
+        :param pulumi.Input['FeatureGroupFeatureDefinitionFeatureType'] feature_type: The value type of a feature. Valid values are Integral, Fractional, or String.
+        """
         pulumi.set(__self__, "feature_name", feature_name)
         pulumi.set(__self__, "feature_type", feature_type)
 
     @property
     @pulumi.getter(name="featureName")
     def feature_name(self) -> pulumi.Input[str]:
+        """
+        The name of a feature. The type must be a string. `FeatureName` cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
+
+        The name:
+
+        - Must start with an alphanumeric character.
+        - Can only include alphanumeric characters, underscores, and hyphens. Spaces are not allowed.
+        """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
@@ -2618,6 +2777,9 @@ class FeatureGroupFeatureDefinitionArgs:
     @property
     @pulumi.getter(name="featureType")
     def feature_type(self) -> pulumi.Input['FeatureGroupFeatureDefinitionFeatureType']:
+        """
+        The value type of a feature. Valid values are Integral, Fractional, or String.
+        """
         return pulumi.get(self, "feature_type")
 
     @feature_type.setter
@@ -2629,12 +2791,54 @@ class FeatureGroupFeatureDefinitionArgs:
 class FeatureGroupOnlineStoreSecurityConfigArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ARN that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+               
+               The caller (either user or IAM role) of `CreateFeatureGroup` must have below permissions to the `OnlineStore` `KmsKeyId` :
+               
+               - `"kms:Encrypt"`
+               - `"kms:Decrypt"`
+               - `"kms:DescribeKey"`
+               - `"kms:CreateGrant"`
+               - `"kms:RetireGrant"`
+               - `"kms:ReEncryptFrom"`
+               - `"kms:ReEncryptTo"`
+               - `"kms:GenerateDataKey"`
+               - `"kms:ListAliases"`
+               - `"kms:ListGrants"`
+               - `"kms:RevokeGrant"`
+               
+               The caller (either user or IAM role) to all DataPlane operations ( `PutRecord` , `GetRecord` , `DeleteRecord` ) must have the following permissions to the `KmsKeyId` :
+               
+               - `"kms:Decrypt"`
+        """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (KMS) key ARN that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+
+        The caller (either user or IAM role) of `CreateFeatureGroup` must have below permissions to the `OnlineStore` `KmsKeyId` :
+
+        - `"kms:Encrypt"`
+        - `"kms:Decrypt"`
+        - `"kms:DescribeKey"`
+        - `"kms:CreateGrant"`
+        - `"kms:RetireGrant"`
+        - `"kms:ReEncryptFrom"`
+        - `"kms:ReEncryptTo"`
+        - `"kms:GenerateDataKey"`
+        - `"kms:ListAliases"`
+        - `"kms:ListGrants"`
+        - `"kms:RevokeGrant"`
+
+        The caller (either user or IAM role) to all DataPlane operations ( `PutRecord` , `GetRecord` , `DeleteRecord` ) must have the following permissions to the `KmsKeyId` :
+
+        - `"kms:Decrypt"`
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -2647,6 +2851,16 @@ class FeatureGroupS3StorageConfigArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_uri: The S3 URI, or location in Amazon S3, of `OfflineStore` .
+               
+               S3 URIs have a format similar to the following: `s3://example-bucket/prefix/` .
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ARN of the key used to encrypt any objects written into the `OfflineStore` S3 location.
+               
+               The IAM `roleARN` that is passed as a parameter to `CreateFeatureGroup` must have below permissions to the `KmsKeyId` :
+               
+               - `"kms:GenerateDataKey"`
+        """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -2654,6 +2868,11 @@ class FeatureGroupS3StorageConfigArgs:
     @property
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> pulumi.Input[str]:
+        """
+        The S3 URI, or location in Amazon S3, of `OfflineStore` .
+
+        S3 URIs have a format similar to the following: `s3://example-bucket/prefix/` .
+        """
         return pulumi.get(self, "s3_uri")
 
     @s3_uri.setter
@@ -2663,6 +2882,13 @@ class FeatureGroupS3StorageConfigArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (KMS) key ARN of the key used to encrypt any objects written into the `OfflineStore` S3 location.
+
+        The IAM `roleARN` that is passed as a parameter to `CreateFeatureGroup` must have below permissions to the `KmsKeyId` :
+
+        - `"kms:GenerateDataKey"`
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -2677,6 +2903,7 @@ class FeatureGroupThroughputConfigArgs:
                  provisioned_read_capacity_units: Optional[pulumi.Input[int]] = None,
                  provisioned_write_capacity_units: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input['FeatureGroupThroughputMode'] throughput_mode: The mode used for your feature group throughput: `ON_DEMAND` or `PROVISIONED` .
         :param pulumi.Input[int] provisioned_read_capacity_units: For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
         :param pulumi.Input[int] provisioned_write_capacity_units: For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
         """
@@ -2689,6 +2916,9 @@ class FeatureGroupThroughputConfigArgs:
     @property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> pulumi.Input['FeatureGroupThroughputMode']:
+        """
+        The mode used for your feature group throughput: `ON_DEMAND` or `PROVISIONED` .
+        """
         return pulumi.get(self, "throughput_mode")
 
     @throughput_mode.setter
@@ -2727,6 +2957,8 @@ class FeatureGroupTtlDurationArgs:
                  value: Optional[pulumi.Input[int]] = None):
         """
         TTL configuration of the feature group
+        :param pulumi.Input['FeatureGroupUnit'] unit: `TtlDuration` time unit.
+        :param pulumi.Input[int] value: `TtlDuration` time value.
         """
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
@@ -2736,6 +2968,9 @@ class FeatureGroupTtlDurationArgs:
     @property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input['FeatureGroupUnit']]:
+        """
+        `TtlDuration` time unit.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -2745,6 +2980,9 @@ class FeatureGroupTtlDurationArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        `TtlDuration` time value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2759,6 +2997,12 @@ class InferenceComponentComputeResourceRequirementsArgs:
                  min_memory_required_in_mb: Optional[pulumi.Input[int]] = None,
                  number_of_accelerator_devices_required: Optional[pulumi.Input[float]] = None,
                  number_of_cpu_cores_required: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[int] max_memory_required_in_mb: The maximum MB of memory to allocate to run a model that you assign to an inference component.
+        :param pulumi.Input[int] min_memory_required_in_mb: The minimum MB of memory to allocate to run a model that you assign to an inference component.
+        :param pulumi.Input[float] number_of_accelerator_devices_required: The number of accelerators to allocate to run a model that you assign to an inference component. Accelerators include GPUs and AWS Inferentia.
+        :param pulumi.Input[float] number_of_cpu_cores_required: The number of CPU cores to allocate to run a model that you assign to an inference component.
+        """
         if max_memory_required_in_mb is not None:
             pulumi.set(__self__, "max_memory_required_in_mb", max_memory_required_in_mb)
         if min_memory_required_in_mb is not None:
@@ -2771,6 +3015,9 @@ class InferenceComponentComputeResourceRequirementsArgs:
     @property
     @pulumi.getter(name="maxMemoryRequiredInMb")
     def max_memory_required_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum MB of memory to allocate to run a model that you assign to an inference component.
+        """
         return pulumi.get(self, "max_memory_required_in_mb")
 
     @max_memory_required_in_mb.setter
@@ -2780,6 +3027,9 @@ class InferenceComponentComputeResourceRequirementsArgs:
     @property
     @pulumi.getter(name="minMemoryRequiredInMb")
     def min_memory_required_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum MB of memory to allocate to run a model that you assign to an inference component.
+        """
         return pulumi.get(self, "min_memory_required_in_mb")
 
     @min_memory_required_in_mb.setter
@@ -2789,6 +3039,9 @@ class InferenceComponentComputeResourceRequirementsArgs:
     @property
     @pulumi.getter(name="numberOfAcceleratorDevicesRequired")
     def number_of_accelerator_devices_required(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of accelerators to allocate to run a model that you assign to an inference component. Accelerators include GPUs and AWS Inferentia.
+        """
         return pulumi.get(self, "number_of_accelerator_devices_required")
 
     @number_of_accelerator_devices_required.setter
@@ -2798,6 +3051,9 @@ class InferenceComponentComputeResourceRequirementsArgs:
     @property
     @pulumi.getter(name="numberOfCpuCoresRequired")
     def number_of_cpu_cores_required(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of CPU cores to allocate to run a model that you assign to an inference component.
+        """
         return pulumi.get(self, "number_of_cpu_cores_required")
 
     @number_of_cpu_cores_required.setter
@@ -2812,6 +3068,11 @@ class InferenceComponentContainerSpecificationArgs:
                  deployed_image: Optional[pulumi.Input['InferenceComponentDeployedImageArgs']] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] artifact_url: The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
+        :param pulumi.Input[str] image: The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
+        """
         if artifact_url is not None:
             pulumi.set(__self__, "artifact_url", artifact_url)
         if deployed_image is not None:
@@ -2824,6 +3085,9 @@ class InferenceComponentContainerSpecificationArgs:
     @property
     @pulumi.getter(name="artifactUrl")
     def artifact_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        """
         return pulumi.get(self, "artifact_url")
 
     @artifact_url.setter
@@ -2842,6 +3106,9 @@ class InferenceComponentContainerSpecificationArgs:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
+        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -2851,6 +3118,9 @@ class InferenceComponentContainerSpecificationArgs:
     @property
     @pulumi.getter
     def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
+        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -2864,6 +3134,11 @@ class InferenceComponentDeployedImageArgs:
                  resolution_time: Optional[pulumi.Input[str]] = None,
                  resolved_image: Optional[pulumi.Input[str]] = None,
                  specified_image: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] resolution_time: The date and time when the image path for the model resolved to the `ResolvedImage`
+        :param pulumi.Input[str] resolved_image: The specific digest path of the image hosted in this `ProductionVariant` .
+        :param pulumi.Input[str] specified_image: The image path you specified when you created the model.
+        """
         if resolution_time is not None:
             pulumi.set(__self__, "resolution_time", resolution_time)
         if resolved_image is not None:
@@ -2874,6 +3149,9 @@ class InferenceComponentDeployedImageArgs:
     @property
     @pulumi.getter(name="resolutionTime")
     def resolution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time when the image path for the model resolved to the `ResolvedImage`
+        """
         return pulumi.get(self, "resolution_time")
 
     @resolution_time.setter
@@ -2883,6 +3161,9 @@ class InferenceComponentDeployedImageArgs:
     @property
     @pulumi.getter(name="resolvedImage")
     def resolved_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specific digest path of the image hosted in this `ProductionVariant` .
+        """
         return pulumi.get(self, "resolved_image")
 
     @resolved_image.setter
@@ -2892,6 +3173,9 @@ class InferenceComponentDeployedImageArgs:
     @property
     @pulumi.getter(name="specifiedImage")
     def specified_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image path you specified when you created the model.
+        """
         return pulumi.get(self, "specified_image")
 
     @specified_image.setter
@@ -2907,6 +3191,7 @@ class InferenceComponentRuntimeConfigArgs:
                  desired_copy_count: Optional[pulumi.Input[int]] = None):
         """
         The runtime config for the inference component
+        :param pulumi.Input[int] copy_count: The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
         """
         if copy_count is not None:
             pulumi.set(__self__, "copy_count", copy_count)
@@ -2918,6 +3203,9 @@ class InferenceComponentRuntimeConfigArgs:
     @property
     @pulumi.getter(name="copyCount")
     def copy_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
+        """
         return pulumi.get(self, "copy_count")
 
     @copy_count.setter
@@ -2952,6 +3240,10 @@ class InferenceComponentSpecificationArgs:
                  startup_parameters: Optional[pulumi.Input['InferenceComponentStartupParametersArgs']] = None):
         """
         The specification for the inference component
+        :param pulumi.Input['InferenceComponentComputeResourceRequirementsArgs'] compute_resource_requirements: The compute resources allocated to run the model assigned to the inference component.
+        :param pulumi.Input['InferenceComponentContainerSpecificationArgs'] container: Defines a container that provides the runtime environment for a model that you deploy with an inference component.
+        :param pulumi.Input[str] model_name: The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        :param pulumi.Input['InferenceComponentStartupParametersArgs'] startup_parameters: Settings that take effect while the model container starts up.
         """
         pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
         if container is not None:
@@ -2964,6 +3256,9 @@ class InferenceComponentSpecificationArgs:
     @property
     @pulumi.getter(name="computeResourceRequirements")
     def compute_resource_requirements(self) -> pulumi.Input['InferenceComponentComputeResourceRequirementsArgs']:
+        """
+        The compute resources allocated to run the model assigned to the inference component.
+        """
         return pulumi.get(self, "compute_resource_requirements")
 
     @compute_resource_requirements.setter
@@ -2973,6 +3268,9 @@ class InferenceComponentSpecificationArgs:
     @property
     @pulumi.getter
     def container(self) -> Optional[pulumi.Input['InferenceComponentContainerSpecificationArgs']]:
+        """
+        Defines a container that provides the runtime environment for a model that you deploy with an inference component.
+        """
         return pulumi.get(self, "container")
 
     @container.setter
@@ -2982,6 +3280,9 @@ class InferenceComponentSpecificationArgs:
     @property
     @pulumi.getter(name="modelName")
     def model_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        """
         return pulumi.get(self, "model_name")
 
     @model_name.setter
@@ -2991,6 +3292,9 @@ class InferenceComponentSpecificationArgs:
     @property
     @pulumi.getter(name="startupParameters")
     def startup_parameters(self) -> Optional[pulumi.Input['InferenceComponentStartupParametersArgs']]:
+        """
+        Settings that take effect while the model container starts up.
+        """
         return pulumi.get(self, "startup_parameters")
 
     @startup_parameters.setter
@@ -3003,6 +3307,10 @@ class InferenceComponentStartupParametersArgs:
     def __init__(__self__, *,
                  container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by Amazon S3 Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests) .
+        :param pulumi.Input[int] model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this inference component.
+        """
         if container_startup_health_check_timeout_in_seconds is not None:
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if model_data_download_timeout_in_seconds is not None:
@@ -3011,6 +3319,9 @@ class InferenceComponentStartupParametersArgs:
     @property
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout value, in seconds, for your inference container to pass health check by Amazon S3 Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests) .
+        """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
     @container_startup_health_check_timeout_in_seconds.setter
@@ -3020,6 +3331,9 @@ class InferenceComponentStartupParametersArgs:
     @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this inference component.
+        """
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
 
     @model_data_download_timeout_in_seconds.setter
@@ -3076,6 +3390,7 @@ class InferenceExperimentDataStorageConfigArgs:
         """
         The Amazon S3 location and configuration for storing inference request and response data.
         :param pulumi.Input[str] destination: The Amazon S3 bucket where the inference request and response data is stored.
+        :param pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgs'] content_type: Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
         :param pulumi.Input[str] kms_key: The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "destination", destination)
@@ -3099,6 +3414,9 @@ class InferenceExperimentDataStorageConfigArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgs']]:
+        """
+        Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -3126,6 +3444,7 @@ class InferenceExperimentModelInfrastructureConfigArgs:
         """
         The configuration for the infrastructure that the model will be deployed to.
         :param pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType'] infrastructure_type: The type of the inference experiment that you want to run.
+        :param pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs'] real_time_inference_config: The infrastructure configuration for deploying the model to real-time inference.
         """
         pulumi.set(__self__, "infrastructure_type", infrastructure_type)
         pulumi.set(__self__, "real_time_inference_config", real_time_inference_config)
@@ -3145,6 +3464,9 @@ class InferenceExperimentModelInfrastructureConfigArgs:
     @property
     @pulumi.getter(name="realTimeInferenceConfig")
     def real_time_inference_config(self) -> pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs']:
+        """
+        The infrastructure configuration for deploying the model to real-time inference.
+        """
         return pulumi.get(self, "real_time_inference_config")
 
     @real_time_inference_config.setter
@@ -3160,6 +3482,7 @@ class InferenceExperimentModelVariantConfigArgs:
                  variant_name: pulumi.Input[str]):
         """
         Contains information about the deployment options of a model.
+        :param pulumi.Input['InferenceExperimentModelInfrastructureConfigArgs'] infrastructure_config: The configuration for the infrastructure that the model will be deployed to.
         :param pulumi.Input[str] model_name: The name of the Amazon SageMaker Model entity.
         :param pulumi.Input[str] variant_name: The name of the variant.
         """
@@ -3170,6 +3493,9 @@ class InferenceExperimentModelVariantConfigArgs:
     @property
     @pulumi.getter(name="infrastructureConfig")
     def infrastructure_config(self) -> pulumi.Input['InferenceExperimentModelInfrastructureConfigArgs']:
+        """
+        The configuration for the infrastructure that the model will be deployed to.
+        """
         return pulumi.get(self, "infrastructure_config")
 
     @infrastructure_config.setter
@@ -3372,11 +3698,13 @@ class ModelBiasJobDefinitionBatchTransformInputArgs:
         """
         The batch transform input for a monitoring job.
         :param pulumi.Input[str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param pulumi.Input['ModelBiasJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] end_time_offset: Monitoring end time offset, e.g. PT0H
         :param pulumi.Input[str] features_attribute: JSONpath to locate features in JSONlines dataset
         :param pulumi.Input[str] inference_attribute: Index or JSONpath to locate predicted label(s)
         :param pulumi.Input[str] probability_attribute: Index or JSONpath to locate probabilities
+        :param pulumi.Input[float] probability_threshold_attribute: The threshold for the class probability to be evaluated as a positive result.
         :param pulumi.Input['ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['ModelBiasJobDefinitionBatchTransformInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         :param pulumi.Input[str] start_time_offset: Monitoring start time offset, e.g. -PT1H
@@ -3416,6 +3744,9 @@ class ModelBiasJobDefinitionBatchTransformInputArgs:
     @property
     @pulumi.getter(name="datasetFormat")
     def dataset_format(self) -> pulumi.Input['ModelBiasJobDefinitionDatasetFormatArgs']:
+        """
+        The dataset format for your batch transform job.
+        """
         return pulumi.get(self, "dataset_format")
 
     @dataset_format.setter
@@ -3485,6 +3816,9 @@ class ModelBiasJobDefinitionBatchTransformInputArgs:
     @property
     @pulumi.getter(name="probabilityThresholdAttribute")
     def probability_threshold_attribute(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold for the class probability to be evaluated as a positive result.
+        """
         return pulumi.get(self, "probability_threshold_attribute")
 
     @probability_threshold_attribute.setter
@@ -3704,11 +4038,13 @@ class ModelBiasJobDefinitionEndpointInputArgs:
                  start_time_offset: Optional[pulumi.Input[str]] = None):
         """
         The endpoint for a monitoring job.
+        :param pulumi.Input[str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] end_time_offset: Monitoring end time offset, e.g. PT0H
         :param pulumi.Input[str] features_attribute: JSONpath to locate features in JSONlines dataset
         :param pulumi.Input[str] inference_attribute: Index or JSONpath to locate predicted label(s)
         :param pulumi.Input[str] probability_attribute: Index or JSONpath to locate probabilities
+        :param pulumi.Input[float] probability_threshold_attribute: The threshold for the class probability to be evaluated as a positive result.
         :param pulumi.Input['ModelBiasJobDefinitionEndpointInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['ModelBiasJobDefinitionEndpointInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         :param pulumi.Input[str] start_time_offset: Monitoring start time offset, e.g. -PT1H
@@ -3735,6 +4071,9 @@ class ModelBiasJobDefinitionEndpointInputArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -3804,6 +4143,9 @@ class ModelBiasJobDefinitionEndpointInputArgs:
     @property
     @pulumi.getter(name="probabilityThresholdAttribute")
     def probability_threshold_attribute(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold for the class probability to be evaluated as a positive result.
+        """
         return pulumi.get(self, "probability_threshold_attribute")
 
     @probability_threshold_attribute.setter
@@ -3932,6 +4274,8 @@ class ModelBiasJobDefinitionModelBiasBaselineConfigArgs:
                  constraints_resource: Optional[pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        :param pulumi.Input[str] baselining_job_name: The name of the baseline model bias job.
+        :param pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -3941,6 +4285,9 @@ class ModelBiasJobDefinitionModelBiasBaselineConfigArgs:
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the baseline model bias job.
+        """
         return pulumi.get(self, "baselining_job_name")
 
     @baselining_job_name.setter
@@ -3950,6 +4297,9 @@ class ModelBiasJobDefinitionModelBiasBaselineConfigArgs:
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgs']]:
+        """
+        The constraints resource for a monitoring job.
+        """
         return pulumi.get(self, "constraints_resource")
 
     @constraints_resource.setter
@@ -3965,6 +4315,9 @@ class ModelBiasJobDefinitionModelBiasJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['ModelBiasJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+        :param pulumi.Input['ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs'] ground_truth_s3_input: Location of ground truth labels to use in model bias job.
+        :param pulumi.Input['ModelBiasJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
+        :param pulumi.Input['ModelBiasJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
         """
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
         if batch_transform_input is not None:
@@ -3975,6 +4328,9 @@ class ModelBiasJobDefinitionModelBiasJobInputArgs:
     @property
     @pulumi.getter(name="groundTruthS3Input")
     def ground_truth_s3_input(self) -> pulumi.Input['ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs']:
+        """
+        Location of ground truth labels to use in model bias job.
+        """
         return pulumi.get(self, "ground_truth_s3_input")
 
     @ground_truth_s3_input.setter
@@ -3984,6 +4340,9 @@ class ModelBiasJobDefinitionModelBiasJobInputArgs:
     @property
     @pulumi.getter(name="batchTransformInput")
     def batch_transform_input(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionBatchTransformInputArgs']]:
+        """
+        Input object for the batch transform job.
+        """
         return pulumi.get(self, "batch_transform_input")
 
     @batch_transform_input.setter
@@ -3993,6 +4352,9 @@ class ModelBiasJobDefinitionModelBiasJobInputArgs:
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionEndpointInputArgs']]:
+        """
+        Input object for the endpoint
+        """
         return pulumi.get(self, "endpoint_input")
 
     @endpoint_input.setter
@@ -4068,12 +4430,16 @@ class ModelBiasJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+        :param pulumi.Input['ModelBiasJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> pulumi.Input['ModelBiasJobDefinitionS3OutputArgs']:
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved.
+        """
         return pulumi.get(self, "s3_output")
 
     @s3_output.setter
@@ -4087,12 +4453,16 @@ class ModelBiasJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['ModelBiasJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['ModelBiasJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Input['ModelBiasJobDefinitionClusterConfigArgs']:
+        """
+        The configuration for the cluster resources used to run the processing job.
+        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -4110,6 +4480,7 @@ class ModelBiasJobDefinitionNetworkConfigArgs:
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param pulumi.Input['ModelBiasJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -4145,6 +4516,9 @@ class ModelBiasJobDefinitionNetworkConfigArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionVpcConfigArgs']]:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -4518,6 +4892,12 @@ class ModelCardContentArgs:
                  training_details: Optional[pulumi.Input['ModelCardTrainingDetailsArgs']] = None):
         """
         The content of the model card.
+        :param pulumi.Input['ModelCardAdditionalInformationArgs'] additional_information: Additional information about the model.
+        :param pulumi.Input['ModelCardBusinessDetailsArgs'] business_details: Information about how the model supports business goals.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]] evaluation_details: An overview about the model's evaluation.
+        :param pulumi.Input['ModelCardIntendedUsesArgs'] intended_uses: The intended usage of the model.
+        :param pulumi.Input['ModelCardModelOverviewArgs'] model_overview: An overview about the model
+        :param pulumi.Input['ModelCardTrainingDetailsArgs'] training_details: An overview about model training.
         """
         if additional_information is not None:
             pulumi.set(__self__, "additional_information", additional_information)
@@ -4537,6 +4917,9 @@ class ModelCardContentArgs:
     @property
     @pulumi.getter(name="additionalInformation")
     def additional_information(self) -> Optional[pulumi.Input['ModelCardAdditionalInformationArgs']]:
+        """
+        Additional information about the model.
+        """
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
@@ -4546,6 +4929,9 @@ class ModelCardContentArgs:
     @property
     @pulumi.getter(name="businessDetails")
     def business_details(self) -> Optional[pulumi.Input['ModelCardBusinessDetailsArgs']]:
+        """
+        Information about how the model supports business goals.
+        """
         return pulumi.get(self, "business_details")
 
     @business_details.setter
@@ -4555,6 +4941,9 @@ class ModelCardContentArgs:
     @property
     @pulumi.getter(name="evaluationDetails")
     def evaluation_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgs']]]]:
+        """
+        An overview about the model's evaluation.
+        """
         return pulumi.get(self, "evaluation_details")
 
     @evaluation_details.setter
@@ -4564,6 +4953,9 @@ class ModelCardContentArgs:
     @property
     @pulumi.getter(name="intendedUses")
     def intended_uses(self) -> Optional[pulumi.Input['ModelCardIntendedUsesArgs']]:
+        """
+        The intended usage of the model.
+        """
         return pulumi.get(self, "intended_uses")
 
     @intended_uses.setter
@@ -4573,6 +4965,9 @@ class ModelCardContentArgs:
     @property
     @pulumi.getter(name="modelOverview")
     def model_overview(self) -> Optional[pulumi.Input['ModelCardModelOverviewArgs']]:
+        """
+        An overview about the model
+        """
         return pulumi.get(self, "model_overview")
 
     @model_overview.setter
@@ -4591,6 +4986,9 @@ class ModelCardContentArgs:
     @property
     @pulumi.getter(name="trainingDetails")
     def training_details(self) -> Optional[pulumi.Input['ModelCardTrainingDetailsArgs']]:
+        """
+        An overview about model training.
+        """
         return pulumi.get(self, "training_details")
 
     @training_details.setter
@@ -4713,8 +5111,16 @@ class ModelCardIntendedUsesArgs:
                  risk_rating: Optional[pulumi.Input['ModelCardRiskRating']] = None):
         """
         Intended usage of model.
+        :param pulumi.Input[str] explanations_for_risk_rating: An explanation of why your organization categorizes the model with its risk rating.
+        :param pulumi.Input[str] factors_affecting_model_efficiency: Factors affecting model efficacy.
         :param pulumi.Input[str] intended_uses: intended use cases.
         :param pulumi.Input[str] purpose_of_model: Why the model was developed?
+        :param pulumi.Input['ModelCardRiskRating'] risk_rating: Your organization's risk rating. You can specify one the following values as the risk rating:
+               
+               - High
+               - Medium
+               - Low
+               - Unknown
         """
         if explanations_for_risk_rating is not None:
             pulumi.set(__self__, "explanations_for_risk_rating", explanations_for_risk_rating)
@@ -4730,6 +5136,9 @@ class ModelCardIntendedUsesArgs:
     @property
     @pulumi.getter(name="explanationsForRiskRating")
     def explanations_for_risk_rating(self) -> Optional[pulumi.Input[str]]:
+        """
+        An explanation of why your organization categorizes the model with its risk rating.
+        """
         return pulumi.get(self, "explanations_for_risk_rating")
 
     @explanations_for_risk_rating.setter
@@ -4739,6 +5148,9 @@ class ModelCardIntendedUsesArgs:
     @property
     @pulumi.getter(name="factorsAffectingModelEfficiency")
     def factors_affecting_model_efficiency(self) -> Optional[pulumi.Input[str]]:
+        """
+        Factors affecting model efficacy.
+        """
         return pulumi.get(self, "factors_affecting_model_efficiency")
 
     @factors_affecting_model_efficiency.setter
@@ -4772,6 +5184,14 @@ class ModelCardIntendedUsesArgs:
     @property
     @pulumi.getter(name="riskRating")
     def risk_rating(self) -> Optional[pulumi.Input['ModelCardRiskRating']]:
+        """
+        Your organization's risk rating. You can specify one the following values as the risk rating:
+
+        - High
+        - Medium
+        - Low
+        - Unknown
+        """
         return pulumi.get(self, "risk_rating")
 
     @risk_rating.setter
@@ -5443,6 +5863,7 @@ class ModelCardObjectiveFunctionArgs:
         """
         the objective function the model will optimize for.
         :param pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgs'] function: objective function that training job is optimized for.
+        :param pulumi.Input[str] notes: Notes about the object function, including other considerations for possible objective functions.
         """
         if function is not None:
             pulumi.set(__self__, "function", function)
@@ -5464,6 +5885,9 @@ class ModelCardObjectiveFunctionArgs:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Notes about the object function, including other considerations for possible objective functions.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -5646,6 +6070,7 @@ class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs:
                  user_provided_hyper_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgs']]]] = None,
                  user_provided_training_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgs']]]] = None):
         """
+        Details about any associated training jobs.
         :param pulumi.Input[str] training_arn: SageMaker Training job arn.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] training_datasets: Location of the model datasets.
         """
@@ -5742,6 +6167,9 @@ class ModelCardTrainingDetailsArgs:
                  training_observations: Optional[pulumi.Input[str]] = None):
         """
         Overview about the training.
+        :param pulumi.Input['ModelCardObjectiveFunctionArgs'] objective_function: The function that is optimized during model training.
+        :param pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs'] training_job_details: Details about any associated training jobs.
+        :param pulumi.Input[str] training_observations: Any observations about training.
         """
         if objective_function is not None:
             pulumi.set(__self__, "objective_function", objective_function)
@@ -5753,6 +6181,9 @@ class ModelCardTrainingDetailsArgs:
     @property
     @pulumi.getter(name="objectiveFunction")
     def objective_function(self) -> Optional[pulumi.Input['ModelCardObjectiveFunctionArgs']]:
+        """
+        The function that is optimized during model training.
+        """
         return pulumi.get(self, "objective_function")
 
     @objective_function.setter
@@ -5762,6 +6193,9 @@ class ModelCardTrainingDetailsArgs:
     @property
     @pulumi.getter(name="trainingJobDetails")
     def training_job_details(self) -> Optional[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs']]:
+        """
+        Details about any associated training jobs.
+        """
         return pulumi.get(self, "training_job_details")
 
     @training_job_details.setter
@@ -5771,6 +6205,9 @@ class ModelCardTrainingDetailsArgs:
     @property
     @pulumi.getter(name="trainingObservations")
     def training_observations(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any observations about training.
+        """
         return pulumi.get(self, "training_observations")
 
     @training_observations.setter
@@ -5785,6 +6222,8 @@ class ModelCardTrainingHyperParameterArgs:
                  value: pulumi.Input[str]):
         """
         training hyper parameter
+        :param pulumi.Input[str] name: The name of the hyper parameter.
+        :param pulumi.Input[str] value: The value specified for the hyper parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -5792,6 +6231,9 @@ class ModelCardTrainingHyperParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the hyper parameter.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -5801,6 +6243,9 @@ class ModelCardTrainingHyperParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value specified for the hyper parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5816,6 +6261,9 @@ class ModelCardTrainingMetricArgs:
                  notes: Optional[pulumi.Input[str]] = None):
         """
         training metric data.
+        :param pulumi.Input[str] name: The name of the result from the SageMaker training job.
+        :param pulumi.Input[float] value: The value of a result from the SageMaker training job.
+        :param pulumi.Input[str] notes: Any additional notes describing the result of the training job.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -5825,6 +6273,9 @@ class ModelCardTrainingMetricArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the result from the SageMaker training job.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -5834,6 +6285,9 @@ class ModelCardTrainingMetricArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[float]:
+        """
+        The value of a result from the SageMaker training job.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5843,6 +6297,9 @@ class ModelCardTrainingMetricArgs:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any additional notes describing the result of the training job.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -5920,6 +6377,7 @@ class ModelExplainabilityJobDefinitionBatchTransformInputArgs:
         """
         The batch transform input for a monitoring job.
         :param pulumi.Input[str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] features_attribute: JSONpath to locate features in JSONlines dataset
         :param pulumi.Input[str] inference_attribute: Index or JSONpath to locate predicted label(s)
@@ -5956,6 +6414,9 @@ class ModelExplainabilityJobDefinitionBatchTransformInputArgs:
     @property
     @pulumi.getter(name="datasetFormat")
     def dataset_format(self) -> pulumi.Input['ModelExplainabilityJobDefinitionDatasetFormatArgs']:
+        """
+        The dataset format for your batch transform job.
+        """
         return pulumi.get(self, "dataset_format")
 
     @dataset_format.setter
@@ -6208,6 +6669,7 @@ class ModelExplainabilityJobDefinitionEndpointInputArgs:
                  s3_input_mode: Optional[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
+        :param pulumi.Input[str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] features_attribute: JSONpath to locate features in JSONlines dataset
         :param pulumi.Input[str] inference_attribute: Index or JSONpath to locate predicted label(s)
@@ -6231,6 +6693,9 @@ class ModelExplainabilityJobDefinitionEndpointInputArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -6395,6 +6860,8 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs:
                  constraints_resource: Optional[pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        :param pulumi.Input[str] baselining_job_name: The name of the baseline model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a model explainability job.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -6404,6 +6871,9 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs:
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the baseline model explainability job.
+        """
         return pulumi.get(self, "baselining_job_name")
 
     @baselining_job_name.setter
@@ -6413,6 +6883,9 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs:
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgs']]:
+        """
+        The constraints resource for a model explainability job.
+        """
         return pulumi.get(self, "constraints_resource")
 
     @constraints_resource.setter
@@ -6427,6 +6900,8 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
         """
         if batch_transform_input is not None:
             pulumi.set(__self__, "batch_transform_input", batch_transform_input)
@@ -6436,6 +6911,9 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
     @property
     @pulumi.getter(name="batchTransformInput")
     def batch_transform_input(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputArgs']]:
+        """
+        Input object for the batch transform job.
+        """
         return pulumi.get(self, "batch_transform_input")
 
     @batch_transform_input.setter
@@ -6445,6 +6923,9 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputArgs']]:
+        """
+        Input object for the endpoint
+        """
         return pulumi.get(self, "endpoint_input")
 
     @endpoint_input.setter
@@ -6497,12 +6978,16 @@ class ModelExplainabilityJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgs']:
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved.
+        """
         return pulumi.get(self, "s3_output")
 
     @s3_output.setter
@@ -6516,12 +7001,16 @@ class ModelExplainabilityJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgs']:
+        """
+        The configuration for the cluster resources used to run the processing job.
+        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -6539,6 +7028,7 @@ class ModelExplainabilityJobDefinitionNetworkConfigArgs:
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -6574,6 +7064,9 @@ class ModelExplainabilityJobDefinitionNetworkConfigArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionVpcConfigArgs']]:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -6822,6 +7315,9 @@ class ModelPackageBiasArgs:
                  report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Contains bias metrics for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] post_training_report: The post-training bias report for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] pre_training_report: The pre-training bias report for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] report: The bias report for a model
         """
         if post_training_report is not None:
             pulumi.set(__self__, "post_training_report", post_training_report)
@@ -6833,6 +7329,9 @@ class ModelPackageBiasArgs:
     @property
     @pulumi.getter(name="postTrainingReport")
     def post_training_report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The post-training bias report for a model.
+        """
         return pulumi.get(self, "post_training_report")
 
     @post_training_report.setter
@@ -6842,6 +7341,9 @@ class ModelPackageBiasArgs:
     @property
     @pulumi.getter(name="preTrainingReport")
     def pre_training_report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The pre-training bias report for a model.
+        """
         return pulumi.get(self, "pre_training_report")
 
     @pre_training_report.setter
@@ -6851,6 +7353,9 @@ class ModelPackageBiasArgs:
     @property
     @pulumi.getter
     def report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The bias report for a model
+        """
         return pulumi.get(self, "report")
 
     @report.setter
@@ -7038,12 +7543,16 @@ class ModelPackageDataSourceArgs:
                  s3_data_source: pulumi.Input['ModelPackageS3DataSourceArgs']):
         """
         Describes the input source of a transform job and the way the transform job consumes it.
+        :param pulumi.Input['ModelPackageS3DataSourceArgs'] s3_data_source: The S3 location of the data source that is associated with a channel.
         """
         pulumi.set(__self__, "s3_data_source", s3_data_source)
 
     @property
     @pulumi.getter(name="s3DataSource")
     def s3_data_source(self) -> pulumi.Input['ModelPackageS3DataSourceArgs']:
+        """
+        The S3 location of the data source that is associated with a channel.
+        """
         return pulumi.get(self, "s3_data_source")
 
     @s3_data_source.setter
@@ -7060,6 +7569,10 @@ class ModelPackageDriftCheckBaselinesArgs:
                  model_quality: Optional[pulumi.Input['ModelPackageDriftCheckModelQualityArgs']] = None):
         """
         Represents the drift check baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageDriftCheckBiasArgs'] bias: Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageDriftCheckExplainabilityArgs'] explainability: Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageDriftCheckModelDataQualityArgs'] model_data_quality: Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageDriftCheckModelQualityArgs'] model_quality: Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
         """
         if bias is not None:
             pulumi.set(__self__, "bias", bias)
@@ -7073,6 +7586,9 @@ class ModelPackageDriftCheckBaselinesArgs:
     @property
     @pulumi.getter
     def bias(self) -> Optional[pulumi.Input['ModelPackageDriftCheckBiasArgs']]:
+        """
+        Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+        """
         return pulumi.get(self, "bias")
 
     @bias.setter
@@ -7082,6 +7598,9 @@ class ModelPackageDriftCheckBaselinesArgs:
     @property
     @pulumi.getter
     def explainability(self) -> Optional[pulumi.Input['ModelPackageDriftCheckExplainabilityArgs']]:
+        """
+        Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
+        """
         return pulumi.get(self, "explainability")
 
     @explainability.setter
@@ -7091,6 +7610,9 @@ class ModelPackageDriftCheckBaselinesArgs:
     @property
     @pulumi.getter(name="modelDataQuality")
     def model_data_quality(self) -> Optional[pulumi.Input['ModelPackageDriftCheckModelDataQualityArgs']]:
+        """
+        Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
+        """
         return pulumi.get(self, "model_data_quality")
 
     @model_data_quality.setter
@@ -7100,6 +7622,9 @@ class ModelPackageDriftCheckBaselinesArgs:
     @property
     @pulumi.getter(name="modelQuality")
     def model_quality(self) -> Optional[pulumi.Input['ModelPackageDriftCheckModelQualityArgs']]:
+        """
+        Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+        """
         return pulumi.get(self, "model_quality")
 
     @model_quality.setter
@@ -7115,6 +7640,9 @@ class ModelPackageDriftCheckBiasArgs:
                  pre_training_constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageFileSourceArgs'] config_file: The bias config file for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] post_training_constraints: The post-training constraints.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] pre_training_constraints: The pre-training constraints.
         """
         if config_file is not None:
             pulumi.set(__self__, "config_file", config_file)
@@ -7126,6 +7654,9 @@ class ModelPackageDriftCheckBiasArgs:
     @property
     @pulumi.getter(name="configFile")
     def config_file(self) -> Optional[pulumi.Input['ModelPackageFileSourceArgs']]:
+        """
+        The bias config file for a model.
+        """
         return pulumi.get(self, "config_file")
 
     @config_file.setter
@@ -7135,6 +7666,9 @@ class ModelPackageDriftCheckBiasArgs:
     @property
     @pulumi.getter(name="postTrainingConstraints")
     def post_training_constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The post-training constraints.
+        """
         return pulumi.get(self, "post_training_constraints")
 
     @post_training_constraints.setter
@@ -7144,6 +7678,9 @@ class ModelPackageDriftCheckBiasArgs:
     @property
     @pulumi.getter(name="preTrainingConstraints")
     def pre_training_constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The pre-training constraints.
+        """
         return pulumi.get(self, "pre_training_constraints")
 
     @pre_training_constraints.setter
@@ -7158,6 +7695,8 @@ class ModelPackageDriftCheckExplainabilityArgs:
                  constraints: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Contains explainability metrics for a model.
+        :param pulumi.Input['ModelPackageFileSourceArgs'] config_file: The explainability config file for the model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: The drift check explainability constraints.
         """
         if config_file is not None:
             pulumi.set(__self__, "config_file", config_file)
@@ -7167,6 +7706,9 @@ class ModelPackageDriftCheckExplainabilityArgs:
     @property
     @pulumi.getter(name="configFile")
     def config_file(self) -> Optional[pulumi.Input['ModelPackageFileSourceArgs']]:
+        """
+        The explainability config file for the model.
+        """
         return pulumi.get(self, "config_file")
 
     @config_file.setter
@@ -7176,6 +7718,9 @@ class ModelPackageDriftCheckExplainabilityArgs:
     @property
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The drift check explainability constraints.
+        """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
@@ -7190,6 +7735,8 @@ class ModelPackageDriftCheckModelDataQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: The drift check model data quality constraints.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: The drift check model data quality statistics.
         """
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
@@ -7199,6 +7746,9 @@ class ModelPackageDriftCheckModelDataQualityArgs:
     @property
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The drift check model data quality constraints.
+        """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
@@ -7208,6 +7758,9 @@ class ModelPackageDriftCheckModelDataQualityArgs:
     @property
     @pulumi.getter
     def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The drift check model data quality statistics.
+        """
         return pulumi.get(self, "statistics")
 
     @statistics.setter
@@ -7222,6 +7775,8 @@ class ModelPackageDriftCheckModelQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: The drift check model quality constraints.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: The drift check model quality statistics.
         """
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
@@ -7231,6 +7786,9 @@ class ModelPackageDriftCheckModelQualityArgs:
     @property
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The drift check model quality constraints.
+        """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
@@ -7240,6 +7798,9 @@ class ModelPackageDriftCheckModelQualityArgs:
     @property
     @pulumi.getter
     def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The drift check model quality statistics.
+        """
         return pulumi.get(self, "statistics")
 
     @statistics.setter
@@ -7262,6 +7823,7 @@ class ModelPackageExplainabilityArgs:
                  report: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Contains explainability metrics for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] report: The explainability report for a model.
         """
         if report is not None:
             pulumi.set(__self__, "report", report)
@@ -7269,6 +7831,9 @@ class ModelPackageExplainabilityArgs:
     @property
     @pulumi.getter
     def report(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        The explainability report for a model.
+        """
         return pulumi.get(self, "report")
 
     @report.setter
@@ -7549,6 +8114,8 @@ class ModelPackageModelDataQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Metrics that measure the quality of the input data for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: Data quality constraints for a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: Data quality statistics for a model.
         """
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
@@ -7558,6 +8125,9 @@ class ModelPackageModelDataQualityArgs:
     @property
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        Data quality constraints for a model.
+        """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
@@ -7567,6 +8137,9 @@ class ModelPackageModelDataQualityArgs:
     @property
     @pulumi.getter
     def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        Data quality statistics for a model.
+        """
         return pulumi.get(self, "statistics")
 
     @statistics.setter
@@ -7583,6 +8156,10 @@ class ModelPackageModelMetricsArgs:
                  model_quality: Optional[pulumi.Input['ModelPackageModelQualityArgs']] = None):
         """
         A structure that contains model metrics reports.
+        :param pulumi.Input['ModelPackageBiasArgs'] bias: Metrics that measure bias in a model.
+        :param pulumi.Input['ModelPackageExplainabilityArgs'] explainability: Metrics that help explain a model.
+        :param pulumi.Input['ModelPackageModelDataQualityArgs'] model_data_quality: Metrics that measure the quality of the input data for a model.
+        :param pulumi.Input['ModelPackageModelQualityArgs'] model_quality: Metrics that measure the quality of a model.
         """
         if bias is not None:
             pulumi.set(__self__, "bias", bias)
@@ -7596,6 +8173,9 @@ class ModelPackageModelMetricsArgs:
     @property
     @pulumi.getter
     def bias(self) -> Optional[pulumi.Input['ModelPackageBiasArgs']]:
+        """
+        Metrics that measure bias in a model.
+        """
         return pulumi.get(self, "bias")
 
     @bias.setter
@@ -7605,6 +8185,9 @@ class ModelPackageModelMetricsArgs:
     @property
     @pulumi.getter
     def explainability(self) -> Optional[pulumi.Input['ModelPackageExplainabilityArgs']]:
+        """
+        Metrics that help explain a model.
+        """
         return pulumi.get(self, "explainability")
 
     @explainability.setter
@@ -7614,6 +8197,9 @@ class ModelPackageModelMetricsArgs:
     @property
     @pulumi.getter(name="modelDataQuality")
     def model_data_quality(self) -> Optional[pulumi.Input['ModelPackageModelDataQualityArgs']]:
+        """
+        Metrics that measure the quality of the input data for a model.
+        """
         return pulumi.get(self, "model_data_quality")
 
     @model_data_quality.setter
@@ -7623,6 +8209,9 @@ class ModelPackageModelMetricsArgs:
     @property
     @pulumi.getter(name="modelQuality")
     def model_quality(self) -> Optional[pulumi.Input['ModelPackageModelQualityArgs']]:
+        """
+        Metrics that measure the quality of a model.
+        """
         return pulumi.get(self, "model_quality")
 
     @model_quality.setter
@@ -7637,6 +8226,8 @@ class ModelPackageModelQualityArgs:
                  statistics: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']] = None):
         """
         Metrics that measure the quality of a model.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] constraints: Model quality constraints.
+        :param pulumi.Input['ModelPackageMetricsSourceArgs'] statistics: Model quality statistics.
         """
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
@@ -7646,6 +8237,9 @@ class ModelPackageModelQualityArgs:
     @property
     @pulumi.getter
     def constraints(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        Model quality constraints.
+        """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
@@ -7655,6 +8249,9 @@ class ModelPackageModelQualityArgs:
     @property
     @pulumi.getter
     def statistics(self) -> Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]:
+        """
+        Model quality statistics.
+        """
         return pulumi.get(self, "statistics")
 
     @statistics.setter
@@ -7768,6 +8365,7 @@ class ModelPackageStatusDetailsArgs:
                  validation_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]] = None):
         """
         Details about the current status of the model package.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]] validation_statuses: The validation status of the model package.
         """
         if validation_statuses is not None:
             pulumi.set(__self__, "validation_statuses", validation_statuses)
@@ -7775,6 +8373,9 @@ class ModelPackageStatusDetailsArgs:
     @property
     @pulumi.getter(name="validationStatuses")
     def validation_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]:
+        """
+        The validation status of the model package.
+        """
         return pulumi.get(self, "validation_statuses")
 
     @validation_statuses.setter
@@ -7845,6 +8446,7 @@ class ModelPackageTransformInputArgs:
                  split_type: Optional[pulumi.Input['ModelPackageTransformInputSplitType']] = None):
         """
         Describes the input source of a transform job and the way the transform job consumes it.
+        :param pulumi.Input['ModelPackageDataSourceArgs'] data_source: Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
         :param pulumi.Input['ModelPackageTransformInputCompressionType'] compression_type: If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
         :param pulumi.Input[str] content_type: The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
         :param pulumi.Input['ModelPackageTransformInputSplitType'] split_type: The method to use to split the transform job's data files into smaller batches. 
@@ -7860,6 +8462,9 @@ class ModelPackageTransformInputArgs:
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input['ModelPackageDataSourceArgs']:
+        """
+        Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
+        """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
@@ -7915,7 +8520,11 @@ class ModelPackageTransformJobDefinitionArgs:
                  max_payload_in_mb: Optional[pulumi.Input[int]] = None):
         """
         Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+        :param pulumi.Input['ModelPackageTransformInputArgs'] transform_input: A description of the input source and the way the transform job consumes it.
+        :param pulumi.Input['ModelPackageTransformOutputArgs'] transform_output: Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+        :param pulumi.Input['ModelPackageTransformResourcesArgs'] transform_resources: Identifies the ML compute instances for the transform job.
         :param pulumi.Input['ModelPackageTransformJobDefinitionBatchStrategy'] batch_strategy: A string that determines the number of records included in a single mini-batch.
+        :param pulumi.Input['ModelPackageEnvironmentArgs'] environment: The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
         :param pulumi.Input[int] max_concurrent_transforms: The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
         :param pulumi.Input[int] max_payload_in_mb: The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
         """
@@ -7934,6 +8543,9 @@ class ModelPackageTransformJobDefinitionArgs:
     @property
     @pulumi.getter(name="transformInput")
     def transform_input(self) -> pulumi.Input['ModelPackageTransformInputArgs']:
+        """
+        A description of the input source and the way the transform job consumes it.
+        """
         return pulumi.get(self, "transform_input")
 
     @transform_input.setter
@@ -7943,6 +8555,9 @@ class ModelPackageTransformJobDefinitionArgs:
     @property
     @pulumi.getter(name="transformOutput")
     def transform_output(self) -> pulumi.Input['ModelPackageTransformOutputArgs']:
+        """
+        Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+        """
         return pulumi.get(self, "transform_output")
 
     @transform_output.setter
@@ -7952,6 +8567,9 @@ class ModelPackageTransformJobDefinitionArgs:
     @property
     @pulumi.getter(name="transformResources")
     def transform_resources(self) -> pulumi.Input['ModelPackageTransformResourcesArgs']:
+        """
+        Identifies the ML compute instances for the transform job.
+        """
         return pulumi.get(self, "transform_resources")
 
     @transform_resources.setter
@@ -7973,6 +8591,9 @@ class ModelPackageTransformJobDefinitionArgs:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input['ModelPackageEnvironmentArgs']]:
+        """
+        The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
+        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -8137,6 +8758,7 @@ class ModelPackageValidationProfileArgs:
         """
         Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
         :param pulumi.Input[str] profile_name: The name of the profile for the model package.
+        :param pulumi.Input['ModelPackageTransformJobDefinitionArgs'] transform_job_definition: The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
         """
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "transform_job_definition", transform_job_definition)
@@ -8156,6 +8778,9 @@ class ModelPackageValidationProfileArgs:
     @property
     @pulumi.getter(name="transformJobDefinition")
     def transform_job_definition(self) -> pulumi.Input['ModelPackageTransformJobDefinitionArgs']:
+        """
+        The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
+        """
         return pulumi.get(self, "transform_job_definition")
 
     @transform_job_definition.setter
@@ -8170,6 +8795,7 @@ class ModelPackageValidationSpecificationArgs:
                  validation_role: pulumi.Input[str]):
         """
         Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgs']]] validation_profiles: An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
         :param pulumi.Input[str] validation_role: The IAM roles to be used for the validation of the model package.
         """
         pulumi.set(__self__, "validation_profiles", validation_profiles)
@@ -8178,6 +8804,9 @@ class ModelPackageValidationSpecificationArgs:
     @property
     @pulumi.getter(name="validationProfiles")
     def validation_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgs']]]:
+        """
+        An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
+        """
         return pulumi.get(self, "validation_profiles")
 
     @validation_profiles.setter
@@ -8213,10 +8842,12 @@ class ModelQualityJobDefinitionBatchTransformInputArgs:
         """
         The batch transform input for a monitoring job.
         :param pulumi.Input[str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param pulumi.Input['ModelQualityJobDefinitionDatasetFormatArgs'] dataset_format: The dataset format for your batch transform job.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] end_time_offset: Monitoring end time offset, e.g. PT0H
         :param pulumi.Input[str] inference_attribute: Index or JSONpath to locate predicted label(s)
         :param pulumi.Input[str] probability_attribute: Index or JSONpath to locate probabilities
+        :param pulumi.Input[float] probability_threshold_attribute: The threshold for the class probability to be evaluated as a positive result.
         :param pulumi.Input['ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['ModelQualityJobDefinitionBatchTransformInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         :param pulumi.Input[str] start_time_offset: Monitoring start time offset, e.g. -PT1H
@@ -8254,6 +8885,9 @@ class ModelQualityJobDefinitionBatchTransformInputArgs:
     @property
     @pulumi.getter(name="datasetFormat")
     def dataset_format(self) -> pulumi.Input['ModelQualityJobDefinitionDatasetFormatArgs']:
+        """
+        The dataset format for your batch transform job.
+        """
         return pulumi.get(self, "dataset_format")
 
     @dataset_format.setter
@@ -8311,6 +8945,9 @@ class ModelQualityJobDefinitionBatchTransformInputArgs:
     @property
     @pulumi.getter(name="probabilityThresholdAttribute")
     def probability_threshold_attribute(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold for the class probability to be evaluated as a positive result.
+        """
         return pulumi.get(self, "probability_threshold_attribute")
 
     @probability_threshold_attribute.setter
@@ -8529,10 +9166,12 @@ class ModelQualityJobDefinitionEndpointInputArgs:
                  start_time_offset: Optional[pulumi.Input[str]] = None):
         """
         The endpoint for a monitoring job.
+        :param pulumi.Input[str] endpoint_name: An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
         :param pulumi.Input[str] end_time_offset: Monitoring end time offset, e.g. PT0H
         :param pulumi.Input[str] inference_attribute: Index or JSONpath to locate predicted label(s)
         :param pulumi.Input[str] probability_attribute: Index or JSONpath to locate probabilities
+        :param pulumi.Input[float] probability_threshold_attribute: The threshold for the class probability to be evaluated as a positive result.
         :param pulumi.Input['ModelQualityJobDefinitionEndpointInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['ModelQualityJobDefinitionEndpointInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         :param pulumi.Input[str] start_time_offset: Monitoring start time offset, e.g. -PT1H
@@ -8557,6 +9196,9 @@ class ModelQualityJobDefinitionEndpointInputArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[str]:
+        """
+        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -8614,6 +9256,9 @@ class ModelQualityJobDefinitionEndpointInputArgs:
     @property
     @pulumi.getter(name="probabilityThresholdAttribute")
     def probability_threshold_attribute(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold for the class probability to be evaluated as a positive result.
+        """
         return pulumi.get(self, "probability_threshold_attribute")
 
     @probability_threshold_attribute.setter
@@ -8694,6 +9339,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecificationArgs:
         """
         Container image configuration object for the monitoring job.
         :param pulumi.Input[str] image_uri: The container image to be run by the monitoring job.
+        :param pulumi.Input['ModelQualityJobDefinitionProblemType'] problem_type: The machine learning problem type of the model that the monitoring job monitors.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_arguments: An array of arguments for the container used to run the monitoring job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
         :param Any environment: Sets the environment variables in the Docker container
@@ -8728,6 +9374,9 @@ class ModelQualityJobDefinitionModelQualityAppSpecificationArgs:
     @property
     @pulumi.getter(name="problemType")
     def problem_type(self) -> pulumi.Input['ModelQualityJobDefinitionProblemType']:
+        """
+        The machine learning problem type of the model that the monitoring job monitors.
+        """
         return pulumi.get(self, "problem_type")
 
     @problem_type.setter
@@ -8802,6 +9451,8 @@ class ModelQualityJobDefinitionModelQualityBaselineConfigArgs:
                  constraints_resource: Optional[pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        :param pulumi.Input[str] baselining_job_name: The name of the job that performs baselining for the monitoring job.
+        :param pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -8811,6 +9462,9 @@ class ModelQualityJobDefinitionModelQualityBaselineConfigArgs:
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the job that performs baselining for the monitoring job.
+        """
         return pulumi.get(self, "baselining_job_name")
 
     @baselining_job_name.setter
@@ -8820,6 +9474,9 @@ class ModelQualityJobDefinitionModelQualityBaselineConfigArgs:
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgs']]:
+        """
+        The constraints resource for a monitoring job.
+        """
         return pulumi.get(self, "constraints_resource")
 
     @constraints_resource.setter
@@ -8835,6 +9492,9 @@ class ModelQualityJobDefinitionModelQualityJobInputArgs:
                  endpoint_input: Optional[pulumi.Input['ModelQualityJobDefinitionEndpointInputArgs']] = None):
         """
         The inputs for a monitoring job.
+        :param pulumi.Input['ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs'] ground_truth_s3_input: The ground truth label provided for the model.
+        :param pulumi.Input['ModelQualityJobDefinitionBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job.
+        :param pulumi.Input['ModelQualityJobDefinitionEndpointInputArgs'] endpoint_input: Input object for the endpoint
         """
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
         if batch_transform_input is not None:
@@ -8845,6 +9505,9 @@ class ModelQualityJobDefinitionModelQualityJobInputArgs:
     @property
     @pulumi.getter(name="groundTruthS3Input")
     def ground_truth_s3_input(self) -> pulumi.Input['ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs']:
+        """
+        The ground truth label provided for the model.
+        """
         return pulumi.get(self, "ground_truth_s3_input")
 
     @ground_truth_s3_input.setter
@@ -8854,6 +9517,9 @@ class ModelQualityJobDefinitionModelQualityJobInputArgs:
     @property
     @pulumi.getter(name="batchTransformInput")
     def batch_transform_input(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionBatchTransformInputArgs']]:
+        """
+        Input object for the batch transform job.
+        """
         return pulumi.get(self, "batch_transform_input")
 
     @batch_transform_input.setter
@@ -8863,6 +9529,9 @@ class ModelQualityJobDefinitionModelQualityJobInputArgs:
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionEndpointInputArgs']]:
+        """
+        Input object for the endpoint
+        """
         return pulumi.get(self, "endpoint_input")
 
     @endpoint_input.setter
@@ -8938,12 +9607,16 @@ class ModelQualityJobDefinitionMonitoringOutputArgs:
                  s3_output: pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']):
         """
         The output object for a monitoring job.
+        :param pulumi.Input['ModelQualityJobDefinitionS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> pulumi.Input['ModelQualityJobDefinitionS3OutputArgs']:
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved.
+        """
         return pulumi.get(self, "s3_output")
 
     @s3_output.setter
@@ -8957,12 +9630,16 @@ class ModelQualityJobDefinitionMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['ModelQualityJobDefinitionClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['ModelQualityJobDefinitionClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Input['ModelQualityJobDefinitionClusterConfigArgs']:
+        """
+        The configuration for the cluster resources used to run the processing job.
+        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -8980,6 +9657,7 @@ class ModelQualityJobDefinitionNetworkConfigArgs:
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param pulumi.Input['ModelQualityJobDefinitionVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -9015,6 +9693,9 @@ class ModelQualityJobDefinitionNetworkConfigArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionVpcConfigArgs']]:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -9144,6 +9825,8 @@ class MonitoringScheduleBaselineConfigArgs:
                  statistics_resource: Optional[pulumi.Input['MonitoringScheduleStatisticsResourceArgs']] = None):
         """
         Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        :param pulumi.Input['MonitoringScheduleConstraintsResourceArgs'] constraints_resource: The Amazon S3 URI for the constraints resource.
+        :param pulumi.Input['MonitoringScheduleStatisticsResourceArgs'] statistics_resource: The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if constraints_resource is not None:
             pulumi.set(__self__, "constraints_resource", constraints_resource)
@@ -9153,6 +9836,9 @@ class MonitoringScheduleBaselineConfigArgs:
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional[pulumi.Input['MonitoringScheduleConstraintsResourceArgs']]:
+        """
+        The Amazon S3 URI for the constraints resource.
+        """
         return pulumi.get(self, "constraints_resource")
 
     @constraints_resource.setter
@@ -9162,6 +9848,9 @@ class MonitoringScheduleBaselineConfigArgs:
     @property
     @pulumi.getter(name="statisticsResource")
     def statistics_resource(self) -> Optional[pulumi.Input['MonitoringScheduleStatisticsResourceArgs']]:
+        """
+        The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+        """
         return pulumi.get(self, "statistics_resource")
 
     @statistics_resource.setter
@@ -9344,7 +10033,10 @@ class MonitoringScheduleConfigArgs:
                  schedule_config: Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']] = None):
         """
         The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs'] monitoring_job_definition: Defines the monitoring job.
         :param pulumi.Input[str] monitoring_job_definition_name: Name of the job definition
+        :param pulumi.Input['MonitoringScheduleMonitoringType'] monitoring_type: The type of the monitoring job definition to schedule.
+        :param pulumi.Input['MonitoringScheduleScheduleConfigArgs'] schedule_config: Configures the monitoring schedule.
         """
         if monitoring_job_definition is not None:
             pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
@@ -9358,6 +10050,9 @@ class MonitoringScheduleConfigArgs:
     @property
     @pulumi.getter(name="monitoringJobDefinition")
     def monitoring_job_definition(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']]:
+        """
+        Defines the monitoring job.
+        """
         return pulumi.get(self, "monitoring_job_definition")
 
     @monitoring_job_definition.setter
@@ -9379,6 +10074,9 @@ class MonitoringScheduleConfigArgs:
     @property
     @pulumi.getter(name="monitoringType")
     def monitoring_type(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringType']]:
+        """
+        The type of the monitoring job definition to schedule.
+        """
         return pulumi.get(self, "monitoring_type")
 
     @monitoring_type.setter
@@ -9388,6 +10086,9 @@ class MonitoringScheduleConfigArgs:
     @property
     @pulumi.getter(name="scheduleConfig")
     def schedule_config(self) -> Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']]:
+        """
+        Configures the monitoring schedule.
+        """
         return pulumi.get(self, "schedule_config")
 
     @schedule_config.setter
@@ -9696,7 +10397,9 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
         :param pulumi.Input[str] creation_time: The time at which the monitoring job was created.
         :param pulumi.Input[str] last_modified_time: A timestamp that indicates the last time the monitoring job was modified.
         :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus'] monitoring_execution_status: The status of the monitoring job.
+        :param pulumi.Input[str] monitoring_schedule_name: The name of the monitoring schedule.
         :param pulumi.Input[str] scheduled_time: The time the monitoring job was scheduled.
+        :param pulumi.Input[str] endpoint_name: The name of the endpoint used to run the monitoring job.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input[str] processing_job_arn: The Amazon Resource Name (ARN) of the monitoring job.
         """
@@ -9751,6 +10454,9 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
     @property
     @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> pulumi.Input[str]:
+        """
+        The name of the monitoring schedule.
+        """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @monitoring_schedule_name.setter
@@ -9772,6 +10478,9 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the endpoint used to run the monitoring job.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -9849,8 +10558,15 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
                  stopping_condition: Optional[pulumi.Input['MonitoringScheduleStoppingConditionArgs']] = None):
         """
         Defines the monitoring job.
+        :param pulumi.Input['MonitoringScheduleMonitoringAppSpecificationArgs'] monitoring_app_specification: Configures the monitoring job to run a specified Docker container image.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]] monitoring_inputs: The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        :param pulumi.Input['MonitoringScheduleMonitoringOutputConfigArgs'] monitoring_output_config: The array of outputs from the monitoring job to be uploaded to Amazon S3.
+        :param pulumi.Input['MonitoringScheduleMonitoringResourcesArgs'] monitoring_resources: Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input['MonitoringScheduleBaselineConfigArgs'] baseline_config: Baseline configuration used to validate that the data conforms to the specified constraints and statistics
         :param Any environment: Sets the environment variables in the Docker container
+        :param pulumi.Input['MonitoringScheduleNetworkConfigArgs'] network_config: Specifies networking options for an monitoring job.
+        :param pulumi.Input['MonitoringScheduleStoppingConditionArgs'] stopping_condition: Specifies a time limit for how long the monitoring job is allowed to run.
         """
         pulumi.set(__self__, "monitoring_app_specification", monitoring_app_specification)
         pulumi.set(__self__, "monitoring_inputs", monitoring_inputs)
@@ -9869,6 +10585,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="monitoringAppSpecification")
     def monitoring_app_specification(self) -> pulumi.Input['MonitoringScheduleMonitoringAppSpecificationArgs']:
+        """
+        Configures the monitoring job to run a specified Docker container image.
+        """
         return pulumi.get(self, "monitoring_app_specification")
 
     @monitoring_app_specification.setter
@@ -9878,6 +10597,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="monitoringInputs")
     def monitoring_inputs(self) -> pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgs']]]:
+        """
+        The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        """
         return pulumi.get(self, "monitoring_inputs")
 
     @monitoring_inputs.setter
@@ -9887,6 +10609,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="monitoringOutputConfig")
     def monitoring_output_config(self) -> pulumi.Input['MonitoringScheduleMonitoringOutputConfigArgs']:
+        """
+        The array of outputs from the monitoring job to be uploaded to Amazon S3.
+        """
         return pulumi.get(self, "monitoring_output_config")
 
     @monitoring_output_config.setter
@@ -9896,6 +10621,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="monitoringResources")
     def monitoring_resources(self) -> pulumi.Input['MonitoringScheduleMonitoringResourcesArgs']:
+        """
+        Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
+        """
         return pulumi.get(self, "monitoring_resources")
 
     @monitoring_resources.setter
@@ -9917,6 +10645,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="baselineConfig")
     def baseline_config(self) -> Optional[pulumi.Input['MonitoringScheduleBaselineConfigArgs']]:
+        """
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics
+        """
         return pulumi.get(self, "baseline_config")
 
     @baseline_config.setter
@@ -9938,6 +10669,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['MonitoringScheduleNetworkConfigArgs']]:
+        """
+        Specifies networking options for an monitoring job.
+        """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
@@ -9947,6 +10681,9 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['MonitoringScheduleStoppingConditionArgs']]:
+        """
+        Specifies a time limit for how long the monitoring job is allowed to run.
+        """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
@@ -9999,12 +10736,16 @@ class MonitoringScheduleMonitoringOutputArgs:
                  s3_output: pulumi.Input['MonitoringScheduleS3OutputArgs']):
         """
         The output object for a monitoring job.
+        :param pulumi.Input['MonitoringScheduleS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> pulumi.Input['MonitoringScheduleS3OutputArgs']:
+        """
+        The Amazon S3 storage location where the results of a monitoring job are saved.
+        """
         return pulumi.get(self, "s3_output")
 
     @s3_output.setter
@@ -10018,12 +10759,16 @@ class MonitoringScheduleMonitoringResourcesArgs:
                  cluster_config: pulumi.Input['MonitoringScheduleClusterConfigArgs']):
         """
         Identifies the resources to deploy for a monitoring job.
+        :param pulumi.Input['MonitoringScheduleClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Input['MonitoringScheduleClusterConfigArgs']:
+        """
+        The configuration for the cluster resources used to run the processing job.
+        """
         return pulumi.get(self, "cluster_config")
 
     @cluster_config.setter
@@ -10041,6 +10786,7 @@ class MonitoringScheduleNetworkConfigArgs:
         Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
         :param pulumi.Input[bool] enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param pulumi.Input['MonitoringScheduleVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -10076,6 +10822,9 @@ class MonitoringScheduleNetworkConfigArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['MonitoringScheduleVpcConfigArgs']]:
+        """
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
+        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -10284,6 +11033,15 @@ class OfflineStoreConfigPropertiesArgs:
                  data_catalog_config: Optional[pulumi.Input['FeatureGroupDataCatalogConfigArgs']] = None,
                  disable_glue_table_creation: Optional[pulumi.Input[bool]] = None,
                  table_format: Optional[pulumi.Input['FeatureGroupTableFormat']] = None):
+        """
+        The configuration of an `OfflineStore` .
+        :param pulumi.Input['FeatureGroupS3StorageConfigArgs'] s3_storage_config: The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
+        :param pulumi.Input['FeatureGroupDataCatalogConfigArgs'] data_catalog_config: The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
+        :param pulumi.Input[bool] disable_glue_table_creation: Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
+               
+               The default value is `False` .
+        :param pulumi.Input['FeatureGroupTableFormat'] table_format: Format for the offline store table. Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
+        """
         pulumi.set(__self__, "s3_storage_config", s3_storage_config)
         if data_catalog_config is not None:
             pulumi.set(__self__, "data_catalog_config", data_catalog_config)
@@ -10295,6 +11053,9 @@ class OfflineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="s3StorageConfig")
     def s3_storage_config(self) -> pulumi.Input['FeatureGroupS3StorageConfigArgs']:
+        """
+        The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
+        """
         return pulumi.get(self, "s3_storage_config")
 
     @s3_storage_config.setter
@@ -10304,6 +11065,9 @@ class OfflineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="dataCatalogConfig")
     def data_catalog_config(self) -> Optional[pulumi.Input['FeatureGroupDataCatalogConfigArgs']]:
+        """
+        The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
+        """
         return pulumi.get(self, "data_catalog_config")
 
     @data_catalog_config.setter
@@ -10313,6 +11077,11 @@ class OfflineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="disableGlueTableCreation")
     def disable_glue_table_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
+
+        The default value is `False` .
+        """
         return pulumi.get(self, "disable_glue_table_creation")
 
     @disable_glue_table_creation.setter
@@ -10322,6 +11091,9 @@ class OfflineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="tableFormat")
     def table_format(self) -> Optional[pulumi.Input['FeatureGroupTableFormat']]:
+        """
+        Format for the offline store table. Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
+        """
         return pulumi.get(self, "table_format")
 
     @table_format.setter
@@ -10336,6 +11108,18 @@ class OnlineStoreConfigPropertiesArgs:
                  security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']] = None,
                  storage_type: Optional[pulumi.Input['FeatureGroupStorageType']] = None,
                  ttl_duration: Optional[pulumi.Input['FeatureGroupTtlDurationArgs']] = None):
+        """
+        The configuration of an `OnlineStore` .
+        :param pulumi.Input[bool] enable_online_store: Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag. Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
+               
+               The default value is `False` .
+        :param pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs'] security_config: Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
+        :param pulumi.Input['FeatureGroupStorageType'] storage_type: Option for different tiers of low latency storage for real-time data retrieval.
+               
+               - `Standard` : A managed low latency data store for feature groups.
+               - `InMemory` : A managed data store for feature groups that supports very low latency retrieval.
+        :param pulumi.Input['FeatureGroupTtlDurationArgs'] ttl_duration: Time to live duration, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration` . For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
+        """
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
         if security_config is not None:
@@ -10348,6 +11132,11 @@ class OnlineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="enableOnlineStore")
     def enable_online_store(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag. Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
+
+        The default value is `False` .
+        """
         return pulumi.get(self, "enable_online_store")
 
     @enable_online_store.setter
@@ -10357,6 +11146,9 @@ class OnlineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="securityConfig")
     def security_config(self) -> Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']]:
+        """
+        Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
+        """
         return pulumi.get(self, "security_config")
 
     @security_config.setter
@@ -10366,6 +11158,12 @@ class OnlineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input['FeatureGroupStorageType']]:
+        """
+        Option for different tiers of low latency storage for real-time data retrieval.
+
+        - `Standard` : A managed low latency data store for feature groups.
+        - `InMemory` : A managed data store for feature groups that supports very low latency retrieval.
+        """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
@@ -10375,6 +11173,9 @@ class OnlineStoreConfigPropertiesArgs:
     @property
     @pulumi.getter(name="ttlDuration")
     def ttl_duration(self) -> Optional[pulumi.Input['FeatureGroupTtlDurationArgs']]:
+        """
+        Time to live duration, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration` . For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
+        """
         return pulumi.get(self, "ttl_duration")
 
     @ttl_duration.setter
@@ -10387,6 +11188,7 @@ class ParallelismConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  max_parallel_execution_steps: pulumi.Input[int]):
         """
+        The parallelism configuration applied to the pipeline.
         :param pulumi.Input[int] max_parallel_execution_steps: Maximum parallel execution steps
         """
         pulumi.set(__self__, "max_parallel_execution_steps", max_parallel_execution_steps)
@@ -10409,6 +11211,7 @@ class PipelineDefinition0PropertiesArgs:
     def __init__(__self__, *,
                  pipeline_definition_body: pulumi.Input[str]):
         """
+        The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
         :param pulumi.Input[str] pipeline_definition_body: A specification that defines the pipeline in JSON format.
         """
         pulumi.set(__self__, "pipeline_definition_body", pipeline_definition_body)
@@ -10430,6 +11233,9 @@ class PipelineDefinition0PropertiesArgs:
 class PipelineDefinition1PropertiesArgs:
     def __init__(__self__, *,
                  pipeline_definition_s3_location: pulumi.Input['PipelineS3LocationArgs']):
+        """
+        The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        """
         pulumi.set(__self__, "pipeline_definition_s3_location", pipeline_definition_s3_location)
 
     @property
@@ -10556,6 +11362,14 @@ class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
                  provisioned_product_status_message: Optional[pulumi.Input[str]] = None):
         """
         Provisioned ServiceCatalog  Details
+        :param pulumi.Input[str] provisioned_product_id: The ID of the provisioned product.
+        :param pulumi.Input[str] provisioned_product_status_message: The current status of the product.
+               
+               - `AVAILABLE` - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+               - `UNDER_CHANGE` - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.
+               - `TAINTED` - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+               - `ERROR` - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+               - `PLAN_IN_PROGRESS` - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.
         """
         if provisioned_product_id is not None:
             pulumi.set(__self__, "provisioned_product_id", provisioned_product_id)
@@ -10565,6 +11379,9 @@ class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
     @property
     @pulumi.getter(name="provisionedProductId")
     def provisioned_product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the provisioned product.
+        """
         return pulumi.get(self, "provisioned_product_id")
 
     @provisioned_product_id.setter
@@ -10574,6 +11391,15 @@ class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
     @property
     @pulumi.getter(name="provisionedProductStatusMessage")
     def provisioned_product_status_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of the product.
+
+        - `AVAILABLE` - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+        - `UNDER_CHANGE` - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.
+        - `TAINTED` - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+        - `ERROR` - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+        - `PLAN_IN_PROGRESS` - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.
+        """
         return pulumi.get(self, "provisioned_product_status_message")
 
     @provisioned_product_status_message.setter
@@ -10590,6 +11416,9 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]] = None):
         """
         Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[str] product_id: The ID of the product to provision.
+        :param pulumi.Input[str] path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+        :param pulumi.Input[str] provisioning_artifact_id: The ID of the provisioning artifact.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
         """
         pulumi.set(__self__, "product_id", product_id)
@@ -10603,6 +11432,9 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the product to provision.
+        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -10612,6 +11444,9 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
     @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+        """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
@@ -10621,6 +11456,9 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the provisioning artifact.
+        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -10646,6 +11484,7 @@ class SpaceCodeEditorAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
         """
         The CodeEditor app settings.
+        :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -10653,6 +11492,9 @@ class SpaceCodeEditorAppSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        """
+        Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -10800,6 +11642,7 @@ class SpaceJupyterLabAppSettingsArgs:
         """
         The JupyterServer app settings.
         :param pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
+        :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
@@ -10821,6 +11664,9 @@ class SpaceJupyterLabAppSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        """
+        Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -10834,6 +11680,7 @@ class SpaceJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
         """
         The JupyterServer app settings.
+        :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -10841,6 +11688,9 @@ class SpaceJupyterServerAppSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['SpaceResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -10892,11 +11742,17 @@ class SpaceKernelGatewayAppSettingsArgs:
 class SpaceOwnershipSettingsArgs:
     def __init__(__self__, *,
                  owner_user_profile_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] owner_user_profile_name: The user profile who is the owner of the space.
+        """
         pulumi.set(__self__, "owner_user_profile_name", owner_user_profile_name)
 
     @property
     @pulumi.getter(name="ownerUserProfileName")
     def owner_user_profile_name(self) -> pulumi.Input[str]:
+        """
+        The user profile who is the owner of the space.
+        """
         return pulumi.get(self, "owner_user_profile_name")
 
     @owner_user_profile_name.setter
@@ -10971,7 +11827,9 @@ class SpaceSettingsArgs:
                  space_storage_settings: Optional[pulumi.Input['SpaceStorageSettingsArgs']] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
+        :param pulumi.Input['SpaceAppType'] app_type: The type of app created within the space.
         :param pulumi.Input['SpaceCodeEditorAppSettingsArgs'] code_editor_app_settings: The CodeEditor app settings.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
         :param pulumi.Input['SpaceJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The JupyterLab app settings.
         :param pulumi.Input['SpaceJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['SpaceKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
@@ -10995,6 +11853,9 @@ class SpaceSettingsArgs:
     @property
     @pulumi.getter(name="appType")
     def app_type(self) -> Optional[pulumi.Input['SpaceAppType']]:
+        """
+        The type of app created within the space.
+        """
         return pulumi.get(self, "app_type")
 
     @app_type.setter
@@ -11016,6 +11877,9 @@ class SpaceSettingsArgs:
     @property
     @pulumi.getter(name="customFileSystems")
     def custom_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgs']]]]:
+        """
+        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        """
         return pulumi.get(self, "custom_file_systems")
 
     @custom_file_systems.setter
@@ -11075,11 +11939,17 @@ class SpaceSettingsArgs:
 class SpaceSharingSettingsArgs:
     def __init__(__self__, *,
                  sharing_type: pulumi.Input['SpaceSharingSettingsSharingType']):
+        """
+        :param pulumi.Input['SpaceSharingSettingsSharingType'] sharing_type: Specifies the sharing type of the space.
+        """
         pulumi.set(__self__, "sharing_type", sharing_type)
 
     @property
     @pulumi.getter(name="sharingType")
     def sharing_type(self) -> pulumi.Input['SpaceSharingSettingsSharingType']:
+        """
+        Specifies the sharing type of the space.
+        """
         return pulumi.get(self, "sharing_type")
 
     @sharing_type.setter
@@ -11091,12 +11961,18 @@ class SpaceSharingSettingsArgs:
 class SpaceStorageSettingsArgs:
     def __init__(__self__, *,
                  ebs_storage_settings: Optional[pulumi.Input['SpaceEbsStorageSettingsArgs']] = None):
+        """
+        :param pulumi.Input['SpaceEbsStorageSettingsArgs'] ebs_storage_settings: A collection of EBS storage settings for a space.
+        """
         if ebs_storage_settings is not None:
             pulumi.set(__self__, "ebs_storage_settings", ebs_storage_settings)
 
     @property
     @pulumi.getter(name="ebsStorageSettings")
     def ebs_storage_settings(self) -> Optional[pulumi.Input['SpaceEbsStorageSettingsArgs']]:
+        """
+        A collection of EBS storage settings for a space.
+        """
         return pulumi.get(self, "ebs_storage_settings")
 
     @ebs_storage_settings.setter
@@ -11186,12 +12062,18 @@ class UserProfileCodeRepositoryArgs:
 class UserProfileCustomFileSystemConfigArgs:
     def __init__(__self__, *,
                  efs_file_system_config: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']] = None):
+        """
+        :param pulumi.Input['UserProfileEfsFileSystemConfigArgs'] efs_file_system_config: The settings for a custom Amazon EFS file system.
+        """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
 
     @property
     @pulumi.getter(name="efsFileSystemConfig")
     def efs_file_system_config(self) -> Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']]:
+        """
+        The settings for a custom Amazon EFS file system.
+        """
         return pulumi.get(self, "efs_file_system_config")
 
     @efs_file_system_config.setter
@@ -11258,12 +12140,19 @@ class UserProfileCustomPosixUserConfigArgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[int],
                  uid: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] gid: The POSIX group ID.
+        :param pulumi.Input[int] uid: The POSIX user ID.
+        """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
 
     @property
     @pulumi.getter
     def gid(self) -> pulumi.Input[int]:
+        """
+        The POSIX group ID.
+        """
         return pulumi.get(self, "gid")
 
     @gid.setter
@@ -11273,6 +12162,9 @@ class UserProfileCustomPosixUserConfigArgs:
     @property
     @pulumi.getter
     def uid(self) -> pulumi.Input[int]:
+        """
+        The POSIX user ID.
+        """
         return pulumi.get(self, "uid")
 
     @uid.setter
@@ -11324,6 +12216,7 @@ class UserProfileDefaultSpaceStorageSettingsArgs:
                  default_ebs_storage_settings: Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']] = None):
         """
         Default storage settings for a space.
+        :param pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a space.
         """
         if default_ebs_storage_settings is not None:
             pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
@@ -11331,6 +12224,9 @@ class UserProfileDefaultSpaceStorageSettingsArgs:
     @property
     @pulumi.getter(name="defaultEbsStorageSettings")
     def default_ebs_storage_settings(self) -> Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']]:
+        """
+        The default EBS storage settings for a space.
+        """
         return pulumi.get(self, "default_ebs_storage_settings")
 
     @default_ebs_storage_settings.setter
@@ -11343,6 +12239,10 @@ class UserProfileEfsFileSystemConfigArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
                  file_system_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
             pulumi.set(__self__, "file_system_path", file_system_path)
@@ -11350,6 +12250,9 @@ class UserProfileEfsFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of your Amazon EFS file system.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -11359,6 +12262,9 @@ class UserProfileEfsFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter
@@ -11444,6 +12350,7 @@ class UserProfileJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None):
         """
         The JupyterServer app settings.
+        :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -11451,6 +12358,9 @@ class UserProfileJupyterServerAppSettingsArgs:
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
+        """
         return pulumi.get(self, "default_resource_spec")
 
     @default_resource_spec.setter
@@ -11667,12 +12577,18 @@ class UserProfileUserSettingsArgs:
                  studio_web_portal: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        :param pulumi.Input['UserProfileCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        :param pulumi.Input['UserProfileCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
         :param pulumi.Input[str] default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param pulumi.Input[str] execution_role: The user profile Amazon Resource Name (ARN).
+        :param pulumi.Input['UserProfileJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application.
         :param pulumi.Input['UserProfileJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['UserProfileKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
+        :param pulumi.Input['UserProfileRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the `RStudioServerPro` app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['UserProfileSharingSettingsArgs'] sharing_settings: The sharing settings.
+        :param pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a space.
         :param pulumi.Input['UserProfileUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         """
         if code_editor_app_settings is not None:
@@ -11705,6 +12621,9 @@ class UserProfileUserSettingsArgs:
     @property
     @pulumi.getter(name="codeEditorAppSettings")
     def code_editor_app_settings(self) -> Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']]:
+        """
+        The Code Editor application settings.
+        """
         return pulumi.get(self, "code_editor_app_settings")
 
     @code_editor_app_settings.setter
@@ -11714,6 +12633,9 @@ class UserProfileUserSettingsArgs:
     @property
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]]]:
+        """
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        """
         return pulumi.get(self, "custom_file_system_configs")
 
     @custom_file_system_configs.setter
@@ -11723,6 +12645,9 @@ class UserProfileUserSettingsArgs:
     @property
     @pulumi.getter(name="customPosixUserConfig")
     def custom_posix_user_config(self) -> Optional[pulumi.Input['UserProfileCustomPosixUserConfigArgs']]:
+        """
+        Details about the POSIX identity that is used for file system operations.
+        """
         return pulumi.get(self, "custom_posix_user_config")
 
     @custom_posix_user_config.setter
@@ -11756,6 +12681,9 @@ class UserProfileUserSettingsArgs:
     @property
     @pulumi.getter(name="jupyterLabAppSettings")
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['UserProfileJupyterLabAppSettingsArgs']]:
+        """
+        The settings for the JupyterLab application.
+        """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
     @jupyter_lab_app_settings.setter
@@ -11789,6 +12717,9 @@ class UserProfileUserSettingsArgs:
     @property
     @pulumi.getter(name="rStudioServerProAppSettings")
     def r_studio_server_pro_app_settings(self) -> Optional[pulumi.Input['UserProfileRStudioServerProAppSettingsArgs']]:
+        """
+        A collection of settings that configure user interaction with the `RStudioServerPro` app.
+        """
         return pulumi.get(self, "r_studio_server_pro_app_settings")
 
     @r_studio_server_pro_app_settings.setter
@@ -11822,6 +12753,9 @@ class UserProfileUserSettingsArgs:
     @property
     @pulumi.getter(name="spaceStorageSettings")
     def space_storage_settings(self) -> Optional[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs']]:
+        """
+        The storage settings for a space.
+        """
         return pulumi.get(self, "space_storage_settings")
 
     @space_storage_settings.setter

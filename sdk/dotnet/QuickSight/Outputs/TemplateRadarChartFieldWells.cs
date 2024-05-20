@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateRadarChartFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a radar chart visual.
+        /// </summary>
         public readonly Outputs.TemplateRadarChartAggregatedFieldWells? RadarChartAggregatedFieldWells;
 
         [OutputConstructor]

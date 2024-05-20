@@ -27,8 +27,14 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+        :param pulumi.Input[str] description: A description of the rule.
+        :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        :param pulumi.Input[str] rule_name: The name of the rule.
+        :param pulumi.Input[int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags associated with an automation rule.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -50,6 +56,9 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]]:
+        """
+        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -71,6 +80,9 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,6 +92,9 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        """
         return pulumi.get(self, "is_terminal")
 
     @is_terminal.setter
@@ -89,6 +104,9 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -98,6 +116,9 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        """
         return pulumi.get(self, "rule_order")
 
     @rule_order.setter
@@ -119,6 +140,9 @@ class AutomationRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        User-defined tags associated with an automation rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -703,8 +727,14 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRulesActionArgs']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         :param pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+        :param pulumi.Input[str] description: A description of the rule.
+        :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        :param pulumi.Input[str] rule_name: The name of the rule.
+        :param pulumi.Input[int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags associated with an automation rule.
         """
         ...
     @overload
@@ -1356,16 +1386,27 @@ class AutomationRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationRulesAction']]]:
+        """
+        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        A timestamp that indicates when the rule was created.
+
+        Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[str]:
+        """
+        The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
+        """
         return pulumi.get(self, "created_by")
 
     @property
@@ -1379,26 +1420,41 @@ class AutomationRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="isTerminal")
     def is_terminal(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+        """
         return pulumi.get(self, "is_terminal")
 
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
+        """
         return pulumi.get(self, "rule_arn")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the rule.
+        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> pulumi.Output[Optional[int]]:
+        """
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        """
         return pulumi.get(self, "rule_order")
 
     @property
@@ -1412,10 +1468,18 @@ class AutomationRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        User-defined tags associated with an automation rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        A timestamp that indicates when the rule was most recently updated.
+
+        Uses the `date-time` format specified in [RFC 3339 section 5.6, Internet Date/Time Format](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc3339#section-5.6) . The value cannot contain spaces. For example, `2020-03-22T13:22:13.933Z` .
+        """
         return pulumi.get(self, "updated_at")
 

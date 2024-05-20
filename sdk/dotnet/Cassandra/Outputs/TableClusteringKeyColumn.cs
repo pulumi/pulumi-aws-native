@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableClusteringKeyColumn
     {
+        /// <summary>
+        /// The name and data type of this clustering key column.
+        /// </summary>
         public readonly Outputs.TableColumn Column;
+        /// <summary>
+        /// The order in which this column's data is stored:
+        /// 
+        /// - `ASC` (default) - The column's data is stored in ascending order.
+        /// - `DESC` - The column's data is stored in descending order.
+        /// </summary>
         public readonly Pulumi.AwsNative.Cassandra.TableClusteringKeyColumnOrderBy? OrderBy;
 
         [OutputConstructor]

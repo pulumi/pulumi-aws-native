@@ -45,9 +45,21 @@ export class CisScanConfiguration extends pulumi.CustomResource {
      * Name of the scan
      */
     public readonly scanName!: pulumi.Output<string | undefined>;
+    /**
+     * The CIS scan configuration's schedule.
+     */
     public readonly schedule!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationSchedule | undefined>;
+    /**
+     * The CIS scan configuration's CIS Benchmark level.
+     */
     public readonly securityLevel!: pulumi.Output<enums.inspectorv2.CisScanConfigurationCisSecurityLevel | undefined>;
+    /**
+     * The CIS scan configuration's tags.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The CIS scan configuration's targets.
+     */
     public readonly targets!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTargets | undefined>;
 
     /**
@@ -88,8 +100,20 @@ export interface CisScanConfigurationArgs {
      * Name of the scan
      */
     scanName?: pulumi.Input<string>;
+    /**
+     * The CIS scan configuration's schedule.
+     */
     schedule?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationScheduleArgs>;
+    /**
+     * The CIS scan configuration's CIS Benchmark level.
+     */
     securityLevel?: pulumi.Input<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
+    /**
+     * The CIS scan configuration's tags.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The CIS scan configuration's targets.
+     */
     targets?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationCisTargetsArgs>;
 }

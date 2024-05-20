@@ -52,6 +52,9 @@ class GetPermissionSetResult:
     @property
     @pulumi.getter(name="customerManagedPolicyReferences")
     def customer_managed_policy_references(self) -> Optional[Sequence['outputs.PermissionSetCustomerManagedPolicyReference']]:
+        """
+        Specifies the names and paths of the customer managed policies that you have attached to your permission set.
+        """
         return pulumi.get(self, "customer_managed_policy_references")
 
     @property
@@ -75,6 +78,9 @@ class GetPermissionSetResult:
     @property
     @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> Optional[Sequence[str]]:
+        """
+        A structure that stores the details of the AWS managed policy.
+        """
         return pulumi.get(self, "managed_policies")
 
     @property
@@ -88,6 +94,11 @@ class GetPermissionSetResult:
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> Optional['outputs.PermissionSetPermissionsBoundary']:
+        """
+        Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
+
+        > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @property
@@ -109,6 +120,9 @@ class GetPermissionSetResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to attach to the new `PermissionSet` .
+        """
         return pulumi.get(self, "tags")
 
 

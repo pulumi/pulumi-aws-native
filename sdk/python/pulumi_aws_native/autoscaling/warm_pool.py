@@ -23,6 +23,17 @@ class WarmPoolArgs:
                  pool_state: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WarmPool resource.
+        :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group.
+        :param pulumi.Input['WarmPoolInstanceReusePolicyArgs'] instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        :param pulumi.Input[int] max_group_prepared_capacity: Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+               
+               > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+               > 
+               > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size. 
+               
+               If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[str] pool_state: Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
         """
         pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if instance_reuse_policy is not None:
@@ -37,6 +48,9 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="autoScalingGroupName")
     def auto_scaling_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Auto Scaling group.
+        """
         return pulumi.get(self, "auto_scaling_group_name")
 
     @auto_scaling_group_name.setter
@@ -46,6 +60,9 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="instanceReusePolicy")
     def instance_reuse_policy(self) -> Optional[pulumi.Input['WarmPoolInstanceReusePolicyArgs']]:
+        """
+        Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        """
         return pulumi.get(self, "instance_reuse_policy")
 
     @instance_reuse_policy.setter
@@ -55,6 +72,15 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
     def max_group_prepared_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+
+        > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+        > 
+        > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size. 
+
+        If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+        """
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @max_group_prepared_capacity.setter
@@ -64,6 +90,9 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
@@ -73,6 +102,9 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="poolState")
     def pool_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
+        """
         return pulumi.get(self, "pool_state")
 
     @pool_state.setter
@@ -96,6 +128,17 @@ class WarmPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group.
+        :param pulumi.Input[pulumi.InputType['WarmPoolInstanceReusePolicyArgs']] instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        :param pulumi.Input[int] max_group_prepared_capacity: Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+               
+               > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+               > 
+               > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size. 
+               
+               If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+        :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[str] pool_state: Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
         """
         ...
     @overload
@@ -176,25 +219,46 @@ class WarmPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoScalingGroupName")
     def auto_scaling_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Auto Scaling group.
+        """
         return pulumi.get(self, "auto_scaling_group_name")
 
     @property
     @pulumi.getter(name="instanceReusePolicy")
     def instance_reuse_policy(self) -> pulumi.Output[Optional['outputs.WarmPoolInstanceReusePolicy']]:
+        """
+        Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        """
         return pulumi.get(self, "instance_reuse_policy")
 
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
     def max_group_prepared_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except `Terminated` for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity.
+
+        > If a value for `MaxGroupPreparedCapacity` is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for `MaxGroupPreparedCapacity` , Amazon EC2 Auto Scaling uses the difference between the `MaxGroupPreparedCapacity` and the desired capacity instead.
+        > 
+        > The size of the warm pool is dynamic. Only when `MaxGroupPreparedCapacity` and `MinSize` are set to the same value does the warm pool have an absolute size. 
+
+        If the desired capacity of the Auto Scaling group is higher than the `MaxGroupPreparedCapacity` , the capacity of the warm pool is 0, unless you specify a value for `MinSize` . To remove a value that you previously set, include the property but specify -1 for the value.
+        """
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @property
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        """
         return pulumi.get(self, "min_size")
 
     @property
     @pulumi.getter(name="poolState")
     def pool_state(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the instance state to transition to after the lifecycle actions are complete. Default is `Stopped` .
+        """
         return pulumi.get(self, "pool_state")
 

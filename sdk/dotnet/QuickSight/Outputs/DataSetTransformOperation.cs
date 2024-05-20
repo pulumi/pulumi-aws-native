@@ -17,12 +17,30 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetTransformOperation
     {
+        /// <summary>
+        /// A transform operation that casts a column to a different type.
+        /// </summary>
         public readonly Outputs.DataSetCastColumnTypeOperation? CastColumnTypeOperation;
+        /// <summary>
+        /// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+        /// </summary>
         public readonly Outputs.DataSetCreateColumnsOperation? CreateColumnsOperation;
+        /// <summary>
+        /// An operation that filters rows based on some condition.
+        /// </summary>
         public readonly Outputs.DataSetFilterOperation? FilterOperation;
         public readonly Outputs.DataSetOverrideDatasetParameterOperation? OverrideDatasetParameterOperation;
+        /// <summary>
+        /// An operation that projects columns. Operations that come after a projection can only refer to projected columns.
+        /// </summary>
         public readonly Outputs.DataSetProjectOperation? ProjectOperation;
+        /// <summary>
+        /// An operation that renames a column.
+        /// </summary>
         public readonly Outputs.DataSetRenameColumnOperation? RenameColumnOperation;
+        /// <summary>
+        /// An operation that tags a column with additional information.
+        /// </summary>
         public readonly Outputs.DataSetTagColumnOperation? TagColumnOperation;
         public readonly Outputs.DataSetUntagColumnOperation? UntagColumnOperation;
 

@@ -23,19 +23,27 @@ func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorag
 }
 
 type LookupInstanceStorageConfigArgs struct {
+	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId string `pulumi:"associationId"`
 	// Connect Instance ID with which the storage config will be associated
-	InstanceArn  string                                           `pulumi:"instanceArn"`
+	InstanceArn string `pulumi:"instanceArn"`
+	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
 	ResourceType InstanceStorageConfigInstanceStorageResourceType `pulumi:"resourceType"`
 }
 
 type LookupInstanceStorageConfigResult struct {
-	AssociationId            *string                                        `pulumi:"associationId"`
-	KinesisFirehoseConfig    *InstanceStorageConfigKinesisFirehoseConfig    `pulumi:"kinesisFirehoseConfig"`
-	KinesisStreamConfig      *InstanceStorageConfigKinesisStreamConfig      `pulumi:"kinesisStreamConfig"`
+	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+	AssociationId *string `pulumi:"associationId"`
+	// The configuration of the Kinesis Firehose delivery stream.
+	KinesisFirehoseConfig *InstanceStorageConfigKinesisFirehoseConfig `pulumi:"kinesisFirehoseConfig"`
+	// The configuration of the Kinesis data stream.
+	KinesisStreamConfig *InstanceStorageConfigKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig *InstanceStorageConfigKinesisVideoStreamConfig `pulumi:"kinesisVideoStreamConfig"`
-	S3Config                 *InstanceStorageConfigS3Config                 `pulumi:"s3Config"`
-	StorageType              *InstanceStorageConfigStorageType              `pulumi:"storageType"`
+	// The S3 bucket configuration.
+	S3Config *InstanceStorageConfigS3Config `pulumi:"s3Config"`
+	// A valid storage type.
+	StorageType *InstanceStorageConfigStorageType `pulumi:"storageType"`
 }
 
 func LookupInstanceStorageConfigOutput(ctx *pulumi.Context, args LookupInstanceStorageConfigOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceStorageConfigResultOutput {
@@ -52,9 +60,11 @@ func LookupInstanceStorageConfigOutput(ctx *pulumi.Context, args LookupInstanceS
 }
 
 type LookupInstanceStorageConfigOutputArgs struct {
+	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
 	// Connect Instance ID with which the storage config will be associated
-	InstanceArn  pulumi.StringInput                                    `pulumi:"instanceArn"`
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
 	ResourceType InstanceStorageConfigInstanceStorageResourceTypeInput `pulumi:"resourceType"`
 }
 
@@ -76,32 +86,38 @@ func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigRe
 	return o
 }
 
+// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 func (o LookupInstanceStorageConfigResultOutput) AssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
+// The configuration of the Kinesis Firehose delivery stream.
 func (o LookupInstanceStorageConfigResultOutput) KinesisFirehoseConfig() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigKinesisFirehoseConfig {
 		return v.KinesisFirehoseConfig
 	}).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
 }
 
+// The configuration of the Kinesis data stream.
 func (o LookupInstanceStorageConfigResultOutput) KinesisStreamConfig() InstanceStorageConfigKinesisStreamConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigKinesisStreamConfig {
 		return v.KinesisStreamConfig
 	}).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
 }
 
+// The configuration of the Kinesis video stream.
 func (o LookupInstanceStorageConfigResultOutput) KinesisVideoStreamConfig() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigKinesisVideoStreamConfig {
 		return v.KinesisVideoStreamConfig
 	}).(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput)
 }
 
+// The S3 bucket configuration.
 func (o LookupInstanceStorageConfigResultOutput) S3Config() InstanceStorageConfigS3ConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigS3Config { return v.S3Config }).(InstanceStorageConfigS3ConfigPtrOutput)
 }
 
+// A valid storage type.
 func (o LookupInstanceStorageConfigResultOutput) StorageType() InstanceStorageConfigStorageTypePtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigStorageType { return v.StorageType }).(InstanceStorageConfigStorageTypePtrOutput)
 }

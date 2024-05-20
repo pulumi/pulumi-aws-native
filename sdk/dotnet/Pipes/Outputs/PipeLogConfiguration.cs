@@ -13,10 +13,31 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeLogConfiguration
     {
+        /// <summary>
+        /// The logging configuration settings for the pipe.
+        /// </summary>
         public readonly Outputs.PipeCloudwatchLogsLogDestination? CloudwatchLogsLogDestination;
+        /// <summary>
+        /// The Amazon Data Firehose logging configuration settings for the pipe.
+        /// </summary>
         public readonly Outputs.PipeFirehoseLogDestination? FirehoseLogDestination;
+        /// <summary>
+        /// Whether the execution data (specifically, the `payload` , `awsRequest` , and `awsResponse` fields) is included in the log messages for this pipe.
+        /// 
+        /// This applies to all log destinations for the pipe.
+        /// 
+        /// For more information, see [Including execution data in logs](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data) in the *Amazon EventBridge User Guide* .
+        /// 
+        /// *Allowed values:* `ALL`
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Pipes.PipeIncludeExecutionDataOption> IncludeExecutionData;
+        /// <summary>
+        /// The level of logging detail to include. This applies to all log destinations for the pipe.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeLogLevel? Level;
+        /// <summary>
+        /// The Amazon S3 logging configuration settings for the pipe.
+        /// </summary>
         public readonly Outputs.PipeS3LogDestination? S3LogDestination;
 
         [OutputConstructor]

@@ -15,51 +15,99 @@ namespace Pulumi.AwsNative.Panorama
     [AwsNativeResourceType("aws-native:panorama:ApplicationInstance")]
     public partial class ApplicationInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application instance's ID.
+        /// </summary>
         [Output("applicationInstanceId")]
         public Output<string> ApplicationInstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of an application instance to replace with the new instance.
+        /// </summary>
         [Output("applicationInstanceIdToReplace")]
         public Output<string?> ApplicationInstanceIdToReplace { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's created time.
+        /// </summary>
         [Output("createdTime")]
         public Output<int> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The device's ID.
+        /// </summary>
         [Output("defaultRuntimeContextDevice")]
         public Output<string> DefaultRuntimeContextDevice { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's default runtime context device name.
+        /// </summary>
         [Output("defaultRuntimeContextDeviceName")]
         public Output<string> DefaultRuntimeContextDeviceName { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the application instance.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's health status.
+        /// </summary>
         [Output("healthStatus")]
         public Output<Pulumi.AwsNative.Panorama.ApplicationInstanceHealthStatus> HealthStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's last updated time.
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<int> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting overrides for the application manifest.
+        /// </summary>
         [Output("manifestOverridesPayload")]
         public Output<Outputs.ApplicationInstanceManifestOverridesPayload?> ManifestOverridesPayload { get; private set; } = null!;
 
+        /// <summary>
+        /// The application's manifest document.
+        /// </summary>
         [Output("manifestPayload")]
         public Output<Outputs.ApplicationInstanceManifestPayload> ManifestPayload { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the application instance.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of a runtime role for the application instance.
+        /// </summary>
         [Output("runtimeRoleArn")]
         public Output<string?> RuntimeRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's status.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Panorama.ApplicationInstanceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The application instance's status description.
+        /// </summary>
         [Output("statusDescription")]
         public Output<string> StatusDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the application instance.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -118,29 +166,54 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class ApplicationInstanceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of an application instance to replace with the new instance.
+        /// </summary>
         [Input("applicationInstanceIdToReplace")]
         public Input<string>? ApplicationInstanceIdToReplace { get; set; }
 
+        /// <summary>
+        /// The device's ID.
+        /// </summary>
         [Input("defaultRuntimeContextDevice", required: true)]
         public Input<string> DefaultRuntimeContextDevice { get; set; } = null!;
 
+        /// <summary>
+        /// A description for the application instance.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Setting overrides for the application manifest.
+        /// </summary>
         [Input("manifestOverridesPayload")]
         public Input<Inputs.ApplicationInstanceManifestOverridesPayloadArgs>? ManifestOverridesPayload { get; set; }
 
+        /// <summary>
+        /// The application's manifest document.
+        /// </summary>
         [Input("manifestPayload", required: true)]
         public Input<Inputs.ApplicationInstanceManifestPayloadArgs> ManifestPayload { get; set; } = null!;
 
+        /// <summary>
+        /// A name for the application instance.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ARN of a runtime role for the application instance.
+        /// </summary>
         [Input("runtimeRoleArn")]
         public Input<string>? RuntimeRoleArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags for the application instance.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

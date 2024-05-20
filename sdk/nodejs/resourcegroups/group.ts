@@ -41,6 +41,11 @@ export class Group extends pulumi.CustomResource {
      * The Resource Group ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+     *
+     * > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+     */
     public readonly configuration!: pulumi.Output<outputs.resourcegroups.GroupConfigurationItem[] | undefined>;
     /**
      * The description of the resource group
@@ -50,8 +55,23 @@ export class Group extends pulumi.CustomResource {
      * The name of the resource group
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+     *
+     * > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+     * > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+     */
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
+    /**
+     * A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+     *
+     * > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+     * > - You can include a `Resources` property only if you also specify a `Configuration` property.
+     */
     public readonly resources!: pulumi.Output<string[] | undefined>;
+    /**
+     * The tag key and value pairs that are attached to the resource group.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -92,6 +112,11 @@ export class Group extends pulumi.CustomResource {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
+    /**
+     * The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+     *
+     * > You can include either a `Configuration` or a `ResourceQuery` , but not both.
+     */
     configuration?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfigurationItemArgs>[]>;
     /**
      * The description of the resource group
@@ -101,7 +126,22 @@ export interface GroupArgs {
      * The name of the resource group
      */
     name?: pulumi.Input<string>;
+    /**
+     * The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+     *
+     * > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+     * > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
+     */
     resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQueryArgs>;
+    /**
+     * A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.
+     *
+     * > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
+     * > - You can include a `Resources` property only if you also specify a `Configuration` property.
+     */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tag key and value pairs that are attached to the resource group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

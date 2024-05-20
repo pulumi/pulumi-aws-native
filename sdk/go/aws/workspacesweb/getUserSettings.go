@@ -24,21 +24,33 @@ func LookupUserSettings(ctx *pulumi.Context, args *LookupUserSettingsArgs, opts 
 }
 
 type LookupUserSettingsArgs struct {
+	// The ARN of the user settings.
 	UserSettingsArn string `pulumi:"userSettingsArn"`
 }
 
 type LookupUserSettingsResult struct {
-	AssociatedPortalArns               []string                                        `pulumi:"associatedPortalArns"`
+	// A list of web portal ARNs that this user settings resource is associated with.
+	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
-	CopyAllowed                        *UserSettingsEnabledType                        `pulumi:"copyAllowed"`
-	DisconnectTimeoutInMinutes         *float64                                        `pulumi:"disconnectTimeoutInMinutes"`
-	DownloadAllowed                    *UserSettingsEnabledType                        `pulumi:"downloadAllowed"`
-	IdleDisconnectTimeoutInMinutes     *float64                                        `pulumi:"idleDisconnectTimeoutInMinutes"`
-	PasteAllowed                       *UserSettingsEnabledType                        `pulumi:"pasteAllowed"`
-	PrintAllowed                       *UserSettingsEnabledType                        `pulumi:"printAllowed"`
-	Tags                               []aws.Tag                                       `pulumi:"tags"`
-	UploadAllowed                      *UserSettingsEnabledType                        `pulumi:"uploadAllowed"`
-	UserSettingsArn                    *string                                         `pulumi:"userSettingsArn"`
+	// Specifies whether the user can copy text from the streaming session to the local device.
+	CopyAllowed *UserSettingsEnabledType `pulumi:"copyAllowed"`
+	// The amount of time that a streaming session remains active after users disconnect.
+	DisconnectTimeoutInMinutes *float64 `pulumi:"disconnectTimeoutInMinutes"`
+	// Specifies whether the user can download files from the streaming session to the local device.
+	DownloadAllowed *UserSettingsEnabledType `pulumi:"downloadAllowed"`
+	// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+	IdleDisconnectTimeoutInMinutes *float64 `pulumi:"idleDisconnectTimeoutInMinutes"`
+	// Specifies whether the user can paste text from the local device to the streaming session.
+	PasteAllowed *UserSettingsEnabledType `pulumi:"pasteAllowed"`
+	// Specifies whether the user can print to the local device.
+	PrintAllowed *UserSettingsEnabledType `pulumi:"printAllowed"`
+	// The tags to add to the user settings resource. A tag is a key-value pair.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies whether the user can upload files from the local device to the streaming session.
+	UploadAllowed *UserSettingsEnabledType `pulumi:"uploadAllowed"`
+	// The ARN of the user settings.
+	UserSettingsArn *string `pulumi:"userSettingsArn"`
 }
 
 func LookupUserSettingsOutput(ctx *pulumi.Context, args LookupUserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserSettingsResultOutput {
@@ -55,6 +67,7 @@ func LookupUserSettingsOutput(ctx *pulumi.Context, args LookupUserSettingsOutput
 }
 
 type LookupUserSettingsOutputArgs struct {
+	// The ARN of the user settings.
 	UserSettingsArn pulumi.StringInput `pulumi:"userSettingsArn"`
 }
 
@@ -76,48 +89,59 @@ func (o LookupUserSettingsResultOutput) ToLookupUserSettingsResultOutputWithCont
 	return o
 }
 
+// A list of web portal ARNs that this user settings resource is associated with.
 func (o LookupUserSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 func (o LookupUserSettingsResultOutput) CookieSynchronizationConfiguration() UserSettingsCookieSynchronizationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsCookieSynchronizationConfiguration {
 		return v.CookieSynchronizationConfiguration
 	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
+// Specifies whether the user can copy text from the streaming session to the local device.
 func (o LookupUserSettingsResultOutput) CopyAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.CopyAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
+// The amount of time that a streaming session remains active after users disconnect.
 func (o LookupUserSettingsResultOutput) DisconnectTimeoutInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *float64 { return v.DisconnectTimeoutInMinutes }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether the user can download files from the streaming session to the local device.
 func (o LookupUserSettingsResultOutput) DownloadAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.DownloadAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
+// The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
 func (o LookupUserSettingsResultOutput) IdleDisconnectTimeoutInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *float64 { return v.IdleDisconnectTimeoutInMinutes }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies whether the user can paste text from the local device to the streaming session.
 func (o LookupUserSettingsResultOutput) PasteAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.PasteAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
+// Specifies whether the user can print to the local device.
 func (o LookupUserSettingsResultOutput) PrintAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.PrintAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
+// The tags to add to the user settings resource. A tag is a key-value pair.
 func (o LookupUserSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Specifies whether the user can upload files from the local device to the streaming session.
 func (o LookupUserSettingsResultOutput) UploadAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.UploadAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
+// The ARN of the user settings.
 func (o LookupUserSettingsResultOutput) UserSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *string { return v.UserSettingsArn }).(pulumi.StringPtrOutput)
 }

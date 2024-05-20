@@ -3295,6 +3295,10 @@ class MultiRegionAccessPointRegionArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  bucket_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The name of the associated bucket for the Region.
+        :param pulumi.Input[str] bucket_account_id: The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_account_id is not None:
             pulumi.set(__self__, "bucket_account_id", bucket_account_id)
@@ -3302,6 +3306,9 @@ class MultiRegionAccessPointRegionArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the associated bucket for the Region.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -3311,6 +3318,9 @@ class MultiRegionAccessPointRegionArgs:
     @property
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+        """
         return pulumi.get(self, "bucket_account_id")
 
     @bucket_account_id.setter
@@ -3329,6 +3339,12 @@ class StorageLensAccountLevelArgs:
                  storage_lens_group_level: Optional[pulumi.Input['StorageLensGroupLevelArgs']] = None):
         """
         Account-level metrics configurations.
+        :param pulumi.Input['StorageLensBucketLevelArgs'] bucket_level: This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        :param pulumi.Input['StorageLensActivityMetricsArgs'] activity_metrics: This property contains the details of account-level activity metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs'] detailed_status_codes_metrics: This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensGroupLevelArgs'] storage_lens_group_level: This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
@@ -3345,6 +3361,9 @@ class StorageLensAccountLevelArgs:
     @property
     @pulumi.getter(name="bucketLevel")
     def bucket_level(self) -> pulumi.Input['StorageLensBucketLevelArgs']:
+        """
+        This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        """
         return pulumi.get(self, "bucket_level")
 
     @bucket_level.setter
@@ -3354,6 +3373,9 @@ class StorageLensAccountLevelArgs:
     @property
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional[pulumi.Input['StorageLensActivityMetricsArgs']]:
+        """
+        This property contains the details of account-level activity metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "activity_metrics")
 
     @activity_metrics.setter
@@ -3363,6 +3385,9 @@ class StorageLensAccountLevelArgs:
     @property
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']]:
+        """
+        This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
     @advanced_cost_optimization_metrics.setter
@@ -3372,6 +3397,9 @@ class StorageLensAccountLevelArgs:
     @property
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']]:
+        """
+        This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
     @advanced_data_protection_metrics.setter
@@ -3381,6 +3409,9 @@ class StorageLensAccountLevelArgs:
     @property
     @pulumi.getter(name="detailedStatusCodesMetrics")
     def detailed_status_codes_metrics(self) -> Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']]:
+        """
+        This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "detailed_status_codes_metrics")
 
     @detailed_status_codes_metrics.setter
@@ -3390,6 +3421,9 @@ class StorageLensAccountLevelArgs:
     @property
     @pulumi.getter(name="storageLensGroupLevel")
     def storage_lens_group_level(self) -> Optional[pulumi.Input['StorageLensGroupLevelArgs']]:
+        """
+        This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+        """
         return pulumi.get(self, "storage_lens_group_level")
 
     @storage_lens_group_level.setter
@@ -3475,12 +3509,16 @@ class StorageLensAwsOrgArgs:
                  arn: pulumi.Input[str]):
         """
         The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[str] arn: This resource contains the ARN of the AWS Organization.
         """
         pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
+        """
+        This resource contains the ARN of the AWS Organization.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -3498,6 +3536,11 @@ class StorageLensBucketLevelArgs:
                  prefix_level: Optional[pulumi.Input['StorageLensPrefixLevelArgs']] = None):
         """
         Bucket-level metrics configurations.
+        :param pulumi.Input['StorageLensActivityMetricsArgs'] activity_metrics: A property for bucket-level activity metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs'] detailed_status_codes_metrics: A property for bucket-level detailed status code metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensPrefixLevelArgs'] prefix_level: A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -3513,6 +3556,9 @@ class StorageLensBucketLevelArgs:
     @property
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional[pulumi.Input['StorageLensActivityMetricsArgs']]:
+        """
+        A property for bucket-level activity metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "activity_metrics")
 
     @activity_metrics.setter
@@ -3522,6 +3568,9 @@ class StorageLensBucketLevelArgs:
     @property
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']]:
+        """
+        A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
     @advanced_cost_optimization_metrics.setter
@@ -3531,6 +3580,9 @@ class StorageLensBucketLevelArgs:
     @property
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']]:
+        """
+        A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
     @advanced_data_protection_metrics.setter
@@ -3540,6 +3592,9 @@ class StorageLensBucketLevelArgs:
     @property
     @pulumi.getter(name="detailedStatusCodesMetrics")
     def detailed_status_codes_metrics(self) -> Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']]:
+        """
+        A property for bucket-level detailed status code metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "detailed_status_codes_metrics")
 
     @detailed_status_codes_metrics.setter
@@ -3549,6 +3604,9 @@ class StorageLensBucketLevelArgs:
     @property
     @pulumi.getter(name="prefixLevel")
     def prefix_level(self) -> Optional[pulumi.Input['StorageLensPrefixLevelArgs']]:
+        """
+        A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "prefix_level")
 
     @prefix_level.setter
@@ -3563,6 +3621,8 @@ class StorageLensBucketsAndRegionsArgs:
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] buckets: This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: This property contains the details of the Regions for the S3 Storage Lens configuration.
         """
         if buckets is not None:
             pulumi.set(__self__, "buckets", buckets)
@@ -3572,6 +3632,9 @@ class StorageLensBucketsAndRegionsArgs:
     @property
     @pulumi.getter
     def buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains the details of the buckets for the Amazon S3 Storage Lens configuration. This should be the bucket Amazon Resource Name(ARN). For valid values, see [Buckets ARN format here](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_Include.html#API_control_Include_Contents) in the *Amazon S3 API Reference* .
+        """
         return pulumi.get(self, "buckets")
 
     @buckets.setter
@@ -3581,6 +3644,9 @@ class StorageLensBucketsAndRegionsArgs:
     @property
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains the details of the Regions for the S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -3624,7 +3690,13 @@ class StorageLensConfigurationArgs:
                  storage_lens_arn: Optional[pulumi.Input[str]] = None):
         """
         Specifies the details of Amazon S3 Storage Lens configuration.
+        :param pulumi.Input['StorageLensAccountLevelArgs'] account_level: This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[str] id: This property contains the details of the ID of the S3 Storage Lens configuration.
         :param pulumi.Input[bool] is_enabled: Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+        :param pulumi.Input['StorageLensAwsOrgArgs'] aws_org: This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
+        :param pulumi.Input['StorageLensDataExportArgs'] data_export: This property contains the details of this S3 Storage Lens configuration's metrics export.
+        :param pulumi.Input['StorageLensBucketsAndRegionsArgs'] exclude: This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+        :param pulumi.Input['StorageLensBucketsAndRegionsArgs'] include: This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
         :param pulumi.Input[str] storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "account_level", account_level)
@@ -3644,6 +3716,9 @@ class StorageLensConfigurationArgs:
     @property
     @pulumi.getter(name="accountLevel")
     def account_level(self) -> pulumi.Input['StorageLensAccountLevelArgs']:
+        """
+        This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "account_level")
 
     @account_level.setter
@@ -3653,6 +3728,9 @@ class StorageLensConfigurationArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        This property contains the details of the ID of the S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -3674,6 +3752,9 @@ class StorageLensConfigurationArgs:
     @property
     @pulumi.getter(name="awsOrg")
     def aws_org(self) -> Optional[pulumi.Input['StorageLensAwsOrgArgs']]:
+        """
+        This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "aws_org")
 
     @aws_org.setter
@@ -3683,6 +3764,9 @@ class StorageLensConfigurationArgs:
     @property
     @pulumi.getter(name="dataExport")
     def data_export(self) -> Optional[pulumi.Input['StorageLensDataExportArgs']]:
+        """
+        This property contains the details of this S3 Storage Lens configuration's metrics export.
+        """
         return pulumi.get(self, "data_export")
 
     @data_export.setter
@@ -3692,6 +3776,9 @@ class StorageLensConfigurationArgs:
     @property
     @pulumi.getter
     def exclude(self) -> Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']]:
+        """
+        This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "exclude")
 
     @exclude.setter
@@ -3701,6 +3788,9 @@ class StorageLensConfigurationArgs:
     @property
     @pulumi.getter
     def include(self) -> Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']]:
+        """
+        This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
+        """
         return pulumi.get(self, "include")
 
     @include.setter
@@ -3727,6 +3817,8 @@ class StorageLensDataExportArgs:
                  s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None):
         """
         Specifies how Amazon S3 Storage Lens metrics should be exported.
+        :param pulumi.Input['StorageLensCloudWatchMetricsArgs'] cloud_watch_metrics: This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
+        :param pulumi.Input['StorageLensS3BucketDestinationArgs'] s3_bucket_destination: This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
         """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
@@ -3736,6 +3828,9 @@ class StorageLensDataExportArgs:
     @property
     @pulumi.getter(name="cloudWatchMetrics")
     def cloud_watch_metrics(self) -> Optional[pulumi.Input['StorageLensCloudWatchMetricsArgs']]:
+        """
+        This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
+        """
         return pulumi.get(self, "cloud_watch_metrics")
 
     @cloud_watch_metrics.setter
@@ -3745,6 +3840,9 @@ class StorageLensDataExportArgs:
     @property
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]:
+        """
+        This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
+        """
         return pulumi.get(self, "s3_bucket_destination")
 
     @s3_bucket_destination.setter
@@ -3795,6 +3893,11 @@ class StorageLensGroupAndArgs:
                  match_object_size: Optional[pulumi.Input['StorageLensGroupMatchObjectSizeArgs']] = None):
         """
         The Storage Lens group will include objects that match all of the specified filter values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_any_prefix: This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_any_suffix: This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]] match_any_tag: This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        :param pulumi.Input['StorageLensGroupMatchObjectAgeArgs'] match_object_age: This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
+        :param pulumi.Input['StorageLensGroupMatchObjectSizeArgs'] match_object_size: This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
         """
         if match_any_prefix is not None:
             pulumi.set(__self__, "match_any_prefix", match_any_prefix)
@@ -3810,6 +3913,9 @@ class StorageLensGroupAndArgs:
     @property
     @pulumi.getter(name="matchAnyPrefix")
     def match_any_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        """
         return pulumi.get(self, "match_any_prefix")
 
     @match_any_prefix.setter
@@ -3819,6 +3925,9 @@ class StorageLensGroupAndArgs:
     @property
     @pulumi.getter(name="matchAnySuffix")
     def match_any_suffix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        """
         return pulumi.get(self, "match_any_suffix")
 
     @match_any_suffix.setter
@@ -3828,6 +3937,9 @@ class StorageLensGroupAndArgs:
     @property
     @pulumi.getter(name="matchAnyTag")
     def match_any_tag(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]]]:
+        """
+        This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        """
         return pulumi.get(self, "match_any_tag")
 
     @match_any_tag.setter
@@ -3837,6 +3949,9 @@ class StorageLensGroupAndArgs:
     @property
     @pulumi.getter(name="matchObjectAge")
     def match_object_age(self) -> Optional[pulumi.Input['StorageLensGroupMatchObjectAgeArgs']]:
+        """
+        This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
+        """
         return pulumi.get(self, "match_object_age")
 
     @match_object_age.setter
@@ -3846,6 +3961,9 @@ class StorageLensGroupAndArgs:
     @property
     @pulumi.getter(name="matchObjectSize")
     def match_object_size(self) -> Optional[pulumi.Input['StorageLensGroupMatchObjectSizeArgs']]:
+        """
+        This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+        """
         return pulumi.get(self, "match_object_size")
 
     @match_object_size.setter
@@ -3865,6 +3983,13 @@ class StorageLensGroupFilterArgs:
                  or_: Optional[pulumi.Input['StorageLensGroupOrArgs']] = None):
         """
         Sets the Storage Lens Group filter.
+        :param pulumi.Input['StorageLensGroupAndArgs'] and_: This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_any_prefix: This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_any_suffix: This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]] match_any_tag: This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        :param pulumi.Input['StorageLensGroupMatchObjectAgeArgs'] match_object_age: This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        :param pulumi.Input['StorageLensGroupMatchObjectSizeArgs'] match_object_size: This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+        :param pulumi.Input['StorageLensGroupOrArgs'] or_: This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
@@ -3884,6 +4009,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="and")
     def and_(self) -> Optional[pulumi.Input['StorageLensGroupAndArgs']]:
+        """
+        This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        """
         return pulumi.get(self, "and_")
 
     @and_.setter
@@ -3893,6 +4021,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="matchAnyPrefix")
     def match_any_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        """
         return pulumi.get(self, "match_any_prefix")
 
     @match_any_prefix.setter
@@ -3902,6 +4033,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="matchAnySuffix")
     def match_any_suffix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        """
         return pulumi.get(self, "match_any_suffix")
 
     @match_any_suffix.setter
@@ -3911,6 +4045,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="matchAnyTag")
     def match_any_tag(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]]]:
+        """
+        This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        """
         return pulumi.get(self, "match_any_tag")
 
     @match_any_tag.setter
@@ -3920,6 +4057,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="matchObjectAge")
     def match_object_age(self) -> Optional[pulumi.Input['StorageLensGroupMatchObjectAgeArgs']]:
+        """
+        This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        """
         return pulumi.get(self, "match_object_age")
 
     @match_object_age.setter
@@ -3929,6 +4069,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="matchObjectSize")
     def match_object_size(self) -> Optional[pulumi.Input['StorageLensGroupMatchObjectSizeArgs']]:
+        """
+        This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+        """
         return pulumi.get(self, "match_object_size")
 
     @match_object_size.setter
@@ -3938,6 +4081,9 @@ class StorageLensGroupFilterArgs:
     @property
     @pulumi.getter(name="or")
     def or_(self) -> Optional[pulumi.Input['StorageLensGroupOrArgs']]:
+        """
+        This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+        """
         return pulumi.get(self, "or_")
 
     @or_.setter
@@ -3951,6 +4097,7 @@ class StorageLensGroupLevelArgs:
                  storage_lens_group_selection_criteria: Optional[pulumi.Input['StorageLensGroupSelectionCriteriaArgs']] = None):
         """
         Specifies the details of Amazon S3 Storage Lens Group configuration.
+        :param pulumi.Input['StorageLensGroupSelectionCriteriaArgs'] storage_lens_group_selection_criteria: This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
         """
         if storage_lens_group_selection_criteria is not None:
             pulumi.set(__self__, "storage_lens_group_selection_criteria", storage_lens_group_selection_criteria)
@@ -3958,6 +4105,9 @@ class StorageLensGroupLevelArgs:
     @property
     @pulumi.getter(name="storageLensGroupSelectionCriteria")
     def storage_lens_group_selection_criteria(self) -> Optional[pulumi.Input['StorageLensGroupSelectionCriteriaArgs']]:
+        """
+        This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+        """
         return pulumi.get(self, "storage_lens_group_selection_criteria")
 
     @storage_lens_group_selection_criteria.setter
@@ -4055,6 +4205,11 @@ class StorageLensGroupOrArgs:
                  match_object_size: Optional[pulumi.Input['StorageLensGroupMatchObjectSizeArgs']] = None):
         """
         The Storage Lens group will include objects that match any of the specified filter values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_any_prefix: This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_any_suffix: This property contains the list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]] match_any_tag: This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        :param pulumi.Input['StorageLensGroupMatchObjectAgeArgs'] match_object_age: This property filters objects that match the specified object age range.
+        :param pulumi.Input['StorageLensGroupMatchObjectSizeArgs'] match_object_size: This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
         """
         if match_any_prefix is not None:
             pulumi.set(__self__, "match_any_prefix", match_any_prefix)
@@ -4070,6 +4225,9 @@ class StorageLensGroupOrArgs:
     @property
     @pulumi.getter(name="matchAnyPrefix")
     def match_any_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
+        """
         return pulumi.get(self, "match_any_prefix")
 
     @match_any_prefix.setter
@@ -4079,6 +4237,9 @@ class StorageLensGroupOrArgs:
     @property
     @pulumi.getter(name="matchAnySuffix")
     def match_any_suffix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property contains the list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
+        """
         return pulumi.get(self, "match_any_suffix")
 
     @match_any_suffix.setter
@@ -4088,6 +4249,9 @@ class StorageLensGroupOrArgs:
     @property
     @pulumi.getter(name="matchAnyTag")
     def match_any_tag(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensGroupTagArgs']]]]:
+        """
+        This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
+        """
         return pulumi.get(self, "match_any_tag")
 
     @match_any_tag.setter
@@ -4097,6 +4261,9 @@ class StorageLensGroupOrArgs:
     @property
     @pulumi.getter(name="matchObjectAge")
     def match_object_age(self) -> Optional[pulumi.Input['StorageLensGroupMatchObjectAgeArgs']]:
+        """
+        This property filters objects that match the specified object age range.
+        """
         return pulumi.get(self, "match_object_age")
 
     @match_object_age.setter
@@ -4106,6 +4273,9 @@ class StorageLensGroupOrArgs:
     @property
     @pulumi.getter(name="matchObjectSize")
     def match_object_size(self) -> Optional[pulumi.Input['StorageLensGroupMatchObjectSizeArgs']]:
+        """
+        This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
+        """
         return pulumi.get(self, "match_object_size")
 
     @match_object_size.setter
@@ -4120,6 +4290,8 @@ class StorageLensGroupSelectionCriteriaArgs:
                  include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Selection criteria for Storage Lens Group level metrics
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude: This property indicates which Storage Lens group ARNs to exclude from the Storage Lens group aggregation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include: This property indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
         """
         if exclude is not None:
             pulumi.set(__self__, "exclude", exclude)
@@ -4129,6 +4301,9 @@ class StorageLensGroupSelectionCriteriaArgs:
     @property
     @pulumi.getter
     def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property indicates which Storage Lens group ARNs to exclude from the Storage Lens group aggregation.
+        """
         return pulumi.get(self, "exclude")
 
     @exclude.setter
@@ -4138,6 +4313,9 @@ class StorageLensGroupSelectionCriteriaArgs:
     @property
     @pulumi.getter
     def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This property indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
+        """
         return pulumi.get(self, "include")
 
     @include.setter
@@ -4179,6 +4357,7 @@ class StorageLensPrefixLevelStorageMetricsArgs:
                  selection_criteria: Optional[pulumi.Input['StorageLensSelectionCriteriaArgs']] = None):
         """
         :param pulumi.Input[bool] is_enabled: Specifies whether prefix-level storage metrics are enabled or disabled.
+        :param pulumi.Input['StorageLensSelectionCriteriaArgs'] selection_criteria: This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -4200,6 +4379,9 @@ class StorageLensPrefixLevelStorageMetricsArgs:
     @property
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional[pulumi.Input['StorageLensSelectionCriteriaArgs']]:
+        """
+        This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
+        """
         return pulumi.get(self, "selection_criteria")
 
     @selection_criteria.setter
@@ -4213,12 +4395,16 @@ class StorageLensPrefixLevelArgs:
                  storage_metrics: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']):
         """
         Prefix-level metrics configurations.
+        :param pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs'] storage_metrics: A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
         """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
     @property
     @pulumi.getter(name="storageMetrics")
     def storage_metrics(self) -> pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs']:
+        """
+        A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
+        """
         return pulumi.get(self, "storage_metrics")
 
     @storage_metrics.setter
@@ -4241,6 +4427,7 @@ class StorageLensS3BucketDestinationArgs:
         :param pulumi.Input[str] arn: The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
         :param pulumi.Input['StorageLensS3BucketDestinationFormat'] format: Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         :param pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion'] output_schema_version: The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
+        :param pulumi.Input['StorageLensEncryptionArgs'] encryption: This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
         :param pulumi.Input[str] prefix: The prefix to use for Amazon S3 Storage Lens export.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -4303,6 +4490,9 @@ class StorageLensS3BucketDestinationArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['StorageLensEncryptionArgs']]:
+        """
+        This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
+        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter

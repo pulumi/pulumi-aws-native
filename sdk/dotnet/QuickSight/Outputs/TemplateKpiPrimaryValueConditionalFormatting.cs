@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateKpiPrimaryValueConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting of the primary value's icon.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingIcon? Icon;
+        /// <summary>
+        /// The conditional formatting of the primary value's text color.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? TextColor;
 
         [OutputConstructor]

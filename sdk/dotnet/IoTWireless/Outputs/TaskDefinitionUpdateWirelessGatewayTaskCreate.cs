@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class TaskDefinitionUpdateWirelessGatewayTaskCreate
     {
+        /// <summary>
+        /// The properties that relate to the LoRaWAN wireless gateway.
+        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate? LoRaWan;
+        /// <summary>
+        /// The IAM role used to read data from the S3 bucket.
+        /// </summary>
         public readonly string? UpdateDataRole;
+        /// <summary>
+        /// The link to the S3 bucket.
+        /// </summary>
         public readonly string? UpdateDataSource;
 
         [OutputConstructor]

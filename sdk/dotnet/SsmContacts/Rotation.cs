@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the rule that specifies when shift team members rotate.
+        /// </summary>
         [Output("recurrence")]
         public Output<Outputs.RotationRecurrenceSettings> Recurrence { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -114,6 +120,9 @@ namespace Pulumi.AwsNative.SsmContacts
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Information about the rule that specifies when shift team members rotate.
+        /// </summary>
         [Input("recurrence", required: true)]
         public Input<Inputs.RotationRecurrenceSettingsArgs> Recurrence { get; set; } = null!;
 
@@ -125,6 +134,10 @@ namespace Pulumi.AwsNative.SsmContacts
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

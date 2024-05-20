@@ -305,6 +305,9 @@ class ConfigRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -318,6 +321,9 @@ class ConfigRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configRuleId")
     def config_rule_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
+        """
         return pulumi.get(self, "config_rule_id")
 
     @property

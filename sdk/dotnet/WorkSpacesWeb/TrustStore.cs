@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:TrustStore")]
     public partial class TrustStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of web portal ARNs that this trust store is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of CA certificates to be added to the trust store.
+        /// </summary>
         [Output("certificateList")]
         public Output<ImmutableArray<string>> CertificateList { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the trust store. A tag is a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the trust store.
+        /// </summary>
         [Output("trustStoreArn")]
         public Output<string> TrustStoreArn { get; private set; } = null!;
 
@@ -74,6 +86,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("certificateList", required: true)]
         private InputList<string>? _certificateList;
+
+        /// <summary>
+        /// A list of CA certificates to be added to the trust store.
+        /// </summary>
         public InputList<string> CertificateList
         {
             get => _certificateList ?? (_certificateList = new InputList<string>());
@@ -82,6 +98,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the trust store. A tag is a key-value pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

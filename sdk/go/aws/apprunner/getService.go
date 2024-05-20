@@ -28,16 +28,21 @@ type LookupServiceArgs struct {
 }
 
 type LookupServiceResult struct {
-	HealthCheckConfiguration   *ServiceHealthCheckConfiguration   `pulumi:"healthCheckConfiguration"`
-	InstanceConfiguration      *ServiceInstanceConfiguration      `pulumi:"instanceConfiguration"`
-	NetworkConfiguration       *ServiceNetworkConfiguration       `pulumi:"networkConfiguration"`
+	// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
+	// The runtime configuration of instances (scaling units) of your service.
+	InstanceConfiguration *ServiceInstanceConfiguration `pulumi:"instanceConfiguration"`
+	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The observability configuration of your service.
 	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// The Amazon Resource Name (ARN) of the AppRunner Service.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The AppRunner Service Id
 	ServiceId *string `pulumi:"serviceId"`
 	// The Service Url of the AppRunner Service.
-	ServiceUrl          *string                     `pulumi:"serviceUrl"`
+	ServiceUrl *string `pulumi:"serviceUrl"`
+	// The source to deploy to the App Runner service. It can be a code or an image repository.
 	SourceConfiguration *ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
 	// AppRunner Service status.
 	Status *string `pulumi:"status"`
@@ -79,18 +84,22 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
 func (o LookupServiceResultOutput) HealthCheckConfiguration() ServiceHealthCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceHealthCheckConfiguration { return v.HealthCheckConfiguration }).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
+// The runtime configuration of instances (scaling units) of your service.
 func (o LookupServiceResultOutput) InstanceConfiguration() ServiceInstanceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceInstanceConfiguration { return v.InstanceConfiguration }).(ServiceInstanceConfigurationPtrOutput)
 }
 
+// Configuration settings related to network traffic of the web application that the App Runner service runs.
 func (o LookupServiceResultOutput) NetworkConfiguration() ServiceNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceNetworkConfiguration { return v.NetworkConfiguration }).(ServiceNetworkConfigurationPtrOutput)
 }
 
+// The observability configuration of your service.
 func (o LookupServiceResultOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceObservabilityConfiguration { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
 }
@@ -110,6 +119,7 @@ func (o LookupServiceResultOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
+// The source to deploy to the App Runner service. It can be a code or an image repository.
 func (o LookupServiceResultOutput) SourceConfiguration() ServiceSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceSourceConfiguration { return v.SourceConfiguration }).(ServiceSourceConfigurationPtrOutput)
 }

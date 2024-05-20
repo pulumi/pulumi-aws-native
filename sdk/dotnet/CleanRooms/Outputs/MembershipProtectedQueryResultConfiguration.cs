@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipProtectedQueryResultConfiguration
     {
+        /// <summary>
+        /// Configuration for protected query results.
+        /// </summary>
         public readonly Outputs.MembershipProtectedQueryOutputConfiguration OutputConfiguration;
+        /// <summary>
+        /// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+        /// </summary>
         public readonly string? RoleArn;
 
         [OutputConstructor]

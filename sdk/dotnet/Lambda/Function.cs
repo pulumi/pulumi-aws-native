@@ -328,6 +328,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("architectures")]
         public Output<ImmutableArray<Pulumi.AwsNative.Lambda.FunctionArchitecturesItem>> Architectures { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the function.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

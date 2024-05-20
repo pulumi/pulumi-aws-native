@@ -27,6 +27,11 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
+        :param pulumi.Input['ApplicationProxyType'] proxy_type: The proxy type of the proxy created within the application.
+        :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
+        :param pulumi.Input['ApplicationApiGatewayProxyInputArgs'] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
+        :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
         pulumi.set(__self__, "environment_identifier", environment_identifier)
@@ -42,6 +47,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @environment_identifier.setter
@@ -51,6 +59,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="proxyType")
     def proxy_type(self) -> pulumi.Input['ApplicationProxyType']:
+        """
+        The proxy type of the proxy created within the application.
+        """
         return pulumi.get(self, "proxy_type")
 
     @proxy_type.setter
@@ -60,6 +71,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the virtual private cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -69,6 +83,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="apiGatewayProxy")
     def api_gateway_proxy(self) -> Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']]:
+        """
+        The endpoint URL of the Amazon API Gateway proxy.
+        """
         return pulumi.get(self, "api_gateway_proxy")
 
     @api_gateway_proxy.setter
@@ -78,6 +95,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -114,7 +134,12 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ApplicationApiGatewayProxyInputArgs']] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
+        :param pulumi.Input[str] name: The name of the application.
+        :param pulumi.Input['ApplicationProxyType'] proxy_type: The proxy type of the proxy created within the application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         ...
     @overload
@@ -218,56 +243,89 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiGatewayId")
     def api_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID of the API Gateway for the proxy.
+        """
         return pulumi.get(self, "api_gateway_id")
 
     @property
     @pulumi.getter(name="apiGatewayProxy")
     def api_gateway_proxy(self) -> pulumi.Output[Optional['outputs.ApplicationApiGatewayProxyInput']]:
+        """
+        The endpoint URL of the Amazon API Gateway proxy.
+        """
         return pulumi.get(self, "api_gateway_proxy")
 
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the application.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="environmentIdentifier")
     def environment_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the environment.
+        """
         return pulumi.get(self, "environment_identifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the application.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nlbArn")
     def nlb_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Network Load Balancer .
+        """
         return pulumi.get(self, "nlb_arn")
 
     @property
     @pulumi.getter(name="nlbName")
     def nlb_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Network Load Balancer configured by the API Gateway proxy.
+        """
         return pulumi.get(self, "nlb_name")
 
     @property
     @pulumi.getter(name="proxyType")
     def proxy_type(self) -> pulumi.Output['ApplicationProxyType']:
+        """
+        The proxy type of the proxy created within the application.
+        """
         return pulumi.get(self, "proxy_type")
 
     @property
     @pulumi.getter(name="proxyUrl")
     def proxy_url(self) -> pulumi.Output[str]:
+        """
+        The endpoint URL of the Amazon API Gateway proxy.
+        """
         return pulumi.get(self, "proxy_url")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[str]:
+        """
+        The name of the API Gateway stage. The name defaults to `prod` .
+        """
         return pulumi.get(self, "stage_name")
 
     @property
@@ -281,10 +339,16 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the virtual private cloud (VPC).
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpcLinkId")
     def vpc_link_id(self) -> pulumi.Output[str]:
+        """
+        The `VpcLink` ID of the API Gateway proxy.
+        """
         return pulumi.get(self, "vpc_link_id")
 

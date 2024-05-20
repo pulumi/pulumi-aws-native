@@ -62,6 +62,7 @@ def get_lifecycle_policy(name: Optional[str] = None,
 
 
     :param str name: The name of the policy
+    :param 'LifecyclePolicyType' type: The type of lifecycle policy.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -83,5 +84,6 @@ def get_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of the policy
+    :param 'LifecyclePolicyType' type: The type of lifecycle policy.
     """
     ...

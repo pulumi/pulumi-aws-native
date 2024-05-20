@@ -31,6 +31,9 @@ export interface GetUserArgs {
 }
 
 export interface GetUserResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::User` resource. For example: `arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D` .
+     */
     readonly arn?: string;
     /**
      * A list of group names to which you want to add the user.

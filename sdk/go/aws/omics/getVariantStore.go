@@ -23,18 +23,27 @@ func LookupVariantStore(ctx *pulumi.Context, args *LookupVariantStoreArgs, opts 
 }
 
 type LookupVariantStoreArgs struct {
+	// A name for the store.
 	Name string `pulumi:"name"`
 }
 
 type LookupVariantStoreResult struct {
-	CreationTime   *string                  `pulumi:"creationTime"`
-	Description    *string                  `pulumi:"description"`
-	Id             *string                  `pulumi:"id"`
-	Status         *VariantStoreStoreStatus `pulumi:"status"`
-	StatusMessage  *string                  `pulumi:"statusMessage"`
-	StoreArn       *string                  `pulumi:"storeArn"`
-	StoreSizeBytes *float64                 `pulumi:"storeSizeBytes"`
-	UpdateTime     *string                  `pulumi:"updateTime"`
+	// When the store was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// A description for the store.
+	Description *string `pulumi:"description"`
+	// The store's ID.
+	Id *string `pulumi:"id"`
+	// The store's status.
+	Status *VariantStoreStoreStatus `pulumi:"status"`
+	// The store's status message.
+	StatusMessage *string `pulumi:"statusMessage"`
+	// The store's ARN.
+	StoreArn *string `pulumi:"storeArn"`
+	// The store's size in bytes.
+	StoreSizeBytes *float64 `pulumi:"storeSizeBytes"`
+	// When the store was updated.
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupVariantStoreOutput(ctx *pulumi.Context, args LookupVariantStoreOutputArgs, opts ...pulumi.InvokeOption) LookupVariantStoreResultOutput {
@@ -51,6 +60,7 @@ func LookupVariantStoreOutput(ctx *pulumi.Context, args LookupVariantStoreOutput
 }
 
 type LookupVariantStoreOutputArgs struct {
+	// A name for the store.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -72,34 +82,42 @@ func (o LookupVariantStoreResultOutput) ToLookupVariantStoreResultOutputWithCont
 	return o
 }
 
+// When the store was created.
 func (o LookupVariantStoreResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// A description for the store.
 func (o LookupVariantStoreResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The store's ID.
 func (o LookupVariantStoreResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The store's status.
 func (o LookupVariantStoreResultOutput) Status() VariantStoreStoreStatusPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *VariantStoreStoreStatus { return v.Status }).(VariantStoreStoreStatusPtrOutput)
 }
 
+// The store's status message.
 func (o LookupVariantStoreResultOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
+// The store's ARN.
 func (o LookupVariantStoreResultOutput) StoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *string { return v.StoreArn }).(pulumi.StringPtrOutput)
 }
 
+// The store's size in bytes.
 func (o LookupVariantStoreResultOutput) StoreSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *float64 { return v.StoreSizeBytes }).(pulumi.Float64PtrOutput)
 }
 
+// When the store was updated.
 func (o LookupVariantStoreResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVariantStoreResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

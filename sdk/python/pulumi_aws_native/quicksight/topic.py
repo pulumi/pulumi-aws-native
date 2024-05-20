@@ -25,6 +25,12 @@ class TopicArgs:
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None):
         """
         The set of arguments for constructing a Topic resource.
+        :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]] data_sets: The data sets that the topic is associated with.
+        :param pulumi.Input[str] description: The description of the topic.
+        :param pulumi.Input[str] name: The name of the topic.
+        :param pulumi.Input[str] topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        :param pulumi.Input['TopicUserExperienceVersion'] user_experience_version: The user experience version of the topic.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -42,6 +48,9 @@ class TopicArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that you want to create a topic in.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -51,6 +60,9 @@ class TopicArgs:
     @property
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]]:
+        """
+        The data sets that the topic is associated with.
+        """
         return pulumi.get(self, "data_sets")
 
     @data_sets.setter
@@ -60,6 +72,9 @@ class TopicArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the topic.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,6 +84,9 @@ class TopicArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the topic.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -78,6 +96,9 @@ class TopicArgs:
     @property
     @pulumi.getter(name="topicId")
     def topic_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        """
         return pulumi.get(self, "topic_id")
 
     @topic_id.setter
@@ -87,6 +108,9 @@ class TopicArgs:
     @property
     @pulumi.getter(name="userExperienceVersion")
     def user_experience_version(self) -> Optional[pulumi.Input['TopicUserExperienceVersion']]:
+        """
+        The user experience version of the topic.
+        """
         return pulumi.get(self, "user_experience_version")
 
     @user_experience_version.setter
@@ -111,6 +135,12 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicDatasetMetadataArgs']]]] data_sets: The data sets that the topic is associated with.
+        :param pulumi.Input[str] description: The description of the topic.
+        :param pulumi.Input[str] name: The name of the topic.
+        :param pulumi.Input[str] topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        :param pulumi.Input['TopicUserExperienceVersion'] user_experience_version: The user experience version of the topic.
         """
         ...
     @overload
@@ -194,35 +224,56 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the topic.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the AWS account that you want to create a topic in.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> pulumi.Output[Optional[Sequence['outputs.TopicDatasetMetadata']]]:
+        """
+        The data sets that the topic is associated with.
+        """
         return pulumi.get(self, "data_sets")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the topic.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the topic.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="topicId")
     def topic_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        """
         return pulumi.get(self, "topic_id")
 
     @property
     @pulumi.getter(name="userExperienceVersion")
     def user_experience_version(self) -> pulumi.Output[Optional['TopicUserExperienceVersion']]:
+        """
+        The user experience version of the topic.
+        """
         return pulumi.get(self, "user_experience_version")
 

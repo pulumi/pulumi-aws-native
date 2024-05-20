@@ -29,11 +29,17 @@ class GetTargetAccountConfigurationResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the target account.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role for the target account.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -52,6 +58,10 @@ def get_target_account_configuration(account_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetAccountConfigurationResult:
     """
     Resource schema for AWS::FIS::TargetAccountConfiguration
+
+
+    :param str account_id: The AWS account ID of the target account.
+    :param str experiment_template_id: The ID of the experiment template.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -70,5 +80,9 @@ def get_target_account_configuration_output(account_id: Optional[pulumi.Input[st
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetAccountConfigurationResult]:
     """
     Resource schema for AWS::FIS::TargetAccountConfiguration
+
+
+    :param str account_id: The AWS account ID of the target account.
+    :param str experiment_template_id: The ID of the experiment template.
     """
     ...

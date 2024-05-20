@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWordCloudFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a word cloud.
+        /// </summary>
         public readonly Outputs.TemplateWordCloudAggregatedFieldWells? WordCloudAggregatedFieldWells;
 
         [OutputConstructor]

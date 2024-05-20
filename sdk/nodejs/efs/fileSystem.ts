@@ -37,6 +37,11 @@ export class FileSystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileSystem.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the EFS file system.
+     *
+     * Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * For One Zone file systems, specify the AWS Availability Zone in which to create the file system. Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type) in the *Amazon EFS User Guide*.
@@ -55,6 +60,9 @@ export class FileSystem extends pulumi.CustomResource {
      * A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a KmsKeyId for an existing kms-key-long. If you don't specify a kms-key, then the default kms-key for EFS, ``/aws/elasticfilesystem``, is used to protect the encrypted file system.
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+     */
     public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
     /**
      * The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.

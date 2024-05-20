@@ -23,6 +23,7 @@ class IpamScopeArgs:
         """
         The set of arguments for constructing a IpamScope resource.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
+        :param pulumi.Input[str] description: The description of the scope.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
@@ -46,6 +47,9 @@ class IpamScopeArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the scope.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -79,6 +83,7 @@ class IpamScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the scope.
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -175,6 +180,9 @@ class IpamScope(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the scope.
+        """
         return pulumi.get(self, "description")
 
     @property

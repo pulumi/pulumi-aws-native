@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+        /// </summary>
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("contactFlowArn")]
         public Output<string?> ContactFlowArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The default values for fields when a task is created by referencing this template.
+        /// </summary>
         [Output("defaults")]
         public Output<ImmutableArray<Outputs.TaskTemplateDefaultFieldValue>> Defaults { get; private set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the task template.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Connect.TaskTemplateStatus?> Status { get; private set; } = null!;
 
@@ -117,6 +126,9 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class TaskTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+        /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
@@ -134,6 +146,10 @@ namespace Pulumi.AwsNative.Connect
 
         [Input("defaults")]
         private InputList<Inputs.TaskTemplateDefaultFieldValueArgs>? _defaults;
+
+        /// <summary>
+        /// The default values for fields when a task is created by referencing this template.
+        /// </summary>
         public InputList<Inputs.TaskTemplateDefaultFieldValueArgs> Defaults
         {
             get => _defaults ?? (_defaults = new InputList<Inputs.TaskTemplateDefaultFieldValueArgs>());
@@ -170,6 +186,9 @@ namespace Pulumi.AwsNative.Connect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The status of the task template.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.Connect.TaskTemplateStatus>? Status { get; set; }
 

@@ -28,6 +28,8 @@ class EnvironmentTemplateArgs:
         :param pulumi.Input[str] description: <p>A description of the environment template.</p>
         :param pulumi.Input[str] display_name: <p>The environment template name as displayed in the developer interface.</p>
         :param pulumi.Input[str] encryption_key: <p>A customer provided encryption key that Proton uses to encrypt data.</p>
+        :param pulumi.Input[str] name: The name of the environment template.
+        :param pulumi.Input['EnvironmentTemplateProvisioning'] provisioning: When included, indicates that the environment template is for customer provisioned and managed infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
@@ -84,6 +86,9 @@ class EnvironmentTemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the environment template.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,6 +98,9 @@ class EnvironmentTemplateArgs:
     @property
     @pulumi.getter
     def provisioning(self) -> Optional[pulumi.Input['EnvironmentTemplateProvisioning']]:
+        """
+        When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+        """
         return pulumi.get(self, "provisioning")
 
     @provisioning.setter
@@ -134,6 +142,8 @@ class EnvironmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: <p>A description of the environment template.</p>
         :param pulumi.Input[str] display_name: <p>The environment template name as displayed in the developer interface.</p>
         :param pulumi.Input[str] encryption_key: <p>A customer provided encryption key that Proton uses to encrypt data.</p>
+        :param pulumi.Input[str] name: The name of the environment template.
+        :param pulumi.Input['EnvironmentTemplateProvisioning'] provisioning: When included, indicates that the environment template is for customer provisioned and managed infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
@@ -252,11 +262,17 @@ class EnvironmentTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the environment template.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def provisioning(self) -> pulumi.Output[Optional['EnvironmentTemplateProvisioning']]:
+        """
+        When included, indicates that the environment template is for customer provisioned and managed infrastructure.
+        """
         return pulumi.get(self, "provisioning")
 
     @property

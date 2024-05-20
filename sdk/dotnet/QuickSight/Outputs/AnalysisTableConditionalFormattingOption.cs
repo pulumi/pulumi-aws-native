@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableConditionalFormattingOption
     {
+        /// <summary>
+        /// The cell conditional formatting option for a table.
+        /// </summary>
         public readonly Outputs.AnalysisTableCellConditionalFormatting? Cell;
+        /// <summary>
+        /// The row conditional formatting option for a table.
+        /// </summary>
         public readonly Outputs.AnalysisTableRowConditionalFormatting? Row;
 
         [OutputConstructor]

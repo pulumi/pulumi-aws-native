@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensGroupSelectionCriteria
     {
+        /// <summary>
+        /// This property indicates which Storage Lens group ARNs to exclude from the Storage Lens group aggregation.
+        /// </summary>
         public readonly ImmutableArray<string> Exclude;
+        /// <summary>
+        /// This property indicates which Storage Lens group ARNs to include in the Storage Lens group aggregation.
+        /// </summary>
         public readonly ImmutableArray<string> Include;
 
         [OutputConstructor]

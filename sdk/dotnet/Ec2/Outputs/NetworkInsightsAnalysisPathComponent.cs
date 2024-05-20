@@ -13,22 +13,73 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisPathComponent
     {
+        /// <summary>
+        /// The network ACL rule.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule;
+        /// <summary>
+        /// The additional details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAdditionalDetail> AdditionalDetails;
+        /// <summary>
+        /// The component.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
+        /// <summary>
+        /// The destination VPC.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc;
+        /// <summary>
+        /// The load balancer listener.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? ElasticLoadBalancerListener;
+        /// <summary>
+        /// The explanation codes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> Explanations;
+        /// <summary>
+        /// The inbound header.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? InboundHeader;
+        /// <summary>
+        /// The outbound header.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? OutboundHeader;
+        /// <summary>
+        /// The route table route.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute;
+        /// <summary>
+        /// The security group rule.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule;
+        /// <summary>
+        /// The sequence number.
+        /// </summary>
         public readonly int? SequenceNumber;
+        /// <summary>
+        /// The name of the VPC endpoint service.
+        /// </summary>
         public readonly string? ServiceName;
+        /// <summary>
+        /// The source VPC.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc;
+        /// <summary>
+        /// The subnet.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
+        /// <summary>
+        /// The transit gateway.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
+        /// <summary>
+        /// The route in a transit gateway route table.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? TransitGatewayRouteTableRoute;
+        /// <summary>
+        /// The component VPC.
+        /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
 
         [OutputConstructor]

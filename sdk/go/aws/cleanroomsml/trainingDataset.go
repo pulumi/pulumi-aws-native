@@ -17,14 +17,22 @@ import (
 type TrainingDataset struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
-	Name        pulumi.StringOutput         `pulumi:"name"`
-	RoleArn     pulumi.StringOutput         `pulumi:"roleArn"`
-	Status      TrainingDatasetStatusOutput `pulumi:"status"`
+	// The description of the training dataset.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the training dataset.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+	//
+	// Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The status of the training dataset.
+	Status TrainingDatasetStatusOutput `pulumi:"status"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
-	Tags               aws.TagArrayOutput                `pulumi:"tags"`
-	TrainingData       TrainingDatasetDatasetArrayOutput `pulumi:"trainingData"`
-	TrainingDatasetArn pulumi.StringOutput               `pulumi:"trainingDatasetArn"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
+	TrainingData TrainingDatasetDatasetArrayOutput `pulumi:"trainingData"`
+	// The Amazon Resource Name (ARN) of the training dataset.
+	TrainingDatasetArn pulumi.StringOutput `pulumi:"trainingDatasetArn"`
 }
 
 // NewTrainingDataset registers a new resource with the given unique name, arguments, and options.
@@ -80,21 +88,33 @@ func (TrainingDatasetState) ElementType() reflect.Type {
 }
 
 type trainingDatasetArgs struct {
+	// The description of the training dataset.
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	RoleArn     string  `pulumi:"roleArn"`
+	// The name of the training dataset.
+	Name *string `pulumi:"name"`
+	// The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+	//
+	// Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+	RoleArn string `pulumi:"roleArn"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
-	Tags         []aws.Tag                `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 	TrainingData []TrainingDatasetDataset `pulumi:"trainingData"`
 }
 
 // The set of arguments for constructing a TrainingDataset resource.
 type TrainingDatasetArgs struct {
+	// The description of the training dataset.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	RoleArn     pulumi.StringInput
+	// The name of the training dataset.
+	Name pulumi.StringPtrInput
+	// The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+	//
+	// Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+	RoleArn pulumi.StringInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
-	Tags         aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 	TrainingData TrainingDatasetDatasetArrayInput
 }
 
@@ -135,18 +155,24 @@ func (o TrainingDatasetOutput) ToTrainingDatasetOutputWithContext(ctx context.Co
 	return o
 }
 
+// The description of the training dataset.
 func (o TrainingDatasetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrainingDataset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the training dataset.
 func (o TrainingDatasetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrainingDataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+//
+// Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
 func (o TrainingDatasetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrainingDataset) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The status of the training dataset.
 func (o TrainingDatasetOutput) Status() TrainingDatasetStatusOutput {
 	return o.ApplyT(func(v *TrainingDataset) TrainingDatasetStatusOutput { return v.Status }).(TrainingDatasetStatusOutput)
 }
@@ -156,10 +182,12 @@ func (o TrainingDatasetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrainingDataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 func (o TrainingDatasetOutput) TrainingData() TrainingDatasetDatasetArrayOutput {
 	return o.ApplyT(func(v *TrainingDataset) TrainingDatasetDatasetArrayOutput { return v.TrainingData }).(TrainingDatasetDatasetArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the training dataset.
 func (o TrainingDatasetOutput) TrainingDatasetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrainingDataset) pulumi.StringOutput { return v.TrainingDatasetArn }).(pulumi.StringOutput)
 }

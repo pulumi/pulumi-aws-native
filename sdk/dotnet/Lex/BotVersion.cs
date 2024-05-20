@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Lex
     [AwsNativeResourceType("aws-native:lex:BotVersion")]
     public partial class BotVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Output("botId")]
         public Output<string> BotId { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the bot.
+        /// </summary>
         [Output("botVersion")]
         public Output<string> BotVersionValue { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        /// </summary>
         [Output("botVersionLocaleSpecification")]
         public Output<ImmutableArray<Outputs.BotVersionLocaleSpecification>> BotVersionLocaleSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -76,17 +88,27 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class BotVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
         [Input("botVersionLocaleSpecification", required: true)]
         private InputList<Inputs.BotVersionLocaleSpecificationArgs>? _botVersionLocaleSpecification;
+
+        /// <summary>
+        /// Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        /// </summary>
         public InputList<Inputs.BotVersionLocaleSpecificationArgs> BotVersionLocaleSpecification
         {
             get => _botVersionLocaleSpecification ?? (_botVersionLocaleSpecification = new InputList<Inputs.BotVersionLocaleSpecificationArgs>());
             set => _botVersionLocaleSpecification = value;
         }
 
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

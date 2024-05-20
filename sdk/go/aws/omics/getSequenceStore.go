@@ -23,6 +23,7 @@ func LookupSequenceStore(ctx *pulumi.Context, args *LookupSequenceStoreArgs, opt
 }
 
 type LookupSequenceStoreArgs struct {
+	// The store's ID.
 	SequenceStoreId string `pulumi:"sequenceStoreId"`
 }
 
@@ -30,7 +31,8 @@ type LookupSequenceStoreResult struct {
 	// The store's ARN.
 	Arn *string `pulumi:"arn"`
 	// When the store was created.
-	CreationTime    *string `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
+	// The store's ID.
 	SequenceStoreId *string `pulumi:"sequenceStoreId"`
 }
 
@@ -48,6 +50,7 @@ func LookupSequenceStoreOutput(ctx *pulumi.Context, args LookupSequenceStoreOutp
 }
 
 type LookupSequenceStoreOutputArgs struct {
+	// The store's ID.
 	SequenceStoreId pulumi.StringInput `pulumi:"sequenceStoreId"`
 }
 
@@ -79,6 +82,7 @@ func (o LookupSequenceStoreResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The store's ID.
 func (o LookupSequenceStoreResultOutput) SequenceStoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSequenceStoreResult) *string { return v.SequenceStoreId }).(pulumi.StringPtrOutput)
 }

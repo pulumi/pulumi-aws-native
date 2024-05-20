@@ -103,6 +103,9 @@ class GetAppResult:
     @property
     @pulumi.getter(name="permissionModel")
     def permission_model(self) -> Optional['outputs.AppPermissionModel']:
+        """
+        Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        """
         return pulumi.get(self, "permission_model")
 
     @property
@@ -124,6 +127,9 @@ class GetAppResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        """
         return pulumi.get(self, "tags")
 
 

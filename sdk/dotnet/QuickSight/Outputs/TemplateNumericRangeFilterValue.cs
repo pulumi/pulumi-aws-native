@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateNumericRangeFilterValue
     {
+        /// <summary>
+        /// The parameter that is used in the numeric range.
+        /// </summary>
         public readonly string? Parameter;
+        /// <summary>
+        /// The static value of the numeric range filter.
+        /// </summary>
         public readonly double? StaticValue;
 
         [OutputConstructor]

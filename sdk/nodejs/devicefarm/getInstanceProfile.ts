@@ -19,16 +19,44 @@ export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.I
 }
 
 export interface GetInstanceProfileArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetInstanceProfileResult {
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * The description of the instance profile.
+     */
     readonly description?: string;
+    /**
+     * An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+     *
+     * The list of packages is considered only if you set `packageCleanup` to `true` .
+     */
     readonly excludeAppPackagesFromCleanup?: string[];
+    /**
+     * The name of the instance profile.
+     */
     readonly name?: string;
+    /**
+     * When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
+     */
     readonly packageCleanup?: boolean;
+    /**
+     * When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
+     */
     readonly rebootAfterUse?: boolean;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -39,5 +67,8 @@ export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opt
 }
 
 export interface GetInstanceProfileOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the instance profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

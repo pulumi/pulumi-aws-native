@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.EmrContainers.Outputs
         /// The ID of the container cluster
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The information about the container cluster.
+        /// </summary>
         public readonly Outputs.VirtualClusterContainerInfo Info;
         /// <summary>
         /// The type of the container provider

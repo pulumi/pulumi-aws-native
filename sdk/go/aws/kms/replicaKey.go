@@ -17,12 +17,18 @@ import (
 type ReplicaKey struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+	//
+	// The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	KeyId   pulumi.StringOutput  `pulumi:"keyId"`
+	// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+	//
+	// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
@@ -156,6 +162,9 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+//
+// The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 func (o ReplicaKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -170,6 +179,9 @@ func (o ReplicaKeyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicaKey) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+//
+// Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
 func (o ReplicaKeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }

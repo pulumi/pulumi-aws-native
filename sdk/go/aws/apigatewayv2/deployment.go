@@ -17,7 +17,8 @@ type Deployment struct {
 	pulumi.CustomResourceState
 
 	// The API identifier.
-	ApiId        pulumi.StringOutput `pulumi:"apiId"`
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The deployment ID.
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// The description for the deployment resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -132,6 +133,7 @@ func (o DeploymentOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The deployment ID.
 func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }

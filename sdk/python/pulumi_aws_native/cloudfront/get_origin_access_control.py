@@ -30,11 +30,17 @@ class GetOriginAccessControlResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier of the origin access control.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="originAccessControlConfig")
     def origin_access_control_config(self) -> Optional['outputs.OriginAccessControlConfig']:
+        """
+        The origin access control.
+        """
         return pulumi.get(self, "origin_access_control_config")
 
 
@@ -52,6 +58,9 @@ def get_origin_access_control(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginAccessControlResult:
     """
     Resource Type definition for AWS::CloudFront::OriginAccessControl
+
+
+    :param str id: The unique identifier of the origin access control.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -68,5 +77,8 @@ def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
     Resource Type definition for AWS::CloudFront::OriginAccessControl
+
+
+    :param str id: The unique identifier of the origin access control.
     """
     ...

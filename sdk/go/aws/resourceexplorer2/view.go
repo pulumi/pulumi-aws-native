@@ -15,12 +15,24 @@ import (
 type View struct {
 	pulumi.CustomResourceState
 
-	Filters            ViewSearchFilterPtrOutput       `pulumi:"filters"`
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+	Filters ViewSearchFilterPtrOutput `pulumi:"filters"`
+	// A list of fields that provide additional information about the view.
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
-	Scope              pulumi.StringPtrOutput          `pulumi:"scope"`
-	Tags               pulumi.StringMapOutput          `pulumi:"tags"`
-	ViewArn            pulumi.StringOutput             `pulumi:"viewArn"`
-	ViewName           pulumi.StringOutput             `pulumi:"viewName"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	// Tag key and value pairs that are attached to the view.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The ARN of the new view. For example:
+	//
+	// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+	ViewArn pulumi.StringOutput `pulumi:"viewArn"`
+	// The name of the new view.
+	ViewName pulumi.StringOutput `pulumi:"viewName"`
 }
 
 // NewView registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +80,38 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	Filters            *ViewSearchFilter      `pulumi:"filters"`
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+	Filters *ViewSearchFilter `pulumi:"filters"`
+	// A list of fields that provide additional information about the view.
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
-	Scope              *string                `pulumi:"scope"`
-	Tags               map[string]string      `pulumi:"tags"`
-	ViewName           *string                `pulumi:"viewName"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope *string `pulumi:"scope"`
+	// Tag key and value pairs that are attached to the view.
+	Tags map[string]string `pulumi:"tags"`
+	// The name of the new view.
+	ViewName *string `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	Filters            ViewSearchFilterPtrInput
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+	Filters ViewSearchFilterPtrInput
+	// A list of fields that provide additional information about the view.
 	IncludedProperties ViewIncludedPropertyArrayInput
-	Scope              pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
-	ViewName           pulumi.StringPtrInput
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringPtrInput
+	// Tag key and value pairs that are attached to the view.
+	Tags pulumi.StringMapInput
+	// The name of the new view.
+	ViewName pulumi.StringPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {
@@ -121,26 +151,38 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
+// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+//
+// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+//
+// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 func (o ViewOutput) Filters() ViewSearchFilterPtrOutput {
 	return o.ApplyT(func(v *View) ViewSearchFilterPtrOutput { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
+// A list of fields that provide additional information about the view.
 func (o ViewOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 	return o.ApplyT(func(v *View) ViewIncludedPropertyArrayOutput { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
 }
 
+// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 func (o ViewOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// Tag key and value pairs that are attached to the view.
 func (o ViewOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the new view. For example:
+//
+// `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
 func (o ViewOutput) ViewArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ViewArn }).(pulumi.StringOutput)
 }
 
+// The name of the new view.
 func (o ViewOutput) ViewName() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ViewName }).(pulumi.StringOutput)
 }

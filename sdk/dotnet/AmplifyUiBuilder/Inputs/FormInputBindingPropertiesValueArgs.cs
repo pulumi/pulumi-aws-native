@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class FormInputBindingPropertiesValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the properties to customize with data at runtime.
+        /// </summary>
         [Input("bindingProperties")]
         public Input<Inputs.FormInputBindingPropertiesValuePropertiesArgs>? BindingProperties { get; set; }
 
+        /// <summary>
+        /// The property type.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

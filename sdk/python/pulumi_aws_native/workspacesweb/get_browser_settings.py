@@ -36,21 +36,33 @@ class GetBrowserSettingsResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that the browser settings resource is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="browserPolicy")
     def browser_policy(self) -> Optional[str]:
+        """
+        A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+        """
         return pulumi.get(self, "browser_policy")
 
     @property
     @pulumi.getter(name="browserSettingsArn")
     def browser_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the browser settings.
+        """
         return pulumi.get(self, "browser_settings_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the browser settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -70,6 +82,9 @@ def get_browser_settings(browser_settings_arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrowserSettingsResult:
     """
     Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
+
+
+    :param str browser_settings_arn: The ARN of the browser settings.
     """
     __args__ = dict()
     __args__['browserSettingsArn'] = browser_settings_arn
@@ -88,5 +103,8 @@ def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[str]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrowserSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
+
+
+    :param str browser_settings_arn: The ARN of the browser settings.
     """
     ...

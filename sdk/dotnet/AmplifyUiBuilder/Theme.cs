@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [AwsNativeResourceType("aws-native:amplifyuibuilder:Theme")]
     public partial class Theme : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique ID for the Amplify app associated with the theme.
+        /// </summary>
         [Output("appId")]
         public Output<string?> AppId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the theme.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The time that the theme was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The time that the theme was modified.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the theme.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the properties that can be overriden to customize a theme.
+        /// </summary>
         [Output("overrides")]
         public Output<ImmutableArray<Outputs.ThemeValues>> Overrides { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the theme.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs that defines the properties of the theme.
+        /// </summary>
         [Output("values")]
         public Output<ImmutableArray<Outputs.ThemeValues>> Values { get; private set; } = null!;
 
@@ -92,17 +119,30 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique ID for the Amplify app associated with the theme.
+        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
 
+        /// <summary>
+        /// The name of the theme.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("overrides")]
         private InputList<Inputs.ThemeValuesArgs>? _overrides;
+
+        /// <summary>
+        /// Describes the properties that can be overriden to customize a theme.
+        /// </summary>
         public InputList<Inputs.ThemeValuesArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.ThemeValuesArgs>());
@@ -111,6 +151,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the theme.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -119,6 +163,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
         [Input("values")]
         private InputList<Inputs.ThemeValuesArgs>? _values;
+
+        /// <summary>
+        /// A list of key-value pairs that defines the properties of the theme.
+        /// </summary>
         public InputList<Inputs.ThemeValuesArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.ThemeValuesArgs>());

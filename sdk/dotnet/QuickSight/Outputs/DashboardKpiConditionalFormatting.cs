@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardKpiConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting options of a KPI visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardKpiConditionalFormattingOption> ConditionalFormattingOptions;
 
         [OutputConstructor]

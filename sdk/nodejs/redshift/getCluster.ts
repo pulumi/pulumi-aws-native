@@ -98,6 +98,9 @@ export interface GetClusterResult {
      * If true, the data in the cluster is encrypted at rest.
      */
     readonly encrypted?: boolean;
+    /**
+     * The connection endpoint.
+     */
     readonly endpoint?: outputs.redshift.ClusterEndpoint;
     /**
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
@@ -123,6 +126,9 @@ export interface GetClusterResult {
      * The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
      */
     readonly kmsKeyId?: string;
+    /**
+     * Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+     */
     readonly loggingProperties?: outputs.redshift.ClusterLoggingProperties;
     /**
      * The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.

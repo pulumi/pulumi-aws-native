@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("deploymentCanarySettings")]
         public Output<Outputs.DeploymentCanarySettings?> DeploymentCanarySettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the deployment. For example: `abc123` .
+        /// </summary>
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
 

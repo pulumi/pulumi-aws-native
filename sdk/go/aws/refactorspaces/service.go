@@ -17,18 +17,28 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	ApplicationIdentifier pulumi.StringOutput                 `pulumi:"applicationIdentifier"`
-	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
-	Description           pulumi.StringPtrOutput              `pulumi:"description"`
-	EndpointType          ServiceEndpointTypeOutput           `pulumi:"endpointType"`
-	EnvironmentIdentifier pulumi.StringOutput                 `pulumi:"environmentIdentifier"`
-	LambdaEndpoint        ServiceLambdaEndpointInputPtrOutput `pulumi:"lambdaEndpoint"`
-	Name                  pulumi.StringOutput                 `pulumi:"name"`
-	ServiceIdentifier     pulumi.StringOutput                 `pulumi:"serviceIdentifier"`
+	// The unique identifier of the application.
+	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
+	// The Amazon Resource Name (ARN) of the service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A description of the service.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The endpoint type of the service.
+	EndpointType ServiceEndpointTypeOutput `pulumi:"endpointType"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
+	// A summary of the configuration for the AWS Lambda endpoint type.
+	LambdaEndpoint ServiceLambdaEndpointInputPtrOutput `pulumi:"lambdaEndpoint"`
+	// The name of the service.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The unique identifier of the service.
+	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags        aws.TagArrayOutput               `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The summary of the configuration for the URL endpoint type.
 	UrlEndpoint ServiceUrlEndpointInputPtrOutput `pulumi:"urlEndpoint"`
-	VpcId       pulumi.StringPtrOutput           `pulumi:"vpcId"`
+	// The ID of the virtual private cloud (VPC).
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -91,30 +101,46 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	ApplicationIdentifier string                      `pulumi:"applicationIdentifier"`
-	Description           *string                     `pulumi:"description"`
-	EndpointType          ServiceEndpointType         `pulumi:"endpointType"`
-	EnvironmentIdentifier string                      `pulumi:"environmentIdentifier"`
-	LambdaEndpoint        *ServiceLambdaEndpointInput `pulumi:"lambdaEndpoint"`
-	Name                  *string                     `pulumi:"name"`
+	// The unique identifier of the application.
+	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	// A description of the service.
+	Description *string `pulumi:"description"`
+	// The endpoint type of the service.
+	EndpointType ServiceEndpointType `pulumi:"endpointType"`
+	// The unique identifier of the environment.
+	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	// A summary of the configuration for the AWS Lambda endpoint type.
+	LambdaEndpoint *ServiceLambdaEndpointInput `pulumi:"lambdaEndpoint"`
+	// The name of the service.
+	Name *string `pulumi:"name"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags        []aws.Tag                `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The summary of the configuration for the URL endpoint type.
 	UrlEndpoint *ServiceUrlEndpointInput `pulumi:"urlEndpoint"`
-	VpcId       *string                  `pulumi:"vpcId"`
+	// The ID of the virtual private cloud (VPC).
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringInput
-	Description           pulumi.StringPtrInput
-	EndpointType          ServiceEndpointTypeInput
+	// A description of the service.
+	Description pulumi.StringPtrInput
+	// The endpoint type of the service.
+	EndpointType ServiceEndpointTypeInput
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput
-	LambdaEndpoint        ServiceLambdaEndpointInputPtrInput
-	Name                  pulumi.StringPtrInput
+	// A summary of the configuration for the AWS Lambda endpoint type.
+	LambdaEndpoint ServiceLambdaEndpointInputPtrInput
+	// The name of the service.
+	Name pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags        aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The summary of the configuration for the URL endpoint type.
 	UrlEndpoint ServiceUrlEndpointInputPtrInput
-	VpcId       pulumi.StringPtrInput
+	// The ID of the virtual private cloud (VPC).
+	VpcId pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -154,34 +180,42 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// The unique identifier of the application.
 func (o ServiceOutput) ApplicationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A description of the service.
 func (o ServiceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint type of the service.
 func (o ServiceOutput) EndpointType() ServiceEndpointTypeOutput {
 	return o.ApplyT(func(v *Service) ServiceEndpointTypeOutput { return v.EndpointType }).(ServiceEndpointTypeOutput)
 }
 
+// The unique identifier of the environment.
 func (o ServiceOutput) EnvironmentIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
+// A summary of the configuration for the AWS Lambda endpoint type.
 func (o ServiceOutput) LambdaEndpoint() ServiceLambdaEndpointInputPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceLambdaEndpointInputPtrOutput { return v.LambdaEndpoint }).(ServiceLambdaEndpointInputPtrOutput)
 }
 
+// The name of the service.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the service.
 func (o ServiceOutput) ServiceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
 }
@@ -191,10 +225,12 @@ func (o ServiceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The summary of the configuration for the URL endpoint type.
 func (o ServiceOutput) UrlEndpoint() ServiceUrlEndpointInputPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceUrlEndpointInputPtrOutput { return v.UrlEndpoint }).(ServiceUrlEndpointInputPtrOutput)
 }
 
+// The ID of the virtual private cloud (VPC).
 func (o ServiceOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

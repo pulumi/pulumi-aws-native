@@ -21,8 +21,9 @@ type AccessGrantsInstance struct {
 	// A unique identifier for the specified access grants instance.
 	AccessGrantsInstanceId pulumi.StringOutput `pulumi:"accessGrantsInstanceId"`
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
-	IdentityCenterArn pulumi.StringPtrOutput       `pulumi:"identityCenterArn"`
-	Tags              aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	IdentityCenterArn pulumi.StringPtrOutput `pulumi:"identityCenterArn"`
+	// The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccessGrantsInstance registers a new resource with the given unique name, arguments, and options.
@@ -70,15 +71,17 @@ func (AccessGrantsInstanceState) ElementType() reflect.Type {
 
 type accessGrantsInstanceArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
-	IdentityCenterArn *string             `pulumi:"identityCenterArn"`
-	Tags              []aws.CreateOnlyTag `pulumi:"tags"`
+	IdentityCenterArn *string `pulumi:"identityCenterArn"`
+	// The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessGrantsInstance resource.
 type AccessGrantsInstanceArgs struct {
 	// The Amazon Resource Name (ARN) of the specified AWS Identity Center.
 	IdentityCenterArn pulumi.StringPtrInput
-	Tags              aws.CreateOnlyTagArrayInput
+	// The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (AccessGrantsInstanceArgs) ElementType() reflect.Type {
@@ -133,6 +136,7 @@ func (o AccessGrantsInstanceOutput) IdentityCenterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringPtrOutput { return v.IdentityCenterArn }).(pulumi.StringPtrOutput)
 }
 
+// The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 func (o AccessGrantsInstanceOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

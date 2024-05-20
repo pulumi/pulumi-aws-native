@@ -26,6 +26,9 @@ class GetAliasResult:
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
+        """
+        The `KeyARN` of the key associated with the alias.
+        """
         return pulumi.get(self, "key_arn")
 
 
@@ -42,6 +45,11 @@ def get_alias(alias_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Definition of AWS::PaymentCryptography::Alias Resource Type
+
+
+    :param str alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+           
+           > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
     """
     __args__ = dict()
     __args__['aliasName'] = alias_name
@@ -57,5 +65,10 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Definition of AWS::PaymentCryptography::Alias Resource Type
+
+
+    :param str alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+           
+           > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
     """
     ...

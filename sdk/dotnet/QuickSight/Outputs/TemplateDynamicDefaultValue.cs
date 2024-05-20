@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDynamicDefaultValue
     {
+        /// <summary>
+        /// The column that contains the default value of each user or group.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier DefaultValueColumn;
+        /// <summary>
+        /// The column that contains the group name.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier? GroupNameColumn;
+        /// <summary>
+        /// The column that contains the username.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier? UserNameColumn;
 
         [OutputConstructor]

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupPlanResourceType
     {
+        /// <summary>
+        /// A list of backup options for each resource type.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> AdvancedBackupSettings;
+        /// <summary>
+        /// The display name of a backup plan.
+        /// </summary>
         public readonly string BackupPlanName;
+        /// <summary>
+        /// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> BackupPlanRule;
 
         [OutputConstructor]

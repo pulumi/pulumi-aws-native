@@ -66,8 +66,9 @@ type LookupClusterResult struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp *string `pulumi:"elasticIp"`
 	// If true, the data in the cluster is encrypted at rest.
-	Encrypted *bool            `pulumi:"encrypted"`
-	Endpoint  *ClusterEndpoint `pulumi:"endpoint"`
+	Encrypted *bool `pulumi:"encrypted"`
+	// The connection endpoint.
+	Endpoint *ClusterEndpoint `pulumi:"endpoint"`
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
 	//
 	// If this option is true , enhanced VPC routing is enabled.
@@ -81,7 +82,8 @@ type LookupClusterResult struct {
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles []string `pulumi:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-	KmsKeyId          *string                   `pulumi:"kmsKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	LoggingProperties *ClusterLoggingProperties `pulumi:"loggingProperties"`
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
@@ -256,6 +258,7 @@ func (o LookupClusterResultOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The connection endpoint.
 func (o LookupClusterResultOutput) Endpoint() ClusterEndpointPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterEndpoint { return v.Endpoint }).(ClusterEndpointPtrOutput)
 }
@@ -289,6 +292,7 @@ func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 func (o LookupClusterResultOutput) LoggingProperties() ClusterLoggingPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterLoggingProperties { return v.LoggingProperties }).(ClusterLoggingPropertiesPtrOutput)
 }

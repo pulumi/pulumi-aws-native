@@ -281,10 +281,19 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	AwsId              pulumi.StringOutput         `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+	//
+	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+	//
+	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 	PipelineActivities PipelineActivityArrayOutput `pulumi:"pipelineActivities"`
-	PipelineName       pulumi.StringPtrOutput      `pulumi:"pipelineName"`
-	Tags               aws.TagArrayOutput          `pulumi:"tags"`
+	// The name of the pipeline.
+	PipelineName pulumi.StringPtrOutput `pulumi:"pipelineName"`
+	// Metadata which can be used to manage the pipeline.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -334,16 +343,34 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
+	// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+	//
+	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+	//
+	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 	PipelineActivities []PipelineActivity `pulumi:"pipelineActivities"`
-	PipelineName       *string            `pulumi:"pipelineName"`
-	Tags               []aws.Tag          `pulumi:"tags"`
+	// The name of the pipeline.
+	PipelineName *string `pulumi:"pipelineName"`
+	// Metadata which can be used to manage the pipeline.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
+	// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+	//
+	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+	//
+	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 	PipelineActivities PipelineActivityArrayInput
-	PipelineName       pulumi.StringPtrInput
-	Tags               aws.TagArrayInput
+	// The name of the pipeline.
+	PipelineName pulumi.StringPtrInput
+	// Metadata which can be used to manage the pipeline.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags aws.TagArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -387,14 +414,23 @@ func (o PipelineOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+//
+// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+//
+// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 func (o PipelineOutput) PipelineActivities() PipelineActivityArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineActivityArrayOutput { return v.PipelineActivities }).(PipelineActivityArrayOutput)
 }
 
+// The name of the pipeline.
 func (o PipelineOutput) PipelineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineName }).(pulumi.StringPtrOutput)
 }
 
+// Metadata which can be used to manage the pipeline.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o PipelineOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Pipeline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -25,8 +25,10 @@ class LogAnomalyDetectorArgs:
         """
         The set of arguments for constructing a LogAnomalyDetector resource.
         :param pulumi.Input[str] account_id: Account ID for owner of detector
+        :param pulumi.Input[float] anomaly_visibility_time: The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
         :param pulumi.Input[str] detector_name: Name of detector
         :param pulumi.Input['LogAnomalyDetectorEvaluationFrequency'] evaluation_frequency: How often log group is evaluated
+        :param pulumi.Input[str] filter_pattern: You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_arn_list: List of Arns for the given log group
         """
@@ -60,6 +62,9 @@ class LogAnomalyDetectorArgs:
     @property
     @pulumi.getter(name="anomalyVisibilityTime")
     def anomaly_visibility_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+        """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @anomaly_visibility_time.setter
@@ -93,6 +98,9 @@ class LogAnomalyDetectorArgs:
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+        """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
@@ -143,8 +151,10 @@ class LogAnomalyDetector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Account ID for owner of detector
+        :param pulumi.Input[float] anomaly_visibility_time: The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
         :param pulumi.Input[str] detector_name: Name of detector
         :param pulumi.Input['LogAnomalyDetectorEvaluationFrequency'] evaluation_frequency: How often log group is evaluated
+        :param pulumi.Input[str] filter_pattern: You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_arn_list: List of Arns for the given log group
         """
@@ -261,6 +271,9 @@ class LogAnomalyDetector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="anomalyVisibilityTime")
     def anomaly_visibility_time(self) -> pulumi.Output[Optional[float]]:
+        """
+        The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+        """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @property
@@ -290,6 +303,9 @@ class LogAnomalyDetector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="filterPattern")
     def filter_pattern(self) -> pulumi.Output[Optional[str]]:
+        """
+        You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+        """
         return pulumi.get(self, "filter_pattern")
 
     @property

@@ -25,6 +25,7 @@ class IpamArgs:
                  tier: Optional[pulumi.Input['IpamTier']] = None):
         """
         The set of arguments for constructing a Ipam resource.
+        :param pulumi.Input[str] description: The description for the IPAM.
         :param pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
@@ -41,6 +42,9 @@ class IpamArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the IPAM.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,6 +103,7 @@ class Ipam(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description for the IPAM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
@@ -215,6 +220,9 @@ class Ipam(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description for the IPAM.
+        """
         return pulumi.get(self, "description")
 
     @property

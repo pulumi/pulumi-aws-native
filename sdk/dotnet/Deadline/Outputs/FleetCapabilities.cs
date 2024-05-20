@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class FleetCapabilities
     {
+        /// <summary>
+        /// Amount capabilities of the fleet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FleetAmountCapability> Amounts;
+        /// <summary>
+        /// Attribute capabilities of the fleet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FleetAttributeCapability> Attributes;
 
         [OutputConstructor]

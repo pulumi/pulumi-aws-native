@@ -86,6 +86,9 @@ class GetDiskResult:
     @property
     @pulumi.getter(name="diskArn")
     def disk_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the disk.
+        """
         return pulumi.get(self, "disk_arn")
 
     @property
@@ -107,6 +110,9 @@ class GetDiskResult:
     @property
     @pulumi.getter
     def location(self) -> Optional['outputs.DiskLocation']:
+        """
+        The AWS Region and Availability Zone where the disk is located.
+        """
         return pulumi.get(self, "location")
 
     @property

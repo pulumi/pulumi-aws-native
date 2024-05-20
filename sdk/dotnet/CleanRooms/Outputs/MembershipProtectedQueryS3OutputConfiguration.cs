@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipProtectedQueryS3OutputConfiguration
     {
+        /// <summary>
+        /// The S3 bucket to unload the protected query results.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The S3 prefix to unload the protected query results.
+        /// </summary>
         public readonly string? KeyPrefix;
+        /// <summary>
+        /// Intended file format of the result.
+        /// </summary>
         public readonly Pulumi.AwsNative.CleanRooms.MembershipResultFormat ResultFormat;
 
         [OutputConstructor]

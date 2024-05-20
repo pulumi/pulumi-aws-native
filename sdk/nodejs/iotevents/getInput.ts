@@ -26,6 +26,9 @@ export interface GetInputArgs {
 }
 
 export interface GetInputResult {
+    /**
+     * The definition of the input.
+     */
     readonly inputDefinition?: outputs.iotevents.InputDefinition;
     /**
      * A brief description of the input.

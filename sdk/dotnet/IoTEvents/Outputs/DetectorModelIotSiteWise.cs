@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// The ID of the asset property. You can specify an expression.
         /// </summary>
         public readonly string? PropertyId;
+        /// <summary>
+        /// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
+        /// </summary>
         public readonly Outputs.DetectorModelAssetPropertyValue PropertyValue;
 
         [OutputConstructor]

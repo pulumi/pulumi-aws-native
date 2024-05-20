@@ -14,6 +14,12 @@ export const ComponentVersionLambdaEventSourceType = {
     IotCore: "IOT_CORE",
 } as const;
 
+/**
+ * The type of event source. Choose from the following options:
+ *
+ * - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+ * - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
+ */
 export type ComponentVersionLambdaEventSourceType = (typeof ComponentVersionLambdaEventSourceType)[keyof typeof ComponentVersionLambdaEventSourceType];
 
 export const ComponentVersionLambdaExecutionParametersInputPayloadEncodingType = {
@@ -21,6 +27,11 @@ export const ComponentVersionLambdaExecutionParametersInputPayloadEncodingType =
     Binary: "binary",
 } as const;
 
+/**
+ * The encoding type that the Lambda function supports.
+ *
+ * Default: `json`
+ */
 export type ComponentVersionLambdaExecutionParametersInputPayloadEncodingType = (typeof ComponentVersionLambdaExecutionParametersInputPayloadEncodingType)[keyof typeof ComponentVersionLambdaExecutionParametersInputPayloadEncodingType];
 
 export const ComponentVersionLambdaFilesystemPermission = {
@@ -35,6 +46,11 @@ export const ComponentVersionLambdaLinuxProcessParamsIsolationMode = {
     NoContainer: "NoContainer",
 } as const;
 
+/**
+ * The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+ *
+ * Default: `GreengrassContainer`
+ */
 export type ComponentVersionLambdaLinuxProcessParamsIsolationMode = (typeof ComponentVersionLambdaLinuxProcessParamsIsolationMode)[keyof typeof ComponentVersionLambdaLinuxProcessParamsIsolationMode];
 
 export const DeploymentComponentUpdatePolicyAction = {
@@ -42,12 +58,23 @@ export const DeploymentComponentUpdatePolicyAction = {
     SkipNotifyComponents: "SKIP_NOTIFY_COMPONENTS",
 } as const;
 
+/**
+ * Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
+ *
+ * - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+ * - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
+ *
+ * Default: `NOTIFY_COMPONENTS`
+ */
 export type DeploymentComponentUpdatePolicyAction = (typeof DeploymentComponentUpdatePolicyAction)[keyof typeof DeploymentComponentUpdatePolicyAction];
 
 export const DeploymentIoTJobAbortCriteriaAction = {
     Cancel: "CANCEL",
 } as const;
 
+/**
+ * The action to perform when the criteria are met.
+ */
 export type DeploymentIoTJobAbortCriteriaAction = (typeof DeploymentIoTJobAbortCriteriaAction)[keyof typeof DeploymentIoTJobAbortCriteriaAction];
 
 export const DeploymentIoTJobAbortCriteriaFailureType = {
@@ -57,6 +84,9 @@ export const DeploymentIoTJobAbortCriteriaFailureType = {
     All: "ALL",
 } as const;
 
+/**
+ * The type of job deployment failure that can cancel a job.
+ */
 export type DeploymentIoTJobAbortCriteriaFailureType = (typeof DeploymentIoTJobAbortCriteriaFailureType)[keyof typeof DeploymentIoTJobAbortCriteriaFailureType];
 
 export const DeploymentPoliciesFailureHandlingPolicy = {
@@ -64,4 +94,9 @@ export const DeploymentPoliciesFailureHandlingPolicy = {
     DoNothing: "DO_NOTHING",
 } as const;
 
+/**
+ * The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+ *
+ * Default: `ROLLBACK`
+ */
 export type DeploymentPoliciesFailureHandlingPolicy = (typeof DeploymentPoliciesFailureHandlingPolicy)[keyof typeof DeploymentPoliciesFailureHandlingPolicy];

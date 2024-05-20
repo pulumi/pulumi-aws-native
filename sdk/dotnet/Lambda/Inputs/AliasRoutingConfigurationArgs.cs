@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     {
         [Input("additionalVersionWeights", required: true)]
         private InputList<Inputs.AliasVersionWeightArgs>? _additionalVersionWeights;
+
+        /// <summary>
+        /// The second version, and the percentage of traffic that's routed to it.
+        /// </summary>
         public InputList<Inputs.AliasVersionWeightArgs> AdditionalVersionWeights
         {
             get => _additionalVersionWeights ?? (_additionalVersionWeights = new InputList<Inputs.AliasVersionWeightArgs>());

@@ -18,8 +18,9 @@ type LocationEfs struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
-	AccessPointArn pulumi.StringPtrOutput     `pulumi:"accessPointArn"`
-	Ec2Config      LocationEfsEc2ConfigOutput `pulumi:"ec2Config"`
+	AccessPointArn pulumi.StringPtrOutput `pulumi:"accessPointArn"`
+	// Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+	Ec2Config LocationEfsEc2ConfigOutput `pulumi:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn pulumi.StringPtrOutput `pulumi:"efsFilesystemArn"`
 	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
@@ -89,8 +90,9 @@ func (LocationEfsState) ElementType() reflect.Type {
 
 type locationEfsArgs struct {
 	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
-	AccessPointArn *string              `pulumi:"accessPointArn"`
-	Ec2Config      LocationEfsEc2Config `pulumi:"ec2Config"`
+	AccessPointArn *string `pulumi:"accessPointArn"`
+	// Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+	Ec2Config LocationEfsEc2Config `pulumi:"ec2Config"`
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn *string `pulumi:"efsFilesystemArn"`
 	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
@@ -107,7 +109,8 @@ type locationEfsArgs struct {
 type LocationEfsArgs struct {
 	// The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
 	AccessPointArn pulumi.StringPtrInput
-	Ec2Config      LocationEfsEc2ConfigInput
+	// Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+	Ec2Config LocationEfsEc2ConfigInput
 	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
@@ -162,6 +165,7 @@ func (o LocationEfsOutput) AccessPointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationEfs) pulumi.StringPtrOutput { return v.AccessPointArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
 func (o LocationEfsOutput) Ec2Config() LocationEfsEc2ConfigOutput {
 	return o.ApplyT(func(v *LocationEfs) LocationEfsEc2ConfigOutput { return v.Ec2Config }).(LocationEfsEc2ConfigOutput)
 }

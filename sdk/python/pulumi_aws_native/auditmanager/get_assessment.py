@@ -53,21 +53,33 @@ class GetAssessmentResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the assessment.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> Optional[str]:
+        """
+        The unique identifier for the assessment.
+        """
         return pulumi.get(self, "assessment_id")
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
     def assessment_reports_destination(self) -> Optional['outputs.AssessmentReportsDestination']:
+        """
+        The destination that evidence reports are stored in for the assessment.
+        """
         return pulumi.get(self, "assessment_reports_destination")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[float]:
+        """
+        Specifies when the assessment was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
@@ -89,11 +101,21 @@ class GetAssessmentResult:
     @property
     @pulumi.getter
     def scope(self) -> Optional['outputs.AssessmentScope']:
+        """
+        The wrapper of AWS accounts and services that are in scope for the assessment.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['AssessmentStatus']:
+        """
+        The overall status of the assessment.
+
+        When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+
+        After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -126,6 +148,9 @@ def get_assessment(assessment_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentResult:
     """
     An entity that defines the scope of audit evidence collected by AWS Audit Manager.
+
+
+    :param str assessment_id: The unique identifier for the assessment.
     """
     __args__ = dict()
     __args__['assessmentId'] = assessment_id
@@ -149,5 +174,8 @@ def get_assessment_output(assessment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     An entity that defines the scope of audit evidence collected by AWS Audit Manager.
+
+
+    :param str assessment_id: The unique identifier for the assessment.
     """
     ...

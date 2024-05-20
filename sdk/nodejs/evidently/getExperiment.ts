@@ -19,26 +19,60 @@ export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetExperimentArgs {
+    /**
+     * The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+     */
     arn: string;
 }
 
 export interface GetExperimentResult {
+    /**
+     * The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+     */
     readonly arn?: string;
+    /**
+     * An optional description of the experiment.
+     */
     readonly description?: string;
+    /**
+     * An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
+     */
     readonly metricGoals?: outputs.evidently.ExperimentMetricGoalObject[];
+    /**
+     * A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+     */
     readonly onlineAbConfig?: outputs.evidently.ExperimentOnlineAbConfigObject;
+    /**
+     * When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+     */
     readonly randomizationSalt?: string;
+    /**
+     * Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+     */
     readonly removeSegment?: boolean;
     /**
      * Start Experiment. Default is False
      */
     readonly runningStatus?: outputs.evidently.ExperimentRunningStatusObject;
+    /**
+     * The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+     *
+     * This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+     */
     readonly samplingRate?: number;
+    /**
+     * Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+     *
+     * For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+     */
     readonly segment?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * An array of structures that describe the configuration of each feature variation used in the experiment.
+     */
     readonly treatments?: outputs.evidently.ExperimentTreatmentObject[];
 }
 /**
@@ -49,5 +83,8 @@ export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi
 }
 
 export interface GetExperimentOutputArgs {
+    /**
+     * The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+     */
     arn: pulumi.Input<string>;
 }

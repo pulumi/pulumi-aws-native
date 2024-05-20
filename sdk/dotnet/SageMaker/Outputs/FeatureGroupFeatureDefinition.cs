@@ -13,7 +13,18 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class FeatureGroupFeatureDefinition
     {
+        /// <summary>
+        /// The name of a feature. The type must be a string. `FeatureName` cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
+        /// 
+        /// The name:
+        /// 
+        /// - Must start with an alphanumeric character.
+        /// - Can only include alphanumeric characters, underscores, and hyphens. Spaces are not allowed.
+        /// </summary>
         public readonly string FeatureName;
+        /// <summary>
+        /// The value type of a feature. Valid values are Integral, Fractional, or String.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.FeatureGroupFeatureDefinitionFeatureType FeatureType;
 
         [OutputConstructor]

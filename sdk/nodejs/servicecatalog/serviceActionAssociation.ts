@@ -34,8 +34,17 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceActionAssociation.__pulumiType;
     }
 
+    /**
+     * The product identifier. For example, `prod-abcdzk7xy33qa` .
+     */
     public readonly productId!: pulumi.Output<string>;
+    /**
+     * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+     */
     public readonly provisioningArtifactId!: pulumi.Output<string>;
+    /**
+     * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+     */
     public readonly serviceActionId!: pulumi.Output<string>;
 
     /**
@@ -77,7 +86,16 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceActionAssociation resource.
  */
 export interface ServiceActionAssociationArgs {
+    /**
+     * The product identifier. For example, `prod-abcdzk7xy33qa` .
+     */
     productId: pulumi.Input<string>;
+    /**
+     * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+     */
     provisioningArtifactId: pulumi.Input<string>;
+    /**
+     * The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+     */
     serviceActionId: pulumi.Input<string>;
 }

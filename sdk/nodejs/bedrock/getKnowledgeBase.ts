@@ -54,7 +54,16 @@ export interface GetKnowledgeBaseResult {
      * The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
      */
     readonly roleArn?: string;
+    /**
+     * The status of the knowledge base.
+     */
     readonly status?: enums.bedrock.KnowledgeBaseStatus;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     readonly tags?: {[key: string]: string};
     /**
      * The time at which the knowledge base was last updated.

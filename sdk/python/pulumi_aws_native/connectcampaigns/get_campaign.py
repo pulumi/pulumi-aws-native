@@ -48,6 +48,9 @@ class GetCampaignResult:
     @property
     @pulumi.getter(name="dialerConfig")
     def dialer_config(self) -> Optional['outputs.CampaignDialerConfig']:
+        """
+        Contains information about the dialer configuration.
+        """
         return pulumi.get(self, "dialer_config")
 
     @property
@@ -61,6 +64,9 @@ class GetCampaignResult:
     @property
     @pulumi.getter(name="outboundCallConfig")
     def outbound_call_config(self) -> Optional['outputs.CampaignOutboundCallConfig']:
+        """
+        Contains information about the outbound call configuration.
+        """
         return pulumi.get(self, "outbound_call_config")
 
     @property

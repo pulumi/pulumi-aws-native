@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lightsail
     [AwsNativeResourceType("aws-native:lightsail:Container")]
     public partial class Container : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the container.
+        /// </summary>
         [Output("containerArn")]
         public Output<string> ContainerArn { get; private set; } = null!;
 

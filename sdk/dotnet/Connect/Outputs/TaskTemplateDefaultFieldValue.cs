@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class TaskTemplateDefaultFieldValue
     {
+        /// <summary>
+        /// Default value for the field.
+        /// </summary>
         public readonly string DefaultValue;
+        /// <summary>
+        /// Identifier of a field.
+        /// </summary>
         public readonly Outputs.TaskTemplateFieldIdentifier Id;
 
         [OutputConstructor]

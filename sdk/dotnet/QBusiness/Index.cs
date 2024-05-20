@@ -15,42 +15,80 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:Index")]
     public partial class Index : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application using the index.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        /// </summary>
         [Output("capacityConfiguration")]
         public Output<Outputs.IndexCapacityConfiguration?> CapacityConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the index was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the Amazon Q Business index.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+        /// 
+        /// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        /// </summary>
         [Output("documentAttributeConfigurations")]
         public Output<ImmutableArray<Outputs.IndexDocumentAttributeConfiguration>> DocumentAttributeConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an Amazon Q Business index.
+        /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for the index.
+        /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
         [Output("indexStatistics")]
         public Output<Outputs.IndexStatistics> IndexStatistics { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the index. When the status is `ACTIVE` , the index is ready.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QBusiness.IndexStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.QBusiness.IndexType?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the index was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -104,20 +142,38 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application using the index.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        /// </summary>
         [Input("capacityConfiguration")]
         public Input<Inputs.IndexCapacityConfigurationArgs>? CapacityConfiguration { get; set; }
 
+        /// <summary>
+        /// A description for the Amazon Q Business index.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("documentAttributeConfigurations")]
         private InputList<Inputs.IndexDocumentAttributeConfigurationArgs>? _documentAttributeConfigurations;
+
+        /// <summary>
+        /// Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+        /// 
+        /// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        /// </summary>
         public InputList<Inputs.IndexDocumentAttributeConfigurationArgs> DocumentAttributeConfigurations
         {
             get => _documentAttributeConfigurations ?? (_documentAttributeConfigurations = new InputList<Inputs.IndexDocumentAttributeConfigurationArgs>());
@@ -126,12 +182,19 @@ namespace Pulumi.AwsNative.QBusiness
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.QBusiness.IndexType>? Type { get; set; }
 

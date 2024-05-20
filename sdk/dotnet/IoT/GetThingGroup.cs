@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The thing group name.
+        /// </summary>
         [Input("thingGroupName", required: true)]
         public string ThingGroupName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetThingGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The thing group name.
+        /// </summary>
         [Input("thingGroupName", required: true)]
         public Input<string> ThingGroupName { get; set; } = null!;
 
@@ -51,13 +57,27 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetThingGroupResult
     {
+        /// <summary>
+        /// The thing group ARN.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The thing group ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The dynamic thing group search query string.
+        /// 
+        /// The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+        /// </summary>
         public readonly string? QueryString;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Thing group properties.
+        /// </summary>
         public readonly Outputs.ThingGroupPropertiesProperties? ThingGroupProperties;
 
         [OutputConstructor]

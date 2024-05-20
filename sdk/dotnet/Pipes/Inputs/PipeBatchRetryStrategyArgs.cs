@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeBatchRetryStrategyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times to move a job to the `RUNNABLE` status. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
+        /// </summary>
         [Input("attempts")]
         public Input<int>? Attempts { get; set; }
 

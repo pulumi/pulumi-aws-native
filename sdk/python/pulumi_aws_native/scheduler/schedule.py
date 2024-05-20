@@ -30,13 +30,19 @@ class ScheduleArgs:
                  state: Optional[pulumi.Input['ScheduleState']] = None):
         """
         The set of arguments for constructing a Schedule resource.
+        :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
         :param pulumi.Input[str] schedule_expression: The scheduling expression.
+        :param pulumi.Input['ScheduleTargetArgs'] target: The schedule's target details.
         :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
         :param pulumi.Input[str] group_name: The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
         :param pulumi.Input[str] kms_key_arn: The ARN for a KMS Key that will be used to encrypt customer data.
+        :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[str] schedule_expression_timezone: The timezone in which the scheduling expression is evaluated.
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
+        :param pulumi.Input['ScheduleState'] state: Specifies whether the schedule is enabled or disabled.
+               
+               *Allowed Values* : `ENABLED` | `DISABLED`
         """
         pulumi.set(__self__, "flexible_time_window", flexible_time_window)
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -61,6 +67,9 @@ class ScheduleArgs:
     @property
     @pulumi.getter(name="flexibleTimeWindow")
     def flexible_time_window(self) -> pulumi.Input['ScheduleFlexibleTimeWindowArgs']:
+        """
+        Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+        """
         return pulumi.get(self, "flexible_time_window")
 
     @flexible_time_window.setter
@@ -82,6 +91,9 @@ class ScheduleArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input['ScheduleTargetArgs']:
+        """
+        The schedule's target details.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -139,6 +151,9 @@ class ScheduleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schedule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -172,6 +187,11 @@ class ScheduleArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['ScheduleState']]:
+        """
+        Specifies whether the schedule is enabled or disabled.
+
+        *Allowed Values* : `ENABLED` | `DISABLED`
+        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -203,11 +223,17 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
+        :param pulumi.Input[pulumi.InputType['ScheduleFlexibleTimeWindowArgs']] flexible_time_window: Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
         :param pulumi.Input[str] group_name: The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
         :param pulumi.Input[str] kms_key_arn: The ARN for a KMS Key that will be used to encrypt customer data.
+        :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[str] schedule_expression: The scheduling expression.
         :param pulumi.Input[str] schedule_expression_timezone: The timezone in which the scheduling expression is evaluated.
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
+        :param pulumi.Input['ScheduleState'] state: Specifies whether the schedule is enabled or disabled.
+               
+               *Allowed Values* : `ENABLED` | `DISABLED`
+        :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: The schedule's target details.
         """
         ...
     @overload
@@ -336,6 +362,9 @@ class Schedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="flexibleTimeWindow")
     def flexible_time_window(self) -> pulumi.Output['outputs.ScheduleFlexibleTimeWindow']:
+        """
+        Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+        """
         return pulumi.get(self, "flexible_time_window")
 
     @property
@@ -357,6 +386,9 @@ class Schedule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the schedule.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -386,10 +418,18 @@ class Schedule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional['ScheduleState']]:
+        """
+        Specifies whether the schedule is enabled or disabled.
+
+        *Allowed Values* : `ENABLED` | `DISABLED`
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def target(self) -> pulumi.Output['outputs.ScheduleTarget']:
+        """
+        The schedule's target details.
+        """
         return pulumi.get(self, "target")
 

@@ -12,21 +12,39 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisParameterControlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A control from a date parameter that specifies date and time.
+        /// </summary>
         [Input("dateTimePicker")]
         public Input<Inputs.AnalysisParameterDateTimePickerControlArgs>? DateTimePicker { get; set; }
 
+        /// <summary>
+        /// A control to display a dropdown list with buttons that are used to select a single value.
+        /// </summary>
         [Input("dropdown")]
         public Input<Inputs.AnalysisParameterDropDownControlArgs>? Dropdown { get; set; }
 
+        /// <summary>
+        /// A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+        /// </summary>
         [Input("list")]
         public Input<Inputs.AnalysisParameterListControlArgs>? List { get; set; }
 
+        /// <summary>
+        /// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+        /// </summary>
         [Input("slider")]
         public Input<Inputs.AnalysisParameterSliderControlArgs>? Slider { get; set; }
 
+        /// <summary>
+        /// A control to display a text box that is used to enter multiple entries.
+        /// </summary>
         [Input("textArea")]
         public Input<Inputs.AnalysisParameterTextAreaControlArgs>? TextArea { get; set; }
 
+        /// <summary>
+        /// A control to display a text box that is used to enter a single entry.
+        /// </summary>
         [Input("textField")]
         public Input<Inputs.AnalysisParameterTextFieldControlArgs>? TextField { get; set; }
 

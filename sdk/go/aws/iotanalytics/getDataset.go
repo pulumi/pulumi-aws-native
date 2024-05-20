@@ -24,17 +24,27 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
+	// The name of the dataset.
 	DatasetName string `pulumi:"datasetName"`
 }
 
 type LookupDatasetResult struct {
-	Actions                 []DatasetAction                 `pulumi:"actions"`
-	ContentDeliveryRules    []DatasetContentDeliveryRule    `pulumi:"contentDeliveryRules"`
-	Id                      *string                         `pulumi:"id"`
-	LateDataRules           []DatasetLateDataRule           `pulumi:"lateDataRules"`
-	RetentionPeriod         *DatasetRetentionPeriod         `pulumi:"retentionPeriod"`
-	Tags                    []aws.Tag                       `pulumi:"tags"`
-	Triggers                []DatasetTrigger                `pulumi:"triggers"`
+	// The `DatasetAction` objects that automatically create the dataset contents.
+	Actions []DatasetAction `pulumi:"actions"`
+	// When dataset contents are created they are delivered to destinations specified here.
+	ContentDeliveryRules []DatasetContentDeliveryRule `pulumi:"contentDeliveryRules"`
+	Id                   *string                      `pulumi:"id"`
+	// A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
+	LateDataRules []DatasetLateDataRule `pulumi:"lateDataRules"`
+	// Optional. How long, in days, message data is kept for the dataset.
+	RetentionPeriod *DatasetRetentionPeriod `pulumi:"retentionPeriod"`
+	// Metadata which can be used to manage the data set.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
+	// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
+	Triggers []DatasetTrigger `pulumi:"triggers"`
+	// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
 	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
@@ -52,6 +62,7 @@ func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts
 }
 
 type LookupDatasetOutputArgs struct {
+	// The name of the dataset.
 	DatasetName pulumi.StringInput `pulumi:"datasetName"`
 }
 
@@ -73,10 +84,12 @@ func (o LookupDatasetResultOutput) ToLookupDatasetResultOutputWithContext(ctx co
 	return o
 }
 
+// The `DatasetAction` objects that automatically create the dataset contents.
 func (o LookupDatasetResultOutput) Actions() DatasetActionArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetAction { return v.Actions }).(DatasetActionArrayOutput)
 }
 
+// When dataset contents are created they are delivered to destinations specified here.
 func (o LookupDatasetResultOutput) ContentDeliveryRules() DatasetContentDeliveryRuleArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetContentDeliveryRule { return v.ContentDeliveryRules }).(DatasetContentDeliveryRuleArrayOutput)
 }
@@ -85,22 +98,29 @@ func (o LookupDatasetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
 func (o LookupDatasetResultOutput) LateDataRules() DatasetLateDataRuleArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetLateDataRule { return v.LateDataRules }).(DatasetLateDataRuleArrayOutput)
 }
 
+// Optional. How long, in days, message data is kept for the dataset.
 func (o LookupDatasetResultOutput) RetentionPeriod() DatasetRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetRetentionPeriod { return v.RetentionPeriod }).(DatasetRetentionPeriodPtrOutput)
 }
 
+// Metadata which can be used to manage the data set.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupDatasetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
 func (o LookupDatasetResultOutput) Triggers() DatasetTriggerArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetTrigger { return v.Triggers }).(DatasetTriggerArrayOutput)
 }
 
+// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
 func (o LookupDatasetResultOutput) VersioningConfiguration() DatasetVersioningConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetVersioningConfiguration { return v.VersioningConfiguration }).(DatasetVersioningConfigurationPtrOutput)
 }

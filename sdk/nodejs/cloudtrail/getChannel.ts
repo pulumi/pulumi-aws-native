@@ -19,15 +19,24 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetChannelArgs {
+    /**
+     * `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+     */
     channelArn: string;
 }
 
 export interface GetChannelResult {
+    /**
+     * `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+     */
     readonly channelArn?: string;
     /**
      * One or more resources to which events arriving through a channel are logged and stored.
      */
     readonly destinations?: outputs.cloudtrail.ChannelDestination[];
+    /**
+     * The name of the channel.
+     */
     readonly name?: string;
 }
 /**
@@ -38,5 +47,8 @@ export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetChannelOutputArgs {
+    /**
+     * `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+     */
     channelArn: pulumi.Input<string>;
 }

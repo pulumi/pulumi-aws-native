@@ -15,30 +15,59 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:IpAccessSettings")]
     public partial class IpAccessSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Additional encryption context of the IP access settings.
+        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of web portal ARNs that this IP access settings resource is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The creation date timestamp of the IP access settings.
+        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom managed key of the IP access settings.
+        /// 
+        /// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the IP access settings.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the IP access settings.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IP access settings resource.
+        /// </summary>
         [Output("ipAccessSettingsArn")]
         public Output<string> IpAccessSettingsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP rules of the IP access settings.
+        /// </summary>
         [Output("ipRules")]
         public Output<ImmutableArray<Outputs.IpAccessSettingsIpRule>> IpRules { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the browser settings resource. A tag is a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -94,23 +123,42 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
+
+        /// <summary>
+        /// Additional encryption context of the IP access settings.
+        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
+        /// <summary>
+        /// The custom managed key of the IP access settings.
+        /// 
+        /// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
+        /// <summary>
+        /// The description of the IP access settings.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the IP access settings.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         [Input("ipRules", required: true)]
         private InputList<Inputs.IpAccessSettingsIpRuleArgs>? _ipRules;
+
+        /// <summary>
+        /// The IP rules of the IP access settings.
+        /// </summary>
         public InputList<Inputs.IpAccessSettingsIpRuleArgs> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<Inputs.IpAccessSettingsIpRuleArgs>());
@@ -119,6 +167,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the browser settings resource. A tag is a key-value pair.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

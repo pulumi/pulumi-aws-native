@@ -29,9 +29,11 @@ type LookupConfigurationAggregatorArgs struct {
 }
 
 type LookupConfigurationAggregatorResult struct {
+	// Provides a list of source accounts and regions to be aggregated.
 	AccountAggregationSources []ConfigurationAggregatorAccountAggregationSource `pulumi:"accountAggregationSources"`
 	// The Amazon Resource Name (ARN) of the aggregator.
-	ConfigurationAggregatorArn    *string                                               `pulumi:"configurationAggregatorArn"`
+	ConfigurationAggregatorArn *string `pulumi:"configurationAggregatorArn"`
+	// Provides an organization and list of regions to be aggregated.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// The tags for the configuration aggregator.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -73,6 +75,7 @@ func (o LookupConfigurationAggregatorResultOutput) ToLookupConfigurationAggregat
 	return o
 }
 
+// Provides a list of source accounts and regions to be aggregated.
 func (o LookupConfigurationAggregatorResultOutput) AccountAggregationSources() ConfigurationAggregatorAccountAggregationSourceArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationAggregatorResult) []ConfigurationAggregatorAccountAggregationSource {
 		return v.AccountAggregationSources
@@ -84,6 +87,7 @@ func (o LookupConfigurationAggregatorResultOutput) ConfigurationAggregatorArn() 
 	return o.ApplyT(func(v LookupConfigurationAggregatorResult) *string { return v.ConfigurationAggregatorArn }).(pulumi.StringPtrOutput)
 }
 
+// Provides an organization and list of regions to be aggregated.
 func (o LookupConfigurationAggregatorResultOutput) OrganizationAggregationSource() ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
 	return o.ApplyT(func(v LookupConfigurationAggregatorResult) *ConfigurationAggregatorOrganizationAggregationSource {
 		return v.OrganizationAggregationSource

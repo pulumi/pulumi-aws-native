@@ -335,7 +335,9 @@ func (o ApplicationSignInOptionsPtrOutput) Origin() ApplicationSignInOptionsOrig
 
 // The metadata that you apply to the Identity Center (SSO) Application to help you categorize and organize them.
 type ApplicationTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -632,12 +634,16 @@ func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) AccessCo
 
 // The metadata that you apply to the Identity Center (SSO) Instance to help you categorize and organize them.
 type InstanceTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type PermissionSetCustomerManagedPolicyReference struct {
-	Name string  `pulumi:"name"`
+	// The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
+	Name string `pulumi:"name"`
+	// The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 	Path *string `pulumi:"path"`
 }
 
@@ -653,7 +659,9 @@ type PermissionSetCustomerManagedPolicyReferenceInput interface {
 }
 
 type PermissionSetCustomerManagedPolicyReferenceArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
+	// The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -759,10 +767,12 @@ func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToPermissionSetCustom
 	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
 }
 
+// The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
 func (o PermissionSetCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionSetCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 func (o PermissionSetCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionSetCustomerManagedPolicyReference) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -791,6 +801,7 @@ func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Elem() PermissionS
 	}).(PermissionSetCustomerManagedPolicyReferenceOutput)
 }
 
+// The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
 func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSetCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -800,6 +811,7 @@ func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Name() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSetCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -830,8 +842,10 @@ func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) Index(i pulumi.I
 }
 
 type PermissionSetPermissionsBoundary struct {
+	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
 	CustomerManagedPolicyReference *PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	ManagedPolicyArn               *string                                      `pulumi:"managedPolicyArn"`
+	// The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
+	ManagedPolicyArn *string `pulumi:"managedPolicyArn"`
 }
 
 // PermissionSetPermissionsBoundaryInput is an input type that accepts PermissionSetPermissionsBoundaryArgs and PermissionSetPermissionsBoundaryOutput values.
@@ -846,8 +860,10 @@ type PermissionSetPermissionsBoundaryInput interface {
 }
 
 type PermissionSetPermissionsBoundaryArgs struct {
+	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
 	CustomerManagedPolicyReference PermissionSetCustomerManagedPolicyReferencePtrInput `pulumi:"customerManagedPolicyReference"`
-	ManagedPolicyArn               pulumi.StringPtrInput                               `pulumi:"managedPolicyArn"`
+	// The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
+	ManagedPolicyArn pulumi.StringPtrInput `pulumi:"managedPolicyArn"`
 }
 
 func (PermissionSetPermissionsBoundaryArgs) ElementType() reflect.Type {
@@ -927,12 +943,14 @@ func (o PermissionSetPermissionsBoundaryOutput) ToPermissionSetPermissionsBounda
 	}).(PermissionSetPermissionsBoundaryPtrOutput)
 }
 
+// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
 func (o PermissionSetPermissionsBoundaryOutput) CustomerManagedPolicyReference() PermissionSetCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v PermissionSetPermissionsBoundary) *PermissionSetCustomerManagedPolicyReference {
 		return v.CustomerManagedPolicyReference
 	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
 }
 
+// The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
 func (o PermissionSetPermissionsBoundaryOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionSetPermissionsBoundary) *string { return v.ManagedPolicyArn }).(pulumi.StringPtrOutput)
 }
@@ -961,6 +979,7 @@ func (o PermissionSetPermissionsBoundaryPtrOutput) Elem() PermissionSetPermissio
 	}).(PermissionSetPermissionsBoundaryOutput)
 }
 
+// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
 func (o PermissionSetPermissionsBoundaryPtrOutput) CustomerManagedPolicyReference() PermissionSetCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v *PermissionSetPermissionsBoundary) *PermissionSetCustomerManagedPolicyReference {
 		if v == nil {
@@ -970,6 +989,7 @@ func (o PermissionSetPermissionsBoundaryPtrOutput) CustomerManagedPolicyReferenc
 	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
 }
 
+// The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
 func (o PermissionSetPermissionsBoundaryPtrOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSetPermissionsBoundary) *string {
 		if v == nil {
@@ -981,7 +1001,9 @@ func (o PermissionSetPermissionsBoundaryPtrOutput) ManagedPolicyArn() pulumi.Str
 
 // The metadata that you apply to the permission set to help you categorize and organize them.
 type PermissionSetTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

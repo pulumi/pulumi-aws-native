@@ -97,8 +97,15 @@ type LookupDbClusterResult struct {
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
-	PreferredMaintenanceWindow *string                `pulumi:"preferredMaintenanceWindow"`
-	ReadEndpoint               *DbClusterReadEndpoint `pulumi:"readEndpoint"`
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+	//
+	// - `CreateDBInstance`
+	// - `DescribeDBInstances`
+	// - `DeleteDBInstance`
+	//
+	// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+	ReadEndpoint *DbClusterReadEndpoint `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
@@ -322,6 +329,13 @@ func (o LookupDbClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringP
 	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+// - `CreateDBInstance`
+// - `DescribeDBInstances`
+// - `DeleteDBInstance`
+//
+// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
 func (o LookupDbClusterResultOutput) ReadEndpoint() DbClusterReadEndpointPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterReadEndpoint { return v.ReadEndpoint }).(DbClusterReadEndpointPtrOutput)
 }

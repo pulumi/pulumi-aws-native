@@ -24,16 +24,23 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 }
 
 type LookupListenerArgs struct {
+	// The Amazon Resource Name (ARN) of the listener.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupListenerResult struct {
-	Arn           *string                `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the listener.
+	Arn *string `pulumi:"arn"`
+	// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
 	DefaultAction *ListenerDefaultAction `pulumi:"defaultAction"`
-	Id            *string                `pulumi:"id"`
-	ServiceArn    *string                `pulumi:"serviceArn"`
-	ServiceId     *string                `pulumi:"serviceId"`
-	Tags          []aws.Tag              `pulumi:"tags"`
+	// The ID of the listener.
+	Id *string `pulumi:"id"`
+	// The Amazon Resource Name (ARN) of the service.
+	ServiceArn *string `pulumi:"serviceArn"`
+	// The ID of the service.
+	ServiceId *string `pulumi:"serviceId"`
+	// The tags for the listener.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
@@ -50,6 +57,7 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 }
 
 type LookupListenerOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the listener.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,26 +79,32 @@ func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the listener.
 func (o LookupListenerResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
 func (o LookupListenerResultOutput) DefaultAction() ListenerDefaultActionPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *ListenerDefaultAction { return v.DefaultAction }).(ListenerDefaultActionPtrOutput)
 }
 
+// The ID of the listener.
 func (o LookupListenerResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service.
 func (o LookupListenerResultOutput) ServiceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ServiceArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service.
 func (o LookupListenerResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the listener.
 func (o LookupListenerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

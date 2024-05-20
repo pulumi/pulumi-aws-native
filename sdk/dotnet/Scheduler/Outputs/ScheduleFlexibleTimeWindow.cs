@@ -20,6 +20,11 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// The maximum time window during which a schedule can be invoked.
         /// </summary>
         public readonly double? MaximumWindowInMinutes;
+        /// <summary>
+        /// Determines whether the schedule is invoked within a flexible time window. You must use quotation marks when you specify this value in your JSON or YAML template.
+        /// 
+        /// *Allowed Values* : `"OFF"` | `"FLEXIBLE"`
+        /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.ScheduleFlexibleTimeWindowMode Mode;
 
         [OutputConstructor]

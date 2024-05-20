@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         [Input("excludedCookies")]
         private InputList<string>? _excludedCookies;
+
+        /// <summary>
+        /// Inspect only the cookies whose keys don't match any of the strings specified here.
+        /// </summary>
         public InputList<string> ExcludedCookies
         {
             get => _excludedCookies ?? (_excludedCookies = new InputList<string>());
@@ -31,6 +35,10 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         [Input("includedCookies")]
         private InputList<string>? _includedCookies;
+
+        /// <summary>
+        /// Inspect only the cookies that have a key that matches one of the strings specified here.
+        /// </summary>
         public InputList<string> IncludedCookies
         {
             get => _includedCookies ?? (_includedCookies = new InputList<string>());

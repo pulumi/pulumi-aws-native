@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class OriginEndpointMssPackage
     {
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         public readonly Outputs.OriginEndpointMssEncryption? Encryption;
         /// <summary>
         /// The time window (in seconds) contained in each manifest.
@@ -25,6 +28,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// The duration (in seconds) of each segment.
         /// </summary>
         public readonly int? SegmentDurationSeconds;
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         public readonly Outputs.OriginEndpointStreamSelection? StreamSelection;
 
         [OutputConstructor]

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityCsrExtensions
     {
+        /// <summary>
+        /// Indicates the purpose of the certificate and of the key contained in the certificate.
+        /// </summary>
         public readonly Outputs.CertificateAuthorityKeyUsage? KeyUsage;
+        /// <summary>
+        /// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CertificateAuthorityAccessDescription> SubjectInformationAccess;
 
         [OutputConstructor]

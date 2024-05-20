@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationTriggerProperties
     {
+        /// <summary>
+        /// Specifies the configuration details of a schedule-triggered flow that you define.
+        /// </summary>
         public readonly Outputs.IntegrationScheduledTriggerProperties? Scheduled;
 
         [OutputConstructor]

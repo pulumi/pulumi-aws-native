@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisKpiVisualLayoutOptions
     {
+        /// <summary>
+        /// The standard layout of the KPI visual.
+        /// </summary>
         public readonly Outputs.AnalysisKpiVisualStandardLayout? StandardLayout;
 
         [OutputConstructor]

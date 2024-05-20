@@ -23,15 +23,21 @@ func LookupStorageProfile(ctx *pulumi.Context, args *LookupStorageProfileArgs, o
 }
 
 type LookupStorageProfileArgs struct {
-	FarmId           string `pulumi:"farmId"`
+	// The unique identifier of the farm that contains the storage profile.
+	FarmId string `pulumi:"farmId"`
+	// The storage profile ID.
 	StorageProfileId string `pulumi:"storageProfileId"`
 }
 
 type LookupStorageProfileResult struct {
-	DisplayName         *string                              `pulumi:"displayName"`
-	FileSystemLocations []StorageProfileFileSystemLocation   `pulumi:"fileSystemLocations"`
-	OsFamily            *StorageProfileOperatingSystemFamily `pulumi:"osFamily"`
-	StorageProfileId    *string                              `pulumi:"storageProfileId"`
+	// The display name of the storage profile summary to update.
+	DisplayName *string `pulumi:"displayName"`
+	// Operating system specific file system path to the storage location.
+	FileSystemLocations []StorageProfileFileSystemLocation `pulumi:"fileSystemLocations"`
+	// The operating system (OS) family.
+	OsFamily *StorageProfileOperatingSystemFamily `pulumi:"osFamily"`
+	// The storage profile ID.
+	StorageProfileId *string `pulumi:"storageProfileId"`
 }
 
 func LookupStorageProfileOutput(ctx *pulumi.Context, args LookupStorageProfileOutputArgs, opts ...pulumi.InvokeOption) LookupStorageProfileResultOutput {
@@ -48,7 +54,9 @@ func LookupStorageProfileOutput(ctx *pulumi.Context, args LookupStorageProfileOu
 }
 
 type LookupStorageProfileOutputArgs struct {
-	FarmId           pulumi.StringInput `pulumi:"farmId"`
+	// The unique identifier of the farm that contains the storage profile.
+	FarmId pulumi.StringInput `pulumi:"farmId"`
+	// The storage profile ID.
 	StorageProfileId pulumi.StringInput `pulumi:"storageProfileId"`
 }
 
@@ -70,18 +78,22 @@ func (o LookupStorageProfileResultOutput) ToLookupStorageProfileResultOutputWith
 	return o
 }
 
+// The display name of the storage profile summary to update.
 func (o LookupStorageProfileResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// Operating system specific file system path to the storage location.
 func (o LookupStorageProfileResultOutput) FileSystemLocations() StorageProfileFileSystemLocationArrayOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) []StorageProfileFileSystemLocation { return v.FileSystemLocations }).(StorageProfileFileSystemLocationArrayOutput)
 }
 
+// The operating system (OS) family.
 func (o LookupStorageProfileResultOutput) OsFamily() StorageProfileOperatingSystemFamilyPtrOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) *StorageProfileOperatingSystemFamily { return v.OsFamily }).(StorageProfileOperatingSystemFamilyPtrOutput)
 }
 
+// The storage profile ID.
 func (o LookupStorageProfileResultOutput) StorageProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) *string { return v.StorageProfileId }).(pulumi.StringPtrOutput)
 }

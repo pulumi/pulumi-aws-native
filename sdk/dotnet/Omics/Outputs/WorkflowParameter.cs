@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Omics.Outputs
     [OutputType]
     public sealed class WorkflowParameter
     {
+        /// <summary>
+        /// The parameter's description.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Whether the parameter is optional.
+        /// </summary>
         public readonly bool? Optional;
 
         [OutputConstructor]

@@ -23,6 +23,9 @@ class ResourceSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_list: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        :param pulumi.Input[str] description: A description of the resource set.
+        :param pulumi.Input[str] name: The descriptive name of the resource set. You can't change the name of a resource set after you create it.
         """
         pulumi.set(__self__, "resource_type_list", resource_type_list)
         if description is not None:
@@ -37,6 +40,9 @@ class ResourceSetArgs:
     @property
     @pulumi.getter(name="resourceTypeList")
     def resource_type_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        """
         return pulumi.get(self, "resource_type_list")
 
     @resource_type_list.setter
@@ -46,6 +52,9 @@ class ResourceSetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the resource set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -55,6 +64,9 @@ class ResourceSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -96,6 +108,9 @@ class ResourceSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the resource set.
+        :param pulumi.Input[str] name: The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_list: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         """
         ...
     @overload
@@ -176,21 +191,33 @@ class ResourceSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the resource set.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceTypeList")
     def resource_type_list(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        """
         return pulumi.get(self, "resource_type_list")
 
     @property

@@ -23,13 +23,17 @@ func LookupContinuousDeploymentPolicy(ctx *pulumi.Context, args *LookupContinuou
 }
 
 type LookupContinuousDeploymentPolicyArgs struct {
+	// The identifier of the cotinuous deployment policy.
 	Id string `pulumi:"id"`
 }
 
 type LookupContinuousDeploymentPolicyResult struct {
+	// Contains the configuration for a continuous deployment policy.
 	ContinuousDeploymentPolicyConfig *ContinuousDeploymentPolicyConfig `pulumi:"continuousDeploymentPolicyConfig"`
-	Id                               *string                           `pulumi:"id"`
-	LastModifiedTime                 *string                           `pulumi:"lastModifiedTime"`
+	// The identifier of the cotinuous deployment policy.
+	Id *string `pulumi:"id"`
+	// The date and time when the continuous deployment policy was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 }
 
 func LookupContinuousDeploymentPolicyOutput(ctx *pulumi.Context, args LookupContinuousDeploymentPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupContinuousDeploymentPolicyResultOutput {
@@ -46,6 +50,7 @@ func LookupContinuousDeploymentPolicyOutput(ctx *pulumi.Context, args LookupCont
 }
 
 type LookupContinuousDeploymentPolicyOutputArgs struct {
+	// The identifier of the cotinuous deployment policy.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,16 +72,19 @@ func (o LookupContinuousDeploymentPolicyResultOutput) ToLookupContinuousDeployme
 	return o
 }
 
+// Contains the configuration for a continuous deployment policy.
 func (o LookupContinuousDeploymentPolicyResultOutput) ContinuousDeploymentPolicyConfig() ContinuousDeploymentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupContinuousDeploymentPolicyResult) *ContinuousDeploymentPolicyConfig {
 		return v.ContinuousDeploymentPolicyConfig
 	}).(ContinuousDeploymentPolicyConfigPtrOutput)
 }
 
+// The identifier of the cotinuous deployment policy.
 func (o LookupContinuousDeploymentPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContinuousDeploymentPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the continuous deployment policy was last modified.
 func (o LookupContinuousDeploymentPolicyResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContinuousDeploymentPolicyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }

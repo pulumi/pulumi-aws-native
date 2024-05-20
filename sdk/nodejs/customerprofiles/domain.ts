@@ -61,7 +61,13 @@ export class Domain extends pulumi.CustomResource {
      * The time of this integration got last updated at
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    /**
+     * The process of matching duplicate profiles.
+     */
     public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
+    /**
+     * The process of matching duplicate profiles using Rule-Based matching.
+     */
     public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
     public /*out*/ readonly stats!: pulumi.Output<outputs.customerprofiles.DomainStats>;
     /**
@@ -132,7 +138,13 @@ export interface DomainArgs {
      * The unique name of the domain.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The process of matching duplicate profiles.
+     */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatchingArgs>;
+    /**
+     * The process of matching duplicate profiles using Rule-Based matching.
+     */
     ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatchingArgs>;
     /**
      * The tags (keys and values) associated with the domain

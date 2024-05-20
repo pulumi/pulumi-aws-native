@@ -34,12 +34,18 @@ class AccountExpiryEventsConfiguration(dict):
 
     def __init__(__self__, *,
                  days_before_expiry: Optional[int] = None):
+        """
+        :param int days_before_expiry: This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
+        """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
     def days_before_expiry(self) -> Optional[int]:
+        """
+        This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
+        """
         return pulumi.get(self, "days_before_expiry")
 
 

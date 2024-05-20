@@ -12,15 +12,33 @@ namespace Pulumi.AwsNative.Pipes.Inputs
 
     public sealed class PipeS3LogDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
+        /// <summary>
+        /// The AWS account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+        /// </summary>
         [Input("bucketOwner")]
         public Input<string>? BucketOwner { get; set; }
 
+        /// <summary>
+        /// The format EventBridge uses for the log records.
+        /// 
+        /// - `json` : JSON
+        /// - `plain` : Plain text
+        /// - `w3c` : [W3C extended logging file format](https://docs.aws.amazon.com/https://www.w3.org/TR/WD-logfile)
+        /// </summary>
         [Input("outputFormat")]
         public Input<Pulumi.AwsNative.Pipes.PipeS3OutputFormat>? OutputFormat { get; set; }
 
+        /// <summary>
+        /// The prefix text with which to begin Amazon S3 log object names.
+        /// 
+        /// For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html) in the *Amazon Simple Storage Service User Guide* .
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

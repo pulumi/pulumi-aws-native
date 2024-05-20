@@ -23,10 +23,12 @@ func LookupTopicPolicy(ctx *pulumi.Context, args *LookupTopicPolicyArgs, opts ..
 }
 
 type LookupTopicPolicyArgs struct {
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
 
 type LookupTopicPolicyResult struct {
+	// The provider-assigned unique ID for this managed resource.
 	Id *string `pulumi:"id"`
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//
@@ -50,6 +52,7 @@ func LookupTopicPolicyOutput(ctx *pulumi.Context, args LookupTopicPolicyOutputAr
 }
 
 type LookupTopicPolicyOutputArgs struct {
+	// The provider-assigned unique ID for this managed resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -71,6 +74,7 @@ func (o LookupTopicPolicyResultOutput) ToLookupTopicPolicyResultOutputWithContex
 	return o
 }
 
+// The provider-assigned unique ID for this managed resource.
 func (o LookupTopicPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

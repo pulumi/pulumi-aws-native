@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultTextAreaControlOptions
     {
+        /// <summary>
+        /// The delimiter that is used to separate the lines in text.
+        /// </summary>
         public readonly string? Delimiter;
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.DashboardTextAreaControlDisplayOptions? DisplayOptions;
 
         [OutputConstructor]

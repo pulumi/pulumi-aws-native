@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTooltipOptions
     {
+        /// <summary>
+        /// The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.
+        /// </summary>
         public readonly Outputs.AnalysisFieldBasedTooltip? FieldBasedTooltip;
+        /// <summary>
+        /// The selected type for the tooltip. Choose one of the following options:
+        /// 
+        /// - `BASIC` : A basic tooltip.
+        /// - `DETAILED` : A detailed tooltip.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSelectedTooltipType? SelectedTooltipType;
+        /// <summary>
+        /// Determines whether or not the tooltip is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? TooltipVisibility;
 
         [OutputConstructor]

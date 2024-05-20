@@ -18,9 +18,15 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         [Input("aggregationFunction", required: true)]
         public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorMetricAggregationFunction> AggregationFunction { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
+        /// <summary>
+        /// The namespace for the metric.
+        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The regular expression patterns in the set.
+        /// </summary>
         [Output("regularExpressionList")]
         public Output<ImmutableArray<string>> RegularExpressionList { get; private set; } = null!;
 
@@ -48,6 +51,11 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("scope")]
         public Output<Pulumi.AwsNative.WaFv2.RegexPatternSetScope> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// 
+        /// &gt; To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -115,6 +123,10 @@ namespace Pulumi.AwsNative.WaFv2
 
         [Input("regularExpressionList", required: true)]
         private InputList<string>? _regularExpressionList;
+
+        /// <summary>
+        /// The regular expression patterns in the set.
+        /// </summary>
         public InputList<string> RegularExpressionList
         {
             get => _regularExpressionList ?? (_regularExpressionList = new InputList<string>());
@@ -129,6 +141,12 @@ namespace Pulumi.AwsNative.WaFv2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        /// 
+        /// &gt; To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -15,17 +15,27 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class UserProfileUserSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Code Editor application settings.
+        /// </summary>
         [Input("codeEditorAppSettings")]
         public Input<Inputs.UserProfileCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
 
         [Input("customFileSystemConfigs")]
         private InputList<Inputs.UserProfileCustomFileSystemConfigArgs>? _customFileSystemConfigs;
+
+        /// <summary>
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// </summary>
         public InputList<Inputs.UserProfileCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
             get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.UserProfileCustomFileSystemConfigArgs>());
             set => _customFileSystemConfigs = value;
         }
 
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations.
+        /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.UserProfileCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
 
@@ -41,6 +51,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
+        /// <summary>
+        /// The settings for the JupyterLab application.
+        /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.UserProfileJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
@@ -56,6 +69,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.UserProfileKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
+        /// <summary>
+        /// A collection of settings that configure user interaction with the `RStudioServerPro` app.
+        /// </summary>
         [Input("rStudioServerProAppSettings")]
         public Input<Inputs.UserProfileRStudioServerProAppSettingsArgs>? RStudioServerProAppSettings { get; set; }
 
@@ -77,6 +93,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("sharingSettings")]
         public Input<Inputs.UserProfileSharingSettingsArgs>? SharingSettings { get; set; }
 
+        /// <summary>
+        /// The storage settings for a space.
+        /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.UserProfileDefaultSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
 

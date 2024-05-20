@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclChallengeActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
+        /// 
+        /// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+        /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebAclCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
 

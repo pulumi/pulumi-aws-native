@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorFileFormatDescriptorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about how a source CSV data file should be analyzed.
+        /// </summary>
         [Input("csvFormatDescriptor")]
         public Input<Inputs.AnomalyDetectorCsvFormatDescriptorArgs>? CsvFormatDescriptor { get; set; }
 
+        /// <summary>
+        /// Contains information about how a source JSON data file should be analyzed.
+        /// </summary>
         [Input("jsonFormatDescriptor")]
         public Input<Inputs.AnomalyDetectorJsonFormatDescriptorArgs>? JsonFormatDescriptor { get; set; }
 

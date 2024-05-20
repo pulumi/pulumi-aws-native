@@ -450,6 +450,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the task definition.
+        /// </summary>
         [Output("taskDefinitionArn")]
         public Output<string> TaskDefinitionArn { get; private set; } = null!;
 

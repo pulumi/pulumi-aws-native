@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel group associated with the channel configuration.
+        /// </summary>
         [Output("channelGroupName")]
         public Output<string> ChannelGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags associated with the channel.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -104,9 +113,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the channel configuration.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public Input<string> ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
 
@@ -118,6 +133,10 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags associated with the channel.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -19,17 +19,34 @@ export function getThingGroup(args: GetThingGroupArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetThingGroupArgs {
+    /**
+     * The thing group name.
+     */
     thingGroupName: string;
 }
 
 export interface GetThingGroupResult {
+    /**
+     * The thing group ARN.
+     */
     readonly arn?: string;
+    /**
+     * The thing group ID.
+     */
     readonly id?: string;
+    /**
+     * The dynamic thing group search query string.
+     *
+     * The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+     */
     readonly queryString?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * Thing group properties.
+     */
     readonly thingGroupProperties?: outputs.iot.ThingGroupPropertiesProperties;
 }
 /**
@@ -40,5 +57,8 @@ export function getThingGroupOutput(args: GetThingGroupOutputArgs, opts?: pulumi
 }
 
 export interface GetThingGroupOutputArgs {
+    /**
+     * The thing group name.
+     */
     thingGroupName: pulumi.Input<string>;
 }

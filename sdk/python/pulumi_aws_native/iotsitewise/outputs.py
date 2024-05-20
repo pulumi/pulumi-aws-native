@@ -117,6 +117,9 @@ class AccessPolicyIdentity(dict):
                  user: Optional['outputs.AccessPolicyUser'] = None):
         """
         The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+        :param 'AccessPolicyIamRole' iam_role: An IAM role identity.
+        :param 'AccessPolicyIamUser' iam_user: An IAM user identity.
+        :param 'AccessPolicyUser' user: An IAM Identity Center user identity.
         """
         if iam_role is not None:
             pulumi.set(__self__, "iam_role", iam_role)
@@ -128,16 +131,25 @@ class AccessPolicyIdentity(dict):
     @property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> Optional['outputs.AccessPolicyIamRole']:
+        """
+        An IAM role identity.
+        """
         return pulumi.get(self, "iam_role")
 
     @property
     @pulumi.getter(name="iamUser")
     def iam_user(self) -> Optional['outputs.AccessPolicyIamUser']:
+        """
+        An IAM user identity.
+        """
         return pulumi.get(self, "iam_user")
 
     @property
     @pulumi.getter
     def user(self) -> Optional['outputs.AccessPolicyUser']:
+        """
+        An IAM Identity Center user identity.
+        """
         return pulumi.get(self, "user")
 
 
@@ -197,6 +209,8 @@ class AccessPolicyResource(dict):
                  project: Optional['outputs.AccessPolicyProject'] = None):
         """
         The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+        :param 'AccessPolicyPortal' portal: Identifies an AWS IoT SiteWise Monitor portal.
+        :param 'AccessPolicyProject' project: Identifies a specific AWS IoT SiteWise Monitor project.
         """
         if portal is not None:
             pulumi.set(__self__, "portal", portal)
@@ -206,11 +220,17 @@ class AccessPolicyResource(dict):
     @property
     @pulumi.getter
     def portal(self) -> Optional['outputs.AccessPolicyPortal']:
+        """
+        Identifies an AWS IoT SiteWise Monitor portal.
+        """
         return pulumi.get(self, "portal")
 
     @property
     @pulumi.getter
     def project(self) -> Optional['outputs.AccessPolicyProject']:
+        """
+        Identifies a specific AWS IoT SiteWise Monitor project.
+        """
         return pulumi.get(self, "project")
 
 
@@ -391,12 +411,18 @@ class AssetModelAttribute(dict):
 
     def __init__(__self__, *,
                  default_value: Optional[str] = None):
+        """
+        :param str default_value: The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
+        """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[str]:
+        """
+        The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
+        """
         return pulumi.get(self, "default_value")
 
 
@@ -708,6 +734,7 @@ class AssetModelMetricWindow(dict):
                  tumbling: Optional['outputs.AssetModelTumblingWindow'] = None):
         """
         Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+        :param 'AssetModelTumblingWindow' tumbling: The tumbling time interval window.
         """
         if tumbling is not None:
             pulumi.set(__self__, "tumbling", tumbling)
@@ -715,6 +742,9 @@ class AssetModelMetricWindow(dict):
     @property
     @pulumi.getter
     def tumbling(self) -> Optional['outputs.AssetModelTumblingWindow']:
+        """
+        The tumbling time interval window.
+        """
         return pulumi.get(self, "tumbling")
 
 
@@ -896,6 +926,10 @@ class AssetModelPropertyType(dict):
                  transform: Optional['outputs.AssetModelTransform'] = None):
         """
         Contains a property type, which can be one of attribute, measurement, metric, or transform.
+        :param 'AssetModelTypeName' type_name: The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+        :param 'AssetModelAttribute' attribute: Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
+        :param 'AssetModelMetric' metric: Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+        :param 'AssetModelTransform' transform: Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
         """
         pulumi.set(__self__, "type_name", type_name)
         if attribute is not None:
@@ -908,21 +942,33 @@ class AssetModelPropertyType(dict):
     @property
     @pulumi.getter(name="typeName")
     def type_name(self) -> 'AssetModelTypeName':
+        """
+        The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+        """
         return pulumi.get(self, "type_name")
 
     @property
     @pulumi.getter
     def attribute(self) -> Optional['outputs.AssetModelAttribute']:
+        """
+        Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
+        """
         return pulumi.get(self, "attribute")
 
     @property
     @pulumi.getter
     def metric(self) -> Optional['outputs.AssetModelMetric']:
+        """
+        Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+        """
         return pulumi.get(self, "metric")
 
     @property
     @pulumi.getter
     def transform(self) -> Optional['outputs.AssetModelTransform']:
+        """
+        Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
+        """
         return pulumi.get(self, "transform")
 
 
@@ -965,6 +1011,34 @@ class AssetModelTumblingWindow(dict):
                  offset: Optional[str] = None):
         """
         Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
+        :param str interval: The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+               
+               AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+               
+               When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
+        :param str offset: The offset for the tumbling window. The `offset` parameter accepts the following:
+               
+               - The offset time.
+               
+               For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+               
+               - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+               - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+               - The ISO 8601 format.
+               
+               For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+               
+               - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+               - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+               - The 24-hour clock.
+               
+               For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+               - The offset time zone.
+               
+               For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+               
+               - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+               - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
         """
         pulumi.set(__self__, "interval", interval)
         if offset is not None:
@@ -973,11 +1047,43 @@ class AssetModelTumblingWindow(dict):
     @property
     @pulumi.getter
     def interval(self) -> str:
+        """
+        The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+
+        AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+
+        When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
+        """
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter
     def offset(self) -> Optional[str]:
+        """
+        The offset for the tumbling window. The `offset` parameter accepts the following:
+
+        - The offset time.
+
+        For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+
+        - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+        - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+        - The ISO 8601 format.
+
+        For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+
+        - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+        - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+        - The 24-hour clock.
+
+        For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+        - The offset time zone.
+
+        For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+
+        - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+        - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
+        """
         return pulumi.get(self, "offset")
 
 
@@ -1023,8 +1129,12 @@ class AssetModelVariableValue(dict):
         """
         :param str hierarchy_external_id: The External ID of the hierarchy that is trying to be referenced
         :param str hierarchy_id: The ID of the hierarchy that is trying to be referenced
+        :param str hierarchy_logical_id: The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+               
+               You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
         :param str property_external_id: The External ID of the property that is trying to be referenced
         :param str property_id: The ID of the property that is trying to be referenced
+        :param str property_logical_id: The `LogicalID` of the property that is being referenced.
         :param Sequence['AssetModelPropertyPathDefinition'] property_path: The path of the property that is trying to be referenced
         """
         if hierarchy_external_id is not None:
@@ -1061,6 +1171,11 @@ class AssetModelVariableValue(dict):
     @property
     @pulumi.getter(name="hierarchyLogicalId")
     def hierarchy_logical_id(self) -> Optional[str]:
+        """
+        The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+
+        You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
+        """
         return pulumi.get(self, "hierarchy_logical_id")
 
     @property
@@ -1082,6 +1197,9 @@ class AssetModelVariableValue(dict):
     @property
     @pulumi.getter(name="propertyLogicalId")
     def property_logical_id(self) -> Optional[str]:
+        """
+        The `LogicalID` of the property that is being referenced.
+        """
         return pulumi.get(self, "property_logical_id")
 
     @property
@@ -1226,6 +1344,8 @@ class GatewayCapabilitySummary(dict):
                  capability_configuration: Optional[str] = None):
         """
         Contains a summary of a gateway capability configuration.
+        :param str capability_namespace: The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        :param str capability_configuration: The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
         """
         pulumi.set(__self__, "capability_namespace", capability_namespace)
         if capability_configuration is not None:
@@ -1234,11 +1354,17 @@ class GatewayCapabilitySummary(dict):
     @property
     @pulumi.getter(name="capabilityNamespace")
     def capability_namespace(self) -> str:
+        """
+        The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        """
         return pulumi.get(self, "capability_namespace")
 
     @property
     @pulumi.getter(name="capabilityConfiguration")
     def capability_configuration(self) -> Optional[str]:
+        """
+        The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
+        """
         return pulumi.get(self, "capability_configuration")
 
 

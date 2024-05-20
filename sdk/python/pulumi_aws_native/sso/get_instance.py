@@ -83,6 +83,9 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Specifies tags to be attached to the instance of IAM Identity Center.
+        """
         return pulumi.get(self, "tags")
 
 

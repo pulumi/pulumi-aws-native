@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SsmContacts.Inputs
     /// </summary>
     public sealed class PlanTargetsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the contact channel that Incident Manager engages.
+        /// </summary>
         [Input("channelTargetInfo")]
         public Input<Inputs.PlanChannelTargetInfoArgs>? ChannelTargetInfo { get; set; }
 
+        /// <summary>
+        /// Information about the contact that Incident Manager engages.
+        /// </summary>
         [Input("contactTargetInfo")]
         public Input<Inputs.PlanContactTargetInfoArgs>? ContactTargetInfo { get; set; }
 

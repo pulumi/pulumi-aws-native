@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("defaultResourceDiscoveryId")]
         public Output<string> DefaultResourceDiscoveryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the IPAM.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class IpamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description for the IPAM.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

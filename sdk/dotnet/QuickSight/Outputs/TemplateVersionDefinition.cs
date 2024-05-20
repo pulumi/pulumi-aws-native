@@ -14,12 +14,39 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateVersionDefinition
     {
         public readonly Outputs.TemplateAnalysisDefaults? AnalysisDefaults;
+        /// <summary>
+        /// An array of calculated field definitions for the template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateCalculatedField> CalculatedFields;
+        /// <summary>
+        /// An array of template-level column configurations. Column configurations are used to set default formatting for a column that's used throughout a template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnConfiguration> ColumnConfigurations;
+        /// <summary>
+        /// An array of dataset configurations. These configurations define the required columns for each dataset used within a template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataSetConfiguration> DataSetConfigurations;
+        /// <summary>
+        /// Filter definitions for a template.
+        /// 
+        /// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFilterGroup> FilterGroups;
+        /// <summary>
+        /// An array of option definitions for a template.
+        /// </summary>
         public readonly Outputs.TemplateAssetOptions? Options;
+        /// <summary>
+        /// An array of parameter declarations for a template.
+        /// 
+        /// *Parameters* are named variables that can transfer a value for use by an action or an object.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateParameterDeclaration> ParameterDeclarations;
+        /// <summary>
+        /// An array of sheet definitions for a template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetDefinition> Sheets;
 
         [OutputConstructor]

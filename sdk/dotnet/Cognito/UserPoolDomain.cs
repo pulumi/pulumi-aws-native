@@ -15,18 +15,35 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolDomain")]
     public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        /// </summary>
         [Output("cloudFrontDistribution")]
         public Output<string> CloudFrontDistribution { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        /// </summary>
         [Output("customDomainConfig")]
         public Output<Outputs.UserPoolDomainCustomDomainConfigType?> CustomDomainConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+        /// 
+        /// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool where you want to associate a user pool domain.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -80,12 +97,23 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolDomainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        /// </summary>
         [Input("customDomainConfig")]
         public Input<Inputs.UserPoolDomainCustomDomainConfigTypeArgs>? CustomDomainConfig { get; set; }
 
+        /// <summary>
+        /// The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+        /// 
+        /// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool ID for the user pool where you want to associate a user pool domain.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

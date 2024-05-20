@@ -30,6 +30,9 @@ class GetCustomerGatewayResult:
     @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the customer gateway.
+        """
         return pulumi.get(self, "customer_gateway_id")
 
     @property
@@ -55,6 +58,9 @@ def get_customer_gateway(customer_gateway_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
     """
     Specifies a customer gateway.
+
+
+    :param str customer_gateway_id: The ID of the customer gateway.
     """
     __args__ = dict()
     __args__['customerGatewayId'] = customer_gateway_id
@@ -71,5 +77,8 @@ def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]]
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
     Specifies a customer gateway.
+
+
+    :param str customer_gateway_id: The ID of the customer gateway.
     """
     ...

@@ -23,7 +23,14 @@ type Environment struct {
 	CnamePrefix pulumi.StringPtrOutput `pulumi:"cnamePrefix"`
 	// Your description for this environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	EndpointUrl pulumi.StringOutput    `pulumi:"endpointUrl"`
+	// For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+	//
+	// Example load balancer URL:
+	//
+	// Example instance IP address:
+	//
+	// `192.0.2.0`
+	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
 	// A unique name for the environment.
 	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
@@ -202,6 +209,13 @@ func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.
+//
+// Example load balancer URL:
+//
+// Example instance IP address:
+//
+// `192.0.2.0`
 func (o EnvironmentOutput) EndpointUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
 }

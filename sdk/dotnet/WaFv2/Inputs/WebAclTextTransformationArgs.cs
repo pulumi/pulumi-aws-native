@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclTextTransformationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the relative processing order for multiple transformations. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content. The priorities don't need to be consecutive, but they must all be different.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// For detailed descriptions of each of the transformation types, see [Text transformations](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-transformation.html) in the *AWS WAF Developer Guide* .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.WebAclTextTransformationType> Type { get; set; } = null!;
 

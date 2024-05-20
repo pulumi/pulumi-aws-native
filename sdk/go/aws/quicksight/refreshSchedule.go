@@ -16,10 +16,13 @@ type RefreshSchedule struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) of the data source.</p>
-	Arn          pulumi.StringOutput         `pulumi:"arn"`
-	AwsAccountId pulumi.StringPtrOutput      `pulumi:"awsAccountId"`
-	DataSetId    pulumi.StringPtrOutput      `pulumi:"dataSetId"`
-	Schedule     RefreshScheduleMapPtrOutput `pulumi:"schedule"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS account ID of the account that you are creating a schedule in.
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
+	// The ID of the dataset that you are creating a refresh schedule for.
+	DataSetId pulumi.StringPtrOutput `pulumi:"dataSetId"`
+	// The refresh schedule of a dataset.
+	Schedule RefreshScheduleMapPtrOutput `pulumi:"schedule"`
 }
 
 // NewRefreshSchedule registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +71,22 @@ func (RefreshScheduleState) ElementType() reflect.Type {
 }
 
 type refreshScheduleArgs struct {
-	AwsAccountId *string             `pulumi:"awsAccountId"`
-	DataSetId    *string             `pulumi:"dataSetId"`
-	Schedule     *RefreshScheduleMap `pulumi:"schedule"`
+	// The AWS account ID of the account that you are creating a schedule in.
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// The ID of the dataset that you are creating a refresh schedule for.
+	DataSetId *string `pulumi:"dataSetId"`
+	// The refresh schedule of a dataset.
+	Schedule *RefreshScheduleMap `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a RefreshSchedule resource.
 type RefreshScheduleArgs struct {
+	// The AWS account ID of the account that you are creating a schedule in.
 	AwsAccountId pulumi.StringPtrInput
-	DataSetId    pulumi.StringPtrInput
-	Schedule     RefreshScheduleMapPtrInput
+	// The ID of the dataset that you are creating a refresh schedule for.
+	DataSetId pulumi.StringPtrInput
+	// The refresh schedule of a dataset.
+	Schedule RefreshScheduleMapPtrInput
 }
 
 func (RefreshScheduleArgs) ElementType() reflect.Type {
@@ -122,14 +131,17 @@ func (o RefreshScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The AWS account ID of the account that you are creating a schedule in.
 func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the dataset that you are creating a refresh schedule for.
 func (o RefreshScheduleOutput) DataSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringPtrOutput { return v.DataSetId }).(pulumi.StringPtrOutput)
 }
 
+// The refresh schedule of a dataset.
 func (o RefreshScheduleOutput) Schedule() RefreshScheduleMapPtrOutput {
 	return o.ApplyT(func(v *RefreshSchedule) RefreshScheduleMapPtrOutput { return v.Schedule }).(RefreshScheduleMapPtrOutput)
 }

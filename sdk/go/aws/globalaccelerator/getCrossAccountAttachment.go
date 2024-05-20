@@ -37,7 +37,10 @@ type LookupCrossAccountAttachmentResult struct {
 	Principals []string `pulumi:"principals"`
 	// Resources shared using the attachment.
 	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	Tags      []aws.Tag                        `pulumi:"tags"`
+	// Add tags for a cross-account attachment.
+	//
+	// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCrossAccountAttachmentOutput(ctx *pulumi.Context, args LookupCrossAccountAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupCrossAccountAttachmentResultOutput {
@@ -96,6 +99,9 @@ func (o LookupCrossAccountAttachmentResultOutput) Resources() CrossAccountAttach
 	return o.ApplyT(func(v LookupCrossAccountAttachmentResult) []CrossAccountAttachmentResource { return v.Resources }).(CrossAccountAttachmentResourceArrayOutput)
 }
 
+// Add tags for a cross-account attachment.
+//
+// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 func (o LookupCrossAccountAttachmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCrossAccountAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

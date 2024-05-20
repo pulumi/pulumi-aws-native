@@ -37,15 +37,37 @@ export class ThingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingGroup.__pulumiType;
     }
 
+    /**
+     * The thing group ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The thing group ID.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The parent thing group name.
+     *
+     * A Dynamic Thing Group does not have `parentGroupName` defined.
+     */
     public readonly parentGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The dynamic thing group search query string.
+     *
+     * The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+     */
     public readonly queryString!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The thing group name.
+     */
     public readonly thingGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * Thing group properties.
+     */
     public readonly thingGroupProperties!: pulumi.Output<outputs.iot.ThingGroupPropertiesProperties | undefined>;
 
     /**
@@ -86,12 +108,28 @@ export class ThingGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ThingGroup resource.
  */
 export interface ThingGroupArgs {
+    /**
+     * The parent thing group name.
+     *
+     * A Dynamic Thing Group does not have `parentGroupName` defined.
+     */
     parentGroupName?: pulumi.Input<string>;
+    /**
+     * The dynamic thing group search query string.
+     *
+     * The `queryString` attribute *is* required for `CreateDynamicThingGroup` . The `queryString` attribute *is not* required for `CreateThingGroup` .
+     */
     queryString?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The thing group name.
+     */
     thingGroupName?: pulumi.Input<string>;
+    /**
+     * Thing group properties.
+     */
     thingGroupProperties?: pulumi.Input<inputs.iot.ThingGroupPropertiesPropertiesArgs>;
 }

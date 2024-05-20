@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
     {
         [Input("stringList")]
         private InputList<string>? _stringList;
+
+        /// <summary>
+        /// Predefined attribute values of type string list.
+        /// </summary>
         public InputList<string> StringList
         {
             get => _stringList ?? (_stringList = new InputList<string>());

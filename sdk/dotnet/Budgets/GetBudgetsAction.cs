@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Budgets
 
     public sealed class GetBudgetsActionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A system-generated universally unique identifier (UUID) for the action.
+        /// </summary>
         [Input("actionId", required: true)]
         public string ActionId { get; set; } = null!;
 
+        /// <summary>
+        /// A string that represents the budget name. ":" and "\" characters aren't allowed.
+        /// </summary>
         [Input("budgetName", required: true)]
         public string BudgetName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Budgets
 
     public sealed class GetBudgetsActionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A system-generated universally unique identifier (UUID) for the action.
+        /// </summary>
         [Input("actionId", required: true)]
         public Input<string> ActionId { get; set; } = null!;
 
+        /// <summary>
+        /// A string that represents the budget name. ":" and "\" characters aren't allowed.
+        /// </summary>
         [Input("budgetName", required: true)]
         public Input<string> BudgetName { get; set; } = null!;
 
@@ -57,13 +69,37 @@ namespace Pulumi.AwsNative.Budgets
     [OutputType]
     public sealed class GetBudgetsActionResult
     {
+        /// <summary>
+        /// A system-generated universally unique identifier (UUID) for the action.
+        /// </summary>
         public readonly string? ActionId;
+        /// <summary>
+        /// The trigger threshold of the action.
+        /// </summary>
         public readonly Outputs.BudgetsActionActionThreshold? ActionThreshold;
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval.
+        /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionApprovalModel? ApprovalModel;
+        /// <summary>
+        /// Specifies all of the type-specific parameters.
+        /// </summary>
         public readonly Outputs.BudgetsActionDefinition? Definition;
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
         public readonly string? ExecutionRoleArn;
+        /// <summary>
+        /// The type of a notification.
+        /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionNotificationType? NotificationType;
+        /// <summary>
+        /// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ResourceTags;
+        /// <summary>
+        /// A list of subscribers.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BudgetsActionSubscriber> Subscribers;
 
         [OutputConstructor]

@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisRadarChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category items limit for a radar chart.
+        /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
 
         [Input("categorySort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _categorySort;
+
+        /// <summary>
+        /// The category sort options of a radar chart.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> CategorySort
         {
             get => _categorySort ?? (_categorySort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());
             set => _categorySort = value;
         }
 
+        /// <summary>
+        /// The color items limit of a radar chart.
+        /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }
 
         [Input("colorSort")]
         private InputList<Inputs.AnalysisFieldSortOptionsArgs>? _colorSort;
+
+        /// <summary>
+        /// The color sort configuration of a radar chart.
+        /// </summary>
         public InputList<Inputs.AnalysisFieldSortOptionsArgs> ColorSort
         {
             get => _colorSort ?? (_colorSort = new InputList<Inputs.AnalysisFieldSortOptionsArgs>());

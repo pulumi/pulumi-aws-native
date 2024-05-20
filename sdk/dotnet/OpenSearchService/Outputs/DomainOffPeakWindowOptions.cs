@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainOffPeakWindowOptions
     {
+        /// <summary>
+        /// Specifies whether off-peak window settings are enabled for the domain.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Off-peak window settings for the domain.
+        /// </summary>
         public readonly Outputs.DomainOffPeakWindow? OffPeakWindow;
 
         [OutputConstructor]

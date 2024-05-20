@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTreeMapFieldWells
     {
+        /// <summary>
+        /// The aggregated field wells of a tree map.
+        /// </summary>
         public readonly Outputs.DashboardTreeMapAggregatedFieldWells? TreeMapAggregatedFieldWells;
 
         [OutputConstructor]

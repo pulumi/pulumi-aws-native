@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
+    /// <summary>
+    /// Thing group properties.
+    /// </summary>
     public sealed class ThingGroupPropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The thing group attributes in JSON format.
+        /// </summary>
         [Input("attributePayload")]
         public Input<Inputs.ThingGroupAttributePayloadArgs>? AttributePayload { get; set; }
 
+        /// <summary>
+        /// The thing group description.
+        /// </summary>
         [Input("thingGroupDescription")]
         public Input<string>? ThingGroupDescription { get; set; }
 

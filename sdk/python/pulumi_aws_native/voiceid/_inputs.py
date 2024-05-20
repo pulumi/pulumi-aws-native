@@ -17,11 +17,17 @@ __all__ = [
 class DomainServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] kms_key_id: The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
+        """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter

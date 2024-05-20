@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("messageGroups", required: true)]
         private InputList<Inputs.BotMessageGroupArgs>? _messageGroups;
+
+        /// <summary>
+        /// 1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
+        /// </summary>
         public InputList<Inputs.BotMessageGroupArgs> MessageGroups
         {
             get => _messageGroups ?? (_messageGroups = new InputList<Inputs.BotMessageGroupArgs>());

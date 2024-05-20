@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
+        /// <summary>
+        /// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
+        /// </summary>
         [Input("transformJobDefinition", required: true)]
         public Input<Inputs.ModelPackageTransformJobDefinitionArgs> TransformJobDefinition { get; set; } = null!;
 

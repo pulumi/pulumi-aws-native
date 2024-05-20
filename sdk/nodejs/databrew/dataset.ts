@@ -85,6 +85,9 @@ export class Dataset extends pulumi.CustomResource {
      * PathOptions
      */
     public readonly pathOptions!: pulumi.Output<outputs.databrew.DatasetPathOptions | undefined>;
+    /**
+     * Metadata tags that have been applied to the dataset.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
@@ -146,5 +149,8 @@ export interface DatasetArgs {
      * PathOptions
      */
     pathOptions?: pulumi.Input<inputs.databrew.DatasetPathOptionsArgs>;
+    /**
+     * Metadata tags that have been applied to the dataset.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

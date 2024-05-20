@@ -20,16 +20,40 @@ export function getPrivacyBudgetTemplate(args: GetPrivacyBudgetTemplateArgs, opt
 }
 
 export interface GetPrivacyBudgetTemplateArgs {
+    /**
+     * The identifier for a membership resource.
+     */
     membershipIdentifier: string;
+    /**
+     * A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+     */
     privacyBudgetTemplateIdentifier: string;
 }
 
 export interface GetPrivacyBudgetTemplateResult {
+    /**
+     * The ARN of the privacy budget template.
+     */
     readonly arn?: string;
+    /**
+     * The ARN of the collaboration that contains this privacy budget template.
+     */
     readonly collaborationArn?: string;
+    /**
+     * The unique ID of the collaboration that contains this privacy budget template.
+     */
     readonly collaborationIdentifier?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+     */
     readonly membershipArn?: string;
+    /**
+     * Specifies the epislon and noise parameters for the privacy budget template.
+     */
     readonly parameters?: outputs.cleanrooms.ParametersProperties;
+    /**
+     * A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+     */
     readonly privacyBudgetTemplateIdentifier?: string;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
@@ -44,6 +68,12 @@ export function getPrivacyBudgetTemplateOutput(args: GetPrivacyBudgetTemplateOut
 }
 
 export interface GetPrivacyBudgetTemplateOutputArgs {
+    /**
+     * The identifier for a membership resource.
+     */
     membershipIdentifier: pulumi.Input<string>;
+    /**
+     * A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+     */
     privacyBudgetTemplateIdentifier: pulumi.Input<string>;
 }

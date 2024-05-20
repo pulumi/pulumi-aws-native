@@ -53,7 +53,13 @@ export class Studio extends pulumi.CustomResource {
      * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
      */
     public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
+    /**
+     * Configuration of the encryption method that is used for the studio.
+     */
     public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioEncryptionConfiguration | undefined>;
+    /**
+     * The unique identifier for the studio resource.
+     */
     public /*out*/ readonly studioId!: pulumi.Output<string>;
     /**
      * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
@@ -63,6 +69,11 @@ export class Studio extends pulumi.CustomResource {
      * <p>The address of the web page for the studio.</p>
      */
     public /*out*/ readonly studioUrl!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
@@ -130,11 +141,19 @@ export interface StudioArgs {
      * <p>A friendly name for the studio.</p>
      */
     displayName: pulumi.Input<string>;
+    /**
+     * Configuration of the encryption method that is used for the studio.
+     */
     studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioEncryptionConfigurationArgs>;
     /**
      * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
      */
     studioName?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>

@@ -39,21 +39,33 @@ class GetSegmentResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description for this segment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A name for the segment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def pattern(self) -> Optional[str]:
+        """
+        The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        """
         return pulumi.get(self, "pattern")
 
     @property
@@ -82,6 +94,9 @@ def get_segment(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSegmentResult:
     """
     Resource Type definition for AWS::Evidently::Segment
+
+
+    :param str arn: The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -101,5 +116,8 @@ def get_segment_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSegmentResult]:
     """
     Resource Type definition for AWS::Evidently::Segment
+
+
+    :param str arn: The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
     """
     ...

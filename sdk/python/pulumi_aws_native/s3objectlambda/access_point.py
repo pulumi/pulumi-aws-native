@@ -153,6 +153,9 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Specifies the ARN for the Object Lambda Access Point.
+        """
         return pulumi.get(self, "arn")
 
     @property

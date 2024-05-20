@@ -33,16 +33,25 @@ class GetCachePolicyResult:
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> Optional['outputs.CachePolicyConfig']:
+        """
+        The cache policy configuration.
+        """
         return pulumi.get(self, "cache_policy_config")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the cache policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
 
@@ -61,6 +70,9 @@ def get_cache_policy(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCachePolicyResult:
     """
     Resource Type definition for AWS::CloudFront::CachePolicy
+
+
+    :param str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_cache_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     Resource Type definition for AWS::CloudFront::CachePolicy
+
+
+    :param str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """
     ...

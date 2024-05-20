@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobS3Location
     {
+        /// <summary>
+        /// The Amazon S3 bucket name.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The AWS account ID of the bucket owner.
+        /// </summary>
         public readonly string? BucketOwner;
+        /// <summary>
+        /// The unique name of the object in the bucket.
+        /// </summary>
         public readonly string? Key;
 
         [OutputConstructor]

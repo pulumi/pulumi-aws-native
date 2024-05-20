@@ -19,12 +19,16 @@ class ResponseHeadersPolicyArgs:
                  response_headers_policy_config: pulumi.Input['ResponseHeadersPolicyConfigArgs']):
         """
         The set of arguments for constructing a ResponseHeadersPolicy resource.
+        :param pulumi.Input['ResponseHeadersPolicyConfigArgs'] response_headers_policy_config: A response headers policy configuration.
         """
         pulumi.set(__self__, "response_headers_policy_config", response_headers_policy_config)
 
     @property
     @pulumi.getter(name="responseHeadersPolicyConfig")
     def response_headers_policy_config(self) -> pulumi.Input['ResponseHeadersPolicyConfigArgs']:
+        """
+        A response headers policy configuration.
+        """
         return pulumi.get(self, "response_headers_policy_config")
 
     @response_headers_policy_config.setter
@@ -44,6 +48,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyConfigArgs']] response_headers_policy_config: A response headers policy configuration.
         """
         ...
     @overload
@@ -114,15 +119,24 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the response headers policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="responseHeadersPolicyConfig")
     def response_headers_policy_config(self) -> pulumi.Output['outputs.ResponseHeadersPolicyConfig']:
+        """
+        A response headers policy configuration.
+        """
         return pulumi.get(self, "response_headers_policy_config")
 

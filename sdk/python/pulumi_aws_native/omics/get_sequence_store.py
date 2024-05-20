@@ -48,6 +48,9 @@ class GetSequenceStoreResult:
     @property
     @pulumi.getter(name="sequenceStoreId")
     def sequence_store_id(self) -> Optional[str]:
+        """
+        The store's ID.
+        """
         return pulumi.get(self, "sequence_store_id")
 
 
@@ -66,6 +69,9 @@ def get_sequence_store(sequence_store_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSequenceStoreResult:
     """
     Definition of AWS::Omics::SequenceStore Resource Type
+
+
+    :param str sequence_store_id: The store's ID.
     """
     __args__ = dict()
     __args__['sequenceStoreId'] = sequence_store_id
@@ -83,5 +89,8 @@ def get_sequence_store_output(sequence_store_id: Optional[pulumi.Input[str]] = N
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSequenceStoreResult]:
     """
     Definition of AWS::Omics::SequenceStore Resource Type
+
+
+    :param str sequence_store_id: The store's ID.
     """
     ...

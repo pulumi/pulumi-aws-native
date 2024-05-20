@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupNotStatement
     {
+        /// <summary>
+        /// The statement to negate. You can use any statement that can be nested.
+        /// </summary>
         public readonly Outputs.RuleGroupStatement Statement;
 
         [OutputConstructor]

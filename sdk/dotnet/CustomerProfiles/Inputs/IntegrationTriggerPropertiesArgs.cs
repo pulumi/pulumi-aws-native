@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class IntegrationTriggerPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the configuration details of a schedule-triggered flow that you define.
+        /// </summary>
         [Input("scheduled")]
         public Input<Inputs.IntegrationScheduledTriggerPropertiesArgs>? Scheduled { get; set; }
 

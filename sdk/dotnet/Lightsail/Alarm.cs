@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lightsail
     [AwsNativeResourceType("aws-native:lightsail:Alarm")]
     public partial class Alarm : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the alarm.
+        /// </summary>
         [Output("alarmArn")]
         public Output<string> AlarmArn { get; private set; } = null!;
 

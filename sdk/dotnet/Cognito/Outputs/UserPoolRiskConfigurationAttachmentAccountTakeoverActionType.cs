@@ -13,7 +13,18 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverActionType
     {
+        /// <summary>
+        /// The action to take in response to the account takeover action. Valid values are as follows:
+        /// 
+        /// - `BLOCK` Choosing this action will block the request.
+        /// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
+        /// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
+        /// - `NO_ACTION` Allow the user to sign in.
+        /// </summary>
         public readonly string EventAction;
+        /// <summary>
+        /// Flag specifying whether to send a notification.
+        /// </summary>
         public readonly bool Notify;
 
         [OutputConstructor]

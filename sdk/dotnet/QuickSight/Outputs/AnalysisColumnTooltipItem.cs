@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisColumnTooltipItem
     {
+        /// <summary>
+        /// The aggregation function of the column tooltip item.
+        /// </summary>
         public readonly Outputs.AnalysisAggregationFunction? Aggregation;
+        /// <summary>
+        /// The target column of the tooltip item.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The label of the tooltip item.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The visibility of the tooltip item.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

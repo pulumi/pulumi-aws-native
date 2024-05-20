@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("category")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _category;
+
+        /// <summary>
+        /// The category field wells of a funnel chart. Values are grouped by category fields.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Category
         {
             get => _category ?? (_category = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The value field wells of a funnel chart. Values are aggregated based on categories.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.AnalysisMeasureFieldArgs>());

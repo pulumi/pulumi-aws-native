@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class ExperimentTreatmentToWeightArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+        /// </summary>
         [Input("splitWeight", required: true)]
         public Input<int> SplitWeight { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the treatment.
+        /// </summary>
         [Input("treatment", required: true)]
         public Input<string> Treatment { get; set; } = null!;
 

@@ -60,16 +60,25 @@ class GetBridgeResult:
     @property
     @pulumi.getter(name="bridgeState")
     def bridge_state(self) -> Optional['BridgeStateEnum']:
+        """
+        The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+        """
         return pulumi.get(self, "bridge_state")
 
     @property
     @pulumi.getter(name="egressGatewayBridge")
     def egress_gateway_bridge(self) -> Optional['outputs.BridgeEgressGatewayBridge']:
+        """
+        Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        """
         return pulumi.get(self, "egress_gateway_bridge")
 
     @property
     @pulumi.getter(name="ingressGatewayBridge")
     def ingress_gateway_bridge(self) -> Optional['outputs.BridgeIngressGatewayBridge']:
+        """
+        Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        """
         return pulumi.get(self, "ingress_gateway_bridge")
 
     @property
@@ -99,6 +108,9 @@ class GetBridgeResult:
     @property
     @pulumi.getter(name="sourceFailoverConfig")
     def source_failover_config(self) -> Optional['outputs.BridgeFailoverConfig']:
+        """
+        The settings for source failover.
+        """
         return pulumi.get(self, "source_failover_config")
 
     @property

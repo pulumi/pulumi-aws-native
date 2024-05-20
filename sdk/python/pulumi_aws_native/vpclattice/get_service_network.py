@@ -43,31 +43,52 @@ class GetServiceNetworkResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the service network.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional['ServiceNetworkAuthType']:
+        """
+        The type of IAM policy.
+
+        - `NONE` : The resource does not use an IAM policy. This is the default.
+        - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        """
         return pulumi.get(self, "auth_type")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The date and time that the service network was created, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the service network.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[str]:
+        """
+        The date and time of the last update, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the service network.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -89,6 +110,9 @@ def get_service_network(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkResult:
     """
     A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the service network.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -109,5 +133,8 @@ def get_service_network_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
     A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the service network.
     """
     ...

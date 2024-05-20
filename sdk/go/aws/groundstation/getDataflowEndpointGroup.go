@@ -24,18 +24,23 @@ func LookupDataflowEndpointGroup(ctx *pulumi.Context, args *LookupDataflowEndpoi
 }
 
 type LookupDataflowEndpointGroupArgs struct {
+	// UUID of a dataflow endpoint group.
 	Id string `pulumi:"id"`
 }
 
 type LookupDataflowEndpointGroupResult struct {
+	// The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn *string `pulumi:"arn"`
 	// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-	ContactPrePassDurationSeconds *int                                   `pulumi:"contactPrePassDurationSeconds"`
-	EndpointDetails               []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
-	Id                            *string                                `pulumi:"id"`
-	Tags                          []aws.Tag                              `pulumi:"tags"`
+	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
+	// List of Endpoint Details, containing address and port for each endpoint.
+	EndpointDetails []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
+	// UUID of a dataflow endpoint group.
+	Id *string `pulumi:"id"`
+	// Tags assigned to a resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowEndpointGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDataflowEndpointGroupResultOutput {
@@ -52,6 +57,7 @@ func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowE
 }
 
 type LookupDataflowEndpointGroupOutputArgs struct {
+	// UUID of a dataflow endpoint group.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -73,6 +79,7 @@ func (o LookupDataflowEndpointGroupResultOutput) ToLookupDataflowEndpointGroupRe
 	return o
 }
 
+// The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o LookupDataflowEndpointGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -87,16 +94,19 @@ func (o LookupDataflowEndpointGroupResultOutput) ContactPrePassDurationSeconds()
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *int { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// List of Endpoint Details, containing address and port for each endpoint.
 func (o LookupDataflowEndpointGroupResultOutput) EndpointDetails() DataflowEndpointGroupEndpointDetailsArrayOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) []DataflowEndpointGroupEndpointDetails {
 		return v.EndpointDetails
 	}).(DataflowEndpointGroupEndpointDetailsArrayOutput)
 }
 
+// UUID of a dataflow endpoint group.
 func (o LookupDataflowEndpointGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Tags assigned to a resource.
 func (o LookupDataflowEndpointGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

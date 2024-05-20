@@ -47,6 +47,9 @@ class GetDatasetResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the dataset.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -76,16 +79,27 @@ class GetDatasetResult:
     @property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional['outputs.EncryptionConfigProperties']:
+        """
+        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        """
         return pulumi.get(self, "encryption_config")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional['outputs.SchemaProperties']:
+        """
+        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
 
@@ -108,6 +122,9 @@ def get_dataset(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatasetResult:
     """
     Resource Type Definition for AWS::Forecast::Dataset
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the dataset.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -129,5 +146,8 @@ def get_dataset_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type Definition for AWS::Forecast::Dataset
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the dataset.
     """
     ...

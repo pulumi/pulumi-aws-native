@@ -37,18 +37,56 @@ export class Index extends pulumi.CustomResource {
         return obj['__pulumiType'] === Index.__pulumiType;
     }
 
+    /**
+     * The identifier of the Amazon Q Business application using the index.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+     */
     public readonly capacityConfiguration!: pulumi.Output<outputs.qbusiness.IndexCapacityConfiguration | undefined>;
+    /**
+     * The Unix timestamp when the index was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A description for the Amazon Q Business index.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the index.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+     *
+     * For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+     */
     public readonly documentAttributeConfigurations!: pulumi.Output<outputs.qbusiness.IndexDocumentAttributeConfiguration[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an Amazon Q Business index.
+     */
     public /*out*/ readonly indexArn!: pulumi.Output<string>;
+    /**
+     * The identifier for the index.
+     */
     public /*out*/ readonly indexId!: pulumi.Output<string>;
     public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.qbusiness.IndexStatistics>;
+    /**
+     * The current status of the index. When the status is `ACTIVE` , the index is ready.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.IndexStatus>;
+    /**
+     * A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
+     */
     public readonly type!: pulumi.Output<enums.qbusiness.IndexType | undefined>;
+    /**
+     * The Unix timestamp when the index was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -107,11 +145,34 @@ export class Index extends pulumi.CustomResource {
  * The set of arguments for constructing a Index resource.
  */
 export interface IndexArgs {
+    /**
+     * The identifier of the Amazon Q Business application using the index.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+     */
     capacityConfiguration?: pulumi.Input<inputs.qbusiness.IndexCapacityConfigurationArgs>;
+    /**
+     * A description for the Amazon Q Business index.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the index.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+     *
+     * For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+     */
     documentAttributeConfigurations?: pulumi.Input<pulumi.Input<inputs.qbusiness.IndexDocumentAttributeConfigurationArgs>[]>;
+    /**
+     * A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
+     */
     type?: pulumi.Input<enums.qbusiness.IndexType>;
 }

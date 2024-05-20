@@ -14,19 +14,32 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type NamespaceType struct {
-	AdminPasswordSecretArn      *string              `pulumi:"adminPasswordSecretArn"`
-	AdminPasswordSecretKmsKeyId *string              `pulumi:"adminPasswordSecretKmsKeyId"`
-	AdminUsername               *string              `pulumi:"adminUsername"`
-	CreationDate                *string              `pulumi:"creationDate"`
-	DbName                      *string              `pulumi:"dbName"`
-	DefaultIamRoleArn           *string              `pulumi:"defaultIamRoleArn"`
-	IamRoles                    []string             `pulumi:"iamRoles"`
-	KmsKeyId                    *string              `pulumi:"kmsKeyId"`
-	LogExports                  []NamespaceLogExport `pulumi:"logExports"`
-	NamespaceArn                *string              `pulumi:"namespaceArn"`
-	NamespaceId                 *string              `pulumi:"namespaceId"`
-	NamespaceName               *string              `pulumi:"namespaceName"`
-	Status                      *NamespaceStatus     `pulumi:"status"`
+	// The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.
+	AdminPasswordSecretArn *string `pulumi:"adminPasswordSecretArn"`
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
+	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
+	// The username of the administrator for the first database created in the namespace.
+	AdminUsername *string `pulumi:"adminUsername"`
+	// The date of when the namespace was created.
+	CreationDate *string `pulumi:"creationDate"`
+	// The name of the first database created in the namespace.
+	DbName *string `pulumi:"dbName"`
+	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
+	// A list of IAM roles to associate with the namespace.
+	IamRoles []string `pulumi:"iamRoles"`
+	// The ID of the AWS Key Management Service key used to encrypt your data.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.
+	LogExports []NamespaceLogExport `pulumi:"logExports"`
+	// The Amazon Resource Name (ARN) associated with a namespace.
+	NamespaceArn *string `pulumi:"namespaceArn"`
+	// The unique identifier of a namespace.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com//redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
+	NamespaceName *string `pulumi:"namespaceName"`
+	// The status of the namespace.
+	Status *NamespaceStatus `pulumi:"status"`
 }
 
 type NamespaceTypeOutput struct{ *pulumi.OutputState }
@@ -43,54 +56,67 @@ func (o NamespaceTypeOutput) ToNamespaceTypeOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.
 func (o NamespaceTypeOutput) AdminPasswordSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.AdminPasswordSecretArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
 func (o NamespaceTypeOutput) AdminPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.AdminPasswordSecretKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The username of the administrator for the first database created in the namespace.
 func (o NamespaceTypeOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
 }
 
+// The date of when the namespace was created.
 func (o NamespaceTypeOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
+// The name of the first database created in the namespace.
 func (o NamespaceTypeOutput) DbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.DbName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 func (o NamespaceTypeOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// A list of IAM roles to associate with the namespace.
 func (o NamespaceTypeOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NamespaceType) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the AWS Key Management Service key used to encrypt your data.
 func (o NamespaceTypeOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.
 func (o NamespaceTypeOutput) LogExports() NamespaceLogExportArrayOutput {
 	return o.ApplyT(func(v NamespaceType) []NamespaceLogExport { return v.LogExports }).(NamespaceLogExportArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) associated with a namespace.
 func (o NamespaceTypeOutput) NamespaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.NamespaceArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of a namespace.
 func (o NamespaceTypeOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com//redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 func (o NamespaceTypeOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the namespace.
 func (o NamespaceTypeOutput) Status() NamespaceStatusPtrOutput {
 	return o.ApplyT(func(v NamespaceType) *NamespaceStatus { return v.Status }).(NamespaceStatusPtrOutput)
 }
@@ -119,6 +145,7 @@ func (o NamespaceTypePtrOutput) Elem() NamespaceTypeOutput {
 	}).(NamespaceTypeOutput)
 }
 
+// The Amazon Resource Name (ARN) for the namespace's admin user credentials secret.
 func (o NamespaceTypePtrOutput) AdminPasswordSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -128,6 +155,7 @@ func (o NamespaceTypePtrOutput) AdminPasswordSecretArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret.
 func (o NamespaceTypePtrOutput) AdminPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -137,6 +165,7 @@ func (o NamespaceTypePtrOutput) AdminPasswordSecretKmsKeyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The username of the administrator for the first database created in the namespace.
 func (o NamespaceTypePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -146,6 +175,7 @@ func (o NamespaceTypePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The date of when the namespace was created.
 func (o NamespaceTypePtrOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -155,6 +185,7 @@ func (o NamespaceTypePtrOutput) CreationDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the first database created in the namespace.
 func (o NamespaceTypePtrOutput) DbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -164,6 +195,7 @@ func (o NamespaceTypePtrOutput) DbName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 func (o NamespaceTypePtrOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -173,6 +205,7 @@ func (o NamespaceTypePtrOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of IAM roles to associate with the namespace.
 func (o NamespaceTypePtrOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceType) []string {
 		if v == nil {
@@ -182,6 +215,7 @@ func (o NamespaceTypePtrOutput) IamRoles() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the AWS Key Management Service key used to encrypt your data.
 func (o NamespaceTypePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -191,6 +225,7 @@ func (o NamespaceTypePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.
 func (o NamespaceTypePtrOutput) LogExports() NamespaceLogExportArrayOutput {
 	return o.ApplyT(func(v *NamespaceType) []NamespaceLogExport {
 		if v == nil {
@@ -200,6 +235,7 @@ func (o NamespaceTypePtrOutput) LogExports() NamespaceLogExportArrayOutput {
 	}).(NamespaceLogExportArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) associated with a namespace.
 func (o NamespaceTypePtrOutput) NamespaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -209,6 +245,7 @@ func (o NamespaceTypePtrOutput) NamespaceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of a namespace.
 func (o NamespaceTypePtrOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -218,6 +255,7 @@ func (o NamespaceTypePtrOutput) NamespaceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the namespace. Must be between 3-64 alphanumeric characters in lowercase, and it cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com//redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.
 func (o NamespaceTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *string {
 		if v == nil {
@@ -227,6 +265,7 @@ func (o NamespaceTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the namespace.
 func (o NamespaceTypePtrOutput) Status() NamespaceStatusPtrOutput {
 	return o.ApplyT(func(v *NamespaceType) *NamespaceStatus {
 		if v == nil {
@@ -237,9 +276,12 @@ func (o NamespaceTypePtrOutput) Status() NamespaceStatusPtrOutput {
 }
 
 type NamespaceSnapshotCopyConfiguration struct {
-	DestinationKmsKeyId     *string `pulumi:"destinationKmsKeyId"`
-	DestinationRegion       string  `pulumi:"destinationRegion"`
-	SnapshotRetentionPeriod *int    `pulumi:"snapshotRetentionPeriod"`
+	// The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
+	DestinationKmsKeyId *string `pulumi:"destinationKmsKeyId"`
+	// The destination AWS Region to copy snapshots to.
+	DestinationRegion string `pulumi:"destinationRegion"`
+	// The retention period of snapshots that are copied to the destination AWS Region .
+	SnapshotRetentionPeriod *int `pulumi:"snapshotRetentionPeriod"`
 }
 
 // NamespaceSnapshotCopyConfigurationInput is an input type that accepts NamespaceSnapshotCopyConfigurationArgs and NamespaceSnapshotCopyConfigurationOutput values.
@@ -254,9 +296,12 @@ type NamespaceSnapshotCopyConfigurationInput interface {
 }
 
 type NamespaceSnapshotCopyConfigurationArgs struct {
-	DestinationKmsKeyId     pulumi.StringPtrInput `pulumi:"destinationKmsKeyId"`
-	DestinationRegion       pulumi.StringInput    `pulumi:"destinationRegion"`
-	SnapshotRetentionPeriod pulumi.IntPtrInput    `pulumi:"snapshotRetentionPeriod"`
+	// The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
+	DestinationKmsKeyId pulumi.StringPtrInput `pulumi:"destinationKmsKeyId"`
+	// The destination AWS Region to copy snapshots to.
+	DestinationRegion pulumi.StringInput `pulumi:"destinationRegion"`
+	// The retention period of snapshots that are copied to the destination AWS Region .
+	SnapshotRetentionPeriod pulumi.IntPtrInput `pulumi:"snapshotRetentionPeriod"`
 }
 
 func (NamespaceSnapshotCopyConfigurationArgs) ElementType() reflect.Type {
@@ -310,14 +355,17 @@ func (o NamespaceSnapshotCopyConfigurationOutput) ToNamespaceSnapshotCopyConfigu
 	return o
 }
 
+// The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
 func (o NamespaceSnapshotCopyConfigurationOutput) DestinationKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceSnapshotCopyConfiguration) *string { return v.DestinationKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The destination AWS Region to copy snapshots to.
 func (o NamespaceSnapshotCopyConfigurationOutput) DestinationRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceSnapshotCopyConfiguration) string { return v.DestinationRegion }).(pulumi.StringOutput)
 }
 
+// The retention period of snapshots that are copied to the destination AWS Region .
 func (o NamespaceSnapshotCopyConfigurationOutput) SnapshotRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NamespaceSnapshotCopyConfiguration) *int { return v.SnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
@@ -343,25 +391,41 @@ func (o NamespaceSnapshotCopyConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type NamespaceTag struct {
-	Key   string `pulumi:"key"`
+	// The key to use in the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type WorkgroupType struct {
-	BaseCapacity       *int                       `pulumi:"baseCapacity"`
-	ConfigParameters   []WorkgroupConfigParameter `pulumi:"configParameters"`
-	CreationDate       *string                    `pulumi:"creationDate"`
-	Endpoint           *WorkgroupEndpoint         `pulumi:"endpoint"`
-	EnhancedVpcRouting *bool                      `pulumi:"enhancedVpcRouting"`
-	MaxCapacity        *int                       `pulumi:"maxCapacity"`
-	NamespaceName      *string                    `pulumi:"namespaceName"`
-	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
-	Status             *WorkgroupStatus           `pulumi:"status"`
-	SubnetIds          []string                   `pulumi:"subnetIds"`
-	WorkgroupArn       *string                    `pulumi:"workgroupArn"`
-	WorkgroupId        *string                    `pulumi:"workgroupId"`
-	WorkgroupName      *string                    `pulumi:"workgroupName"`
+	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity *int `pulumi:"baseCapacity"`
+	// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
+	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
+	// The creation date of the workgroup.
+	CreationDate *string `pulumi:"creationDate"`
+	// The endpoint that is created from the workgroup.
+	Endpoint *WorkgroupEndpoint `pulumi:"endpoint"`
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The namespace the workgroup is associated with.
+	NamespaceName *string `pulumi:"namespaceName"`
+	// A value that specifies whether the workgroup can be accessible from a public network.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// An array of security group IDs to associate with the workgroup.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The status of the workgroup.
+	Status *WorkgroupStatus `pulumi:"status"`
+	// An array of subnet IDs the workgroup is associated with.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The Amazon Resource Name (ARN) that links to the workgroup.
+	WorkgroupArn *string `pulumi:"workgroupArn"`
+	// The unique identifier of the workgroup.
+	WorkgroupId *string `pulumi:"workgroupId"`
+	// The name of the workgroup.
+	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
 type WorkgroupTypeOutput struct{ *pulumi.OutputState }
@@ -378,58 +442,72 @@ func (o WorkgroupTypeOutput) ToWorkgroupTypeOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 func (o WorkgroupTypeOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *int { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
+// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 func (o WorkgroupTypeOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput {
 	return o.ApplyT(func(v WorkgroupType) []WorkgroupConfigParameter { return v.ConfigParameters }).(WorkgroupConfigParameterArrayOutput)
 }
 
+// The creation date of the workgroup.
 func (o WorkgroupTypeOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that is created from the workgroup.
 func (o WorkgroupTypeOutput) Endpoint() WorkgroupEndpointPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *WorkgroupEndpoint { return v.Endpoint }).(WorkgroupEndpointPtrOutput)
 }
 
+// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 func (o WorkgroupTypeOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
 func (o WorkgroupTypeOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The namespace the workgroup is associated with.
 func (o WorkgroupTypeOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
+// A value that specifies whether the workgroup can be accessible from a public network.
 func (o WorkgroupTypeOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
+// An array of security group IDs to associate with the workgroup.
 func (o WorkgroupTypeOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkgroupType) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The status of the workgroup.
 func (o WorkgroupTypeOutput) Status() WorkgroupStatusPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *WorkgroupStatus { return v.Status }).(WorkgroupStatusPtrOutput)
 }
 
+// An array of subnet IDs the workgroup is associated with.
 func (o WorkgroupTypeOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkgroupType) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) that links to the workgroup.
 func (o WorkgroupTypeOutput) WorkgroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.WorkgroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the workgroup.
 func (o WorkgroupTypeOutput) WorkgroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.WorkgroupId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the workgroup.
 func (o WorkgroupTypeOutput) WorkgroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.WorkgroupName }).(pulumi.StringPtrOutput)
 }
@@ -458,6 +536,7 @@ func (o WorkgroupTypePtrOutput) Elem() WorkgroupTypeOutput {
 	}).(WorkgroupTypeOutput)
 }
 
+// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 func (o WorkgroupTypePtrOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *int {
 		if v == nil {
@@ -467,6 +546,7 @@ func (o WorkgroupTypePtrOutput) BaseCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 func (o WorkgroupTypePtrOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput {
 	return o.ApplyT(func(v *WorkgroupType) []WorkgroupConfigParameter {
 		if v == nil {
@@ -476,6 +556,7 @@ func (o WorkgroupTypePtrOutput) ConfigParameters() WorkgroupConfigParameterArray
 	}).(WorkgroupConfigParameterArrayOutput)
 }
 
+// The creation date of the workgroup.
 func (o WorkgroupTypePtrOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *string {
 		if v == nil {
@@ -485,6 +566,7 @@ func (o WorkgroupTypePtrOutput) CreationDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint that is created from the workgroup.
 func (o WorkgroupTypePtrOutput) Endpoint() WorkgroupEndpointPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *WorkgroupEndpoint {
 		if v == nil {
@@ -494,6 +576,7 @@ func (o WorkgroupTypePtrOutput) Endpoint() WorkgroupEndpointPtrOutput {
 	}).(WorkgroupEndpointPtrOutput)
 }
 
+// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 func (o WorkgroupTypePtrOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *bool {
 		if v == nil {
@@ -503,6 +586,7 @@ func (o WorkgroupTypePtrOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
 func (o WorkgroupTypePtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *int {
 		if v == nil {
@@ -512,6 +596,7 @@ func (o WorkgroupTypePtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The namespace the workgroup is associated with.
 func (o WorkgroupTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *string {
 		if v == nil {
@@ -521,6 +606,7 @@ func (o WorkgroupTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A value that specifies whether the workgroup can be accessible from a public network.
 func (o WorkgroupTypePtrOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *bool {
 		if v == nil {
@@ -530,6 +616,7 @@ func (o WorkgroupTypePtrOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An array of security group IDs to associate with the workgroup.
 func (o WorkgroupTypePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkgroupType) []string {
 		if v == nil {
@@ -539,6 +626,7 @@ func (o WorkgroupTypePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The status of the workgroup.
 func (o WorkgroupTypePtrOutput) Status() WorkgroupStatusPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *WorkgroupStatus {
 		if v == nil {
@@ -548,6 +636,7 @@ func (o WorkgroupTypePtrOutput) Status() WorkgroupStatusPtrOutput {
 	}).(WorkgroupStatusPtrOutput)
 }
 
+// An array of subnet IDs the workgroup is associated with.
 func (o WorkgroupTypePtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkgroupType) []string {
 		if v == nil {
@@ -557,6 +646,7 @@ func (o WorkgroupTypePtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) that links to the workgroup.
 func (o WorkgroupTypePtrOutput) WorkgroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *string {
 		if v == nil {
@@ -566,6 +656,7 @@ func (o WorkgroupTypePtrOutput) WorkgroupArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the workgroup.
 func (o WorkgroupTypePtrOutput) WorkgroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *string {
 		if v == nil {
@@ -575,6 +666,7 @@ func (o WorkgroupTypePtrOutput) WorkgroupId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the workgroup.
 func (o WorkgroupTypePtrOutput) WorkgroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *string {
 		if v == nil {
@@ -585,7 +677,9 @@ func (o WorkgroupTypePtrOutput) WorkgroupName() pulumi.StringPtrOutput {
 }
 
 type WorkgroupConfigParameter struct {
-	ParameterKey   *string `pulumi:"parameterKey"`
+	// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+	ParameterKey *string `pulumi:"parameterKey"`
+	// The value of the parameter to set.
 	ParameterValue *string `pulumi:"parameterValue"`
 }
 
@@ -601,7 +695,9 @@ type WorkgroupConfigParameterInput interface {
 }
 
 type WorkgroupConfigParameterArgs struct {
-	ParameterKey   pulumi.StringPtrInput `pulumi:"parameterKey"`
+	// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
+	ParameterKey pulumi.StringPtrInput `pulumi:"parameterKey"`
+	// The value of the parameter to set.
 	ParameterValue pulumi.StringPtrInput `pulumi:"parameterValue"`
 }
 
@@ -656,10 +752,12 @@ func (o WorkgroupConfigParameterOutput) ToWorkgroupConfigParameterOutputWithCont
 	return o
 }
 
+// The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
 func (o WorkgroupConfigParameterOutput) ParameterKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigParameter) *string { return v.ParameterKey }).(pulumi.StringPtrOutput)
 }
 
+// The value of the parameter to set.
 func (o WorkgroupConfigParameterOutput) ParameterValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigParameter) *string { return v.ParameterValue }).(pulumi.StringPtrOutput)
 }
@@ -685,8 +783,11 @@ func (o WorkgroupConfigParameterArrayOutput) Index(i pulumi.IntInput) WorkgroupC
 }
 
 type WorkgroupEndpoint struct {
-	Address      *string                `pulumi:"address"`
-	Port         *int                   `pulumi:"port"`
+	// The DNS address of the VPC endpoint.
+	Address *string `pulumi:"address"`
+	// The port that Amazon Redshift Serverless listens on.
+	Port *int `pulumi:"port"`
+	// An array of `VpcEndpoint` objects.
 	VpcEndpoints []WorkgroupVpcEndpoint `pulumi:"vpcEndpoints"`
 }
 
@@ -704,14 +805,17 @@ func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutputWithContext(ctx contex
 	return o
 }
 
+// The DNS address of the VPC endpoint.
 func (o WorkgroupEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
+// The port that Amazon Redshift Serverless listens on.
 func (o WorkgroupEndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// An array of `VpcEndpoint` objects.
 func (o WorkgroupEndpointOutput) VpcEndpoints() WorkgroupVpcEndpointArrayOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) []WorkgroupVpcEndpoint { return v.VpcEndpoints }).(WorkgroupVpcEndpointArrayOutput)
 }
@@ -740,6 +844,7 @@ func (o WorkgroupEndpointPtrOutput) Elem() WorkgroupEndpointOutput {
 	}).(WorkgroupEndpointOutput)
 }
 
+// The DNS address of the VPC endpoint.
 func (o WorkgroupEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupEndpoint) *string {
 		if v == nil {
@@ -749,6 +854,7 @@ func (o WorkgroupEndpointPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port that Amazon Redshift Serverless listens on.
 func (o WorkgroupEndpointPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkgroupEndpoint) *int {
 		if v == nil {
@@ -758,6 +864,7 @@ func (o WorkgroupEndpointPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// An array of `VpcEndpoint` objects.
 func (o WorkgroupEndpointPtrOutput) VpcEndpoints() WorkgroupVpcEndpointArrayOutput {
 	return o.ApplyT(func(v *WorkgroupEndpoint) []WorkgroupVpcEndpoint {
 		if v == nil {
@@ -768,10 +875,14 @@ func (o WorkgroupEndpointPtrOutput) VpcEndpoints() WorkgroupVpcEndpointArrayOutp
 }
 
 type WorkgroupNetworkInterface struct {
-	AvailabilityZone   *string `pulumi:"availabilityZone"`
+	// The availability Zone.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The unique identifier of the network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
-	SubnetId           *string `pulumi:"subnetId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The unique identifier of the subnet.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 type WorkgroupNetworkInterfaceOutput struct{ *pulumi.OutputState }
@@ -788,18 +899,22 @@ func (o WorkgroupNetworkInterfaceOutput) ToWorkgroupNetworkInterfaceOutputWithCo
 	return o
 }
 
+// The availability Zone.
 func (o WorkgroupNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the network interface.
 func (o WorkgroupNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 address of the network interface within the subnet.
 func (o WorkgroupNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the subnet.
 func (o WorkgroupNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -825,14 +940,19 @@ func (o WorkgroupNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Workgroup
 }
 
 type WorkgroupTag struct {
-	Key   string `pulumi:"key"`
+	// The key to use in the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type WorkgroupVpcEndpoint struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint.
 	NetworkInterfaces []WorkgroupNetworkInterface `pulumi:"networkInterfaces"`
-	VpcEndpointId     *string                     `pulumi:"vpcEndpointId"`
-	VpcId             *string                     `pulumi:"vpcId"`
+	// The connection endpoint ID for connecting to Amazon Redshift Serverless.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated with.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type WorkgroupVpcEndpointOutput struct{ *pulumi.OutputState }
@@ -849,14 +969,17 @@ func (o WorkgroupVpcEndpointOutput) ToWorkgroupVpcEndpointOutputWithContext(ctx 
 	return o
 }
 
+// One or more network interfaces of the endpoint. Also known as an interface endpoint.
 func (o WorkgroupVpcEndpointOutput) NetworkInterfaces() WorkgroupNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v WorkgroupVpcEndpoint) []WorkgroupNetworkInterface { return v.NetworkInterfaces }).(WorkgroupNetworkInterfaceArrayOutput)
 }
 
+// The connection endpoint ID for connecting to Amazon Redshift Serverless.
 func (o WorkgroupVpcEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupVpcEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The VPC identifier that the endpoint is associated with.
 func (o WorkgroupVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

@@ -29,11 +29,17 @@ class LicenseArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a License resource.
+        :param pulumi.Input['LicenseConsumptionConfigurationArgs'] consumption_configuration: Configuration for consumption of the license.
+        :param pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]] entitlements: License entitlements.
         :param pulumi.Input[str] home_region: Home region for the created license.
+        :param pulumi.Input['LicenseIssuerDataArgs'] issuer: License issuer.
         :param pulumi.Input[str] product_name: Product name for the created license.
+        :param pulumi.Input['LicenseValidityDateFormatArgs'] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
         :param pulumi.Input[str] beneficiary: Beneficiary of the license.
+        :param pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]] license_metadata: License metadata.
         :param pulumi.Input[str] license_name: Name for the created license.
         :param pulumi.Input[str] product_sku: ProductSKU of the license.
+        :param pulumi.Input[str] status: License status.
         """
         pulumi.set(__self__, "consumption_configuration", consumption_configuration)
         pulumi.set(__self__, "entitlements", entitlements)
@@ -55,6 +61,9 @@ class LicenseArgs:
     @property
     @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> pulumi.Input['LicenseConsumptionConfigurationArgs']:
+        """
+        Configuration for consumption of the license.
+        """
         return pulumi.get(self, "consumption_configuration")
 
     @consumption_configuration.setter
@@ -64,6 +73,9 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def entitlements(self) -> pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]]:
+        """
+        License entitlements.
+        """
         return pulumi.get(self, "entitlements")
 
     @entitlements.setter
@@ -85,6 +97,9 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def issuer(self) -> pulumi.Input['LicenseIssuerDataArgs']:
+        """
+        License issuer.
+        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -106,6 +121,9 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def validity(self) -> pulumi.Input['LicenseValidityDateFormatArgs']:
+        """
+        Date and time range during which the license is valid, in ISO8601-UTC format.
+        """
         return pulumi.get(self, "validity")
 
     @validity.setter
@@ -127,6 +145,9 @@ class LicenseArgs:
     @property
     @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]]:
+        """
+        License metadata.
+        """
         return pulumi.get(self, "license_metadata")
 
     @license_metadata.setter
@@ -160,6 +181,9 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        License status.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -190,10 +214,16 @@ class License(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] beneficiary: Beneficiary of the license.
+        :param pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']] consumption_configuration: Configuration for consumption of the license.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseEntitlementArgs']]]] entitlements: License entitlements.
         :param pulumi.Input[str] home_region: Home region for the created license.
+        :param pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']] issuer: License issuer.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseMetadataArgs']]]] license_metadata: License metadata.
         :param pulumi.Input[str] license_name: Name for the created license.
         :param pulumi.Input[str] product_name: Product name for the created license.
         :param pulumi.Input[str] product_sku: ProductSKU of the license.
+        :param pulumi.Input[str] status: License status.
+        :param pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
         """
         ...
     @overload
@@ -312,11 +342,17 @@ class License(pulumi.CustomResource):
     @property
     @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> pulumi.Output['outputs.LicenseConsumptionConfiguration']:
+        """
+        Configuration for consumption of the license.
+        """
         return pulumi.get(self, "consumption_configuration")
 
     @property
     @pulumi.getter
     def entitlements(self) -> pulumi.Output[Sequence['outputs.LicenseEntitlement']]:
+        """
+        License entitlements.
+        """
         return pulumi.get(self, "entitlements")
 
     @property
@@ -330,6 +366,9 @@ class License(pulumi.CustomResource):
     @property
     @pulumi.getter
     def issuer(self) -> pulumi.Output['outputs.LicenseIssuerData']:
+        """
+        License issuer.
+        """
         return pulumi.get(self, "issuer")
 
     @property
@@ -343,6 +382,9 @@ class License(pulumi.CustomResource):
     @property
     @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> pulumi.Output[Optional[Sequence['outputs.LicenseMetadata']]]:
+        """
+        License metadata.
+        """
         return pulumi.get(self, "license_metadata")
 
     @property
@@ -372,11 +414,17 @@ class License(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        License status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def validity(self) -> pulumi.Output['outputs.LicenseValidityDateFormat']:
+        """
+        Date and time range during which the license is valid, in ISO8601-UTC format.
+        """
         return pulumi.get(self, "validity")
 
     @property

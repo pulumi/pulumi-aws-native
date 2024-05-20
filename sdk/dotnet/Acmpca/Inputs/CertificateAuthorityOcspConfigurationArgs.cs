@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityOcspConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// By default, AWS Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP). A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
+        /// 
+        /// &gt; The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        /// </summary>
         [Input("ocspCustomCname")]
         public Input<string>? OcspCustomCname { get; set; }
 

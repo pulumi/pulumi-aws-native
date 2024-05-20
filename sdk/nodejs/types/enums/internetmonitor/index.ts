@@ -16,6 +16,9 @@ export const MonitorLocalHealthEventsConfigStatus = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
+ */
 export type MonitorLocalHealthEventsConfigStatus = (typeof MonitorLocalHealthEventsConfigStatus)[keyof typeof MonitorLocalHealthEventsConfigStatus];
 
 export const MonitorProcessingStatusCode = {
@@ -34,4 +37,7 @@ export const MonitorS3ConfigLogDeliveryStatus = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
+ */
 export type MonitorS3ConfigLogDeliveryStatus = (typeof MonitorS3ConfigLogDeliveryStatus)[keyof typeof MonitorS3ConfigLogDeliveryStatus];

@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
     {
         [Input("additionalConfiguration")]
         private InputList<Inputs.DetectorCfnFeatureAdditionalConfigurationArgs>? _additionalConfiguration;
+
+        /// <summary>
+        /// Information about the additional configuration of a feature in your account.
+        /// </summary>
         public InputList<Inputs.DetectorCfnFeatureAdditionalConfigurationArgs> AdditionalConfiguration
         {
             get => _additionalConfiguration ?? (_additionalConfiguration = new InputList<Inputs.DetectorCfnFeatureAdditionalConfigurationArgs>());
             set => _additionalConfiguration = value;
         }
 
+        /// <summary>
+        /// Name of the feature.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Status of the feature configuration.
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationStatus> Status { get; set; } = null!;
 

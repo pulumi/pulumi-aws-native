@@ -19,6 +19,9 @@ class ApplicationEntitlementAssociationArgs:
                  stack_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ApplicationEntitlementAssociation resource.
+        :param pulumi.Input[str] application_identifier: The identifier of the application.
+        :param pulumi.Input[str] entitlement_name: The name of the entitlement.
+        :param pulumi.Input[str] stack_name: The name of the stack.
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
         pulumi.set(__self__, "entitlement_name", entitlement_name)
@@ -27,6 +30,9 @@ class ApplicationEntitlementAssociationArgs:
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @application_identifier.setter
@@ -36,6 +42,9 @@ class ApplicationEntitlementAssociationArgs:
     @property
     @pulumi.getter(name="entitlementName")
     def entitlement_name(self) -> pulumi.Input[str]:
+        """
+        The name of the entitlement.
+        """
         return pulumi.get(self, "entitlement_name")
 
     @entitlement_name.setter
@@ -45,6 +54,9 @@ class ApplicationEntitlementAssociationArgs:
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Input[str]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
@@ -66,6 +78,9 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_identifier: The identifier of the application.
+        :param pulumi.Input[str] entitlement_name: The name of the entitlement.
+        :param pulumi.Input[str] stack_name: The name of the stack.
         """
         ...
     @overload
@@ -144,15 +159,24 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Output[str]:
+        """
+        The identifier of the application.
+        """
         return pulumi.get(self, "application_identifier")
 
     @property
     @pulumi.getter(name="entitlementName")
     def entitlement_name(self) -> pulumi.Output[str]:
+        """
+        The name of the entitlement.
+        """
         return pulumi.get(self, "entitlement_name")
 
     @property
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[str]:
+        """
+        The name of the stack.
+        """
         return pulumi.get(self, "stack_name")
 

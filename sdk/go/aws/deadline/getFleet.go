@@ -23,21 +23,32 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 }
 
 type LookupFleetArgs struct {
+	// The Amazon Resource Name (ARN) assigned to the fleet.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupFleetResult struct {
-	Arn            *string            `pulumi:"arn"`
-	Capabilities   *FleetCapabilities `pulumi:"capabilities"`
-	Configuration  interface{}        `pulumi:"configuration"`
-	Description    *string            `pulumi:"description"`
-	DisplayName    *string            `pulumi:"displayName"`
-	FleetId        *string            `pulumi:"fleetId"`
-	MaxWorkerCount *int               `pulumi:"maxWorkerCount"`
-	MinWorkerCount *int               `pulumi:"minWorkerCount"`
-	RoleArn        *string            `pulumi:"roleArn"`
-	Status         *FleetStatus       `pulumi:"status"`
-	WorkerCount    *int               `pulumi:"workerCount"`
+	// The Amazon Resource Name (ARN) assigned to the fleet.
+	Arn          *string            `pulumi:"arn"`
+	Capabilities *FleetCapabilities `pulumi:"capabilities"`
+	// The configuration details for the fleet.
+	Configuration interface{} `pulumi:"configuration"`
+	// A description that helps identify what the fleet is used for.
+	Description *string `pulumi:"description"`
+	// The display name of the fleet summary to update.
+	DisplayName *string `pulumi:"displayName"`
+	// The fleet ID.
+	FleetId *string `pulumi:"fleetId"`
+	// The maximum number of workers specified in the fleet.
+	MaxWorkerCount *int `pulumi:"maxWorkerCount"`
+	// The minimum number of workers in the fleet.
+	MinWorkerCount *int `pulumi:"minWorkerCount"`
+	// The IAM role that workers in the fleet use when processing jobs.
+	RoleArn *string `pulumi:"roleArn"`
+	// The status of the fleet.
+	Status *FleetStatus `pulumi:"status"`
+	// The number of workers in the fleet summary.
+	WorkerCount *int `pulumi:"workerCount"`
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
@@ -54,6 +65,7 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 }
 
 type LookupFleetOutputArgs struct {
+	// The Amazon Resource Name (ARN) assigned to the fleet.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -75,6 +87,7 @@ func (o LookupFleetResultOutput) ToLookupFleetResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) assigned to the fleet.
 func (o LookupFleetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -83,38 +96,47 @@ func (o LookupFleetResultOutput) Capabilities() FleetCapabilitiesPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetCapabilities { return v.Capabilities }).(FleetCapabilitiesPtrOutput)
 }
 
+// The configuration details for the fleet.
 func (o LookupFleetResultOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupFleetResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// A description that helps identify what the fleet is used for.
 func (o LookupFleetResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the fleet summary to update.
 func (o LookupFleetResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The fleet ID.
 func (o LookupFleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of workers specified in the fleet.
 func (o LookupFleetResultOutput) MaxWorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *int { return v.MaxWorkerCount }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of workers in the fleet.
 func (o LookupFleetResultOutput) MinWorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *int { return v.MinWorkerCount }).(pulumi.IntPtrOutput)
 }
 
+// The IAM role that workers in the fleet use when processing jobs.
 func (o LookupFleetResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The status of the fleet.
 func (o LookupFleetResultOutput) Status() FleetStatusPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetStatus { return v.Status }).(FleetStatusPtrOutput)
 }
 
+// The number of workers in the fleet summary.
 func (o LookupFleetResultOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
 }

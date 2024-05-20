@@ -16,9 +16,12 @@ import (
 type CachePolicy struct {
 	pulumi.CustomResourceState
 
-	AwsId             pulumi.StringOutput     `pulumi:"awsId"`
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The cache policy configuration.
 	CachePolicyConfig CachePolicyConfigOutput `pulumi:"cachePolicyConfig"`
-	LastModifiedTime  pulumi.StringOutput     `pulumi:"lastModifiedTime"`
+	// The date and time when the cache policy was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 }
 
 // NewCachePolicy registers a new resource with the given unique name, arguments, and options.
@@ -64,11 +67,13 @@ func (CachePolicyState) ElementType() reflect.Type {
 }
 
 type cachePolicyArgs struct {
+	// The cache policy configuration.
 	CachePolicyConfig CachePolicyConfig `pulumi:"cachePolicyConfig"`
 }
 
 // The set of arguments for constructing a CachePolicy resource.
 type CachePolicyArgs struct {
+	// The cache policy configuration.
 	CachePolicyConfig CachePolicyConfigInput
 }
 
@@ -109,14 +114,17 @@ func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 func (o CachePolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The cache policy configuration.
 func (o CachePolicyOutput) CachePolicyConfig() CachePolicyConfigOutput {
 	return o.ApplyT(func(v *CachePolicy) CachePolicyConfigOutput { return v.CachePolicyConfig }).(CachePolicyConfigOutput)
 }
 
+// The date and time when the cache policy was last modified.
 func (o CachePolicyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }

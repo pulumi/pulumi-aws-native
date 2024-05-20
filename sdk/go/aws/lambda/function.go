@@ -366,7 +366,8 @@ type Function struct {
 
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures FunctionArchitecturesItemArrayOutput `pulumi:"architectures"`
-	Arn           pulumi.StringOutput                  `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the function.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The code for the function.
 	Code FunctionCodeOutput `pulumi:"code"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -625,6 +626,7 @@ func (o FunctionOutput) Architectures() FunctionArchitecturesItemArrayOutput {
 	return o.ApplyT(func(v *Function) FunctionArchitecturesItemArrayOutput { return v.Architectures }).(FunctionArchitecturesItemArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

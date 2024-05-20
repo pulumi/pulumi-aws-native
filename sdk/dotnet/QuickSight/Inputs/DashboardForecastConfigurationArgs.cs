@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardForecastConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The forecast properties setup of a forecast in the line chart.
+        /// </summary>
         [Input("forecastProperties")]
         public Input<Inputs.DashboardTimeBasedForecastPropertiesArgs>? ForecastProperties { get; set; }
 
+        /// <summary>
+        /// The forecast scenario of a forecast in the line chart.
+        /// </summary>
         [Input("scenario")]
         public Input<Inputs.DashboardForecastScenarioArgs>? Scenario { get; set; }
 

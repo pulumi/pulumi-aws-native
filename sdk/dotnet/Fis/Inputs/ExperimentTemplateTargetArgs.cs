@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Fis.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.ExperimentTemplateTargetFilterArgs>? _filters;
+
+        /// <summary>
+        /// The filters to apply to identify target resources using specific attributes.
+        /// </summary>
         public InputList<Inputs.ExperimentTemplateTargetFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.ExperimentTemplateTargetFilterArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// The parameters for the resource type.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
@@ -33,6 +41,10 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
         [Input("resourceArns")]
         private InputList<string>? _resourceArns;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the targets.
+        /// </summary>
         public InputList<string> ResourceArns
         {
             get => _resourceArns ?? (_resourceArns = new InputList<string>());
@@ -41,15 +53,25 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
+
+        /// <summary>
+        /// The tags for the target resources.
+        /// </summary>
         public InputMap<string> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputMap<string>());
             set => _resourceTags = value;
         }
 
+        /// <summary>
+        /// The resource type.
+        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
+        /// <summary>
+        /// Scopes the identified resources to a specific count or percentage.
+        /// </summary>
         [Input("selectionMode", required: true)]
         public Input<string> SelectionMode { get; set; } = null!;
 

@@ -15,36 +15,74 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of IAM policy.
+        /// 
+        /// - `NONE` : The resource does not use an IAM policy. This is the default.
+        /// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        /// </summary>
         [Output("authType")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceAuthType?> AuthType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate.
+        /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the service was created, specified in ISO-8601 format.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom domain name of the service.
+        /// </summary>
         [Output("customDomainName")]
         public Output<string?> CustomDomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS information of the service.
+        /// </summary>
         [Output("dnsEntry")]
         public Output<Outputs.ServiceDnsEntry?> DnsEntry { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time that the service was last updated, specified in ISO-8601 format.
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the service.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the service.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -98,23 +136,47 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of IAM policy.
+        /// 
+        /// - `NONE` : The resource does not use an IAM policy. This is the default.
+        /// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
+        /// </summary>
         [Input("authType")]
         public Input<Pulumi.AwsNative.VpcLattice.ServiceAuthType>? AuthType { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate.
+        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
+        /// <summary>
+        /// The custom domain name of the service.
+        /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
 
+        /// <summary>
+        /// The DNS information of the service.
+        /// </summary>
         [Input("dnsEntry")]
         public Input<Inputs.ServiceDnsEntryArgs>? DnsEntry { get; set; }
 
+        /// <summary>
+        /// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the service.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

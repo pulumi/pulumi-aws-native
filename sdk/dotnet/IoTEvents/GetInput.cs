@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.IoTEvents
     [OutputType]
     public sealed class GetInputResult
     {
+        /// <summary>
+        /// The definition of the input.
+        /// </summary>
         public readonly Outputs.InputDefinition? InputDefinition;
         /// <summary>
         /// A brief description of the input.

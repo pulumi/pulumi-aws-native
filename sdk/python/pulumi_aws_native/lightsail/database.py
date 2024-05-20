@@ -443,6 +443,9 @@ class Database(pulumi.CustomResource):
     @property
     @pulumi.getter(name="databaseArn")
     def database_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        """
         return pulumi.get(self, "database_arn")
 
     @property

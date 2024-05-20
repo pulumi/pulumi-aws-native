@@ -19,17 +19,34 @@ export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetBackupVaultArgs {
+    /**
+     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+     */
     backupVaultName: string;
 }
 
 export interface GetBackupVaultResult {
     /**
+     * A resource-based policy that is used to manage access permissions on the target backup vault.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
      */
     readonly accessPolicy?: any;
+    /**
+     * An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+     */
     readonly backupVaultArn?: string;
+    /**
+     * The tags to assign to the backup vault.
+     */
     readonly backupVaultTags?: {[key: string]: string};
+    /**
+     * Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+     */
     readonly lockConfiguration?: outputs.backup.BackupVaultLockConfigurationType;
+    /**
+     * The SNS event notifications for the specified backup vault.
+     */
     readonly notifications?: outputs.backup.BackupVaultNotificationObjectType;
 }
 /**
@@ -40,5 +57,8 @@ export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulu
 }
 
 export interface GetBackupVaultOutputArgs {
+    /**
+     * The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+     */
     backupVaultName: pulumi.Input<string>;
 }

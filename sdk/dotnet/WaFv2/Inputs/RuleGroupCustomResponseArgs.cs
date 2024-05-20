@@ -21,6 +21,11 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("customResponseBodyKey")]
         public Input<string>? CustomResponseBodyKey { get; set; }
 
+        /// <summary>
+        /// The HTTP status code to return to the client.
+        /// 
+        /// For a list of status codes that you can use in your custom responses, see [Supported status codes for custom response](https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html) in the *AWS WAF Developer Guide* .
+        /// </summary>
         [Input("responseCode", required: true)]
         public Input<int> ResponseCode { get; set; } = null!;
 

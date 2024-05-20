@@ -37,16 +37,43 @@ export class Partnership extends pulumi.CustomResource {
         return obj['__pulumiType'] === Partnership.__pulumiType;
     }
 
+    /**
+     * Returns one or more capabilities associated with this partnership.
+     */
     public readonly capabilities!: pulumi.Output<string[] | undefined>;
+    /**
+     * Returns a timestamp for creation date and time of the partnership.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly email!: pulumi.Output<string>;
+    /**
+     * Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    /**
+     * Returns the name of the partnership.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+     */
     public /*out*/ readonly partnershipArn!: pulumi.Output<string>;
+    /**
+     * Returns the unique, system-generated identifier for a partnership.
+     */
     public /*out*/ readonly partnershipId!: pulumi.Output<string>;
     public readonly phone!: pulumi.Output<string | undefined>;
+    /**
+     * Returns the unique, system-generated identifier for the profile connected to this partnership.
+     */
     public readonly profileId!: pulumi.Output<string>;
+    /**
+     * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Returns the unique, system-generated identifier for a trading partner.
+     */
     public /*out*/ readonly tradingPartnerId!: pulumi.Output<string>;
 
     /**
@@ -101,10 +128,22 @@ export class Partnership extends pulumi.CustomResource {
  * The set of arguments for constructing a Partnership resource.
  */
 export interface PartnershipArgs {
+    /**
+     * Returns one or more capabilities associated with this partnership.
+     */
     capabilities?: pulumi.Input<pulumi.Input<string>[]>;
     email: pulumi.Input<string>;
+    /**
+     * Returns the name of the partnership.
+     */
     name?: pulumi.Input<string>;
     phone?: pulumi.Input<string>;
+    /**
+     * Returns the unique, system-generated identifier for the profile connected to this partnership.
+     */
     profileId: pulumi.Input<string>;
+    /**
+     * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

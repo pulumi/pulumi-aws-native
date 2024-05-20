@@ -20,19 +20,52 @@ export function getRetriever(args: GetRetrieverArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetRetrieverArgs {
+    /**
+     * The identifier of the Amazon Q Business application using the retriever.
+     */
     applicationId: string;
+    /**
+     * The identifier of the retriever used by your Amazon Q Business application.
+     */
     retrieverId: string;
 }
 
 export interface GetRetrieverResult {
+    /**
+     * Provides information on how the retriever used for your Amazon Q Business application is configured.
+     */
     readonly configuration?: outputs.qbusiness.RetrieverConfiguration0Properties | outputs.qbusiness.RetrieverConfiguration1Properties;
+    /**
+     * The Unix timestamp when the retriever was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The name of your retriever.
+     */
     readonly displayName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role associated with the retriever.
+     */
     readonly retrieverArn?: string;
+    /**
+     * The identifier of the retriever used by your Amazon Q Business application.
+     */
     readonly retrieverId?: string;
+    /**
+     * The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
+     */
     readonly roleArn?: string;
+    /**
+     * The status of your retriever.
+     */
     readonly status?: enums.qbusiness.RetrieverStatus;
+    /**
+     * A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The Unix timestamp when the retriever was last updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -43,6 +76,12 @@ export function getRetrieverOutput(args: GetRetrieverOutputArgs, opts?: pulumi.I
 }
 
 export interface GetRetrieverOutputArgs {
+    /**
+     * The identifier of the Amazon Q Business application using the retriever.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The identifier of the retriever used by your Amazon Q Business application.
+     */
     retrieverId: pulumi.Input<string>;
 }

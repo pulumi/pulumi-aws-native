@@ -267,6 +267,9 @@ class HostedZone(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -299,6 +302,11 @@ class HostedZone(pulumi.CustomResource):
     @property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+
+        This attribute is not supported for private hosted zones.
+        """
         return pulumi.get(self, "name_servers")
 
     @property

@@ -16,13 +16,20 @@ import (
 type Archive struct {
 	pulumi.CustomResourceState
 
+	// The name for the archive to create.
 	ArchiveName pulumi.StringPtrOutput `pulumi:"archiveName"`
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	// The ARN of the archive created.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A description for the archive.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An event pattern to use to filter events sent to the archive.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern  pulumi.AnyOutput    `pulumi:"eventPattern"`
+	EventPattern pulumi.AnyOutput `pulumi:"eventPattern"`
+	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
-	SourceArn     pulumi.StringOutput `pulumi:"sourceArn"`
+	// The ARN of the event bus that sends events to the archive.
+	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 }
 
 // NewArchive registers a new resource with the given unique name, arguments, and options.
@@ -73,22 +80,34 @@ func (ArchiveState) ElementType() reflect.Type {
 }
 
 type archiveArgs struct {
+	// The name for the archive to create.
 	ArchiveName *string `pulumi:"archiveName"`
+	// A description for the archive.
 	Description *string `pulumi:"description"`
+	// An event pattern to use to filter events sent to the archive.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern  interface{} `pulumi:"eventPattern"`
-	RetentionDays *int        `pulumi:"retentionDays"`
-	SourceArn     string      `pulumi:"sourceArn"`
+	EventPattern interface{} `pulumi:"eventPattern"`
+	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+	RetentionDays *int `pulumi:"retentionDays"`
+	// The ARN of the event bus that sends events to the archive.
+	SourceArn string `pulumi:"sourceArn"`
 }
 
 // The set of arguments for constructing a Archive resource.
 type ArchiveArgs struct {
+	// The name for the archive to create.
 	ArchiveName pulumi.StringPtrInput
+	// A description for the archive.
 	Description pulumi.StringPtrInput
+	// An event pattern to use to filter events sent to the archive.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
-	EventPattern  pulumi.Input
+	EventPattern pulumi.Input
+	// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 	RetentionDays pulumi.IntPtrInput
-	SourceArn     pulumi.StringInput
+	// The ARN of the event bus that sends events to the archive.
+	SourceArn pulumi.StringInput
 }
 
 func (ArchiveArgs) ElementType() reflect.Type {
@@ -128,27 +147,34 @@ func (o ArchiveOutput) ToArchiveOutputWithContext(ctx context.Context) ArchiveOu
 	return o
 }
 
+// The name for the archive to create.
 func (o ArchiveOutput) ArchiveName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.ArchiveName }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the archive created.
 func (o ArchiveOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A description for the archive.
 func (o ArchiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An event pattern to use to filter events sent to the archive.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 func (o ArchiveOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Archive) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
 }
 
+// The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
 func (o ArchiveOutput) RetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Archive) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the event bus that sends events to the archive.
 func (o ArchiveOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }

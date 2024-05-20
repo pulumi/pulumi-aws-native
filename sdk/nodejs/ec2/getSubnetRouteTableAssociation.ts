@@ -16,10 +16,16 @@ export function getSubnetRouteTableAssociation(args: GetSubnetRouteTableAssociat
 }
 
 export interface GetSubnetRouteTableAssociationArgs {
+    /**
+     * The ID of the subnet route table association.
+     */
     id: string;
 }
 
 export interface GetSubnetRouteTableAssociationResult {
+    /**
+     * The ID of the subnet route table association.
+     */
     readonly id?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getSubnetRouteTableAssociationOutput(args: GetSubnetRouteTableAs
 }
 
 export interface GetSubnetRouteTableAssociationOutputArgs {
+    /**
+     * The ID of the subnet route table association.
+     */
     id: pulumi.Input<string>;
 }

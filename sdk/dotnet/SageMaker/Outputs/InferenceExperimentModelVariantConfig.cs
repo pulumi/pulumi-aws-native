@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class InferenceExperimentModelVariantConfig
     {
+        /// <summary>
+        /// The configuration for the infrastructure that the model will be deployed to.
+        /// </summary>
         public readonly Outputs.InferenceExperimentModelInfrastructureConfig InfrastructureConfig;
         /// <summary>
         /// The name of the Amazon SageMaker Model entity.

@@ -30,11 +30,17 @@ class GetResourceAssociationResult:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) that specifies the application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) that specifies the resource.
+        """
         return pulumi.get(self, "resource_arn")
 
 
@@ -56,6 +62,8 @@ def get_resource_association(application_arn: Optional[str] = None,
     Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 
 
+    :param str application_arn: The Amazon resource name (ARN) that specifies the application.
+    :param str resource_arn: The Amazon resource name (ARN) that specifies the resource.
     :param 'ResourceAssociationResourceType' resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
     """
     __args__ = dict()
@@ -79,6 +87,8 @@ def get_resource_association_output(application_arn: Optional[pulumi.Input[str]]
     Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 
 
+    :param str application_arn: The Amazon resource name (ARN) that specifies the application.
+    :param str resource_arn: The Amazon resource name (ARN) that specifies the resource.
     :param 'ResourceAssociationResourceType' resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
     """
     ...

@@ -29,6 +29,7 @@ type LookupDatabaseArgs struct {
 }
 
 type LookupDatabaseResult struct {
+	// The `arn` of the database.
 	Arn *string `pulumi:"arn"`
 	// The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -72,6 +73,7 @@ func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx 
 	return o
 }
 
+// The `arn` of the database.
 func (o LookupDatabaseResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

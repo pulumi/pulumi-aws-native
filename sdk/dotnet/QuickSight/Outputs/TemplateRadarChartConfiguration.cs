@@ -13,20 +13,65 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateRadarChartConfiguration
     {
+        /// <summary>
+        /// Determines the visibility of the colors of alternatign bands in a radar chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AlternateBandColorsVisibility;
+        /// <summary>
+        /// The color of the even-numbered alternate bands of a radar chart.
+        /// </summary>
         public readonly string? AlternateBandEvenColor;
+        /// <summary>
+        /// The color of the odd-numbered alternate bands of a radar chart.
+        /// </summary>
         public readonly string? AlternateBandOddColor;
+        /// <summary>
+        /// The axis behavior options of a radar chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateRadarChartAxesRangeScale? AxesRangeScale;
+        /// <summary>
+        /// The base sreies settings of a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateRadarChartSeriesSettings? BaseSeriesSettings;
+        /// <summary>
+        /// The category axis of a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The category label options of a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The color axis of a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? ColorAxis;
+        /// <summary>
+        /// The color label options of a radar chart.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ColorLabelOptions;
+        /// <summary>
+        /// The field well configuration of a `RadarChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateRadarChartFieldWells? FieldWells;
+        /// <summary>
+        /// The legend display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The shape of the radar chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateRadarChartShape? Shape;
+        /// <summary>
+        /// The sort configuration of a `RadarChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateRadarChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The start angle of a radar chart's axis.
+        /// </summary>
         public readonly double? StartAngle;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 
         [OutputConstructor]

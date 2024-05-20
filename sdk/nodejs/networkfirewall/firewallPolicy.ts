@@ -37,11 +37,31 @@ export class FirewallPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallPolicy.__pulumiType;
     }
 
+    /**
+     * A description of the firewall policy.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+     */
     public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicy>;
+    /**
+     * The Amazon Resource Name (ARN) of the `FirewallPolicy` .
+     */
     public /*out*/ readonly firewallPolicyArn!: pulumi.Output<string>;
+    /**
+     * The unique ID of the `FirewallPolicy` resource.
+     */
     public /*out*/ readonly firewallPolicyId!: pulumi.Output<string>;
+    /**
+     * The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+     */
     public readonly firewallPolicyName!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -83,8 +103,22 @@ export class FirewallPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a FirewallPolicy resource.
  */
 export interface FirewallPolicyArgs {
+    /**
+     * A description of the firewall policy.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
+     */
     firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyArgs>;
+    /**
+     * The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
+     */
     firewallPolicyName?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

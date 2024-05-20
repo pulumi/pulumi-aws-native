@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFunnelChartConfiguration
     {
+        /// <summary>
+        /// The label options of the categories that are displayed in a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The options that determine the presentation of the data labels.
+        /// </summary>
         public readonly Outputs.DashboardFunnelChartDataLabelOptions? DataLabelOptions;
+        /// <summary>
+        /// The field well configuration of a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardFunnelChartFieldWells? FieldWells;
+        /// <summary>
+        /// The sort configuration of a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardFunnelChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip configuration of a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// The label options for the values that are displayed in a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? ValueLabelOptions;
+        /// <summary>
+        /// The visual palette configuration of a `FunnelChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 
         [OutputConstructor]

@@ -28,6 +28,15 @@ class DbClusterParameterGroupArgs:
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBClusterParameterGroup` for more information about the expected schema for this property.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
+               
+               Constraints:
+               
+               - Must not match the name of an existing DB cluster parameter group.
+               
+               If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+               
+               > This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags for the cluster parameter group.
         """
         pulumi.set(__self__, "description", description)
@@ -79,6 +88,17 @@ class DbClusterParameterGroupArgs:
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB cluster parameter group.
+
+        Constraints:
+
+        - Must not match the name of an existing DB cluster parameter group.
+
+        If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+
+        > This value is stored as a lowercase string.
+        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @db_cluster_parameter_group_name.setter
@@ -114,6 +134,15 @@ class DbClusterParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: The name of the DB cluster parameter group.
+               
+               Constraints:
+               
+               - Must not match the name of an existing DB cluster parameter group.
+               
+               If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+               
+               > This value is stored as a lowercase string.
         :param pulumi.Input[str] description: A friendly description for this DB cluster parameter group.
         :param pulumi.Input[str] family: The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
         :param Any parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
@@ -204,6 +233,17 @@ class DbClusterParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the DB cluster parameter group.
+
+        Constraints:
+
+        - Must not match the name of an existing DB cluster parameter group.
+
+        If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+
+        > This value is stored as a lowercase string.
+        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property

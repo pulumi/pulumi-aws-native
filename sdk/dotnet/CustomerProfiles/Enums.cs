@@ -205,6 +205,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The status of rule-based matching rule.
+    /// </summary>
     [EnumType]
     public readonly struct DomainRuleBasedMatchingStatus : IEquatable<DomainRuleBasedMatchingStatus>
     {
@@ -502,6 +505,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+    /// </summary>
     [EnumType]
     public readonly struct IntegrationScheduledTriggerPropertiesDataPullMode : IEquatable<IntegrationScheduledTriggerPropertiesDataPullMode>
     {

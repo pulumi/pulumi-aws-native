@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RuleHttpMatch
     {
+        /// <summary>
+        /// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleHeaderMatch> HeaderMatches;
+        /// <summary>
+        /// The HTTP method type.
+        /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.RuleHttpMatchMethod? Method;
+        /// <summary>
+        /// The path match.
+        /// </summary>
         public readonly Outputs.RulePathMatch? PathMatch;
 
         [OutputConstructor]

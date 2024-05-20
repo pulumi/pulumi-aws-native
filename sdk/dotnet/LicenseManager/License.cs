@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.LicenseManager
         [Output("beneficiary")]
         public Output<string?> Beneficiary { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for consumption of the license.
+        /// </summary>
         [Output("consumptionConfiguration")]
         public Output<Outputs.LicenseConsumptionConfiguration> ConsumptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// License entitlements.
+        /// </summary>
         [Output("entitlements")]
         public Output<ImmutableArray<Outputs.LicenseEntitlement>> Entitlements { get; private set; } = null!;
 
@@ -33,6 +39,9 @@ namespace Pulumi.AwsNative.LicenseManager
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// License issuer.
+        /// </summary>
         [Output("issuer")]
         public Output<Outputs.LicenseIssuerData> Issuer { get; private set; } = null!;
 
@@ -42,6 +51,9 @@ namespace Pulumi.AwsNative.LicenseManager
         [Output("licenseArn")]
         public Output<string> LicenseArn { get; private set; } = null!;
 
+        /// <summary>
+        /// License metadata.
+        /// </summary>
         [Output("licenseMetadata")]
         public Output<ImmutableArray<Outputs.LicenseMetadata>> LicenseMetadata { get; private set; } = null!;
 
@@ -63,9 +75,15 @@ namespace Pulumi.AwsNative.LicenseManager
         [Output("productSku")]
         public Output<string?> ProductSku { get; private set; } = null!;
 
+        /// <summary>
+        /// License status.
+        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Date and time range during which the license is valid, in ISO8601-UTC format.
+        /// </summary>
         [Output("validity")]
         public Output<Outputs.LicenseValidityDateFormat> Validity { get; private set; } = null!;
 
@@ -126,11 +144,18 @@ namespace Pulumi.AwsNative.LicenseManager
         [Input("beneficiary")]
         public Input<string>? Beneficiary { get; set; }
 
+        /// <summary>
+        /// Configuration for consumption of the license.
+        /// </summary>
         [Input("consumptionConfiguration", required: true)]
         public Input<Inputs.LicenseConsumptionConfigurationArgs> ConsumptionConfiguration { get; set; } = null!;
 
         [Input("entitlements", required: true)]
         private InputList<Inputs.LicenseEntitlementArgs>? _entitlements;
+
+        /// <summary>
+        /// License entitlements.
+        /// </summary>
         public InputList<Inputs.LicenseEntitlementArgs> Entitlements
         {
             get => _entitlements ?? (_entitlements = new InputList<Inputs.LicenseEntitlementArgs>());
@@ -143,11 +168,18 @@ namespace Pulumi.AwsNative.LicenseManager
         [Input("homeRegion", required: true)]
         public Input<string> HomeRegion { get; set; } = null!;
 
+        /// <summary>
+        /// License issuer.
+        /// </summary>
         [Input("issuer", required: true)]
         public Input<Inputs.LicenseIssuerDataArgs> Issuer { get; set; } = null!;
 
         [Input("licenseMetadata")]
         private InputList<Inputs.LicenseMetadataArgs>? _licenseMetadata;
+
+        /// <summary>
+        /// License metadata.
+        /// </summary>
         public InputList<Inputs.LicenseMetadataArgs> LicenseMetadata
         {
             get => _licenseMetadata ?? (_licenseMetadata = new InputList<Inputs.LicenseMetadataArgs>());
@@ -172,9 +204,15 @@ namespace Pulumi.AwsNative.LicenseManager
         [Input("productSku")]
         public Input<string>? ProductSku { get; set; }
 
+        /// <summary>
+        /// License status.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Date and time range during which the license is valid, in ISO8601-UTC format.
+        /// </summary>
         [Input("validity", required: true)]
         public Input<Inputs.LicenseValidityDateFormatArgs> Validity { get; set; } = null!;
 

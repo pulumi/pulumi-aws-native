@@ -23,10 +23,12 @@ func LookupTemplate(ctx *pulumi.Context, args *LookupTemplateArgs, opts ...pulum
 }
 
 type LookupTemplateArgs struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 	TemplateArn string `pulumi:"templateArn"`
 }
 
 type LookupTemplateResult struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 	TemplateArn *string `pulumi:"templateArn"`
 }
 
@@ -44,6 +46,7 @@ func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, op
 }
 
 type LookupTemplateOutputArgs struct {
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 	TemplateArn pulumi.StringInput `pulumi:"templateArn"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx 
 	return o
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 func (o LookupTemplateResultOutput) TemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.TemplateArn }).(pulumi.StringPtrOutput)
 }

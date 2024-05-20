@@ -338,6 +338,9 @@ class ApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiKeyId")
     def api_key_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the API key. For example: `abc123` .
+        """
         return pulumi.get(self, "api_key_id")
 
     @property

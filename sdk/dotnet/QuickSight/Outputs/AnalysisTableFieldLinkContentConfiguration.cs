@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTableFieldLinkContentConfiguration
     {
+        /// <summary>
+        /// The custom icon content for the table link content configuration.
+        /// </summary>
         public readonly Outputs.AnalysisTableFieldCustomIconContent? CustomIconContent;
+        /// <summary>
+        /// The custom text content (value, font configuration) for the table link content configuration.
+        /// </summary>
         public readonly Outputs.AnalysisTableFieldCustomTextContent? CustomTextContent;
 
         [OutputConstructor]

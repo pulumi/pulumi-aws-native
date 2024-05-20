@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     {
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
+
+        /// <summary>
+        /// The resource types.
+        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         [Input("resources")]
         private InputList<string>? _resources;
+
+        /// <summary>
+        /// The resources.
+        /// </summary>
         public InputList<string> Resources
         {
             get => _resources ?? (_resources = new InputList<string>());

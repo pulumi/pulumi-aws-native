@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// </summary>
     public sealed class TableAutoScalingSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This optional parameter enables auto scaling for the table if set to `false` .
+        /// </summary>
         [Input("autoScalingDisabled")]
         public Input<bool>? AutoScalingDisabled { get; set; }
 
+        /// <summary>
+        /// Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+        /// </summary>
         [Input("maximumUnits")]
         public Input<int>? MaximumUnits { get; set; }
 
+        /// <summary>
+        /// The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
+        /// </summary>
         [Input("minimumUnits")]
         public Input<int>? MinimumUnits { get; set; }
 
+        /// <summary>
+        /// Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
+        /// </summary>
         [Input("scalingPolicy")]
         public Input<Inputs.TableScalingPolicyArgs>? ScalingPolicy { get; set; }
 

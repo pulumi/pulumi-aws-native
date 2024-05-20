@@ -69,7 +69,15 @@ export class Connection extends pulumi.CustomResource {
      * The arn of the connection resource.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+     */
     public readonly authParameters!: pulumi.Output<outputs.events.ConnectionAuthParameters>;
+    /**
+     * The type of authorization to use for the connection.
+     *
+     * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+     */
     public readonly authorizationType!: pulumi.Output<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.
@@ -126,7 +134,15 @@ export class Connection extends pulumi.CustomResource {
  * The set of arguments for constructing a Connection resource.
  */
 export interface ConnectionArgs {
+    /**
+     * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+     */
     authParameters: pulumi.Input<inputs.events.ConnectionAuthParametersArgs>;
+    /**
+     * The type of authorization to use for the connection.
+     *
+     * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
+     */
     authorizationType: pulumi.Input<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.

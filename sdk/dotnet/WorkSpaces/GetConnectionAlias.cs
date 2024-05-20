@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class GetConnectionAliasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the connection alias, returned as a string.
+        /// </summary>
         [Input("aliasId", required: true)]
         public string AliasId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class GetConnectionAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the connection alias, returned as a string.
+        /// </summary>
         [Input("aliasId", required: true)]
         public Input<string> AliasId { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.WorkSpaces
     [OutputType]
     public sealed class GetConnectionAliasResult
     {
+        /// <summary>
+        /// The identifier of the connection alias, returned as a string.
+        /// </summary>
         public readonly string? AliasId;
+        /// <summary>
+        /// The association status of the connection alias.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConnectionAliasAssociation> Associations;
+        /// <summary>
+        /// The current state of the connection alias, returned as a string.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpaces.ConnectionAliasState? ConnectionAliasState;
 
         [OutputConstructor]

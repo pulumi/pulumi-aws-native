@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.Backup
     [AwsNativeResourceType("aws-native:backup:BackupPlan")]
     public partial class BackupPlan : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Uniquely identifies the backup plan to be associated with the selection of resources.
+        /// </summary>
         [Output("backupPlan")]
         public Output<Outputs.BackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
 
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
+        /// </summary>
         [Output("backupPlanArn")]
         public Output<string> BackupPlanArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Uniquely identifies a backup plan.
+        /// </summary>
         [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to assign to the backup plan.
+        /// </summary>
         [Output("backupPlanTags")]
         public Output<ImmutableDictionary<string, string>?> BackupPlanTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes long. Version Ids cannot be edited.
+        /// </summary>
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
@@ -75,11 +90,18 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class BackupPlanArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Uniquely identifies the backup plan to be associated with the selection of resources.
+        /// </summary>
         [Input("backupPlan", required: true)]
         public Input<Inputs.BackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
         [Input("backupPlanTags")]
         private InputMap<string>? _backupPlanTags;
+
+        /// <summary>
+        /// The tags to assign to the backup plan.
+        /// </summary>
         public InputMap<string> BackupPlanTags
         {
             get => _backupPlanTags ?? (_backupPlanTags = new InputMap<string>());

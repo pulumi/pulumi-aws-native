@@ -16,9 +16,12 @@ import (
 type KeyGroup struct {
 	pulumi.CustomResourceState
 
-	AwsId            pulumi.StringOutput  `pulumi:"awsId"`
-	KeyGroupConfig   KeyGroupConfigOutput `pulumi:"keyGroupConfig"`
-	LastModifiedTime pulumi.StringOutput  `pulumi:"lastModifiedTime"`
+	// The identifier for the key group.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The key group configuration.
+	KeyGroupConfig KeyGroupConfigOutput `pulumi:"keyGroupConfig"`
+	// The date and time when the key group was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 }
 
 // NewKeyGroup registers a new resource with the given unique name, arguments, and options.
@@ -64,11 +67,13 @@ func (KeyGroupState) ElementType() reflect.Type {
 }
 
 type keyGroupArgs struct {
+	// The key group configuration.
 	KeyGroupConfig KeyGroupConfig `pulumi:"keyGroupConfig"`
 }
 
 // The set of arguments for constructing a KeyGroup resource.
 type KeyGroupArgs struct {
+	// The key group configuration.
 	KeyGroupConfig KeyGroupConfigInput
 }
 
@@ -109,14 +114,17 @@ func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGrou
 	return o
 }
 
+// The identifier for the key group.
 func (o KeyGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The key group configuration.
 func (o KeyGroupOutput) KeyGroupConfig() KeyGroupConfigOutput {
 	return o.ApplyT(func(v *KeyGroup) KeyGroupConfigOutput { return v.KeyGroupConfig }).(KeyGroupConfigOutput)
 }
 
+// The date and time when the key group was last modified.
 func (o KeyGroupOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }

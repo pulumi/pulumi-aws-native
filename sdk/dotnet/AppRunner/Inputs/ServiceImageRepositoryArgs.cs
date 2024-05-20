@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     /// </summary>
     public sealed class ServiceImageRepositoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for running the identified image.
+        /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.ServiceImageConfigurationArgs>? ImageConfiguration { get; set; }
 

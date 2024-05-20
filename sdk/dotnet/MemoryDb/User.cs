@@ -27,6 +27,13 @@ namespace Pulumi.AwsNative.MemoryDb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Denotes whether the user requires a password to authenticate.
+        /// 
+        /// *Example:*
+        /// 
+        /// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &amp;* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+        /// </summary>
         [Output("authenticationMode")]
         public Output<Outputs.AuthenticationModeProperties?> AuthenticationMode { get; private set; } = null!;
 
@@ -103,6 +110,13 @@ namespace Pulumi.AwsNative.MemoryDb
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
+        /// <summary>
+        /// Denotes whether the user requires a password to authenticate.
+        /// 
+        /// *Example:*
+        /// 
+        /// `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &amp;* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
+        /// </summary>
         [Input("authenticationMode")]
         public Input<Inputs.AuthenticationModePropertiesArgs>? AuthenticationMode { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormValueMappings
     {
+        /// <summary>
+        /// The information to bind fields to data at runtime.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.FormInputBindingPropertiesValue>? BindingProperties;
+        /// <summary>
+        /// The value and display value pairs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FormValueMapping> Values;
 
         [OutputConstructor]

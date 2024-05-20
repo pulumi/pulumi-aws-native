@@ -57,6 +57,9 @@ export class Pipeline extends pulumi.CustomResource {
      * The parameter values used with the pipeline.
      */
     public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineParameterValue[] | undefined>;
+    /**
+     * The ID of the pipeline.
+     */
     public /*out*/ readonly pipelineId!: pulumi.Output<string>;
     /**
      * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.

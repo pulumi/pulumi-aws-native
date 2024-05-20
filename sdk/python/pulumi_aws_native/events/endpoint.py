@@ -25,6 +25,14 @@ class EndpointArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointEventBusArgs']]] event_buses: The event buses being used by the endpoint.
+               
+               *Exactly* : `2`
+        :param pulumi.Input['EndpointRoutingConfigArgs'] routing_config: The routing configuration of the endpoint.
+        :param pulumi.Input[str] description: A description for the endpoint.
+        :param pulumi.Input[str] name: The name of the endpoint.
+        :param pulumi.Input['EndpointReplicationConfigArgs'] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        :param pulumi.Input[str] role_arn: The ARN of the role used by event replication for the endpoint.
         """
         pulumi.set(__self__, "event_buses", event_buses)
         pulumi.set(__self__, "routing_config", routing_config)
@@ -40,6 +48,11 @@ class EndpointArgs:
     @property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointEventBusArgs']]]:
+        """
+        The event buses being used by the endpoint.
+
+        *Exactly* : `2`
+        """
         return pulumi.get(self, "event_buses")
 
     @event_buses.setter
@@ -49,6 +62,9 @@ class EndpointArgs:
     @property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> pulumi.Input['EndpointRoutingConfigArgs']:
+        """
+        The routing configuration of the endpoint.
+        """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
@@ -58,6 +74,9 @@ class EndpointArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the endpoint.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,6 +86,9 @@ class EndpointArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the endpoint.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,6 +98,9 @@ class EndpointArgs:
     @property
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> Optional[pulumi.Input['EndpointReplicationConfigArgs']]:
+        """
+        Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        """
         return pulumi.get(self, "replication_config")
 
     @replication_config.setter
@@ -85,6 +110,9 @@ class EndpointArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role used by event replication for the endpoint.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -176,6 +204,14 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description for the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointEventBusArgs']]]] event_buses: The event buses being used by the endpoint.
+               
+               *Exactly* : `2`
+        :param pulumi.Input[str] name: The name of the endpoint.
+        :param pulumi.Input[pulumi.InputType['EndpointReplicationConfigArgs']] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        :param pulumi.Input[str] role_arn: The ARN of the role used by event replication for the endpoint.
+        :param pulumi.Input[pulumi.InputType['EndpointRoutingConfigArgs']] routing_config: The routing configuration of the endpoint.
         """
         ...
     @overload
@@ -338,55 +374,90 @@ class Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the endpoint.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the endpoint.
+        """
         return pulumi.get(self, "endpoint_id")
 
     @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[str]:
+        """
+        The URL of the endpoint.
+        """
         return pulumi.get(self, "endpoint_url")
 
     @property
     @pulumi.getter(name="eventBuses")
     def event_buses(self) -> pulumi.Output[Sequence['outputs.EndpointEventBus']]:
+        """
+        The event buses being used by the endpoint.
+
+        *Exactly* : `2`
+        """
         return pulumi.get(self, "event_buses")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the endpoint.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> pulumi.Output[Optional['outputs.EndpointReplicationConfig']]:
+        """
+        Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
+        """
         return pulumi.get(self, "replication_config")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the role used by event replication for the endpoint.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> pulumi.Output['outputs.EndpointRoutingConfig']:
+        """
+        The routing configuration of the endpoint.
+        """
         return pulumi.get(self, "routing_config")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output['EndpointState']:
+        """
+        The main Region of the endpoint.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> pulumi.Output[str]:
+        """
+        The reason the endpoint is in its current state.
+        """
         return pulumi.get(self, "state_reason")
 

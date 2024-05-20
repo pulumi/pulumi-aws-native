@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionMonitoringOutput
     {
+        /// <summary>
+        /// The Amazon S3 storage location where the results of a monitoring job are saved.
+        /// </summary>
         public readonly Outputs.ModelExplainabilityJobDefinitionS3Output S3Output;
 
         [OutputConstructor]

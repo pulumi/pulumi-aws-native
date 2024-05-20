@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclNotStatement
     {
+        /// <summary>
+        /// The statement to negate. You can use any statement that can be nested.
+        /// </summary>
         public readonly Outputs.WebAclStatement Statement;
 
         [OutputConstructor]

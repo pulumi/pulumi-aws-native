@@ -37,7 +37,13 @@ export class OriginAccessControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginAccessControl.__pulumiType;
     }
 
+    /**
+     * The unique identifier of the origin access control.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The origin access control.
+     */
     public readonly originAccessControlConfig!: pulumi.Output<outputs.cloudfront.OriginAccessControlConfig>;
 
     /**
@@ -69,5 +75,8 @@ export class OriginAccessControl extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginAccessControl resource.
  */
 export interface OriginAccessControlArgs {
+    /**
+     * The origin access control.
+     */
     originAccessControlConfig: pulumi.Input<inputs.cloudfront.OriginAccessControlConfigArgs>;
 }

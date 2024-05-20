@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTextAreaControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.AnalysisSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The configuration of the placeholder options in a text area control.
+        /// </summary>
         [Input("placeholderOptions")]
         public Input<Inputs.AnalysisTextControlPlaceholderOptionsArgs>? PlaceholderOptions { get; set; }
 
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.AnalysisLabelOptionsArgs>? TitleOptions { get; set; }
 

@@ -42,6 +42,9 @@ export class Secret extends pulumi.CustomResource {
         return obj['__pulumiType'] === Secret.__pulumiType;
     }
 
+    /**
+     * The ARN of the secret.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The description of the secret.

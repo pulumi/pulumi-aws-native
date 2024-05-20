@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamDataFormatConversionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defaults to `true` . Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
+        /// </summary>
         [Input("inputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamInputFormatConfigurationArgs>? InputFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
+        /// </summary>
         [Input("outputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamOutputFormatConfigurationArgs>? OutputFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
+        /// </summary>
         [Input("schemaConfiguration")]
         public Input<Inputs.DeliveryStreamSchemaConfigurationArgs>? SchemaConfiguration { get; set; }
 

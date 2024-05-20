@@ -23,15 +23,21 @@ func LookupServiceAction(ctx *pulumi.Context, args *LookupServiceActionArgs, opt
 }
 
 type LookupServiceActionArgs struct {
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
 	Id string `pulumi:"id"`
 }
 
 type LookupServiceActionResult struct {
-	Definition     []ServiceActionDefinitionParameter `pulumi:"definition"`
-	DefinitionType *ServiceActionDefinitionType       `pulumi:"definitionType"`
-	Description    *string                            `pulumi:"description"`
-	Id             *string                            `pulumi:"id"`
-	Name           *string                            `pulumi:"name"`
+	// A map that defines the self-service action.
+	Definition []ServiceActionDefinitionParameter `pulumi:"definition"`
+	// The self-service action definition type. For example, `SSM_AUTOMATION` .
+	DefinitionType *ServiceActionDefinitionType `pulumi:"definitionType"`
+	// The self-service action description.
+	Description *string `pulumi:"description"`
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+	Id *string `pulumi:"id"`
+	// The self-service action name.
+	Name *string `pulumi:"name"`
 }
 
 func LookupServiceActionOutput(ctx *pulumi.Context, args LookupServiceActionOutputArgs, opts ...pulumi.InvokeOption) LookupServiceActionResultOutput {
@@ -48,6 +54,7 @@ func LookupServiceActionOutput(ctx *pulumi.Context, args LookupServiceActionOutp
 }
 
 type LookupServiceActionOutputArgs struct {
+	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -69,22 +76,27 @@ func (o LookupServiceActionResultOutput) ToLookupServiceActionResultOutputWithCo
 	return o
 }
 
+// A map that defines the self-service action.
 func (o LookupServiceActionResultOutput) Definition() ServiceActionDefinitionParameterArrayOutput {
 	return o.ApplyT(func(v LookupServiceActionResult) []ServiceActionDefinitionParameter { return v.Definition }).(ServiceActionDefinitionParameterArrayOutput)
 }
 
+// The self-service action definition type. For example, `SSM_AUTOMATION` .
 func (o LookupServiceActionResultOutput) DefinitionType() ServiceActionDefinitionTypePtrOutput {
 	return o.ApplyT(func(v LookupServiceActionResult) *ServiceActionDefinitionType { return v.DefinitionType }).(ServiceActionDefinitionTypePtrOutput)
 }
 
+// The self-service action description.
 func (o LookupServiceActionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceActionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
 func (o LookupServiceActionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceActionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The self-service action name.
 func (o LookupServiceActionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceActionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

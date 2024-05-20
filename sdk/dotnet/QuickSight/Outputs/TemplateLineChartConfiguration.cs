@@ -13,24 +13,81 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateLineChartConfiguration
     {
+        /// <summary>
+        /// The default configuration of a line chart's contribution analysis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The data label configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The options that determine the default presentation of all line series in `LineChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateLineChartDefaultSeriesSettings? DefaultSeriesSettings;
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateLineChartFieldWells? FieldWells;
+        /// <summary>
+        /// The forecast configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateForecastConfiguration> ForecastConfigurations;
+        /// <summary>
+        /// The legend configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateLineSeriesAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the y-axis label.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference lines configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateLineSeriesAxisDisplayOptions? SecondaryYAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the secondary y-axis label.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        /// <summary>
+        /// The series item configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSeriesItem> Series;
+        /// <summary>
+        /// The small multiples setup for the visual.
+        /// </summary>
         public readonly Outputs.TemplateSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// The sort configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateLineChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
+        /// <summary>
+        /// Determines the type of the line chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLineChartType? Type;
+        /// <summary>
+        /// The visual palette configuration of a line chart.
+        /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis.
+        /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis label.
+        /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? XAxisLabelOptions;
 
         [OutputConstructor]

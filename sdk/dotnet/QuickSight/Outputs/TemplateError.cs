@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Description of the error type.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// Type of error.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateErrorType? Type;
         /// <summary>
         /// &lt;p&gt;An error path that shows which entities caused the template error.&lt;/p&gt;

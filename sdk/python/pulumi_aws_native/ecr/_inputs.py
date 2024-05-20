@@ -29,6 +29,8 @@ class ReplicationConfigurationReplicationDestinationArgs:
                  registry_id: pulumi.Input[str]):
         """
         An array of objects representing the details of a replication destination.
+        :param pulumi.Input[str] region: The Region to replicate to.
+        :param pulumi.Input[str] registry_id: The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
         """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "registry_id", registry_id)
@@ -36,6 +38,9 @@ class ReplicationConfigurationReplicationDestinationArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
+        """
+        The Region to replicate to.
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -45,6 +50,9 @@ class ReplicationConfigurationReplicationDestinationArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Input[str]:
+        """
+        The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -98,6 +106,8 @@ class ReplicationConfigurationRepositoryFilterArgs:
                  filter_type: pulumi.Input['ReplicationConfigurationFilterType']):
         """
         An array of objects representing the details of a repository filter.
+        :param pulumi.Input[str] filter: The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+        :param pulumi.Input['ReplicationConfigurationFilterType'] filter_type: The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
         """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
@@ -105,6 +115,9 @@ class ReplicationConfigurationRepositoryFilterArgs:
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Input[str]:
+        """
+        The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -114,6 +127,9 @@ class ReplicationConfigurationRepositoryFilterArgs:
     @property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> pulumi.Input['ReplicationConfigurationFilterType']:
+        """
+        The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
+        """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
@@ -153,6 +169,12 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
 
         For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+        :param pulumi.Input['RepositoryCreationTemplateEncryptionType'] encryption_type: The encryption type to use.
+               
+               If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+               
+               If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+        :param pulumi.Input[str] kms_key: If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -161,6 +183,13 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input['RepositoryCreationTemplateEncryptionType']:
+        """
+        The encryption type to use.
+
+        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+
+        If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -170,6 +199,9 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter

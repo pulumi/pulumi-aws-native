@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class GlobalTableContributorInsightsSpecification
     {
+        /// <summary>
+        /// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

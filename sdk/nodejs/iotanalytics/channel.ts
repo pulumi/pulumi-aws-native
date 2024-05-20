@@ -108,9 +108,23 @@ export class Channel extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The name of the channel.
+     */
     public readonly channelName!: pulumi.Output<string | undefined>;
+    /**
+     * Where channel data is stored.
+     */
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
+    /**
+     * How long, in days, message data is kept for the channel.
+     */
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
+    /**
+     * Metadata which can be used to manage the channel.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -147,8 +161,22 @@ export class Channel extends pulumi.CustomResource {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
+    /**
+     * The name of the channel.
+     */
     channelName?: pulumi.Input<string>;
+    /**
+     * Where channel data is stored.
+     */
     channelStorage?: pulumi.Input<inputs.iotanalytics.ChannelStorageArgs>;
+    /**
+     * How long, in days, message data is kept for the channel.
+     */
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.ChannelRetentionPeriodArgs>;
+    /**
+     * Metadata which can be used to manage the channel.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

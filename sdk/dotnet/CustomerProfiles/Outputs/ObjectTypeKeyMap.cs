@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class ObjectTypeKeyMap
     {
+        /// <summary>
+        /// Name of the key.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A list of ObjectTypeKey.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ObjectTypeKey> ObjectTypeKeyList;
 
         [OutputConstructor]

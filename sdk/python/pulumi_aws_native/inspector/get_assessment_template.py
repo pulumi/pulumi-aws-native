@@ -26,6 +26,9 @@ class GetAssessmentTemplateResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that specifies the assessment template that is created.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -42,6 +45,9 @@ def get_assessment_template(arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentTemplateResult:
     """
     Resource Type definition for AWS::Inspector::AssessmentTemplate
+
+
+    :param str arn: The Amazon Resource Name (ARN) that specifies the assessment template that is created.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -57,5 +63,8 @@ def get_assessment_template_output(arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentTemplateResult]:
     """
     Resource Type definition for AWS::Inspector::AssessmentTemplate
+
+
+    :param str arn: The Amazon Resource Name (ARN) that specifies the assessment template that is created.
     """
     ...

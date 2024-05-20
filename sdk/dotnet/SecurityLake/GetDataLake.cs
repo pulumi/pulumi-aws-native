@@ -61,13 +61,25 @@ namespace Pulumi.AwsNative.SecurityLake
         /// The Amazon Resource Name (ARN) created by you to provide to the subscriber.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Provides encryption details of the Amazon Security Lake object.
+        /// </summary>
         public readonly Outputs.DataLakeEncryptionConfiguration? EncryptionConfiguration;
+        /// <summary>
+        /// You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
+        /// </summary>
         public readonly Outputs.DataLakeLifecycleConfiguration? LifecycleConfiguration;
+        /// <summary>
+        /// Provides replication details of Amazon Security Lake object.
+        /// </summary>
         public readonly Outputs.DataLakeReplicationConfiguration? ReplicationConfiguration;
         /// <summary>
         /// The ARN for the Amazon Security Lake Amazon S3 bucket.
         /// </summary>
         public readonly string? S3BucketArn;
+        /// <summary>
+        /// An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

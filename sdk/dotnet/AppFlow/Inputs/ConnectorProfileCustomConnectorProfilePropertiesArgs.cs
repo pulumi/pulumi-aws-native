@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class ConnectorProfileCustomConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth 2.0 properties required for OAuth 2.0 authentication.
+        /// </summary>
         [Input("oAuth2Properties")]
         public Input<Inputs.ConnectorProfileOAuth2PropertiesArgs>? OAuth2Properties { get; set; }
 
         [Input("profileProperties")]
         private InputMap<string>? _profileProperties;
+
+        /// <summary>
+        /// A map of properties that are required to create a profile for the custom connector.
+        /// </summary>
         public InputMap<string> ProfileProperties
         {
             get => _profileProperties ?? (_profileProperties = new InputMap<string>());

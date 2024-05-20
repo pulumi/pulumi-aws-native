@@ -23,6 +23,7 @@ class IpAccessSettingsIpRuleArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ip_range: A single IP address or an IP address range in CIDR notation
+        :param pulumi.Input[str] description: The description of the IP rule.
         """
         pulumi.set(__self__, "ip_range", ip_range)
         if description is not None:
@@ -43,6 +44,9 @@ class IpAccessSettingsIpRuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the IP rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,6 +60,11 @@ class UserSettingsCookieSpecificationArgs:
                  domain: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain: The domain of the cookie.
+        :param pulumi.Input[str] name: The name of the cookie.
+        :param pulumi.Input[str] path: The path of the cookie.
+        """
         pulumi.set(__self__, "domain", domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -65,6 +74,9 @@ class UserSettingsCookieSpecificationArgs:
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        The domain of the cookie.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -74,6 +86,9 @@ class UserSettingsCookieSpecificationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cookie.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,6 +98,9 @@ class UserSettingsCookieSpecificationArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the cookie.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -95,6 +113,10 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     def __init__(__self__, *,
                  allowlist: pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]],
                  blocklist: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]] allowlist: The list of cookie specifications that are allowed to be synchronized to the remote browser.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]] blocklist: The list of cookie specifications that are blocked from being synchronized to the remote browser.
+        """
         pulumi.set(__self__, "allowlist", allowlist)
         if blocklist is not None:
             pulumi.set(__self__, "blocklist", blocklist)
@@ -102,6 +124,9 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @property
     @pulumi.getter
     def allowlist(self) -> pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]:
+        """
+        The list of cookie specifications that are allowed to be synchronized to the remote browser.
+        """
         return pulumi.get(self, "allowlist")
 
     @allowlist.setter
@@ -111,6 +136,9 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @property
     @pulumi.getter
     def blocklist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]]:
+        """
+        The list of cookie specifications that are blocked from being synchronized to the remote browser.
+        """
         return pulumi.get(self, "blocklist")
 
     @blocklist.setter

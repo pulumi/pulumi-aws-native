@@ -56,10 +56,12 @@ type Schedule struct {
 	pulumi.CustomResourceState
 
 	// Schedule cron
-	CronExpression pulumi.StringOutput      `pulumi:"cronExpression"`
-	JobNames       pulumi.StringArrayOutput `pulumi:"jobNames"`
+	CronExpression pulumi.StringOutput `pulumi:"cronExpression"`
+	// A list of jobs to be run, according to the schedule.
+	JobNames pulumi.StringArrayOutput `pulumi:"jobNames"`
 	// Schedule Name
-	Name pulumi.StringOutput          `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Metadata tags that have been applied to the schedule.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -112,10 +114,12 @@ func (ScheduleState) ElementType() reflect.Type {
 
 type scheduleArgs struct {
 	// Schedule cron
-	CronExpression string   `pulumi:"cronExpression"`
-	JobNames       []string `pulumi:"jobNames"`
+	CronExpression string `pulumi:"cronExpression"`
+	// A list of jobs to be run, according to the schedule.
+	JobNames []string `pulumi:"jobNames"`
 	// Schedule Name
-	Name *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Metadata tags that have been applied to the schedule.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -123,9 +127,11 @@ type scheduleArgs struct {
 type ScheduleArgs struct {
 	// Schedule cron
 	CronExpression pulumi.StringInput
-	JobNames       pulumi.StringArrayInput
+	// A list of jobs to be run, according to the schedule.
+	JobNames pulumi.StringArrayInput
 	// Schedule Name
 	Name pulumi.StringPtrInput
+	// Metadata tags that have been applied to the schedule.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -171,6 +177,7 @@ func (o ScheduleOutput) CronExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.CronExpression }).(pulumi.StringOutput)
 }
 
+// A list of jobs to be run, according to the schedule.
 func (o ScheduleOutput) JobNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringArrayOutput { return v.JobNames }).(pulumi.StringArrayOutput)
 }
@@ -180,6 +187,7 @@ func (o ScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Metadata tags that have been applied to the schedule.
 func (o ScheduleOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Schedule) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

@@ -49,6 +49,11 @@ export class Ruleset extends pulumi.CustomResource {
      * List of the data quality rules in the ruleset
      */
     public readonly rules!: pulumi.Output<outputs.databrew.RulesetRule[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to
@@ -107,6 +112,11 @@ export interface RulesetArgs {
      * List of the data quality rules in the ruleset
      */
     rules: pulumi.Input<pulumi.Input<inputs.databrew.RulesetRuleArgs>[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Arn of the target resource (dataset) to apply the ruleset to

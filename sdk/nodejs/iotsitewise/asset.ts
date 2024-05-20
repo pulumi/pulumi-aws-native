@@ -49,6 +49,9 @@ export class Asset extends pulumi.CustomResource {
      * The External ID of the asset
      */
     public readonly assetExternalId!: pulumi.Output<string | undefined>;
+    /**
+     * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
+     */
     public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
     /**
      * The ID of the asset
@@ -62,6 +65,11 @@ export class Asset extends pulumi.CustomResource {
      * A unique, friendly name for the asset.
      */
     public readonly assetName!: pulumi.Output<string>;
+    /**
+     * The list of asset properties for the asset.
+     *
+     * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
+     */
     public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetProperty[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset.
@@ -119,6 +127,9 @@ export interface AssetArgs {
      * The External ID of the asset
      */
     assetExternalId?: pulumi.Input<string>;
+    /**
+     * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
+     */
     assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[]>;
     /**
      * The ID of the asset model from which to create the asset.
@@ -128,6 +139,11 @@ export interface AssetArgs {
      * A unique, friendly name for the asset.
      */
     assetName?: pulumi.Input<string>;
+    /**
+     * The list of asset properties for the asset.
+     *
+     * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
+     */
     assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[]>;
     /**
      * A list of key-value pairs that contain metadata for the asset.

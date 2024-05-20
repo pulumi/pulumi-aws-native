@@ -24,16 +24,23 @@ func LookupAccessLogSubscription(ctx *pulumi.Context, args *LookupAccessLogSubsc
 }
 
 type LookupAccessLogSubscriptionArgs struct {
+	// The Amazon Resource Name (ARN) of the access log subscription.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupAccessLogSubscriptionResult struct {
-	Arn            *string   `pulumi:"arn"`
-	DestinationArn *string   `pulumi:"destinationArn"`
-	Id             *string   `pulumi:"id"`
-	ResourceArn    *string   `pulumi:"resourceArn"`
-	ResourceId     *string   `pulumi:"resourceId"`
-	Tags           []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the access log subscription.
+	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
+	DestinationArn *string `pulumi:"destinationArn"`
+	// The ID of the access log subscription.
+	Id *string `pulumi:"id"`
+	// The Amazon Resource Name (ARN) of the access log subscription.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// The ID of the service network or service.
+	ResourceId *string `pulumi:"resourceId"`
+	// The tags for the access log subscription.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupAccessLogSubscriptionOutput(ctx *pulumi.Context, args LookupAccessLogSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccessLogSubscriptionResultOutput {
@@ -50,6 +57,7 @@ func LookupAccessLogSubscriptionOutput(ctx *pulumi.Context, args LookupAccessLog
 }
 
 type LookupAccessLogSubscriptionOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the access log subscription.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,26 +79,32 @@ func (o LookupAccessLogSubscriptionResultOutput) ToLookupAccessLogSubscriptionRe
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the access log subscription.
 func (o LookupAccessLogSubscriptionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
 func (o LookupAccessLogSubscriptionResultOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the access log subscription.
 func (o LookupAccessLogSubscriptionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the access log subscription.
 func (o LookupAccessLogSubscriptionResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service network or service.
 func (o LookupAccessLogSubscriptionResultOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the access log subscription.
 func (o LookupAccessLogSubscriptionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

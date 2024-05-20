@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of security policy. Can be either `encryption` or `network` .
+        /// </summary>
         [Input("type", required: true)]
         public Pulumi.AwsNative.OpenSearchServerless.SecurityPolicyType Type { get; set; }
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of security policy. Can be either `encryption` or `network` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.OpenSearchServerless.SecurityPolicyType> Type { get; set; } = null!;
 

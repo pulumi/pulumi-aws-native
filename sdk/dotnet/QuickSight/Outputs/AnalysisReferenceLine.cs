@@ -13,9 +13,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisReferenceLine
     {
+        /// <summary>
+        /// The data configuration of the reference line.
+        /// </summary>
         public readonly Outputs.AnalysisReferenceLineDataConfiguration DataConfiguration;
+        /// <summary>
+        /// The label configuration of the reference line.
+        /// </summary>
         public readonly Outputs.AnalysisReferenceLineLabelConfiguration? LabelConfiguration;
+        /// <summary>
+        /// The status of the reference line. Choose one of the following options:
+        /// 
+        /// - `ENABLE`
+        /// - `DISABLE`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisWidgetStatus? Status;
+        /// <summary>
+        /// The style configuration of the reference line.
+        /// </summary>
         public readonly Outputs.AnalysisReferenceLineStyleConfiguration? StyleConfiguration;
 
         [OutputConstructor]

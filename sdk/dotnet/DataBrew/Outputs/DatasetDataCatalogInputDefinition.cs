@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// Table name
         /// </summary>
         public readonly string? TableName;
+        /// <summary>
+        /// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
+        /// </summary>
         public readonly Outputs.DatasetS3Location? TempDirectory;
 
         [OutputConstructor]

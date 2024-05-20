@@ -23,6 +23,7 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 }
 
 type LookupListenerArgs struct {
+	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn string `pulumi:"listenerArn"`
 }
 
@@ -35,7 +36,8 @@ type LookupListenerResult struct {
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
 	DefaultActions []ListenerAction `pulumi:"defaultActions"`
-	ListenerArn    *string          `pulumi:"listenerArn"`
+	// The Amazon Resource Name (ARN) of the listener.
+	ListenerArn *string `pulumi:"listenerArn"`
 	// The mutual authentication configuration information.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
@@ -62,6 +64,7 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 }
 
 type LookupListenerOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringInput `pulumi:"listenerArn"`
 }
 
@@ -102,6 +105,7 @@ func (o LookupListenerResultOutput) DefaultActions() ListenerActionArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerAction { return v.DefaultActions }).(ListenerActionArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the listener.
 func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }

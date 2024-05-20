@@ -929,6 +929,13 @@ class Role(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) for the role. For example:
+
+        `{"Fn::GetAtt" : ["MyRole", "Arn"] }`
+
+        This will return a value such as `arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -1001,6 +1008,11 @@ class Role(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleId")
     def role_id(self) -> pulumi.Output[str]:
+        """
+        Returns the stable and unique string identifying the role. For example, `AIDAJQABLZS4A3QDU576Q` .
+
+        For more information about IDs, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in the *IAM User Guide* .
+        """
         return pulumi.get(self, "role_id")
 
     @property

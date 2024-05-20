@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineFilter
     {
+        /// <summary>
+        /// An expression that looks like an SQL WHERE clause that must return a Boolean value.
+        /// </summary>
         public readonly string Filter;
+        /// <summary>
+        /// The name of the 'filter' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
 
         [OutputConstructor]

@@ -14,7 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplatePanelTitleOptions
     {
         public readonly Outputs.TemplateFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// Sets the horizontal text alignment of the title within each panel.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateHorizontalTextAlignment? HorizontalTextAlignment;
+        /// <summary>
+        /// Determines whether or not panel titles are displayed.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

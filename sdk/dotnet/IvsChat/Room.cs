@@ -109,6 +109,9 @@ namespace Pulumi.AwsNative.IvsChat
         [Output("maximumMessageRatePerSecond")]
         public Output<int?> MaximumMessageRatePerSecond { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for optional review of messages.
+        /// </summary>
         [Output("messageReviewHandler")]
         public Output<Outputs.RoomMessageReviewHandler?> MessageReviewHandler { get; private set; } = null!;
 
@@ -193,6 +196,9 @@ namespace Pulumi.AwsNative.IvsChat
         [Input("maximumMessageRatePerSecond")]
         public Input<int>? MaximumMessageRatePerSecond { get; set; }
 
+        /// <summary>
+        /// Configuration information for optional review of messages.
+        /// </summary>
         [Input("messageReviewHandler")]
         public Input<Inputs.RoomMessageReviewHandlerArgs>? MessageReviewHandler { get; set; }
 

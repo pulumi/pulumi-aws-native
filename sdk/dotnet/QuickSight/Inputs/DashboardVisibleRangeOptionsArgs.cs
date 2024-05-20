@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardVisibleRangeOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The percent range in the visible range.
+        /// </summary>
         [Input("percentRange")]
         public Input<Inputs.DashboardPercentVisibleRangeArgs>? PercentRange { get; set; }
 

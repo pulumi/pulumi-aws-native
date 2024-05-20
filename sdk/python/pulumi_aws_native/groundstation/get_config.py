@@ -44,31 +44,49 @@ class GetConfigResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configData")
     def config_data(self) -> Optional['outputs.ConfigData']:
+        """
+        Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
+        """
         return pulumi.get(self, "config_data")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the config object.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of the config, such as `tracking` .
+        """
         return pulumi.get(self, "type")
 
 
@@ -90,6 +108,9 @@ def get_config(arn: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigResult:
     """
     AWS Ground Station config resource type for CloudFormation.
+
+
+    :param str arn: The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -110,5 +131,8 @@ def get_config_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigResult]:
     """
     AWS Ground Station config resource type for CloudFormation.
+
+
+    :param str arn: The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """
     ...

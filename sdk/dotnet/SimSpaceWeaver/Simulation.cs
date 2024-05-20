@@ -285,9 +285,23 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// 
+        /// Provide a `SchemaS3Location` to start your simulation from a schema.
+        /// 
+        /// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
+        /// </summary>
         [Output("schemaS3Location")]
         public Output<Outputs.SimulationS3Location?> SchemaS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// 
+        /// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+        /// 
+        /// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
+        /// </summary>
         [Output("snapshotS3Location")]
         public Output<Outputs.SimulationS3Location?> SnapshotS3Location { get; private set; } = null!;
 
@@ -362,9 +376,23 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// 
+        /// Provide a `SchemaS3Location` to start your simulation from a schema.
+        /// 
+        /// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
+        /// </summary>
         [Input("schemaS3Location")]
         public Input<Inputs.SimulationS3LocationArgs>? SchemaS3Location { get; set; }
 
+        /// <summary>
+        /// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        /// 
+        /// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+        /// 
+        /// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
+        /// </summary>
         [Input("snapshotS3Location")]
         public Input<Inputs.SimulationS3LocationArgs>? SnapshotS3Location { get; set; }
 

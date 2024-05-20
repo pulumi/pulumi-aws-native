@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetHealthCheckArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+        /// </summary>
         [Input("healthCheckId", required: true)]
         public string HealthCheckId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class GetHealthCheckInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+        /// </summary>
         [Input("healthCheckId", required: true)]
         public Input<string> HealthCheckId { get; set; } = null!;
 
@@ -55,6 +61,9 @@ namespace Pulumi.AwsNative.Route53
         /// A complex type that contains information about the health check.
         /// </summary>
         public readonly Outputs.HealthCheckConfigProperties? HealthCheckConfig;
+        /// <summary>
+        /// The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+        /// </summary>
         public readonly string? HealthCheckId;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

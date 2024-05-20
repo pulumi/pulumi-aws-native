@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPivotTableRowsLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom label string for the rows label.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// The visibility of the rows label.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
     [OutputType]
     public sealed class ContainerEnvironmentVariable
     {
+        /// <summary>
+        /// The environment variable value.
+        /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// The environment variable key.
+        /// </summary>
         public readonly string? Variable;
 
         [OutputConstructor]

@@ -13,10 +13,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPeriodToDateComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The time granularity setup of period to date computation. Choose from the following options:
+        /// 
+        /// - YEAR: Year to date.
+        /// - MONTH: Month to date.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? PeriodTimeGranularity;
+        /// <summary>
+        /// The time field that is used in a computation.
+        /// </summary>
         public readonly Outputs.DashboardDimensionField? Time;
+        /// <summary>
+        /// The value field that is used in a computation.
+        /// </summary>
         public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]

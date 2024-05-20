@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     {
         [Input("items", required: true)]
         private InputList<Inputs.ResponseHeadersPolicyRemoveHeaderArgs>? _items;
+
+        /// <summary>
+        /// The list of HTTP header names.
+        /// </summary>
         public InputList<Inputs.ResponseHeadersPolicyRemoveHeaderArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.ResponseHeadersPolicyRemoveHeaderArgs>());

@@ -37,21 +37,33 @@ class GetStorageProfileResult:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the storage profile summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[Sequence['outputs.StorageProfileFileSystemLocation']]:
+        """
+        Operating system specific file system path to the storage location.
+        """
         return pulumi.get(self, "file_system_locations")
 
     @property
     @pulumi.getter(name="osFamily")
     def os_family(self) -> Optional['StorageProfileOperatingSystemFamily']:
+        """
+        The operating system (OS) family.
+        """
         return pulumi.get(self, "os_family")
 
     @property
     @pulumi.getter(name="storageProfileId")
     def storage_profile_id(self) -> Optional[str]:
+        """
+        The storage profile ID.
+        """
         return pulumi.get(self, "storage_profile_id")
 
 
@@ -72,6 +84,10 @@ def get_storage_profile(farm_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageProfileResult:
     """
     Definition of AWS::Deadline::StorageProfile Resource Type
+
+
+    :param str farm_id: The unique identifier of the farm that contains the storage profile.
+    :param str storage_profile_id: The storage profile ID.
     """
     __args__ = dict()
     __args__['farmId'] = farm_id
@@ -92,5 +108,9 @@ def get_storage_profile_output(farm_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageProfileResult]:
     """
     Definition of AWS::Deadline::StorageProfile Resource Type
+
+
+    :param str farm_id: The unique identifier of the farm that contains the storage profile.
+    :param str storage_profile_id: The storage profile ID.
     """
     ...

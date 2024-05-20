@@ -36,6 +36,9 @@ class GetStreamProcessorResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name for the newly created stream processor.
+        """
         return pulumi.get(self, "arn")
 
     @property

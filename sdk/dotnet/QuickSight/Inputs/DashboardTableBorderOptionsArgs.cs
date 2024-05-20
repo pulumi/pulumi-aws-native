@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableBorderOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color of a table border.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// The style (none, solid) of a table border.
+        /// </summary>
         [Input("style")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTableBorderStyle>? Style { get; set; }
 
+        /// <summary>
+        /// The thickness of a table border.
+        /// </summary>
         [Input("thickness")]
         public Input<double>? Thickness { get; set; }
 

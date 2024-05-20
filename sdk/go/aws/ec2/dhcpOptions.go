@@ -16,6 +16,7 @@ import (
 type DhcpOptions struct {
 	pulumi.CustomResourceState
 
+	// The ID of the DHCP options set.
 	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
 	// This value is used to complete unqualified DNS hostnames.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
@@ -153,6 +154,7 @@ func (o DhcpOptionsOutput) ToDhcpOptionsOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// The ID of the DHCP options set.
 func (o DhcpOptionsOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DhcpOptions) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }

@@ -13,13 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardHistogramConfiguration
     {
+        /// <summary>
+        /// The options that determine the presentation of histogram bins.
+        /// </summary>
         public readonly Outputs.DashboardHistogramBinOptions? BinOptions;
+        /// <summary>
+        /// The data label configuration of a histogram.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a histogram.
+        /// </summary>
         public readonly Outputs.DashboardHistogramFieldWells? FieldWells;
+        /// <summary>
+        /// The tooltip configuration of a histogram.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// The visual palette configuration of a histogram.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis label.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? XAxisLabelOptions;
+        /// <summary>
+        /// The options that determine the presentation of the y-axis.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? YAxisDisplayOptions;
 
         [OutputConstructor]

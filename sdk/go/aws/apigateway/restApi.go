@@ -792,8 +792,10 @@ type RestApi struct {
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-	Policy         pulumi.AnyOutput    `pulumi:"policy"`
-	RestApiId      pulumi.StringOutput `pulumi:"restApiId"`
+	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// The string identifier of the associated RestApi.
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
+	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -1040,10 +1042,12 @@ func (o RestApiOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The string identifier of the associated RestApi.
 func (o RestApiOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
+// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 func (o RestApiOutput) RootResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RootResourceId }).(pulumi.StringOutput)
 }

@@ -16,6 +16,9 @@ import (
 type MountTarget struct {
 	pulumi.CustomResourceState
 
+	// The ID of the Amazon EFS file system that the mount target provides access to.
+	//
+	// Example: `fs-0123456789111222a`
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID of the file system for which to create the mount target.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
@@ -141,6 +144,9 @@ func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) M
 	return o
 }
 
+// The ID of the Amazon EFS file system that the mount target provides access to.
+//
+// Example: `fs-0123456789111222a`
 func (o MountTargetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

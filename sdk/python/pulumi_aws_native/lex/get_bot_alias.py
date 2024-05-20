@@ -52,41 +52,65 @@ class GetBotAliasResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot alias.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="botAliasId")
     def bot_alias_id(self) -> Optional[str]:
+        """
+        The unique identifier of the bot alias.
+        """
         return pulumi.get(self, "bot_alias_id")
 
     @property
     @pulumi.getter(name="botAliasLocaleSettings")
     def bot_alias_locale_settings(self) -> Optional[Sequence['outputs.BotAliasLocaleSettingsItem']]:
+        """
+        Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+        """
         return pulumi.get(self, "bot_alias_locale_settings")
 
     @property
     @pulumi.getter(name="botAliasName")
     def bot_alias_name(self) -> Optional[str]:
+        """
+        The name of the bot alias.
+        """
         return pulumi.get(self, "bot_alias_name")
 
     @property
     @pulumi.getter(name="botAliasStatus")
     def bot_alias_status(self) -> Optional['BotAliasStatus']:
+        """
+        The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+        """
         return pulumi.get(self, "bot_alias_status")
 
     @property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[str]:
+        """
+        The version of the bot that the bot alias references.
+        """
         return pulumi.get(self, "bot_version")
 
     @property
     @pulumi.getter(name="conversationLogSettings")
     def conversation_log_settings(self) -> Optional['outputs.BotAliasConversationLogSettings']:
+        """
+        Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
+        """
         return pulumi.get(self, "conversation_log_settings")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the bot alias.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -120,6 +144,10 @@ def get_bot_alias(bot_alias_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotAliasResult:
     """
     A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+
+
+    :param str bot_alias_id: The unique identifier of the bot alias.
+    :param str bot_id: The unique identifier of the bot.
     """
     __args__ = dict()
     __args__['botAliasId'] = bot_alias_id
@@ -145,5 +173,9 @@ def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAliasResult]:
     """
     A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+
+
+    :param str bot_alias_id: The unique identifier of the bot alias.
+    :param str bot_id: The unique identifier of the bot.
     """
     ...

@@ -16,6 +16,9 @@ export function getReferenceStore(args: GetReferenceStoreArgs, opts?: pulumi.Inv
 }
 
 export interface GetReferenceStoreArgs {
+    /**
+     * The store's ID.
+     */
     referenceStoreId: string;
 }
 
@@ -28,6 +31,9 @@ export interface GetReferenceStoreResult {
      * When the store was created.
      */
     readonly creationTime?: string;
+    /**
+     * The store's ID.
+     */
     readonly referenceStoreId?: string;
 }
 /**
@@ -38,5 +44,8 @@ export function getReferenceStoreOutput(args: GetReferenceStoreOutputArgs, opts?
 }
 
 export interface GetReferenceStoreOutputArgs {
+    /**
+     * The store's ID.
+     */
     referenceStoreId: pulumi.Input<string>;
 }

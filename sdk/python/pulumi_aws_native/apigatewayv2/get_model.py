@@ -54,6 +54,9 @@ class GetModelResult:
     @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[str]:
+        """
+        The model ID.
+        """
         return pulumi.get(self, "model_id")
 
     @property
@@ -96,6 +99,7 @@ def get_model(api_id: Optional[str] = None,
 
 
     :param str api_id: The API identifier.
+    :param str model_id: The model ID.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -120,5 +124,6 @@ def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str api_id: The API identifier.
+    :param str model_id: The model ID.
     """
     ...

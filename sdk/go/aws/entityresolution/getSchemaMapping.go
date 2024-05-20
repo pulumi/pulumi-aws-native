@@ -36,8 +36,9 @@ type LookupSchemaMappingResult struct {
 	// The SchemaMapping attributes input
 	MappedInputFields []SchemaMappingSchemaInputAttribute `pulumi:"mappedInputFields"`
 	SchemaArn         *string                             `pulumi:"schemaArn"`
-	Tags              []aws.Tag                           `pulumi:"tags"`
-	UpdatedAt         *string                             `pulumi:"updatedAt"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags      []aws.Tag `pulumi:"tags"`
+	UpdatedAt *string   `pulumi:"updatedAt"`
 }
 
 func LookupSchemaMappingOutput(ctx *pulumi.Context, args LookupSchemaMappingOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaMappingResultOutput {
@@ -98,6 +99,7 @@ func (o LookupSchemaMappingResultOutput) SchemaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaMappingResult) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o LookupSchemaMappingResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupSchemaMappingResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -28,8 +28,11 @@ class MonitoringScheduleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringSchedule resource.
+        :param pulumi.Input['MonitoringScheduleConfigArgs'] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param pulumi.Input[str] endpoint_name: The name of the endpoint using the monitoring schedule.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs'] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
+        :param pulumi.Input[str] monitoring_schedule_name: The name of the monitoring schedule.
         :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -50,6 +53,9 @@ class MonitoringScheduleArgs:
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> pulumi.Input['MonitoringScheduleConfigArgs']:
+        """
+        The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        """
         return pulumi.get(self, "monitoring_schedule_config")
 
     @monitoring_schedule_config.setter
@@ -59,6 +65,9 @@ class MonitoringScheduleArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the endpoint using the monitoring schedule.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -92,6 +101,9 @@ class MonitoringScheduleArgs:
     @property
     @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the monitoring schedule.
+        """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @monitoring_schedule_name.setter
@@ -141,8 +153,11 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] endpoint_name: The name of the endpoint using the monitoring schedule.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
+        :param pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param pulumi.Input[str] monitoring_schedule_name: The name of the monitoring schedule.
         :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -245,6 +260,9 @@ class MonitoringSchedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the endpoint using the monitoring schedule.
+        """
         return pulumi.get(self, "endpoint_name")
 
     @property
@@ -282,11 +300,17 @@ class MonitoringSchedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> pulumi.Output['outputs.MonitoringScheduleConfig']:
+        """
+        The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        """
         return pulumi.get(self, "monitoring_schedule_config")
 
     @property
     @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> pulumi.Output[str]:
+        """
+        The name of the monitoring schedule.
+        """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @property

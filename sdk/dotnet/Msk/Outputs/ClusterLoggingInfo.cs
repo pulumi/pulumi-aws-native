@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterLoggingInfo
     {
+        /// <summary>
+        /// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
+        /// </summary>
         public readonly Outputs.ClusterBrokerLogs BrokerLogs;
 
         [OutputConstructor]

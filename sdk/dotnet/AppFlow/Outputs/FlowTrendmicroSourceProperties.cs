@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowTrendmicroSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Trend Micro flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

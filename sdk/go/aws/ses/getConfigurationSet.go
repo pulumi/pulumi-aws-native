@@ -28,12 +28,18 @@ type LookupConfigurationSetArgs struct {
 }
 
 type LookupConfigurationSetResult struct {
-	DeliveryOptions    *ConfigurationSetDeliveryOptions    `pulumi:"deliveryOptions"`
-	ReputationOptions  *ConfigurationSetReputationOptions  `pulumi:"reputationOptions"`
-	SendingOptions     *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// An object that represents the reputation settings for the configuration set.
+	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
+	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	SendingOptions *ConfigurationSetSendingOptions `pulumi:"sendingOptions"`
+	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
-	TrackingOptions    *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
-	VdmOptions         *ConfigurationSetVdmOptions         `pulumi:"vdmOptions"`
+	// The name of the custom open and click tracking domain associated with the configuration set.
+	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
+	// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+	VdmOptions *ConfigurationSetVdmOptions `pulumi:"vdmOptions"`
 }
 
 func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationSetOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetResultOutput {
@@ -72,26 +78,32 @@ func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutput
 	return o
 }
 
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 func (o LookupConfigurationSetResultOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetDeliveryOptions { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+// An object that represents the reputation settings for the configuration set.
 func (o LookupConfigurationSetResultOutput) ReputationOptions() ConfigurationSetReputationOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetReputationOptions { return v.ReputationOptions }).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
+// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
 func (o LookupConfigurationSetResultOutput) SendingOptions() ConfigurationSetSendingOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetSendingOptions { return v.SendingOptions }).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
+// An object that contains information about the suppression list preferences for your account.
 func (o LookupConfigurationSetResultOutput) SuppressionOptions() ConfigurationSetSuppressionOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetSuppressionOptions { return v.SuppressionOptions }).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
+// The name of the custom open and click tracking domain associated with the configuration set.
 func (o LookupConfigurationSetResultOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetTrackingOptions { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
+// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
 func (o LookupConfigurationSetResultOutput) VdmOptions() ConfigurationSetVdmOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetVdmOptions { return v.VdmOptions }).(ConfigurationSetVdmOptionsPtrOutput)
 }

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.RedshiftServerless.Inputs
 
     public sealed class NamespaceSnapshotCopyConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
+        /// </summary>
         [Input("destinationKmsKeyId")]
         public Input<string>? DestinationKmsKeyId { get; set; }
 
+        /// <summary>
+        /// The destination AWS Region to copy snapshots to.
+        /// </summary>
         [Input("destinationRegion", required: true)]
         public Input<string> DestinationRegion { get; set; } = null!;
 
+        /// <summary>
+        /// The retention period of snapshots that are copied to the destination AWS Region .
+        /// </summary>
         [Input("snapshotRetentionPeriod")]
         public Input<int>? SnapshotRetentionPeriod { get; set; }
 

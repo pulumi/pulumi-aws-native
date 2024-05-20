@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:ApplicationFleetAssociation")]
     public partial class ApplicationFleetAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the fleet.
+        /// </summary>
         [Output("fleetName")]
         public Output<string> FleetName { get; private set; } = null!;
 
@@ -71,9 +77,15 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class ApplicationFleetAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the fleet.
+        /// </summary>
         [Input("fleetName", required: true)]
         public Input<string> FleetName { get; set; } = null!;
 

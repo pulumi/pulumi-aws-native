@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSpotFleetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Spot Fleet.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSpotFleetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Spot Fleet.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetSpotFleetResult
     {
+        /// <summary>
+        /// The ID of the Spot Fleet.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Describes the configuration of a Spot Fleet request.
+        /// </summary>
         public readonly Outputs.SpotFleetRequestConfigData? SpotFleetRequestConfigData;
 
         [OutputConstructor]

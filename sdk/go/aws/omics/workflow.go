@@ -15,20 +15,33 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	Accelerators      WorkflowAcceleratorsPtrOutput `pulumi:"accelerators"`
-	Arn               pulumi.StringOutput           `pulumi:"arn"`
-	AwsId             pulumi.StringOutput           `pulumi:"awsId"`
-	CreationTime      pulumi.StringOutput           `pulumi:"creationTime"`
-	DefinitionUri     pulumi.StringPtrOutput        `pulumi:"definitionUri"`
-	Description       pulumi.StringPtrOutput        `pulumi:"description"`
-	Engine            WorkflowEnginePtrOutput       `pulumi:"engine"`
-	Main              pulumi.StringPtrOutput        `pulumi:"main"`
-	Name              pulumi.StringPtrOutput        `pulumi:"name"`
-	ParameterTemplate WorkflowParameterMapOutput    `pulumi:"parameterTemplate"`
-	Status            WorkflowStatusOutput          `pulumi:"status"`
-	StorageCapacity   pulumi.Float64PtrOutput       `pulumi:"storageCapacity"`
-	Tags              pulumi.StringMapOutput        `pulumi:"tags"`
-	Type              WorkflowTypeOutput            `pulumi:"type"`
+	Accelerators WorkflowAcceleratorsPtrOutput `pulumi:"accelerators"`
+	// The ARN for the workflow.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The workflow's ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// When the workflow was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The URI of a definition for the workflow.
+	DefinitionUri pulumi.StringPtrOutput `pulumi:"definitionUri"`
+	// The parameter's description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An engine for the workflow.
+	Engine WorkflowEnginePtrOutput `pulumi:"engine"`
+	// The path of the main definition file for the workflow.
+	Main pulumi.StringPtrOutput `pulumi:"main"`
+	// The workflow's name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The workflow's parameter template.
+	ParameterTemplate WorkflowParameterMapOutput `pulumi:"parameterTemplate"`
+	// The workflow's status.
+	Status WorkflowStatusOutput `pulumi:"status"`
+	// The default storage capacity for the workflow runs, in gibibytes.
+	StorageCapacity pulumi.Float64PtrOutput `pulumi:"storageCapacity"`
+	// Tags for the workflow.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The workflow's type.
+	Type WorkflowTypeOutput `pulumi:"type"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -80,28 +93,44 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	Accelerators      *WorkflowAccelerators        `pulumi:"accelerators"`
-	DefinitionUri     *string                      `pulumi:"definitionUri"`
-	Description       *string                      `pulumi:"description"`
-	Engine            *WorkflowEngine              `pulumi:"engine"`
-	Main              *string                      `pulumi:"main"`
-	Name              *string                      `pulumi:"name"`
+	Accelerators *WorkflowAccelerators `pulumi:"accelerators"`
+	// The URI of a definition for the workflow.
+	DefinitionUri *string `pulumi:"definitionUri"`
+	// The parameter's description.
+	Description *string `pulumi:"description"`
+	// An engine for the workflow.
+	Engine *WorkflowEngine `pulumi:"engine"`
+	// The path of the main definition file for the workflow.
+	Main *string `pulumi:"main"`
+	// The workflow's name.
+	Name *string `pulumi:"name"`
+	// The workflow's parameter template.
 	ParameterTemplate map[string]WorkflowParameter `pulumi:"parameterTemplate"`
-	StorageCapacity   *float64                     `pulumi:"storageCapacity"`
-	Tags              map[string]string            `pulumi:"tags"`
+	// The default storage capacity for the workflow runs, in gibibytes.
+	StorageCapacity *float64 `pulumi:"storageCapacity"`
+	// Tags for the workflow.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
-	Accelerators      WorkflowAcceleratorsPtrInput
-	DefinitionUri     pulumi.StringPtrInput
-	Description       pulumi.StringPtrInput
-	Engine            WorkflowEnginePtrInput
-	Main              pulumi.StringPtrInput
-	Name              pulumi.StringPtrInput
+	Accelerators WorkflowAcceleratorsPtrInput
+	// The URI of a definition for the workflow.
+	DefinitionUri pulumi.StringPtrInput
+	// The parameter's description.
+	Description pulumi.StringPtrInput
+	// An engine for the workflow.
+	Engine WorkflowEnginePtrInput
+	// The path of the main definition file for the workflow.
+	Main pulumi.StringPtrInput
+	// The workflow's name.
+	Name pulumi.StringPtrInput
+	// The workflow's parameter template.
 	ParameterTemplate WorkflowParameterMapInput
-	StorageCapacity   pulumi.Float64PtrInput
-	Tags              pulumi.StringMapInput
+	// The default storage capacity for the workflow runs, in gibibytes.
+	StorageCapacity pulumi.Float64PtrInput
+	// Tags for the workflow.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -145,54 +174,67 @@ func (o WorkflowOutput) Accelerators() WorkflowAcceleratorsPtrOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowAcceleratorsPtrOutput { return v.Accelerators }).(WorkflowAcceleratorsPtrOutput)
 }
 
+// The ARN for the workflow.
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The workflow's ID.
 func (o WorkflowOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// When the workflow was created.
 func (o WorkflowOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The URI of a definition for the workflow.
 func (o WorkflowOutput) DefinitionUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.DefinitionUri }).(pulumi.StringPtrOutput)
 }
 
+// The parameter's description.
 func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An engine for the workflow.
 func (o WorkflowOutput) Engine() WorkflowEnginePtrOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowEnginePtrOutput { return v.Engine }).(WorkflowEnginePtrOutput)
 }
 
+// The path of the main definition file for the workflow.
 func (o WorkflowOutput) Main() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Main }).(pulumi.StringPtrOutput)
 }
 
+// The workflow's name.
 func (o WorkflowOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The workflow's parameter template.
 func (o WorkflowOutput) ParameterTemplate() WorkflowParameterMapOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowParameterMapOutput { return v.ParameterTemplate }).(WorkflowParameterMapOutput)
 }
 
+// The workflow's status.
 func (o WorkflowOutput) Status() WorkflowStatusOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowStatusOutput { return v.Status }).(WorkflowStatusOutput)
 }
 
+// The default storage capacity for the workflow runs, in gibibytes.
 func (o WorkflowOutput) StorageCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.Float64PtrOutput { return v.StorageCapacity }).(pulumi.Float64PtrOutput)
 }
 
+// Tags for the workflow.
 func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The workflow's type.
 func (o WorkflowOutput) Type() WorkflowTypeOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowTypeOutput { return v.Type }).(WorkflowTypeOutput)
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetRuleGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         [Input("ruleGroupArn", required: true)]
         public string RuleGroupArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class GetRuleGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         [Input("ruleGroupArn", required: true)]
         public Input<string> RuleGroupArn { get; set; } = null!;
 
@@ -51,10 +57,27 @@ namespace Pulumi.AwsNative.NetworkFirewall
     [OutputType]
     public sealed class GetRuleGroupResult
     {
+        /// <summary>
+        /// A description of the rule group.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// An object that defines the rule group rules.
+        /// </summary>
         public readonly Outputs.RuleGroup? RuleGroupValue;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the `RuleGroup` .
+        /// </summary>
         public readonly string? RuleGroupArn;
+        /// <summary>
+        /// The unique ID of the `RuleGroup` resource.
+        /// </summary>
         public readonly string? RuleGroupId;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

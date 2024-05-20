@@ -19,6 +19,9 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetProjectArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the project.
+     */
     projectArn: string;
 }
 
@@ -27,7 +30,13 @@ export interface GetProjectResult {
      * The time at which the project was created.
      */
     readonly creationTime?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the project.
+     */
     readonly projectArn?: string;
+    /**
+     * The ID of the project. This ID is prepended to all entities associated with this project.
+     */
     readonly projectId?: string;
     /**
      * The status of a project.
@@ -46,5 +55,8 @@ export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetProjectOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the project.
+     */
     projectArn: pulumi.Input<string>;
 }

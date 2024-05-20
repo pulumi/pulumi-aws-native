@@ -30,6 +30,18 @@ class TransitGatewayArgs:
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
+        :param pulumi.Input[int] amazon_side_asn: A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+        :param pulumi.Input[str] association_default_route_table_id: The ID of the default association route table.
+        :param pulumi.Input[str] auto_accept_shared_attachments: Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        :param pulumi.Input[str] default_route_table_association: Enable or disable automatic association with the default association route table. Enabled by default.
+        :param pulumi.Input[str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        :param pulumi.Input[str] description: The description of the transit gateway.
+        :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
+        :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
+        :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
+        :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
         if amazon_side_asn is not None:
             pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -59,6 +71,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
@@ -68,6 +83,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="associationDefaultRouteTableId")
     def association_default_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the default association route table.
+        """
         return pulumi.get(self, "association_default_route_table_id")
 
     @association_default_route_table_id.setter
@@ -77,6 +95,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
     def auto_accept_shared_attachments(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        """
         return pulumi.get(self, "auto_accept_shared_attachments")
 
     @auto_accept_shared_attachments.setter
@@ -86,6 +107,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable automatic association with the default association route table. Enabled by default.
+        """
         return pulumi.get(self, "default_route_table_association")
 
     @default_route_table_association.setter
@@ -95,6 +119,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        """
         return pulumi.get(self, "default_route_table_propagation")
 
     @default_route_table_propagation.setter
@@ -104,6 +131,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the transit gateway.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -113,6 +143,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable DNS support. Enabled by default.
+        """
         return pulumi.get(self, "dns_support")
 
     @dns_support.setter
@@ -122,6 +155,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="multicastSupport")
     def multicast_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether multicast is enabled on the transit gateway
+        """
         return pulumi.get(self, "multicast_support")
 
     @multicast_support.setter
@@ -131,6 +167,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="propagationDefaultRouteTableId")
     def propagation_default_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the default propagation route table.
+        """
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @propagation_default_route_table_id.setter
@@ -140,6 +179,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the transit gateway.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -149,6 +191,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="transitGatewayCidrBlocks")
     def transit_gateway_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The transit gateway CIDR blocks.
+        """
         return pulumi.get(self, "transit_gateway_cidr_blocks")
 
     @transit_gateway_cidr_blocks.setter
@@ -158,6 +203,9 @@ class TransitGatewayArgs:
     @property
     @pulumi.getter(name="vpnEcmpSupport")
     def vpn_ecmp_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+        """
         return pulumi.get(self, "vpn_ecmp_support")
 
     @vpn_ecmp_support.setter
@@ -188,6 +236,18 @@ class TransitGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] amazon_side_asn: A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+        :param pulumi.Input[str] association_default_route_table_id: The ID of the default association route table.
+        :param pulumi.Input[str] auto_accept_shared_attachments: Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        :param pulumi.Input[str] default_route_table_association: Enable or disable automatic association with the default association route table. Enabled by default.
+        :param pulumi.Input[str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        :param pulumi.Input[str] description: The description of the transit gateway.
+        :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
+        :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
+        :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
+        :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
         ...
     @overload
@@ -291,56 +351,89 @@ class TransitGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Output[Optional[int]]:
+        """
+        A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+        """
         return pulumi.get(self, "amazon_side_asn")
 
     @property
     @pulumi.getter(name="associationDefaultRouteTableId")
     def association_default_route_table_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the default association route table.
+        """
         return pulumi.get(self, "association_default_route_table_id")
 
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
     def auto_accept_shared_attachments(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable automatic acceptance of attachment requests. Disabled by default.
+        """
         return pulumi.get(self, "auto_accept_shared_attachments")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultRouteTableAssociation")
     def default_route_table_association(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable automatic association with the default association route table. Enabled by default.
+        """
         return pulumi.get(self, "default_route_table_association")
 
     @property
     @pulumi.getter(name="defaultRouteTablePropagation")
     def default_route_table_propagation(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+        """
         return pulumi.get(self, "default_route_table_propagation")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the transit gateway.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable DNS support. Enabled by default.
+        """
         return pulumi.get(self, "dns_support")
 
     @property
     @pulumi.getter(name="multicastSupport")
     def multicast_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether multicast is enabled on the transit gateway
+        """
         return pulumi.get(self, "multicast_support")
 
     @property
     @pulumi.getter(name="propagationDefaultRouteTableId")
     def propagation_default_route_table_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the default propagation route table.
+        """
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the transit gateway.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -351,10 +444,16 @@ class TransitGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="transitGatewayCidrBlocks")
     def transit_gateway_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The transit gateway CIDR blocks.
+        """
         return pulumi.get(self, "transit_gateway_cidr_blocks")
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
     def vpn_ecmp_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+        """
         return pulumi.get(self, "vpn_ecmp_support")
 

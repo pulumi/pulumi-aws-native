@@ -157,13 +157,23 @@ import (
 type KeyPair struct {
 	pulumi.CustomResourceState
 
+	// If you created the key pair using Amazon EC2:
+	//
+	// - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+	// - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+	//
+	// If you imported the key pair to Amazon EC2:
+	//
+	// - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
+	// - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
 	// The format of the key pair.
 	//  Default: ``pem``
 	KeyFormat KeyPairKeyFormatPtrOutput `pulumi:"keyFormat"`
 	// A unique name for the key pair.
 	//  Constraints: Up to 255 ASCII characters
-	KeyName   pulumi.StringOutput `pulumi:"keyName"`
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// The ID of the key pair.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
 	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
 	//  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
@@ -297,6 +307,15 @@ func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOu
 	return o
 }
 
+// If you created the key pair using Amazon EC2:
+//
+// - For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
+// - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
+//
+// If you imported the key pair to Amazon EC2:
+//
+// - For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.
+// - For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with [OpenSSH 6.8](https://docs.aws.amazon.com/http://www.openssh.com/txt/release-6.8) .
 func (o KeyPairOutput) KeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
 }
@@ -315,6 +334,7 @@ func (o KeyPairOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
+// The ID of the key pair.
 func (o KeyPairOutput) KeyPairId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyPairId }).(pulumi.StringOutput)
 }

@@ -111,11 +111,17 @@ export class Collection extends pulumi.CustomResource {
      * Contains between 3 and 32 characters
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+     */
     public readonly standbyReplicas!: pulumi.Output<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
     /**
      * List of tags to be added to the resource
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+     */
     public readonly type!: pulumi.Output<enums.opensearchserverless.CollectionType | undefined>;
 
     /**
@@ -174,10 +180,16 @@ export interface CollectionArgs {
      * Contains between 3 and 32 characters
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+     */
     standbyReplicas?: pulumi.Input<enums.opensearchserverless.CollectionStandbyReplicas>;
     /**
      * List of tags to be added to the resource
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    /**
+     * The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
+     */
     type?: pulumi.Input<enums.opensearchserverless.CollectionType>;
 }

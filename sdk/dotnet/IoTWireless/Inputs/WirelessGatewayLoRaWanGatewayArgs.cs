@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class WirelessGatewayLoRaWanGatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The gateway's EUI value.
+        /// </summary>
         [Input("gatewayEui", required: true)]
         public Input<string> GatewayEui { get; set; } = null!;
 
+        /// <summary>
+        /// The frequency band (RFRegion) value.
+        /// </summary>
         [Input("rfRegion", required: true)]
         public Input<string> RfRegion { get; set; } = null!;
 

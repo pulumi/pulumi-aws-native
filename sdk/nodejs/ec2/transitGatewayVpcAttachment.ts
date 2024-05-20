@@ -37,16 +37,37 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayVpcAttachment.__pulumiType;
     }
 
+    /**
+     * The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
+     */
     public readonly addSubnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ID of the attachment.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The options for the transit gateway vpc attachment.
      */
     public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
+    /**
+     * The IDs of one or more subnets to remove.
+     */
     public readonly removeSubnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The IDs of the subnets.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * The tags for the VPC attachment.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the transit gateway.
+     */
     public readonly transitGatewayId!: pulumi.Output<string>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -98,14 +119,32 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGatewayVpcAttachment resource.
  */
 export interface TransitGatewayVpcAttachmentArgs {
+    /**
+     * The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
+     */
     addSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The options for the transit gateway vpc attachment.
      */
     options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
+    /**
+     * The IDs of one or more subnets to remove.
+     */
     removeSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The IDs of the subnets.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags for the VPC attachment.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the transit gateway.
+     */
     transitGatewayId: pulumi.Input<string>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

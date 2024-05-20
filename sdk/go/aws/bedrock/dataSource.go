@@ -17,11 +17,17 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	// The time at which the data source was created.
-	CreatedAt               pulumi.StringOutput                   `pulumi:"createdAt"`
-	DataDeletionPolicy      DataSourceDataDeletionPolicyPtrOutput `pulumi:"dataDeletionPolicy"`
-	DataSourceConfiguration DataSourceConfigurationOutput         `pulumi:"dataSourceConfiguration"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The data deletion policy for a data source.
+	DataDeletionPolicy DataSourceDataDeletionPolicyPtrOutput `pulumi:"dataDeletionPolicy"`
+	// Contains details about how the data source is stored.
+	DataSourceConfiguration DataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
-	DataSourceId     pulumi.StringOutput    `pulumi:"dataSourceId"`
+	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
+	// The status of the data source. The following statuses are possible:
+	//
+	// - Available – The data source has been created and is ready for ingestion into the knowledge base.
+	// - Deleting – The data source is being deleted.
 	DataSourceStatus DataSourceStatusOutput `pulumi:"dataSourceStatus"`
 	// Description of the Resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -30,10 +36,12 @@ type DataSource struct {
 	// The unique identifier of the knowledge base to which to add the data source.
 	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
 	// The name of the data source.
-	Name                              pulumi.StringOutput                                  `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration DataSourceServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// The time at which the knowledge base was last updated.
-	UpdatedAt                    pulumi.StringOutput                             `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// Contains details about how to ingest the documents in the data source.
 	VectorIngestionConfiguration DataSourceVectorIngestionConfigurationPtrOutput `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -88,30 +96,38 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	DataDeletionPolicy      *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
-	DataSourceConfiguration DataSourceConfiguration       `pulumi:"dataSourceConfiguration"`
+	// The data deletion policy for a data source.
+	DataDeletionPolicy *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
+	// Contains details about how the data source is stored.
+	DataSourceConfiguration DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
 	// The unique identifier of the knowledge base to which to add the data source.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 	// The name of the data source.
-	Name                              *string                                      `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration *DataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	VectorIngestionConfiguration      *DataSourceVectorIngestionConfiguration      `pulumi:"vectorIngestionConfiguration"`
+	// Contains details about how to ingest the documents in the data source.
+	VectorIngestionConfiguration *DataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	DataDeletionPolicy      DataSourceDataDeletionPolicyPtrInput
+	// The data deletion policy for a data source.
+	DataDeletionPolicy DataSourceDataDeletionPolicyPtrInput
+	// Contains details about how the data source is stored.
 	DataSourceConfiguration DataSourceConfigurationInput
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
 	// The unique identifier of the knowledge base to which to add the data source.
 	KnowledgeBaseId pulumi.StringInput
 	// The name of the data source.
-	Name                              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration DataSourceServerSideEncryptionConfigurationPtrInput
-	VectorIngestionConfiguration      DataSourceVectorIngestionConfigurationPtrInput
+	// Contains details about how to ingest the documents in the data source.
+	VectorIngestionConfiguration DataSourceVectorIngestionConfigurationPtrInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -156,10 +172,12 @@ func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The data deletion policy for a data source.
 func (o DataSourceOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceDataDeletionPolicyPtrOutput { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
+// Contains details about how the data source is stored.
 func (o DataSourceOutput) DataSourceConfiguration() DataSourceConfigurationOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationOutput { return v.DataSourceConfiguration }).(DataSourceConfigurationOutput)
 }
@@ -169,6 +187,10 @@ func (o DataSourceOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }
 
+// The status of the data source. The following statuses are possible:
+//
+// - Available – The data source has been created and is ready for ingestion into the knowledge base.
+// - Deleting – The data source is being deleted.
 func (o DataSourceOutput) DataSourceStatus() DataSourceStatusOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceStatusOutput { return v.DataSourceStatus }).(DataSourceStatusOutput)
 }
@@ -193,6 +215,7 @@ func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains details about the configuration of the server-side encryption.
 func (o DataSourceOutput) ServerSideEncryptionConfiguration() DataSourceServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
@@ -204,6 +227,7 @@ func (o DataSourceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// Contains details about how to ingest the documents in the data source.
 func (o DataSourceOutput) VectorIngestionConfiguration() DataSourceVectorIngestionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceVectorIngestionConfigurationPtrOutput {
 		return v.VectorIngestionConfiguration

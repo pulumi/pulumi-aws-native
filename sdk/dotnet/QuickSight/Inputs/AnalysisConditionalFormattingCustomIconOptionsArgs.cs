@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisConditionalFormattingCustomIconOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the type of icon.
+        /// </summary>
         [Input("icon")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisIcon>? Icon { get; set; }
 
+        /// <summary>
+        /// Determines the Unicode icon type.
+        /// </summary>
         [Input("unicodeIcon")]
         public Input<string>? UnicodeIcon { get; set; }
 

@@ -15,12 +15,18 @@ namespace Pulumi.AwsNative.XRay
     [AwsNativeResourceType("aws-native:xray:SamplingRule")]
     public partial class SamplingRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The sampling rule ARN that was created or updated.
+        /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
 
+        /// <summary>
+        /// The sampling rule to be created or updated.
+        /// </summary>
         [Output("samplingRule")]
         public Output<Outputs.SamplingRule?> SamplingRuleValue { get; private set; } = null!;
 
@@ -30,6 +36,9 @@ namespace Pulumi.AwsNative.XRay
         [Output("samplingRuleUpdate")]
         public Output<Outputs.SamplingRuleUpdate?> SamplingRuleUpdate { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -86,6 +95,9 @@ namespace Pulumi.AwsNative.XRay
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
+        /// <summary>
+        /// The sampling rule to be created or updated.
+        /// </summary>
         [Input("samplingRule")]
         public Input<Inputs.SamplingRuleArgs>? SamplingRuleValue { get; set; }
 
@@ -97,6 +109,10 @@ namespace Pulumi.AwsNative.XRay
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         [Input("sourcePriority")]
         public Input<Inputs.BridgeSourcePriorityArgs>? SourcePriority { get; set; }
 
+        /// <summary>
+        /// The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.MediaConnect.BridgeFailoverConfigStateEnum>? State { get; set; }
 

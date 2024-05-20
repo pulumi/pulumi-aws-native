@@ -11,8 +11,14 @@ __all__ = [
 
 
 class ApplicationCredentialCredentialType(str, Enum):
+    """
+    The type of the application credentials.
+    """
     ADMIN = "ADMIN"
 
 
 class ApplicationType(str, Enum):
+    """
+    The type of the application.
+    """
     HANA = "HANA"

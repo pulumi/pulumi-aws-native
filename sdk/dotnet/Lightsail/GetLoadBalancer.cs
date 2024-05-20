@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
         /// </summary>
         public readonly string? HealthCheckPath;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         public readonly string? LoadBalancerArn;
         /// <summary>
         /// Configuration option to enable session stickiness.

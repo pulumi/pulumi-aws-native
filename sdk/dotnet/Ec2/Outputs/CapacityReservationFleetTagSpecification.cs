@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class CapacityReservationFleetTagSpecification
     {
+        /// <summary>
+        /// The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
+        /// 
+        /// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
+        /// </summary>
         public readonly string? ResourceType;
+        /// <summary>
+        /// The tags to apply to the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CapacityReservationFleetTag> Tags;
 
         [OutputConstructor]

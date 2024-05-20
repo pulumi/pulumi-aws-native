@@ -49,6 +49,9 @@ class GetNetworkInterfaceAttachmentResult:
     @property
     @pulumi.getter(name="enaSrdSpecification")
     def ena_srd_specification(self) -> Optional['outputs.NetworkInterfaceAttachmentEnaSrdSpecification']:
+        """
+        Configures ENA Express for the network interface that this action attaches to the instance.
+        """
         return pulumi.get(self, "ena_srd_specification")
 
 

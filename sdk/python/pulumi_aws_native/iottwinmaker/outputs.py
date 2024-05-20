@@ -731,6 +731,10 @@ class ComponentTypeStatus(dict):
     def __init__(__self__, *,
                  error: Optional[Any] = None,
                  state: Optional['ComponentTypeStatusState'] = None):
+        """
+        :param Union[Any, 'ComponentTypeStatusErrorProperties'] error: The component type error.
+        :param 'ComponentTypeStatusState' state: The component type status state.
+        """
         if error is not None:
             pulumi.set(__self__, "error", error)
         if state is not None:
@@ -739,11 +743,17 @@ class ComponentTypeStatus(dict):
     @property
     @pulumi.getter
     def error(self) -> Optional[Any]:
+        """
+        The component type error.
+        """
         return pulumi.get(self, "error")
 
     @property
     @pulumi.getter
     def state(self) -> Optional['ComponentTypeStatusState']:
+        """
+        The component type status state.
+        """
         return pulumi.get(self, "state")
 
 

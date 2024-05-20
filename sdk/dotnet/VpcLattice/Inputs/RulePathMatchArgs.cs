@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class RulePathMatchArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the match is case sensitive.
+        /// </summary>
         [Input("caseSensitive")]
         public Input<bool>? CaseSensitive { get; set; }
 
+        /// <summary>
+        /// The type of path match.
+        /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RulePathMatchTypeArgs> Match { get; set; } = null!;
 

@@ -26,6 +26,7 @@ func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulum
 }
 
 type LookupStandardArgs struct {
+	// The ARN of a resource that represents your subscription to a supported standard.
 	StandardsSubscriptionArn string `pulumi:"standardsSubscriptionArn"`
 }
 
@@ -33,7 +34,8 @@ type LookupStandardResult struct {
 	// Specifies which controls are to be disabled in a standard.
 	//  *Maximum*: ``100``
 	DisabledStandardsControls []StandardsControl `pulumi:"disabledStandardsControls"`
-	StandardsSubscriptionArn  *string            `pulumi:"standardsSubscriptionArn"`
+	// The ARN of a resource that represents your subscription to a supported standard.
+	StandardsSubscriptionArn *string `pulumi:"standardsSubscriptionArn"`
 }
 
 func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, opts ...pulumi.InvokeOption) LookupStandardResultOutput {
@@ -50,6 +52,7 @@ func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, op
 }
 
 type LookupStandardOutputArgs struct {
+	// The ARN of a resource that represents your subscription to a supported standard.
 	StandardsSubscriptionArn pulumi.StringInput `pulumi:"standardsSubscriptionArn"`
 }
 
@@ -78,6 +81,7 @@ func (o LookupStandardResultOutput) DisabledStandardsControls() StandardsControl
 	return o.ApplyT(func(v LookupStandardResult) []StandardsControl { return v.DisabledStandardsControls }).(StandardsControlArrayOutput)
 }
 
+// The ARN of a resource that represents your subscription to a supported standard.
 func (o LookupStandardResultOutput) StandardsSubscriptionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStandardResult) *string { return v.StandardsSubscriptionArn }).(pulumi.StringPtrOutput)
 }

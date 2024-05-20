@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class AliasVersionWeight
     {
+        /// <summary>
+        /// The qualifier of the second version.
+        /// </summary>
         public readonly string FunctionVersion;
+        /// <summary>
+        /// The percentage of traffic that the alias routes to the second version.
+        /// </summary>
         public readonly double FunctionWeight;
 
         [OutputConstructor]

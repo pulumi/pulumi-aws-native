@@ -1556,6 +1556,11 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified bucket.
+
+        Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -1586,11 +1591,23 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        Returns the IPv4 DNS name of the specified bucket.
+
+        Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="dualStackDomainName")
     def dual_stack_domain_name(self) -> pulumi.Output[str]:
+        """
+        Returns the IPv6 DNS name of the specified bucket.
+
+        Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+
+        For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
+        """
         return pulumi.get(self, "dual_stack_domain_name")
 
     @property
@@ -1680,6 +1697,11 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> pulumi.Output[str]:
+        """
+        Returns the regional domain name of the specified bucket.
+
+        Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
+        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
@@ -1718,5 +1740,12 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon S3 website endpoint for the specified bucket.
+
+        Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+
+        Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+        """
         return pulumi.get(self, "website_url")
 

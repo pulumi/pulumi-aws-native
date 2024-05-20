@@ -55,6 +55,10 @@ class AlertAction(dict):
     def __init__(__self__, *,
                  lambda_configuration: Optional['outputs.AlertLambdaConfiguration'] = None,
                  sns_configuration: Optional['outputs.AlertSnsConfiguration'] = None):
+        """
+        :param 'AlertLambdaConfiguration' lambda_configuration: A configuration for an AWS Lambda channel.
+        :param 'AlertSnsConfiguration' sns_configuration: A configuration for an Amazon SNS channel.
+        """
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
         if sns_configuration is not None:
@@ -63,11 +67,17 @@ class AlertAction(dict):
     @property
     @pulumi.getter(name="lambdaConfiguration")
     def lambda_configuration(self) -> Optional['outputs.AlertLambdaConfiguration']:
+        """
+        A configuration for an AWS Lambda channel.
+        """
         return pulumi.get(self, "lambda_configuration")
 
     @property
     @pulumi.getter(name="snsConfiguration")
     def sns_configuration(self) -> Optional['outputs.AlertSnsConfiguration']:
+        """
+        A configuration for an Amazon SNS channel.
+        """
         return pulumi.get(self, "sns_configuration")
 
 
@@ -199,17 +209,27 @@ class AnomalyDetectorAppFlowConfig(dict):
     def __init__(__self__, *,
                  flow_name: str,
                  role_arn: str):
+        """
+        :param str flow_name: name of the flow.
+        :param str role_arn: An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
+        """
         pulumi.set(__self__, "flow_name", flow_name)
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="flowName")
     def flow_name(self) -> str:
+        """
+        name of the flow.
+        """
         return pulumi.get(self, "flow_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -234,11 +254,17 @@ class AnomalyDetectorCloudwatchConfig(dict):
 
     def __init__(__self__, *,
                  role_arn: str):
+        """
+        :param str role_arn: An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -309,6 +335,14 @@ class AnomalyDetectorCsvFormatDescriptor(dict):
                  file_compression: Optional['AnomalyDetectorCsvFormatDescriptorFileCompression'] = None,
                  header_list: Optional[Sequence[str]] = None,
                  quote_symbol: Optional[str] = None):
+        """
+        :param str charset: The character set in which the source CSV file is written.
+        :param bool contains_header: Whether or not the source CSV file contains a header.
+        :param str delimiter: The character used to delimit the source CSV file.
+        :param 'AnomalyDetectorCsvFormatDescriptorFileCompression' file_compression: The level of compression of the source CSV file.
+        :param Sequence[str] header_list: A list of the source CSV file's headers, if any.
+        :param str quote_symbol: The character used as a quote character.
+        """
         if charset is not None:
             pulumi.set(__self__, "charset", charset)
         if contains_header is not None:
@@ -325,31 +359,49 @@ class AnomalyDetectorCsvFormatDescriptor(dict):
     @property
     @pulumi.getter
     def charset(self) -> Optional[str]:
+        """
+        The character set in which the source CSV file is written.
+        """
         return pulumi.get(self, "charset")
 
     @property
     @pulumi.getter(name="containsHeader")
     def contains_header(self) -> Optional[bool]:
+        """
+        Whether or not the source CSV file contains a header.
+        """
         return pulumi.get(self, "contains_header")
 
     @property
     @pulumi.getter
     def delimiter(self) -> Optional[str]:
+        """
+        The character used to delimit the source CSV file.
+        """
         return pulumi.get(self, "delimiter")
 
     @property
     @pulumi.getter(name="fileCompression")
     def file_compression(self) -> Optional['AnomalyDetectorCsvFormatDescriptorFileCompression']:
+        """
+        The level of compression of the source CSV file.
+        """
         return pulumi.get(self, "file_compression")
 
     @property
     @pulumi.getter(name="headerList")
     def header_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of the source CSV file's headers, if any.
+        """
         return pulumi.get(self, "header_list")
 
     @property
     @pulumi.getter(name="quoteSymbol")
     def quote_symbol(self) -> Optional[str]:
+        """
+        The character used as a quote character.
+        """
         return pulumi.get(self, "quote_symbol")
 
 
@@ -377,6 +429,10 @@ class AnomalyDetectorFileFormatDescriptor(dict):
     def __init__(__self__, *,
                  csv_format_descriptor: Optional['outputs.AnomalyDetectorCsvFormatDescriptor'] = None,
                  json_format_descriptor: Optional['outputs.AnomalyDetectorJsonFormatDescriptor'] = None):
+        """
+        :param 'AnomalyDetectorCsvFormatDescriptor' csv_format_descriptor: Contains information about how a source CSV data file should be analyzed.
+        :param 'AnomalyDetectorJsonFormatDescriptor' json_format_descriptor: Contains information about how a source JSON data file should be analyzed.
+        """
         if csv_format_descriptor is not None:
             pulumi.set(__self__, "csv_format_descriptor", csv_format_descriptor)
         if json_format_descriptor is not None:
@@ -385,11 +441,17 @@ class AnomalyDetectorFileFormatDescriptor(dict):
     @property
     @pulumi.getter(name="csvFormatDescriptor")
     def csv_format_descriptor(self) -> Optional['outputs.AnomalyDetectorCsvFormatDescriptor']:
+        """
+        Contains information about how a source CSV data file should be analyzed.
+        """
         return pulumi.get(self, "csv_format_descriptor")
 
     @property
     @pulumi.getter(name="jsonFormatDescriptor")
     def json_format_descriptor(self) -> Optional['outputs.AnomalyDetectorJsonFormatDescriptor']:
+        """
+        Contains information about how a source JSON data file should be analyzed.
+        """
         return pulumi.get(self, "json_format_descriptor")
 
 
@@ -415,6 +477,10 @@ class AnomalyDetectorJsonFormatDescriptor(dict):
     def __init__(__self__, *,
                  charset: Optional[str] = None,
                  file_compression: Optional['AnomalyDetectorJsonFormatDescriptorFileCompression'] = None):
+        """
+        :param str charset: The character set in which the source JSON file is written.
+        :param 'AnomalyDetectorJsonFormatDescriptorFileCompression' file_compression: The level of compression of the source CSV file.
+        """
         if charset is not None:
             pulumi.set(__self__, "charset", charset)
         if file_compression is not None:
@@ -423,11 +489,17 @@ class AnomalyDetectorJsonFormatDescriptor(dict):
     @property
     @pulumi.getter
     def charset(self) -> Optional[str]:
+        """
+        The character set in which the source JSON file is written.
+        """
         return pulumi.get(self, "charset")
 
     @property
     @pulumi.getter(name="fileCompression")
     def file_compression(self) -> Optional['AnomalyDetectorJsonFormatDescriptorFileCompression']:
+        """
+        The level of compression of the source CSV file.
+        """
         return pulumi.get(self, "file_compression")
 
 
@@ -458,6 +530,8 @@ class AnomalyDetectorMetric(dict):
                  namespace: Optional[str] = None):
         """
         :param 'AnomalyDetectorMetricAggregationFunction' aggregation_function: Operator used to aggregate metric values
+        :param str metric_name: The name of the metric.
+        :param str namespace: The namespace for the metric.
         """
         pulumi.set(__self__, "aggregation_function", aggregation_function)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -475,11 +549,17 @@ class AnomalyDetectorMetric(dict):
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
+        """
+        The name of the metric.
+        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[str]:
+        """
+        The namespace for the metric.
+        """
         return pulumi.get(self, "namespace")
 
 
@@ -527,10 +607,13 @@ class AnomalyDetectorMetricSet(dict):
         """
         :param Sequence['AnomalyDetectorMetric'] metric_list: Metrics captured by this MetricSet.
         :param str metric_set_name: The name of the MetricSet.
+        :param 'AnomalyDetectorMetricSource' metric_source: Contains information about how the source data should be interpreted.
         :param Sequence[str] dimension_list: Dimensions for this MetricSet.
         :param str metric_set_description: A description for the MetricSet.
         :param 'AnomalyDetectorMetricSetMetricSetFrequency' metric_set_frequency: A frequency period to aggregate the data
         :param int offset: Offset, in seconds, between the frequency interval and the time at which the metrics are available.
+        :param 'AnomalyDetectorTimestampColumn' timestamp_column: Contains information about the column used for tracking time in your source data.
+        :param str timezone: The time zone in which your source data was recorded.
         """
         pulumi.set(__self__, "metric_list", metric_list)
         pulumi.set(__self__, "metric_set_name", metric_set_name)
@@ -567,6 +650,9 @@ class AnomalyDetectorMetricSet(dict):
     @property
     @pulumi.getter(name="metricSource")
     def metric_source(self) -> 'outputs.AnomalyDetectorMetricSource':
+        """
+        Contains information about how the source data should be interpreted.
+        """
         return pulumi.get(self, "metric_source")
 
     @property
@@ -604,11 +690,17 @@ class AnomalyDetectorMetricSet(dict):
     @property
     @pulumi.getter(name="timestampColumn")
     def timestamp_column(self) -> Optional['outputs.AnomalyDetectorTimestampColumn']:
+        """
+        Contains information about the column used for tracking time in your source data.
+        """
         return pulumi.get(self, "timestamp_column")
 
     @property
     @pulumi.getter
     def timezone(self) -> Optional[str]:
+        """
+        The time zone in which your source data was recorded.
+        """
         return pulumi.get(self, "timezone")
 
 
@@ -645,6 +737,13 @@ class AnomalyDetectorMetricSource(dict):
                  rds_source_config: Optional['outputs.AnomalyDetectorRdsSourceConfig'] = None,
                  redshift_source_config: Optional['outputs.AnomalyDetectorRedshiftSourceConfig'] = None,
                  s3_source_config: Optional['outputs.AnomalyDetectorS3SourceConfig'] = None):
+        """
+        :param 'AnomalyDetectorAppFlowConfig' app_flow_config: Details about an AppFlow datasource.
+        :param 'AnomalyDetectorCloudwatchConfig' cloudwatch_config: Details about an Amazon CloudWatch monitoring datasource.
+        :param 'AnomalyDetectorRdsSourceConfig' rds_source_config: Details about an Amazon Relational Database Service (RDS) datasource.
+        :param 'AnomalyDetectorRedshiftSourceConfig' redshift_source_config: Details about an Amazon Redshift database datasource.
+        :param 'AnomalyDetectorS3SourceConfig' s3_source_config: Contains information about the configuration of the S3 bucket that contains source files.
+        """
         if app_flow_config is not None:
             pulumi.set(__self__, "app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
@@ -659,26 +758,41 @@ class AnomalyDetectorMetricSource(dict):
     @property
     @pulumi.getter(name="appFlowConfig")
     def app_flow_config(self) -> Optional['outputs.AnomalyDetectorAppFlowConfig']:
+        """
+        Details about an AppFlow datasource.
+        """
         return pulumi.get(self, "app_flow_config")
 
     @property
     @pulumi.getter(name="cloudwatchConfig")
     def cloudwatch_config(self) -> Optional['outputs.AnomalyDetectorCloudwatchConfig']:
+        """
+        Details about an Amazon CloudWatch monitoring datasource.
+        """
         return pulumi.get(self, "cloudwatch_config")
 
     @property
     @pulumi.getter(name="rdsSourceConfig")
     def rds_source_config(self) -> Optional['outputs.AnomalyDetectorRdsSourceConfig']:
+        """
+        Details about an Amazon Relational Database Service (RDS) datasource.
+        """
         return pulumi.get(self, "rds_source_config")
 
     @property
     @pulumi.getter(name="redshiftSourceConfig")
     def redshift_source_config(self) -> Optional['outputs.AnomalyDetectorRedshiftSourceConfig']:
+        """
+        Details about an Amazon Redshift database datasource.
+        """
         return pulumi.get(self, "redshift_source_config")
 
     @property
     @pulumi.getter(name="s3SourceConfig")
     def s3_source_config(self) -> Optional['outputs.AnomalyDetectorS3SourceConfig']:
+        """
+        Contains information about the configuration of the S3 bucket that contains source files.
+        """
         return pulumi.get(self, "s3_source_config")
 
 
@@ -724,6 +838,16 @@ class AnomalyDetectorRdsSourceConfig(dict):
                  secret_manager_arn: str,
                  table_name: str,
                  vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration'):
+        """
+        :param str database_host: The host name of the database.
+        :param str database_name: The name of the RDS database.
+        :param int database_port: The port number where the database can be accessed.
+        :param str db_instance_identifier: A string identifying the database instance.
+        :param str role_arn: The Amazon Resource Name (ARN) of the role.
+        :param str secret_manager_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        :param str table_name: The name of the table in the database.
+        :param 'AnomalyDetectorVpcConfiguration' vpc_configuration: An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
+        """
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "database_port", database_port)
@@ -736,41 +860,65 @@ class AnomalyDetectorRdsSourceConfig(dict):
     @property
     @pulumi.getter(name="databaseHost")
     def database_host(self) -> str:
+        """
+        The host name of the database.
+        """
         return pulumi.get(self, "database_host")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        The name of the RDS database.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="databasePort")
     def database_port(self) -> int:
+        """
+        The port number where the database can be accessed.
+        """
         return pulumi.get(self, "database_port")
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
     def db_instance_identifier(self) -> str:
+        """
+        A string identifying the database instance.
+        """
         return pulumi.get(self, "db_instance_identifier")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        """
         return pulumi.get(self, "secret_manager_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The name of the table in the database.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> 'outputs.AnomalyDetectorVpcConfiguration':
+        """
+        An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
+        """
         return pulumi.get(self, "vpc_configuration")
 
 
@@ -816,6 +964,16 @@ class AnomalyDetectorRedshiftSourceConfig(dict):
                  secret_manager_arn: str,
                  table_name: str,
                  vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration'):
+        """
+        :param str cluster_identifier: A string identifying the Redshift cluster.
+        :param str database_host: The name of the database host.
+        :param str database_name: The Redshift database name.
+        :param int database_port: The port number where the database can be accessed.
+        :param str role_arn: The Amazon Resource Name (ARN) of the role providing access to the database.
+        :param str secret_manager_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        :param str table_name: The table name of the Redshift database.
+        :param 'AnomalyDetectorVpcConfiguration' vpc_configuration: Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
+        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
@@ -828,41 +986,65 @@ class AnomalyDetectorRedshiftSourceConfig(dict):
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> str:
+        """
+        A string identifying the Redshift cluster.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @property
     @pulumi.getter(name="databaseHost")
     def database_host(self) -> str:
+        """
+        The name of the database host.
+        """
         return pulumi.get(self, "database_host")
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        The Redshift database name.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="databasePort")
     def database_port(self) -> int:
+        """
+        The port number where the database can be accessed.
+        """
         return pulumi.get(self, "database_port")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the role providing access to the database.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+        """
         return pulumi.get(self, "secret_manager_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The table name of the Redshift database.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> 'outputs.AnomalyDetectorVpcConfiguration':
+        """
+        Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
+        """
         return pulumi.get(self, "vpc_configuration")
 
 
@@ -896,6 +1078,12 @@ class AnomalyDetectorS3SourceConfig(dict):
                  role_arn: str,
                  historical_data_path_list: Optional[Sequence[str]] = None,
                  templated_path_list: Optional[Sequence[str]] = None):
+        """
+        :param 'AnomalyDetectorFileFormatDescriptor' file_format_descriptor: Contains information about a source file's formatting.
+        :param str role_arn: The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
+        :param Sequence[str] historical_data_path_list: A list of paths to the historical data files.
+        :param Sequence[str] templated_path_list: A list of templated paths to the source files.
+        """
         pulumi.set(__self__, "file_format_descriptor", file_format_descriptor)
         pulumi.set(__self__, "role_arn", role_arn)
         if historical_data_path_list is not None:
@@ -906,21 +1094,33 @@ class AnomalyDetectorS3SourceConfig(dict):
     @property
     @pulumi.getter(name="fileFormatDescriptor")
     def file_format_descriptor(self) -> 'outputs.AnomalyDetectorFileFormatDescriptor':
+        """
+        Contains information about a source file's formatting.
+        """
         return pulumi.get(self, "file_format_descriptor")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="historicalDataPathList")
     def historical_data_path_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of paths to the historical data files.
+        """
         return pulumi.get(self, "historical_data_path_list")
 
     @property
     @pulumi.getter(name="templatedPathList")
     def templated_path_list(self) -> Optional[Sequence[str]]:
+        """
+        A list of templated paths to the source files.
+        """
         return pulumi.get(self, "templated_path_list")
 
 
@@ -950,6 +1150,7 @@ class AnomalyDetectorTimestampColumn(dict):
                  column_name: Optional[str] = None):
         """
         :param str column_format: A timestamp format for the timestamps in the dataset
+        :param str column_name: The name of the timestamp column.
         """
         if column_format is not None:
             pulumi.set(__self__, "column_format", column_format)
@@ -967,6 +1168,9 @@ class AnomalyDetectorTimestampColumn(dict):
     @property
     @pulumi.getter(name="columnName")
     def column_name(self) -> Optional[str]:
+        """
+        The name of the timestamp column.
+        """
         return pulumi.get(self, "column_name")
 
 
@@ -994,17 +1198,27 @@ class AnomalyDetectorVpcConfiguration(dict):
     def __init__(__self__, *,
                  security_group_id_list: Sequence[str],
                  subnet_id_list: Sequence[str]):
+        """
+        :param Sequence[str] security_group_id_list: An array of strings containing the list of security groups.
+        :param Sequence[str] subnet_id_list: An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
+        """
         pulumi.set(__self__, "security_group_id_list", security_group_id_list)
         pulumi.set(__self__, "subnet_id_list", subnet_id_list)
 
     @property
     @pulumi.getter(name="securityGroupIdList")
     def security_group_id_list(self) -> Sequence[str]:
+        """
+        An array of strings containing the list of security groups.
+        """
         return pulumi.get(self, "security_group_id_list")
 
     @property
     @pulumi.getter(name="subnetIdList")
     def subnet_id_list(self) -> Sequence[str]:
+        """
+        An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
+        """
         return pulumi.get(self, "subnet_id_list")
 
 

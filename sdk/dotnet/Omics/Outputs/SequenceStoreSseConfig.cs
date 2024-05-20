@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Omics.Outputs
         /// An encryption key ARN.
         /// </summary>
         public readonly string? KeyArn;
+        /// <summary>
+        /// The encryption type.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.SequenceStoreEncryptionType Type;
 
         [OutputConstructor]

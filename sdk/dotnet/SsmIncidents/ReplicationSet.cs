@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SsmIncidents
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+        /// </summary>
         [Output("deletionProtected")]
         public Output<bool?> DeletionProtected { get; private set; } = null!;
 
@@ -81,6 +84,9 @@ namespace Pulumi.AwsNative.SsmIncidents
 
     public sealed class ReplicationSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
+        /// </summary>
         [Input("deletionProtected")]
         public Input<bool>? DeletionProtected { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisAxisLabelReferenceOptions
     {
+        /// <summary>
+        /// The column that the axis label is targeted to.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The field that the axis label is targeted to.
+        /// </summary>
         public readonly string FieldId;
 
         [OutputConstructor]

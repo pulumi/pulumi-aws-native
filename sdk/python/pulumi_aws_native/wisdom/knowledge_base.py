@@ -28,6 +28,13 @@ class KnowledgeBaseArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
+        :param pulumi.Input['KnowledgeBaseType'] knowledge_base_type: The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+        :param pulumi.Input[str] description: The description.
+        :param pulumi.Input[str] name: The name of the knowledge base.
+        :param pulumi.Input['KnowledgeBaseRenderingConfigurationArgs'] rendering_configuration: Information about how to render the content.
+        :param pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input['KnowledgeBaseSourceConfigurationArgs'] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "knowledge_base_type", knowledge_base_type)
         if description is not None:
@@ -46,6 +53,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="knowledgeBaseType")
     def knowledge_base_type(self) -> pulumi.Input['KnowledgeBaseType']:
+        """
+        The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+        """
         return pulumi.get(self, "knowledge_base_type")
 
     @knowledge_base_type.setter
@@ -55,6 +65,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,6 +77,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the knowledge base.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -73,6 +89,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="renderingConfiguration")
     def rendering_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']]:
+        """
+        Information about how to render the content.
+        """
         return pulumi.get(self, "rendering_configuration")
 
     @rendering_configuration.setter
@@ -82,6 +101,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']]:
+        """
+        This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
@@ -91,6 +113,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']]:
+        """
+        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -100,6 +125,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -125,6 +153,13 @@ class KnowledgeBase(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description.
+        :param pulumi.Input['KnowledgeBaseType'] knowledge_base_type: The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+        :param pulumi.Input[str] name: The name of the knowledge base.
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']] rendering_configuration: Information about how to render the content.
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -215,45 +250,72 @@ class KnowledgeBase(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="knowledgeBaseArn")
     def knowledge_base_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_arn")
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the knowledge base.
+        """
         return pulumi.get(self, "knowledge_base_id")
 
     @property
     @pulumi.getter(name="knowledgeBaseType")
     def knowledge_base_type(self) -> pulumi.Output['KnowledgeBaseType']:
+        """
+        The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
+        """
         return pulumi.get(self, "knowledge_base_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the knowledge base.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="renderingConfiguration")
     def rendering_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseRenderingConfiguration']]:
+        """
+        Information about how to render the content.
+        """
         return pulumi.get(self, "rendering_configuration")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseServerSideEncryptionConfiguration']]:
+        """
+        This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseSourceConfiguration']]:
+        """
+        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        """
         return pulumi.get(self, "source_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 

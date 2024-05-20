@@ -28,6 +28,7 @@ type LookupDestinationArgs struct {
 }
 
 type LookupDestinationResult struct {
+	// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
 	Arn *string `pulumi:"arn"`
 	// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 	DestinationPolicy *string `pulumi:"destinationPolicy"`
@@ -73,6 +74,7 @@ func (o LookupDestinationResultOutput) ToLookupDestinationResultOutputWithContex
 	return o
 }
 
+// The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
 func (o LookupDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDestinationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

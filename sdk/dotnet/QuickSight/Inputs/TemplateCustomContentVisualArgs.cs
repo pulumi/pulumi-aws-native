@@ -14,24 +14,43 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.TemplateVisualCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public InputList<Inputs.TemplateVisualCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.TemplateVisualCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The configuration of a `CustomContentVisual` .
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.TemplateCustomContentConfigurationArgs>? ChartConfiguration { get; set; }
 
+        /// <summary>
+        /// The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The subtitle that is displayed on the visual.
+        /// </summary>
         [Input("subtitle")]
         public Input<Inputs.TemplateVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
+        /// <summary>
+        /// The title that is displayed on the visual.
+        /// </summary>
         [Input("title")]
         public Input<Inputs.TemplateVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

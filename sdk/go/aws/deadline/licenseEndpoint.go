@@ -16,14 +16,22 @@ import (
 type LicenseEndpoint struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
-	DnsName           pulumi.StringOutput         `pulumi:"dnsName"`
-	LicenseEndpointId pulumi.StringOutput         `pulumi:"licenseEndpointId"`
-	SecurityGroupIds  pulumi.StringArrayOutput    `pulumi:"securityGroupIds"`
-	Status            LicenseEndpointStatusOutput `pulumi:"status"`
-	StatusMessage     pulumi.StringOutput         `pulumi:"statusMessage"`
-	SubnetIds         pulumi.StringArrayOutput    `pulumi:"subnetIds"`
-	VpcId             pulumi.StringOutput         `pulumi:"vpcId"`
+	// The Amazon Resource Name (ARN) of the license endpoint.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The DNS name of the license server endpoint.
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// The license endpoint ID.
+	LicenseEndpointId pulumi.StringOutput `pulumi:"licenseEndpointId"`
+	// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The status of the license endpoint.
+	Status LicenseEndpointStatusOutput `pulumi:"status"`
+	// The status message of the license endpoint.
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// Identifies the VPC subnets that can connect to a license endpoint.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewLicenseEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -81,16 +89,22 @@ func (LicenseEndpointState) ElementType() reflect.Type {
 }
 
 type licenseEndpointArgs struct {
+	// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	VpcId            string   `pulumi:"vpcId"`
+	// Identifies the VPC subnets that can connect to a license endpoint.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a LicenseEndpoint resource.
 type LicenseEndpointArgs struct {
+	// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
-	SubnetIds        pulumi.StringArrayInput
-	VpcId            pulumi.StringInput
+	// Identifies the VPC subnets that can connect to a license endpoint.
+	SubnetIds pulumi.StringArrayInput
+	// The VCP(virtual private cloud) ID associated with the license endpoint.
+	VpcId pulumi.StringInput
 }
 
 func (LicenseEndpointArgs) ElementType() reflect.Type {
@@ -130,34 +144,42 @@ func (o LicenseEndpointOutput) ToLicenseEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the license endpoint.
 func (o LicenseEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The DNS name of the license server endpoint.
 func (o LicenseEndpointOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// The license endpoint ID.
 func (o LicenseEndpointOutput) LicenseEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringOutput { return v.LicenseEndpointId }).(pulumi.StringOutput)
 }
 
+// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
 func (o LicenseEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The status of the license endpoint.
 func (o LicenseEndpointOutput) Status() LicenseEndpointStatusOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) LicenseEndpointStatusOutput { return v.Status }).(LicenseEndpointStatusOutput)
 }
 
+// The status message of the license endpoint.
 func (o LicenseEndpointOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// Identifies the VPC subnets that can connect to a license endpoint.
 func (o LicenseEndpointOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The VCP(virtual private cloud) ID associated with the license endpoint.
 func (o LicenseEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

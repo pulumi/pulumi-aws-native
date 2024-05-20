@@ -16,11 +16,31 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
     [OutputType]
     public sealed class AppResourceMapping
     {
+        /// <summary>
+        /// Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
+        /// 
+        /// &gt; This parameter accepts values in "eks-cluster/namespace" format.
+        /// </summary>
         public readonly string? EksSourceName;
+        /// <summary>
+        /// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        /// </summary>
         public readonly string? LogicalStackName;
+        /// <summary>
+        /// Specifies the type of resource mapping.
+        /// </summary>
         public readonly string MappingType;
+        /// <summary>
+        /// Identifier of the physical resource.
+        /// </summary>
         public readonly Outputs.AppPhysicalResourceId PhysicalResourceId;
+        /// <summary>
+        /// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
+        /// </summary>
         public readonly string? ResourceName;
+        /// <summary>
+        /// Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
+        /// </summary>
         public readonly string? TerraformSourceName;
 
         [OutputConstructor]

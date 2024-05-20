@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetRouteTableAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the subnet route table association.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSubnetRouteTableAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the subnet route table association.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetSubnetRouteTableAssociationResult
     {
+        /// <summary>
+        /// The ID of the subnet route table association.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

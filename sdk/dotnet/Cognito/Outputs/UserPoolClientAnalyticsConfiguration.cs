@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolClientAnalyticsConfiguration
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
+        /// </summary>
         public readonly string? ApplicationArn;
+        /// <summary>
+        /// The application ID for an Amazon Pinpoint application.
+        /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// The external ID.
+        /// </summary>
         public readonly string? ExternalId;
+        /// <summary>
+        /// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
+        /// </summary>
         public readonly bool? UserDataShared;
 
         [OutputConstructor]

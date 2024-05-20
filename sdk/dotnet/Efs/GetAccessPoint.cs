@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.Efs
 
     public sealed class GetAccessPointArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the EFS access point.
+        /// </summary>
         [Input("accessPointId", required: true)]
         public string AccessPointId { get; set; } = null!;
 
@@ -40,6 +43,9 @@ namespace Pulumi.AwsNative.Efs
 
     public sealed class GetAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the EFS access point.
+        /// </summary>
         [Input("accessPointId", required: true)]
         public Input<string> AccessPointId { get; set; } = null!;
 
@@ -53,12 +59,18 @@ namespace Pulumi.AwsNative.Efs
     [OutputType]
     public sealed class GetAccessPointResult
     {
+        /// <summary>
+        /// The ID of the EFS access point.
+        /// </summary>
         public readonly string? AccessPointId;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> AccessPointTags;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the access point.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

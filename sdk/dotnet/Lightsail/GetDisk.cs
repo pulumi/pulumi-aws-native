@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// Attachment State of the Lightsail disk
         /// </summary>
         public readonly string? AttachmentState;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the disk.
+        /// </summary>
         public readonly string? DiskArn;
         /// <summary>
         /// Iops of the Lightsail disk
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// Check is Disk is attached state
         /// </summary>
         public readonly bool? IsAttached;
+        /// <summary>
+        /// The AWS Region and Availability Zone where the disk is located.
+        /// </summary>
         public readonly Outputs.DiskLocation? Location;
         /// <summary>
         /// Path of the  attached Disk

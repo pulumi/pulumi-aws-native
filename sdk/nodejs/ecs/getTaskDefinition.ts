@@ -23,6 +23,9 @@ export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.Inv
 }
 
 export interface GetTaskDefinitionArgs {
+    /**
+     * The ARN of the task definition.
+     */
     taskDefinitionArn: string;
 }
 
@@ -39,6 +42,9 @@ export interface GetTaskDefinitionResult {
      *   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of the task definition.
+     */
     readonly taskDefinitionArn?: string;
 }
 /**
@@ -53,5 +59,8 @@ export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?
 }
 
 export interface GetTaskDefinitionOutputArgs {
+    /**
+     * The ARN of the task definition.
+     */
     taskDefinitionArn: pulumi.Input<string>;
 }

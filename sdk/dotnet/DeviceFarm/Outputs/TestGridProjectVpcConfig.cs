@@ -24,6 +24,11 @@ namespace Pulumi.AwsNative.DeviceFarm.Outputs
         /// A list of VPC subnet IDs in your Amazon VPC.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// A list of VPC IDs.
+        /// 
+        /// Each VPC is given a unique ID upon creation.
+        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

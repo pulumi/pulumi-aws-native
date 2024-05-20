@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanSsmParameter
     {
+        /// <summary>
+        /// The key parameter to use when running the Automation runbook.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value parameter to use when running the Automation runbook.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

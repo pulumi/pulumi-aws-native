@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     [OutputType]
     public sealed class ImageBuilderVpcConfig
     {
+        /// <summary>
+        /// The identifiers of the security groups for the image builder.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

@@ -32,6 +32,7 @@ class DatasetArgs:
         :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: Format options for dataset
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the dataset.
         """
         pulumi.set(__self__, "input", input)
         if format is not None:
@@ -108,6 +109,9 @@ class DatasetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        Metadata tags that have been applied to the dataset.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -164,6 +168,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatasetInputArgs']] input: Input
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']] path_options: PathOptions
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the dataset.
         """
         ...
     @overload
@@ -314,5 +319,8 @@ class Dataset(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        Metadata tags that have been applied to the dataset.
+        """
         return pulumi.get(self, "tags")
 

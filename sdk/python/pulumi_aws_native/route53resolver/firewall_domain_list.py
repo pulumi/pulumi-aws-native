@@ -24,6 +24,7 @@ class FirewallDomainListArgs:
         """
         The set of arguments for constructing a FirewallDomainList resource.
         :param pulumi.Input[str] domain_file_url: S3 URL to import domains from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of the domain lists that you have defined.
         :param pulumi.Input[str] name: FirewallDomainListName
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags
         """
@@ -51,6 +52,9 @@ class FirewallDomainListArgs:
     @property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the domain lists that you have defined.
+        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -98,6 +102,7 @@ class FirewallDomainList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_file_url: S3 URL to import domains from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of the domain lists that you have defined.
         :param pulumi.Input[str] name: FirewallDomainListName
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags
         """
@@ -241,6 +246,9 @@ class FirewallDomainList(pulumi.CustomResource):
     @property
     @pulumi.getter
     def domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the domain lists that you have defined.
+        """
         return pulumi.get(self, "domains")
 
     @property

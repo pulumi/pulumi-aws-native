@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetLicenseEndpointArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license endpoint.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetLicenseEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license endpoint.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetLicenseEndpointResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license endpoint.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The DNS name of the license server endpoint.
+        /// </summary>
         public readonly string? DnsName;
+        /// <summary>
+        /// The license endpoint ID.
+        /// </summary>
         public readonly string? LicenseEndpointId;
+        /// <summary>
+        /// The status of the license endpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.Deadline.LicenseEndpointStatus? Status;
+        /// <summary>
+        /// The status message of the license endpoint.
+        /// </summary>
         public readonly string? StatusMessage;
 
         [OutputConstructor]

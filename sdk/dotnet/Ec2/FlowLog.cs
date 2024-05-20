@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("deliverLogsPermissionArn")]
         public Output<string?> DeliverLogsPermissionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The destination options.
+        /// </summary>
         [Output("destinationOptions")]
         public Output<Outputs.DestinationOptionsProperties?> DestinationOptions { get; private set; } = null!;
 
@@ -161,6 +164,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("deliverLogsPermissionArn")]
         public Input<string>? DeliverLogsPermissionArn { get; set; }
 
+        /// <summary>
+        /// The destination options.
+        /// </summary>
         [Input("destinationOptions")]
         public Input<Inputs.DestinationOptionsPropertiesArgs>? DestinationOptions { get; set; }
 

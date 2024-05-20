@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class Ec2FleetAcceleratorCountRequest
     {
+        /// <summary>
+        /// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

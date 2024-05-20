@@ -93,6 +93,9 @@ export class Room extends pulumi.CustomResource {
      * The maximum number of messages per second that can be sent to the room.
      */
     public readonly maximumMessageRatePerSecond!: pulumi.Output<number | undefined>;
+    /**
+     * Configuration information for optional review of messages.
+     */
     public readonly messageReviewHandler!: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
     /**
      * The name of the room. The value does not need to be unique.
@@ -153,6 +156,9 @@ export interface RoomArgs {
      * The maximum number of messages per second that can be sent to the room.
      */
     maximumMessageRatePerSecond?: pulumi.Input<number>;
+    /**
+     * Configuration information for optional review of messages.
+     */
     messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandlerArgs>;
     /**
      * The name of the room. The value does not need to be unique.

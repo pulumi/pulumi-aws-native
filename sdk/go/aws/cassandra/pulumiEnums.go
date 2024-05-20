@@ -248,6 +248,12 @@ func (o KeyspaceRegionListItemArrayOutput) Index(i pulumi.IntInput) KeyspaceRegi
 	}).(KeyspaceRegionListItemOutput)
 }
 
+// The options are:
+//
+// - `SINGLE_REGION` (optional)
+// - `MULTI_REGION`
+//
+// If no value is specified, the default is `SINGLE_REGION` . If `MULTI_REGION` is specified, `RegionList` is required.
 type KeyspaceReplicationSpecificationReplicationStrategy string
 
 const (
@@ -413,6 +419,10 @@ func (in *keyspaceReplicationSpecificationReplicationStrategyPtr) ToKeyspaceRepl
 	return pulumi.ToOutputWithContext(ctx, in).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
 }
 
+// The order in which this column's data is stored:
+//
+// - `ASC` (default) - The column's data is stored in ascending order.
+// - `DESC` - The column's data is stored in descending order.
 type TableClusteringKeyColumnOrderBy string
 
 const (

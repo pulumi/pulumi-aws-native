@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class GameServerGroupTargetTrackingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Desired value to use with a game server group target-based scaling policy.
+        /// </summary>
         [Input("targetValue", required: true)]
         public Input<double> TargetValue { get; set; } = null!;
 

@@ -35,8 +35,11 @@ type LookupHubResult struct {
 	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
 	// The date and time when Security Hub was enabled in the account.
-	SubscribedAt *string           `pulumi:"subscribedAt"`
-	Tags         map[string]string `pulumi:"tags"`
+	SubscribedAt *string `pulumi:"subscribedAt"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
@@ -95,6 +98,9 @@ func (o LookupHubResultOutput) SubscribedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHubResult) *string { return v.SubscribedAt }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupHubResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupHubResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -21,6 +21,11 @@ class UserPoolDomainArgs:
                  custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
+        :param pulumi.Input[str] domain: The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+               
+               This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where you want to associate a user pool domain.
+        :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -30,6 +35,11 @@ class UserPoolDomainArgs:
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+
+        This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -39,6 +49,9 @@ class UserPoolDomainArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool where you want to associate a user pool domain.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -48,6 +61,9 @@ class UserPoolDomainArgs:
     @property
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]:
+        """
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        """
         return pulumi.get(self, "custom_domain_config")
 
     @custom_domain_config.setter
@@ -69,6 +85,11 @@ class UserPoolDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['UserPoolDomainCustomDomainConfigTypeArgs']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        :param pulumi.Input[str] domain: The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+               
+               This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where you want to associate a user pool domain.
         """
         ...
     @overload
@@ -149,25 +170,42 @@ class UserPoolDomain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cloudFrontDistribution")
     def cloud_front_distribution(self) -> pulumi.Output[str]:
+        """
+        The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+        """
         return pulumi.get(self, "cloud_front_distribution")
 
     @property
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> pulumi.Output[Optional['outputs.UserPoolDomainCustomDomainConfigType']]:
+        """
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        """
         return pulumi.get(self, "custom_domain_config")
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
+        """
+        The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+
+        This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID for the user pool where you want to associate a user pool domain.
+        """
         return pulumi.get(self, "user_pool_id")
 

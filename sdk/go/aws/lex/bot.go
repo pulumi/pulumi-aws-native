@@ -16,23 +16,30 @@ import (
 type Bot struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the bot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether to build the bot locales after bot creation completes.
-	AutoBuildBotLocales pulumi.BoolPtrOutput   `pulumi:"autoBuildBotLocales"`
-	AwsId               pulumi.StringOutput    `pulumi:"awsId"`
-	BotFileS3Location   BotS3LocationPtrOutput `pulumi:"botFileS3Location"`
+	AutoBuildBotLocales pulumi.BoolPtrOutput `pulumi:"autoBuildBotLocales"`
+	// The unique identifier of the bot.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
+	BotFileS3Location BotS3LocationPtrOutput `pulumi:"botFileS3Location"`
 	// List of bot locales
 	BotLocales BotLocaleArrayOutput `pulumi:"botLocales"`
 	// A list of tags to add to the bot, which can only be added at bot creation.
 	BotTags BotTagArrayOutput `pulumi:"botTags"`
 	// Data privacy setting of the Bot.
 	DataPrivacy DataPrivacyPropertiesOutput `pulumi:"dataPrivacy"`
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
+	// The description of the version.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTtlInSeconds pulumi.IntOutput                 `pulumi:"idleSessionTtlInSeconds"`
-	Name                    pulumi.StringOutput              `pulumi:"name"`
-	RoleArn                 pulumi.StringOutput              `pulumi:"roleArn"`
-	TestBotAliasSettings    BotTestBotAliasSettingsPtrOutput `pulumi:"testBotAliasSettings"`
+	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
+	// The name of the bot locale.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+	TestBotAliasSettings BotTestBotAliasSettingsPtrOutput `pulumi:"testBotAliasSettings"`
 	// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
 	TestBotAliasTags BotTagArrayOutput `pulumi:"testBotAliasTags"`
 }
@@ -87,20 +94,25 @@ func (BotState) ElementType() reflect.Type {
 
 type botArgs struct {
 	// Specifies whether to build the bot locales after bot creation completes.
-	AutoBuildBotLocales *bool          `pulumi:"autoBuildBotLocales"`
-	BotFileS3Location   *BotS3Location `pulumi:"botFileS3Location"`
+	AutoBuildBotLocales *bool `pulumi:"autoBuildBotLocales"`
+	// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
+	BotFileS3Location *BotS3Location `pulumi:"botFileS3Location"`
 	// List of bot locales
 	BotLocales []BotLocale `pulumi:"botLocales"`
 	// A list of tags to add to the bot, which can only be added at bot creation.
 	BotTags []BotTag `pulumi:"botTags"`
 	// Data privacy setting of the Bot.
 	DataPrivacy DataPrivacyProperties `pulumi:"dataPrivacy"`
-	Description *string               `pulumi:"description"`
+	// The description of the version.
+	Description *string `pulumi:"description"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTtlInSeconds int                      `pulumi:"idleSessionTtlInSeconds"`
-	Name                    *string                  `pulumi:"name"`
-	RoleArn                 string                   `pulumi:"roleArn"`
-	TestBotAliasSettings    *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
+	IdleSessionTtlInSeconds int `pulumi:"idleSessionTtlInSeconds"`
+	// The name of the bot locale.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+	RoleArn string `pulumi:"roleArn"`
+	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+	TestBotAliasSettings *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
 	// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
 	TestBotAliasTags []BotTag `pulumi:"testBotAliasTags"`
 }
@@ -109,19 +121,24 @@ type botArgs struct {
 type BotArgs struct {
 	// Specifies whether to build the bot locales after bot creation completes.
 	AutoBuildBotLocales pulumi.BoolPtrInput
-	BotFileS3Location   BotS3LocationPtrInput
+	// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
+	BotFileS3Location BotS3LocationPtrInput
 	// List of bot locales
 	BotLocales BotLocaleArrayInput
 	// A list of tags to add to the bot, which can only be added at bot creation.
 	BotTags BotTagArrayInput
 	// Data privacy setting of the Bot.
 	DataPrivacy DataPrivacyPropertiesInput
+	// The description of the version.
 	Description pulumi.StringPtrInput
 	// IdleSessionTTLInSeconds of the resource
 	IdleSessionTtlInSeconds pulumi.IntInput
-	Name                    pulumi.StringPtrInput
-	RoleArn                 pulumi.StringInput
-	TestBotAliasSettings    BotTestBotAliasSettingsPtrInput
+	// The name of the bot locale.
+	Name pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
+	RoleArn pulumi.StringInput
+	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
+	TestBotAliasSettings BotTestBotAliasSettingsPtrInput
 	// A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.
 	TestBotAliasTags BotTagArrayInput
 }
@@ -163,6 +180,7 @@ func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the bot.
 func (o BotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -172,10 +190,12 @@ func (o BotOutput) AutoBuildBotLocales() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bot) pulumi.BoolPtrOutput { return v.AutoBuildBotLocales }).(pulumi.BoolPtrOutput)
 }
 
+// The unique identifier of the bot.
 func (o BotOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 func (o BotOutput) BotFileS3Location() BotS3LocationPtrOutput {
 	return o.ApplyT(func(v *Bot) BotS3LocationPtrOutput { return v.BotFileS3Location }).(BotS3LocationPtrOutput)
 }
@@ -195,6 +215,7 @@ func (o BotOutput) DataPrivacy() DataPrivacyPropertiesOutput {
 	return o.ApplyT(func(v *Bot) DataPrivacyPropertiesOutput { return v.DataPrivacy }).(DataPrivacyPropertiesOutput)
 }
 
+// The description of the version.
 func (o BotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -204,14 +225,17 @@ func (o BotOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *Bot) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
+// The name of the bot locale.
 func (o BotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 func (o BotOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
 func (o BotOutput) TestBotAliasSettings() BotTestBotAliasSettingsPtrOutput {
 	return o.ApplyT(func(v *Bot) BotTestBotAliasSettingsPtrOutput { return v.TestBotAliasSettings }).(BotTestBotAliasSettingsPtrOutput)
 }

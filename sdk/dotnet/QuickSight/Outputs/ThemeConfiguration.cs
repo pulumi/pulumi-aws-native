@@ -17,9 +17,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeConfiguration
     {
+        /// <summary>
+        /// Color properties that apply to chart data colors.
+        /// </summary>
         public readonly Outputs.ThemeDataColorPalette? DataColorPalette;
+        /// <summary>
+        /// Display options related to sheets.
+        /// </summary>
         public readonly Outputs.ThemeSheetStyle? Sheet;
         public readonly Outputs.ThemeTypography? Typography;
+        /// <summary>
+        /// Color properties that apply to the UI and to charts, excluding the colors that apply to data.
+        /// </summary>
         public readonly Outputs.ThemeUiColorPalette? UiColorPalette;
 
         [OutputConstructor]

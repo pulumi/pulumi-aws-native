@@ -51,46 +51,73 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="appBlockArn")
     def app_block_arn(self) -> Optional[str]:
+        """
+        The app block ARN with which the application should be associated.
+        """
         return pulumi.get(self, "app_block_arn")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the application.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        The time when the application was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the application.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the application. This name is visible to users in the application catalog.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="iconS3Location")
     def icon_s3_location(self) -> Optional['outputs.ApplicationS3Location']:
+        """
+        The icon S3 location of the application.
+        """
         return pulumi.get(self, "icon_s3_location")
 
     @property
     @pulumi.getter(name="launchParameters")
     def launch_parameters(self) -> Optional[str]:
+        """
+        The launch parameters of the application.
+        """
         return pulumi.get(self, "launch_parameters")
 
     @property
     @pulumi.getter(name="launchPath")
     def launch_path(self) -> Optional[str]:
+        """
+        The launch path of the application.
+        """
         return pulumi.get(self, "launch_path")
 
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[str]:
+        """
+        The working directory of the application.
+        """
         return pulumi.get(self, "working_directory")
 
 
@@ -115,6 +142,9 @@ def get_application(arn: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Resource Type definition for AWS::AppStream::Application
+
+
+    :param str arn: The ARN of the application.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -138,5 +168,8 @@ def get_application_output(arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Type definition for AWS::AppStream::Application
+
+
+    :param str arn: The ARN of the application.
     """
     ...

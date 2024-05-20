@@ -46,17 +46,41 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of job definition.
      */
     public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
+    /**
+     * The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+     */
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    /**
+     * Identifies the resources to deploy for a monitoring job.
+     */
     public readonly jobResources!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringResources>;
+    /**
+     * Configures the model explainability job to run a specified Docker container image.
+     */
     public readonly modelExplainabilityAppSpecification!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification>;
+    /**
+     * The baseline configuration for a model explainability job.
+     */
     public readonly modelExplainabilityBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig | undefined>;
+    /**
+     * Inputs for the model explainability job.
+     */
     public readonly modelExplainabilityJobInput!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInput>;
+    /**
+     * The output configuration for monitoring jobs.
+     */
     public readonly modelExplainabilityJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringOutputConfig>;
+    /**
+     * Networking options for a model explainability job.
+     */
     public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * A time limit for how long the monitoring job is allowed to run before stopping.
+     */
     public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelExplainabilityJobDefinitionStoppingCondition | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -129,17 +153,41 @@ export class ModelExplainabilityJobDefinition extends pulumi.CustomResource {
  */
 export interface ModelExplainabilityJobDefinitionArgs {
     endpointName?: pulumi.Input<string>;
+    /**
+     * The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
+     */
     jobDefinitionName?: pulumi.Input<string>;
+    /**
+     * Identifies the resources to deploy for a monitoring job.
+     */
     jobResources: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringResourcesArgs>;
+    /**
+     * Configures the model explainability job to run a specified Docker container image.
+     */
     modelExplainabilityAppSpecification: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs>;
+    /**
+     * The baseline configuration for a model explainability job.
+     */
     modelExplainabilityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs>;
+    /**
+     * Inputs for the model explainability job.
+     */
     modelExplainabilityJobInput: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs>;
+    /**
+     * The output configuration for monitoring jobs.
+     */
     modelExplainabilityJobOutputConfig: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs>;
+    /**
+     * Networking options for a model explainability job.
+     */
     networkConfig?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionNetworkConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * A time limit for how long the monitoring job is allowed to run before stopping.
+     */
     stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionStoppingConditionArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

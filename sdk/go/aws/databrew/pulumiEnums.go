@@ -1176,6 +1176,7 @@ func (in *jobLogSubscriptionPtr) ToJobLogSubscriptionPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(JobLogSubscriptionPtrOutput)
 }
 
+// The compression algorithm used to compress the output text of the job.
 type JobOutputCompressionFormat string
 
 const (
@@ -1355,6 +1356,7 @@ func (in *jobOutputCompressionFormatPtr) ToJobOutputCompressionFormatPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(JobOutputCompressionFormatPtrOutput)
 }
 
+// The data format of the output of the job.
 type JobOutputFormat string
 
 const (

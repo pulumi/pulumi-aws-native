@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetLaunchProfileArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the launch profile resource.
+        /// </summary>
         [Input("launchProfileId", required: true)]
         public string LaunchProfileId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class GetLaunchProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the launch profile resource.
+        /// </summary>
         [Input("launchProfileId", required: true)]
         public Input<string> LaunchProfileId { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// &lt;p&gt;The description.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique identifier for the launch profile resource.
+        /// </summary>
         public readonly string? LaunchProfileId;
         /// <summary>
         /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
@@ -77,6 +86,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// &lt;p&gt;The name for the launch profile.&lt;/p&gt;
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A configuration for a streaming session.
+        /// </summary>
         public readonly Outputs.LaunchProfileStreamConfiguration? StreamConfiguration;
         /// <summary>
         /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this

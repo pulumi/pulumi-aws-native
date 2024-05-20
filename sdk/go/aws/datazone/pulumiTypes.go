@@ -2010,7 +2010,9 @@ func (o DataSourceScheduleConfigurationPtrOutput) Timezone() pulumi.StringPtrOut
 
 // The single-sign on configuration of the Amazon DataZone domain.
 type DomainSingleSignOn struct {
-	Type           *DomainAuthType       `pulumi:"type"`
+	// The type of single sign-on in Amazon DataZone.
+	Type *DomainAuthType `pulumi:"type"`
+	// The single sign-on user assignment in Amazon DataZone.
 	UserAssignment *DomainUserAssignment `pulumi:"userAssignment"`
 }
 
@@ -2027,7 +2029,9 @@ type DomainSingleSignOnInput interface {
 
 // The single-sign on configuration of the Amazon DataZone domain.
 type DomainSingleSignOnArgs struct {
-	Type           DomainAuthTypePtrInput       `pulumi:"type"`
+	// The type of single sign-on in Amazon DataZone.
+	Type DomainAuthTypePtrInput `pulumi:"type"`
+	// The single sign-on user assignment in Amazon DataZone.
 	UserAssignment DomainUserAssignmentPtrInput `pulumi:"userAssignment"`
 }
 
@@ -2109,10 +2113,12 @@ func (o DomainSingleSignOnOutput) ToDomainSingleSignOnPtrOutputWithContext(ctx c
 	}).(DomainSingleSignOnPtrOutput)
 }
 
+// The type of single sign-on in Amazon DataZone.
 func (o DomainSingleSignOnOutput) Type() DomainAuthTypePtrOutput {
 	return o.ApplyT(func(v DomainSingleSignOn) *DomainAuthType { return v.Type }).(DomainAuthTypePtrOutput)
 }
 
+// The single sign-on user assignment in Amazon DataZone.
 func (o DomainSingleSignOnOutput) UserAssignment() DomainUserAssignmentPtrOutput {
 	return o.ApplyT(func(v DomainSingleSignOn) *DomainUserAssignment { return v.UserAssignment }).(DomainUserAssignmentPtrOutput)
 }
@@ -2141,6 +2147,7 @@ func (o DomainSingleSignOnPtrOutput) Elem() DomainSingleSignOnOutput {
 	}).(DomainSingleSignOnOutput)
 }
 
+// The type of single sign-on in Amazon DataZone.
 func (o DomainSingleSignOnPtrOutput) Type() DomainAuthTypePtrOutput {
 	return o.ApplyT(func(v *DomainSingleSignOn) *DomainAuthType {
 		if v == nil {
@@ -2150,6 +2157,7 @@ func (o DomainSingleSignOnPtrOutput) Type() DomainAuthTypePtrOutput {
 	}).(DomainAuthTypePtrOutput)
 }
 
+// The single sign-on user assignment in Amazon DataZone.
 func (o DomainSingleSignOnPtrOutput) UserAssignment() DomainUserAssignmentPtrOutput {
 	return o.ApplyT(func(v *DomainSingleSignOn) *DomainUserAssignment {
 		if v == nil {
@@ -2168,8 +2176,10 @@ type DomainTag struct {
 }
 
 type EnvironmentBlueprintConfigurationRegionalParameter struct {
+	// A string to string map containing parameters for the region.
 	Parameters map[string]string `pulumi:"parameters"`
-	Region     *string           `pulumi:"region"`
+	// The region specified in the environment parameter.
+	Region *string `pulumi:"region"`
 }
 
 // EnvironmentBlueprintConfigurationRegionalParameterInput is an input type that accepts EnvironmentBlueprintConfigurationRegionalParameterArgs and EnvironmentBlueprintConfigurationRegionalParameterOutput values.
@@ -2184,8 +2194,10 @@ type EnvironmentBlueprintConfigurationRegionalParameterInput interface {
 }
 
 type EnvironmentBlueprintConfigurationRegionalParameterArgs struct {
+	// A string to string map containing parameters for the region.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	Region     pulumi.StringPtrInput `pulumi:"region"`
+	// The region specified in the environment parameter.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (EnvironmentBlueprintConfigurationRegionalParameterArgs) ElementType() reflect.Type {
@@ -2239,10 +2251,12 @@ func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) ToEnvironmentB
 	return o
 }
 
+// A string to string map containing parameters for the region.
 func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EnvironmentBlueprintConfigurationRegionalParameter) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The region specified in the environment parameter.
 func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentBlueprintConfigurationRegionalParameter) *string { return v.Region }).(pulumi.StringPtrOutput)
 }

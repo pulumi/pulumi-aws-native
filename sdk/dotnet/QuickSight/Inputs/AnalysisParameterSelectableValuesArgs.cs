@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisParameterSelectableValuesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The column identifier that fetches values from the data set.
+        /// </summary>
         [Input("linkToDataSetColumn")]
         public Input<Inputs.AnalysisColumnIdentifierArgs>? LinkToDataSetColumn { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The values that are used in `ParameterSelectableValues` .
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

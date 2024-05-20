@@ -26,6 +26,9 @@ export interface GetStreamProcessorArgs {
 }
 
 export interface GetStreamProcessorResult {
+    /**
+     * Amazon Resource Name for the newly created stream processor.
+     */
     readonly arn?: string;
     /**
      * Current status of the stream processor.

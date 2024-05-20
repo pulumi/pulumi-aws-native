@@ -71,76 +71,123 @@ class GetAppResult:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[str]:
+        """
+        Unique Id for the Amplify App.
+        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter(name="appName")
     def app_name(self) -> Optional[str]:
+        """
+        Name for the Amplify App.
+        """
         return pulumi.get(self, "app_name")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        ARN for the Amplify App.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[str]:
+        """
+        The build specification (build spec) for an Amplify app.
+        """
         return pulumi.get(self, "build_spec")
 
     @property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[str]:
+        """
+        The custom HTTP headers for an Amplify app.
+        """
         return pulumi.get(self, "custom_headers")
 
     @property
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[Sequence['outputs.AppCustomRule']]:
+        """
+        The custom rewrite and redirect rules for an Amplify app.
+        """
         return pulumi.get(self, "custom_rules")
 
     @property
     @pulumi.getter(name="defaultDomain")
     def default_domain(self) -> Optional[str]:
+        """
+        Default domain for the Amplify App.
+        """
         return pulumi.get(self, "default_domain")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the Amplify app.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enableBranchAutoDeletion")
     def enable_branch_auto_deletion(self) -> Optional[bool]:
+        """
+        Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+        """
         return pulumi.get(self, "enable_branch_auto_deletion")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.AppEnvironmentVariable']]:
+        """
+        The environment variables for the Amplify app.
+
+        For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
+        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="iamServiceRole")
     def iam_service_role(self) -> Optional[str]:
+        """
+        AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
+        """
         return pulumi.get(self, "iam_service_role")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the Amplify app.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def platform(self) -> Optional['AppPlatform']:
+        """
+        The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter
     def repository(self) -> Optional[str]:
+        """
+        The Git repository for the Amplify app.
+        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag for an Amplify app.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -171,6 +218,9 @@ def get_app(arn: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
+
+
+    :param str arn: ARN for the Amplify App.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -200,5 +250,8 @@ def get_app_output(arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
+
+
+    :param str arn: ARN for the Amplify App.
     """
     ...

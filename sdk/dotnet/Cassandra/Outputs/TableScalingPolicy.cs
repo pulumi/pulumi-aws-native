@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableScalingPolicy
     {
+        /// <summary>
+        /// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
+        /// </summary>
         public readonly Outputs.TableTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration;
 
         [OutputConstructor]

@@ -33,16 +33,25 @@ class GetOriginRequestPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
+        """
+        The date and time when the origin request policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> Optional['outputs.OriginRequestPolicyConfig']:
+        """
+        The origin request policy configuration.
+        """
         return pulumi.get(self, "origin_request_policy_config")
 
 
@@ -61,6 +70,9 @@ def get_origin_request_policy(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginRequestPolicyResult:
     """
     Resource Type definition for AWS::CloudFront::OriginRequestPolicy
+
+
+    :param str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
     Resource Type definition for AWS::CloudFront::OriginRequestPolicy
+
+
+    :param str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """
     ...

@@ -41,6 +41,9 @@ export interface GetAlarmResult {
      * The description of the alarm.
      */
     readonly alarmDescription?: string;
+    /**
+     * The ARN of the CloudWatch alarm, such as `arn:aws:cloudwatch:us-west-2:123456789012:alarm:myCloudWatchAlarm-CPUAlarm-UXMMZK36R55Z` .
+     */
     readonly arn?: string;
     /**
      * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
@@ -104,6 +107,11 @@ export interface GetAlarmResult {
      *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     readonly statistic?: string;
+    /**
+     * A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * The value to compare with the specified statistic.

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TopicDateRangeFilter
     {
+        /// <summary>
+        /// The constant used in a date range filter.
+        /// </summary>
         public readonly Outputs.TopicRangeFilterConstant? Constant;
+        /// <summary>
+        /// A Boolean value that indicates whether the date range filter should include the boundary values. If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.
+        /// </summary>
         public readonly bool? Inclusive;
 
         [OutputConstructor]

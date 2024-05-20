@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3
     [AwsNativeResourceType("aws-native:s3:StorageLens")]
     public partial class StorageLens : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// This resource contains the details Amazon S3 Storage Lens configuration.
+        /// </summary>
         [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
 
@@ -73,6 +76,9 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class StorageLensArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This resource contains the details Amazon S3 Storage Lens configuration.
+        /// </summary>
         [Input("storageLensConfiguration", required: true)]
         public Input<Inputs.StorageLensConfigurationArgs> StorageLensConfiguration { get; set; } = null!;
 

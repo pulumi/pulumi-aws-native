@@ -21,21 +21,27 @@ type Schedule struct {
 	// The description of the schedule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
-	EndDate            pulumi.StringPtrOutput           `pulumi:"endDate"`
+	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
+	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 	FlexibleTimeWindow ScheduleFlexibleTimeWindowOutput `pulumi:"flexibleTimeWindow"`
 	// The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
 	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
 	// The ARN for a KMS Key that will be used to encrypt customer data.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	Name      pulumi.StringPtrOutput `pulumi:"name"`
+	// The name of the schedule.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The scheduling expression.
 	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
 	// The timezone in which the scheduling expression is evaluated.
 	ScheduleExpressionTimezone pulumi.StringPtrOutput `pulumi:"scheduleExpressionTimezone"`
 	// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
-	StartDate pulumi.StringPtrOutput     `pulumi:"startDate"`
-	State     ScheduleStateEnumPtrOutput `pulumi:"state"`
-	Target    ScheduleTargetOutput       `pulumi:"target"`
+	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
+	// Specifies whether the schedule is enabled or disabled.
+	//
+	// *Allowed Values* : `ENABLED` | `DISABLED`
+	State ScheduleStateEnumPtrOutput `pulumi:"state"`
+	// The schedule's target details.
+	Target ScheduleTargetOutput `pulumi:"target"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -94,21 +100,27 @@ type scheduleArgs struct {
 	// The description of the schedule.
 	Description *string `pulumi:"description"`
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
-	EndDate            *string                    `pulumi:"endDate"`
+	EndDate *string `pulumi:"endDate"`
+	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 	FlexibleTimeWindow ScheduleFlexibleTimeWindow `pulumi:"flexibleTimeWindow"`
 	// The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
 	GroupName *string `pulumi:"groupName"`
 	// The ARN for a KMS Key that will be used to encrypt customer data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	Name      *string `pulumi:"name"`
+	// The name of the schedule.
+	Name *string `pulumi:"name"`
 	// The scheduling expression.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 	// The timezone in which the scheduling expression is evaluated.
 	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
 	// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
-	StartDate *string            `pulumi:"startDate"`
-	State     *ScheduleStateEnum `pulumi:"state"`
-	Target    ScheduleTarget     `pulumi:"target"`
+	StartDate *string `pulumi:"startDate"`
+	// Specifies whether the schedule is enabled or disabled.
+	//
+	// *Allowed Values* : `ENABLED` | `DISABLED`
+	State *ScheduleStateEnum `pulumi:"state"`
+	// The schedule's target details.
+	Target ScheduleTarget `pulumi:"target"`
 }
 
 // The set of arguments for constructing a Schedule resource.
@@ -116,21 +128,27 @@ type ScheduleArgs struct {
 	// The description of the schedule.
 	Description pulumi.StringPtrInput
 	// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
-	EndDate            pulumi.StringPtrInput
+	EndDate pulumi.StringPtrInput
+	// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 	FlexibleTimeWindow ScheduleFlexibleTimeWindowInput
 	// The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
 	GroupName pulumi.StringPtrInput
 	// The ARN for a KMS Key that will be used to encrypt customer data.
 	KmsKeyArn pulumi.StringPtrInput
-	Name      pulumi.StringPtrInput
+	// The name of the schedule.
+	Name pulumi.StringPtrInput
 	// The scheduling expression.
 	ScheduleExpression pulumi.StringInput
 	// The timezone in which the scheduling expression is evaluated.
 	ScheduleExpressionTimezone pulumi.StringPtrInput
 	// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
 	StartDate pulumi.StringPtrInput
-	State     ScheduleStateEnumPtrInput
-	Target    ScheduleTargetInput
+	// Specifies whether the schedule is enabled or disabled.
+	//
+	// *Allowed Values* : `ENABLED` | `DISABLED`
+	State ScheduleStateEnumPtrInput
+	// The schedule's target details.
+	Target ScheduleTargetInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {
@@ -185,6 +203,7 @@ func (o ScheduleOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
+// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
 func (o ScheduleOutput) FlexibleTimeWindow() ScheduleFlexibleTimeWindowOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleFlexibleTimeWindowOutput { return v.FlexibleTimeWindow }).(ScheduleFlexibleTimeWindowOutput)
 }
@@ -199,6 +218,7 @@ func (o ScheduleOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the schedule.
 func (o ScheduleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -218,10 +238,14 @@ func (o ScheduleOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the schedule is enabled or disabled.
+//
+// *Allowed Values* : `ENABLED` | `DISABLED`
 func (o ScheduleOutput) State() ScheduleStateEnumPtrOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleStateEnumPtrOutput { return v.State }).(ScheduleStateEnumPtrOutput)
 }
 
+// The schedule's target details.
 func (o ScheduleOutput) Target() ScheduleTargetOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleTargetOutput { return v.Target }).(ScheduleTargetOutput)
 }

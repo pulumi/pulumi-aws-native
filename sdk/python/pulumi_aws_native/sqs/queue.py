@@ -753,6 +753,9 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -847,6 +850,9 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> pulumi.Output[str]:
+        """
+        Returns the URLs of the queues from the policy.
+        """
         return pulumi.get(self, "queue_url")
 
     @property

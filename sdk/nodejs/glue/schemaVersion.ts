@@ -37,6 +37,9 @@ export class SchemaVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchemaVersion.__pulumiType;
     }
 
+    /**
+     * The schema that includes the schema version.
+     */
     public readonly schema!: pulumi.Output<outputs.glue.SchemaVersionSchema>;
     /**
      * Complete definition of the schema in plain-text.
@@ -83,6 +86,9 @@ export class SchemaVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SchemaVersion resource.
  */
 export interface SchemaVersionArgs {
+    /**
+     * The schema that includes the schema version.
+     */
     schema: pulumi.Input<inputs.glue.SchemaVersionSchemaArgs>;
     /**
      * Complete definition of the schema in plain-text.

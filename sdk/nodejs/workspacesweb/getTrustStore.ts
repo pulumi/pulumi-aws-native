@@ -19,13 +19,28 @@ export function getTrustStore(args: GetTrustStoreArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetTrustStoreArgs {
+    /**
+     * The ARN of the trust store.
+     */
     trustStoreArn: string;
 }
 
 export interface GetTrustStoreResult {
+    /**
+     * A list of web portal ARNs that this trust store is associated with.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * A list of CA certificates to be added to the trust store.
+     */
     readonly certificateList?: string[];
+    /**
+     * The tags to add to the trust store. A tag is a key-value pair.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of the trust store.
+     */
     readonly trustStoreArn?: string;
 }
 /**
@@ -36,5 +51,8 @@ export function getTrustStoreOutput(args: GetTrustStoreOutputArgs, opts?: pulumi
 }
 
 export interface GetTrustStoreOutputArgs {
+    /**
+     * The ARN of the trust store.
+     */
     trustStoreArn: pulumi.Input<string>;
 }

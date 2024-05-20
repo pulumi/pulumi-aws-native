@@ -82,6 +82,12 @@ class ComponentVersionComponentPlatform(dict):
     def __init__(__self__, *,
                  attributes: Optional[Mapping[str, str]] = None,
                  name: Optional[str] = None):
+        """
+        :param Mapping[str, str] attributes: A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        :param str name: The friendly name of the platform. This name helps you identify the platform.
+               
+               If you omit this parameter, AWS IoT Greengrass creates a friendly name from the `os` and `architecture` of the platform.
+        """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if name is not None:
@@ -90,11 +96,19 @@ class ComponentVersionComponentPlatform(dict):
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        A dictionary of attributes for the platform. The AWS IoT Greengrass Core software defines the `os` and `platform` by default. You can specify additional platform attributes for a core device when you deploy the AWS IoT Greengrass nucleus component. For more information, see the [AWS IoT Greengrass nucleus component](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The friendly name of the platform. This name helps you identify the platform.
+
+        If you omit this parameter, AWS IoT Greengrass creates a friendly name from the `os` and `architecture` of the platform.
+        """
         return pulumi.get(self, "name")
 
 
@@ -124,6 +138,16 @@ class ComponentVersionLambdaContainerParams(dict):
                  memory_size_in_kb: Optional[int] = None,
                  mount_ro_sysfs: Optional[bool] = None,
                  volumes: Optional[Sequence['outputs.ComponentVersionLambdaVolumeMount']] = None):
+        """
+        :param Sequence['ComponentVersionLambdaDeviceMount'] devices: The list of system devices that the container can access.
+        :param int memory_size_in_kb: The memory size of the container, expressed in kilobytes.
+               
+               Default: `16384` (16 MB)
+        :param bool mount_ro_sysfs: Whether or not the container can read information from the device's `/sys` folder.
+               
+               Default: `false`
+        :param Sequence['ComponentVersionLambdaVolumeMount'] volumes: The list of volumes that the container can access.
+        """
         if devices is not None:
             pulumi.set(__self__, "devices", devices)
         if memory_size_in_kb is not None:
@@ -136,21 +160,37 @@ class ComponentVersionLambdaContainerParams(dict):
     @property
     @pulumi.getter
     def devices(self) -> Optional[Sequence['outputs.ComponentVersionLambdaDeviceMount']]:
+        """
+        The list of system devices that the container can access.
+        """
         return pulumi.get(self, "devices")
 
     @property
     @pulumi.getter(name="memorySizeInKb")
     def memory_size_in_kb(self) -> Optional[int]:
+        """
+        The memory size of the container, expressed in kilobytes.
+
+        Default: `16384` (16 MB)
+        """
         return pulumi.get(self, "memory_size_in_kb")
 
     @property
     @pulumi.getter(name="mountRoSysfs")
     def mount_ro_sysfs(self) -> Optional[bool]:
+        """
+        Whether or not the container can read information from the device's `/sys` folder.
+
+        Default: `false`
+        """
         return pulumi.get(self, "mount_ro_sysfs")
 
     @property
     @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.ComponentVersionLambdaVolumeMount']]:
+        """
+        The list of volumes that the container can access.
+        """
         return pulumi.get(self, "volumes")
 
 
@@ -177,6 +217,15 @@ class ComponentVersionLambdaDeviceMount(dict):
                  add_group_owner: Optional[bool] = None,
                  path: Optional[str] = None,
                  permission: Optional['ComponentVersionLambdaFilesystemPermission'] = None):
+        """
+        :param bool add_group_owner: Whether or not to add the component's system user as an owner of the device.
+               
+               Default: `false`
+        :param str path: The mount path for the device in the file system.
+        :param 'ComponentVersionLambdaFilesystemPermission' permission: The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
+               
+               Default: `ro`
+        """
         if add_group_owner is not None:
             pulumi.set(__self__, "add_group_owner", add_group_owner)
         if path is not None:
@@ -187,16 +236,29 @@ class ComponentVersionLambdaDeviceMount(dict):
     @property
     @pulumi.getter(name="addGroupOwner")
     def add_group_owner(self) -> Optional[bool]:
+        """
+        Whether or not to add the component's system user as an owner of the device.
+
+        Default: `false`
+        """
         return pulumi.get(self, "add_group_owner")
 
     @property
     @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The mount path for the device in the file system.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def permission(self) -> Optional['ComponentVersionLambdaFilesystemPermission']:
+        """
+        The permission to access the device: read/only ( `ro` ) or read/write ( `rw` ).
+
+        Default: `ro`
+        """
         return pulumi.get(self, "permission")
 
 
@@ -205,6 +267,13 @@ class ComponentVersionLambdaEventSource(dict):
     def __init__(__self__, *,
                  topic: Optional[str] = None,
                  type: Optional['ComponentVersionLambdaEventSourceType'] = None):
+        """
+        :param str topic: The topic to which to subscribe to receive event messages.
+        :param 'ComponentVersionLambdaEventSourceType' type: The type of event source. Choose from the following options:
+               
+               - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+               - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
+        """
         if topic is not None:
             pulumi.set(__self__, "topic", topic)
         if type is not None:
@@ -213,11 +282,20 @@ class ComponentVersionLambdaEventSource(dict):
     @property
     @pulumi.getter
     def topic(self) -> Optional[str]:
+        """
+        The topic to which to subscribe to receive event messages.
+        """
         return pulumi.get(self, "topic")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['ComponentVersionLambdaEventSourceType']:
+        """
+        The type of event source. Choose from the following options:
+
+        - `PUB_SUB` – Subscribe to local publish/subscribe messages. This event source type doesn't support MQTT wildcards ( `+` and `#` ) in the event source topic.
+        - `IOT_CORE` – Subscribe to AWS IoT Core MQTT messages. This event source type supports MQTT wildcards ( `+` and `#` ) in the event source topic.
+        """
         return pulumi.get(self, "type")
 
 
@@ -270,6 +348,26 @@ class ComponentVersionLambdaExecutionParameters(dict):
                  pinned: Optional[bool] = None,
                  status_timeout_in_seconds: Optional[int] = None,
                  timeout_in_seconds: Optional[int] = None):
+        """
+        :param Mapping[str, str] environment_variables: The map of environment variables that are available to the Lambda function when it runs.
+        :param Sequence['ComponentVersionLambdaEventSource'] event_sources: The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
+        :param Sequence[str] exec_args: The list of arguments to pass to the Lambda function when it runs.
+        :param 'ComponentVersionLambdaExecutionParametersInputPayloadEncodingType' input_payload_encoding_type: The encoding type that the Lambda function supports.
+               
+               Default: `json`
+        :param 'ComponentVersionLambdaLinuxProcessParams' linux_process_params: The parameters for the Linux process that contains the Lambda function.
+        :param int max_idle_time_in_seconds: The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
+        :param int max_instances_count: The maximum number of instances that a non-pinned Lambda function can run at the same time.
+        :param int max_queue_size: The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
+        :param bool pinned: Whether or not the Lambda function is pinned, or long-lived.
+               
+               - A pinned Lambda function starts when the AWS IoT Greengrass Core starts and keeps running in its own container.
+               - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.
+               
+               Default: `true`
+        :param int status_timeout_in_seconds: The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
+        :param int timeout_in_seconds: The maximum amount of time in seconds that the Lambda function can process a work item.
+        """
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if event_sources is not None:
@@ -296,56 +394,96 @@ class ComponentVersionLambdaExecutionParameters(dict):
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Mapping[str, str]]:
+        """
+        The map of environment variables that are available to the Lambda function when it runs.
+        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="eventSources")
     def event_sources(self) -> Optional[Sequence['outputs.ComponentVersionLambdaEventSource']]:
+        """
+        The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
+        """
         return pulumi.get(self, "event_sources")
 
     @property
     @pulumi.getter(name="execArgs")
     def exec_args(self) -> Optional[Sequence[str]]:
+        """
+        The list of arguments to pass to the Lambda function when it runs.
+        """
         return pulumi.get(self, "exec_args")
 
     @property
     @pulumi.getter(name="inputPayloadEncodingType")
     def input_payload_encoding_type(self) -> Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']:
+        """
+        The encoding type that the Lambda function supports.
+
+        Default: `json`
+        """
         return pulumi.get(self, "input_payload_encoding_type")
 
     @property
     @pulumi.getter(name="linuxProcessParams")
     def linux_process_params(self) -> Optional['outputs.ComponentVersionLambdaLinuxProcessParams']:
+        """
+        The parameters for the Linux process that contains the Lambda function.
+        """
         return pulumi.get(self, "linux_process_params")
 
     @property
     @pulumi.getter(name="maxIdleTimeInSeconds")
     def max_idle_time_in_seconds(self) -> Optional[int]:
+        """
+        The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
+        """
         return pulumi.get(self, "max_idle_time_in_seconds")
 
     @property
     @pulumi.getter(name="maxInstancesCount")
     def max_instances_count(self) -> Optional[int]:
+        """
+        The maximum number of instances that a non-pinned Lambda function can run at the same time.
+        """
         return pulumi.get(self, "max_instances_count")
 
     @property
     @pulumi.getter(name="maxQueueSize")
     def max_queue_size(self) -> Optional[int]:
+        """
+        The maximum size of the message queue for the Lambda function component. The AWS IoT Greengrass core device stores messages in a FIFO (first-in-first-out) queue until it can run the Lambda function to consume each message.
+        """
         return pulumi.get(self, "max_queue_size")
 
     @property
     @pulumi.getter
     def pinned(self) -> Optional[bool]:
+        """
+        Whether or not the Lambda function is pinned, or long-lived.
+
+        - A pinned Lambda function starts when the AWS IoT Greengrass Core starts and keeps running in its own container.
+        - A non-pinned Lambda function starts only when it receives a work item and exists after it idles for `maxIdleTimeInSeconds` . If the function has multiple work items, the AWS IoT Greengrass Core software creates multiple instances of the function.
+
+        Default: `true`
+        """
         return pulumi.get(self, "pinned")
 
     @property
     @pulumi.getter(name="statusTimeoutInSeconds")
     def status_timeout_in_seconds(self) -> Optional[int]:
+        """
+        The interval in seconds at which a pinned (also known as long-lived) Lambda function component sends status updates to the Lambda manager component.
+        """
         return pulumi.get(self, "status_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[int]:
+        """
+        The maximum amount of time in seconds that the Lambda function can process a work item.
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
 
@@ -385,6 +523,18 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
                  component_platforms: Optional[Sequence['outputs.ComponentVersionComponentPlatform']] = None,
                  component_version: Optional[str] = None,
                  lambda_arn: Optional[str] = None):
+        """
+        :param Mapping[str, 'ComponentVersionComponentDependencyRequirement'] component_dependencies: The component versions on which this Lambda function component depends.
+        :param 'ComponentVersionLambdaExecutionParameters' component_lambda_parameters: The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
+        :param str component_name: The name of the component.
+               
+               Defaults to the name of the Lambda function.
+        :param Sequence['ComponentVersionComponentPlatform'] component_platforms: The platforms that the component version supports.
+        :param str component_version: The version of the component.
+               
+               Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
+        :param str lambda_arn: The ARN of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
+        """
         if component_dependencies is not None:
             pulumi.set(__self__, "component_dependencies", component_dependencies)
         if component_lambda_parameters is not None:
@@ -401,31 +551,53 @@ class ComponentVersionLambdaFunctionRecipeSource(dict):
     @property
     @pulumi.getter(name="componentDependencies")
     def component_dependencies(self) -> Optional[Mapping[str, 'outputs.ComponentVersionComponentDependencyRequirement']]:
+        """
+        The component versions on which this Lambda function component depends.
+        """
         return pulumi.get(self, "component_dependencies")
 
     @property
     @pulumi.getter(name="componentLambdaParameters")
     def component_lambda_parameters(self) -> Optional['outputs.ComponentVersionLambdaExecutionParameters']:
+        """
+        The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
+        """
         return pulumi.get(self, "component_lambda_parameters")
 
     @property
     @pulumi.getter(name="componentName")
     def component_name(self) -> Optional[str]:
+        """
+        The name of the component.
+
+        Defaults to the name of the Lambda function.
+        """
         return pulumi.get(self, "component_name")
 
     @property
     @pulumi.getter(name="componentPlatforms")
     def component_platforms(self) -> Optional[Sequence['outputs.ComponentVersionComponentPlatform']]:
+        """
+        The platforms that the component version supports.
+        """
         return pulumi.get(self, "component_platforms")
 
     @property
     @pulumi.getter(name="componentVersion")
     def component_version(self) -> Optional[str]:
+        """
+        The version of the component.
+
+        Defaults to the version of the Lambda function as a semantic version. For example, if your function version is `3` , the component version becomes `3.0.0` .
+        """
         return pulumi.get(self, "component_version")
 
     @property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[str]:
+        """
+        The ARN of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like `$LATEST` .
+        """
         return pulumi.get(self, "lambda_arn")
 
 
@@ -453,6 +625,12 @@ class ComponentVersionLambdaLinuxProcessParams(dict):
     def __init__(__self__, *,
                  container_params: Optional['outputs.ComponentVersionLambdaContainerParams'] = None,
                  isolation_mode: Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode'] = None):
+        """
+        :param 'ComponentVersionLambdaContainerParams' container_params: The parameters for the container in which the Lambda function runs.
+        :param 'ComponentVersionLambdaLinuxProcessParamsIsolationMode' isolation_mode: The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+               
+               Default: `GreengrassContainer`
+        """
         if container_params is not None:
             pulumi.set(__self__, "container_params", container_params)
         if isolation_mode is not None:
@@ -461,11 +639,19 @@ class ComponentVersionLambdaLinuxProcessParams(dict):
     @property
     @pulumi.getter(name="containerParams")
     def container_params(self) -> Optional['outputs.ComponentVersionLambdaContainerParams']:
+        """
+        The parameters for the container in which the Lambda function runs.
+        """
         return pulumi.get(self, "container_params")
 
     @property
     @pulumi.getter(name="isolationMode")
     def isolation_mode(self) -> Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode']:
+        """
+        The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
+
+        Default: `GreengrassContainer`
+        """
         return pulumi.get(self, "isolation_mode")
 
 
@@ -497,6 +683,16 @@ class ComponentVersionLambdaVolumeMount(dict):
                  destination_path: Optional[str] = None,
                  permission: Optional['ComponentVersionLambdaFilesystemPermission'] = None,
                  source_path: Optional[str] = None):
+        """
+        :param bool add_group_owner: Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
+               
+               Default: `false`
+        :param str destination_path: The path to the logical volume in the file system.
+        :param 'ComponentVersionLambdaFilesystemPermission' permission: The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
+               
+               Default: `ro`
+        :param str source_path: The path to the physical volume in the file system.
+        """
         if add_group_owner is not None:
             pulumi.set(__self__, "add_group_owner", add_group_owner)
         if destination_path is not None:
@@ -509,21 +705,37 @@ class ComponentVersionLambdaVolumeMount(dict):
     @property
     @pulumi.getter(name="addGroupOwner")
     def add_group_owner(self) -> Optional[bool]:
+        """
+        Whether or not to add the AWS IoT Greengrass user group as an owner of the volume.
+
+        Default: `false`
+        """
         return pulumi.get(self, "add_group_owner")
 
     @property
     @pulumi.getter(name="destinationPath")
     def destination_path(self) -> Optional[str]:
+        """
+        The path to the logical volume in the file system.
+        """
         return pulumi.get(self, "destination_path")
 
     @property
     @pulumi.getter
     def permission(self) -> Optional['ComponentVersionLambdaFilesystemPermission']:
+        """
+        The permission to access the volume: read/only ( `ro` ) or read/write ( `rw` ).
+
+        Default: `ro`
+        """
         return pulumi.get(self, "permission")
 
     @property
     @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[str]:
+        """
+        The path to the physical volume in the file system.
+        """
         return pulumi.get(self, "source_path")
 
 
@@ -670,6 +882,17 @@ class DeploymentComponentUpdatePolicy(dict):
     def __init__(__self__, *,
                  action: Optional['DeploymentComponentUpdatePolicyAction'] = None,
                  timeout_in_seconds: Optional[int] = None):
+        """
+        :param 'DeploymentComponentUpdatePolicyAction' action: Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
+               
+               - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+               - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
+               
+               Default: `NOTIFY_COMPONENTS`
+        :param int timeout_in_seconds: The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.
+               
+               Default: `60`
+        """
         if action is not None:
             pulumi.set(__self__, "action", action)
         if timeout_in_seconds is not None:
@@ -678,11 +901,24 @@ class DeploymentComponentUpdatePolicy(dict):
     @property
     @pulumi.getter
     def action(self) -> Optional['DeploymentComponentUpdatePolicyAction']:
+        """
+        Whether or not to notify components and wait for components to become safe to update. Choose from the following options:
+
+        - `NOTIFY_COMPONENTS` – The deployment notifies each component before it stops and updates that component. Components can use the [SubscribeToComponentUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates) IPC operation to receive these notifications. Then, components can respond with the [DeferComponentUpdate](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+        - `SKIP_NOTIFY_COMPONENTS` – The deployment doesn't notify components or wait for them to be safe to update.
+
+        Default: `NOTIFY_COMPONENTS`
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[int]:
+        """
+        The amount of time in seconds that each component on a device has to report that it's safe to update. If the component waits for longer than this timeout, then the deployment proceeds on the device.
+
+        Default: `60`
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
 
@@ -707,12 +943,22 @@ class DeploymentConfigurationValidationPolicy(dict):
 
     def __init__(__self__, *,
                  timeout_in_seconds: Optional[int] = None):
+        """
+        :param int timeout_in_seconds: The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
+               
+               Default: `30`
+        """
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[int]:
+        """
+        The amount of time in seconds that a component can validate its configuration updates. If the validation time exceeds this timeout, then the deployment proceeds for the device.
+
+        Default: `30`
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
 
@@ -737,11 +983,17 @@ class DeploymentIoTJobAbortConfig(dict):
 
     def __init__(__self__, *,
                  criteria_list: Sequence['outputs.DeploymentIoTJobAbortCriteria']):
+        """
+        :param Sequence['DeploymentIoTJobAbortCriteria'] criteria_list: The list of criteria that define when and how to cancel the configuration deployment.
+        """
         pulumi.set(__self__, "criteria_list", criteria_list)
 
     @property
     @pulumi.getter(name="criteriaList")
     def criteria_list(self) -> Sequence['outputs.DeploymentIoTJobAbortCriteria']:
+        """
+        The list of criteria that define when and how to cancel the configuration deployment.
+        """
         return pulumi.get(self, "criteria_list")
 
 
@@ -773,6 +1025,14 @@ class DeploymentIoTJobAbortCriteria(dict):
                  failure_type: 'DeploymentIoTJobAbortCriteriaFailureType',
                  min_number_of_executed_things: int,
                  threshold_percentage: float):
+        """
+        :param 'DeploymentIoTJobAbortCriteriaAction' action: The action to perform when the criteria are met.
+        :param 'DeploymentIoTJobAbortCriteriaFailureType' failure_type: The type of job deployment failure that can cancel a job.
+        :param int min_number_of_executed_things: The minimum number of things that receive the configuration before the job can cancel.
+        :param float threshold_percentage: The minimum percentage of `failureType` failures that occur before the job can cancel.
+               
+               This parameter supports up to two digits after the decimal (for example, you can specify `10.9` or `10.99` , but not `10.999` ).
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "failure_type", failure_type)
         pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
@@ -781,21 +1041,35 @@ class DeploymentIoTJobAbortCriteria(dict):
     @property
     @pulumi.getter
     def action(self) -> 'DeploymentIoTJobAbortCriteriaAction':
+        """
+        The action to perform when the criteria are met.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="failureType")
     def failure_type(self) -> 'DeploymentIoTJobAbortCriteriaFailureType':
+        """
+        The type of job deployment failure that can cancel a job.
+        """
         return pulumi.get(self, "failure_type")
 
     @property
     @pulumi.getter(name="minNumberOfExecutedThings")
     def min_number_of_executed_things(self) -> int:
+        """
+        The minimum number of things that receive the configuration before the job can cancel.
+        """
         return pulumi.get(self, "min_number_of_executed_things")
 
     @property
     @pulumi.getter(name="thresholdPercentage")
     def threshold_percentage(self) -> float:
+        """
+        The minimum percentage of `failureType` failures that occur before the job can cancel.
+
+        This parameter supports up to two digits after the decimal (for example, you can specify `10.9` or `10.99` , but not `10.999` ).
+        """
         return pulumi.get(self, "threshold_percentage")
 
 
@@ -826,6 +1100,11 @@ class DeploymentIoTJobConfiguration(dict):
                  abort_config: Optional['outputs.DeploymentIoTJobAbortConfig'] = None,
                  job_executions_rollout_config: Optional['outputs.DeploymentIoTJobExecutionsRolloutConfig'] = None,
                  timeout_config: Optional['outputs.DeploymentIoTJobTimeoutConfig'] = None):
+        """
+        :param 'DeploymentIoTJobAbortConfig' abort_config: The stop configuration for the job. This configuration defines when and how to stop a job rollout.
+        :param 'DeploymentIoTJobExecutionsRolloutConfig' job_executions_rollout_config: The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
+        :param 'DeploymentIoTJobTimeoutConfig' timeout_config: The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
+        """
         if abort_config is not None:
             pulumi.set(__self__, "abort_config", abort_config)
         if job_executions_rollout_config is not None:
@@ -836,16 +1115,25 @@ class DeploymentIoTJobConfiguration(dict):
     @property
     @pulumi.getter(name="abortConfig")
     def abort_config(self) -> Optional['outputs.DeploymentIoTJobAbortConfig']:
+        """
+        The stop configuration for the job. This configuration defines when and how to stop a job rollout.
+        """
         return pulumi.get(self, "abort_config")
 
     @property
     @pulumi.getter(name="jobExecutionsRolloutConfig")
     def job_executions_rollout_config(self) -> Optional['outputs.DeploymentIoTJobExecutionsRolloutConfig']:
+        """
+        The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
+        """
         return pulumi.get(self, "job_executions_rollout_config")
 
     @property
     @pulumi.getter(name="timeoutConfig")
     def timeout_config(self) -> Optional['outputs.DeploymentIoTJobTimeoutConfig']:
+        """
+        The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
+        """
         return pulumi.get(self, "timeout_config")
 
 
@@ -873,6 +1161,10 @@ class DeploymentIoTJobExecutionsRolloutConfig(dict):
     def __init__(__self__, *,
                  exponential_rate: Optional['outputs.DeploymentIoTJobExponentialRolloutRate'] = None,
                  maximum_per_minute: Optional[int] = None):
+        """
+        :param 'DeploymentIoTJobExponentialRolloutRate' exponential_rate: The exponential rate to increase the job rollout rate.
+        :param int maximum_per_minute: The maximum number of devices that receive a pending job notification, per minute.
+        """
         if exponential_rate is not None:
             pulumi.set(__self__, "exponential_rate", exponential_rate)
         if maximum_per_minute is not None:
@@ -881,11 +1173,17 @@ class DeploymentIoTJobExecutionsRolloutConfig(dict):
     @property
     @pulumi.getter(name="exponentialRate")
     def exponential_rate(self) -> Optional['outputs.DeploymentIoTJobExponentialRolloutRate']:
+        """
+        The exponential rate to increase the job rollout rate.
+        """
         return pulumi.get(self, "exponential_rate")
 
     @property
     @pulumi.getter(name="maximumPerMinute")
     def maximum_per_minute(self) -> Optional[int]:
+        """
+        The maximum number of devices that receive a pending job notification, per minute.
+        """
         return pulumi.get(self, "maximum_per_minute")
 
 
@@ -916,6 +1214,13 @@ class DeploymentIoTJobExponentialRolloutRate(dict):
                  base_rate_per_minute: int,
                  increment_factor: float,
                  rate_increase_criteria: 'outputs.DeploymentIoTJobRateIncreaseCriteria'):
+        """
+        :param int base_rate_per_minute: The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.
+        :param float increment_factor: The exponential factor to increase the rollout rate for the job.
+               
+               This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
+        :param 'DeploymentIoTJobRateIncreaseCriteria' rate_increase_criteria: The criteria to increase the rollout rate for the job.
+        """
         pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
         pulumi.set(__self__, "increment_factor", increment_factor)
         pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
@@ -923,16 +1228,27 @@ class DeploymentIoTJobExponentialRolloutRate(dict):
     @property
     @pulumi.getter(name="baseRatePerMinute")
     def base_rate_per_minute(self) -> int:
+        """
+        The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.
+        """
         return pulumi.get(self, "base_rate_per_minute")
 
     @property
     @pulumi.getter(name="incrementFactor")
     def increment_factor(self) -> float:
+        """
+        The exponential factor to increase the rollout rate for the job.
+
+        This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
+        """
         return pulumi.get(self, "increment_factor")
 
     @property
     @pulumi.getter(name="rateIncreaseCriteria")
     def rate_increase_criteria(self) -> 'outputs.DeploymentIoTJobRateIncreaseCriteria':
+        """
+        The criteria to increase the rollout rate for the job.
+        """
         return pulumi.get(self, "rate_increase_criteria")
 
 
@@ -963,12 +1279,22 @@ class DeploymentIoTJobTimeoutConfig(dict):
 
     def __init__(__self__, *,
                  in_progress_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int in_progress_timeout_in_minutes: The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
+               
+               The timeout interval must be between 1 minute and 7 days (10080 minutes).
+        """
         if in_progress_timeout_in_minutes is not None:
             pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
 
     @property
     @pulumi.getter(name="inProgressTimeoutInMinutes")
     def in_progress_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time, in minutes, that devices have to complete the job. The timer starts when the job status is set to `IN_PROGRESS` . If the job status doesn't change to a terminal state before the time expires, then the job status is set to `TIMED_OUT` .
+
+        The timeout interval must be between 1 minute and 7 days (10080 minutes).
+        """
         return pulumi.get(self, "in_progress_timeout_in_minutes")
 
 
@@ -999,6 +1325,13 @@ class DeploymentPolicies(dict):
                  component_update_policy: Optional['outputs.DeploymentComponentUpdatePolicy'] = None,
                  configuration_validation_policy: Optional['outputs.DeploymentConfigurationValidationPolicy'] = None,
                  failure_handling_policy: Optional['DeploymentPoliciesFailureHandlingPolicy'] = None):
+        """
+        :param 'DeploymentComponentUpdatePolicy' component_update_policy: The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
+        :param 'DeploymentConfigurationValidationPolicy' configuration_validation_policy: The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
+        :param 'DeploymentPoliciesFailureHandlingPolicy' failure_handling_policy: The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+               
+               Default: `ROLLBACK`
+        """
         if component_update_policy is not None:
             pulumi.set(__self__, "component_update_policy", component_update_policy)
         if configuration_validation_policy is not None:
@@ -1009,16 +1342,27 @@ class DeploymentPolicies(dict):
     @property
     @pulumi.getter(name="componentUpdatePolicy")
     def component_update_policy(self) -> Optional['outputs.DeploymentComponentUpdatePolicy']:
+        """
+        The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
+        """
         return pulumi.get(self, "component_update_policy")
 
     @property
     @pulumi.getter(name="configurationValidationPolicy")
     def configuration_validation_policy(self) -> Optional['outputs.DeploymentConfigurationValidationPolicy']:
+        """
+        The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
+        """
         return pulumi.get(self, "configuration_validation_policy")
 
     @property
     @pulumi.getter(name="failureHandlingPolicy")
     def failure_handling_policy(self) -> Optional['DeploymentPoliciesFailureHandlingPolicy']:
+        """
+        The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
+
+        Default: `ROLLBACK`
+        """
         return pulumi.get(self, "failure_handling_policy")
 
 

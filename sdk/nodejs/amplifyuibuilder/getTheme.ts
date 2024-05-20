@@ -21,18 +21,48 @@ export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetThemeArgs {
+    /**
+     * The unique ID for the Amplify app associated with the theme.
+     */
     appId: string;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     environmentName: string;
+    /**
+     * The ID for the theme.
+     */
     id: string;
 }
 
 export interface GetThemeResult {
+    /**
+     * The time that the theme was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The ID for the theme.
+     */
     readonly id?: string;
+    /**
+     * The time that the theme was modified.
+     */
     readonly modifiedAt?: string;
+    /**
+     * The name of the theme.
+     */
     readonly name?: string;
+    /**
+     * Describes the properties that can be overriden to customize a theme.
+     */
     readonly overrides?: outputs.amplifyuibuilder.ThemeValues[];
+    /**
+     * One or more key-value pairs to use when tagging the theme.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * A list of key-value pairs that defines the properties of the theme.
+     */
     readonly values?: outputs.amplifyuibuilder.ThemeValues[];
 }
 /**
@@ -43,7 +73,16 @@ export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetThemeOutputArgs {
+    /**
+     * The unique ID for the Amplify app associated with the theme.
+     */
     appId: pulumi.Input<string>;
+    /**
+     * The name of the backend environment that is a part of the Amplify app.
+     */
     environmentName: pulumi.Input<string>;
+    /**
+     * The ID for the theme.
+     */
     id: pulumi.Input<string>;
 }

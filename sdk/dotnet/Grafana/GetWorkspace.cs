@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Grafana
     [OutputType]
     public sealed class GetWorkspaceResult
     {
+        /// <summary>
+        /// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
+        /// </summary>
         public readonly Pulumi.AwsNative.Grafana.WorkspaceAccountAccessType? AccountAccessType;
         /// <summary>
         /// List of authentication providers to enable.
@@ -94,6 +97,9 @@ namespace Pulumi.AwsNative.Grafana
         /// The user friendly name of a workspace.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The configuration settings for network access to your workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceNetworkAccessControl? NetworkAccessControl;
         /// <summary>
         /// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
@@ -107,6 +113,15 @@ namespace Pulumi.AwsNative.Grafana
         /// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
         /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnits;
+        /// <summary>
+        /// If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+        /// 
+        /// If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+        /// 
+        /// If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+        /// 
+        /// For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+        /// </summary>
         public readonly Pulumi.AwsNative.Grafana.WorkspacePermissionType? PermissionType;
         /// <summary>
         /// Allow workspace admins to install plugins
@@ -116,7 +131,17 @@ namespace Pulumi.AwsNative.Grafana
         /// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
+        /// </summary>
         public readonly Outputs.WorkspaceSamlConfiguration? SamlConfiguration;
+        /// <summary>
+        /// Specifies whether the workspace's SAML configuration is complete.
+        /// 
+        /// Valid values: `CONFIGURED | NOT_CONFIGURED`
+        /// 
+        /// Type: String
+        /// </summary>
         public readonly Pulumi.AwsNative.Grafana.WorkspaceSamlConfigurationStatus? SamlConfigurationStatus;
         /// <summary>
         /// The client ID of the AWS SSO Managed Application.
@@ -126,7 +151,19 @@ namespace Pulumi.AwsNative.Grafana
         /// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
         /// </summary>
         public readonly string? StackSetName;
+        /// <summary>
+        /// The current status of the workspace.
+        /// 
+        /// Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+        /// 
+        /// Type: String
+        /// </summary>
         public readonly Pulumi.AwsNative.Grafana.WorkspaceStatus? Status;
+        /// <summary>
+        /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+        /// 
+        /// &gt; Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
+        /// </summary>
         public readonly Outputs.WorkspaceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

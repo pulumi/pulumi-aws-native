@@ -16,11 +16,16 @@ import (
 type IdentityPoolPrincipalTag struct {
 	pulumi.CustomResourceState
 
-	IdentityPoolId       pulumi.StringOutput `pulumi:"identityPoolId"`
+	// The identity pool that you want to associate with this principal tag map.
+	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
+	// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
 	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
+	// A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
-	PrincipalTags pulumi.AnyOutput     `pulumi:"principalTags"`
-	UseDefaults   pulumi.BoolPtrOutput `pulumi:"useDefaults"`
+	PrincipalTags pulumi.AnyOutput `pulumi:"principalTags"`
+	// Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+	UseDefaults pulumi.BoolPtrOutput `pulumi:"useDefaults"`
 }
 
 // NewIdentityPoolPrincipalTag registers a new resource with the given unique name, arguments, and options.
@@ -74,20 +79,30 @@ func (IdentityPoolPrincipalTagState) ElementType() reflect.Type {
 }
 
 type identityPoolPrincipalTagArgs struct {
-	IdentityPoolId       string `pulumi:"identityPoolId"`
+	// The identity pool that you want to associate with this principal tag map.
+	IdentityPoolId string `pulumi:"identityPoolId"`
+	// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
 	IdentityProviderName string `pulumi:"identityProviderName"`
+	// A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
 	PrincipalTags interface{} `pulumi:"principalTags"`
-	UseDefaults   *bool       `pulumi:"useDefaults"`
+	// Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+	UseDefaults *bool `pulumi:"useDefaults"`
 }
 
 // The set of arguments for constructing a IdentityPoolPrincipalTag resource.
 type IdentityPoolPrincipalTagArgs struct {
-	IdentityPoolId       pulumi.StringInput
+	// The identity pool that you want to associate with this principal tag map.
+	IdentityPoolId pulumi.StringInput
+	// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
 	IdentityProviderName pulumi.StringInput
+	// A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
 	PrincipalTags pulumi.Input
-	UseDefaults   pulumi.BoolPtrInput
+	// Use a default set of mappings between claims and tags for this provider, instead of a custom map.
+	UseDefaults pulumi.BoolPtrInput
 }
 
 func (IdentityPoolPrincipalTagArgs) ElementType() reflect.Type {
@@ -127,19 +142,24 @@ func (o IdentityPoolPrincipalTagOutput) ToIdentityPoolPrincipalTagOutputWithCont
 	return o
 }
 
+// The identity pool that you want to associate with this principal tag map.
 func (o IdentityPoolPrincipalTagOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolPrincipalTag) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
 }
 
+// The identity pool identity provider (IdP) that you want to associate with this principal tag map.
 func (o IdentityPoolPrincipalTagOutput) IdentityProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolPrincipalTag) pulumi.StringOutput { return v.IdentityProviderName }).(pulumi.StringOutput)
 }
 
+// A JSON-formatted list of user claims and the principal tags that you want to associate with them. When Amazon Cognito requests credentials, it sets the value of the principal tag to the value of the user's claim.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPoolPrincipalTag` for more information about the expected schema for this property.
 func (o IdentityPoolPrincipalTagOutput) PrincipalTags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *IdentityPoolPrincipalTag) pulumi.AnyOutput { return v.PrincipalTags }).(pulumi.AnyOutput)
 }
 
+// Use a default set of mappings between claims and tags for this provider, instead of a custom map.
 func (o IdentityPoolPrincipalTagOutput) UseDefaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolPrincipalTag) pulumi.BoolPtrOutput { return v.UseDefaults }).(pulumi.BoolPtrOutput)
 }

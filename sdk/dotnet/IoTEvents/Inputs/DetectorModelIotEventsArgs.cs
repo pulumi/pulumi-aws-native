@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("inputName", required: true)]
         public Input<string> InputName { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you send a message to an AWS IoT Events input.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }
 

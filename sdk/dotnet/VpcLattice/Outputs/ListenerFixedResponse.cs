@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class ListenerFixedResponse
     {
+        /// <summary>
+        /// The HTTP response code.
+        /// </summary>
         public readonly int StatusCode;
 
         [OutputConstructor]

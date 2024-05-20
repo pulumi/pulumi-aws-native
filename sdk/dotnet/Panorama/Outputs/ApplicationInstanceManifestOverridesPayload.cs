@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Panorama.Outputs
     [OutputType]
     public sealed class ApplicationInstanceManifestOverridesPayload
     {
+        /// <summary>
+        /// The overrides document.
+        /// </summary>
         public readonly string? PayloadData;
 
         [OutputConstructor]

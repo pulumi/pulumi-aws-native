@@ -37,21 +37,69 @@ export class ApplicationInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationInstance.__pulumiType;
     }
 
+    /**
+     * The application instance's ID.
+     */
     public /*out*/ readonly applicationInstanceId!: pulumi.Output<string>;
+    /**
+     * The ID of an application instance to replace with the new instance.
+     */
     public readonly applicationInstanceIdToReplace!: pulumi.Output<string | undefined>;
+    /**
+     * The application instance's ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The application instance's created time.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<number>;
+    /**
+     * The device's ID.
+     */
     public readonly defaultRuntimeContextDevice!: pulumi.Output<string>;
+    /**
+     * The application instance's default runtime context device name.
+     */
     public /*out*/ readonly defaultRuntimeContextDeviceName!: pulumi.Output<string>;
+    /**
+     * A description for the application instance.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The application instance's health status.
+     */
     public /*out*/ readonly healthStatus!: pulumi.Output<enums.panorama.ApplicationInstanceHealthStatus>;
+    /**
+     * The application instance's last updated time.
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<number>;
+    /**
+     * Setting overrides for the application manifest.
+     */
     public readonly manifestOverridesPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestOverridesPayload | undefined>;
+    /**
+     * The application's manifest document.
+     */
     public readonly manifestPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestPayload>;
+    /**
+     * A name for the application instance.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of a runtime role for the application instance.
+     */
     public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The application instance's status.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.panorama.ApplicationInstanceStatus>;
+    /**
+     * The application instance's status description.
+     */
     public /*out*/ readonly statusDescription!: pulumi.Output<string>;
+    /**
+     * Tags for the application instance.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -116,12 +164,36 @@ export class ApplicationInstance extends pulumi.CustomResource {
  * The set of arguments for constructing a ApplicationInstance resource.
  */
 export interface ApplicationInstanceArgs {
+    /**
+     * The ID of an application instance to replace with the new instance.
+     */
     applicationInstanceIdToReplace?: pulumi.Input<string>;
+    /**
+     * The device's ID.
+     */
     defaultRuntimeContextDevice: pulumi.Input<string>;
+    /**
+     * A description for the application instance.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Setting overrides for the application manifest.
+     */
     manifestOverridesPayload?: pulumi.Input<inputs.panorama.ApplicationInstanceManifestOverridesPayloadArgs>;
+    /**
+     * The application's manifest document.
+     */
     manifestPayload: pulumi.Input<inputs.panorama.ApplicationInstanceManifestPayloadArgs>;
+    /**
+     * A name for the application instance.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of a runtime role for the application instance.
+     */
     runtimeRoleArn?: pulumi.Input<string>;
+    /**
+     * Tags for the application instance.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

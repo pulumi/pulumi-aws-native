@@ -15,54 +15,105 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [AwsNativeResourceType("aws-native:amplifyuibuilder:Component")]
     public partial class Component : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique ID of the Amplify app associated with the component.
+        /// </summary>
         [Output("appId")]
         public Output<string?> AppId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the component.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        /// </summary>
         [Output("bindingProperties")]
         public Output<ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>?> BindingProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of the component's `ComponentChild` instances.
+        /// </summary>
         [Output("children")]
         public Output<ImmutableArray<Outputs.ComponentChild>> Children { get; private set; } = null!;
 
+        /// <summary>
+        /// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        /// </summary>
         [Output("collectionProperties")]
         public Output<ImmutableDictionary<string, Outputs.ComponentDataConfiguration>?> CollectionProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the component. This can be an Amplify custom UI component or another custom component.
+        /// </summary>
         [Output("componentType")]
         public Output<string?> ComponentType { get; private set; } = null!;
 
+        /// <summary>
+        /// The time that the component was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        /// </summary>
         [Output("events")]
         public Output<ImmutableDictionary<string, Outputs.ComponentEvent>?> Events { get; private set; } = null!;
 
+        /// <summary>
+        /// The time that the component was modified.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the component.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        /// </summary>
         [Output("overrides")]
         public Output<ImmutableDictionary<string, object>?> Overrides { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, Outputs.ComponentProperty>?> Properties { get; private set; } = null!;
 
+        /// <summary>
+        /// The schema version of the component when it was imported.
+        /// </summary>
         [Output("schemaVersion")]
         public Output<string?> SchemaVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the component in its original source system, such as Figma.
+        /// </summary>
         [Output("sourceId")]
         public Output<string?> SourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the component.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of the component's variants. A variant is a unique style configuration of a main component.
+        /// </summary>
         [Output("variants")]
         public Output<ImmutableArray<Outputs.ComponentVariant>> Variants { get; private set; } = null!;
 
@@ -116,11 +167,18 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class ComponentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique ID of the Amplify app associated with the component.
+        /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
         [Input("bindingProperties")]
         private InputMap<Inputs.ComponentBindingPropertiesValueArgs>? _bindingProperties;
+
+        /// <summary>
+        /// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        /// </summary>
         public InputMap<Inputs.ComponentBindingPropertiesValueArgs> BindingProperties
         {
             get => _bindingProperties ?? (_bindingProperties = new InputMap<Inputs.ComponentBindingPropertiesValueArgs>());
@@ -129,6 +187,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
         [Input("children")]
         private InputList<Inputs.ComponentChildArgs>? _children;
+
+        /// <summary>
+        /// A list of the component's `ComponentChild` instances.
+        /// </summary>
         public InputList<Inputs.ComponentChildArgs> Children
         {
             get => _children ?? (_children = new InputList<Inputs.ComponentChildArgs>());
@@ -137,31 +199,52 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
         [Input("collectionProperties")]
         private InputMap<Inputs.ComponentDataConfigurationArgs>? _collectionProperties;
+
+        /// <summary>
+        /// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        /// </summary>
         public InputMap<Inputs.ComponentDataConfigurationArgs> CollectionProperties
         {
             get => _collectionProperties ?? (_collectionProperties = new InputMap<Inputs.ComponentDataConfigurationArgs>());
             set => _collectionProperties = value;
         }
 
+        /// <summary>
+        /// The type of the component. This can be an Amplify custom UI component or another custom component.
+        /// </summary>
         [Input("componentType")]
         public Input<string>? ComponentType { get; set; }
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
 
         [Input("events")]
         private InputMap<Inputs.ComponentEventArgs>? _events;
+
+        /// <summary>
+        /// Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        /// </summary>
         public InputMap<Inputs.ComponentEventArgs> Events
         {
             get => _events ?? (_events = new InputMap<Inputs.ComponentEventArgs>());
             set => _events = value;
         }
 
+        /// <summary>
+        /// The name of the component.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("overrides")]
         private InputMap<object>? _overrides;
+
+        /// <summary>
+        /// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        /// </summary>
         public InputMap<object> Overrides
         {
             get => _overrides ?? (_overrides = new InputMap<object>());
@@ -170,20 +253,34 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
         [Input("properties")]
         private InputMap<Inputs.ComponentPropertyArgs>? _properties;
+
+        /// <summary>
+        /// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        /// </summary>
         public InputMap<Inputs.ComponentPropertyArgs> Properties
         {
             get => _properties ?? (_properties = new InputMap<Inputs.ComponentPropertyArgs>());
             set => _properties = value;
         }
 
+        /// <summary>
+        /// The schema version of the component when it was imported.
+        /// </summary>
         [Input("schemaVersion")]
         public Input<string>? SchemaVersion { get; set; }
 
+        /// <summary>
+        /// The unique ID of the component in its original source system, such as Figma.
+        /// </summary>
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the component.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -192,6 +289,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
         [Input("variants")]
         private InputList<Inputs.ComponentVariantArgs>? _variants;
+
+        /// <summary>
+        /// A list of the component's variants. A variant is a unique style configuration of a main component.
+        /// </summary>
         public InputList<Inputs.ComponentVariantArgs> Variants
         {
             get => _variants ?? (_variants = new InputList<Inputs.ComponentVariantArgs>());

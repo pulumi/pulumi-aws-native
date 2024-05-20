@@ -23,15 +23,22 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
+	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	TopicId      string `pulumi:"topicId"`
+	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+	TopicId string `pulumi:"topicId"`
 }
 
 type LookupTopicResult struct {
-	Arn                   *string                     `pulumi:"arn"`
-	DataSets              []TopicDatasetMetadata      `pulumi:"dataSets"`
-	Description           *string                     `pulumi:"description"`
-	Name                  *string                     `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the topic.
+	Arn *string `pulumi:"arn"`
+	// The data sets that the topic is associated with.
+	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
+	// The description of the topic.
+	Description *string `pulumi:"description"`
+	// The name of the topic.
+	Name *string `pulumi:"name"`
+	// The user experience version of the topic.
 	UserExperienceVersion *TopicUserExperienceVersion `pulumi:"userExperienceVersion"`
 }
 
@@ -49,8 +56,10 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 }
 
 type LookupTopicOutputArgs struct {
+	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
-	TopicId      pulumi.StringInput `pulumi:"topicId"`
+	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+	TopicId pulumi.StringInput `pulumi:"topicId"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {
@@ -71,22 +80,27 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the topic.
 func (o LookupTopicResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The data sets that the topic is associated with.
 func (o LookupTopicResultOutput) DataSets() TopicDatasetMetadataArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []TopicDatasetMetadata { return v.DataSets }).(TopicDatasetMetadataArrayOutput)
 }
 
+// The description of the topic.
 func (o LookupTopicResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the topic.
 func (o LookupTopicResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The user experience version of the topic.
 func (o LookupTopicResultOutput) UserExperienceVersion() TopicUserExperienceVersionPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *TopicUserExperienceVersion { return v.UserExperienceVersion }).(TopicUserExperienceVersionPtrOutput)
 }

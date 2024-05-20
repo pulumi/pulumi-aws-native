@@ -25,6 +25,10 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+        :param pulumi.Input[str] business_name: Returns the name for the business associated with this profile.
+        :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
+        :param pulumi.Input[str] name: Returns the display name for profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         pulumi.set(__self__, "business_name", business_name)
         pulumi.set(__self__, "logging", logging)
@@ -39,6 +43,9 @@ class ProfileArgs:
     @property
     @pulumi.getter(name="businessName")
     def business_name(self) -> pulumi.Input[str]:
+        """
+        Returns the name for the business associated with this profile.
+        """
         return pulumi.get(self, "business_name")
 
     @business_name.setter
@@ -48,6 +55,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def logging(self) -> pulumi.Input['ProfileLogging']:
+        """
+        Specifies whether or not logging is enabled for this profile.
+        """
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -75,6 +85,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the display name for profile.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -84,6 +97,9 @@ class ProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -108,6 +124,10 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] business_name: Returns the name for the business associated with this profile.
+        :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
+        :param pulumi.Input[str] name: Returns the display name for profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -205,11 +225,17 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="businessName")
     def business_name(self) -> pulumi.Output[str]:
+        """
+        Returns the name for the business associated with this profile.
+        """
         return pulumi.get(self, "business_name")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Returns the timestamp for creation date and time of the profile.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -220,21 +246,33 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[str]:
+        """
+        Returns the name of the logging group.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter
     def logging(self) -> pulumi.Output['ProfileLogging']:
+        """
+        Specifies whether or not logging is enabled for this profile.
+        """
         return pulumi.get(self, "logging")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        Returns the timestamp that identifies the most recent date and time that the profile was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Returns the display name for profile.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -245,6 +283,9 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="profileArn")
     def profile_arn(self) -> pulumi.Output[str]:
+        """
+        Returns an Amazon Resource Name (ARN) for the profile.
+        """
         return pulumi.get(self, "profile_arn")
 
     @property
@@ -255,5 +296,8 @@ class Profile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        """
         return pulumi.get(self, "tags")
 

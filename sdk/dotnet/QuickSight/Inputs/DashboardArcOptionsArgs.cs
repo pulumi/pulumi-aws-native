@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardArcOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The arc thickness of a `GaugeChartVisual` .
+        /// </summary>
         [Input("arcThickness")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardArcThickness>? ArcThickness { get; set; }
 

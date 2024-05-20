@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class PatchBaselineRuleGroup
     {
+        /// <summary>
+        /// The rules that make up the rule group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PatchBaselineRule> PatchRules;
 
         [OutputConstructor]

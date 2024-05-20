@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceCodeEditorAppSettings
     {
+        /// <summary>
+        /// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        /// </summary>
         public readonly Outputs.SpaceResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]

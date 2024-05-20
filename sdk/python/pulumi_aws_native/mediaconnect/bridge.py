@@ -28,8 +28,11 @@ class BridgeArgs:
         The set of arguments for constructing a Bridge resource.
         :param pulumi.Input[str] placement_arn: The placement Amazon Resource Number (ARN) of the bridge.
         :param pulumi.Input[Sequence[pulumi.Input['BridgeSourceArgs']]] sources: The sources on this bridge.
+        :param pulumi.Input['BridgeEgressGatewayBridgeArgs'] egress_gateway_bridge: Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        :param pulumi.Input['BridgeIngressGatewayBridgeArgs'] ingress_gateway_bridge: Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         :param pulumi.Input[str] name: The name of the bridge.
         :param pulumi.Input[Sequence[pulumi.Input['BridgeOutputArgs']]] outputs: The outputs on this bridge.
+        :param pulumi.Input['BridgeFailoverConfigArgs'] source_failover_config: The settings for source failover.
         """
         pulumi.set(__self__, "placement_arn", placement_arn)
         pulumi.set(__self__, "sources", sources)
@@ -71,6 +74,9 @@ class BridgeArgs:
     @property
     @pulumi.getter(name="egressGatewayBridge")
     def egress_gateway_bridge(self) -> Optional[pulumi.Input['BridgeEgressGatewayBridgeArgs']]:
+        """
+        Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        """
         return pulumi.get(self, "egress_gateway_bridge")
 
     @egress_gateway_bridge.setter
@@ -80,6 +86,9 @@ class BridgeArgs:
     @property
     @pulumi.getter(name="ingressGatewayBridge")
     def ingress_gateway_bridge(self) -> Optional[pulumi.Input['BridgeIngressGatewayBridgeArgs']]:
+        """
+        Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        """
         return pulumi.get(self, "ingress_gateway_bridge")
 
     @ingress_gateway_bridge.setter
@@ -113,6 +122,9 @@ class BridgeArgs:
     @property
     @pulumi.getter(name="sourceFailoverConfig")
     def source_failover_config(self) -> Optional[pulumi.Input['BridgeFailoverConfigArgs']]:
+        """
+        The settings for source failover.
+        """
         return pulumi.get(self, "source_failover_config")
 
     @source_failover_config.setter
@@ -138,9 +150,12 @@ class Bridge(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BridgeEgressGatewayBridgeArgs']] egress_gateway_bridge: Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        :param pulumi.Input[pulumi.InputType['BridgeIngressGatewayBridgeArgs']] ingress_gateway_bridge: Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
         :param pulumi.Input[str] name: The name of the bridge.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeOutputArgs']]]] outputs: The outputs on this bridge.
         :param pulumi.Input[str] placement_arn: The placement Amazon Resource Number (ARN) of the bridge.
+        :param pulumi.Input[pulumi.InputType['BridgeFailoverConfigArgs']] source_failover_config: The settings for source failover.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BridgeSourceArgs']]]] sources: The sources on this bridge.
         """
         ...
@@ -240,16 +255,25 @@ class Bridge(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bridgeState")
     def bridge_state(self) -> pulumi.Output['BridgeStateEnum']:
+        """
+        The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+        """
         return pulumi.get(self, "bridge_state")
 
     @property
     @pulumi.getter(name="egressGatewayBridge")
     def egress_gateway_bridge(self) -> pulumi.Output[Optional['outputs.BridgeEgressGatewayBridge']]:
+        """
+        Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        """
         return pulumi.get(self, "egress_gateway_bridge")
 
     @property
     @pulumi.getter(name="ingressGatewayBridge")
     def ingress_gateway_bridge(self) -> pulumi.Output[Optional['outputs.BridgeIngressGatewayBridge']]:
+        """
+        Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        """
         return pulumi.get(self, "ingress_gateway_bridge")
 
     @property
@@ -279,6 +303,9 @@ class Bridge(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceFailoverConfig")
     def source_failover_config(self) -> pulumi.Output[Optional['outputs.BridgeFailoverConfig']]:
+        """
+        The settings for source failover.
+        """
         return pulumi.get(self, "source_failover_config")
 
     @property

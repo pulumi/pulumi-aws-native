@@ -128,6 +128,17 @@ class GetAgentResult:
     @property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> Optional['AgentStatus']:
+        """
+        The status of the agent and whether it is ready for use. The following statuses are possible:
+
+        - CREATING – The agent is being created.
+        - PREPARING – The agent is being prepared.
+        - PREPARED – The agent is prepared and ready to be invoked.
+        - NOT_PREPARED – The agent has been created but not yet prepared.
+        - FAILED – The agent API operation failed.
+        - UPDATING – The agent is being updated.
+        - DELETING – The agent is being deleted.
+        """
         return pulumi.get(self, "agent_status")
 
     @property
@@ -213,6 +224,9 @@ class GetAgentResult:
     @property
     @pulumi.getter(name="promptOverrideConfiguration")
     def prompt_override_configuration(self) -> Optional['outputs.AgentPromptOverrideConfiguration']:
+        """
+        Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        """
         return pulumi.get(self, "prompt_override_configuration")
 
     @property
@@ -226,11 +240,23 @@ class GetAgentResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="testAliasTags")
     def test_alias_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "test_alias_tags")
 
     @property

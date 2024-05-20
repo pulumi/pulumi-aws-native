@@ -23,17 +23,23 @@ func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pul
 }
 
 type LookupExtensionArgs struct {
+	// The system-generated ID of the extension.
 	Id string `pulumi:"id"`
 }
 
 type LookupExtensionResult struct {
+	// The actions defined in the extension.
 	Actions map[string][]ExtensionAction `pulumi:"actions"`
-	Arn     *string                      `pulumi:"arn"`
+	// The system-generated Amazon Resource Name (ARN) for the extension.
+	Arn *string `pulumi:"arn"`
 	// Description of the extension.
-	Description   *string                       `pulumi:"description"`
-	Id            *string                       `pulumi:"id"`
-	Parameters    map[string]ExtensionParameter `pulumi:"parameters"`
-	VersionNumber *int                          `pulumi:"versionNumber"`
+	Description *string `pulumi:"description"`
+	// The system-generated ID of the extension.
+	Id *string `pulumi:"id"`
+	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+	Parameters map[string]ExtensionParameter `pulumi:"parameters"`
+	// The extension version number.
+	VersionNumber *int `pulumi:"versionNumber"`
 }
 
 func LookupExtensionOutput(ctx *pulumi.Context, args LookupExtensionOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionResultOutput {
@@ -50,6 +56,7 @@ func LookupExtensionOutput(ctx *pulumi.Context, args LookupExtensionOutputArgs, 
 }
 
 type LookupExtensionOutputArgs struct {
+	// The system-generated ID of the extension.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -71,10 +78,12 @@ func (o LookupExtensionResultOutput) ToLookupExtensionResultOutputWithContext(ct
 	return o
 }
 
+// The actions defined in the extension.
 func (o LookupExtensionResultOutput) Actions() ExtensionActionArrayMapOutput {
 	return o.ApplyT(func(v LookupExtensionResult) map[string][]ExtensionAction { return v.Actions }).(ExtensionActionArrayMapOutput)
 }
 
+// The system-generated Amazon Resource Name (ARN) for the extension.
 func (o LookupExtensionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -84,14 +93,17 @@ func (o LookupExtensionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The system-generated ID of the extension.
 func (o LookupExtensionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExtensionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
 func (o LookupExtensionResultOutput) Parameters() ExtensionParameterMapOutput {
 	return o.ApplyT(func(v LookupExtensionResult) map[string]ExtensionParameter { return v.Parameters }).(ExtensionParameterMapOutput)
 }
 
+// The extension version number.
 func (o LookupExtensionResultOutput) VersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupExtensionResult) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }

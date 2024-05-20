@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTimeRangeDrillDownFilter
     {
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The maximum value for the filter value range.
+        /// </summary>
         public readonly string RangeMaximum;
+        /// <summary>
+        /// The minimum value for the filter value range.
+        /// </summary>
         public readonly string RangeMinimum;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity TimeGranularity;
 
         [OutputConstructor]

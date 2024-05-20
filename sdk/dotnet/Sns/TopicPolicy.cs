@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Sns
     [AwsNativeResourceType("aws-native:sns:TopicPolicy")]
     public partial class TopicPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 

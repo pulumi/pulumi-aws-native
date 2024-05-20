@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardKpiActualValueConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The conditional formatting of the actual value's icon.
+        /// </summary>
         [Input("icon")]
         public Input<Inputs.DashboardConditionalFormattingIconArgs>? Icon { get; set; }
 
+        /// <summary>
+        /// The conditional formatting of the actual value's text color.
+        /// </summary>
         [Input("textColor")]
         public Input<Inputs.DashboardConditionalFormattingColorArgs>? TextColor { get; set; }
 

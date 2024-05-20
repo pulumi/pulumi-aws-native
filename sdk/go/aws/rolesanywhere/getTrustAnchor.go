@@ -24,17 +24,25 @@ func LookupTrustAnchor(ctx *pulumi.Context, args *LookupTrustAnchorArgs, opts ..
 }
 
 type LookupTrustAnchorArgs struct {
+	// The unique identifier of the trust anchor.
 	TrustAnchorId string `pulumi:"trustAnchorId"`
 }
 
 type LookupTrustAnchorResult struct {
-	Enabled              *bool                            `pulumi:"enabled"`
-	Name                 *string                          `pulumi:"name"`
+	// Indicates whether the trust anchor is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the trust anchor.
+	Name *string `pulumi:"name"`
+	// A list of notification settings to be associated to the trust anchor.
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
-	Source               *TrustAnchorSource               `pulumi:"source"`
-	Tags                 []aws.Tag                        `pulumi:"tags"`
-	TrustAnchorArn       *string                          `pulumi:"trustAnchorArn"`
-	TrustAnchorId        *string                          `pulumi:"trustAnchorId"`
+	// The trust anchor type and its related certificate data.
+	Source *TrustAnchorSource `pulumi:"source"`
+	// The tags to attach to the trust anchor.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the trust anchor.
+	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
+	// The unique identifier of the trust anchor.
+	TrustAnchorId *string `pulumi:"trustAnchorId"`
 }
 
 func LookupTrustAnchorOutput(ctx *pulumi.Context, args LookupTrustAnchorOutputArgs, opts ...pulumi.InvokeOption) LookupTrustAnchorResultOutput {
@@ -51,6 +59,7 @@ func LookupTrustAnchorOutput(ctx *pulumi.Context, args LookupTrustAnchorOutputAr
 }
 
 type LookupTrustAnchorOutputArgs struct {
+	// The unique identifier of the trust anchor.
 	TrustAnchorId pulumi.StringInput `pulumi:"trustAnchorId"`
 }
 
@@ -72,30 +81,37 @@ func (o LookupTrustAnchorResultOutput) ToLookupTrustAnchorResultOutputWithContex
 	return o
 }
 
+// Indicates whether the trust anchor is enabled.
 func (o LookupTrustAnchorResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the trust anchor.
 func (o LookupTrustAnchorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A list of notification settings to be associated to the trust anchor.
 func (o LookupTrustAnchorResultOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) []TrustAnchorNotificationSetting { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
+// The trust anchor type and its related certificate data.
 func (o LookupTrustAnchorResultOutput) Source() TrustAnchorSourcePtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *TrustAnchorSource { return v.Source }).(TrustAnchorSourcePtrOutput)
 }
 
+// The tags to attach to the trust anchor.
 func (o LookupTrustAnchorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the trust anchor.
 func (o LookupTrustAnchorResultOutput) TrustAnchorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.TrustAnchorArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the trust anchor.
 func (o LookupTrustAnchorResultOutput) TrustAnchorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.TrustAnchorId }).(pulumi.StringPtrOutput)
 }

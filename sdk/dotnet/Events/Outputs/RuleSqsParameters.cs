@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleSqsParameters
     {
+        /// <summary>
+        /// The FIFO message group ID to use as the target.
+        /// </summary>
         public readonly string MessageGroupId;
 
         [OutputConstructor]

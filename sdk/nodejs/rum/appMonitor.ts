@@ -37,11 +37,19 @@ export class AppMonitor extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppMonitor.__pulumiType;
     }
 
+    /**
+     * A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+     *
+     * If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
+     */
     public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorConfiguration | undefined>;
     /**
      * The unique ID of the new app monitor.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
+     */
     public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
@@ -55,6 +63,17 @@ export class AppMonitor extends pulumi.CustomResource {
      * A name for the app monitor
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Assigns one or more tags (key-value pairs) to the app monitor.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+     *
+     * Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+     *
+     * You can associate as many as 50 tags with an app monitor.
+     *
+     * For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -98,7 +117,15 @@ export class AppMonitor extends pulumi.CustomResource {
  * The set of arguments for constructing a AppMonitor resource.
  */
 export interface AppMonitorArgs {
+    /**
+     * A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+     *
+     * If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
+     */
     appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorConfigurationArgs>;
+    /**
+     * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
+     */
     customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEventsArgs>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
@@ -112,5 +139,16 @@ export interface AppMonitorArgs {
      * A name for the app monitor
      */
     name?: pulumi.Input<string>;
+    /**
+     * Assigns one or more tags (key-value pairs) to the app monitor.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+     *
+     * Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.
+     *
+     * You can associate as many as 50 tags with an app monitor.
+     *
+     * For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

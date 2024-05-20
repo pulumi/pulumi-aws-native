@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainRStudioServerProDomainSettings
     {
+        /// <summary>
+        /// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
+        /// </summary>
         public readonly Outputs.DomainResourceSpec? DefaultResourceSpec;
         /// <summary>
         /// The ARN of the execution role for the RStudioServerPro Domain-level app.

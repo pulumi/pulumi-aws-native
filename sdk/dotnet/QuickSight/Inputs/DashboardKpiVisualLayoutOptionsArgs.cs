@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardKpiVisualLayoutOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The standard layout of the KPI visual.
+        /// </summary>
         [Input("standardLayout")]
         public Input<Inputs.DashboardKpiVisualStandardLayoutArgs>? StandardLayout { get; set; }
 

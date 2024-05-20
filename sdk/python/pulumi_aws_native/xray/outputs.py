@@ -127,6 +127,10 @@ class SamplingRule(dict):
         :param str service_type: Matches the origin that the service uses to identify its type in segments.
         :param str url_path: Matches the path from a request URL.
         :param Mapping[str, str] attributes: Matches attributes derived from the request.
+        :param str rule_arn: The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+               
+               > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+        :param str rule_name: The name of the sampling rule. Specify a rule by either name or ARN, but not both.
         :param int version: The version of the sampling rule format (1)
         """
         pulumi.set(__self__, "fixed_rate", fixed_rate)
@@ -230,11 +234,19 @@ class SamplingRule(dict):
     @property
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[str]:
+        """
+        The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+
+        > Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+        """
         return pulumi.get(self, "rule_arn")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[str]:
+        """
+        The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+        """
         return pulumi.get(self, "rule_name")
 
     @property

@@ -17,10 +17,12 @@ type AttributeGroupAssociation struct {
 	pulumi.CustomResourceState
 
 	// The name or the Id of the Application.
-	Application    pulumi.StringOutput `pulumi:"application"`
+	Application pulumi.StringOutput `pulumi:"application"`
+	// The Amazon resource name (ARN) of the application that was augmented with attributes.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// The name or the Id of the AttributeGroup.
-	AttributeGroup    pulumi.StringOutput `pulumi:"attributeGroup"`
+	AttributeGroup pulumi.StringOutput `pulumi:"attributeGroup"`
+	// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 	AttributeGroupArn pulumi.StringOutput `pulumi:"attributeGroupArn"`
 }
 
@@ -131,6 +133,7 @@ func (o AttributeGroupAssociationOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
+// The Amazon resource name (ARN) of the application that was augmented with attributes.
 func (o AttributeGroupAssociationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
@@ -140,6 +143,7 @@ func (o AttributeGroupAssociationOutput) AttributeGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroup }).(pulumi.StringOutput)
 }
 
+// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
 func (o AttributeGroupAssociationOutput) AttributeGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroupArn }).(pulumi.StringOutput)
 }

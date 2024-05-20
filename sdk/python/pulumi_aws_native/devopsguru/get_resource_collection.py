@@ -31,6 +31,9 @@ class GetResourceCollectionResult:
     @property
     @pulumi.getter(name="resourceCollectionFilter")
     def resource_collection_filter(self) -> Optional['outputs.ResourceCollectionFilter']:
+        """
+        Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        """
         return pulumi.get(self, "resource_collection_filter")
 
     @property

@@ -29,6 +29,7 @@ type LookupVirtualClusterArgs struct {
 }
 
 type LookupVirtualClusterResult struct {
+	// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
 	Arn *string `pulumi:"arn"`
 	// Id of the virtual cluster.
 	Id *string `pulumi:"id"`
@@ -72,6 +73,7 @@ func (o LookupVirtualClusterResultOutput) ToLookupVirtualClusterResultOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the project, such as `arn:aws:emr-containers:us-east-1:123456789012:/virtualclusters/ab4rp1abcs8xz47n3x0example` .
 func (o LookupVirtualClusterResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

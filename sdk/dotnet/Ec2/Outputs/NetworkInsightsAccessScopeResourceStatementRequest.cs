@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAccessScopeResourceStatementRequest
     {
+        /// <summary>
+        /// The resource types.
+        /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
+        /// <summary>
+        /// The resources.
+        /// </summary>
         public readonly ImmutableArray<string> Resources;
 
         [OutputConstructor]

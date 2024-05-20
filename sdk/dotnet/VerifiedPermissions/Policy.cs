@@ -97,15 +97,30 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        /// </summary>
         [Output("definition")]
         public Output<Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new or updated policy.
+        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the policy. This is one of the following values:
+        /// 
+        /// - Static
+        /// - TemplateLinked
+        /// </summary>
         [Output("policyType")]
         public Output<Pulumi.AwsNative.VerifiedPermissions.PolicyType> PolicyType { get; private set; } = null!;
 
@@ -158,9 +173,15 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        /// </summary>
         [Input("definition", required: true)]
         public InputUnion<Inputs.PolicyDefinition0PropertiesArgs, Inputs.PolicyDefinition1PropertiesArgs> Definition { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 

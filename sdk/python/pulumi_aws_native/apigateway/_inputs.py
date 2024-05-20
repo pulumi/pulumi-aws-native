@@ -841,12 +841,18 @@ class DocumentationPartLocationArgs:
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+        """
         if types is not None:
             pulumi.set(__self__, "types", types)
 
     @property
     @pulumi.getter
     def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+        """
         return pulumi.get(self, "types")
 
     @types.setter
@@ -859,6 +865,10 @@ class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
                  truststore_uri: Optional[pulumi.Input[str]] = None,
                  truststore_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+        :param pulumi.Input[str] truststore_version: The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
         if truststore_uri is not None:
             pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
@@ -867,6 +877,9 @@ class DomainNameMutualTlsAuthenticationArgs:
     @property
     @pulumi.getter(name="truststoreUri")
     def truststore_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example `s3://bucket-name/key-name` . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+        """
         return pulumi.get(self, "truststore_uri")
 
     @truststore_uri.setter
@@ -876,6 +889,9 @@ class DomainNameMutualTlsAuthenticationArgs:
     @property
     @pulumi.getter(name="truststoreVersion")
     def truststore_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
         return pulumi.get(self, "truststore_version")
 
     @truststore_version.setter

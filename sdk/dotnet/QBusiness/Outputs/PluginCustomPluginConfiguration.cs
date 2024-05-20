@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class PluginCustomPluginConfiguration
     {
+        /// <summary>
+        /// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+        /// </summary>
         public readonly Union<Outputs.PluginApiSchema0Properties, Outputs.PluginApiSchema1Properties> ApiSchema;
+        /// <summary>
+        /// The type of OpenAPI schema to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.PluginApiSchemaType ApiSchemaType;
+        /// <summary>
+        /// A description for your custom plugin configuration.
+        /// </summary>
         public readonly string Description;
 
         [OutputConstructor]

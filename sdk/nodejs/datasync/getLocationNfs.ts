@@ -34,7 +34,15 @@ export interface GetLocationNfsResult {
      * The URL of the NFS location that was described.
      */
     readonly locationUri?: string;
+    /**
+     * Specifies the options that DataSync can use to mount your NFS file server.
+     */
     readonly mountOptions?: outputs.datasync.LocationNfsMountOptions;
+    /**
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+     *
+     * You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
+     */
     readonly onPremConfig?: outputs.datasync.LocationNfsOnPremConfig;
     /**
      * An array of key-value pairs to apply to this resource.

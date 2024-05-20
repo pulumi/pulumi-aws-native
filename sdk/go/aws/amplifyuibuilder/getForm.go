@@ -23,23 +23,37 @@ func LookupForm(ctx *pulumi.Context, args *LookupFormArgs, opts ...pulumi.Invoke
 }
 
 type LookupFormArgs struct {
-	AppId           string `pulumi:"appId"`
+	// The unique ID of the Amplify app associated with the form.
+	AppId string `pulumi:"appId"`
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName string `pulumi:"environmentName"`
-	Id              string `pulumi:"id"`
+	// The ID for the form.
+	Id string `pulumi:"id"`
 }
 
 type LookupFormResult struct {
-	Cta               *FormCta                        `pulumi:"cta"`
-	DataType          *FormDataTypeConfig             `pulumi:"dataType"`
-	Fields            map[string]FormFieldConfig      `pulumi:"fields"`
-	FormActionType    *FormActionType                 `pulumi:"formActionType"`
-	Id                *string                         `pulumi:"id"`
-	LabelDecorator    *FormLabelDecorator             `pulumi:"labelDecorator"`
-	Name              *string                         `pulumi:"name"`
-	SchemaVersion     *string                         `pulumi:"schemaVersion"`
+	// The `FormCTA` object that stores the call to action configuration for the form.
+	Cta *FormCta `pulumi:"cta"`
+	// The type of data source to use to create the form.
+	DataType *FormDataTypeConfig `pulumi:"dataType"`
+	// The configuration information for the form's fields.
+	Fields map[string]FormFieldConfig `pulumi:"fields"`
+	// Specifies whether to perform a create or update action on the form.
+	FormActionType *FormActionType `pulumi:"formActionType"`
+	// The ID for the form.
+	Id *string `pulumi:"id"`
+	// Specifies an icon or decoration to display on the form.
+	LabelDecorator *FormLabelDecorator `pulumi:"labelDecorator"`
+	// The name of the form.
+	Name *string `pulumi:"name"`
+	// The schema version of the form.
+	SchemaVersion *string `pulumi:"schemaVersion"`
+	// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 	SectionalElements map[string]FormSectionalElement `pulumi:"sectionalElements"`
-	Style             *FormStyle                      `pulumi:"style"`
-	Tags              map[string]string               `pulumi:"tags"`
+	// The configuration for the form's style.
+	Style *FormStyle `pulumi:"style"`
+	// One or more key-value pairs to use when tagging the form data.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupFormOutput(ctx *pulumi.Context, args LookupFormOutputArgs, opts ...pulumi.InvokeOption) LookupFormResultOutput {
@@ -56,9 +70,12 @@ func LookupFormOutput(ctx *pulumi.Context, args LookupFormOutputArgs, opts ...pu
 }
 
 type LookupFormOutputArgs struct {
-	AppId           pulumi.StringInput `pulumi:"appId"`
+	// The unique ID of the Amplify app associated with the form.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The name of the backend environment that is a part of the Amplify app.
 	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
-	Id              pulumi.StringInput `pulumi:"id"`
+	// The ID for the form.
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupFormOutputArgs) ElementType() reflect.Type {
@@ -79,46 +96,57 @@ func (o LookupFormResultOutput) ToLookupFormResultOutputWithContext(ctx context.
 	return o
 }
 
+// The `FormCTA` object that stores the call to action configuration for the form.
 func (o LookupFormResultOutput) Cta() FormCtaPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormCta { return v.Cta }).(FormCtaPtrOutput)
 }
 
+// The type of data source to use to create the form.
 func (o LookupFormResultOutput) DataType() FormDataTypeConfigPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormDataTypeConfig { return v.DataType }).(FormDataTypeConfigPtrOutput)
 }
 
+// The configuration information for the form's fields.
 func (o LookupFormResultOutput) Fields() FormFieldConfigMapOutput {
 	return o.ApplyT(func(v LookupFormResult) map[string]FormFieldConfig { return v.Fields }).(FormFieldConfigMapOutput)
 }
 
+// Specifies whether to perform a create or update action on the form.
 func (o LookupFormResultOutput) FormActionType() FormActionTypePtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormActionType { return v.FormActionType }).(FormActionTypePtrOutput)
 }
 
+// The ID for the form.
 func (o LookupFormResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an icon or decoration to display on the form.
 func (o LookupFormResultOutput) LabelDecorator() FormLabelDecoratorPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormLabelDecorator { return v.LabelDecorator }).(FormLabelDecoratorPtrOutput)
 }
 
+// The name of the form.
 func (o LookupFormResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The schema version of the form.
 func (o LookupFormResultOutput) SchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *string { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
+// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 func (o LookupFormResultOutput) SectionalElements() FormSectionalElementMapOutput {
 	return o.ApplyT(func(v LookupFormResult) map[string]FormSectionalElement { return v.SectionalElements }).(FormSectionalElementMapOutput)
 }
 
+// The configuration for the form's style.
 func (o LookupFormResultOutput) Style() FormStylePtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormStyle { return v.Style }).(FormStylePtrOutput)
 }
 
+// One or more key-value pairs to use when tagging the form data.
 func (o LookupFormResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFormResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

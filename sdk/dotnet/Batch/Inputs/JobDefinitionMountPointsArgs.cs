@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionMountPointsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path on the container where the host volume is mounted.
+        /// </summary>
         [Input("containerPath")]
         public Input<string>? ContainerPath { get; set; }
 
+        /// <summary>
+        /// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
+        /// <summary>
+        /// The name of the volume to mount.
+        /// </summary>
         [Input("sourceVolume")]
         public Input<string>? SourceVolume { get; set; }
 

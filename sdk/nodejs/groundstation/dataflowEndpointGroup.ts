@@ -62,7 +62,13 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataflowEndpointGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * UUID of a dataflow endpoint group.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
@@ -72,7 +78,13 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * List of Endpoint Details, containing address and port for each endpoint.
+     */
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
+    /**
+     * Tags assigned to a resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -120,6 +132,12 @@ export interface DataflowEndpointGroupArgs {
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
+    /**
+     * List of Endpoint Details, containing address and port for each endpoint.
+     */
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
+    /**
+     * Tags assigned to a resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

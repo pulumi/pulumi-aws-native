@@ -19,12 +19,24 @@ export function getKnowledgeBase(args: GetKnowledgeBaseArgs, opts?: pulumi.Invok
 }
 
 export interface GetKnowledgeBaseArgs {
+    /**
+     * The ID of the knowledge base.
+     */
     knowledgeBaseId: string;
 }
 
 export interface GetKnowledgeBaseResult {
+    /**
+     * The Amazon Resource Name (ARN) of the knowledge base.
+     */
     readonly knowledgeBaseArn?: string;
+    /**
+     * The ID of the knowledge base.
+     */
     readonly knowledgeBaseId?: string;
+    /**
+     * Information about how to render the content.
+     */
     readonly renderingConfiguration?: outputs.wisdom.KnowledgeBaseRenderingConfiguration;
 }
 /**
@@ -35,5 +47,8 @@ export function getKnowledgeBaseOutput(args: GetKnowledgeBaseOutputArgs, opts?: 
 }
 
 export interface GetKnowledgeBaseOutputArgs {
+    /**
+     * The ID of the knowledge base.
+     */
     knowledgeBaseId: pulumi.Input<string>;
 }

@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Ec2
         /// The Id of the default resource discovery, created with this IPAM.
         /// </summary>
         public readonly string? DefaultResourceDiscoveryId;
+        /// <summary>
+        /// The description for the IPAM.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Id of the IPAM.

@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetPathParameter
     {
+        /// <summary>
+        /// The path parameter definition.
+        /// </summary>
         public readonly Outputs.DatasetParameter DatasetParameter;
+        /// <summary>
+        /// The name of the path parameter.
+        /// </summary>
         public readonly string PathParameterName;
 
         [OutputConstructor]

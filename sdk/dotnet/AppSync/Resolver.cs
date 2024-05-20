@@ -124,6 +124,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("requestMappingTemplateS3Location")]
         public Output<string?> RequestMappingTemplateS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
+        /// </summary>
         [Output("resolverArn")]
         public Output<string> ResolverArn { get; private set; } = null!;
 

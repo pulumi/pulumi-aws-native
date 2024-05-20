@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetLaunchArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class GetLaunchInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,15 +57,33 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetLaunchResult
     {
+        /// <summary>
+        /// The ARN of the launch. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/launch/myLaunch`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// An optional description for the launch.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Start or Stop Launch Launch. Default is not started.
         /// </summary>
         public readonly Outputs.LaunchExecutionStatusObject? ExecutionStatus;
+        /// <summary>
+        /// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchGroupObject> Groups;
+        /// <summary>
+        /// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchMetricDefinitionObject> MetricMonitors;
+        /// <summary>
+        /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
+        /// </summary>
         public readonly string? RandomizationSalt;
+        /// <summary>
+        /// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchStepConfig> ScheduledSplitsConfig;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

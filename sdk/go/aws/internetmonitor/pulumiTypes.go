@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type MonitorHealthEventsConfig struct {
+	// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
 	AvailabilityLocalHealthEventsConfig *MonitorLocalHealthEventsConfig `pulumi:"availabilityLocalHealthEventsConfig"`
-	AvailabilityScoreThreshold          *float64                        `pulumi:"availabilityScoreThreshold"`
-	PerformanceLocalHealthEventsConfig  *MonitorLocalHealthEventsConfig `pulumi:"performanceLocalHealthEventsConfig"`
-	PerformanceScoreThreshold           *float64                        `pulumi:"performanceScoreThreshold"`
+	// The health event threshold percentage set for availability scores. When the overall availability score is at or below this percentage, Internet Monitor creates a health event.
+	AvailabilityScoreThreshold *float64 `pulumi:"availabilityScoreThreshold"`
+	// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
+	PerformanceLocalHealthEventsConfig *MonitorLocalHealthEventsConfig `pulumi:"performanceLocalHealthEventsConfig"`
+	// The health event threshold percentage set for performance scores. When the overall performance score is at or below this percentage, Internet Monitor creates a health event.
+	PerformanceScoreThreshold *float64 `pulumi:"performanceScoreThreshold"`
 }
 
 // MonitorHealthEventsConfigInput is an input type that accepts MonitorHealthEventsConfigArgs and MonitorHealthEventsConfigOutput values.
@@ -32,10 +36,14 @@ type MonitorHealthEventsConfigInput interface {
 }
 
 type MonitorHealthEventsConfigArgs struct {
+	// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
 	AvailabilityLocalHealthEventsConfig MonitorLocalHealthEventsConfigPtrInput `pulumi:"availabilityLocalHealthEventsConfig"`
-	AvailabilityScoreThreshold          pulumi.Float64PtrInput                 `pulumi:"availabilityScoreThreshold"`
-	PerformanceLocalHealthEventsConfig  MonitorLocalHealthEventsConfigPtrInput `pulumi:"performanceLocalHealthEventsConfig"`
-	PerformanceScoreThreshold           pulumi.Float64PtrInput                 `pulumi:"performanceScoreThreshold"`
+	// The health event threshold percentage set for availability scores. When the overall availability score is at or below this percentage, Internet Monitor creates a health event.
+	AvailabilityScoreThreshold pulumi.Float64PtrInput `pulumi:"availabilityScoreThreshold"`
+	// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
+	PerformanceLocalHealthEventsConfig MonitorLocalHealthEventsConfigPtrInput `pulumi:"performanceLocalHealthEventsConfig"`
+	// The health event threshold percentage set for performance scores. When the overall performance score is at or below this percentage, Internet Monitor creates a health event.
+	PerformanceScoreThreshold pulumi.Float64PtrInput `pulumi:"performanceScoreThreshold"`
 }
 
 func (MonitorHealthEventsConfigArgs) ElementType() reflect.Type {
@@ -115,22 +123,26 @@ func (o MonitorHealthEventsConfigOutput) ToMonitorHealthEventsConfigPtrOutputWit
 	}).(MonitorHealthEventsConfigPtrOutput)
 }
 
+// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
 func (o MonitorHealthEventsConfigOutput) AvailabilityLocalHealthEventsConfig() MonitorLocalHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v MonitorHealthEventsConfig) *MonitorLocalHealthEventsConfig {
 		return v.AvailabilityLocalHealthEventsConfig
 	}).(MonitorLocalHealthEventsConfigPtrOutput)
 }
 
+// The health event threshold percentage set for availability scores. When the overall availability score is at or below this percentage, Internet Monitor creates a health event.
 func (o MonitorHealthEventsConfigOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorHealthEventsConfig) *float64 { return v.AvailabilityScoreThreshold }).(pulumi.Float64PtrOutput)
 }
 
+// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
 func (o MonitorHealthEventsConfigOutput) PerformanceLocalHealthEventsConfig() MonitorLocalHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v MonitorHealthEventsConfig) *MonitorLocalHealthEventsConfig {
 		return v.PerformanceLocalHealthEventsConfig
 	}).(MonitorLocalHealthEventsConfigPtrOutput)
 }
 
+// The health event threshold percentage set for performance scores. When the overall performance score is at or below this percentage, Internet Monitor creates a health event.
 func (o MonitorHealthEventsConfigOutput) PerformanceScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorHealthEventsConfig) *float64 { return v.PerformanceScoreThreshold }).(pulumi.Float64PtrOutput)
 }
@@ -159,6 +171,7 @@ func (o MonitorHealthEventsConfigPtrOutput) Elem() MonitorHealthEventsConfigOutp
 	}).(MonitorHealthEventsConfigOutput)
 }
 
+// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
 func (o MonitorHealthEventsConfigPtrOutput) AvailabilityLocalHealthEventsConfig() MonitorLocalHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v *MonitorHealthEventsConfig) *MonitorLocalHealthEventsConfig {
 		if v == nil {
@@ -168,6 +181,7 @@ func (o MonitorHealthEventsConfigPtrOutput) AvailabilityLocalHealthEventsConfig(
 	}).(MonitorLocalHealthEventsConfigPtrOutput)
 }
 
+// The health event threshold percentage set for availability scores. When the overall availability score is at or below this percentage, Internet Monitor creates a health event.
 func (o MonitorHealthEventsConfigPtrOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorHealthEventsConfig) *float64 {
 		if v == nil {
@@ -177,6 +191,7 @@ func (o MonitorHealthEventsConfigPtrOutput) AvailabilityScoreThreshold() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
 func (o MonitorHealthEventsConfigPtrOutput) PerformanceLocalHealthEventsConfig() MonitorLocalHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v *MonitorHealthEventsConfig) *MonitorLocalHealthEventsConfig {
 		if v == nil {
@@ -186,6 +201,7 @@ func (o MonitorHealthEventsConfigPtrOutput) PerformanceLocalHealthEventsConfig()
 	}).(MonitorLocalHealthEventsConfigPtrOutput)
 }
 
+// The health event threshold percentage set for performance scores. When the overall performance score is at or below this percentage, Internet Monitor creates a health event.
 func (o MonitorHealthEventsConfigPtrOutput) PerformanceScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorHealthEventsConfig) *float64 {
 		if v == nil {
@@ -196,6 +212,7 @@ func (o MonitorHealthEventsConfigPtrOutput) PerformanceScoreThreshold() pulumi.F
 }
 
 type MonitorInternetMeasurementsLogDelivery struct {
+	// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
 	S3Config *MonitorS3Config `pulumi:"s3Config"`
 }
 
@@ -211,6 +228,7 @@ type MonitorInternetMeasurementsLogDeliveryInput interface {
 }
 
 type MonitorInternetMeasurementsLogDeliveryArgs struct {
+	// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
 	S3Config MonitorS3ConfigPtrInput `pulumi:"s3Config"`
 }
 
@@ -291,6 +309,7 @@ func (o MonitorInternetMeasurementsLogDeliveryOutput) ToMonitorInternetMeasureme
 	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
+// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
 func (o MonitorInternetMeasurementsLogDeliveryOutput) S3Config() MonitorS3ConfigPtrOutput {
 	return o.ApplyT(func(v MonitorInternetMeasurementsLogDelivery) *MonitorS3Config { return v.S3Config }).(MonitorS3ConfigPtrOutput)
 }
@@ -319,6 +338,7 @@ func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) Elem() MonitorInternetM
 	}).(MonitorInternetMeasurementsLogDeliveryOutput)
 }
 
+// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
 func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) S3Config() MonitorS3ConfigPtrOutput {
 	return o.ApplyT(func(v *MonitorInternetMeasurementsLogDelivery) *MonitorS3Config {
 		if v == nil {
@@ -329,9 +349,14 @@ func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) S3Config() MonitorS3Con
 }
 
 type MonitorLocalHealthEventsConfig struct {
-	HealthScoreThreshold *float64                              `pulumi:"healthScoreThreshold"`
-	MinTrafficImpact     *float64                              `pulumi:"minTrafficImpact"`
-	Status               *MonitorLocalHealthEventsConfigStatus `pulumi:"status"`
+	// The health event threshold percentage set for a local health score.
+	HealthScoreThreshold *float64 `pulumi:"healthScoreThreshold"`
+	// The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a threshold is crossed for a local health score.
+	//
+	// If you don't set a minimum traffic impact threshold, the default value is 0.01%.
+	MinTrafficImpact *float64 `pulumi:"minTrafficImpact"`
+	// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
+	Status *MonitorLocalHealthEventsConfigStatus `pulumi:"status"`
 }
 
 // MonitorLocalHealthEventsConfigInput is an input type that accepts MonitorLocalHealthEventsConfigArgs and MonitorLocalHealthEventsConfigOutput values.
@@ -346,9 +371,14 @@ type MonitorLocalHealthEventsConfigInput interface {
 }
 
 type MonitorLocalHealthEventsConfigArgs struct {
-	HealthScoreThreshold pulumi.Float64PtrInput                       `pulumi:"healthScoreThreshold"`
-	MinTrafficImpact     pulumi.Float64PtrInput                       `pulumi:"minTrafficImpact"`
-	Status               MonitorLocalHealthEventsConfigStatusPtrInput `pulumi:"status"`
+	// The health event threshold percentage set for a local health score.
+	HealthScoreThreshold pulumi.Float64PtrInput `pulumi:"healthScoreThreshold"`
+	// The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a threshold is crossed for a local health score.
+	//
+	// If you don't set a minimum traffic impact threshold, the default value is 0.01%.
+	MinTrafficImpact pulumi.Float64PtrInput `pulumi:"minTrafficImpact"`
+	// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
+	Status MonitorLocalHealthEventsConfigStatusPtrInput `pulumi:"status"`
 }
 
 func (MonitorLocalHealthEventsConfigArgs) ElementType() reflect.Type {
@@ -428,14 +458,19 @@ func (o MonitorLocalHealthEventsConfigOutput) ToMonitorLocalHealthEventsConfigPt
 	}).(MonitorLocalHealthEventsConfigPtrOutput)
 }
 
+// The health event threshold percentage set for a local health score.
 func (o MonitorLocalHealthEventsConfigOutput) HealthScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorLocalHealthEventsConfig) *float64 { return v.HealthScoreThreshold }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a threshold is crossed for a local health score.
+//
+// If you don't set a minimum traffic impact threshold, the default value is 0.01%.
 func (o MonitorLocalHealthEventsConfigOutput) MinTrafficImpact() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorLocalHealthEventsConfig) *float64 { return v.MinTrafficImpact }).(pulumi.Float64PtrOutput)
 }
 
+// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
 func (o MonitorLocalHealthEventsConfigOutput) Status() MonitorLocalHealthEventsConfigStatusPtrOutput {
 	return o.ApplyT(func(v MonitorLocalHealthEventsConfig) *MonitorLocalHealthEventsConfigStatus { return v.Status }).(MonitorLocalHealthEventsConfigStatusPtrOutput)
 }
@@ -464,6 +499,7 @@ func (o MonitorLocalHealthEventsConfigPtrOutput) Elem() MonitorLocalHealthEvents
 	}).(MonitorLocalHealthEventsConfigOutput)
 }
 
+// The health event threshold percentage set for a local health score.
 func (o MonitorLocalHealthEventsConfigPtrOutput) HealthScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorLocalHealthEventsConfig) *float64 {
 		if v == nil {
@@ -473,6 +509,9 @@ func (o MonitorLocalHealthEventsConfigPtrOutput) HealthScoreThreshold() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a threshold is crossed for a local health score.
+//
+// If you don't set a minimum traffic impact threshold, the default value is 0.01%.
 func (o MonitorLocalHealthEventsConfigPtrOutput) MinTrafficImpact() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorLocalHealthEventsConfig) *float64 {
 		if v == nil {
@@ -482,6 +521,7 @@ func (o MonitorLocalHealthEventsConfigPtrOutput) MinTrafficImpact() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
 func (o MonitorLocalHealthEventsConfigPtrOutput) Status() MonitorLocalHealthEventsConfigStatusPtrOutput {
 	return o.ApplyT(func(v *MonitorLocalHealthEventsConfig) *MonitorLocalHealthEventsConfigStatus {
 		if v == nil {
@@ -492,8 +532,11 @@ func (o MonitorLocalHealthEventsConfigPtrOutput) Status() MonitorLocalHealthEven
 }
 
 type MonitorS3Config struct {
-	BucketName        *string                           `pulumi:"bucketName"`
-	BucketPrefix      *string                           `pulumi:"bucketPrefix"`
+	// The Amazon S3 bucket name for internet measurements publishing.
+	BucketName *string `pulumi:"bucketName"`
+	// An optional Amazon S3 bucket prefix for internet measurements publishing.
+	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
 	LogDeliveryStatus *MonitorS3ConfigLogDeliveryStatus `pulumi:"logDeliveryStatus"`
 }
 
@@ -509,8 +552,11 @@ type MonitorS3ConfigInput interface {
 }
 
 type MonitorS3ConfigArgs struct {
-	BucketName        pulumi.StringPtrInput                    `pulumi:"bucketName"`
-	BucketPrefix      pulumi.StringPtrInput                    `pulumi:"bucketPrefix"`
+	// The Amazon S3 bucket name for internet measurements publishing.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// An optional Amazon S3 bucket prefix for internet measurements publishing.
+	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
 	LogDeliveryStatus MonitorS3ConfigLogDeliveryStatusPtrInput `pulumi:"logDeliveryStatus"`
 }
 
@@ -591,14 +637,17 @@ func (o MonitorS3ConfigOutput) ToMonitorS3ConfigPtrOutputWithContext(ctx context
 	}).(MonitorS3ConfigPtrOutput)
 }
 
+// The Amazon S3 bucket name for internet measurements publishing.
 func (o MonitorS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorS3Config) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// An optional Amazon S3 bucket prefix for internet measurements publishing.
 func (o MonitorS3ConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorS3Config) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
 func (o MonitorS3ConfigOutput) LogDeliveryStatus() MonitorS3ConfigLogDeliveryStatusPtrOutput {
 	return o.ApplyT(func(v MonitorS3Config) *MonitorS3ConfigLogDeliveryStatus { return v.LogDeliveryStatus }).(MonitorS3ConfigLogDeliveryStatusPtrOutput)
 }
@@ -627,6 +676,7 @@ func (o MonitorS3ConfigPtrOutput) Elem() MonitorS3ConfigOutput {
 	}).(MonitorS3ConfigOutput)
 }
 
+// The Amazon S3 bucket name for internet measurements publishing.
 func (o MonitorS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorS3Config) *string {
 		if v == nil {
@@ -636,6 +686,7 @@ func (o MonitorS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An optional Amazon S3 bucket prefix for internet measurements publishing.
 func (o MonitorS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorS3Config) *string {
 		if v == nil {
@@ -645,6 +696,7 @@ func (o MonitorS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
 func (o MonitorS3ConfigPtrOutput) LogDeliveryStatus() MonitorS3ConfigLogDeliveryStatusPtrOutput {
 	return o.ApplyT(func(v *MonitorS3Config) *MonitorS3ConfigLogDeliveryStatus {
 		if v == nil {

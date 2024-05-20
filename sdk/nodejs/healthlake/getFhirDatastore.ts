@@ -19,15 +19,35 @@ export function getFhirDatastore(args: GetFhirDatastoreArgs, opts?: pulumi.Invok
 }
 
 export interface GetFhirDatastoreArgs {
+    /**
+     * The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+     */
     datastoreId: string;
 }
 
 export interface GetFhirDatastoreResult {
     readonly createdAt?: outputs.healthlake.FhirDatastoreCreatedAt;
+    /**
+     * The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+     */
     readonly datastoreArn?: string;
+    /**
+     * The endpoint for the created Data Store.
+     */
     readonly datastoreEndpoint?: string;
+    /**
+     * The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+     */
     readonly datastoreId?: string;
+    /**
+     * The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+     */
     readonly datastoreStatus?: enums.healthlake.FhirDatastoreDatastoreStatus;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +58,8 @@ export function getFhirDatastoreOutput(args: GetFhirDatastoreOutputArgs, opts?: 
 }
 
 export interface GetFhirDatastoreOutputArgs {
+    /**
+     * The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+     */
     datastoreId: pulumi.Input<string>;
 }

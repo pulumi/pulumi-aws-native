@@ -30,6 +30,9 @@ export interface GetOriginEndpointResult {
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
     readonly arn?: string;
+    /**
+     * The container type associated with the origin endpoint configuration.
+     */
     readonly containerType?: enums.mediapackagev2.OriginEndpointContainerType;
     /**
      * <p>The date and time the origin endpoint was created.</p>
@@ -51,11 +54,17 @@ export interface GetOriginEndpointResult {
      * <p>The date and time the origin endpoint was modified.</p>
      */
     readonly modifiedAt?: string;
+    /**
+     * The segment associated with the origin endpoint.
+     */
     readonly segment?: outputs.mediapackagev2.OriginEndpointSegment;
     /**
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     readonly startoverWindowSeconds?: number;
+    /**
+     * The tags associated with the origin endpoint.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

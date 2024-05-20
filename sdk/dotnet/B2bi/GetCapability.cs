@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class GetCapabilityArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         [Input("capabilityId", required: true)]
         public string CapabilityId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class GetCapabilityInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         [Input("capabilityId", required: true)]
         public Input<string> CapabilityId { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.B2bi
     [OutputType]
     public sealed class GetCapabilityResult
     {
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        /// </summary>
         public readonly string? CapabilityArn;
+        /// <summary>
+        /// Returns a system-assigned unique identifier for the capability.
+        /// </summary>
         public readonly string? CapabilityId;
+        /// <summary>
+        /// Specifies a structure that contains the details for a capability.
+        /// </summary>
         public readonly Outputs.CapabilityConfigurationProperties? Configuration;
+        /// <summary>
+        /// Returns a timestamp for creation date and time of the capability.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityS3Location> InstructionsDocuments;
+        /// <summary>
+        /// Returns a timestamp that identifies the most recent date and time that the capability was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The display name of the capability.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

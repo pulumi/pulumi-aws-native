@@ -15,48 +15,93 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAnalysis")]
     public partial class NetworkInsightsAnalysis : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The member accounts that contain resources that the path can traverse.
+        /// </summary>
         [Output("additionalAccounts")]
         public Output<ImmutableArray<string>> AdditionalAccounts { get; private set; } = null!;
 
+        /// <summary>
+        /// Potential intermediate components.
+        /// </summary>
         [Output("alternatePathHints")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint>> AlternatePathHints { get; private set; } = null!;
 
+        /// <summary>
+        /// The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        /// </summary>
         [Output("explanations")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation>> Explanations { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        /// </summary>
         [Output("filterInArns")]
         public Output<ImmutableArray<string>> FilterInArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The components in the path from source to destination.
+        /// </summary>
         [Output("forwardPathComponents")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent>> ForwardPathComponents { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the network insights analysis.
+        /// </summary>
         [Output("networkInsightsAnalysisArn")]
         public Output<string> NetworkInsightsAnalysisArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the network insights analysis.
+        /// </summary>
         [Output("networkInsightsAnalysisId")]
         public Output<string> NetworkInsightsAnalysisId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         [Output("networkInsightsPathId")]
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the destination is reachable from the source.
+        /// </summary>
         [Output("networkPathFound")]
         public Output<bool> NetworkPathFound { get; private set; } = null!;
 
+        /// <summary>
+        /// The components in the path from destination to source.
+        /// </summary>
         [Output("returnPathComponents")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent>> ReturnPathComponents { get; private set; } = null!;
 
+        /// <summary>
+        /// The time the analysis started.
+        /// </summary>
         [Output("startDate")]
         public Output<string> StartDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the network insights analysis.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Ec2.NetworkInsightsAnalysisStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The status message, if the status is `failed` .
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The IDs of potential intermediate accounts.
+        /// </summary>
         [Output("suggestedAccounts")]
         public Output<ImmutableArray<string>> SuggestedAccounts { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to apply.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -112,6 +157,10 @@ namespace Pulumi.AwsNative.Ec2
     {
         [Input("additionalAccounts")]
         private InputList<string>? _additionalAccounts;
+
+        /// <summary>
+        /// The member accounts that contain resources that the path can traverse.
+        /// </summary>
         public InputList<string> AdditionalAccounts
         {
             get => _additionalAccounts ?? (_additionalAccounts = new InputList<string>());
@@ -120,17 +169,28 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("filterInArns")]
         private InputList<string>? _filterInArns;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        /// </summary>
         public InputList<string> FilterInArns
         {
             get => _filterInArns ?? (_filterInArns = new InputList<string>());
             set => _filterInArns = value;
         }
 
+        /// <summary>
+        /// The ID of the path.
+        /// </summary>
         [Input("networkInsightsPathId", required: true)]
         public Input<string> NetworkInsightsPathId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to apply.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -8,6 +8,12 @@ export const CloudFormationProvisionedProductAcceptLanguage = {
     Zh: "zh",
 } as const;
 
+/**
+ * The language code.
+ *
+ * - `jp` - Japanese
+ * - `zh` - Chinese
+ */
 export type CloudFormationProvisionedProductAcceptLanguage = (typeof CloudFormationProvisionedProductAcceptLanguage)[keyof typeof CloudFormationProvisionedProductAcceptLanguage];
 
 export const CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType = {
@@ -16,6 +22,15 @@ export const CloudFormationProvisionedProductProvisioningPreferencesStackSetOper
     Delete: "DELETE",
 } as const;
 
+/**
+ * Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+ *
+ * Applicable only to a `CFN_STACKSET` provisioned product type.
+ *
+ * - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+ * - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+ * - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
+ */
 export type CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType = (typeof CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType)[keyof typeof CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType];
 
 export const ServiceActionAcceptLanguage = {
@@ -24,10 +39,20 @@ export const ServiceActionAcceptLanguage = {
     Zh: "zh",
 } as const;
 
+/**
+ * The language code.
+ *
+ * - `en` - English (default)
+ * - `jp` - Japanese
+ * - `zh` - Chinese
+ */
 export type ServiceActionAcceptLanguage = (typeof ServiceActionAcceptLanguage)[keyof typeof ServiceActionAcceptLanguage];
 
 export const ServiceActionDefinitionType = {
     SsmAutomation: "SSM_AUTOMATION",
 } as const;
 
+/**
+ * The self-service action definition type. For example, `SSM_AUTOMATION` .
+ */
 export type ServiceActionDefinitionType = (typeof ServiceActionDefinitionType)[keyof typeof ServiceActionDefinitionType];

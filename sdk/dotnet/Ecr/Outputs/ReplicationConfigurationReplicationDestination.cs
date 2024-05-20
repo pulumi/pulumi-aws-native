@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Ecr.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationReplicationDestination
     {
+        /// <summary>
+        /// The Region to replicate to.
+        /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
+        /// </summary>
         public readonly string RegistryId;
 
         [OutputConstructor]

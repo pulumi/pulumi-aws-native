@@ -24,17 +24,30 @@ func LookupFeature(ctx *pulumi.Context, args *LookupFeatureArgs, opts ...pulumi.
 }
 
 type LookupFeatureArgs struct {
+	// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupFeatureResult struct {
-	Arn                *string                    `pulumi:"arn"`
-	DefaultVariation   *string                    `pulumi:"defaultVariation"`
-	Description        *string                    `pulumi:"description"`
-	EntityOverrides    []FeatureEntityOverride    `pulumi:"entityOverrides"`
+	// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+	Arn *string `pulumi:"arn"`
+	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+	//
+	// This variation must also be listed in the `Variations` structure.
+	//
+	// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+	DefaultVariation *string `pulumi:"defaultVariation"`
+	// An optional description of the feature.
+	Description *string `pulumi:"description"`
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+	EntityOverrides []FeatureEntityOverride `pulumi:"entityOverrides"`
+	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy *FeatureEvaluationStrategy `pulumi:"evaluationStrategy"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag                `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations []FeatureVariationObject `pulumi:"variations"`
 }
 
@@ -52,6 +65,7 @@ func LookupFeatureOutput(ctx *pulumi.Context, args LookupFeatureOutputArgs, opts
 }
 
 type LookupFeatureOutputArgs struct {
+	// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -73,22 +87,31 @@ func (o LookupFeatureResultOutput) ToLookupFeatureResultOutputWithContext(ctx co
 	return o
 }
 
+// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
 func (o LookupFeatureResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFeatureResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+//
+// This variation must also be listed in the `Variations` structure.
+//
+// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
 func (o LookupFeatureResultOutput) DefaultVariation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFeatureResult) *string { return v.DefaultVariation }).(pulumi.StringPtrOutput)
 }
 
+// An optional description of the feature.
 func (o LookupFeatureResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFeatureResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 func (o LookupFeatureResultOutput) EntityOverrides() FeatureEntityOverrideArrayOutput {
 	return o.ApplyT(func(v LookupFeatureResult) []FeatureEntityOverride { return v.EntityOverrides }).(FeatureEntityOverrideArrayOutput)
 }
 
+// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 func (o LookupFeatureResultOutput) EvaluationStrategy() FeatureEvaluationStrategyPtrOutput {
 	return o.ApplyT(func(v LookupFeatureResult) *FeatureEvaluationStrategy { return v.EvaluationStrategy }).(FeatureEvaluationStrategyPtrOutput)
 }
@@ -98,6 +121,9 @@ func (o LookupFeatureResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFeatureResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An array of structures that contain the configuration of the feature's different variations.
+//
+// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 func (o LookupFeatureResultOutput) Variations() FeatureVariationObjectArrayOutput {
 	return o.ApplyT(func(v LookupFeatureResult) []FeatureVariationObject { return v.Variations }).(FeatureVariationObjectArrayOutput)
 }

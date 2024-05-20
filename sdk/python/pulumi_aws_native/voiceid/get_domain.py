@@ -30,11 +30,17 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[str]:
+        """
+        The identifier of the domain.
+        """
         return pulumi.get(self, "domain_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -52,6 +58,9 @@ def get_domain(domain_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
+
+
+    :param str domain_id: The identifier of the domain.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
@@ -68,5 +77,8 @@ def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
+
+
+    :param str domain_id: The identifier of the domain.
     """
     ...

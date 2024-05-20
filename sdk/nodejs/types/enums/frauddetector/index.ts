@@ -6,6 +6,13 @@ export const DetectorEventVariableDataSource = {
     Event: "EVENT",
 } as const;
 
+/**
+ * The data source of the event variable.
+ *
+ * Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+ *
+ * When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+ */
 export type DetectorEventVariableDataSource = (typeof DetectorEventVariableDataSource)[keyof typeof DetectorEventVariableDataSource];
 
 export const DetectorEventVariableDataType = {
@@ -15,6 +22,11 @@ export const DetectorEventVariableDataType = {
     Boolean: "BOOLEAN",
 } as const;
 
+/**
+ * The data type of the event variable.
+ *
+ * Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`
+ */
 export type DetectorEventVariableDataType = (typeof DetectorEventVariableDataType)[keyof typeof DetectorEventVariableDataType];
 
 export const DetectorEventVariableVariableType = {
@@ -53,6 +65,9 @@ export const DetectorEventVariableVariableType = {
     Useragent: "USERAGENT",
 } as const;
 
+/**
+ * The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
+ */
 export type DetectorEventVariableVariableType = (typeof DetectorEventVariableVariableType)[keyof typeof DetectorEventVariableVariableType];
 
 export const DetectorRuleExecutionMode = {
@@ -60,12 +75,28 @@ export const DetectorRuleExecutionMode = {
     AllMatched: "ALL_MATCHED",
 } as const;
 
+/**
+ * The rule execution mode for the rules included in the detector version.
+ *
+ * Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
+ *
+ * You can define and edit the rule mode at the detector version level, when it is in draft status.
+ *
+ * If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
+ *
+ * If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
+ */
 export type DetectorRuleExecutionMode = (typeof DetectorRuleExecutionMode)[keyof typeof DetectorRuleExecutionMode];
 
 export const DetectorRuleLanguage = {
     Detectorpl: "DETECTORPL",
 } as const;
 
+/**
+ * The rule language.
+ *
+ * Valid Value: DETECTORPL
+ */
 export type DetectorRuleLanguage = (typeof DetectorRuleLanguage)[keyof typeof DetectorRuleLanguage];
 
 export const DetectorVersionStatus = {
@@ -82,6 +113,13 @@ export const EventTypeEventVariableDataSource = {
     Event: "EVENT",
 } as const;
 
+/**
+ * The source of the event variable.
+ *
+ * Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
+ *
+ * When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
+ */
 export type EventTypeEventVariableDataSource = (typeof EventTypeEventVariableDataSource)[keyof typeof EventTypeEventVariableDataSource];
 
 export const EventTypeEventVariableDataType = {
@@ -91,6 +129,9 @@ export const EventTypeEventVariableDataType = {
     Boolean: "BOOLEAN",
 } as const;
 
+/**
+ * The data type of the event variable. For more information, see [Data types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#data-types) .
+ */
 export type EventTypeEventVariableDataType = (typeof EventTypeEventVariableDataType)[keyof typeof EventTypeEventVariableDataType];
 
 export const EventTypeEventVariableVariableType = {
@@ -129,6 +170,9 @@ export const EventTypeEventVariableVariableType = {
     Useragent: "USERAGENT",
 } as const;
 
+/**
+ * The type of event variable. For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/variables.html#variable-types) .
+ */
 export type EventTypeEventVariableVariableType = (typeof EventTypeEventVariableVariableType)[keyof typeof EventTypeEventVariableVariableType];
 
 export const VariableDataSource = {

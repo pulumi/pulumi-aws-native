@@ -13,7 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDefaultDateTimePickerControlOptions
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.TemplateDateTimePickerControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The date time picker type of the `DefaultDateTimePickerControlOptions` . Choose one of the following options:
+        /// 
+        /// - `SINGLE_VALUED` : The filter condition is a fixed date.
+        /// - `DATE_RANGE` : The filter condition is a date time range.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSheetControlDateTimePickerType? Type;
 
         [OutputConstructor]

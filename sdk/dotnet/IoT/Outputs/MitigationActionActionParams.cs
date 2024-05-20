@@ -16,11 +16,29 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionActionParams
     {
+        /// <summary>
+        /// Specifies the group to which you want to add the devices.
+        /// </summary>
         public readonly Outputs.MitigationActionAddThingsToThingGroupParams? AddThingsToThingGroupParams;
+        /// <summary>
+        /// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+        /// </summary>
         public readonly Outputs.MitigationActionEnableIoTLoggingParams? EnableIoTLoggingParams;
+        /// <summary>
+        /// Specifies the topic to which the finding should be published.
+        /// </summary>
         public readonly Outputs.MitigationActionPublishFindingToSnsParams? PublishFindingToSnsParams;
+        /// <summary>
+        /// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
+        /// </summary>
         public readonly Outputs.MitigationActionReplaceDefaultPolicyVersionParams? ReplaceDefaultPolicyVersionParams;
+        /// <summary>
+        /// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+        /// </summary>
         public readonly Outputs.MitigationActionUpdateCaCertificateParams? UpdateCaCertificateParams;
+        /// <summary>
+        /// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
+        /// </summary>
         public readonly Outputs.MitigationActionUpdateDeviceCertificateParams? UpdateDeviceCertificateParams;
 
         [OutputConstructor]

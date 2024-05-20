@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.ElastiCache
         /// The EC2 subnet IDs for the cache subnet group.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

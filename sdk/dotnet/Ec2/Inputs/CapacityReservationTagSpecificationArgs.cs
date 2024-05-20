@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class CapacityReservationTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of resource to tag. Specify `capacity-reservation` .
+        /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.CapacityReservationTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to apply to the resource.
+        /// </summary>
         public InputList<Inputs.CapacityReservationTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.CapacityReservationTagArgs>());

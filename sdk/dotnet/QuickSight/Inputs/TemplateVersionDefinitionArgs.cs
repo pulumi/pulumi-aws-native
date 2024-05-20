@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("calculatedFields")]
         private InputList<Inputs.TemplateCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// An array of calculated field definitions for the template.
+        /// </summary>
         public InputList<Inputs.TemplateCalculatedFieldArgs> CalculatedFields
         {
             get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.TemplateCalculatedFieldArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("columnConfigurations")]
         private InputList<Inputs.TemplateColumnConfigurationArgs>? _columnConfigurations;
+
+        /// <summary>
+        /// An array of template-level column configurations. Column configurations are used to set default formatting for a column that's used throughout a template.
+        /// </summary>
         public InputList<Inputs.TemplateColumnConfigurationArgs> ColumnConfigurations
         {
             get => _columnConfigurations ?? (_columnConfigurations = new InputList<Inputs.TemplateColumnConfigurationArgs>());
@@ -33,6 +41,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("dataSetConfigurations", required: true)]
         private InputList<Inputs.TemplateDataSetConfigurationArgs>? _dataSetConfigurations;
+
+        /// <summary>
+        /// An array of dataset configurations. These configurations define the required columns for each dataset used within a template.
+        /// </summary>
         public InputList<Inputs.TemplateDataSetConfigurationArgs> DataSetConfigurations
         {
             get => _dataSetConfigurations ?? (_dataSetConfigurations = new InputList<Inputs.TemplateDataSetConfigurationArgs>());
@@ -41,17 +53,34 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("filterGroups")]
         private InputList<Inputs.TemplateFilterGroupArgs>? _filterGroups;
+
+        /// <summary>
+        /// Filter definitions for a template.
+        /// 
+        /// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.TemplateFilterGroupArgs> FilterGroups
         {
             get => _filterGroups ?? (_filterGroups = new InputList<Inputs.TemplateFilterGroupArgs>());
             set => _filterGroups = value;
         }
 
+        /// <summary>
+        /// An array of option definitions for a template.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.TemplateAssetOptionsArgs>? Options { get; set; }
 
         [Input("parameterDeclarations")]
         private InputList<Inputs.TemplateParameterDeclarationArgs>? _parameterDeclarations;
+
+        /// <summary>
+        /// An array of parameter declarations for a template.
+        /// 
+        /// *Parameters* are named variables that can transfer a value for use by an action or an object.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.TemplateParameterDeclarationArgs> ParameterDeclarations
         {
             get => _parameterDeclarations ?? (_parameterDeclarations = new InputList<Inputs.TemplateParameterDeclarationArgs>());
@@ -60,6 +89,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sheets")]
         private InputList<Inputs.TemplateSheetDefinitionArgs>? _sheets;
+
+        /// <summary>
+        /// An array of sheet definitions for a template.
+        /// </summary>
         public InputList<Inputs.TemplateSheetDefinitionArgs> Sheets
         {
             get => _sheets ?? (_sheets = new InputList<Inputs.TemplateSheetDefinitionArgs>());

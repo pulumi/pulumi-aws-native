@@ -21,6 +21,13 @@ class IpamAllocationArgs:
         """
         The set of arguments for constructing a IpamAllocation resource.
         :param pulumi.Input[str] ipam_pool_id: Id of the IPAM Pool.
+        :param pulumi.Input[str] cidr: The CIDR you would like to allocate from the IPAM pool. Note the following:
+               
+               - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+               - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+               
+               Possible values: Any available IPv4 or IPv6 CIDR.
+        :param pulumi.Input[str] description: A description for the allocation.
         :param pulumi.Input[int] netmask_length: The desired netmask length of the allocation. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
@@ -46,6 +53,14 @@ class IpamAllocationArgs:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR you would like to allocate from the IPAM pool. Note the following:
+
+        - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+        - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+
+        Possible values: Any available IPv4 or IPv6 CIDR.
+        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -55,6 +70,9 @@ class IpamAllocationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the allocation.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -89,6 +107,13 @@ class IpamAllocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr: The CIDR you would like to allocate from the IPAM pool. Note the following:
+               
+               - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+               - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+               
+               Possible values: Any available IPv4 or IPv6 CIDR.
+        :param pulumi.Input[str] description: A description for the allocation.
         :param pulumi.Input[str] ipam_pool_id: Id of the IPAM Pool.
         :param pulumi.Input[int] netmask_length: The desired netmask length of the allocation. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
         """
@@ -170,11 +195,22 @@ class IpamAllocation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[Optional[str]]:
+        """
+        The CIDR you would like to allocate from the IPAM pool. Note the following:
+
+        - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
+        - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
+
+        Possible values: Any available IPv4 or IPv6 CIDR.
+        """
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the allocation.
+        """
         return pulumi.get(self, "description")
 
     @property

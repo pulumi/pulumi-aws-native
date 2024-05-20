@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclOrStatement
     {
+        /// <summary>
+        /// The statements to combine with OR logic. You can use any statements that can be nested.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclStatement> Statements;
 
         [OutputConstructor]

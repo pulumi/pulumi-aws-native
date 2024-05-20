@@ -46,6 +46,9 @@ export class StaticIp extends pulumi.CustomResource {
      * A Boolean value indicating whether the static IP is attached.
      */
     public /*out*/ readonly isAttached!: pulumi.Output<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the static IP (for example, `arn:aws:lightsail:us-east-2:123456789101:StaticIp/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     public /*out*/ readonly staticIpArn!: pulumi.Output<string>;
     /**
      * The name of the static IP address.

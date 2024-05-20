@@ -15,29 +15,48 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelCardContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Additional information about the model.
+        /// </summary>
         [Input("additionalInformation")]
         public Input<Inputs.ModelCardAdditionalInformationArgs>? AdditionalInformation { get; set; }
 
+        /// <summary>
+        /// Information about how the model supports business goals.
+        /// </summary>
         [Input("businessDetails")]
         public Input<Inputs.ModelCardBusinessDetailsArgs>? BusinessDetails { get; set; }
 
         [Input("evaluationDetails")]
         private InputList<Inputs.ModelCardEvaluationDetailArgs>? _evaluationDetails;
+
+        /// <summary>
+        /// An overview about the model's evaluation.
+        /// </summary>
         public InputList<Inputs.ModelCardEvaluationDetailArgs> EvaluationDetails
         {
             get => _evaluationDetails ?? (_evaluationDetails = new InputList<Inputs.ModelCardEvaluationDetailArgs>());
             set => _evaluationDetails = value;
         }
 
+        /// <summary>
+        /// The intended usage of the model.
+        /// </summary>
         [Input("intendedUses")]
         public Input<Inputs.ModelCardIntendedUsesArgs>? IntendedUses { get; set; }
 
+        /// <summary>
+        /// An overview about the model
+        /// </summary>
         [Input("modelOverview")]
         public Input<Inputs.ModelCardModelOverviewArgs>? ModelOverview { get; set; }
 
         [Input("modelPackageDetails")]
         public Input<Inputs.ModelCardModelPackageDetailsArgs>? ModelPackageDetails { get; set; }
 
+        /// <summary>
+        /// An overview about model training.
+        /// </summary>
         [Input("trainingDetails")]
         public Input<Inputs.ModelCardTrainingDetailsArgs>? TrainingDetails { get; set; }
 

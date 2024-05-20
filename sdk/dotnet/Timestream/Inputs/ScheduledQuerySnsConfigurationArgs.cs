@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// </summary>
     public sealed class ScheduledQuerySnsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// SNS topic ARN that the scheduled query status notifications will be sent to.
+        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 

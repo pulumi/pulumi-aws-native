@@ -29,6 +29,14 @@ class CalculatedAttributeDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CalculatedAttributeDefinition resource.
+        :param pulumi.Input['CalculatedAttributeDefinitionAttributeDetailsArgs'] attribute_details: Mathematical expression and a list of attribute items specified in that expression.
+        :param pulumi.Input[str] calculated_attribute_name: The name of an attribute defined in a profile object type.
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input['CalculatedAttributeDefinitionStatistic'] statistic: The aggregation operation to perform for the calculated attribute.
+        :param pulumi.Input['CalculatedAttributeDefinitionConditionsArgs'] conditions: The conditions including range, object count, and threshold for the calculated attribute.
+        :param pulumi.Input[str] description: The description of the calculated attribute.
+        :param pulumi.Input[str] display_name: The display name of the calculated attribute.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "attribute_details", attribute_details)
         pulumi.set(__self__, "calculated_attribute_name", calculated_attribute_name)
@@ -46,6 +54,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="attributeDetails")
     def attribute_details(self) -> pulumi.Input['CalculatedAttributeDefinitionAttributeDetailsArgs']:
+        """
+        Mathematical expression and a list of attribute items specified in that expression.
+        """
         return pulumi.get(self, "attribute_details")
 
     @attribute_details.setter
@@ -55,6 +66,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="calculatedAttributeName")
     def calculated_attribute_name(self) -> pulumi.Input[str]:
+        """
+        The name of an attribute defined in a profile object type.
+        """
         return pulumi.get(self, "calculated_attribute_name")
 
     @calculated_attribute_name.setter
@@ -64,6 +78,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the domain.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -73,6 +90,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter
     def statistic(self) -> pulumi.Input['CalculatedAttributeDefinitionStatistic']:
+        """
+        The aggregation operation to perform for the calculated attribute.
+        """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
@@ -82,6 +102,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionConditionsArgs']]:
+        """
+        The conditions including range, object count, and threshold for the calculated attribute.
+        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -91,6 +114,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the calculated attribute.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -100,6 +126,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the calculated attribute.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -109,6 +138,9 @@ class CalculatedAttributeDefinitionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -135,6 +167,14 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionAttributeDetailsArgs']] attribute_details: Mathematical expression and a list of attribute items specified in that expression.
+        :param pulumi.Input[str] calculated_attribute_name: The name of an attribute defined in a profile object type.
+        :param pulumi.Input[pulumi.InputType['CalculatedAttributeDefinitionConditionsArgs']] conditions: The conditions including range, object count, and threshold for the calculated attribute.
+        :param pulumi.Input[str] description: The description of the calculated attribute.
+        :param pulumi.Input[str] display_name: The display name of the calculated attribute.
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input['CalculatedAttributeDefinitionStatistic'] statistic: The aggregation operation to perform for the calculated attribute.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -234,16 +274,25 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attributeDetails")
     def attribute_details(self) -> pulumi.Output['outputs.CalculatedAttributeDefinitionAttributeDetails']:
+        """
+        Mathematical expression and a list of attribute items specified in that expression.
+        """
         return pulumi.get(self, "attribute_details")
 
     @property
     @pulumi.getter(name="calculatedAttributeName")
     def calculated_attribute_name(self) -> pulumi.Output[str]:
+        """
+        The name of an attribute defined in a profile object type.
+        """
         return pulumi.get(self, "calculated_attribute_name")
 
     @property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional['outputs.CalculatedAttributeDefinitionConditions']]:
+        """
+        The conditions including range, object count, and threshold for the calculated attribute.
+        """
         return pulumi.get(self, "conditions")
 
     @property
@@ -257,16 +306,25 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the calculated attribute.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the calculated attribute.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The unique name of the domain.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
@@ -280,10 +338,16 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def statistic(self) -> pulumi.Output['CalculatedAttributeDefinitionStatistic']:
+        """
+        The aggregation operation to perform for the calculated attribute.
+        """
         return pulumi.get(self, "statistic")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

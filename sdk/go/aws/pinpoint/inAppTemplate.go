@@ -15,15 +15,33 @@ import (
 type InAppTemplate struct {
 	pulumi.CustomResourceState
 
-	Arn     pulumi.StringOutput                         `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the message template.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content InAppTemplateInAppMessageContentArrayOutput `pulumi:"content"`
+	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
-	CustomConfig pulumi.AnyOutput             `pulumi:"customConfig"`
-	Layout       InAppTemplateLayoutPtrOutput `pulumi:"layout"`
+	CustomConfig pulumi.AnyOutput `pulumi:"customConfig"`
+	// A string that determines the appearance of the in-app message. You can specify one of the following:
+	//
+	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+	// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+	// - `OVERLAYS` – a message that covers entire screen.
+	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
+	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	Layout InAppTemplateLayoutPtrOutput `pulumi:"layout"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
-	Tags                pulumi.AnyOutput       `pulumi:"tags"`
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// An optional description of the in-app template.
 	TemplateDescription pulumi.StringPtrOutput `pulumi:"templateDescription"`
-	TemplateName        pulumi.StringOutput    `pulumi:"templateName"`
+	// The name of the in-app message template.
+	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
 
 // NewInAppTemplate registers a new resource with the given unique name, arguments, and options.
@@ -70,26 +88,60 @@ func (InAppTemplateState) ElementType() reflect.Type {
 }
 
 type inAppTemplateArgs struct {
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content []InAppTemplateInAppMessageContent `pulumi:"content"`
+	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
-	CustomConfig interface{}          `pulumi:"customConfig"`
-	Layout       *InAppTemplateLayout `pulumi:"layout"`
+	CustomConfig interface{} `pulumi:"customConfig"`
+	// A string that determines the appearance of the in-app message. You can specify one of the following:
+	//
+	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+	// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+	// - `OVERLAYS` – a message that covers entire screen.
+	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
+	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	Layout *InAppTemplateLayout `pulumi:"layout"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
-	Tags                interface{} `pulumi:"tags"`
-	TemplateDescription *string     `pulumi:"templateDescription"`
-	TemplateName        *string     `pulumi:"templateName"`
+	Tags interface{} `pulumi:"tags"`
+	// An optional description of the in-app template.
+	TemplateDescription *string `pulumi:"templateDescription"`
+	// The name of the in-app message template.
+	TemplateName *string `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a InAppTemplate resource.
 type InAppTemplateArgs struct {
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content InAppTemplateInAppMessageContentArrayInput
+	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 	CustomConfig pulumi.Input
-	Layout       InAppTemplateLayoutPtrInput
+	// A string that determines the appearance of the in-app message. You can specify one of the following:
+	//
+	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+	// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+	// - `OVERLAYS` – a message that covers entire screen.
+	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
+	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
+	Layout InAppTemplateLayoutPtrInput
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
-	Tags                pulumi.Input
+	Tags pulumi.Input
+	// An optional description of the in-app template.
 	TemplateDescription pulumi.StringPtrInput
-	TemplateName        pulumi.StringPtrInput
+	// The name of the in-app message template.
+	TemplateName pulumi.StringPtrInput
 }
 
 func (InAppTemplateArgs) ElementType() reflect.Type {
@@ -129,32 +181,50 @@ func (o InAppTemplateOutput) ToInAppTemplateOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the message template.
 func (o InAppTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 func (o InAppTemplateOutput) Content() InAppTemplateInAppMessageContentArrayOutput {
 	return o.ApplyT(func(v *InAppTemplate) InAppTemplateInAppMessageContentArrayOutput { return v.Content }).(InAppTemplateInAppMessageContentArrayOutput)
 }
 
+// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 func (o InAppTemplateOutput) CustomConfig() pulumi.AnyOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.AnyOutput { return v.CustomConfig }).(pulumi.AnyOutput)
 }
 
+// A string that determines the appearance of the in-app message. You can specify one of the following:
+//
+// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
+// - `TOP_BANNER` – a message that appears as a banner at the top of the page.
+// - `OVERLAYS` – a message that covers entire screen.
+// - `MOBILE_FEED` – a message that appears in a window in front of the page.
+// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
+// - `CAROUSEL` – a scrollable layout of up to five unique messages.
 func (o InAppTemplateOutput) Layout() InAppTemplateLayoutPtrOutput {
 	return o.ApplyT(func(v *InAppTemplate) InAppTemplateLayoutPtrOutput { return v.Layout }).(InAppTemplateLayoutPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 func (o InAppTemplateOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }
 
+// An optional description of the in-app template.
 func (o InAppTemplateOutput) TemplateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.StringPtrOutput { return v.TemplateDescription }).(pulumi.StringPtrOutput)
 }
 
+// The name of the in-app message template.
 func (o InAppTemplateOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
 }

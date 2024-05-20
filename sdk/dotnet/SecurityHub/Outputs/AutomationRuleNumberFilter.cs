@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleNumberFilter
     {
+        /// <summary>
+        /// The equal-to condition to be applied to a single field when querying for findings.
+        /// </summary>
         public readonly double? Eq;
+        /// <summary>
+        /// The greater-than-equal condition to be applied to a single field when querying for findings.
+        /// </summary>
         public readonly double? Gte;
+        /// <summary>
+        /// The less-than-equal condition to be applied to a single field when querying for findings.
+        /// </summary>
         public readonly double? Lte;
 
         [OutputConstructor]

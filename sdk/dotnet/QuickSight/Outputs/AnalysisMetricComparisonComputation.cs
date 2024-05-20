@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisMetricComparisonComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The field that is used in a metric comparison from value setup.
+        /// </summary>
         public readonly Outputs.AnalysisMeasureField? FromValue;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The field that is used in a metric comparison to value setup.
+        /// </summary>
         public readonly Outputs.AnalysisMeasureField? TargetValue;
+        /// <summary>
+        /// The time field that is used in a computation.
+        /// </summary>
         public readonly Outputs.AnalysisDimensionField? Time;
 
         [OutputConstructor]

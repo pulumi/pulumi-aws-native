@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardTableFieldUrlConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The image configuration of a table field URL.
+        /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.DashboardTableFieldImageConfigurationArgs>? ImageConfiguration { get; set; }
 
+        /// <summary>
+        /// The link configuration of a table field URL.
+        /// </summary>
         [Input("linkConfiguration")]
         public Input<Inputs.DashboardTableFieldLinkConfigurationArgs>? LinkConfiguration { get; set; }
 

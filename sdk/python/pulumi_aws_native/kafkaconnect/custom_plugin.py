@@ -27,6 +27,7 @@ class CustomPluginArgs:
         """
         The set of arguments for constructing a CustomPlugin resource.
         :param pulumi.Input['CustomPluginContentType'] content_type: The type of the plugin file.
+        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of the custom plugin.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[str] name: The name of the custom plugin.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -55,6 +56,9 @@ class CustomPluginArgs:
     @property
     @pulumi.getter
     def location(self) -> pulumi.Input['CustomPluginLocationArgs']:
+        """
+        Information about the location of the custom plugin.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -116,6 +120,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CustomPluginContentType'] content_type: The type of the plugin file.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
+        :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of the custom plugin.
         :param pulumi.Input[str] name: The name of the custom plugin.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -235,6 +240,9 @@ class CustomPlugin(pulumi.CustomResource):
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output['outputs.CustomPluginLocation']:
+        """
+        Information about the location of the custom plugin.
+        """
         return pulumi.get(self, "location")
 
     @property

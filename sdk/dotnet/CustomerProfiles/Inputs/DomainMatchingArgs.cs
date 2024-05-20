@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class DomainMatchingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration information about the auto-merging process.
+        /// </summary>
         [Input("autoMerging")]
         public Input<Inputs.DomainAutoMergingArgs>? AutoMerging { get; set; }
 
@@ -24,9 +27,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The S3 location where Identity Resolution Jobs write result files.
+        /// </summary>
         [Input("exportingConfig")]
         public Input<Inputs.DomainExportingConfigArgs>? ExportingConfig { get; set; }
 
+        /// <summary>
+        /// The day and time when do you want to start the Identity Resolution Job every week.
+        /// </summary>
         [Input("jobSchedule")]
         public Input<Inputs.DomainJobScheduleArgs>? JobSchedule { get; set; }
 

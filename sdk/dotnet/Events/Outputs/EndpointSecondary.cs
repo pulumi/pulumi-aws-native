@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class EndpointSecondary
     {
+        /// <summary>
+        /// Defines the secondary Region.
+        /// </summary>
         public readonly string Route;
 
         [OutputConstructor]

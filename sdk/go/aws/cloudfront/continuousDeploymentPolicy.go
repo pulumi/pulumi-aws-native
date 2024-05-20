@@ -16,9 +16,12 @@ import (
 type ContinuousDeploymentPolicy struct {
 	pulumi.CustomResourceState
 
-	AwsId                            pulumi.StringOutput                    `pulumi:"awsId"`
+	// The identifier of the cotinuous deployment policy.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Contains the configuration for a continuous deployment policy.
 	ContinuousDeploymentPolicyConfig ContinuousDeploymentPolicyConfigOutput `pulumi:"continuousDeploymentPolicyConfig"`
-	LastModifiedTime                 pulumi.StringOutput                    `pulumi:"lastModifiedTime"`
+	// The date and time when the continuous deployment policy was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 }
 
 // NewContinuousDeploymentPolicy registers a new resource with the given unique name, arguments, and options.
@@ -64,11 +67,13 @@ func (ContinuousDeploymentPolicyState) ElementType() reflect.Type {
 }
 
 type continuousDeploymentPolicyArgs struct {
+	// Contains the configuration for a continuous deployment policy.
 	ContinuousDeploymentPolicyConfig ContinuousDeploymentPolicyConfig `pulumi:"continuousDeploymentPolicyConfig"`
 }
 
 // The set of arguments for constructing a ContinuousDeploymentPolicy resource.
 type ContinuousDeploymentPolicyArgs struct {
+	// Contains the configuration for a continuous deployment policy.
 	ContinuousDeploymentPolicyConfig ContinuousDeploymentPolicyConfigInput
 }
 
@@ -109,16 +114,19 @@ func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutputWith
 	return o
 }
 
+// The identifier of the cotinuous deployment policy.
 func (o ContinuousDeploymentPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Contains the configuration for a continuous deployment policy.
 func (o ContinuousDeploymentPolicyOutput) ContinuousDeploymentPolicyConfig() ContinuousDeploymentPolicyConfigOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) ContinuousDeploymentPolicyConfigOutput {
 		return v.ContinuousDeploymentPolicyConfig
 	}).(ContinuousDeploymentPolicyConfigOutput)
 }
 
+// The date and time when the continuous deployment policy was last modified.
 func (o ContinuousDeploymentPolicyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }

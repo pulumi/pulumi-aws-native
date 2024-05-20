@@ -19,16 +19,40 @@ export function getTrustAnchor(args: GetTrustAnchorArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTrustAnchorArgs {
+    /**
+     * The unique identifier of the trust anchor.
+     */
     trustAnchorId: string;
 }
 
 export interface GetTrustAnchorResult {
+    /**
+     * Indicates whether the trust anchor is enabled.
+     */
     readonly enabled?: boolean;
+    /**
+     * The name of the trust anchor.
+     */
     readonly name?: string;
+    /**
+     * A list of notification settings to be associated to the trust anchor.
+     */
     readonly notificationSettings?: outputs.rolesanywhere.TrustAnchorNotificationSetting[];
+    /**
+     * The trust anchor type and its related certificate data.
+     */
     readonly source?: outputs.rolesanywhere.TrustAnchorSource;
+    /**
+     * The tags to attach to the trust anchor.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of the trust anchor.
+     */
     readonly trustAnchorArn?: string;
+    /**
+     * The unique identifier of the trust anchor.
+     */
     readonly trustAnchorId?: string;
 }
 /**
@@ -39,5 +63,8 @@ export function getTrustAnchorOutput(args: GetTrustAnchorOutputArgs, opts?: pulu
 }
 
 export interface GetTrustAnchorOutputArgs {
+    /**
+     * The unique identifier of the trust anchor.
+     */
     trustAnchorId: pulumi.Input<string>;
 }

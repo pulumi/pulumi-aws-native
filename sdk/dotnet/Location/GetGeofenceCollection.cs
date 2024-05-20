@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetGeofenceCollectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A custom name for the geofence collection.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique geofence collection name.
+        /// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        /// </summary>
         [Input("collectionName", required: true)]
         public string CollectionName { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetGeofenceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A custom name for the geofence collection.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique geofence collection name.
+        /// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+        /// </summary>
         [Input("collectionName", required: true)]
         public Input<string> CollectionName { get; set; } = null!;
 
@@ -51,9 +69,25 @@ namespace Pulumi.AwsNative.Location
     [OutputType]
     public sealed class GetGeofenceCollectionResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+        /// </summary>
         public readonly string? CollectionArn;
+        /// <summary>
+        /// The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? CreateTime;
+        /// <summary>
+        /// An optional description for the geofence collection.
+        /// </summary>
         public readonly string? Description;
         public readonly Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan? PricingPlan;
         /// <summary>
@@ -64,6 +98,9 @@ namespace Pulumi.AwsNative.Location
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? UpdateTime;
 
         [OutputConstructor]

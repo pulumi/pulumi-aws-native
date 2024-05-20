@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
     public sealed class JobDatabaseTableOutputOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A prefix for the name of a table DataBrew will create in the database.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
+        /// <summary>
+        /// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
+        /// </summary>
         [Input("tempDirectory")]
         public Input<Inputs.JobS3LocationArgs>? TempDirectory { get; set; }
 

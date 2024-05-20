@@ -32,6 +32,9 @@ class GetDrtAccessResult:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        The ID of the account that submitted the template.
+        """
         return pulumi.get(self, "account_id")
 
     @property
@@ -66,6 +69,9 @@ def get_drt_access(account_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDrtAccessResult:
     """
     Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
+
+
+    :param str account_id: The ID of the account that submitted the template.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -83,5 +89,8 @@ def get_drt_access_output(account_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDrtAccessResult]:
     """
     Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
+
+
+    :param str account_id: The ID of the account that submitted the template.
     """
     ...

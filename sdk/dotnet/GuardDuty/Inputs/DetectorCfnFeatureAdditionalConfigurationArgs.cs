@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
 
     public sealed class DetectorCfnFeatureAdditionalConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the additional configuration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Status of the additional configuration.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSankeyDiagramChartConfiguration
     {
+        /// <summary>
+        /// The data label configuration of a sankey diagram.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The field well configuration of a sankey diagram.
+        /// </summary>
         public readonly Outputs.DashboardSankeyDiagramFieldWells? FieldWells;
+        /// <summary>
+        /// The sort configuration of a sankey diagram.
+        /// </summary>
         public readonly Outputs.DashboardSankeyDiagramSortConfiguration? SortConfiguration;
 
         [OutputConstructor]

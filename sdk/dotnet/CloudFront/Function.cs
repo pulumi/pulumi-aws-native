@@ -15,21 +15,45 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:Function")]
     public partial class Function : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        /// </summary>
         [Output("autoPublish")]
         public Output<bool?> AutoPublish { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the function. For example:
+        /// 
+        /// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
+        /// 
+        /// To get the function ARN, use the following syntax:
+        /// 
+        /// `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
+        /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         [Output("functionCode")]
         public Output<string> FunctionCode { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains configuration information about a CloudFront function.
+        /// </summary>
         [Output("functionConfig")]
         public Output<Outputs.FunctionConfig> FunctionConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains metadata about a CloudFront function.
+        /// </summary>
         [Output("functionMetadata")]
         public Output<Outputs.FunctionMetadata?> FunctionMetadata { get; private set; } = null!;
 
+        /// <summary>
+        /// A name to identify the function.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -81,18 +105,33 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created. To automatically publish to the `LIVE` stage, set this property to `true` .
+        /// </summary>
         [Input("autoPublish")]
         public Input<bool>? AutoPublish { get; set; }
 
+        /// <summary>
+        /// The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
         [Input("functionCode", required: true)]
         public Input<string> FunctionCode { get; set; } = null!;
 
+        /// <summary>
+        /// Contains configuration information about a CloudFront function.
+        /// </summary>
         [Input("functionConfig", required: true)]
         public Input<Inputs.FunctionConfigArgs> FunctionConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Contains metadata about a CloudFront function.
+        /// </summary>
         [Input("functionMetadata")]
         public Input<Inputs.FunctionMetadataArgs>? FunctionMetadata { get; set; }
 
+        /// <summary>
+        /// A name to identify the function.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

@@ -41,6 +41,9 @@ export class Robot extends pulumi.CustomResource {
      * The target architecture of the robot.
      */
     public readonly architecture!: pulumi.Output<enums.robomaker.RobotArchitecture>;
+    /**
+     * The Amazon Resource Name (ARN) of the robot.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the fleet.
@@ -54,6 +57,9 @@ export class Robot extends pulumi.CustomResource {
      * The name for the robot.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * A map that contains tag keys and tag values that are attached to the robot.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -114,5 +120,8 @@ export interface RobotArgs {
      * The name for the robot.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A map that contains tag keys and tag values that are attached to the robot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

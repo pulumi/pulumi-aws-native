@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
+    /// <summary>
+    /// Details about any associated training jobs.
+    /// </summary>
     [OutputType]
     public sealed class ModelCardTrainingDetailsTrainingJobDetailsProperties
     {

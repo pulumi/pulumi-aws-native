@@ -23,6 +23,7 @@ func LookupStreamingImage(ctx *pulumi.Context, args *LookupStreamingImageArgs, o
 }
 
 type LookupStreamingImageArgs struct {
+	// The unique identifier for the streaming image resource.
 	StreamingImageId string `pulumi:"streamingImageId"`
 	// <p>The studioId. </p>
 	StudioId string `pulumi:"studioId"`
@@ -39,7 +40,8 @@ type LookupStreamingImageResult struct {
 	// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
 	Owner *string `pulumi:"owner"`
 	// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
-	Platform         *string `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
+	// The unique identifier for the streaming image resource.
 	StreamingImageId *string `pulumi:"streamingImageId"`
 }
 
@@ -57,6 +59,7 @@ func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOu
 }
 
 type LookupStreamingImageOutputArgs struct {
+	// The unique identifier for the streaming image resource.
 	StreamingImageId pulumi.StringInput `pulumi:"streamingImageId"`
 	// <p>The studioId. </p>
 	StudioId pulumi.StringInput `pulumi:"studioId"`
@@ -111,6 +114,7 @@ func (o LookupStreamingImageResultOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the streaming image resource.
 func (o LookupStreamingImageResultOutput) StreamingImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.StreamingImageId }).(pulumi.StringPtrOutput)
 }

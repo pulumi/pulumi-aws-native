@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// </summary>
     public sealed class ScheduledQueryTargetConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration needed to write data into the Timestream database and table.
+        /// </summary>
         [Input("timestreamConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryTimestreamConfigurationArgs> TimestreamConfiguration { get; set; } = null!;
 

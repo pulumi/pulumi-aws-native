@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetDataflowEndpointGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// UUID of a dataflow endpoint group.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class GetDataflowEndpointGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// UUID of a dataflow endpoint group.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.GroundStation
     [OutputType]
     public sealed class GetDataflowEndpointGroupResult
     {
+        /// <summary>
+        /// The ARN of the dataflow endpoint group, such as `arn:aws:groundstation:us-east-2:1234567890:dataflow-endpoint-group/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
@@ -60,8 +69,17 @@ namespace Pulumi.AwsNative.GroundStation
         /// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
         /// </summary>
         public readonly int? ContactPrePassDurationSeconds;
+        /// <summary>
+        /// List of Endpoint Details, containing address and port for each endpoint.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> EndpointDetails;
+        /// <summary>
+        /// UUID of a dataflow endpoint group.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

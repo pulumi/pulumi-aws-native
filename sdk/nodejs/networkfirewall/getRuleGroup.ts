@@ -19,14 +19,34 @@ export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetRuleGroupArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     ruleGroupArn: string;
 }
 
 export interface GetRuleGroupResult {
+    /**
+     * A description of the rule group.
+     */
     readonly description?: string;
+    /**
+     * An object that defines the rule group rules.
+     */
     readonly ruleGroup?: outputs.networkfirewall.RuleGroup;
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     readonly ruleGroupArn?: string;
+    /**
+     * The unique ID of the `RuleGroup` resource.
+     */
     readonly ruleGroupId?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +57,8 @@ export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.I
 }
 
 export interface GetRuleGroupOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `RuleGroup` .
+     */
     ruleGroupArn: pulumi.Input<string>;
 }

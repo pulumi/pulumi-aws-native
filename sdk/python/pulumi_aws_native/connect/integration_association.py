@@ -20,6 +20,19 @@ class IntegrationAssociationArgs:
                  integration_type: pulumi.Input['IntegrationAssociationIntegrationType']):
         """
         The set of arguments for constructing a IntegrationAssociation resource.
+        :param pulumi.Input[str] instance_id: The Amazon Resource Name (ARN) of the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+        :param pulumi.Input[str] integration_arn: ARN of the integration being associated with the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `140`
+        :param pulumi.Input['IntegrationAssociationIntegrationType'] integration_type: Specifies the integration type to be associated with the instance.
+               
+               *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "integration_arn", integration_arn)
@@ -28,6 +41,13 @@ class IntegrationAssociationArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -37,6 +57,13 @@ class IntegrationAssociationArgs:
     @property
     @pulumi.getter(name="integrationArn")
     def integration_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the integration being associated with the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `140`
+        """
         return pulumi.get(self, "integration_arn")
 
     @integration_arn.setter
@@ -46,6 +73,11 @@ class IntegrationAssociationArgs:
     @property
     @pulumi.getter(name="integrationType")
     def integration_type(self) -> pulumi.Input['IntegrationAssociationIntegrationType']:
+        """
+        Specifies the integration type to be associated with the instance.
+
+        *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        """
         return pulumi.get(self, "integration_type")
 
     @integration_type.setter
@@ -105,6 +137,19 @@ class IntegrationAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] instance_id: The Amazon Resource Name (ARN) of the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `100`
+        :param pulumi.Input[str] integration_arn: ARN of the integration being associated with the instance.
+               
+               *Minimum* : `1`
+               
+               *Maximum* : `140`
+        :param pulumi.Input['IntegrationAssociationIntegrationType'] integration_type: Specifies the integration type to be associated with the instance.
+               
+               *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
         """
         ...
     @overload
@@ -223,20 +268,42 @@ class IntegrationAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="integrationArn")
     def integration_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the integration being associated with the instance.
+
+        *Minimum* : `1`
+
+        *Maximum* : `140`
+        """
         return pulumi.get(self, "integration_arn")
 
     @property
     @pulumi.getter(name="integrationAssociationId")
     def integration_association_id(self) -> pulumi.Output[str]:
+        """
+        Identifier of the association with an Amazon Connect instance.
+        """
         return pulumi.get(self, "integration_association_id")
 
     @property
     @pulumi.getter(name="integrationType")
     def integration_type(self) -> pulumi.Output['IntegrationAssociationIntegrationType']:
+        """
+        Specifies the integration type to be associated with the instance.
+
+        *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        """
         return pulumi.get(self, "integration_type")
 

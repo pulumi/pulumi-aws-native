@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultFilterListControlOptions
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.AnalysisListControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// A list of selectable values that are used in a control.
+        /// </summary>
         public readonly Outputs.AnalysisFilterSelectableValues? SelectableValues;
+        /// <summary>
+        /// The type of the `DefaultFilterListControlOptions` . Choose one of the following options:
+        /// 
+        /// - `MULTI_SELECT` : The user can select multiple entries from the list.
+        /// - `SINGLE_SELECT` : The user can select a single entry from the list.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSheetControlListType? Type;
 
         [OutputConstructor]

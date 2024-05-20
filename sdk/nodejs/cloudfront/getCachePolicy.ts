@@ -19,12 +19,24 @@ export function getCachePolicy(args: GetCachePolicyArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetCachePolicyArgs {
+    /**
+     * The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+     */
     id: string;
 }
 
 export interface GetCachePolicyResult {
+    /**
+     * The cache policy configuration.
+     */
     readonly cachePolicyConfig?: outputs.cloudfront.CachePolicyConfig;
+    /**
+     * The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+     */
     readonly id?: string;
+    /**
+     * The date and time when the cache policy was last modified.
+     */
     readonly lastModifiedTime?: string;
 }
 /**
@@ -35,5 +47,8 @@ export function getCachePolicyOutput(args: GetCachePolicyOutputArgs, opts?: pulu
 }
 
 export interface GetCachePolicyOutputArgs {
+    /**
+     * The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+     */
     id: pulumi.Input<string>;
 }

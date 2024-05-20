@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRegexMatchStatement
     {
+        /// <summary>
+        /// The part of the web request that you want AWS WAF to inspect.
+        /// </summary>
         public readonly Outputs.WebAclFieldToMatch FieldToMatch;
+        /// <summary>
+        /// The string representing the regular expression.
+        /// </summary>
         public readonly string RegexString;
+        /// <summary>
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclTextTransformation> TextTransformations;
 
         [OutputConstructor]

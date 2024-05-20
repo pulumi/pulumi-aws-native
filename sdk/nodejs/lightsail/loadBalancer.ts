@@ -53,6 +53,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
     public /*out*/ readonly loadBalancerArn!: pulumi.Output<string>;
     /**
      * The name of your load balancer.

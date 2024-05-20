@@ -37,12 +37,33 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAccessScope.__pulumiType;
     }
 
+    /**
+     * The creation date.
+     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The paths to exclude.
+     */
     public readonly excludePaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
+    /**
+     * The paths to match.
+     */
     public readonly matchPaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
+    /**
+     * The ARN of the Network Access Scope.
+     */
     public /*out*/ readonly networkInsightsAccessScopeArn!: pulumi.Output<string>;
+    /**
+     * The ID of the Network Access Scope.
+     */
     public /*out*/ readonly networkInsightsAccessScopeId!: pulumi.Output<string>;
+    /**
+     * The tags.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The last updated date.
+     */
     public /*out*/ readonly updatedDate!: pulumi.Output<string>;
 
     /**
@@ -83,7 +104,16 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsAccessScope resource.
  */
 export interface NetworkInsightsAccessScopeArgs {
+    /**
+     * The paths to exclude.
+     */
     excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
+    /**
+     * The paths to match.
+     */
     matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
+    /**
+     * The tags.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

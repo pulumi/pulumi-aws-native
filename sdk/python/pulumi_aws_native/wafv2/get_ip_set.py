@@ -51,26 +51,43 @@ class GetIpSetResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IP set.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the IP set that helps with identification.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the IP set.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipAddressVersion")
     def ip_address_version(self) -> Optional['IpSetIpAddressVersion']:
+        """
+        The version of the IP addresses, either `IPV4` or `IPV6` .
+        """
         return pulumi.get(self, "ip_address_version")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+
+        > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -94,6 +111,13 @@ def get_ip_set(id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpSetResult:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
+
+
+    :param str id: The ID of the IP set.
+    :param str name: The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+    :param 'IpSetScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+           
+           > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -118,5 +142,12 @@ def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
+
+
+    :param str id: The ID of the IP set.
+    :param str name: The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+    :param 'IpSetScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+           
+           > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
     """
     ...

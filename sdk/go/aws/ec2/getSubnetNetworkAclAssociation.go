@@ -23,10 +23,12 @@ func LookupSubnetNetworkAclAssociation(ctx *pulumi.Context, args *LookupSubnetNe
 }
 
 type LookupSubnetNetworkAclAssociationArgs struct {
+	// Returns the value of this object's AssociationId property.
 	AssociationId string `pulumi:"associationId"`
 }
 
 type LookupSubnetNetworkAclAssociationResult struct {
+	// Returns the value of this object's AssociationId property.
 	AssociationId *string `pulumi:"associationId"`
 }
 
@@ -44,6 +46,7 @@ func LookupSubnetNetworkAclAssociationOutput(ctx *pulumi.Context, args LookupSub
 }
 
 type LookupSubnetNetworkAclAssociationOutputArgs struct {
+	// Returns the value of this object's AssociationId property.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupSubnetNetworkAclAssociationResultOutput) ToLookupSubnetNetworkAclA
 	return o
 }
 
+// Returns the value of this object's AssociationId property.
 func (o LookupSubnetNetworkAclAssociationResultOutput) AssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetNetworkAclAssociationResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }

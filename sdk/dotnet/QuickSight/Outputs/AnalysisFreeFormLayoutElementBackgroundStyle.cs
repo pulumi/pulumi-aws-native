@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFreeFormLayoutElementBackgroundStyle
     {
+        /// <summary>
+        /// The background color of a free-form layout element.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The background visibility of a free-form layout element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

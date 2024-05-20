@@ -15,36 +15,63 @@ namespace Pulumi.AwsNative.B2bi
     [AwsNativeResourceType("aws-native:b2bi:Partnership")]
     public partial class Partnership : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Returns one or more capabilities associated with this partnership.
+        /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp for creation date and time of the partnership.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the name of the partnership.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns an Amazon Resource Name (ARN) for a specific AWS resource, such as a capability, partnership, profile, or transformer.
+        /// </summary>
         [Output("partnershipArn")]
         public Output<string> PartnershipArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique, system-generated identifier for a partnership.
+        /// </summary>
         [Output("partnershipId")]
         public Output<string> PartnershipId { get; private set; } = null!;
 
         [Output("phone")]
         public Output<string?> Phone { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique, system-generated identifier for the profile connected to this partnership.
+        /// </summary>
         [Output("profileId")]
         public Output<string> ProfileId { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the unique, system-generated identifier for a trading partner.
+        /// </summary>
         [Output("tradingPartnerId")]
         public Output<string> TradingPartnerId { get; private set; } = null!;
 
@@ -101,6 +128,10 @@ namespace Pulumi.AwsNative.B2bi
     {
         [Input("capabilities")]
         private InputList<string>? _capabilities;
+
+        /// <summary>
+        /// Returns one or more capabilities associated with this partnership.
+        /// </summary>
         public InputList<string> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<string>());
@@ -110,17 +141,27 @@ namespace Pulumi.AwsNative.B2bi
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
+        /// <summary>
+        /// Returns the name of the partnership.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("phone")]
         public Input<string>? Phone { get; set; }
 
+        /// <summary>
+        /// Returns the unique, system-generated identifier for the profile connected to this partnership.
+        /// </summary>
         [Input("profileId", required: true)]
         public Input<string> ProfileId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

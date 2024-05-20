@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
+
+        /// <summary>
+        /// A JSON string containing up to three key-value pair in JSON format. For example:
+        /// 
+        /// `{\"attributes\":{\"string1\":\"string2\"}}`
+        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());

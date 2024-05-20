@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     {
         [Input("logDestinationConfigs", required: true)]
         private InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>? _logDestinationConfigs;
+
+        /// <summary>
+        /// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
+        /// </summary>
         public InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs> LogDestinationConfigs
         {
             get => _logDestinationConfigs ?? (_logDestinationConfigs = new InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>());

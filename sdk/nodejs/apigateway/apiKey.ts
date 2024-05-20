@@ -73,6 +73,9 @@ export class ApiKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiKey.__pulumiType;
     }
 
+    /**
+     * The ID for the API key. For example: `abc123` .
+     */
     public /*out*/ readonly apiKeyId!: pulumi.Output<string>;
     /**
      * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.

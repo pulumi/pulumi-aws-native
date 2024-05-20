@@ -13,7 +13,18 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupTcpFlagField
     {
+        /// <summary>
+        /// Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the `Masks` setting.
+        /// 
+        /// For the flags that are specified in the masks setting, the following must be true for the packet to match:
+        /// 
+        /// - The ones that are set in this flags setting must be set in the packet.
+        /// - The ones that are not set in this flags setting must also not be set in the packet.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTcpFlag> Flags;
+        /// <summary>
+        /// The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTcpFlag> Masks;
 
         [OutputConstructor]

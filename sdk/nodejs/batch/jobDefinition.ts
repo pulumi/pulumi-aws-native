@@ -38,24 +38,68 @@ export class JobDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+     */
     public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
+    /**
+     * An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+     */
     public readonly ecsProperties!: pulumi.Output<outputs.batch.JobDefinitionEcsProperties | undefined>;
+    /**
+     * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+     */
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    /**
+     * The name of the job definition.
+     */
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
+    /**
+     * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+     *
+     * > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+     */
     public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
     /**
+     * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
     public readonly parameters!: pulumi.Output<any | undefined>;
+    /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+     */
     public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+     */
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
+    /**
+     * The retry strategy to use for failed jobs that are submitted with this job definition.
+     */
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+     */
     public readonly schedulingPriority!: pulumi.Output<number | undefined>;
     /**
+     * The tags that are applied to the job definition.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
+    /**
+     * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+     */
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
+    /**
+     * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+     *
+     * - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+     * - If the value is `multinode` , then `nodeProperties` is required.
+     *
+     * > If the job is run on Fargate resources, then `multinode` isn't supported.
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -113,23 +157,67 @@ export class JobDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a JobDefinition resource.
  */
 export interface JobDefinitionArgs {
+    /**
+     * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
+     */
     containerProperties?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesArgs>;
+    /**
+     * An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
+     */
     ecsProperties?: pulumi.Input<inputs.batch.JobDefinitionEcsPropertiesArgs>;
+    /**
+     * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
+     */
     eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesArgs>;
+    /**
+     * The name of the job definition.
+     */
     jobDefinitionName?: pulumi.Input<string>;
+    /**
+     * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
+     *
+     * > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
+     */
     nodeProperties?: pulumi.Input<inputs.batch.JobDefinitionNodePropertiesArgs>;
     /**
+     * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
     parameters?: any;
+    /**
+     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
+     */
     platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
+     */
     propagateTags?: pulumi.Input<boolean>;
+    /**
+     * The retry strategy to use for failed jobs that are submitted with this job definition.
+     */
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs>;
+    /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+     */
     schedulingPriority?: pulumi.Input<number>;
     /**
+     * The tags that are applied to the job definition.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
     tags?: any;
+    /**
+     * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
+     */
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeoutArgs>;
+    /**
+     * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
+     *
+     * - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
+     * - If the value is `multinode` , then `nodeProperties` is required.
+     *
+     * > If the job is run on Fargate resources, then `multinode` isn't supported.
+     */
     type: pulumi.Input<string>;
 }

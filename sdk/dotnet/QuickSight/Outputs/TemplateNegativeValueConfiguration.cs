@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateNegativeValueConfiguration
     {
+        /// <summary>
+        /// Determines the display mode of the negative value configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateNegativeValueDisplayMode DisplayMode;
 
         [OutputConstructor]

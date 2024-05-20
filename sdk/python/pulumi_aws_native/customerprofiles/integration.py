@@ -28,6 +28,7 @@ class IntegrationArgs:
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration
@@ -60,6 +61,9 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]:
+        """
+        The configuration that controls how Customer Profiles retrieves data from the source.
+        """
         return pulumi.get(self, "flow_definition")
 
     @flow_definition.setter
@@ -133,6 +137,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the integration
@@ -240,6 +245,9 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> pulumi.Output[Optional['outputs.IntegrationFlowDefinition']]:
+        """
+        The configuration that controls how Customer Profiles retrieves data from the source.
+        """
         return pulumi.get(self, "flow_definition")
 
     @property

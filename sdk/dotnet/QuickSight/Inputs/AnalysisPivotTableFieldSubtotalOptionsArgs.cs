@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPivotTableFieldSubtotalOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID of the subtotal options.
+        /// </summary>
         [Input("fieldId")]
         public Input<string>? FieldId { get; set; }
 

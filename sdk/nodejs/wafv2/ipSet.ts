@@ -41,12 +41,37 @@ export class IpSet extends pulumi.CustomResource {
      * List of IPAddresses.
      */
     public readonly addresses!: pulumi.Output<string[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the IP set.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the IP set.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A description of the IP set that helps with identification.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the IP addresses, either `IPV4` or `IPV6` .
+     */
     public readonly ipAddressVersion!: pulumi.Output<enums.wafv2.IpSetIpAddressVersion>;
+    /**
+     * The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+     *
+     * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+     */
     public readonly scope!: pulumi.Output<enums.wafv2.IpSetScope>;
+    /**
+     * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     *
+     * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -102,9 +127,28 @@ export interface IpSetArgs {
      * List of IPAddresses.
      */
     addresses: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A description of the IP set that helps with identification.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The version of the IP addresses, either `IPV4` or `IPV6` .
+     */
     ipAddressVersion: pulumi.Input<enums.wafv2.IpSetIpAddressVersion>;
+    /**
+     * The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+     *
+     * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+     */
     scope: pulumi.Input<enums.wafv2.IpSetScope>;
+    /**
+     * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     *
+     * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

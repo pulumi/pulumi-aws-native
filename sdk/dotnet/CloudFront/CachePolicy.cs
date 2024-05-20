@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:CachePolicy")]
     public partial class CachePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The cache policy configuration.
+        /// </summary>
         [Output("cachePolicyConfig")]
         public Output<Outputs.CachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the cache policy was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
@@ -69,6 +78,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class CachePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cache policy configuration.
+        /// </summary>
         [Input("cachePolicyConfig", required: true)]
         public Input<Inputs.CachePolicyConfigArgs> CachePolicyConfig { get; set; } = null!;
 

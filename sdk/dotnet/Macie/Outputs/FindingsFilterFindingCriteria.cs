@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Macie.Outputs
     [OutputType]
     public sealed class FindingsFilterFindingCriteria
     {
+        /// <summary>
+        /// Specifies a condition that defines the property, operator, and one or more values to use to filter the results.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.FindingsFilterCriterionAdditionalProperties>? Criterion;
 
         [OutputConstructor]

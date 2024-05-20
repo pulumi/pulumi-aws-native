@@ -33,10 +33,12 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 }
 
 type LookupQueueArgs struct {
+	// Returns the URLs of the queues from the policy.
 	QueueUrl string `pulumi:"queueUrl"`
 }
 
 type LookupQueueResult struct {
+	// Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
 	Arn *string `pulumi:"arn"`
 	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
@@ -60,8 +62,9 @@ type LookupQueueResult struct {
 	// The limit of how many bytes that a message can contain before SQS rejects it. You can specify an integer value from ``1,024`` bytes (1 KiB) to ``262,144`` bytes (256 KiB). The default value is ``262,144`` (256 KiB).
 	MaximumMessageSize *int `pulumi:"maximumMessageSize"`
 	// The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
-	MessageRetentionPeriod *int    `pulumi:"messageRetentionPeriod"`
-	QueueUrl               *string `pulumi:"queueUrl"`
+	MessageRetentionPeriod *int `pulumi:"messageRetentionPeriod"`
+	// Returns the URLs of the queues from the policy.
+	QueueUrl *string `pulumi:"queueUrl"`
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
 	ReceiveMessageWaitTimeSeconds *int `pulumi:"receiveMessageWaitTimeSeconds"`
 	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:
@@ -111,6 +114,7 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 }
 
 type LookupQueueOutputArgs struct {
+	// Returns the URLs of the queues from the policy.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
 }
 
@@ -132,6 +136,7 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) of the queue. For example: `arn:aws:sqs:us-east-2:123456789012:mystack-myqueue-15PG5C2FC1CW8` .
 func (o LookupQueueResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -186,6 +191,7 @@ func (o LookupQueueResultOutput) MessageRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *int { return v.MessageRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// Returns the URLs of the queues from the policy.
 func (o LookupQueueResultOutput) QueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.QueueUrl }).(pulumi.StringPtrOutput)
 }

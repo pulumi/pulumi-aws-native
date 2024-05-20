@@ -16,13 +16,25 @@ import (
 type Alias struct {
 	pulumi.CustomResourceState
 
-	AwsId                        pulumi.StringOutput                               `pulumi:"awsId"`
-	Description                  pulumi.StringPtrOutput                            `pulumi:"description"`
-	FunctionName                 pulumi.StringOutput                               `pulumi:"functionName"`
-	FunctionVersion              pulumi.StringOutput                               `pulumi:"functionVersion"`
-	Name                         pulumi.StringOutput                               `pulumi:"name"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A description of the alias.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name or ARN of the Lambda function.
+	//
+	// **Name formats** - *Function name* - `MyFunction` .
+	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+	// - *Partial ARN* - `123456789012:function:MyFunction` .
+	//
+	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// The function version that the alias invokes.
+	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
+	// The name of the alias.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrOutput `pulumi:"provisionedConcurrencyConfig"`
-	RoutingConfig                AliasRoutingConfigurationPtrOutput                `pulumi:"routingConfig"`
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+	RoutingConfig AliasRoutingConfigurationPtrOutput `pulumi:"routingConfig"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +88,46 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	Description                  *string                                   `pulumi:"description"`
-	FunctionName                 string                                    `pulumi:"functionName"`
-	FunctionVersion              string                                    `pulumi:"functionVersion"`
-	Name                         *string                                   `pulumi:"name"`
+	// A description of the alias.
+	Description *string `pulumi:"description"`
+	// The name or ARN of the Lambda function.
+	//
+	// **Name formats** - *Function name* - `MyFunction` .
+	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+	// - *Partial ARN* - `123456789012:function:MyFunction` .
+	//
+	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+	FunctionName string `pulumi:"functionName"`
+	// The function version that the alias invokes.
+	FunctionVersion string `pulumi:"functionVersion"`
+	// The name of the alias.
+	Name *string `pulumi:"name"`
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig *AliasProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
-	RoutingConfig                *AliasRoutingConfiguration                `pulumi:"routingConfig"`
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+	RoutingConfig *AliasRoutingConfiguration `pulumi:"routingConfig"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	Description                  pulumi.StringPtrInput
-	FunctionName                 pulumi.StringInput
-	FunctionVersion              pulumi.StringInput
-	Name                         pulumi.StringPtrInput
+	// A description of the alias.
+	Description pulumi.StringPtrInput
+	// The name or ARN of the Lambda function.
+	//
+	// **Name formats** - *Function name* - `MyFunction` .
+	// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+	// - *Partial ARN* - `123456789012:function:MyFunction` .
+	//
+	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+	FunctionName pulumi.StringInput
+	// The function version that the alias invokes.
+	FunctionVersion pulumi.StringInput
+	// The name of the alias.
+	Name pulumi.StringPtrInput
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrInput
-	RoutingConfig                AliasRoutingConfigurationPtrInput
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+	RoutingConfig AliasRoutingConfigurationPtrInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {
@@ -135,28 +171,40 @@ func (o AliasOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A description of the alias.
 func (o AliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name or ARN of the Lambda function.
+//
+// **Name formats** - *Function name* - `MyFunction` .
+// - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+// - *Partial ARN* - `123456789012:function:MyFunction` .
+//
+// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 func (o AliasOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
+// The function version that the alias invokes.
 func (o AliasOutput) FunctionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
 }
 
+// The name of the alias.
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 func (o AliasOutput) ProvisionedConcurrencyConfig() AliasProvisionedConcurrencyConfigurationPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasProvisionedConcurrencyConfigurationPtrOutput {
 		return v.ProvisionedConcurrencyConfig
 	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
+// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 func (o AliasOutput) RoutingConfig() AliasRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigurationPtrOutput { return v.RoutingConfig }).(AliasRoutingConfigurationPtrOutput)
 }

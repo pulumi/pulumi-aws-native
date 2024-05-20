@@ -37,18 +37,45 @@ export class BotAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === BotAlias.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the bot alias.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the bot alias.
+     */
     public /*out*/ readonly botAliasId!: pulumi.Output<string>;
+    /**
+     * Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+     */
     public readonly botAliasLocaleSettings!: pulumi.Output<outputs.lex.BotAliasLocaleSettingsItem[] | undefined>;
+    /**
+     * The name of the bot alias.
+     */
     public readonly botAliasName!: pulumi.Output<string>;
+    /**
+     * The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
+     */
     public /*out*/ readonly botAliasStatus!: pulumi.Output<enums.lex.BotAliasStatus>;
     /**
      * A list of tags to add to the bot alias.
      */
     public readonly botAliasTags!: pulumi.Output<outputs.lex.BotAliasTag[] | undefined>;
+    /**
+     * The unique identifier of the bot.
+     */
     public readonly botId!: pulumi.Output<string>;
+    /**
+     * The version of the bot that the bot alias references.
+     */
     public readonly botVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
+     */
     public readonly conversationLogSettings!: pulumi.Output<outputs.lex.BotAliasConversationLogSettings | undefined>;
+    /**
+     * The description of the bot alias.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
@@ -104,15 +131,33 @@ export class BotAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a BotAlias resource.
  */
 export interface BotAliasArgs {
+    /**
+     * Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
+     */
     botAliasLocaleSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasLocaleSettingsItemArgs>[]>;
+    /**
+     * The name of the bot alias.
+     */
     botAliasName?: pulumi.Input<string>;
     /**
      * A list of tags to add to the bot alias.
      */
     botAliasTags?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasTagArgs>[]>;
+    /**
+     * The unique identifier of the bot.
+     */
     botId: pulumi.Input<string>;
+    /**
+     * The version of the bot that the bot alias references.
+     */
     botVersion?: pulumi.Input<string>;
+    /**
+     * Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
+     */
     conversationLogSettings?: pulumi.Input<inputs.lex.BotAliasConversationLogSettingsArgs>;
+    /**
+     * The description of the bot alias.
+     */
     description?: pulumi.Input<string>;
     /**
      * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.

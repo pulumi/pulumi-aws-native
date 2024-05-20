@@ -155,9 +155,12 @@ func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput) Log
 
 // Destination configuration for IVS Chat logging.
 type LoggingConfigurationDestinationConfiguration struct {
+	// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 	CloudWatchLogs *LoggingConfigurationCloudWatchLogsDestinationConfiguration `pulumi:"cloudWatchLogs"`
-	Firehose       *LoggingConfigurationFirehoseDestinationConfiguration       `pulumi:"firehose"`
-	S3             *LoggingConfigurationS3DestinationConfiguration             `pulumi:"s3"`
+	// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+	Firehose *LoggingConfigurationFirehoseDestinationConfiguration `pulumi:"firehose"`
+	// An Amazon S3 destination configuration where chat activity will be logged.
+	S3 *LoggingConfigurationS3DestinationConfiguration `pulumi:"s3"`
 }
 
 // LoggingConfigurationDestinationConfigurationInput is an input type that accepts LoggingConfigurationDestinationConfigurationArgs and LoggingConfigurationDestinationConfigurationOutput values.
@@ -173,9 +176,12 @@ type LoggingConfigurationDestinationConfigurationInput interface {
 
 // Destination configuration for IVS Chat logging.
 type LoggingConfigurationDestinationConfigurationArgs struct {
+	// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 	CloudWatchLogs LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrInput `pulumi:"cloudWatchLogs"`
-	Firehose       LoggingConfigurationFirehoseDestinationConfigurationPtrInput       `pulumi:"firehose"`
-	S3             LoggingConfigurationS3DestinationConfigurationPtrInput             `pulumi:"s3"`
+	// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+	Firehose LoggingConfigurationFirehoseDestinationConfigurationPtrInput `pulumi:"firehose"`
+	// An Amazon S3 destination configuration where chat activity will be logged.
+	S3 LoggingConfigurationS3DestinationConfigurationPtrInput `pulumi:"s3"`
 }
 
 func (LoggingConfigurationDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -205,18 +211,21 @@ func (o LoggingConfigurationDestinationConfigurationOutput) ToLoggingConfigurati
 	return o
 }
 
+// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationOutput) CloudWatchLogs() LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationCloudWatchLogsDestinationConfiguration {
 		return v.CloudWatchLogs
 	}).(LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput)
 }
 
+// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationOutput) Firehose() LoggingConfigurationFirehoseDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationFirehoseDestinationConfiguration {
 		return v.Firehose
 	}).(LoggingConfigurationFirehoseDestinationConfigurationPtrOutput)
 }
 
+// An Amazon S3 destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationOutput) S3() LoggingConfigurationS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationS3DestinationConfiguration {
 		return v.S3
@@ -247,6 +256,7 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) Elem() LoggingCon
 	}).(LoggingConfigurationDestinationConfigurationOutput)
 }
 
+// An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) CloudWatchLogs() LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfiguration) *LoggingConfigurationCloudWatchLogsDestinationConfiguration {
 		if v == nil {
@@ -256,6 +266,7 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) CloudWatchLogs() 
 	}).(LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput)
 }
 
+// An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) Firehose() LoggingConfigurationFirehoseDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfiguration) *LoggingConfigurationFirehoseDestinationConfiguration {
 		if v == nil {
@@ -265,6 +276,7 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) Firehose() Loggin
 	}).(LoggingConfigurationFirehoseDestinationConfigurationPtrOutput)
 }
 
+// An Amazon S3 destination configuration where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) S3() LoggingConfigurationS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfiguration) *LoggingConfigurationS3DestinationConfiguration {
 		if v == nil {

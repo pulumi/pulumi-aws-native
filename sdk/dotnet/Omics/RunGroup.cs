@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.Omics
     [AwsNativeResourceType("aws-native:omics:RunGroup")]
     public partial class RunGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The run group's ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The run group's ID.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// When the run group was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The group's maximum CPU count setting.
+        /// </summary>
         [Output("maxCpus")]
         public Output<double?> MaxCpus { get; private set; } = null!;
 
+        /// <summary>
+        /// The group's maximum duration setting in minutes.
+        /// </summary>
         [Output("maxDuration")]
         public Output<double?> MaxDuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum GPUs that can be used by a run group.
+        /// </summary>
         [Output("maxGpus")]
         public Output<double?> MaxGpus { get; private set; } = null!;
 
+        /// <summary>
+        /// The group's maximum concurrent run setting.
+        /// </summary>
         [Output("maxRuns")]
         public Output<double?> MaxRuns { get; private set; } = null!;
 
+        /// <summary>
+        /// The group's name.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags for the group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -87,23 +114,42 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class RunGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The group's maximum CPU count setting.
+        /// </summary>
         [Input("maxCpus")]
         public Input<double>? MaxCpus { get; set; }
 
+        /// <summary>
+        /// The group's maximum duration setting in minutes.
+        /// </summary>
         [Input("maxDuration")]
         public Input<double>? MaxDuration { get; set; }
 
+        /// <summary>
+        /// The maximum GPUs that can be used by a run group.
+        /// </summary>
         [Input("maxGpus")]
         public Input<double>? MaxGpus { get; set; }
 
+        /// <summary>
+        /// The group's maximum concurrent run setting.
+        /// </summary>
         [Input("maxRuns")]
         public Input<double>? MaxRuns { get; set; }
 
+        /// <summary>
+        /// The group's name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags for the group.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

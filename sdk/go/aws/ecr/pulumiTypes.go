@@ -104,7 +104,9 @@ func (o ReplicationConfigurationTypePtrOutput) Rules() ReplicationConfigurationR
 
 // An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestination struct {
-	Region     string `pulumi:"region"`
+	// The Region to replicate to.
+	Region string `pulumi:"region"`
+	// The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
 	RegistryId string `pulumi:"registryId"`
 }
 
@@ -121,7 +123,9 @@ type ReplicationConfigurationReplicationDestinationInput interface {
 
 // An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestinationArgs struct {
-	Region     pulumi.StringInput `pulumi:"region"`
+	// The Region to replicate to.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -177,10 +181,12 @@ func (o ReplicationConfigurationReplicationDestinationOutput) ToReplicationConfi
 	return o
 }
 
+// The Region to replicate to.
 func (o ReplicationConfigurationReplicationDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationDestination) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// The AWS account ID of the Amazon ECR private registry to replicate to. When configuring cross-Region replication within your own registry, specify your own account ID.
 func (o ReplicationConfigurationReplicationDestinationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationDestination) string { return v.RegistryId }).(pulumi.StringOutput)
 }
@@ -320,7 +326,9 @@ func (o ReplicationConfigurationReplicationRuleArrayOutput) Index(i pulumi.IntIn
 
 // An array of objects representing the details of a repository filter.
 type ReplicationConfigurationRepositoryFilter struct {
-	Filter     string                             `pulumi:"filter"`
+	// The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+	Filter string `pulumi:"filter"`
+	// The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
 	FilterType ReplicationConfigurationFilterType `pulumi:"filterType"`
 }
 
@@ -337,7 +345,9 @@ type ReplicationConfigurationRepositoryFilterInput interface {
 
 // An array of objects representing the details of a repository filter.
 type ReplicationConfigurationRepositoryFilterArgs struct {
-	Filter     pulumi.StringInput                      `pulumi:"filter"`
+	// The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
+	Filter pulumi.StringInput `pulumi:"filter"`
+	// The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
 	FilterType ReplicationConfigurationFilterTypeInput `pulumi:"filterType"`
 }
 
@@ -393,10 +403,12 @@ func (o ReplicationConfigurationRepositoryFilterOutput) ToReplicationConfigurati
 	return o
 }
 
+// The repository filter details. When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
 func (o ReplicationConfigurationRepositoryFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
+// The repository filter type. The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
 func (o ReplicationConfigurationRepositoryFilterOutput) FilterType() ReplicationConfigurationFilterTypeOutput {
 	return o.ApplyT(func(v ReplicationConfigurationRepositoryFilter) ReplicationConfigurationFilterType {
 		return v.FilterType
@@ -427,8 +439,14 @@ func (o ReplicationConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntI
 //
 // For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryCreationTemplateEncryptionConfiguration struct {
+	// The encryption type to use.
+	//
+	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+	//
+	// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
 	EncryptionType RepositoryCreationTemplateEncryptionType `pulumi:"encryptionType"`
-	KmsKey         *string                                  `pulumi:"kmsKey"`
+	// If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
+	KmsKey *string `pulumi:"kmsKey"`
 }
 
 // RepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArgs and RepositoryCreationTemplateEncryptionConfigurationOutput values.
@@ -446,8 +464,14 @@ type RepositoryCreationTemplateEncryptionConfigurationInput interface {
 //
 // For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryCreationTemplateEncryptionConfigurationArgs struct {
+	// The encryption type to use.
+	//
+	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+	//
+	// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
 	EncryptionType RepositoryCreationTemplateEncryptionTypeInput `pulumi:"encryptionType"`
-	KmsKey         pulumi.StringPtrInput                         `pulumi:"kmsKey"`
+	// If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (RepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -530,12 +554,18 @@ func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCre
 	}).(RepositoryCreationTemplateEncryptionConfigurationPtrOutput)
 }
 
+// The encryption type to use.
+//
+// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+//
+// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
 func (o RepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() RepositoryCreationTemplateEncryptionTypeOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) RepositoryCreationTemplateEncryptionType {
 		return v.EncryptionType
 	}).(RepositoryCreationTemplateEncryptionTypeOutput)
 }
 
+// If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
 func (o RepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -564,6 +594,11 @@ func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) Elem() Repos
 	}).(RepositoryCreationTemplateEncryptionConfigurationOutput)
 }
 
+// The encryption type to use.
+//
+// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
+//
+// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
 func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) EncryptionType() RepositoryCreationTemplateEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplateEncryptionConfiguration) *RepositoryCreationTemplateEncryptionType {
 		if v == nil {
@@ -573,6 +608,7 @@ func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) EncryptionTy
 	}).(RepositoryCreationTemplateEncryptionTypePtrOutput)
 }
 
+// If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption. The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
 func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplateEncryptionConfiguration) *string {
 		if v == nil {

@@ -24,6 +24,7 @@ class InputArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Input resource.
+        :param pulumi.Input['InputDefinitionArgs'] input_definition: The definition of the input.
         :param pulumi.Input[str] input_description: A brief description of the input.
         :param pulumi.Input[str] input_name: The name of the input.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -41,6 +42,9 @@ class InputArgs:
     @property
     @pulumi.getter(name="inputDefinition")
     def input_definition(self) -> pulumi.Input['InputDefinitionArgs']:
+        """
+        The definition of the input.
+        """
         return pulumi.get(self, "input_definition")
 
     @input_definition.setter
@@ -145,6 +149,7 @@ class Input(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['InputDefinitionArgs']] input_definition: The definition of the input.
         :param pulumi.Input[str] input_description: A brief description of the input.
         :param pulumi.Input[str] input_name: The name of the input.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -271,6 +276,9 @@ class Input(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inputDefinition")
     def input_definition(self) -> pulumi.Output['outputs.InputDefinition']:
+        """
+        The definition of the input.
+        """
         return pulumi.get(self, "input_definition")
 
     @property

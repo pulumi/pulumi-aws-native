@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateThousandSeparatorOptions
     {
+        /// <summary>
+        /// Determines the thousands separator symbol.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateNumericSeparatorSymbol? Symbol;
+        /// <summary>
+        /// Determines the visibility of the thousands separator.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
 
         [OutputConstructor]

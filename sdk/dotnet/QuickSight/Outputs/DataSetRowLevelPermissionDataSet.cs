@@ -25,12 +25,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.&lt;/p&gt;
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The user or group rules associated with the dataset that contains permissions for RLS.
+        /// 
+        /// By default, `FormatVersion` is `VERSION_1` . When `FormatVersion` is `VERSION_1` , `UserName` and `GroupName` are required. When `FormatVersion` is `VERSION_2` , `UserARN` and `GroupARN` are required, and `Namespace` must not exist.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionFormatVersion? FormatVersion;
         /// <summary>
         /// &lt;p&gt;The namespace associated with the dataset that contains permissions for RLS.&lt;/p&gt;
         /// </summary>
         public readonly string? Namespace;
+        /// <summary>
+        /// The type of permissions to use when interpreting the permissions for RLS. `DENY_ACCESS` is included for backward compatibility only.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy PermissionPolicy;
+        /// <summary>
+        /// The status of the row-level security permission dataset. If enabled, the status is `ENABLED` . If disabled, the status is `DISABLED` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetStatus? Status;
 
         [OutputConstructor]

@@ -31,7 +31,22 @@ class DataSourceArgs:
                  vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param Any configuration: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application the data source will be attached to.
+        :param Any configuration: Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
+        :param pulumi.Input[str] display_name: The name of the Amazon Q Business data source.
+        :param pulumi.Input[str] index_id: The identifier of the index the data source is attached to.
+        :param pulumi.Input[str] description: A description for the data source connector.
+        :param pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs'] document_enrichment_configuration: Provides the configuration information for altering document metadata and content during the document ingestion process.
+               
+               For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        :param pulumi.Input[str] sync_schedule: Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+               
+               Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input['DataSourceVpcConfigurationArgs'] vpc_configuration: Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration", configuration)
@@ -53,6 +68,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q Business application the data source will be attached to.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -63,6 +81,8 @@ class DataSourceArgs:
     @pulumi.getter
     def configuration(self) -> Any:
         """
+        Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration")
@@ -74,6 +94,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -83,6 +106,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the index the data source is attached to.
+        """
         return pulumi.get(self, "index_id")
 
     @index_id.setter
@@ -92,6 +118,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the data source connector.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -101,6 +130,11 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="documentEnrichmentConfiguration")
     def document_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs']]:
+        """
+        Provides the configuration information for altering document metadata and content during the document ingestion process.
+
+        For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        """
         return pulumi.get(self, "document_enrichment_configuration")
 
     @document_enrichment_configuration.setter
@@ -110,6 +144,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -119,6 +156,11 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="syncSchedule")
     def sync_schedule(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+
+        Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        """
         return pulumi.get(self, "sync_schedule")
 
     @sync_schedule.setter
@@ -128,6 +170,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,6 +182,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+        """
+        Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -165,7 +213,22 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any configuration: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application the data source will be attached to.
+        :param Any configuration: Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
+        :param pulumi.Input[str] description: A description for the data source connector.
+        :param pulumi.Input[str] display_name: The name of the Amazon Q Business data source.
+        :param pulumi.Input[pulumi.InputType['DataSourceDocumentEnrichmentConfigurationArgs']] document_enrichment_configuration: Provides the configuration information for altering document metadata and content during the document ingestion process.
+               
+               For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        :param pulumi.Input[str] index_id: The identifier of the index the data source is attached to.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        :param pulumi.Input[str] sync_schedule: Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+               
+               Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[pulumi.InputType['DataSourceVpcConfigurationArgs']] vpc_configuration: Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
         """
         ...
     @overload
@@ -279,12 +342,17 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q Business application the data source will be attached to.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
         """
+        Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "configuration")
@@ -292,70 +360,116 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the Amazon Q Business data source was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dataSourceArn")
     def data_source_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
+        """
         return pulumi.get(self, "data_source_arn")
 
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "data_source_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the data source connector.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="documentEnrichmentConfiguration")
     def document_enrichment_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceDocumentEnrichmentConfiguration']]:
+        """
+        Provides the configuration information for altering document metadata and content during the document ingestion process.
+
+        For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        """
         return pulumi.get(self, "document_enrichment_configuration")
 
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the index the data source is attached to.
+        """
         return pulumi.get(self, "index_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['DataSourceStatus']:
+        """
+        The status of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="syncSchedule")
     def sync_schedule(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+
+        Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        """
         return pulumi.get(self, "sync_schedule")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of the Amazon Q Business data source.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the Amazon Q Business data source was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceVpcConfiguration']]:
+        """
+        Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+        """
         return pulumi.get(self, "vpc_configuration")
 

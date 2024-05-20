@@ -24,7 +24,8 @@ func LookupModel(ctx *pulumi.Context, args *LookupModelArgs, opts ...pulumi.Invo
 
 type LookupModelArgs struct {
 	// The API identifier.
-	ApiId   string `pulumi:"apiId"`
+	ApiId string `pulumi:"apiId"`
+	// The model ID.
 	ModelId string `pulumi:"modelId"`
 }
 
@@ -33,7 +34,8 @@ type LookupModelResult struct {
 	ContentType *string `pulumi:"contentType"`
 	// The description of the model.
 	Description *string `pulumi:"description"`
-	ModelId     *string `pulumi:"modelId"`
+	// The model ID.
+	ModelId *string `pulumi:"modelId"`
 	// The name of the model.
 	Name *string `pulumi:"name"`
 	// The schema for the model. For application/json models, this should be JSON schema draft 4 model.
@@ -57,7 +59,8 @@ func LookupModelOutput(ctx *pulumi.Context, args LookupModelOutputArgs, opts ...
 
 type LookupModelOutputArgs struct {
 	// The API identifier.
-	ApiId   pulumi.StringInput `pulumi:"apiId"`
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The model ID.
 	ModelId pulumi.StringInput `pulumi:"modelId"`
 }
 
@@ -89,6 +92,7 @@ func (o LookupModelResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The model ID.
 func (o LookupModelResultOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelResult) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }

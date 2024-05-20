@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleTag
     {
+        /// <summary>
+        /// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The value for the specified tag key.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+        /// </summary>
         [Input("knowledgeBaseState")]
         public Input<Pulumi.AwsNative.Bedrock.AgentKnowledgeBaseState>? KnowledgeBaseState { get; set; }
 

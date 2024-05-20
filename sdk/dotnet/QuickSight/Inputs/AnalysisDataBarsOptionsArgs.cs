@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDataBarsOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field ID for the data bars options.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The color of the negative data bar.
+        /// </summary>
         [Input("negativeColor")]
         public Input<string>? NegativeColor { get; set; }
 
+        /// <summary>
+        /// The color of the positive data bar.
+        /// </summary>
         [Input("positiveColor")]
         public Input<string>? PositiveColor { get; set; }
 

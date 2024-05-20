@@ -34,16 +34,28 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def definition(self) -> Optional[Any]:
+        """
+        Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[str]:
+        """
+        The unique ID of the new or updated policy.
+        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional['PolicyType']:
+        """
+        The type of the policy. This is one of the following values:
+
+        - Static
+        - TemplateLinked
+        """
         return pulumi.get(self, "policy_type")
 
 
@@ -63,6 +75,10 @@ def get_policy(policy_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Definition of AWS::VerifiedPermissions::Policy Resource Type
+
+
+    :param str policy_id: The unique ID of the new or updated policy.
+    :param str policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
     """
     __args__ = dict()
     __args__['policyId'] = policy_id
@@ -82,5 +98,9 @@ def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Definition of AWS::VerifiedPermissions::Policy Resource Type
+
+
+    :param str policy_id: The unique ID of the new or updated policy.
+    :param str policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
     """
     ...

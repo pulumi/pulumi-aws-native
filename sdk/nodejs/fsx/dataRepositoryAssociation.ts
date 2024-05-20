@@ -81,6 +81,11 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataRepositoryAssociation.__pulumiType;
     }
 
+    /**
+     * Returns the data repository association's system generated Association ID.
+     *
+     * Example: `dra-abcdef0123456789d`
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
      * A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to ``true``.
@@ -105,6 +110,11 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
      *  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
      */
     public readonly importedFileChunkSize!: pulumi.Output<number | undefined>;
+    /**
+     * Returns the data repository association's Amazon Resource Name (ARN).
+     *
+     * Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.

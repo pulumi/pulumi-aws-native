@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisParameterDeclaration
     {
+        /// <summary>
+        /// A parameter declaration for the `DateTime` data type.
+        /// </summary>
         public readonly Outputs.AnalysisDateTimeParameterDeclaration? DateTimeParameterDeclaration;
+        /// <summary>
+        /// A parameter declaration for the `Decimal` data type.
+        /// </summary>
         public readonly Outputs.AnalysisDecimalParameterDeclaration? DecimalParameterDeclaration;
+        /// <summary>
+        /// A parameter declaration for the `Integer` data type.
+        /// </summary>
         public readonly Outputs.AnalysisIntegerParameterDeclaration? IntegerParameterDeclaration;
+        /// <summary>
+        /// A parameter declaration for the `String` data type.
+        /// </summary>
         public readonly Outputs.AnalysisStringParameterDeclaration? StringParameterDeclaration;
 
         [OutputConstructor]

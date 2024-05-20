@@ -37,13 +37,44 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
+    /**
+     * The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+     */
     public readonly components!: pulumi.Output<{[key: string]: outputs.greengrassv2.DeploymentComponentDeploymentSpecification} | undefined>;
+    /**
+     * The ID of the deployment.
+     */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
+     * The name of the deployment.
+     */
     public readonly deploymentName!: pulumi.Output<string | undefined>;
+    /**
+     * The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+     */
     public readonly deploymentPolicies!: pulumi.Output<outputs.greengrassv2.DeploymentPolicies | undefined>;
+    /**
+     * The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+     */
     public readonly iotJobConfiguration!: pulumi.Output<outputs.greengrassv2.DeploymentIoTJobConfiguration | undefined>;
+    /**
+     * The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+     */
     public readonly parentTargetArn!: pulumi.Output<string | undefined>;
+    /**
+     * Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+     *
+     * This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+     *
+     * ```json
+     * "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+     * }
+     * ```
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARN of the target AWS IoT thing or thing group.
+     */
     public readonly targetArn!: pulumi.Output<string>;
 
     /**
@@ -89,11 +120,39 @@ export class Deployment extends pulumi.CustomResource {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+     */
     components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.greengrassv2.DeploymentComponentDeploymentSpecificationArgs>}>;
+    /**
+     * The name of the deployment.
+     */
     deploymentName?: pulumi.Input<string>;
+    /**
+     * The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+     */
     deploymentPolicies?: pulumi.Input<inputs.greengrassv2.DeploymentPoliciesArgs>;
+    /**
+     * The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+     */
     iotJobConfiguration?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobConfigurationArgs>;
+    /**
+     * The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+     */
     parentTargetArn?: pulumi.Input<string>;
+    /**
+     * Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+     *
+     * This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+     *
+     * ```json
+     * "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
+     * }
+     * ```
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of the target AWS IoT thing or thing group.
+     */
     targetArn: pulumi.Input<string>;
 }

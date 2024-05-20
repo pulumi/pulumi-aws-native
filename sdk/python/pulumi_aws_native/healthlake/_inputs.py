@@ -156,12 +156,16 @@ class FhirDatastoreSseConfigurationArgs:
                  kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']):
         """
         The server-side encryption key configuration for a customer provided encryption key.
+        :param pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs'] kms_encryption_config: The server-side encryption key configuration for a customer provided encryption key (CMK).
         """
         pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
     def kms_encryption_config(self) -> pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']:
+        """
+        The server-side encryption key configuration for a customer provided encryption key (CMK).
+        """
         return pulumi.get(self, "kms_encryption_config")
 
     @kms_encryption_config.setter

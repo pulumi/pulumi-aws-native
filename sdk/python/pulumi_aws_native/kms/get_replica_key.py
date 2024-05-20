@@ -42,6 +42,11 @@ class GetReplicaKeyResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the replica key, such as `arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
+
+        The key ARNs of related multi-Region keys differ only in the Region value. For information about the key ARNs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -63,6 +68,11 @@ class GetReplicaKeyResult:
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
+        """
+        The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+
+        Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
+        """
         return pulumi.get(self, "key_id")
 
     @property
@@ -102,6 +112,11 @@ def get_replica_key(key_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicaKeyResult:
     """
     The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
+
+
+    :param str key_id: The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+           
+           Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
     """
     __args__ = dict()
     __args__['keyId'] = key_id
@@ -122,5 +137,10 @@ def get_replica_key_output(key_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicaKeyResult]:
     """
     The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
+
+
+    :param str key_id: The key ID of the replica key, such as `mrk-1234abcd12ab34cd56ef1234567890ab` .
+           
+           Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
     """
     ...

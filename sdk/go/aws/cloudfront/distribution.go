@@ -17,10 +17,12 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
+	// The distribution's identifier. For example: `E1U5RQF7T870K0` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The distribution's configuration.
 	DistributionConfig DistributionConfigOutput `pulumi:"distributionConfig"`
-	DomainName         pulumi.StringOutput      `pulumi:"domainName"`
+	// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// A complex type that contains zero or more ``Tag`` elements.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -119,6 +121,7 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The distribution's identifier. For example: `E1U5RQF7T870K0` .
 func (o DistributionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -128,6 +131,7 @@ func (o DistributionOutput) DistributionConfig() DistributionConfigOutput {
 	return o.ApplyT(func(v *Distribution) DistributionConfigOutput { return v.DistributionConfig }).(DistributionConfigOutput)
 }
 
+// The domain name of the resource, such as `d111111abcdef8.cloudfront.net` .
 func (o DistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

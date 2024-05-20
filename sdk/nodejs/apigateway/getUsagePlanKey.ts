@@ -16,10 +16,16 @@ export function getUsagePlanKey(args: GetUsagePlanKeyArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetUsagePlanKeyArgs {
+    /**
+     * The ID for the usage plan key. For example: `abc123` .
+     */
     id: string;
 }
 
 export interface GetUsagePlanKeyResult {
+    /**
+     * The ID for the usage plan key. For example: `abc123` .
+     */
     readonly id?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getUsagePlanKeyOutput(args: GetUsagePlanKeyOutputArgs, opts?: pu
 }
 
 export interface GetUsagePlanKeyOutputArgs {
+    /**
+     * The ID for the usage plan key. For example: `abc123` .
+     */
     id: pulumi.Input<string>;
 }

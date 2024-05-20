@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class MitigationActionActionParamsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the group to which you want to add the devices.
+        /// </summary>
         [Input("addThingsToThingGroupParams")]
         public Input<Inputs.MitigationActionAddThingsToThingGroupParamsArgs>? AddThingsToThingGroupParams { get; set; }
 
+        /// <summary>
+        /// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+        /// </summary>
         [Input("enableIoTLoggingParams")]
         public Input<Inputs.MitigationActionEnableIoTLoggingParamsArgs>? EnableIoTLoggingParams { get; set; }
 
+        /// <summary>
+        /// Specifies the topic to which the finding should be published.
+        /// </summary>
         [Input("publishFindingToSnsParams")]
         public Input<Inputs.MitigationActionPublishFindingToSnsParamsArgs>? PublishFindingToSnsParams { get; set; }
 
+        /// <summary>
+        /// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
+        /// </summary>
         [Input("replaceDefaultPolicyVersionParams")]
         public Input<Inputs.MitigationActionReplaceDefaultPolicyVersionParamsArgs>? ReplaceDefaultPolicyVersionParams { get; set; }
 
+        /// <summary>
+        /// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+        /// </summary>
         [Input("updateCaCertificateParams")]
         public Input<Inputs.MitigationActionUpdateCaCertificateParamsArgs>? UpdateCaCertificateParams { get; set; }
 
+        /// <summary>
+        /// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
+        /// </summary>
         [Input("updateDeviceCertificateParams")]
         public Input<Inputs.MitigationActionUpdateDeviceCertificateParamsArgs>? UpdateDeviceCertificateParams { get; set; }
 

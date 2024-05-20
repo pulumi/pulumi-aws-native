@@ -45,6 +45,17 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("agentResourceRoleArn")]
         public Output<string?> AgentResourceRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the agent and whether it is ready for use. The following statuses are possible:
+        /// 
+        /// - CREATING – The agent is being created.
+        /// - PREPARING – The agent is being prepared.
+        /// - PREPARED – The agent is prepared and ready to be invoked.
+        /// - NOT_PREPARED – The agent has been created but not yet prepared.
+        /// - FAILED – The agent API operation failed.
+        /// - UPDATING – The agent is being updated.
+        /// - DELETING – The agent is being deleted.
+        /// </summary>
         [Output("agentStatus")]
         public Output<Pulumi.AwsNative.Bedrock.AgentStatus> AgentStatus { get; private set; } = null!;
 
@@ -114,6 +125,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("preparedAt")]
         public Output<string> PreparedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        /// </summary>
         [Output("promptOverrideConfiguration")]
         public Output<Outputs.AgentPromptOverrideConfiguration?> PromptOverrideConfiguration { get; private set; } = null!;
 
@@ -129,9 +143,21 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("skipResourceInUseCheckOnDelete")]
         public Output<bool?> SkipResourceInUseCheckOnDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         [Output("testAliasTags")]
         public Output<ImmutableDictionary<string, string>?> TestAliasTags { get; private set; } = null!;
 
@@ -258,6 +284,9 @@ namespace Pulumi.AwsNative.Bedrock
             set => _knowledgeBases = value;
         }
 
+        /// <summary>
+        /// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        /// </summary>
         [Input("promptOverrideConfiguration")]
         public Input<Inputs.AgentPromptOverrideConfigurationArgs>? PromptOverrideConfiguration { get; set; }
 
@@ -269,6 +298,13 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -277,6 +313,13 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("testAliasTags")]
         private InputMap<string>? _testAliasTags;
+
+        /// <summary>
+        /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+        /// 
+        /// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        /// - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        /// </summary>
         public InputMap<string> TestAliasTags
         {
             get => _testAliasTags ?? (_testAliasTags = new InputMap<string>());

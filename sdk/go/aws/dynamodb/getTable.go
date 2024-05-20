@@ -35,6 +35,7 @@ type LookupTableArgs struct {
 }
 
 type LookupTableResult struct {
+	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
 	Arn *string `pulumi:"arn"`
 	// A list of attributes that describe the key schema for the table and indexes.
 	//  This property is required to create a DDB table.
@@ -76,7 +77,10 @@ type LookupTableResult struct {
 	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification *TableSseSpecification `pulumi:"sseSpecification"`
-	StreamArn        *string                `pulumi:"streamArn"`
+	// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
+	//
+	// > You must specify the `StreamSpecification` property to use this attribute.
+	StreamArn *string `pulumi:"streamArn"`
 	// The settings for the DDB table stream, which capture changes to items stored in the table.
 	StreamSpecification *TableStreamSpecification `pulumi:"streamSpecification"`
 	// The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
@@ -126,6 +130,7 @@ func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
 func (o LookupTableResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -218,6 +223,9 @@ func (o LookupTableResultOutput) SseSpecification() TableSseSpecificationPtrOutp
 	return o.ApplyT(func(v LookupTableResult) *TableSseSpecification { return v.SseSpecification }).(TableSseSpecificationPtrOutput)
 }
 
+// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
+//
+// > You must specify the `StreamSpecification` property to use this attribute.
 func (o LookupTableResultOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }

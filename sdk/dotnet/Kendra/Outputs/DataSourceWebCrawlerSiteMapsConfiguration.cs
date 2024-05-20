@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceWebCrawlerSiteMapsConfiguration
     {
+        /// <summary>
+        /// The list of sitemap URLs of the websites you want to crawl.
+        /// 
+        /// The list can include a maximum of three sitemap URLs.
+        /// </summary>
         public readonly ImmutableArray<string> SiteMaps;
 
         [OutputConstructor]

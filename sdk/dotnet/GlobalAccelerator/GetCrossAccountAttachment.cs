@@ -73,6 +73,11 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Resources shared using the attachment.
         /// </summary>
         public readonly ImmutableArray<Outputs.CrossAccountAttachmentResource> Resources;
+        /// <summary>
+        /// Add tags for a cross-account attachment.
+        /// 
+        /// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

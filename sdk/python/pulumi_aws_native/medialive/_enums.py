@@ -11,6 +11,9 @@ __all__ = [
 
 
 class MultiplexState(str, Enum):
+    """
+    The current state of the multiplex.
+    """
     CREATING = "CREATING"
     CREATE_FAILED = "CREATE_FAILED"
     IDLE = "IDLE"

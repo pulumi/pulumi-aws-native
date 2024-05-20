@@ -7,6 +7,9 @@ export const AnomalyDetectorCsvFormatDescriptorFileCompression = {
     Gzip: "GZIP",
 } as const;
 
+/**
+ * The level of compression of the source CSV file.
+ */
 export type AnomalyDetectorCsvFormatDescriptorFileCompression = (typeof AnomalyDetectorCsvFormatDescriptorFileCompression)[keyof typeof AnomalyDetectorCsvFormatDescriptorFileCompression];
 
 export const AnomalyDetectorFrequency = {
@@ -26,6 +29,9 @@ export const AnomalyDetectorJsonFormatDescriptorFileCompression = {
     Gzip: "GZIP",
 } as const;
 
+/**
+ * The level of compression of the source CSV file.
+ */
 export type AnomalyDetectorJsonFormatDescriptorFileCompression = (typeof AnomalyDetectorJsonFormatDescriptorFileCompression)[keyof typeof AnomalyDetectorJsonFormatDescriptorFileCompression];
 
 export const AnomalyDetectorMetricAggregationFunction = {

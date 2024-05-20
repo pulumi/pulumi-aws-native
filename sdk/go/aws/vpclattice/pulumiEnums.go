@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
 type AuthPolicyStateEnum string
 
 const (
@@ -100,6 +101,7 @@ func (o AuthPolicyStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// The listener protocol.
 type ListenerProtocol string
 
 const (
@@ -267,6 +269,7 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerProtocolPtrOutput)
 }
 
+// The HTTP method type.
 type RuleHttpMatchMethod string
 
 const (
@@ -444,6 +447,10 @@ func (in *ruleHttpMatchMethodPtr) ToRuleHttpMatchMethodPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(RuleHttpMatchMethodPtrOutput)
 }
 
+// The type of IAM policy.
+//
+// - `NONE` : The resource does not use an IAM policy. This is the default.
+// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 type ServiceAuthType string
 
 const (
@@ -609,6 +616,10 @@ func (in *serviceAuthTypePtr) ToServiceAuthTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceAuthTypePtrOutput)
 }
 
+// The type of IAM policy.
+//
+// - `NONE` : The resource does not use an IAM policy. This is the default.
+// - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
 type ServiceNetworkAuthType string
 
 const (
@@ -774,6 +785,7 @@ func (in *serviceNetworkAuthTypePtr) ToServiceNetworkAuthTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceNetworkAuthTypePtrOutput)
 }
 
+// The status of the association between the service network and the service.
 type ServiceNetworkServiceAssociationStatus string
 
 const (
@@ -867,6 +879,7 @@ func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the association.
 type ServiceNetworkVpcAssociationStatus string
 
 const (
@@ -961,6 +974,7 @@ func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the service.
 type ServiceStatus string
 
 const (
@@ -1054,6 +1068,7 @@ func (o ServiceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
 type TargetGroupConfigIpAddressType string
 
 const (
@@ -1219,6 +1234,7 @@ func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigIpAddressTypePtrOutput)
 }
 
+// The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
 type TargetGroupConfigLambdaEventStructureVersion string
 
 const (
@@ -1384,6 +1400,7 @@ func (in *targetGroupConfigLambdaEventStructureVersionPtr) ToTargetGroupConfigLa
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigLambdaEventStructureVersionPtrOutput)
 }
 
+// The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
 type TargetGroupConfigProtocol string
 
 const (
@@ -1551,6 +1568,7 @@ func (in *targetGroupConfigProtocolPtr) ToTargetGroupConfigProtocolPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigProtocolPtrOutput)
 }
 
+// The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
 type TargetGroupConfigProtocolVersion string
 
 const (
@@ -1718,6 +1736,7 @@ func (in *targetGroupConfigProtocolVersionPtr) ToTargetGroupConfigProtocolVersio
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigProtocolVersionPtrOutput)
 }
 
+// The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
 type TargetGroupHealthCheckConfigProtocol string
 
 const (
@@ -1883,6 +1902,7 @@ func (in *targetGroupHealthCheckConfigProtocolPtr) ToTargetGroupHealthCheckConfi
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolPtrOutput)
 }
 
+// The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
 type TargetGroupHealthCheckConfigProtocolVersion string
 
 const (
@@ -2048,6 +2068,7 @@ func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToTargetGroupHealthChe
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
 }
 
+// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
 type TargetGroupStatus string
 
 const (
@@ -2141,6 +2162,7 @@ func (o TargetGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of target group.
 type TargetGroupType string
 
 const (

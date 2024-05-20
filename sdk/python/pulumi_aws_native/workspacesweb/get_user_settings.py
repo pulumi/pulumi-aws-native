@@ -59,56 +59,89 @@ class GetUserSettingsResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that this user settings resource is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
     def cookie_synchronization_configuration(self) -> Optional['outputs.UserSettingsCookieSynchronizationConfiguration']:
+        """
+        The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        """
         return pulumi.get(self, "cookie_synchronization_configuration")
 
     @property
     @pulumi.getter(name="copyAllowed")
     def copy_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can copy text from the streaming session to the local device.
+        """
         return pulumi.get(self, "copy_allowed")
 
     @property
     @pulumi.getter(name="disconnectTimeoutInMinutes")
     def disconnect_timeout_in_minutes(self) -> Optional[float]:
+        """
+        The amount of time that a streaming session remains active after users disconnect.
+        """
         return pulumi.get(self, "disconnect_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="downloadAllowed")
     def download_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can download files from the streaming session to the local device.
+        """
         return pulumi.get(self, "download_allowed")
 
     @property
     @pulumi.getter(name="idleDisconnectTimeoutInMinutes")
     def idle_disconnect_timeout_in_minutes(self) -> Optional[float]:
+        """
+        The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+        """
         return pulumi.get(self, "idle_disconnect_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="pasteAllowed")
     def paste_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can paste text from the local device to the streaming session.
+        """
         return pulumi.get(self, "paste_allowed")
 
     @property
     @pulumi.getter(name="printAllowed")
     def print_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can print to the local device.
+        """
         return pulumi.get(self, "print_allowed")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the user settings resource. A tag is a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="uploadAllowed")
     def upload_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can upload files from the local device to the streaming session.
+        """
         return pulumi.get(self, "upload_allowed")
 
     @property
     @pulumi.getter(name="userSettingsArn")
     def user_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the user settings.
+        """
         return pulumi.get(self, "user_settings_arn")
 
 
@@ -135,6 +168,9 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsResult:
     """
     Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
+
+
+    :param str user_settings_arn: The ARN of the user settings.
     """
     __args__ = dict()
     __args__['userSettingsArn'] = user_settings_arn
@@ -160,5 +196,8 @@ def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
+
+
+    :param str user_settings_arn: The ARN of the user settings.
     """
     ...

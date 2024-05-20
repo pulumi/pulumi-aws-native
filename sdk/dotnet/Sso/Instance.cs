@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Sso
         [Output("status")]
         public Output<Pulumi.AwsNative.Sso.InstanceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies tags to be attached to the instance of IAM Identity Center.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -101,6 +104,10 @@ namespace Pulumi.AwsNative.Sso
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies tags to be attached to the instance of IAM Identity Center.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardShapeConditionalFormat
     {
+        /// <summary>
+        /// The conditional formatting for the shape background color of a filled map visual.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor BackgroundColor;
 
         [OutputConstructor]

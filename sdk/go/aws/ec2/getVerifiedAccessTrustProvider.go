@@ -34,8 +34,9 @@ type LookupVerifiedAccessTrustProviderResult struct {
 	// A description for the Amazon Web Services Verified Access trust provider.
 	Description *string `pulumi:"description"`
 	// The last updated time.
-	LastUpdatedTime *string                                 `pulumi:"lastUpdatedTime"`
-	OidcOptions     *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The options for an OpenID Connect-compatible user-identity trust provider.
+	OidcOptions *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *SseSpecificationProperties `pulumi:"sseSpecification"`
 	// An array of key-value pairs to apply to this resource.
@@ -95,6 +96,7 @@ func (o LookupVerifiedAccessTrustProviderResultOutput) LastUpdatedTime() pulumi.
 	return o.ApplyT(func(v LookupVerifiedAccessTrustProviderResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The options for an OpenID Connect-compatible user-identity trust provider.
 func (o LookupVerifiedAccessTrustProviderResultOutput) OidcOptions() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
 	return o.ApplyT(func(v LookupVerifiedAccessTrustProviderResult) *VerifiedAccessTrustProviderOidcOptions {
 		return v.OidcOptions

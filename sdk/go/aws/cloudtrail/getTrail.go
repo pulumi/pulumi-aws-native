@@ -24,13 +24,21 @@ func LookupTrail(ctx *pulumi.Context, args *LookupTrailArgs, opts ...pulumi.Invo
 }
 
 type LookupTrailArgs struct {
+	// Specifies the name of the trail. The name must meet the following requirements:
+	//
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+	// - Start with a letter or number, and end with a letter or number
+	// - Be between 3 and 128 characters
+	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+	// - Not be in IP address format (for example, 192.168.5.4)
 	TrailName string `pulumi:"trailName"`
 }
 
 type LookupTrailResult struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors []TrailAdvancedEventSelector `pulumi:"advancedEventSelectors"`
-	Arn                    *string                      `pulumi:"arn"`
+	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+	Arn *string `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn *string `pulumi:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -55,10 +63,12 @@ type LookupTrailResult struct {
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
-	SnsTopicName *string   `pulumi:"snsTopicName"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	SnsTopicName *string `pulumi:"snsTopicName"`
+	// A custom set of tags (key-value pairs) for this trail.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTrailOutput(ctx *pulumi.Context, args LookupTrailOutputArgs, opts ...pulumi.InvokeOption) LookupTrailResultOutput {
@@ -75,6 +85,13 @@ func LookupTrailOutput(ctx *pulumi.Context, args LookupTrailOutputArgs, opts ...
 }
 
 type LookupTrailOutputArgs struct {
+	// Specifies the name of the trail. The name must meet the following requirements:
+	//
+	// - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+	// - Start with a letter or number, and end with a letter or number
+	// - Be between 3 and 128 characters
+	// - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+	// - Not be in IP address format (for example, 192.168.5.4)
 	TrailName pulumi.StringInput `pulumi:"trailName"`
 }
 
@@ -101,6 +118,7 @@ func (o LookupTrailResultOutput) AdvancedEventSelectors() TrailAdvancedEventSele
 	return o.ApplyT(func(v LookupTrailResult) []TrailAdvancedEventSelector { return v.AdvancedEventSelectors }).(TrailAdvancedEventSelectorArrayOutput)
 }
 
+// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 func (o LookupTrailResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -165,6 +183,7 @@ func (o LookupTrailResultOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 func (o LookupTrailResultOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
@@ -174,6 +193,7 @@ func (o LookupTrailResultOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }
 
+// A custom set of tags (key-value pairs) for this trail.
 func (o LookupTrailResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrailResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

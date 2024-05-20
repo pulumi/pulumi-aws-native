@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.CleanRoomsMl.Inputs
 
     public sealed class TrainingDatasetGlueDataSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Glue catalog that contains the training data.
+        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
+        /// <summary>
+        /// The Glue database that contains the training data.
+        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// The Glue table that contains the training data.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

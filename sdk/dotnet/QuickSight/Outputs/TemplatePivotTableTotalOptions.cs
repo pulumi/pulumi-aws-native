@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePivotTableTotalOptions
     {
+        /// <summary>
+        /// The column subtotal options.
+        /// </summary>
         public readonly Outputs.TemplateSubtotalOptions? ColumnSubtotalOptions;
+        /// <summary>
+        /// The column total options.
+        /// </summary>
         public readonly Outputs.TemplatePivotTotalOptions? ColumnTotalOptions;
+        /// <summary>
+        /// The row subtotal options.
+        /// </summary>
         public readonly Outputs.TemplateSubtotalOptions? RowSubtotalOptions;
+        /// <summary>
+        /// The row total options.
+        /// </summary>
         public readonly Outputs.TemplatePivotTotalOptions? RowTotalOptions;
 
         [OutputConstructor]

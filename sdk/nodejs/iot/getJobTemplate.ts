@@ -16,10 +16,16 @@ export function getJobTemplate(args: GetJobTemplateArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetJobTemplateArgs {
+    /**
+     * A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+     */
     jobTemplateId: string;
 }
 
 export interface GetJobTemplateResult {
+    /**
+     * The ARN of the job to use as the basis for the job template.
+     */
     readonly arn?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getJobTemplateOutput(args: GetJobTemplateOutputArgs, opts?: pulu
 }
 
 export interface GetJobTemplateOutputArgs {
+    /**
+     * A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+     */
     jobTemplateId: pulumi.Input<string>;
 }

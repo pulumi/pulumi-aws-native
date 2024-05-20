@@ -58,6 +58,9 @@ class GetFleetResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) assigned to the fleet.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -68,46 +71,73 @@ class GetFleetResult:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        The configuration details for the fleet.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description that helps identify what the fleet is used for.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the fleet summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> Optional[str]:
+        """
+        The fleet ID.
+        """
         return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="maxWorkerCount")
     def max_worker_count(self) -> Optional[int]:
+        """
+        The maximum number of workers specified in the fleet.
+        """
         return pulumi.get(self, "max_worker_count")
 
     @property
     @pulumi.getter(name="minWorkerCount")
     def min_worker_count(self) -> Optional[int]:
+        """
+        The minimum number of workers in the fleet.
+        """
         return pulumi.get(self, "min_worker_count")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The IAM role that workers in the fleet use when processing jobs.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['FleetStatus']:
+        """
+        The status of the fleet.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> Optional[int]:
+        """
+        The number of workers in the fleet summary.
+        """
         return pulumi.get(self, "worker_count")
 
 
@@ -134,6 +164,9 @@ def get_fleet(arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
     Definition of AWS::Deadline::Fleet Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) assigned to the fleet.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -159,5 +192,8 @@ def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
     Definition of AWS::Deadline::Fleet Resource Type
+
+
+    :param str arn: The Amazon Resource Name (ARN) assigned to the fleet.
     """
     ...

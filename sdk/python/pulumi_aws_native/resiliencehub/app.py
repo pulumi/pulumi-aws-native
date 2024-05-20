@@ -34,7 +34,9 @@ class AppArgs:
         :param pulumi.Input[str] description: App description.
         :param pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]] event_subscriptions: The list of events you would like to subscribe and get notification for.
         :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input['AppPermissionModelArgs'] permission_model: Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
         """
         pulumi.set(__self__, "app_template_body", app_template_body)
         pulumi.set(__self__, "resource_mappings", resource_mappings)
@@ -128,6 +130,9 @@ class AppArgs:
     @property
     @pulumi.getter(name="permissionModel")
     def permission_model(self) -> Optional[pulumi.Input['AppPermissionModelArgs']]:
+        """
+        Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        """
         return pulumi.get(self, "permission_model")
 
     @permission_model.setter
@@ -149,6 +154,9 @@ class AppArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -181,8 +189,10 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] description: App description.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEventSubscriptionArgs']]]] event_subscriptions: The list of events you would like to subscribe and get notification for.
         :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[pulumi.InputType['AppPermissionModelArgs']] permission_model: Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppResourceMappingArgs']]]] resource_mappings: An array of ResourceMapping objects.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
         """
         ...
     @overload
@@ -337,6 +347,9 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter(name="permissionModel")
     def permission_model(self) -> pulumi.Output[Optional['outputs.AppPermissionModel']]:
+        """
+        Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        """
         return pulumi.get(self, "permission_model")
 
     @property
@@ -358,5 +371,8 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+        """
         return pulumi.get(self, "tags")
 

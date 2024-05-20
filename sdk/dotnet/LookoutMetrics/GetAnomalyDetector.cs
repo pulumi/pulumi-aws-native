@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.LookoutMetrics
 
     public sealed class GetAnomalyDetectorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.LookoutMetrics
 
     public sealed class GetAnomalyDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -59,6 +65,9 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// A description for the AnomalyDetector.
         /// </summary>
         public readonly string? AnomalyDetectorDescription;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// KMS key used to encrypt the AnomalyDetector data

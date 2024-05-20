@@ -12,17 +12,29 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionTmpfsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The absolute file path in the container where the `tmpfs` volume is mounted.
+        /// </summary>
         [Input("containerPath", required: true)]
         public Input<string> ContainerPath { get; set; } = null!;
 
         [Input("mountOptions")]
         private InputList<string>? _mountOptions;
+
+        /// <summary>
+        /// The list of `tmpfs` volume mount options.
+        /// 
+        /// Valid values: " `defaults` " | " `ro` " | " `rw` " | " `suid` " | " `nosuid` " | " `dev` " | " `nodev` " | " `exec` " | " `noexec` " | " `sync` " | " `async` " | " `dirsync` " | " `remount` " | " `mand` " | " `nomand` " | " `atime` " | " `noatime` " | " `diratime` " | " `nodiratime` " | " `bind` " | " `rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime` " | " `norelatime` " | " `strictatime` " | " `nostrictatime` " | " `mode` " | " `uid` " | " `gid` " | " `nr_inodes` " | " `nr_blocks` " | " `mpol` "
+        /// </summary>
         public InputList<string> MountOptions
         {
             get => _mountOptions ?? (_mountOptions = new InputList<string>());
             set => _mountOptions = value;
         }
 
+        /// <summary>
+        /// The size (in MiB) of the `tmpfs` volume.
+        /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 

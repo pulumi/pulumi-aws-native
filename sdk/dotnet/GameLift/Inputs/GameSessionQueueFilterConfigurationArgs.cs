@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     {
         [Input("allowedLocations")]
         private InputList<string>? _allowedLocations;
+
+        /// <summary>
+        /// A list of locations to allow game session placement in, in the form of AWS Region codes such as `us-west-2` .
+        /// </summary>
         public InputList<string> AllowedLocations
         {
             get => _allowedLocations ?? (_allowedLocations = new InputList<string>());

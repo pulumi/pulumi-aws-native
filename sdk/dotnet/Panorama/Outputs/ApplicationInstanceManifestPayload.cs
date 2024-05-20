@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Panorama.Outputs
     [OutputType]
     public sealed class ApplicationInstanceManifestPayload
     {
+        /// <summary>
+        /// The application manifest.
+        /// </summary>
         public readonly string? PayloadData;
 
         [OutputConstructor]

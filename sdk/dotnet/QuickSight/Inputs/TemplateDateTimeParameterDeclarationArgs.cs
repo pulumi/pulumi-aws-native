@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateDateTimeParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+        /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.TemplateDateTimeDefaultValuesArgs>? DefaultValues { get; set; }
 
@@ -23,12 +26,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _mappedDataSetParameters = value;
         }
 
+        /// <summary>
+        /// The name of the parameter that is being declared.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateTimeGranularity>? TimeGranularity { get; set; }
 
+        /// <summary>
+        /// The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+        /// </summary>
         [Input("valueWhenUnset")]
         public Input<Inputs.TemplateDateTimeValueWhenUnsetConfigurationArgs>? ValueWhenUnset { get; set; }
 

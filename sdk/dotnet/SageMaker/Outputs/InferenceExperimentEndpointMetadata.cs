@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The name of the endpoint configuration.
         /// </summary>
         public readonly string? EndpointConfigName;
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
         public readonly string EndpointName;
         /// <summary>
         /// The status of the endpoint. For possible values of the status of an endpoint.

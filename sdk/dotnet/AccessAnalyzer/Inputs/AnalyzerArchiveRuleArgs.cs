@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     {
         [Input("filter", required: true)]
         private InputList<Inputs.AnalyzerFilterArgs>? _filter;
+
+        /// <summary>
+        /// The criteria for the rule.
+        /// </summary>
         public InputList<Inputs.AnalyzerFilterArgs> Filter
         {
             get => _filter ?? (_filter = new InputList<Inputs.AnalyzerFilterArgs>());

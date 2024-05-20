@@ -15,11 +15,16 @@ var _ = internal.GetEnvOrDefault
 
 // Logging configuration for the environment.
 type EnvironmentLoggingConfiguration struct {
+	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 	DagProcessingLogs *EnvironmentModuleLoggingConfiguration `pulumi:"dagProcessingLogs"`
-	SchedulerLogs     *EnvironmentModuleLoggingConfiguration `pulumi:"schedulerLogs"`
-	TaskLogs          *EnvironmentModuleLoggingConfiguration `pulumi:"taskLogs"`
-	WebserverLogs     *EnvironmentModuleLoggingConfiguration `pulumi:"webserverLogs"`
-	WorkerLogs        *EnvironmentModuleLoggingConfiguration `pulumi:"workerLogs"`
+	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
+	SchedulerLogs *EnvironmentModuleLoggingConfiguration `pulumi:"schedulerLogs"`
+	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
+	TaskLogs *EnvironmentModuleLoggingConfiguration `pulumi:"taskLogs"`
+	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
+	WebserverLogs *EnvironmentModuleLoggingConfiguration `pulumi:"webserverLogs"`
+	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
+	WorkerLogs *EnvironmentModuleLoggingConfiguration `pulumi:"workerLogs"`
 }
 
 // EnvironmentLoggingConfigurationInput is an input type that accepts EnvironmentLoggingConfigurationArgs and EnvironmentLoggingConfigurationOutput values.
@@ -35,11 +40,16 @@ type EnvironmentLoggingConfigurationInput interface {
 
 // Logging configuration for the environment.
 type EnvironmentLoggingConfigurationArgs struct {
+	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 	DagProcessingLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"dagProcessingLogs"`
-	SchedulerLogs     EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"schedulerLogs"`
-	TaskLogs          EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"taskLogs"`
-	WebserverLogs     EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"webserverLogs"`
-	WorkerLogs        EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"workerLogs"`
+	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
+	SchedulerLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"schedulerLogs"`
+	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
+	TaskLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"taskLogs"`
+	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
+	WebserverLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"webserverLogs"`
+	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
+	WorkerLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"workerLogs"`
 }
 
 func (EnvironmentLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -120,24 +130,29 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	}).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
+// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		return v.DagProcessingLogs
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) SchedulerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.SchedulerLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the task logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) TaskLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.TaskLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) WebserverLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.WebserverLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) WorkerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.WorkerLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
@@ -166,6 +181,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfi
 	}).(EnvironmentLoggingConfigurationOutput)
 }
 
+// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -175,6 +191,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() Environmen
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -184,6 +201,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentMod
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the task logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -193,6 +211,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentModuleLo
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -202,6 +221,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentMod
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -213,9 +233,14 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentModule
 
 // Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfiguration struct {
-	CloudWatchLogGroupArn *string                  `pulumi:"cloudWatchLogGroupArn"`
-	Enabled               *bool                    `pulumi:"enabled"`
-	LogLevel              *EnvironmentLoggingLevel `pulumi:"logLevel"`
+	// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+	//
+	// > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
+	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
+	// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
+	Enabled *bool `pulumi:"enabled"`
+	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+	LogLevel *EnvironmentLoggingLevel `pulumi:"logLevel"`
 }
 
 // EnvironmentModuleLoggingConfigurationInput is an input type that accepts EnvironmentModuleLoggingConfigurationArgs and EnvironmentModuleLoggingConfigurationOutput values.
@@ -231,9 +256,14 @@ type EnvironmentModuleLoggingConfigurationInput interface {
 
 // Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfigurationArgs struct {
-	CloudWatchLogGroupArn pulumi.StringPtrInput           `pulumi:"cloudWatchLogGroupArn"`
-	Enabled               pulumi.BoolPtrInput             `pulumi:"enabled"`
-	LogLevel              EnvironmentLoggingLevelPtrInput `pulumi:"logLevel"`
+	// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+	//
+	// > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
+	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
+	// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
+	LogLevel EnvironmentLoggingLevelPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentModuleLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -314,14 +344,19 @@ func (o EnvironmentModuleLoggingConfigurationOutput) ToEnvironmentModuleLoggingC
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
+// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+//
+// > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
 func (o EnvironmentModuleLoggingConfigurationOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
 func (o EnvironmentModuleLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
 func (o EnvironmentModuleLoggingConfigurationOutput) LogLevel() EnvironmentLoggingLevelPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *EnvironmentLoggingLevel { return v.LogLevel }).(EnvironmentLoggingLevelPtrOutput)
 }
@@ -350,6 +385,9 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) Elem() EnvironmentModule
 	}).(EnvironmentModuleLoggingConfigurationOutput)
 }
 
+// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
+//
+// > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *string {
 		if v == nil {
@@ -359,6 +397,7 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) CloudWatchLogGroupArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *bool {
 		if v == nil {
@@ -368,6 +407,7 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) LogLevel() EnvironmentLoggingLevelPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *EnvironmentLoggingLevel {
 		if v == nil {

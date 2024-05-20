@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AppStream.Inputs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The identifiers of the security groups for the fleet or image builder.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

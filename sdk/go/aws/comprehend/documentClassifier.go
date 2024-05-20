@@ -17,19 +17,46 @@ import (
 type DocumentClassifier struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput                         `pulumi:"arn"`
-	DataAccessRoleArn      pulumi.StringOutput                         `pulumi:"dataAccessRoleArn"`
-	DocumentClassifierName pulumi.StringOutput                         `pulumi:"documentClassifierName"`
-	InputDataConfig        DocumentClassifierInputDataConfigOutput     `pulumi:"inputDataConfig"`
-	LanguageCode           DocumentClassifierLanguageCodeOutput        `pulumi:"languageCode"`
-	Mode                   DocumentClassifierModePtrOutput             `pulumi:"mode"`
-	ModelKmsKeyId          pulumi.StringPtrOutput                      `pulumi:"modelKmsKeyId"`
-	ModelPolicy            pulumi.StringPtrOutput                      `pulumi:"modelPolicy"`
-	OutputDataConfig       DocumentClassifierOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
-	Tags                   aws.TagArrayOutput                          `pulumi:"tags"`
-	VersionName            pulumi.StringPtrOutput                      `pulumi:"versionName"`
-	VolumeKmsKeyId         pulumi.StringPtrOutput                      `pulumi:"volumeKmsKeyId"`
-	VpcConfig              DocumentClassifierVpcConfigPtrOutput        `pulumi:"vpcConfig"`
+	// The Amazon Resource Name (ARN) of the document classifier.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
+	// The name of the document classifier.
+	DocumentClassifierName pulumi.StringOutput `pulumi:"documentClassifierName"`
+	// Specifies the format and location of the input data for the job.
+	InputDataConfig DocumentClassifierInputDataConfigOutput `pulumi:"inputDataConfig"`
+	// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+	LanguageCode DocumentClassifierLanguageCodeOutput `pulumi:"languageCode"`
+	// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+	Mode DocumentClassifierModePtrOutput `pulumi:"mode"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	ModelKmsKeyId pulumi.StringPtrOutput `pulumi:"modelKmsKeyId"`
+	// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+	//
+	// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+	//
+	// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+	//
+	// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+	//
+	// `'{"attribute": "value", "attribute": ["value"]}'`
+	ModelPolicy pulumi.StringPtrOutput `pulumi:"modelPolicy"`
+	// Provides output results configuration parameters for custom classifier jobs.
+	OutputDataConfig DocumentClassifierOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
+	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	VolumeKmsKeyId pulumi.StringPtrOutput `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	VpcConfig DocumentClassifierVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewDocumentClassifier registers a new resource with the given unique name, arguments, and options.
@@ -94,34 +121,86 @@ func (DocumentClassifierState) ElementType() reflect.Type {
 }
 
 type documentClassifierArgs struct {
-	DataAccessRoleArn      string                              `pulumi:"dataAccessRoleArn"`
-	DocumentClassifierName *string                             `pulumi:"documentClassifierName"`
-	InputDataConfig        DocumentClassifierInputDataConfig   `pulumi:"inputDataConfig"`
-	LanguageCode           DocumentClassifierLanguageCode      `pulumi:"languageCode"`
-	Mode                   *DocumentClassifierMode             `pulumi:"mode"`
-	ModelKmsKeyId          *string                             `pulumi:"modelKmsKeyId"`
-	ModelPolicy            *string                             `pulumi:"modelPolicy"`
-	OutputDataConfig       *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	Tags                   []aws.Tag                           `pulumi:"tags"`
-	VersionName            *string                             `pulumi:"versionName"`
-	VolumeKmsKeyId         *string                             `pulumi:"volumeKmsKeyId"`
-	VpcConfig              *DocumentClassifierVpcConfig        `pulumi:"vpcConfig"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
+	// The name of the document classifier.
+	DocumentClassifierName *string `pulumi:"documentClassifierName"`
+	// Specifies the format and location of the input data for the job.
+	InputDataConfig DocumentClassifierInputDataConfig `pulumi:"inputDataConfig"`
+	// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+	LanguageCode DocumentClassifierLanguageCode `pulumi:"languageCode"`
+	// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+	Mode *DocumentClassifierMode `pulumi:"mode"`
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
+	// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+	//
+	// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+	//
+	// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+	//
+	// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+	//
+	// `'{"attribute": "value", "attribute": ["value"]}'`
+	ModelPolicy *string `pulumi:"modelPolicy"`
+	// Provides output results configuration parameters for custom classifier jobs.
+	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+	VersionName *string `pulumi:"versionName"`
+	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	VpcConfig *DocumentClassifierVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a DocumentClassifier resource.
 type DocumentClassifierArgs struct {
-	DataAccessRoleArn      pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
+	DataAccessRoleArn pulumi.StringInput
+	// The name of the document classifier.
 	DocumentClassifierName pulumi.StringPtrInput
-	InputDataConfig        DocumentClassifierInputDataConfigInput
-	LanguageCode           DocumentClassifierLanguageCodeInput
-	Mode                   DocumentClassifierModePtrInput
-	ModelKmsKeyId          pulumi.StringPtrInput
-	ModelPolicy            pulumi.StringPtrInput
-	OutputDataConfig       DocumentClassifierOutputDataConfigPtrInput
-	Tags                   aws.TagArrayInput
-	VersionName            pulumi.StringPtrInput
-	VolumeKmsKeyId         pulumi.StringPtrInput
-	VpcConfig              DocumentClassifierVpcConfigPtrInput
+	// Specifies the format and location of the input data for the job.
+	InputDataConfig DocumentClassifierInputDataConfigInput
+	// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
+	LanguageCode DocumentClassifierLanguageCodeInput
+	// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+	Mode DocumentClassifierModePtrInput
+	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	ModelKmsKeyId pulumi.StringPtrInput
+	// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+	//
+	// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+	//
+	// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+	//
+	// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+	//
+	// `'{"attribute": "value", "attribute": ["value"]}'`
+	ModelPolicy pulumi.StringPtrInput
+	// Provides output results configuration parameters for custom classifier jobs.
+	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+	Tags aws.TagArrayInput
+	// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
+	VersionName pulumi.StringPtrInput
+	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+	//
+	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
+	VolumeKmsKeyId pulumi.StringPtrInput
+	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	VpcConfig DocumentClassifierVpcConfigPtrInput
 }
 
 func (DocumentClassifierArgs) ElementType() reflect.Type {
@@ -161,54 +240,81 @@ func (o DocumentClassifierOutput) ToDocumentClassifierOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the document classifier.
 func (o DocumentClassifierOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
 func (o DocumentClassifierOutput) DataAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.DataAccessRoleArn }).(pulumi.StringOutput)
 }
 
+// The name of the document classifier.
 func (o DocumentClassifierOutput) DocumentClassifierName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.DocumentClassifierName }).(pulumi.StringOutput)
 }
 
+// Specifies the format and location of the input data for the job.
 func (o DocumentClassifierOutput) InputDataConfig() DocumentClassifierInputDataConfigOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierInputDataConfigOutput { return v.InputDataConfig }).(DocumentClassifierInputDataConfigOutput)
 }
 
+// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
 func (o DocumentClassifierOutput) LanguageCode() DocumentClassifierLanguageCodeOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierLanguageCodeOutput { return v.LanguageCode }).(DocumentClassifierLanguageCodeOutput)
 }
 
+// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 func (o DocumentClassifierOutput) Mode() DocumentClassifierModePtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierModePtrOutput { return v.Mode }).(DocumentClassifierModePtrOutput)
 }
 
+// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+//
+// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 func (o DocumentClassifierOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.ModelKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
+//
+// Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the JSON body is also enclosed in double quotes, then you must escape the double quotes that are inside the policy:
+//
+// `"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"`
+//
+// To avoid escaping quotes, you can use single quotes to enclose the policy and double quotes to enclose the JSON names and values:
+//
+// `'{"attribute": "value", "attribute": ["value"]}'`
 func (o DocumentClassifierOutput) ModelPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.ModelPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Provides output results configuration parameters for custom classifier jobs.
 func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDataConfigPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigPtrOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
+// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 func (o DocumentClassifierOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifier) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
 func (o DocumentClassifierOutput) VersionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.VersionName }).(pulumi.StringPtrOutput)
 }
 
+// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+//
+// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
+// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 func (o DocumentClassifierOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 func (o DocumentClassifierOutput) VpcConfig() DocumentClassifierVpcConfigPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierVpcConfigPtrOutput { return v.VpcConfig }).(DocumentClassifierVpcConfigPtrOutput)
 }

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterPrometheusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the JMX Exporter.
+        /// </summary>
         [Input("jmxExporter")]
         public Input<Inputs.ClusterJmxExporterArgs>? JmxExporter { get; set; }
 
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
         [Input("nodeExporter")]
         public Input<Inputs.ClusterNodeExporterArgs>? NodeExporter { get; set; }
 

@@ -33,6 +33,9 @@ class GetClientCertificateResult:
     @property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[str]:
+        """
+        The ID for the client certificate. For example: `abc123` .
+        """
         return pulumi.get(self, "client_certificate_id")
 
     @property
@@ -67,6 +70,9 @@ def get_client_certificate(client_certificate_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientCertificateResult:
     """
     The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
+
+
+    :param str client_certificate_id: The ID for the client certificate. For example: `abc123` .
     """
     __args__ = dict()
     __args__['clientCertificateId'] = client_certificate_id
@@ -84,5 +90,8 @@ def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[s
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientCertificateResult]:
     """
     The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
+
+
+    :param str client_certificate_id: The ID for the client certificate. For example: `abc123` .
     """
     ...

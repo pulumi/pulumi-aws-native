@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyStatelessRuleGroupReference
     {
+        /// <summary>
+        /// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the stateless rule group.
+        /// </summary>
         public readonly string ResourceArn;
 
         [OutputConstructor]

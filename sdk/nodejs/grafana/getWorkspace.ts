@@ -26,6 +26,9 @@ export interface GetWorkspaceArgs {
 }
 
 export interface GetWorkspaceResult {
+    /**
+     * Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION` , the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.
+     */
     readonly accountAccessType?: enums.grafana.WorkspaceAccountAccessType;
     /**
      * List of authentication providers to enable.
@@ -63,6 +66,9 @@ export interface GetWorkspaceResult {
      * The user friendly name of a workspace.
      */
     readonly name?: string;
+    /**
+     * The configuration settings for network access to your workspace.
+     */
     readonly networkAccessControl?: outputs.grafana.WorkspaceNetworkAccessControl;
     /**
      * List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
@@ -76,6 +82,15 @@ export interface GetWorkspaceResult {
      * List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
      */
     readonly organizationalUnits?: string[];
+    /**
+     * If this is `SERVICE_MANAGED` , and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.
+     *
+     * If this is `CUSTOMER_MANAGED` , you must manage those roles and permissions yourself.
+     *
+     * If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED` .
+     *
+     * For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
+     */
     readonly permissionType?: enums.grafana.WorkspacePermissionType;
     /**
      * Allow workspace admins to install plugins
@@ -85,7 +100,17 @@ export interface GetWorkspaceResult {
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */
     readonly roleArn?: string;
+    /**
+     * If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
+     */
     readonly samlConfiguration?: outputs.grafana.WorkspaceSamlConfiguration;
+    /**
+     * Specifies whether the workspace's SAML configuration is complete.
+     *
+     * Valid values: `CONFIGURED | NOT_CONFIGURED`
+     *
+     * Type: String
+     */
     readonly samlConfigurationStatus?: enums.grafana.WorkspaceSamlConfigurationStatus;
     /**
      * The client ID of the AWS SSO Managed Application.
@@ -95,7 +120,19 @@ export interface GetWorkspaceResult {
      * The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
      */
     readonly stackSetName?: string;
+    /**
+     * The current status of the workspace.
+     *
+     * Valid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`
+     *
+     * Type: String
+     */
     readonly status?: enums.grafana.WorkspaceStatus;
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+     *
+     * > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
+     */
     readonly vpcConfiguration?: outputs.grafana.WorkspaceVpcConfiguration;
 }
 /**

@@ -17,16 +17,28 @@ import (
 type TargetGroup struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput          `pulumi:"arn"`
-	AwsId         pulumi.StringOutput          `pulumi:"awsId"`
-	Config        TargetGroupConfigPtrOutput   `pulumi:"config"`
-	CreatedAt     pulumi.StringOutput          `pulumi:"createdAt"`
-	LastUpdatedAt pulumi.StringOutput          `pulumi:"lastUpdatedAt"`
-	Name          pulumi.StringPtrOutput       `pulumi:"name"`
-	Status        TargetGroupStatusOutput      `pulumi:"status"`
-	Tags          aws.TagArrayOutput           `pulumi:"tags"`
-	Targets       TargetGroupTargetArrayOutput `pulumi:"targets"`
-	Type          TargetGroupTypeOutput        `pulumi:"type"`
+	// The Amazon Resource Name (ARN) of the target group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the target group.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The target group configuration.
+	Config TargetGroupConfigPtrOutput `pulumi:"config"`
+	// The date and time that the target group was created, specified in ISO-8601 format.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The date and time that the target group was last updated, specified in ISO-8601 format.
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+	Status TargetGroupStatusOutput `pulumi:"status"`
+	// The tags for the target group.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Describes a target.
+	Targets TargetGroupTargetArrayOutput `pulumi:"targets"`
+	// The type of target group.
+	Type TargetGroupTypeOutput `pulumi:"type"`
 }
 
 // NewTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -83,20 +95,34 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
-	Config  *TargetGroupConfig  `pulumi:"config"`
-	Name    *string             `pulumi:"name"`
-	Tags    []aws.Tag           `pulumi:"tags"`
+	// The target group configuration.
+	Config *TargetGroupConfig `pulumi:"config"`
+	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name *string `pulumi:"name"`
+	// The tags for the target group.
+	Tags []aws.Tag `pulumi:"tags"`
+	// Describes a target.
 	Targets []TargetGroupTarget `pulumi:"targets"`
-	Type    TargetGroupType     `pulumi:"type"`
+	// The type of target group.
+	Type TargetGroupType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
-	Config  TargetGroupConfigPtrInput
-	Name    pulumi.StringPtrInput
-	Tags    aws.TagArrayInput
+	// The target group configuration.
+	Config TargetGroupConfigPtrInput
+	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	//
+	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+	Name pulumi.StringPtrInput
+	// The tags for the target group.
+	Tags aws.TagArrayInput
+	// Describes a target.
 	Targets TargetGroupTargetArrayInput
-	Type    TargetGroupTypeInput
+	// The type of target group.
+	Type TargetGroupTypeInput
 }
 
 func (TargetGroupArgs) ElementType() reflect.Type {
@@ -136,42 +162,54 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the target group.
 func (o TargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the target group.
 func (o TargetGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The target group configuration.
 func (o TargetGroupOutput) Config() TargetGroupConfigPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupConfigPtrOutput { return v.Config }).(TargetGroupConfigPtrOutput)
 }
 
+// The date and time that the target group was created, specified in ISO-8601 format.
 func (o TargetGroupOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The date and time that the target group was last updated, specified in ISO-8601 format.
 func (o TargetGroupOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+//
+// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 func (o TargetGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
 func (o TargetGroupOutput) Status() TargetGroupStatusOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupStatusOutput { return v.Status }).(TargetGroupStatusOutput)
 }
 
+// The tags for the target group.
 func (o TargetGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Describes a target.
 func (o TargetGroupOutput) Targets() TargetGroupTargetArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetArrayOutput { return v.Targets }).(TargetGroupTargetArrayOutput)
 }
 
+// The type of target group.
 func (o TargetGroupOutput) Type() TargetGroupTypeOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTypeOutput { return v.Type }).(TargetGroupTypeOutput)
 }

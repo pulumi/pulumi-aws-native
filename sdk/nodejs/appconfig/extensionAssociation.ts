@@ -37,13 +37,37 @@ export class ExtensionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExtensionAssociation.__pulumiType;
     }
 
+    /**
+     * The ARN of the extension defined in the association.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The system-generated ID for the association.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The ARN of the extension defined in the association.
+     */
     public /*out*/ readonly extensionArn!: pulumi.Output<string>;
+    /**
+     * The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+     */
     public readonly extensionIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+     */
     public readonly extensionVersionNumber!: pulumi.Output<number | undefined>;
+    /**
+     * The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+     */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ARNs of applications, configuration profiles, or environments defined in the association.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * The ARN of an application, configuration profile, or environment.
+     */
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -92,9 +116,21 @@ export class ExtensionAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ExtensionAssociation resource.
  */
 export interface ExtensionAssociationArgs {
+    /**
+     * The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+     */
     extensionIdentifier?: pulumi.Input<string>;
+    /**
+     * The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
+     */
     extensionVersionNumber?: pulumi.Input<number>;
+    /**
+     * The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
+     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ARN of an application, configuration profile, or environment.
+     */
     resourceIdentifier?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

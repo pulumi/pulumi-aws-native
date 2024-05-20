@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDynamicDefaultValue
     {
+        /// <summary>
+        /// The column that contains the default value of each user or group.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier DefaultValueColumn;
+        /// <summary>
+        /// The column that contains the group name.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier? GroupNameColumn;
+        /// <summary>
+        /// The column that contains the username.
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier? UserNameColumn;
 
         [OutputConstructor]

@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class FleetCertificateConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether a TLS/SSL certificate is generated for a fleet.
+        /// 
+        /// Valid values include:
+        /// 
+        /// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+        /// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+        /// </summary>
         [Input("certificateType", required: true)]
         public Input<Pulumi.AwsNative.GameLift.FleetCertificateConfigurationCertificateType> CertificateType { get; set; } = null!;
 

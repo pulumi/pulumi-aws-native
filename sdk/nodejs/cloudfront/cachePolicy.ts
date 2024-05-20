@@ -37,8 +37,17 @@ export class CachePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === CachePolicy.__pulumiType;
     }
 
+    /**
+     * The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The cache policy configuration.
+     */
     public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyConfig>;
+    /**
+     * The date and time when the cache policy was last modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -72,5 +81,8 @@ export class CachePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a CachePolicy resource.
  */
 export interface CachePolicyArgs {
+    /**
+     * The cache policy configuration.
+     */
     cachePolicyConfig: pulumi.Input<inputs.cloudfront.CachePolicyConfigArgs>;
 }

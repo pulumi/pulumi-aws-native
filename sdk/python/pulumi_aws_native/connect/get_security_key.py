@@ -26,6 +26,9 @@ class GetSecurityKeyResult:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[str]:
+        """
+        An `AssociationId` is automatically generated when a storage config is associated with an instance.
+        """
         return pulumi.get(self, "association_id")
 
 
@@ -43,6 +46,14 @@ def get_security_key(association_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityKeyResult:
     """
     Resource Type definition for AWS::Connect::SecurityKey
+
+
+    :param str association_id: An `AssociationId` is automatically generated when a storage config is associated with an instance.
+    :param str instance_id: The Amazon Resource Name (ARN) of the instance.
+           
+           *Minimum* : `1`
+           
+           *Maximum* : `100`
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -60,5 +71,13 @@ def get_security_key_output(association_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityKeyResult]:
     """
     Resource Type definition for AWS::Connect::SecurityKey
+
+
+    :param str association_id: An `AssociationId` is automatically generated when a storage config is associated with an instance.
+    :param str instance_id: The Amazon Resource Name (ARN) of the instance.
+           
+           *Minimum* : `1`
+           
+           *Maximum* : `100`
     """
     ...

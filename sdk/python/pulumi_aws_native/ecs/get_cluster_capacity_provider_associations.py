@@ -31,11 +31,17 @@ class GetClusterCapacityProviderAssociationsResult:
     @property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> Optional[Sequence[str]]:
+        """
+        The capacity providers to associate with the cluster.
+        """
         return pulumi.get(self, "capacity_providers")
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> Optional[Sequence['outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy']]:
+        """
+        The default capacity provider strategy to associate with the cluster.
+        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 
 
@@ -53,6 +59,9 @@ def get_cluster_capacity_provider_associations(cluster: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterCapacityProviderAssociationsResult:
     """
     Associate a set of ECS Capacity Providers with a specified ECS Cluster
+
+
+    :param str cluster: The cluster the capacity provider association is the target of.
     """
     __args__ = dict()
     __args__['cluster'] = cluster
@@ -69,5 +78,8 @@ def get_cluster_capacity_provider_associations_output(cluster: Optional[pulumi.I
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterCapacityProviderAssociationsResult]:
     """
     Associate a set of ECS Capacity Providers with a specified ECS Cluster
+
+
+    :param str cluster: The cluster the capacity provider association is the target of.
     """
     ...

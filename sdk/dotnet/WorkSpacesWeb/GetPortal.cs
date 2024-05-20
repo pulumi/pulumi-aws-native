@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetPortalArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the web portal.
+        /// </summary>
         [Input("portalArn", required: true)]
         public string PortalArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetPortalInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the web portal.
+        /// </summary>
         [Input("portalArn", required: true)]
         public Input<string> PortalArn { get; set; } = null!;
 
@@ -51,24 +57,93 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetPortalResult
     {
+        /// <summary>
+        /// The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
+        /// 
+        /// `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+        /// 
+        /// 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
+        /// 
+        /// 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+        /// 
+        /// 3. Submit the data to your IdP.
+        /// 
+        /// 4. Add an `IdentityProvider` resource to your CloudFormation template.
+        /// 
+        /// `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalAuthenticationType? AuthenticationType;
+        /// <summary>
+        /// The ARN of the browser settings that is associated with this web portal.
+        /// </summary>
         public readonly string? BrowserSettingsArn;
+        /// <summary>
+        /// The browser that users see when using a streaming session.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalBrowserType? BrowserType;
+        /// <summary>
+        /// The creation date of the web portal.
+        /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The name of the web portal.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The type and resources of the underlying instance.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalInstanceType? InstanceType;
+        /// <summary>
+        /// The ARN of the IP access settings that is associated with the web portal.
+        /// </summary>
         public readonly string? IpAccessSettingsArn;
+        /// <summary>
+        /// The maximum number of concurrent sessions for the portal.
+        /// </summary>
         public readonly double? MaxConcurrentSessions;
+        /// <summary>
+        /// The ARN of the network settings that is associated with the web portal.
+        /// </summary>
         public readonly string? NetworkSettingsArn;
+        /// <summary>
+        /// The ARN of the web portal.
+        /// </summary>
         public readonly string? PortalArn;
+        /// <summary>
+        /// The endpoint URL of the web portal that users access in order to start streaming sessions.
+        /// </summary>
         public readonly string? PortalEndpoint;
+        /// <summary>
+        /// The status of the web portal.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalStatus? PortalStatus;
+        /// <summary>
+        /// The renderer that is used in streaming sessions.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalRendererType? RendererType;
+        /// <summary>
+        /// The SAML metadata of the service provider.
+        /// </summary>
         public readonly string? ServiceProviderSamlMetadata;
+        /// <summary>
+        /// A message that explains why the web portal is in its current status.
+        /// </summary>
         public readonly string? StatusReason;
+        /// <summary>
+        /// The tags to add to the web portal. A tag is a key-value pair.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of the trust store that is associated with the web portal.
+        /// </summary>
         public readonly string? TrustStoreArn;
+        /// <summary>
+        /// The ARN of the user access logging settings that is associated with the web portal.
+        /// </summary>
         public readonly string? UserAccessLoggingSettingsArn;
+        /// <summary>
+        /// The ARN of the user settings that is associated with the web portal.
+        /// </summary>
         public readonly string? UserSettingsArn;
 
         [OutputConstructor]

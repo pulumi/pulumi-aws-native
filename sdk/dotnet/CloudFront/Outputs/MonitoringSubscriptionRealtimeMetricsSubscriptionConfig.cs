@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig
     {
+        /// <summary>
+        /// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus RealtimeMetricsSubscriptionStatus;
 
         [OutputConstructor]

@@ -39,21 +39,33 @@ class GetStoredQueryResult:
     @property
     @pulumi.getter(name="queryArn")
     def query_arn(self) -> Optional[str]:
+        """
+        Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.
+        """
         return pulumi.get(self, "query_arn")
 
     @property
     @pulumi.getter(name="queryDescription")
     def query_description(self) -> Optional[str]:
+        """
+        A unique description for the query.
+        """
         return pulumi.get(self, "query_description")
 
     @property
     @pulumi.getter(name="queryExpression")
     def query_expression(self) -> Optional[str]:
+        """
+        The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
+        """
         return pulumi.get(self, "query_expression")
 
     @property
     @pulumi.getter(name="queryId")
     def query_id(self) -> Optional[str]:
+        """
+        The ID of the query.
+        """
         return pulumi.get(self, "query_id")
 
     @property
@@ -82,6 +94,9 @@ def get_stored_query(query_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStoredQueryResult:
     """
     Resource Type definition for AWS::Config::StoredQuery
+
+
+    :param str query_name: The name of the query.
     """
     __args__ = dict()
     __args__['queryName'] = query_name
@@ -101,5 +116,8 @@ def get_stored_query_output(query_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStoredQueryResult]:
     """
     Resource Type definition for AWS::Config::StoredQuery
+
+
+    :param str query_name: The name of the query.
     """
     ...

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// objective function that training job is optimized for.
         /// </summary>
         public readonly Outputs.ModelCardObjectiveFunctionFunctionProperties? Function;
+        /// <summary>
+        /// Notes about the object function, including other considerations for possible objective functions.
+        /// </summary>
         public readonly string? Notes;
 
         [OutputConstructor]

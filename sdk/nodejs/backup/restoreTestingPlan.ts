@@ -37,12 +37,35 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestoreTestingPlan.__pulumiType;
     }
 
+    /**
+     * The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
+     */
     public readonly recoveryPointSelection!: pulumi.Output<outputs.backup.RestoreTestingPlanRestoreTestingRecoveryPointSelection>;
+    /**
+     * An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+     */
     public /*out*/ readonly restoreTestingPlanArn!: pulumi.Output<string>;
+    /**
+     * The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+     */
     public readonly restoreTestingPlanName!: pulumi.Output<string>;
+    /**
+     * A CRON expression in specified timezone when a restore testing plan is executed.
+     */
     public readonly scheduleExpression!: pulumi.Output<string>;
+    /**
+     * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+     */
     public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
+    /**
+     * Defaults to 24 hours.
+     *
+     * A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+     */
     public readonly startWindowHours!: pulumi.Output<number | undefined>;
+    /**
+     * Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -89,10 +112,30 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
  * The set of arguments for constructing a RestoreTestingPlan resource.
  */
 export interface RestoreTestingPlanArgs {
+    /**
+     * The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
+     */
     recoveryPointSelection: pulumi.Input<inputs.backup.RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs>;
+    /**
+     * The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+     */
     restoreTestingPlanName?: pulumi.Input<string>;
+    /**
+     * A CRON expression in specified timezone when a restore testing plan is executed.
+     */
     scheduleExpression: pulumi.Input<string>;
+    /**
+     * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+     */
     scheduleExpressionTimezone?: pulumi.Input<string>;
+    /**
+     * Defaults to 24 hours.
+     *
+     * A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+     */
     startWindowHours?: pulumi.Input<number>;
+    /**
+     * Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

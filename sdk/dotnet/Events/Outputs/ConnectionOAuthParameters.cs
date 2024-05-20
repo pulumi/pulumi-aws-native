@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionOAuthParameters
     {
+        /// <summary>
+        /// The URL to the authorization endpoint when OAuth is specified as the authorization type.
+        /// </summary>
         public readonly string AuthorizationEndpoint;
+        /// <summary>
+        /// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+        /// </summary>
         public readonly Outputs.ConnectionClientParameters ClientParameters;
+        /// <summary>
+        /// The method to use for the authorization request.
+        /// </summary>
         public readonly Pulumi.AwsNative.Events.ConnectionOAuthParametersHttpMethod HttpMethod;
+        /// <summary>
+        /// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+        /// </summary>
         public readonly Outputs.ConnectionHttpParameters? OAuthHttpParameters;
 
         [OutputConstructor]

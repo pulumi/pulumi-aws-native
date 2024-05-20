@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class OriginEndpointMssPackageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointMssEncryptionArgs>? Encryption { get; set; }
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 

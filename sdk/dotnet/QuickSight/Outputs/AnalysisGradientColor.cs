@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGradientColor
     {
+        /// <summary>
+        /// The list of gradient color stops.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisGradientStop> Stops;
 
         [OutputConstructor]

@@ -17,8 +17,9 @@ type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
 
 	// The name of an association between a Resolver rule and a VPC.
-	Name                      pulumi.StringPtrOutput `pulumi:"name"`
-	ResolverRuleAssociationId pulumi.StringOutput    `pulumi:"resolverRuleAssociationId"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
+	ResolverRuleAssociationId pulumi.StringOutput `pulumi:"resolverRuleAssociationId"`
 	// The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
 	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
@@ -137,6 +138,7 @@ func (o ResolverRuleAssociationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
 func (o ResolverRuleAssociationOutput) ResolverRuleAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.ResolverRuleAssociationId }).(pulumi.StringOutput)
 }

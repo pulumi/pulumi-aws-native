@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDataPathSortArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines the sort direction.
+        /// </summary>
         [Input("direction", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisSortDirection> Direction { get; set; } = null!;
 
         [Input("sortPaths", required: true)]
         private InputList<Inputs.AnalysisDataPathValueArgs>? _sortPaths;
+
+        /// <summary>
+        /// The list of data paths that need to be sorted.
+        /// </summary>
         public InputList<Inputs.AnalysisDataPathValueArgs> SortPaths
         {
             get => _sortPaths ?? (_sortPaths = new InputList<Inputs.AnalysisDataPathValueArgs>());

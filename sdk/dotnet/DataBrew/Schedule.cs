@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("cronExpression")]
         public Output<string> CronExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of jobs to be run, according to the schedule.
+        /// </summary>
         [Output("jobNames")]
         public Output<ImmutableArray<string>> JobNames { get; private set; } = null!;
 
@@ -63,6 +66,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata tags that have been applied to the schedule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -124,6 +130,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("jobNames")]
         private InputList<string>? _jobNames;
+
+        /// <summary>
+        /// A list of jobs to be run, according to the schedule.
+        /// </summary>
         public InputList<string> JobNames
         {
             get => _jobNames ?? (_jobNames = new InputList<string>());
@@ -138,6 +148,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata tags that have been applied to the schedule.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

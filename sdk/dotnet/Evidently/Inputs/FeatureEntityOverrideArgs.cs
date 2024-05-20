@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class FeatureEntityOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The entity ID to be served the variation specified in `Variation` .
+        /// </summary>
         [Input("entityId")]
         public Input<string>? EntityId { get; set; }
 
+        /// <summary>
+        /// The name of the variation to serve to the user session that matches the `EntityId` .
+        /// </summary>
         [Input("variation")]
         public Input<string>? Variation { get; set; }
 

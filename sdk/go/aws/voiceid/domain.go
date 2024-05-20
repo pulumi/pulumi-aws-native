@@ -17,11 +17,16 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
-	Description                       pulumi.StringPtrOutput                        `pulumi:"description"`
-	DomainId                          pulumi.StringOutput                           `pulumi:"domainId"`
-	Name                              pulumi.StringOutput                           `pulumi:"name"`
+	// The description of the domain.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The identifier of the domain.
+	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// The name for the domain.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              aws.TagArrayOutput                            `pulumi:"tags"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -67,18 +72,26 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	Description                       *string                                 `pulumi:"description"`
-	Name                              *string                                 `pulumi:"name"`
+	// The description of the domain.
+	Description *string `pulumi:"description"`
+	// The name for the domain.
+	Name *string `pulumi:"name"`
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	Tags                              []aws.Tag                               `pulumi:"tags"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	Description                       pulumi.StringPtrInput
-	Name                              pulumi.StringPtrInput
+	// The description of the domain.
+	Description pulumi.StringPtrInput
+	// The name for the domain.
+	Name pulumi.StringPtrInput
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfigurationInput
-	Tags                              aws.TagArrayInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.TagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -118,24 +131,29 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// The description of the domain.
 func (o DomainOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the domain.
 func (o DomainOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
+// The name for the domain.
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 func (o DomainOutput) ServerSideEncryptionConfiguration() DomainServerSideEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *Domain) DomainServerSideEncryptionConfigurationOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(DomainServerSideEncryptionConfigurationOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o DomainOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

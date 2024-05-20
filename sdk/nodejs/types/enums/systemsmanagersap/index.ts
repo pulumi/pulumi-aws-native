@@ -6,10 +6,16 @@ export const ApplicationCredentialCredentialType = {
     Admin: "ADMIN",
 } as const;
 
+/**
+ * The type of the application credentials.
+ */
 export type ApplicationCredentialCredentialType = (typeof ApplicationCredentialCredentialType)[keyof typeof ApplicationCredentialCredentialType];
 
 export const ApplicationType = {
     Hana: "HANA",
 } as const;
 
+/**
+ * The type of the application.
+ */
 export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];

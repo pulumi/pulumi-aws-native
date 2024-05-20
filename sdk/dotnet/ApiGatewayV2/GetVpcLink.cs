@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The VPC link ID.
+        /// </summary>
         [Input("vpcLinkId", required: true)]
         public string VpcLinkId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The VPC link ID.
+        /// </summary>
         [Input("vpcLinkId", required: true)]
         public Input<string> VpcLinkId { get; set; } = null!;
 
@@ -51,11 +57,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetVpcLinkResult
     {
+        /// <summary>
+        /// The name of the VPC link.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// This resource type use map for Tags, suggest to use List of Tag
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The VPC link ID.
+        /// </summary>
         public readonly string? VpcLinkId;
 
         [OutputConstructor]

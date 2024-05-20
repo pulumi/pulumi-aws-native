@@ -132,22 +132,30 @@ func (o DevicePoolRuleArrayOutput) Index(i pulumi.IntInput) DevicePoolRuleOutput
 }
 
 type DevicePoolTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
 	Value string `pulumi:"value"`
 }
 
 type InstanceProfileTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
 	Value string `pulumi:"value"`
 }
 
 type NetworkProfileTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
 	Value string `pulumi:"value"`
 }
 
 type ProjectTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
 	Value string `pulumi:"value"`
 }
 
@@ -330,7 +338,9 @@ func (o ProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type TestGridProjectTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
 	Value string `pulumi:"value"`
 }
 
@@ -340,7 +350,10 @@ type TestGridProjectVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of VPC subnet IDs in your Amazon VPC.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     string   `pulumi:"vpcId"`
+	// A list of VPC IDs.
+	//
+	// Each VPC is given a unique ID upon creation.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // TestGridProjectVpcConfigInput is an input type that accepts TestGridProjectVpcConfigArgs and TestGridProjectVpcConfigOutput values.
@@ -360,7 +373,10 @@ type TestGridProjectVpcConfigArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of VPC subnet IDs in your Amazon VPC.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringInput      `pulumi:"vpcId"`
+	// A list of VPC IDs.
+	//
+	// Each VPC is given a unique ID upon creation.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (TestGridProjectVpcConfigArgs) ElementType() reflect.Type {
@@ -451,6 +467,9 @@ func (o TestGridProjectVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TestGridProjectVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of VPC IDs.
+//
+// Each VPC is given a unique ID upon creation.
 func (o TestGridProjectVpcConfigOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v TestGridProjectVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -499,6 +518,9 @@ func (o TestGridProjectVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of VPC IDs.
+//
+// Each VPC is given a unique ID upon creation.
 func (o TestGridProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestGridProjectVpcConfig) *string {
 		if v == nil {
@@ -509,7 +531,9 @@ func (o TestGridProjectVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type VpceConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
 	Value string `pulumi:"value"`
 }
 

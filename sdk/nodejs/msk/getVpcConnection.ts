@@ -16,11 +16,20 @@ export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.Invok
 }
 
 export interface GetVpcConnectionArgs {
+    /**
+     * The ARN of the VPC connection.
+     */
     arn: string;
 }
 
 export interface GetVpcConnectionResult {
+    /**
+     * The ARN of the VPC connection.
+     */
     readonly arn?: string;
+    /**
+     * Create tags when creating the VPC connection.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -31,5 +40,8 @@ export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: 
 }
 
 export interface GetVpcConnectionOutputArgs {
+    /**
+     * The ARN of the VPC connection.
+     */
     arn: pulumi.Input<string>;
 }

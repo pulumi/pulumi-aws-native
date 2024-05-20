@@ -295,9 +295,12 @@ func (o AccessPolicyIamUserPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyIdentity struct {
+	// An IAM role identity.
 	IamRole *AccessPolicyIamRole `pulumi:"iamRole"`
+	// An IAM user identity.
 	IamUser *AccessPolicyIamUser `pulumi:"iamUser"`
-	User    *AccessPolicyUser    `pulumi:"user"`
+	// An IAM Identity Center user identity.
+	User *AccessPolicyUser `pulumi:"user"`
 }
 
 // AccessPolicyIdentityInput is an input type that accepts AccessPolicyIdentityArgs and AccessPolicyIdentityOutput values.
@@ -313,9 +316,12 @@ type AccessPolicyIdentityInput interface {
 
 // The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyIdentityArgs struct {
+	// An IAM role identity.
 	IamRole AccessPolicyIamRolePtrInput `pulumi:"iamRole"`
+	// An IAM user identity.
 	IamUser AccessPolicyIamUserPtrInput `pulumi:"iamUser"`
-	User    AccessPolicyUserPtrInput    `pulumi:"user"`
+	// An IAM Identity Center user identity.
+	User AccessPolicyUserPtrInput `pulumi:"user"`
 }
 
 func (AccessPolicyIdentityArgs) ElementType() reflect.Type {
@@ -345,14 +351,17 @@ func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutputWithContext(ctx 
 	return o
 }
 
+// An IAM role identity.
 func (o AccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
 }
 
+// An IAM user identity.
 func (o AccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamUser { return v.IamUser }).(AccessPolicyIamUserPtrOutput)
 }
 
+// An IAM Identity Center user identity.
 func (o AccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
 }
@@ -381,6 +390,7 @@ func (o AccessPolicyIdentityPtrOutput) Elem() AccessPolicyIdentityOutput {
 	}).(AccessPolicyIdentityOutput)
 }
 
+// An IAM role identity.
 func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamRole {
 		if v == nil {
@@ -390,6 +400,7 @@ func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	}).(AccessPolicyIamRolePtrOutput)
 }
 
+// An IAM user identity.
 func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamUser {
 		if v == nil {
@@ -399,6 +410,7 @@ func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	}).(AccessPolicyIamUserPtrOutput)
 }
 
+// An IAM Identity Center user identity.
 func (o AccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyUser {
 		if v == nil {
@@ -690,7 +702,9 @@ func (o AccessPolicyProjectPtrOutput) Id() pulumi.StringPtrOutput {
 
 // The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyResource struct {
-	Portal  *AccessPolicyPortal  `pulumi:"portal"`
+	// Identifies an AWS IoT SiteWise Monitor portal.
+	Portal *AccessPolicyPortal `pulumi:"portal"`
+	// Identifies a specific AWS IoT SiteWise Monitor project.
 	Project *AccessPolicyProject `pulumi:"project"`
 }
 
@@ -707,7 +721,9 @@ type AccessPolicyResourceInput interface {
 
 // The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyResourceArgs struct {
-	Portal  AccessPolicyPortalPtrInput  `pulumi:"portal"`
+	// Identifies an AWS IoT SiteWise Monitor portal.
+	Portal AccessPolicyPortalPtrInput `pulumi:"portal"`
+	// Identifies a specific AWS IoT SiteWise Monitor project.
 	Project AccessPolicyProjectPtrInput `pulumi:"project"`
 }
 
@@ -738,10 +754,12 @@ func (o AccessPolicyResourceOutput) ToAccessPolicyResourceOutputWithContext(ctx 
 	return o
 }
 
+// Identifies an AWS IoT SiteWise Monitor portal.
 func (o AccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
 	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyPortal { return v.Portal }).(AccessPolicyPortalPtrOutput)
 }
 
+// Identifies a specific AWS IoT SiteWise Monitor project.
 func (o AccessPolicyResourceOutput) Project() AccessPolicyProjectPtrOutput {
 	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyProject { return v.Project }).(AccessPolicyProjectPtrOutput)
 }
@@ -770,6 +788,7 @@ func (o AccessPolicyResourcePtrOutput) Elem() AccessPolicyResourceOutput {
 	}).(AccessPolicyResourceOutput)
 }
 
+// Identifies an AWS IoT SiteWise Monitor portal.
 func (o AccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyPortal {
 		if v == nil {
@@ -779,6 +798,7 @@ func (o AccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
 	}).(AccessPolicyPortalPtrOutput)
 }
 
+// Identifies a specific AWS IoT SiteWise Monitor project.
 func (o AccessPolicyResourcePtrOutput) Project() AccessPolicyProjectPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyProject {
 		if v == nil {
@@ -1215,6 +1235,7 @@ func (o AssetHierarchyArrayOutput) Index(i pulumi.IntInput) AssetHierarchyOutput
 }
 
 type AssetModelAttribute struct {
+	// The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
 	DefaultValue *string `pulumi:"defaultValue"`
 }
 
@@ -1230,6 +1251,7 @@ type AssetModelAttributeInput interface {
 }
 
 type AssetModelAttributeArgs struct {
+	// The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 }
 
@@ -1310,6 +1332,7 @@ func (o AssetModelAttributeOutput) ToAssetModelAttributePtrOutputWithContext(ctx
 	}).(AssetModelAttributePtrOutput)
 }
 
+// The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
 func (o AssetModelAttributeOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelAttribute) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -1338,6 +1361,7 @@ func (o AssetModelAttributePtrOutput) Elem() AssetModelAttributeOutput {
 	}).(AssetModelAttributeOutput)
 }
 
+// The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
 func (o AssetModelAttributePtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelAttribute) *string {
 		if v == nil {
@@ -1938,6 +1962,7 @@ func (o AssetModelMetricPtrOutput) Window() AssetModelMetricWindowPtrOutput {
 
 // Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindow struct {
+	// The tumbling time interval window.
 	Tumbling *AssetModelTumblingWindow `pulumi:"tumbling"`
 }
 
@@ -1954,6 +1979,7 @@ type AssetModelMetricWindowInput interface {
 
 // Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindowArgs struct {
+	// The tumbling time interval window.
 	Tumbling AssetModelTumblingWindowPtrInput `pulumi:"tumbling"`
 }
 
@@ -2035,6 +2061,7 @@ func (o AssetModelMetricWindowOutput) ToAssetModelMetricWindowPtrOutputWithConte
 	}).(AssetModelMetricWindowPtrOutput)
 }
 
+// The tumbling time interval window.
 func (o AssetModelMetricWindowOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v AssetModelMetricWindow) *AssetModelTumblingWindow { return v.Tumbling }).(AssetModelTumblingWindowPtrOutput)
 }
@@ -2063,6 +2090,7 @@ func (o AssetModelMetricWindowPtrOutput) Elem() AssetModelMetricWindowOutput {
 	}).(AssetModelMetricWindowOutput)
 }
 
+// The tumbling time interval window.
 func (o AssetModelMetricWindowPtrOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v *AssetModelMetricWindow) *AssetModelTumblingWindow {
 		if v == nil {
@@ -2337,10 +2365,14 @@ func (o AssetModelPropertyPathDefinitionArrayOutput) Index(i pulumi.IntInput) As
 
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyType struct {
+	// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 	Attribute *AssetModelAttribute `pulumi:"attribute"`
-	Metric    *AssetModelMetric    `pulumi:"metric"`
+	// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+	Metric *AssetModelMetric `pulumi:"metric"`
+	// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 	Transform *AssetModelTransform `pulumi:"transform"`
-	TypeName  AssetModelTypeName   `pulumi:"typeName"`
+	// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+	TypeName AssetModelTypeName `pulumi:"typeName"`
 }
 
 // AssetModelPropertyTypeInput is an input type that accepts AssetModelPropertyTypeArgs and AssetModelPropertyTypeOutput values.
@@ -2356,10 +2388,14 @@ type AssetModelPropertyTypeInput interface {
 
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyTypeArgs struct {
+	// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 	Attribute AssetModelAttributePtrInput `pulumi:"attribute"`
-	Metric    AssetModelMetricPtrInput    `pulumi:"metric"`
+	// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+	Metric AssetModelMetricPtrInput `pulumi:"metric"`
+	// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 	Transform AssetModelTransformPtrInput `pulumi:"transform"`
-	TypeName  AssetModelTypeNameInput     `pulumi:"typeName"`
+	// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+	TypeName AssetModelTypeNameInput `pulumi:"typeName"`
 }
 
 func (AssetModelPropertyTypeArgs) ElementType() reflect.Type {
@@ -2389,24 +2425,30 @@ func (o AssetModelPropertyTypeOutput) ToAssetModelPropertyTypeOutputWithContext(
 	return o
 }
 
+// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 func (o AssetModelPropertyTypeOutput) Attribute() AssetModelAttributePtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelAttribute { return v.Attribute }).(AssetModelAttributePtrOutput)
 }
 
+// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
 func (o AssetModelPropertyTypeOutput) Metric() AssetModelMetricPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelMetric { return v.Metric }).(AssetModelMetricPtrOutput)
 }
 
+// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 func (o AssetModelPropertyTypeOutput) Transform() AssetModelTransformPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelTransform { return v.Transform }).(AssetModelTransformPtrOutput)
 }
 
+// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
 func (o AssetModelPropertyTypeOutput) TypeName() AssetModelTypeNameOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) AssetModelTypeName { return v.TypeName }).(AssetModelTypeNameOutput)
 }
 
 type AssetModelTag struct {
-	Key   string `pulumi:"key"`
+	// The key or name that identifies the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -2568,8 +2610,36 @@ func (o AssetModelTransformPtrOutput) Variables() AssetModelExpressionVariableAr
 
 // Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 type AssetModelTumblingWindow struct {
-	Interval string  `pulumi:"interval"`
-	Offset   *string `pulumi:"offset"`
+	// The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+	//
+	// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+	//
+	// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
+	Interval string `pulumi:"interval"`
+	// The offset for the tumbling window. The `offset` parameter accepts the following:
+	//
+	// - The offset time.
+	//
+	// For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+	// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+	// - The ISO 8601 format.
+	//
+	// For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+	// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+	// - The 24-hour clock.
+	//
+	// For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+	// - The offset time zone.
+	//
+	// For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+	// - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
+	Offset *string `pulumi:"offset"`
 }
 
 // AssetModelTumblingWindowInput is an input type that accepts AssetModelTumblingWindowArgs and AssetModelTumblingWindowOutput values.
@@ -2585,8 +2655,36 @@ type AssetModelTumblingWindowInput interface {
 
 // Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 type AssetModelTumblingWindowArgs struct {
-	Interval pulumi.StringInput    `pulumi:"interval"`
-	Offset   pulumi.StringPtrInput `pulumi:"offset"`
+	// The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+	//
+	// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+	//
+	// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// The offset for the tumbling window. The `offset` parameter accepts the following:
+	//
+	// - The offset time.
+	//
+	// For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+	// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+	// - The ISO 8601 format.
+	//
+	// For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+	// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+	// - The 24-hour clock.
+	//
+	// For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+	// - The offset time zone.
+	//
+	// For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+	//
+	// - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+	// - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
+	Offset pulumi.StringPtrInput `pulumi:"offset"`
 }
 
 func (AssetModelTumblingWindowArgs) ElementType() reflect.Type {
@@ -2667,10 +2765,38 @@ func (o AssetModelTumblingWindowOutput) ToAssetModelTumblingWindowPtrOutputWithC
 	}).(AssetModelTumblingWindowPtrOutput)
 }
 
+// The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+//
+// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+//
+// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
 func (o AssetModelTumblingWindowOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelTumblingWindow) string { return v.Interval }).(pulumi.StringOutput)
 }
 
+// The offset for the tumbling window. The `offset` parameter accepts the following:
+//
+// - The offset time.
+//
+// For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+//
+// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+// - The ISO 8601 format.
+//
+// For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+//
+// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+// - The 24-hour clock.
+//
+// For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+// - The offset time zone.
+//
+// For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+//
+// - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+// - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
 func (o AssetModelTumblingWindowOutput) Offset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelTumblingWindow) *string { return v.Offset }).(pulumi.StringPtrOutput)
 }
@@ -2699,6 +2825,11 @@ func (o AssetModelTumblingWindowPtrOutput) Elem() AssetModelTumblingWindowOutput
 	}).(AssetModelTumblingWindowOutput)
 }
 
+// The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+//
+// AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+//
+// When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
 func (o AssetModelTumblingWindowPtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelTumblingWindow) *string {
 		if v == nil {
@@ -2708,6 +2839,29 @@ func (o AssetModelTumblingWindowPtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The offset for the tumbling window. The `offset` parameter accepts the following:
+//
+// - The offset time.
+//
+// For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+//
+// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+// - The ISO 8601 format.
+//
+// For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+//
+// - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+// - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+// - The 24-hour clock.
+//
+// For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+// - The offset time zone.
+//
+// For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+//
+// - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+// - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
 func (o AssetModelTumblingWindowPtrOutput) Offset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelTumblingWindow) *string {
 		if v == nil {
@@ -2721,12 +2875,16 @@ type AssetModelVariableValue struct {
 	// The External ID of the hierarchy that is trying to be referenced
 	HierarchyExternalId *string `pulumi:"hierarchyExternalId"`
 	// The ID of the hierarchy that is trying to be referenced
-	HierarchyId        *string `pulumi:"hierarchyId"`
+	HierarchyId *string `pulumi:"hierarchyId"`
+	// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+	//
+	// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
 	HierarchyLogicalId *string `pulumi:"hierarchyLogicalId"`
 	// The External ID of the property that is trying to be referenced
 	PropertyExternalId *string `pulumi:"propertyExternalId"`
 	// The ID of the property that is trying to be referenced
-	PropertyId        *string `pulumi:"propertyId"`
+	PropertyId *string `pulumi:"propertyId"`
+	// The `LogicalID` of the property that is being referenced.
 	PropertyLogicalId *string `pulumi:"propertyLogicalId"`
 	// The path of the property that is trying to be referenced
 	PropertyPath []AssetModelPropertyPathDefinition `pulumi:"propertyPath"`
@@ -2747,12 +2905,16 @@ type AssetModelVariableValueArgs struct {
 	// The External ID of the hierarchy that is trying to be referenced
 	HierarchyExternalId pulumi.StringPtrInput `pulumi:"hierarchyExternalId"`
 	// The ID of the hierarchy that is trying to be referenced
-	HierarchyId        pulumi.StringPtrInput `pulumi:"hierarchyId"`
+	HierarchyId pulumi.StringPtrInput `pulumi:"hierarchyId"`
+	// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+	//
+	// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
 	HierarchyLogicalId pulumi.StringPtrInput `pulumi:"hierarchyLogicalId"`
 	// The External ID of the property that is trying to be referenced
 	PropertyExternalId pulumi.StringPtrInput `pulumi:"propertyExternalId"`
 	// The ID of the property that is trying to be referenced
-	PropertyId        pulumi.StringPtrInput `pulumi:"propertyId"`
+	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
+	// The `LogicalID` of the property that is being referenced.
 	PropertyLogicalId pulumi.StringPtrInput `pulumi:"propertyLogicalId"`
 	// The path of the property that is trying to be referenced
 	PropertyPath AssetModelPropertyPathDefinitionArrayInput `pulumi:"propertyPath"`
@@ -2794,6 +2956,9 @@ func (o AssetModelVariableValueOutput) HierarchyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.HierarchyId }).(pulumi.StringPtrOutput)
 }
 
+// The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+//
+// You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
 func (o AssetModelVariableValueOutput) HierarchyLogicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.HierarchyLogicalId }).(pulumi.StringPtrOutput)
 }
@@ -2808,6 +2973,7 @@ func (o AssetModelVariableValueOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
+// The `LogicalID` of the property that is being referenced.
 func (o AssetModelVariableValueOutput) PropertyLogicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.PropertyLogicalId }).(pulumi.StringPtrOutput)
 }
@@ -2963,20 +3129,26 @@ func (o AssetPropertyArrayOutput) Index(i pulumi.IntInput) AssetPropertyOutput {
 }
 
 type AssetTag struct {
-	Key   string `pulumi:"key"`
+	// The key or name that identifies the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type DashboardTag struct {
-	Key   string `pulumi:"key"`
+	// The key or name that identifies the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 // Contains a summary of a gateway capability configuration.
 type GatewayCapabilitySummary struct {
+	// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
 	CapabilityConfiguration *string `pulumi:"capabilityConfiguration"`
-	CapabilityNamespace     string  `pulumi:"capabilityNamespace"`
+	// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+	CapabilityNamespace string `pulumi:"capabilityNamespace"`
 }
 
 // GatewayCapabilitySummaryInput is an input type that accepts GatewayCapabilitySummaryArgs and GatewayCapabilitySummaryOutput values.
@@ -2992,8 +3164,10 @@ type GatewayCapabilitySummaryInput interface {
 
 // Contains a summary of a gateway capability configuration.
 type GatewayCapabilitySummaryArgs struct {
+	// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
 	CapabilityConfiguration pulumi.StringPtrInput `pulumi:"capabilityConfiguration"`
-	CapabilityNamespace     pulumi.StringInput    `pulumi:"capabilityNamespace"`
+	// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+	CapabilityNamespace pulumi.StringInput `pulumi:"capabilityNamespace"`
 }
 
 func (GatewayCapabilitySummaryArgs) ElementType() reflect.Type {
@@ -3048,10 +3222,12 @@ func (o GatewayCapabilitySummaryOutput) ToGatewayCapabilitySummaryOutputWithCont
 	return o
 }
 
+// The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
 func (o GatewayCapabilitySummaryOutput) CapabilityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayCapabilitySummary) *string { return v.CapabilityConfiguration }).(pulumi.StringPtrOutput)
 }
 
+// The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
 func (o GatewayCapabilitySummaryOutput) CapabilityNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayCapabilitySummary) string { return v.CapabilityNamespace }).(pulumi.StringOutput)
 }
@@ -3571,19 +3747,25 @@ func (o GatewaySiemensIePtrOutput) IotCoreThingName() pulumi.StringPtrOutput {
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type GatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The key or name that identifies the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
 type PortalTag struct {
-	Key   string `pulumi:"key"`
+	// The key or name that identifies the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type ProjectTag struct {
-	Key   string `pulumi:"key"`
+	// The key or name that identifies the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

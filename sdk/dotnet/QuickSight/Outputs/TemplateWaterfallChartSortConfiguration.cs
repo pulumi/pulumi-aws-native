@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWaterfallChartSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of bar groups that are displayed.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? BreakdownItemsLimit;
+        /// <summary>
+        /// The sort configuration of the category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
 
         [OutputConstructor]

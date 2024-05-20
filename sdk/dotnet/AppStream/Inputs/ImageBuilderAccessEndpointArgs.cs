@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class ImageBuilderAccessEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of interface endpoint.
+        /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier (ID) of the VPC in which the interface endpoint is used.
+        /// </summary>
         [Input("vpceId", required: true)]
         public Input<string> VpceId { get; set; } = null!;
 

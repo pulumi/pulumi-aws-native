@@ -37,8 +37,17 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContinuousDeploymentPolicy.__pulumiType;
     }
 
+    /**
+     * The identifier of the cotinuous deployment policy.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Contains the configuration for a continuous deployment policy.
+     */
     public readonly continuousDeploymentPolicyConfig!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyConfig>;
+    /**
+     * The date and time when the continuous deployment policy was last modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -72,5 +81,8 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ContinuousDeploymentPolicy resource.
  */
 export interface ContinuousDeploymentPolicyArgs {
+    /**
+     * Contains the configuration for a continuous deployment policy.
+     */
     continuousDeploymentPolicyConfig: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyConfigArgs>;
 }

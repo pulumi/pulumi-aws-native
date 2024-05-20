@@ -31,7 +31,12 @@ type LookupStateMachineAliasResult struct {
 	// The ARN of the alias.
 	Arn *string `pulumi:"arn"`
 	// An optional description of the alias.
-	Description          *string                                        `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+	//
+	// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+	//
+	// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 	RoutingConfiguration []StateMachineAliasRoutingConfigurationVersion `pulumi:"routingConfiguration"`
 }
 
@@ -81,6 +86,11 @@ func (o LookupStateMachineAliasResultOutput) Description() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupStateMachineAliasResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The routing configuration of an alias. Routing configuration splits [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) requests between one or two versions of the same state machine.
+//
+// Use `RoutingConfiguration` if you want to explicitly set the alias [weights](https://docs.aws.amazon.com/step-functions/latest/apireference/API_RoutingConfigurationListItem.html#StepFunctions-Type-RoutingConfigurationListItem-weight) . Weight is the percentage of traffic you want to route to a state machine version.
+//
+// > `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties.
 func (o LookupStateMachineAliasResultOutput) RoutingConfiguration() StateMachineAliasRoutingConfigurationVersionArrayOutput {
 	return o.ApplyT(func(v LookupStateMachineAliasResult) []StateMachineAliasRoutingConfigurationVersion {
 		return v.RoutingConfiguration

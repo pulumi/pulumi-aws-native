@@ -25,6 +25,10 @@ class TlsInspectionConfigurationArgs:
                  tls_inspection_configuration_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
+        :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+        :param pulumi.Input[str] description: A description of the TLS inspection configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key:value pairs to associate with the resource.
+        :param pulumi.Input[str] tls_inspection_configuration_name: The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
         """
         pulumi.set(__self__, "tls_inspection_configuration", tls_inspection_configuration)
         if description is not None:
@@ -37,6 +41,9 @@ class TlsInspectionConfigurationArgs:
     @property
     @pulumi.getter(name="tlsInspectionConfiguration")
     def tls_inspection_configuration(self) -> pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']:
+        """
+        The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+        """
         return pulumi.get(self, "tls_inspection_configuration")
 
     @tls_inspection_configuration.setter
@@ -46,6 +53,9 @@ class TlsInspectionConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the TLS inspection configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -55,6 +65,9 @@ class TlsInspectionConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The key:value pairs to associate with the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,6 +77,9 @@ class TlsInspectionConfigurationArgs:
     @property
     @pulumi.getter(name="tlsInspectionConfigurationName")
     def tls_inspection_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
+        """
         return pulumi.get(self, "tls_inspection_configuration_name")
 
     @tls_inspection_configuration_name.setter
@@ -86,6 +102,10 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the TLS inspection configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The key:value pairs to associate with the resource.
+        :param pulumi.Input[pulumi.InputType['TlsInspectionConfigurationTlsInspectionConfigurationArgs']] tls_inspection_configuration: The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+        :param pulumi.Input[str] tls_inspection_configuration_name: The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
         """
         ...
     @overload
@@ -167,30 +187,48 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the TLS inspection configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The key:value pairs to associate with the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tlsInspectionConfiguration")
     def tls_inspection_configuration(self) -> pulumi.Output['outputs.TlsInspectionConfigurationTlsInspectionConfiguration']:
+        """
+        The object that defines a TLS inspection configuration. AWS Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, AWS Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using AWS Certificate Manager , create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall. For more information about using TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html) in the *AWS Network Firewall Developer Guide* .
+        """
         return pulumi.get(self, "tls_inspection_configuration")
 
     @property
     @pulumi.getter(name="tlsInspectionConfigurationArn")
     def tls_inspection_configuration_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the TLS inspection configuration.
+        """
         return pulumi.get(self, "tls_inspection_configuration_arn")
 
     @property
     @pulumi.getter(name="tlsInspectionConfigurationId")
     def tls_inspection_configuration_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.
+        """
         return pulumi.get(self, "tls_inspection_configuration_id")
 
     @property
     @pulumi.getter(name="tlsInspectionConfigurationName")
     def tls_inspection_configuration_name(self) -> pulumi.Output[str]:
+        """
+        The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.
+        """
         return pulumi.get(self, "tls_inspection_configuration_name")
 

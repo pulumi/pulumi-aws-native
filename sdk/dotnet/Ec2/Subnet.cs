@@ -106,6 +106,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the network ACL that is associated with the subnet's VPC, such as `acl-5fb85d36` .
+        /// </summary>
         [Output("networkAclAssociationId")]
         public Output<string> NetworkAclAssociationId { get; private set; } = null!;
 
@@ -125,6 +128,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("privateDnsNameOptionsOnLaunch")]
         public Output<Outputs.PrivateDnsNameOptionsOnLaunchProperties?> PrivateDnsNameOptionsOnLaunch { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 

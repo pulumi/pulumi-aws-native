@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.IvsChat
         /// The maximum number of messages per second that can be sent to the room.
         /// </summary>
         public readonly int? MaximumMessageRatePerSecond;
+        /// <summary>
+        /// Configuration information for optional review of messages.
+        /// </summary>
         public readonly Outputs.RoomMessageReviewHandler? MessageReviewHandler;
         /// <summary>
         /// The name of the room. The value does not need to be unique.

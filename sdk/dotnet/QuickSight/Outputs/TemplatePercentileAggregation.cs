@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePercentileAggregation
     {
+        /// <summary>
+        /// The percentile value. This value can be any numeric constant 0–100. A percentile value of 50 computes the median value of the measure.
+        /// </summary>
         public readonly double? PercentileValue;
 
         [OutputConstructor]

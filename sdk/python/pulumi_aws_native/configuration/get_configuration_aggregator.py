@@ -37,6 +37,9 @@ class GetConfigurationAggregatorResult:
     @property
     @pulumi.getter(name="accountAggregationSources")
     def account_aggregation_sources(self) -> Optional[Sequence['outputs.ConfigurationAggregatorAccountAggregationSource']]:
+        """
+        Provides a list of source accounts and regions to be aggregated.
+        """
         return pulumi.get(self, "account_aggregation_sources")
 
     @property
@@ -50,6 +53,9 @@ class GetConfigurationAggregatorResult:
     @property
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> Optional['outputs.ConfigurationAggregatorOrganizationAggregationSource']:
+        """
+        Provides an organization and list of regions to be aggregated.
+        """
         return pulumi.get(self, "organization_aggregation_source")
 
     @property

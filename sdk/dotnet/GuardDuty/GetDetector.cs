@@ -51,11 +51,30 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetDetectorResult
     {
+        /// <summary>
+        /// Describes which data sources will be enabled for the detector.
+        /// </summary>
         public readonly Outputs.DetectorCfnDataSourceConfigurations? DataSources;
+        /// <summary>
+        /// Specifies whether the detector is to be enabled on creation.
+        /// </summary>
         public readonly bool? Enable;
+        /// <summary>
+        /// A list of features that will be configured for the detector.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorCfnFeatureConfiguration> Features;
+        /// <summary>
+        /// Specifies how frequently updated findings are exported.
+        /// </summary>
         public readonly string? FindingPublishingFrequency;
         public readonly string? Id;
+        /// <summary>
+        /// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

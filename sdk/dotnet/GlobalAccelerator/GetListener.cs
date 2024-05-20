@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
         public readonly string? ListenerArn;
+        /// <summary>
+        /// The list of port ranges for the connections from clients to the accelerator.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ListenerPortRange> PortRanges;
         /// <summary>
         /// The protocol for the listener.

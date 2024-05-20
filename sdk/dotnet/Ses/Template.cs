@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.Ses
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        /// </summary>
         [Output("template")]
         public Output<Outputs.Template?> TemplateValue { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        /// </summary>
         [Input("template")]
         public Input<Inputs.TemplateArgs>? TemplateValue { get; set; }
 

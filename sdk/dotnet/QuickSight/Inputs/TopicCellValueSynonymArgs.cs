@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicCellValueSynonymArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cell value.
+        /// </summary>
         [Input("cellValue")]
         public Input<string>? CellValue { get; set; }
 
         [Input("synonyms")]
         private InputList<string>? _synonyms;
+
+        /// <summary>
+        /// Other names or aliases for the cell value.
+        /// </summary>
         public InputList<string> Synonyms
         {
             get => _synonyms ?? (_synonyms = new InputList<string>());

@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclJa3FingerprintArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint.
+        /// 
+        /// You can specify the following fallback behaviors:
+        /// 
+        /// - `MATCH` - Treat the web request as matching the rule statement. AWS WAF applies the rule action to the request.
+        /// - `NO_MATCH` - Treat the web request as not matching the rule statement.
+        /// </summary>
         [Input("fallbackBehavior", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.WebAclJa3FingerprintFallbackBehavior> FallbackBehavior { get; set; } = null!;
 

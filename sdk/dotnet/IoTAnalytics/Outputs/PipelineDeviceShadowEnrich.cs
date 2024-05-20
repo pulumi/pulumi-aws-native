@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineDeviceShadowEnrich
     {
+        /// <summary>
+        /// The name of the attribute that is added to the message.
+        /// </summary>
         public readonly string Attribute;
+        /// <summary>
+        /// The name of the 'deviceShadowEnrich' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
+        /// <summary>
+        /// The ARN of the role that allows access to the device's shadow.
+        /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// The name of the IoT device whose shadow information is added to the message.
+        /// </summary>
         public readonly string ThingName;
 
         [OutputConstructor]

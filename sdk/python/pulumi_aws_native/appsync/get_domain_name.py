@@ -32,16 +32,25 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="appSyncDomainName")
     def app_sync_domain_name(self) -> Optional[str]:
+        """
+        The domain name provided by AWS AppSync .
+        """
         return pulumi.get(self, "app_sync_domain_name")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The decription for your domain name.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[str]:
+        """
+        The ID of your Amazon Route 53 hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
 
@@ -60,6 +69,9 @@ def get_domain_name(domain_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainNameResult:
     """
     Resource Type definition for AWS::AppSync::DomainName
+
+
+    :param str domain_name: The domain name.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -77,5 +89,8 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Resource Type definition for AWS::AppSync::DomainName
+
+
+    :param str domain_name: The domain name.
     """
     ...

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisBoxPlotStyleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fill styles (solid, transparent) of the box plot.
+        /// </summary>
         [Input("fillStyle")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisBoxPlotFillStyle>? FillStyle { get; set; }
 

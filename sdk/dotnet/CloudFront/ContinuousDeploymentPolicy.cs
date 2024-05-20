@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:ContinuousDeploymentPolicy")]
     public partial class ContinuousDeploymentPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the cotinuous deployment policy.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains the configuration for a continuous deployment policy.
+        /// </summary>
         [Output("continuousDeploymentPolicyConfig")]
         public Output<Outputs.ContinuousDeploymentPolicyConfig> ContinuousDeploymentPolicyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the continuous deployment policy was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
@@ -69,6 +78,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class ContinuousDeploymentPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains the configuration for a continuous deployment policy.
+        /// </summary>
         [Input("continuousDeploymentPolicyConfig", required: true)]
         public Input<Inputs.ContinuousDeploymentPolicyConfigArgs> ContinuousDeploymentPolicyConfig { get; set; } = null!;
 

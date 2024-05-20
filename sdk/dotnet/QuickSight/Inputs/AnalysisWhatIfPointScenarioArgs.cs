@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisWhatIfPointScenarioArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The date that you need the forecast results for.
+        /// </summary>
         [Input("date", required: true)]
         public Input<string> Date { get; set; } = null!;
 
+        /// <summary>
+        /// The target value that you want to meet for the provided date.
+        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardRollingDateConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data set that is used in the rolling date configuration.
+        /// </summary>
         [Input("dataSetIdentifier")]
         public Input<string>? DataSetIdentifier { get; set; }
 
+        /// <summary>
+        /// The expression of the rolling date configuration.
+        /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

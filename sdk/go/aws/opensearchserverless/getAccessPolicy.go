@@ -24,7 +24,8 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts 
 
 type LookupAccessPolicyArgs struct {
 	// The name of the policy
-	Name string           `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The type of access policy. Currently the only option is `data` .
 	Type AccessPolicyType `pulumi:"type"`
 }
 
@@ -50,7 +51,8 @@ func LookupAccessPolicyOutput(ctx *pulumi.Context, args LookupAccessPolicyOutput
 
 type LookupAccessPolicyOutputArgs struct {
 	// The name of the policy
-	Name pulumi.StringInput    `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of access policy. Currently the only option is `data` .
 	Type AccessPolicyTypeInput `pulumi:"type"`
 }
 

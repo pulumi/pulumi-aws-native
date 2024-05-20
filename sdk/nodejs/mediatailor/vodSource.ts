@@ -45,11 +45,17 @@ export class VodSource extends pulumi.CustomResource {
      * <p>A list of HTTP package configuration parameters for this VOD source.</p>
      */
     public readonly httpPackageConfigurations!: pulumi.Output<outputs.mediatailor.VodSourceHttpPackageConfiguration[]>;
+    /**
+     * The name of the source location that the VOD source is associated with.
+     */
     public readonly sourceLocationName!: pulumi.Output<string>;
     /**
      * The tags to assign to the VOD source.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The name of the VOD source.
+     */
     public readonly vodSourceName!: pulumi.Output<string>;
 
     /**
@@ -96,10 +102,16 @@ export interface VodSourceArgs {
      * <p>A list of HTTP package configuration parameters for this VOD source.</p>
      */
     httpPackageConfigurations: pulumi.Input<pulumi.Input<inputs.mediatailor.VodSourceHttpPackageConfigurationArgs>[]>;
+    /**
+     * The name of the source location that the VOD source is associated with.
+     */
     sourceLocationName: pulumi.Input<string>;
     /**
      * The tags to assign to the VOD source.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The name of the VOD source.
+     */
     vodSourceName?: pulumi.Input<string>;
 }

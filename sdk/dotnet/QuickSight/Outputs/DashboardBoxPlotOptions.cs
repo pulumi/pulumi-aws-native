@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardBoxPlotOptions
     {
+        /// <summary>
+        /// Determines the visibility of all data points of the box plot.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? AllDataPointsVisibility;
+        /// <summary>
+        /// Determines the visibility of the outlier in a box plot.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? OutlierVisibility;
+        /// <summary>
+        /// The style options of the box plot.
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotStyleOptions? StyleOptions;
 
         [OutputConstructor]

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the Amazon Q Business application.
+        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for the Amazon Q Business application.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
@@ -51,16 +57,49 @@ namespace Pulumi.AwsNative.QBusiness
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q Business application.
+        /// </summary>
         public readonly string? ApplicationArn;
+        /// <summary>
+        /// The identifier for the Amazon Q Business application.
+        /// </summary>
         public readonly string? ApplicationId;
+        /// <summary>
+        /// Configuration information for the file upload during chat feature.
+        /// </summary>
         public readonly Outputs.ApplicationAttachmentsConfiguration? AttachmentsConfiguration;
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business application was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// A description for the Amazon Q Business application.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the Amazon Q Business application.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+        /// </summary>
         public readonly string? IdentityCenterApplicationArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.ApplicationStatus? Status;
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business application was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

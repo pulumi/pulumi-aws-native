@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardStringDefaultValues
     {
+        /// <summary>
+        /// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
+        /// </summary>
         public readonly Outputs.DashboardDynamicDefaultValue? DynamicValue;
+        /// <summary>
+        /// The static values of the `DecimalDefaultValues` .
+        /// </summary>
         public readonly ImmutableArray<string> StaticValues;
 
         [OutputConstructor]

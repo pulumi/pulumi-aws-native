@@ -11,10 +11,16 @@ __all__ = [
 
 
 class NotificationRuleDetailType(str, Enum):
+    """
+    The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+    """
     BASIC = "BASIC"
     FULL = "FULL"
 
 
 class NotificationRuleStatus(str, Enum):
+    """
+    The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+    """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"

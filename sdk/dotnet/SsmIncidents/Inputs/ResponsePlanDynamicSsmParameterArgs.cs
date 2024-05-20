@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
     /// </summary>
     public sealed class ResponsePlanDynamicSsmParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key parameter to use when running the Systems Manager Automation runbook.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The dynamic parameter value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.ResponsePlanDynamicSsmParameterValueArgs> Value { get; set; } = null!;
 

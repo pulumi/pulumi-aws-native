@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyIeMap
     {
+        /// <summary>
+        /// The account list for the map.
+        /// </summary>
         public readonly ImmutableArray<string> Account;
+        /// <summary>
+        /// The organizational unit list for the map.
+        /// </summary>
         public readonly ImmutableArray<string> Orgunit;
 
         [OutputConstructor]

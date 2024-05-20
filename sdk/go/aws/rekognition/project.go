@@ -15,7 +15,9 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// Returns the Amazon Resource Name of the project.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the project to create.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 }
 
@@ -63,11 +65,13 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// The name of the project to create.
 	ProjectName *string `pulumi:"projectName"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// The name of the project to create.
 	ProjectName pulumi.StringPtrInput
 }
 
@@ -108,10 +112,12 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// Returns the Amazon Resource Name of the project.
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the project to create.
 func (o ProjectOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }

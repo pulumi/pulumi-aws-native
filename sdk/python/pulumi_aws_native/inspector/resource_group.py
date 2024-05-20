@@ -19,12 +19,20 @@ class ResourceGroupArgs:
                  resource_group_tags: pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]]):
         """
         The set of arguments for constructing a ResourceGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "resource_group_tags", resource_group_tags)
 
     @property
     @pulumi.getter(name="resourceGroupTags")
     def resource_group_tags(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]]:
+        """
+        The tags (key and value pairs) that will be associated with the resource group.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "resource_group_tags")
 
     @resource_group_tags.setter
@@ -44,6 +52,9 @@ class ResourceGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -114,10 +125,18 @@ class ResourceGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that specifies the resource group that is created.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="resourceGroupTags")
     def resource_group_tags(self) -> pulumi.Output[Sequence['outputs.ResourceGroupTag']]:
+        """
+        The tags (key and value pairs) that will be associated with the resource group.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "resource_group_tags")
 

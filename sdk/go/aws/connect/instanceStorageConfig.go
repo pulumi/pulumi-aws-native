@@ -16,15 +16,22 @@ import (
 type InstanceStorageConfig struct {
 	pulumi.CustomResourceState
 
+	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// Connect Instance ID with which the storage config will be associated
-	InstanceArn              pulumi.StringOutput                                    `pulumi:"instanceArn"`
-	KinesisFirehoseConfig    InstanceStorageConfigKinesisFirehoseConfigPtrOutput    `pulumi:"kinesisFirehoseConfig"`
-	KinesisStreamConfig      InstanceStorageConfigKinesisStreamConfigPtrOutput      `pulumi:"kinesisStreamConfig"`
+	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	// The configuration of the Kinesis Firehose delivery stream.
+	KinesisFirehoseConfig InstanceStorageConfigKinesisFirehoseConfigPtrOutput `pulumi:"kinesisFirehoseConfig"`
+	// The configuration of the Kinesis data stream.
+	KinesisStreamConfig InstanceStorageConfigKinesisStreamConfigPtrOutput `pulumi:"kinesisStreamConfig"`
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig InstanceStorageConfigKinesisVideoStreamConfigPtrOutput `pulumi:"kinesisVideoStreamConfig"`
-	ResourceType             InstanceStorageConfigInstanceStorageResourceTypeOutput `pulumi:"resourceType"`
-	S3Config                 InstanceStorageConfigS3ConfigPtrOutput                 `pulumi:"s3Config"`
-	StorageType              InstanceStorageConfigStorageTypeOutput                 `pulumi:"storageType"`
+	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+	ResourceType InstanceStorageConfigInstanceStorageResourceTypeOutput `pulumi:"resourceType"`
+	// The S3 bucket configuration.
+	S3Config InstanceStorageConfigS3ConfigPtrOutput `pulumi:"s3Config"`
+	// A valid storage type.
+	StorageType InstanceStorageConfigStorageTypeOutput `pulumi:"storageType"`
 }
 
 // NewInstanceStorageConfig registers a new resource with the given unique name, arguments, and options.
@@ -82,25 +89,37 @@ func (InstanceStorageConfigState) ElementType() reflect.Type {
 
 type instanceStorageConfigArgs struct {
 	// Connect Instance ID with which the storage config will be associated
-	InstanceArn              string                                           `pulumi:"instanceArn"`
-	KinesisFirehoseConfig    *InstanceStorageConfigKinesisFirehoseConfig      `pulumi:"kinesisFirehoseConfig"`
-	KinesisStreamConfig      *InstanceStorageConfigKinesisStreamConfig        `pulumi:"kinesisStreamConfig"`
-	KinesisVideoStreamConfig *InstanceStorageConfigKinesisVideoStreamConfig   `pulumi:"kinesisVideoStreamConfig"`
-	ResourceType             InstanceStorageConfigInstanceStorageResourceType `pulumi:"resourceType"`
-	S3Config                 *InstanceStorageConfigS3Config                   `pulumi:"s3Config"`
-	StorageType              InstanceStorageConfigStorageType                 `pulumi:"storageType"`
+	InstanceArn string `pulumi:"instanceArn"`
+	// The configuration of the Kinesis Firehose delivery stream.
+	KinesisFirehoseConfig *InstanceStorageConfigKinesisFirehoseConfig `pulumi:"kinesisFirehoseConfig"`
+	// The configuration of the Kinesis data stream.
+	KinesisStreamConfig *InstanceStorageConfigKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
+	// The configuration of the Kinesis video stream.
+	KinesisVideoStreamConfig *InstanceStorageConfigKinesisVideoStreamConfig `pulumi:"kinesisVideoStreamConfig"`
+	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+	ResourceType InstanceStorageConfigInstanceStorageResourceType `pulumi:"resourceType"`
+	// The S3 bucket configuration.
+	S3Config *InstanceStorageConfigS3Config `pulumi:"s3Config"`
+	// A valid storage type.
+	StorageType InstanceStorageConfigStorageType `pulumi:"storageType"`
 }
 
 // The set of arguments for constructing a InstanceStorageConfig resource.
 type InstanceStorageConfigArgs struct {
 	// Connect Instance ID with which the storage config will be associated
-	InstanceArn              pulumi.StringInput
-	KinesisFirehoseConfig    InstanceStorageConfigKinesisFirehoseConfigPtrInput
-	KinesisStreamConfig      InstanceStorageConfigKinesisStreamConfigPtrInput
+	InstanceArn pulumi.StringInput
+	// The configuration of the Kinesis Firehose delivery stream.
+	KinesisFirehoseConfig InstanceStorageConfigKinesisFirehoseConfigPtrInput
+	// The configuration of the Kinesis data stream.
+	KinesisStreamConfig InstanceStorageConfigKinesisStreamConfigPtrInput
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig InstanceStorageConfigKinesisVideoStreamConfigPtrInput
-	ResourceType             InstanceStorageConfigInstanceStorageResourceTypeInput
-	S3Config                 InstanceStorageConfigS3ConfigPtrInput
-	StorageType              InstanceStorageConfigStorageTypeInput
+	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
+	ResourceType InstanceStorageConfigInstanceStorageResourceTypeInput
+	// The S3 bucket configuration.
+	S3Config InstanceStorageConfigS3ConfigPtrInput
+	// A valid storage type.
+	StorageType InstanceStorageConfigStorageTypeInput
 }
 
 func (InstanceStorageConfigArgs) ElementType() reflect.Type {
@@ -140,6 +159,7 @@ func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutputWithContext(ct
 	return o
 }
 
+// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 func (o InstanceStorageConfigOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
@@ -149,34 +169,40 @@ func (o InstanceStorageConfigOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
+// The configuration of the Kinesis Firehose delivery stream.
 func (o InstanceStorageConfigOutput) KinesisFirehoseConfig() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
 		return v.KinesisFirehoseConfig
 	}).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
 }
 
+// The configuration of the Kinesis data stream.
 func (o InstanceStorageConfigOutput) KinesisStreamConfig() InstanceStorageConfigKinesisStreamConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigKinesisStreamConfigPtrOutput {
 		return v.KinesisStreamConfig
 	}).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
 }
 
+// The configuration of the Kinesis video stream.
 func (o InstanceStorageConfigOutput) KinesisVideoStreamConfig() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
 		return v.KinesisVideoStreamConfig
 	}).(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput)
 }
 
+// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
 func (o InstanceStorageConfigOutput) ResourceType() InstanceStorageConfigInstanceStorageResourceTypeOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigInstanceStorageResourceTypeOutput {
 		return v.ResourceType
 	}).(InstanceStorageConfigInstanceStorageResourceTypeOutput)
 }
 
+// The S3 bucket configuration.
 func (o InstanceStorageConfigOutput) S3Config() InstanceStorageConfigS3ConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigS3ConfigPtrOutput { return v.S3Config }).(InstanceStorageConfigS3ConfigPtrOutput)
 }
 
+// A valid storage type.
 func (o InstanceStorageConfigOutput) StorageType() InstanceStorageConfigStorageTypeOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigStorageTypeOutput { return v.StorageType }).(InstanceStorageConfigStorageTypeOutput)
 }

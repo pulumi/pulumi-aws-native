@@ -501,7 +501,13 @@ export class RestApi extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any | undefined>;
+    /**
+     * The string identifier of the associated RestApi.
+     */
     public /*out*/ readonly restApiId!: pulumi.Output<string>;
+    /**
+     * The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
+     */
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.

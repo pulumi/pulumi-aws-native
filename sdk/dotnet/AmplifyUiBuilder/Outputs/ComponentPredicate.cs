@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentPredicate
     {
+        /// <summary>
+        /// A list of predicates to combine logically.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentPredicate> And;
+        /// <summary>
+        /// The field to query.
+        /// </summary>
         public readonly string? Field;
+        /// <summary>
+        /// The value to use when performing the evaluation.
+        /// </summary>
         public readonly string? Operand;
+        /// <summary>
+        /// The type of value to use when performing the evaluation.
+        /// </summary>
         public readonly string? OperandType;
+        /// <summary>
+        /// The operator to use to perform the evaluation.
+        /// </summary>
         public readonly string? Operator;
+        /// <summary>
+        /// A list of predicates to combine logically.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentPredicate> Or;
 
         [OutputConstructor]

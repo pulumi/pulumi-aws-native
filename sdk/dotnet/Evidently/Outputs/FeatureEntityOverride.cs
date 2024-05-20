@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class FeatureEntityOverride
     {
+        /// <summary>
+        /// The entity ID to be served the variation specified in `Variation` .
+        /// </summary>
         public readonly string? EntityId;
+        /// <summary>
+        /// The name of the variation to serve to the user session that matches the `EntityId` .
+        /// </summary>
         public readonly string? Variation;
 
         [OutputConstructor]

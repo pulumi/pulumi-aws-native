@@ -16,8 +16,23 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RoutingProfileMediaConcurrency
     {
+        /// <summary>
+        /// The channels that agents can handle in the Contact Control Panel (CCP).
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.RoutingProfileChannel Channel;
+        /// <summary>
+        /// The number of contacts an agent can have on a channel simultaneously.
+        /// 
+        /// Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+        /// 
+        /// Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+        /// 
+        /// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
+        /// </summary>
         public readonly int Concurrency;
+        /// <summary>
+        /// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
+        /// </summary>
         public readonly Outputs.RoutingProfileCrossChannelBehavior? CrossChannelBehavior;
 
         [OutputConstructor]

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPivotTableTotalOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The column subtotal options.
+        /// </summary>
         [Input("columnSubtotalOptions")]
         public Input<Inputs.AnalysisSubtotalOptionsArgs>? ColumnSubtotalOptions { get; set; }
 
+        /// <summary>
+        /// The column total options.
+        /// </summary>
         [Input("columnTotalOptions")]
         public Input<Inputs.AnalysisPivotTotalOptionsArgs>? ColumnTotalOptions { get; set; }
 
+        /// <summary>
+        /// The row subtotal options.
+        /// </summary>
         [Input("rowSubtotalOptions")]
         public Input<Inputs.AnalysisSubtotalOptionsArgs>? RowSubtotalOptions { get; set; }
 
+        /// <summary>
+        /// The row total options.
+        /// </summary>
         [Input("rowTotalOptions")]
         public Input<Inputs.AnalysisPivotTotalOptionsArgs>? RowTotalOptions { get; set; }
 

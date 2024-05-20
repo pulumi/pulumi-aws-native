@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
     [OutputType]
     public sealed class GetResourceCollectionResult
     {
+        /// <summary>
+        /// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        /// </summary>
         public readonly Outputs.ResourceCollectionFilter? ResourceCollectionFilter;
         /// <summary>
         /// The type of ResourceCollection

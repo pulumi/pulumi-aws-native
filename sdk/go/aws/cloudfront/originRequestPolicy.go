@@ -16,8 +16,11 @@ import (
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
-	AwsId                     pulumi.StringOutput             `pulumi:"awsId"`
-	LastModifiedTime          pulumi.StringOutput             `pulumi:"lastModifiedTime"`
+	// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The date and time when the origin request policy was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// The origin request policy configuration.
 	OriginRequestPolicyConfig OriginRequestPolicyConfigOutput `pulumi:"originRequestPolicyConfig"`
 }
 
@@ -64,11 +67,13 @@ func (OriginRequestPolicyState) ElementType() reflect.Type {
 }
 
 type originRequestPolicyArgs struct {
+	// The origin request policy configuration.
 	OriginRequestPolicyConfig OriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
 }
 
 // The set of arguments for constructing a OriginRequestPolicy resource.
 type OriginRequestPolicyArgs struct {
+	// The origin request policy configuration.
 	OriginRequestPolicyConfig OriginRequestPolicyConfigInput
 }
 
@@ -109,14 +114,17 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx co
 	return o
 }
 
+// The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
 func (o OriginRequestPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The date and time when the origin request policy was last modified.
 func (o OriginRequestPolicyOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// The origin request policy configuration.
 func (o OriginRequestPolicyOutput) OriginRequestPolicyConfig() OriginRequestPolicyConfigOutput {
 	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicyConfigOutput { return v.OriginRequestPolicyConfig }).(OriginRequestPolicyConfigOutput)
 }

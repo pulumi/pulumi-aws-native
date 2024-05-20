@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRecoveryOption
     {
+        /// <summary>
+        /// Specifies the recovery method for a user.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A positive integer specifying priority of a method with 1 being the highest priority.
+        /// </summary>
         public readonly int? Priority;
 
         [OutputConstructor]

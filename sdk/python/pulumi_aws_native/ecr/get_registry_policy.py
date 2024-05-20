@@ -39,6 +39,9 @@ class GetRegistryPolicyResult:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[str]:
+        """
+        The account ID of the private registry the policy is associated with.
+        """
         return pulumi.get(self, "registry_id")
 
 
@@ -57,6 +60,9 @@ def get_registry_policy(registry_id: Optional[str] = None,
     """
     The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
      A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
+
+
+    :param str registry_id: The account ID of the private registry the policy is associated with.
     """
     __args__ = dict()
     __args__['registryId'] = registry_id
@@ -74,5 +80,8 @@ def get_registry_policy_output(registry_id: Optional[pulumi.Input[str]] = None,
     """
     The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
      A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
+
+
+    :param str registry_id: The account ID of the private registry the policy is associated with.
     """
     ...

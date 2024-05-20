@@ -104,8 +104,15 @@ type DbCluster struct {
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
 	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// A value that indicates whether the DB cluster is publicly accessible.
-	PubliclyAccessible pulumi.BoolPtrOutput           `pulumi:"publiclyAccessible"`
-	ReadEndpoint       DbClusterReadEndpointPtrOutput `pulumi:"readEndpoint"`
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+	//
+	// - `CreateDBInstance`
+	// - `DescribeDBInstances`
+	// - `DeleteDBInstance`
+	//
+	// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+	ReadEndpoint DbClusterReadEndpointPtrOutput `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
 	// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
@@ -282,8 +289,15 @@ type dbClusterArgs struct {
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// A value that indicates whether the DB cluster is publicly accessible.
-	PubliclyAccessible *bool                  `pulumi:"publiclyAccessible"`
-	ReadEndpoint       *DbClusterReadEndpoint `pulumi:"readEndpoint"`
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+	//
+	// - `CreateDBInstance`
+	// - `DescribeDBInstances`
+	// - `DeleteDBInstance`
+	//
+	// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+	ReadEndpoint *DbClusterReadEndpoint `pulumi:"readEndpoint"`
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
@@ -403,7 +417,14 @@ type DbClusterArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// A value that indicates whether the DB cluster is publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
-	ReadEndpoint       DbClusterReadEndpointPtrInput
+	// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+	//
+	// - `CreateDBInstance`
+	// - `DescribeDBInstances`
+	// - `DeleteDBInstance`
+	//
+	// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+	ReadEndpoint DbClusterReadEndpointPtrInput
 	// The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
@@ -695,6 +716,13 @@ func (o DbClusterOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+// - `CreateDBInstance`
+// - `DescribeDBInstances`
+// - `DeleteDBInstance`
+//
+// For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
 func (o DbClusterOutput) ReadEndpoint() DbClusterReadEndpointPtrOutput {
 	return o.ApplyT(func(v *DbCluster) DbClusterReadEndpointPtrOutput { return v.ReadEndpoint }).(DbClusterReadEndpointPtrOutput)
 }

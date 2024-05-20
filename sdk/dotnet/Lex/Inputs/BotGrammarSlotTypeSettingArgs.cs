@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
     /// </summary>
     public sealed class BotGrammarSlotTypeSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source of the grammar used to create the slot type.
+        /// </summary>
         [Input("source")]
         public Input<Inputs.BotGrammarSlotTypeSourceArgs>? Source { get; set; }
 

@@ -55,6 +55,8 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
                  expression: pulumi.Input[str]):
         """
         Mathematical expression and a list of attribute items specified in that expression.
+        :param pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]] attributes: Mathematical expression and a list of attribute items specified in that expression.
+        :param pulumi.Input[str] expression: Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \\"{ObjectTypeName.AttributeName}\\".
         """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "expression", expression)
@@ -62,6 +64,9 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
     @property
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]]:
+        """
+        Mathematical expression and a list of attribute items specified in that expression.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
@@ -71,6 +76,9 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
     @property
     @pulumi.getter
     def expression(self) -> pulumi.Input[str]:
+        """
+        Mathematical expression that is performed on attribute items provided in the attribute list. Each element in the expression should follow the structure of \\"{ObjectTypeName.AttributeName}\\".
+        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -105,6 +113,9 @@ class CalculatedAttributeDefinitionConditionsArgs:
                  threshold: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']] = None):
         """
         The conditions including range, object count, and threshold for the calculated attribute.
+        :param pulumi.Input[int] object_count: The number of profile objects used for the calculated attribute.
+        :param pulumi.Input['CalculatedAttributeDefinitionRangeArgs'] range: The relative time period over which data is included in the aggregation.
+        :param pulumi.Input['CalculatedAttributeDefinitionThresholdArgs'] threshold: The threshold for the calculated attribute.
         """
         if object_count is not None:
             pulumi.set(__self__, "object_count", object_count)
@@ -116,6 +127,9 @@ class CalculatedAttributeDefinitionConditionsArgs:
     @property
     @pulumi.getter(name="objectCount")
     def object_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of profile objects used for the calculated attribute.
+        """
         return pulumi.get(self, "object_count")
 
     @object_count.setter
@@ -125,6 +139,9 @@ class CalculatedAttributeDefinitionConditionsArgs:
     @property
     @pulumi.getter
     def range(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']]:
+        """
+        The relative time period over which data is included in the aggregation.
+        """
         return pulumi.get(self, "range")
 
     @range.setter
@@ -134,6 +151,9 @@ class CalculatedAttributeDefinitionConditionsArgs:
     @property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']]:
+        """
+        The threshold for the calculated attribute.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -148,6 +168,8 @@ class CalculatedAttributeDefinitionRangeArgs:
                  value: pulumi.Input[int]):
         """
         The relative time period over which data is included in the aggregation.
+        :param pulumi.Input['CalculatedAttributeDefinitionRangeUnit'] unit: The unit of time.
+        :param pulumi.Input[int] value: The amount of time of the specified unit.
         """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
@@ -155,6 +177,9 @@ class CalculatedAttributeDefinitionRangeArgs:
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input['CalculatedAttributeDefinitionRangeUnit']:
+        """
+        The unit of time.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -164,6 +189,9 @@ class CalculatedAttributeDefinitionRangeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        The amount of time of the specified unit.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -178,6 +206,8 @@ class CalculatedAttributeDefinitionThresholdArgs:
                  value: pulumi.Input[str]):
         """
         The threshold for the calculated attribute.
+        :param pulumi.Input['CalculatedAttributeDefinitionThresholdOperator'] operator: The operator of the threshold.
+        :param pulumi.Input[str] value: The value of the threshold.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "value", value)
@@ -185,6 +215,9 @@ class CalculatedAttributeDefinitionThresholdArgs:
     @property
     @pulumi.getter
     def operator(self) -> pulumi.Input['CalculatedAttributeDefinitionThresholdOperator']:
+        """
+        The operator of the threshold.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -194,6 +227,9 @@ class CalculatedAttributeDefinitionThresholdArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the threshold.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -282,6 +318,8 @@ class DomainAutoMergingArgs:
         """
         Configuration information about the auto-merging process.
         :param pulumi.Input[bool] enabled: The flag that enables the auto-merging of duplicate profiles.
+        :param pulumi.Input['DomainConflictResolutionArgs'] conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+        :param pulumi.Input['DomainConsolidationArgs'] consolidation: A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
         :param pulumi.Input[float] min_allowed_confidence_score_for_merging: A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -307,6 +345,9 @@ class DomainAutoMergingArgs:
     @property
     @pulumi.getter(name="conflictResolution")
     def conflict_resolution(self) -> Optional[pulumi.Input['DomainConflictResolutionArgs']]:
+        """
+        Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+        """
         return pulumi.get(self, "conflict_resolution")
 
     @conflict_resolution.setter
@@ -316,6 +357,9 @@ class DomainAutoMergingArgs:
     @property
     @pulumi.getter
     def consolidation(self) -> Optional[pulumi.Input['DomainConsolidationArgs']]:
+        """
+        A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+        """
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
@@ -461,12 +505,16 @@ class DomainMatchingRuleArgs:
                  rule: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies how does the rule-based matching process should match profiles.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rule: A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
         """
         pulumi.set(__self__, "rule", rule)
 
     @property
     @pulumi.getter
     def rule(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
+        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -484,6 +532,9 @@ class DomainMatchingArgs:
         """
         The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
         :param pulumi.Input[bool] enabled: The flag that enables the matching process of duplicate profiles.
+        :param pulumi.Input['DomainAutoMergingArgs'] auto_merging: Configuration information about the auto-merging process.
+        :param pulumi.Input['DomainExportingConfigArgs'] exporting_config: The S3 location where Identity Resolution Jobs write result files.
+        :param pulumi.Input['DomainJobScheduleArgs'] job_schedule: The day and time when do you want to start the Identity Resolution Job every week.
         """
         pulumi.set(__self__, "enabled", enabled)
         if auto_merging is not None:
@@ -508,6 +559,9 @@ class DomainMatchingArgs:
     @property
     @pulumi.getter(name="autoMerging")
     def auto_merging(self) -> Optional[pulumi.Input['DomainAutoMergingArgs']]:
+        """
+        Configuration information about the auto-merging process.
+        """
         return pulumi.get(self, "auto_merging")
 
     @auto_merging.setter
@@ -517,6 +571,9 @@ class DomainMatchingArgs:
     @property
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional[pulumi.Input['DomainExportingConfigArgs']]:
+        """
+        The S3 location where Identity Resolution Jobs write result files.
+        """
         return pulumi.get(self, "exporting_config")
 
     @exporting_config.setter
@@ -526,6 +583,9 @@ class DomainMatchingArgs:
     @property
     @pulumi.getter(name="jobSchedule")
     def job_schedule(self) -> Optional[pulumi.Input['DomainJobScheduleArgs']]:
+        """
+        The day and time when do you want to start the Identity Resolution Job every week.
+        """
         return pulumi.get(self, "job_schedule")
 
     @job_schedule.setter
@@ -547,9 +607,13 @@ class DomainRuleBasedMatchingArgs:
         """
         The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
         :param pulumi.Input[bool] enabled: The flag that enables the rule-based matching process of duplicate profiles.
+        :param pulumi.Input['DomainAttributeTypesSelectorArgs'] attribute_types_selector: Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
+        :param pulumi.Input['DomainConflictResolutionArgs'] conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+        :param pulumi.Input['DomainExportingConfigArgs'] exporting_config: The S3 location where Identity Resolution Jobs write result files.
         :param pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]] matching_rules: Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
         :param pulumi.Input[int] max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
         :param pulumi.Input[int] max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
+        :param pulumi.Input['DomainRuleBasedMatchingStatus'] status: The status of rule-based matching rule.
         """
         pulumi.set(__self__, "enabled", enabled)
         if attribute_types_selector is not None:
@@ -582,6 +646,9 @@ class DomainRuleBasedMatchingArgs:
     @property
     @pulumi.getter(name="attributeTypesSelector")
     def attribute_types_selector(self) -> Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']]:
+        """
+        Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
+        """
         return pulumi.get(self, "attribute_types_selector")
 
     @attribute_types_selector.setter
@@ -591,6 +658,9 @@ class DomainRuleBasedMatchingArgs:
     @property
     @pulumi.getter(name="conflictResolution")
     def conflict_resolution(self) -> Optional[pulumi.Input['DomainConflictResolutionArgs']]:
+        """
+        Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+        """
         return pulumi.get(self, "conflict_resolution")
 
     @conflict_resolution.setter
@@ -600,6 +670,9 @@ class DomainRuleBasedMatchingArgs:
     @property
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional[pulumi.Input['DomainExportingConfigArgs']]:
+        """
+        The S3 location where Identity Resolution Jobs write result files.
+        """
         return pulumi.get(self, "exporting_config")
 
     @exporting_config.setter
@@ -645,6 +718,9 @@ class DomainRuleBasedMatchingArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingStatus']]:
+        """
+        The status of rule-based matching rule.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -699,6 +775,13 @@ class IntegrationConnectorOperatorArgs:
                  salesforce: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']] = None,
                  service_now: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']] = None,
                  zendesk: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']] = None):
+        """
+        :param pulumi.Input['IntegrationMarketoConnectorOperator'] marketo: The operation to be performed on the provided Marketo source fields.
+        :param pulumi.Input['IntegrationS3ConnectorOperator'] s3: The operation to be performed on the provided Amazon S3 source fields.
+        :param pulumi.Input['IntegrationSalesforceConnectorOperator'] salesforce: The operation to be performed on the provided Salesforce source fields.
+        :param pulumi.Input['IntegrationServiceNowConnectorOperator'] service_now: The operation to be performed on the provided ServiceNow source fields.
+        :param pulumi.Input['IntegrationZendeskConnectorOperator'] zendesk: The operation to be performed on the provided Zendesk source fields.
+        """
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
@@ -713,6 +796,9 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['IntegrationMarketoConnectorOperator']]:
+        """
+        The operation to be performed on the provided Marketo source fields.
+        """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
@@ -722,6 +808,9 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['IntegrationS3ConnectorOperator']]:
+        """
+        The operation to be performed on the provided Amazon S3 source fields.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -731,6 +820,9 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']]:
+        """
+        The operation to be performed on the provided Salesforce source fields.
+        """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
@@ -740,6 +832,9 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']]:
+        """
+        The operation to be performed on the provided ServiceNow source fields.
+        """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
@@ -749,6 +844,9 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['IntegrationZendeskConnectorOperator']]:
+        """
+        The operation to be performed on the provided Zendesk source fields.
+        """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
@@ -765,6 +863,14 @@ class IntegrationFlowDefinitionArgs:
                  tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]],
                  trigger_config: pulumi.Input['IntegrationTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] flow_name: The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+        :param pulumi.Input[str] kms_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+        :param pulumi.Input['IntegrationSourceFlowConfigArgs'] source_flow_config: The configuration that controls how Customer Profiles retrieves data from the source.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]] tasks: A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+        :param pulumi.Input['IntegrationTriggerConfigArgs'] trigger_config: The trigger settings that determine how and when the flow runs.
+        :param pulumi.Input[str] description: A description of the flow you want to create.
+        """
         pulumi.set(__self__, "flow_name", flow_name)
         pulumi.set(__self__, "kms_arn", kms_arn)
         pulumi.set(__self__, "source_flow_config", source_flow_config)
@@ -776,6 +882,9 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="flowName")
     def flow_name(self) -> pulumi.Input[str]:
+        """
+        The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
+        """
         return pulumi.get(self, "flow_name")
 
     @flow_name.setter
@@ -785,6 +894,9 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
+        """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
@@ -794,6 +906,9 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="sourceFlowConfig")
     def source_flow_config(self) -> pulumi.Input['IntegrationSourceFlowConfigArgs']:
+        """
+        The configuration that controls how Customer Profiles retrieves data from the source.
+        """
         return pulumi.get(self, "source_flow_config")
 
     @source_flow_config.setter
@@ -803,6 +918,9 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter
     def tasks(self) -> pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]]:
+        """
+        A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+        """
         return pulumi.get(self, "tasks")
 
     @tasks.setter
@@ -812,6 +930,9 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="triggerConfig")
     def trigger_config(self) -> pulumi.Input['IntegrationTriggerConfigArgs']:
+        """
+        The trigger settings that determine how and when the flow runs.
+        """
         return pulumi.get(self, "trigger_config")
 
     @trigger_config.setter
@@ -821,6 +942,9 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the flow you want to create.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -832,12 +956,18 @@ class IntegrationFlowDefinitionArgs:
 class IntegrationIncrementalPullConfigArgs:
     def __init__(__self__, *,
                  datetime_type_field_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] datetime_type_field_name: A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+        """
         if datetime_type_field_name is not None:
             pulumi.set(__self__, "datetime_type_field_name", datetime_type_field_name)
 
     @property
     @pulumi.getter(name="datetimeTypeFieldName")
     def datetime_type_field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+        """
         return pulumi.get(self, "datetime_type_field_name")
 
     @datetime_type_field_name.setter
@@ -849,11 +979,17 @@ class IntegrationIncrementalPullConfigArgs:
 class IntegrationMarketoSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] object: The object specified in the Marketo flow source.
+        """
         pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
+        """
+        The object specified in the Marketo flow source.
+        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -866,12 +1002,19 @@ class IntegrationObjectTypeMappingArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key.
+        :param pulumi.Input[str] value: The value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -881,6 +1024,9 @@ class IntegrationObjectTypeMappingArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -893,6 +1039,10 @@ class IntegrationS3SourcePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The Amazon S3 bucket name where the source files are stored.
+        :param pulumi.Input[str] bucket_prefix: The object key for the Amazon S3 bucket in which the source files are stored.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -900,6 +1050,9 @@ class IntegrationS3SourcePropertiesArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 bucket name where the source files are stored.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -909,6 +1062,9 @@ class IntegrationS3SourcePropertiesArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object key for the Amazon S3 bucket in which the source files are stored.
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -922,6 +1078,11 @@ class IntegrationSalesforceSourcePropertiesArgs:
                  object: pulumi.Input[str],
                  enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
                  include_deleted_records: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] object: The object specified in the Salesforce flow source.
+        :param pulumi.Input[bool] enable_dynamic_field_update: The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        :param pulumi.Input[bool] include_deleted_records: Indicates whether Amazon AppFlow includes deleted files in the flow run.
+        """
         pulumi.set(__self__, "object", object)
         if enable_dynamic_field_update is not None:
             pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
@@ -931,6 +1092,9 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
+        """
+        The object specified in the Salesforce flow source.
+        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -940,6 +1104,9 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @property
     @pulumi.getter(name="enableDynamicFieldUpdate")
     def enable_dynamic_field_update(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+        """
         return pulumi.get(self, "enable_dynamic_field_update")
 
     @enable_dynamic_field_update.setter
@@ -949,6 +1116,9 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @property
     @pulumi.getter(name="includeDeletedRecords")
     def include_deleted_records(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Amazon AppFlow includes deleted files in the flow run.
+        """
         return pulumi.get(self, "include_deleted_records")
 
     @include_deleted_records.setter
@@ -966,6 +1136,15 @@ class IntegrationScheduledTriggerPropertiesArgs:
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  schedule_start_time: Optional[pulumi.Input[float]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] schedule_expression: The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
+        :param pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode'] data_pull_mode: Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+        :param pulumi.Input[float] first_execution_from: Specifies the date range for the records to import from the connector in the first flow run.
+        :param pulumi.Input[float] schedule_end_time: Specifies the scheduled end time for a scheduled-trigger flow.
+        :param pulumi.Input[int] schedule_offset: Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+        :param pulumi.Input[float] schedule_start_time: Specifies the scheduled start time for a scheduled-trigger flow.
+        :param pulumi.Input[str] timezone: Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
+        """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if data_pull_mode is not None:
             pulumi.set(__self__, "data_pull_mode", data_pull_mode)
@@ -983,6 +1162,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[str]:
+        """
+        The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
+        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -992,6 +1174,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="dataPullMode")
     def data_pull_mode(self) -> Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]:
+        """
+        Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+        """
         return pulumi.get(self, "data_pull_mode")
 
     @data_pull_mode.setter
@@ -1001,6 +1186,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="firstExecutionFrom")
     def first_execution_from(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the date range for the records to import from the connector in the first flow run.
+        """
         return pulumi.get(self, "first_execution_from")
 
     @first_execution_from.setter
@@ -1010,6 +1198,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleEndTime")
     def schedule_end_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the scheduled end time for a scheduled-trigger flow.
+        """
         return pulumi.get(self, "schedule_end_time")
 
     @schedule_end_time.setter
@@ -1019,6 +1210,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleOffset")
     def schedule_offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+        """
         return pulumi.get(self, "schedule_offset")
 
     @schedule_offset.setter
@@ -1028,6 +1222,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleStartTime")
     def schedule_start_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the scheduled start time for a scheduled-trigger flow.
+        """
         return pulumi.get(self, "schedule_start_time")
 
     @schedule_start_time.setter
@@ -1037,6 +1234,9 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
+        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -1048,11 +1248,17 @@ class IntegrationScheduledTriggerPropertiesArgs:
 class IntegrationServiceNowSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] object: The object specified in the ServiceNow flow source.
+        """
         pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
+        """
+        The object specified in the ServiceNow flow source.
+        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -1068,6 +1274,13 @@ class IntegrationSourceConnectorPropertiesArgs:
                  salesforce: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']] = None,
                  zendesk: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']] = None):
+        """
+        :param pulumi.Input['IntegrationMarketoSourcePropertiesArgs'] marketo: The properties that are applied when Marketo is being used as a source.
+        :param pulumi.Input['IntegrationS3SourcePropertiesArgs'] s3: The properties that are applied when Amazon S3 is being used as the flow source.
+        :param pulumi.Input['IntegrationSalesforceSourcePropertiesArgs'] salesforce: The properties that are applied when Salesforce is being used as a source.
+        :param pulumi.Input['IntegrationServiceNowSourcePropertiesArgs'] service_now: The properties that are applied when ServiceNow is being used as a source.
+        :param pulumi.Input['IntegrationZendeskSourcePropertiesArgs'] zendesk: The properties that are applied when using Zendesk as a flow source.
+        """
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
@@ -1082,6 +1295,9 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['IntegrationMarketoSourcePropertiesArgs']]:
+        """
+        The properties that are applied when Marketo is being used as a source.
+        """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
@@ -1091,6 +1307,9 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['IntegrationS3SourcePropertiesArgs']]:
+        """
+        The properties that are applied when Amazon S3 is being used as the flow source.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -1100,6 +1319,9 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']]:
+        """
+        The properties that are applied when Salesforce is being used as a source.
+        """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
@@ -1109,6 +1331,9 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']]:
+        """
+        The properties that are applied when ServiceNow is being used as a source.
+        """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
@@ -1118,6 +1343,9 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']]:
+        """
+        The properties that are applied when using Zendesk as a flow source.
+        """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
@@ -1132,6 +1360,12 @@ class IntegrationSourceFlowConfigArgs:
                  source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None):
+        """
+        :param pulumi.Input['IntegrationConnectorType'] connector_type: The type of connector, such as Salesforce, Marketo, and so on.
+        :param pulumi.Input['IntegrationSourceConnectorPropertiesArgs'] source_connector_properties: Specifies the information that is required to query a particular source connector.
+        :param pulumi.Input[str] connector_profile_name: The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
+        :param pulumi.Input['IntegrationIncrementalPullConfigArgs'] incremental_pull_config: Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
+        """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "source_connector_properties", source_connector_properties)
         if connector_profile_name is not None:
@@ -1142,6 +1376,9 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input['IntegrationConnectorType']:
+        """
+        The type of connector, such as Salesforce, Marketo, and so on.
+        """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
@@ -1151,6 +1388,9 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="sourceConnectorProperties")
     def source_connector_properties(self) -> pulumi.Input['IntegrationSourceConnectorPropertiesArgs']:
+        """
+        Specifies the information that is required to query a particular source connector.
+        """
         return pulumi.get(self, "source_connector_properties")
 
     @source_connector_properties.setter
@@ -1160,6 +1400,9 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
+        """
         return pulumi.get(self, "connector_profile_name")
 
     @connector_profile_name.setter
@@ -1169,6 +1412,9 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="incrementalPullConfig")
     def incremental_pull_config(self) -> Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']]:
+        """
+        Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
+        """
         return pulumi.get(self, "incremental_pull_config")
 
     @incremental_pull_config.setter
@@ -1181,12 +1427,19 @@ class IntegrationTaskPropertiesMapArgs:
     def __init__(__self__, *,
                  operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys'],
                  property: pulumi.Input[str]):
+        """
+        :param pulumi.Input['IntegrationOperatorPropertiesKeys'] operator_property_key: The task property key.
+        :param pulumi.Input[str] property: The task property value.
+        """
         pulumi.set(__self__, "operator_property_key", operator_property_key)
         pulumi.set(__self__, "property", property)
 
     @property
     @pulumi.getter(name="operatorPropertyKey")
     def operator_property_key(self) -> pulumi.Input['IntegrationOperatorPropertiesKeys']:
+        """
+        The task property key.
+        """
         return pulumi.get(self, "operator_property_key")
 
     @operator_property_key.setter
@@ -1196,6 +1449,9 @@ class IntegrationTaskPropertiesMapArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The task property value.
+        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -1211,6 +1467,13 @@ class IntegrationTaskArgs:
                  connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
                  destination_field: Optional[pulumi.Input[str]] = None,
                  task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_fields: The source fields to which a particular task is applied.
+        :param pulumi.Input['IntegrationTaskType'] task_type: Specifies the particular task implementation that Amazon AppFlow performs.
+        :param pulumi.Input['IntegrationConnectorOperatorArgs'] connector_operator: The operation to be performed on the provided source fields.
+        :param pulumi.Input[str] destination_field: A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]] task_properties: A map used to store task-related information. The service looks for particular information based on the TaskType.
+        """
         pulumi.set(__self__, "source_fields", source_fields)
         pulumi.set(__self__, "task_type", task_type)
         if connector_operator is not None:
@@ -1223,6 +1486,9 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="sourceFields")
     def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The source fields to which a particular task is applied.
+        """
         return pulumi.get(self, "source_fields")
 
     @source_fields.setter
@@ -1232,6 +1498,9 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input['IntegrationTaskType']:
+        """
+        Specifies the particular task implementation that Amazon AppFlow performs.
+        """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
@@ -1241,6 +1510,9 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="connectorOperator")
     def connector_operator(self) -> Optional[pulumi.Input['IntegrationConnectorOperatorArgs']]:
+        """
+        The operation to be performed on the provided source fields.
+        """
         return pulumi.get(self, "connector_operator")
 
     @connector_operator.setter
@@ -1250,6 +1522,9 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="destinationField")
     def destination_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        """
         return pulumi.get(self, "destination_field")
 
     @destination_field.setter
@@ -1259,6 +1534,9 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="taskProperties")
     def task_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]]:
+        """
+        A map used to store task-related information. The service looks for particular information based on the TaskType.
+        """
         return pulumi.get(self, "task_properties")
 
     @task_properties.setter
@@ -1271,6 +1549,10 @@ class IntegrationTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input['IntegrationTriggerType'],
                  trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['IntegrationTriggerType'] trigger_type: Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+        :param pulumi.Input['IntegrationTriggerPropertiesArgs'] trigger_properties: Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
+        """
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
             pulumi.set(__self__, "trigger_properties", trigger_properties)
@@ -1278,6 +1560,9 @@ class IntegrationTriggerConfigArgs:
     @property
     @pulumi.getter(name="triggerType")
     def trigger_type(self) -> pulumi.Input['IntegrationTriggerType']:
+        """
+        Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
+        """
         return pulumi.get(self, "trigger_type")
 
     @trigger_type.setter
@@ -1287,6 +1572,9 @@ class IntegrationTriggerConfigArgs:
     @property
     @pulumi.getter(name="triggerProperties")
     def trigger_properties(self) -> Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']]:
+        """
+        Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
+        """
         return pulumi.get(self, "trigger_properties")
 
     @trigger_properties.setter
@@ -1298,12 +1586,18 @@ class IntegrationTriggerConfigArgs:
 class IntegrationTriggerPropertiesArgs:
     def __init__(__self__, *,
                  scheduled: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['IntegrationScheduledTriggerPropertiesArgs'] scheduled: Specifies the configuration details of a schedule-triggered flow that you define.
+        """
         if scheduled is not None:
             pulumi.set(__self__, "scheduled", scheduled)
 
     @property
     @pulumi.getter
     def scheduled(self) -> Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']]:
+        """
+        Specifies the configuration details of a schedule-triggered flow that you define.
+        """
         return pulumi.get(self, "scheduled")
 
     @scheduled.setter
@@ -1315,11 +1609,17 @@ class IntegrationTriggerPropertiesArgs:
 class IntegrationZendeskSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] object: The object specified in the Zendesk flow source.
+        """
         pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
+        """
+        The object specified in the Zendesk flow source.
+        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -1332,6 +1632,10 @@ class ObjectTypeFieldMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  object_type_field: Optional[pulumi.Input['ObjectTypeFieldArgs']] = None):
+        """
+        :param pulumi.Input[str] name: Name of the field.
+        :param pulumi.Input['ObjectTypeFieldArgs'] object_type_field: Represents a field in a ProfileObjectType.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if object_type_field is not None:
@@ -1340,6 +1644,9 @@ class ObjectTypeFieldMapArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the field.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1349,6 +1656,9 @@ class ObjectTypeFieldMapArgs:
     @property
     @pulumi.getter(name="objectTypeField")
     def object_type_field(self) -> Optional[pulumi.Input['ObjectTypeFieldArgs']]:
+        """
+        Represents a field in a ProfileObjectType.
+        """
         return pulumi.get(self, "object_type_field")
 
     @object_type_field.setter
@@ -1417,6 +1727,10 @@ class ObjectTypeKeyMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the key.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]] object_type_key_list: A list of ObjectTypeKey.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if object_type_key_list is not None:
@@ -1425,6 +1739,9 @@ class ObjectTypeKeyMapArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the key.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1434,6 +1751,9 @@ class ObjectTypeKeyMapArgs:
     @property
     @pulumi.getter(name="objectTypeKeyList")
     def object_type_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]:
+        """
+        A list of ObjectTypeKey.
+        """
         return pulumi.get(self, "object_type_key_list")
 
     @object_type_key_list.setter

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableFieldCustomIconContent
     {
+        /// <summary>
+        /// The icon set type (link) of the custom icon content for table URL link content.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableFieldIconSetType? Icon;
 
         [OutputConstructor]

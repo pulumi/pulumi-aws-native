@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     {
         [Input("columns")]
         private InputList<Inputs.DatastoreColumnArgs>? _columns;
+
+        /// <summary>
+        /// Specifies one or more columns that store your data.
+        /// 
+        /// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
+        /// </summary>
         public InputList<Inputs.DatastoreColumnArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.DatastoreColumnArgs>());

@@ -37,9 +37,21 @@ export class TrustStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustStore.__pulumiType;
     }
 
+    /**
+     * A list of web portal ARNs that this trust store is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * A list of CA certificates to be added to the trust store.
+     */
     public readonly certificateList!: pulumi.Output<string[]>;
+    /**
+     * The tags to add to the trust store. A tag is a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ARN of the trust store.
+     */
     public /*out*/ readonly trustStoreArn!: pulumi.Output<string>;
 
     /**
@@ -75,6 +87,12 @@ export class TrustStore extends pulumi.CustomResource {
  * The set of arguments for constructing a TrustStore resource.
  */
 export interface TrustStoreArgs {
+    /**
+     * A list of CA certificates to be added to the trust store.
+     */
     certificateList: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags to add to the trust store. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

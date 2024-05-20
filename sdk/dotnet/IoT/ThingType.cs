@@ -15,12 +15,23 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:ThingType")]
     public partial class ThingType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The thing type arn.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The thing type id.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
+        /// 
+        /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+        /// </summary>
         [Output("deprecateThingType")]
         public Output<bool?> DeprecateThingType { get; private set; } = null!;
 
@@ -30,9 +41,15 @@ namespace Pulumi.AwsNative.IoT
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Output("thingTypeName")]
         public Output<string?> ThingTypeName { get; private set; } = null!;
 
+        /// <summary>
+        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        /// </summary>
         [Output("thingTypeProperties")]
         public Output<Outputs.ThingTypePropertiesProperties?> ThingTypeProperties { get; private set; } = null!;
 
@@ -86,6 +103,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class ThingTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
+        /// 
+        /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+        /// </summary>
         [Input("deprecateThingType")]
         public Input<bool>? DeprecateThingType { get; set; }
 
@@ -101,9 +123,15 @@ namespace Pulumi.AwsNative.IoT
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
         [Input("thingTypeName")]
         public Input<string>? ThingTypeName { get; set; }
 
+        /// <summary>
+        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        /// </summary>
         [Input("thingTypeProperties")]
         public Input<Inputs.ThingTypePropertiesPropertiesArgs>? ThingTypeProperties { get; set; }
 

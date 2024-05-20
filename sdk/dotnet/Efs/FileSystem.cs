@@ -15,6 +15,11 @@ namespace Pulumi.AwsNative.Efs
     [AwsNativeResourceType("aws-native:efs:FileSystem")]
     public partial class FileSystem : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the EFS file system.
+        /// 
+        /// Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -43,6 +48,9 @@ namespace Pulumi.AwsNative.Efs
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+        /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 

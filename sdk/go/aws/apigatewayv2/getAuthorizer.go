@@ -24,14 +24,16 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 
 type LookupAuthorizerArgs struct {
 	// The API identifier.
-	ApiId        string `pulumi:"apiId"`
+	ApiId string `pulumi:"apiId"`
+	// The authorizer ID.
 	AuthorizerId string `pulumi:"authorizerId"`
 }
 
 type LookupAuthorizerResult struct {
 	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for ``REQUEST`` authorizers.
 	AuthorizerCredentialsArn *string `pulumi:"authorizerCredentialsArn"`
-	AuthorizerId             *string `pulumi:"authorizerId"`
+	// The authorizer ID.
+	AuthorizerId *string `pulumi:"authorizerId"`
 	// Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are ``1.0`` and ``2.0``. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).
 	AuthorizerPayloadFormatVersion *string `pulumi:"authorizerPayloadFormatVersion"`
 	// The time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.
@@ -69,7 +71,8 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 
 type LookupAuthorizerOutputArgs struct {
 	// The API identifier.
-	ApiId        pulumi.StringInput `pulumi:"apiId"`
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The authorizer ID.
 	AuthorizerId pulumi.StringInput `pulumi:"authorizerId"`
 }
 
@@ -96,6 +99,7 @@ func (o LookupAuthorizerResultOutput) AuthorizerCredentialsArn() pulumi.StringPt
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerCredentialsArn }).(pulumi.StringPtrOutput)
 }
 
+// The authorizer ID.
 func (o LookupAuthorizerResultOutput) AuthorizerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerId }).(pulumi.StringPtrOutput)
 }

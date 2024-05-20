@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("deviceIndex")]
         public Output<string> DeviceIndex { get; private set; } = null!;
 
+        /// <summary>
+        /// Configures ENA Express for the network interface that this action attaches to the instance.
+        /// </summary>
         [Output("enaSrdSpecification")]
         public Output<Outputs.NetworkInterfaceAttachmentEnaSrdSpecification?> EnaSrdSpecification { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("deviceIndex", required: true)]
         public Input<string> DeviceIndex { get; set; } = null!;
 
+        /// <summary>
+        /// Configures ENA Express for the network interface that this action attaches to the instance.
+        /// </summary>
         [Input("enaSrdSpecification")]
         public Input<Inputs.NetworkInterfaceAttachmentEnaSrdSpecificationArgs>? EnaSrdSpecification { get; set; }
 

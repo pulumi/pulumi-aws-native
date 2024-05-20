@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorKafkaClusterClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.
+        /// </summary>
         [Input("authenticationType", required: true)]
         public Input<Pulumi.AwsNative.KafkaConnect.ConnectorKafkaClusterClientAuthenticationType> AuthenticationType { get; set; } = null!;
 

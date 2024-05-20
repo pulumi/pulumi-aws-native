@@ -37,15 +37,33 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The ID of the application.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The type of the application.
+     */
     public readonly applicationType!: pulumi.Output<enums.systemsmanagersap.ApplicationType>;
     /**
      * The ARN of the Helix application
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The credentials of the SAP application.
+     */
     public readonly credentials!: pulumi.Output<outputs.systemsmanagersap.ApplicationCredential[] | undefined>;
+    /**
+     * The Amazon EC2 instances on which your SAP application is running.
+     */
     public readonly instances!: pulumi.Output<string[] | undefined>;
+    /**
+     * The SAP instance number of the application.
+     */
     public readonly sapInstanceNumber!: pulumi.Output<string | undefined>;
+    /**
+     * The System ID of the application.
+     */
     public readonly sid!: pulumi.Output<string | undefined>;
     /**
      * The tags of a SystemsManagerSAP application.
@@ -98,11 +116,29 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * The ID of the application.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The type of the application.
+     */
     applicationType: pulumi.Input<enums.systemsmanagersap.ApplicationType>;
+    /**
+     * The credentials of the SAP application.
+     */
     credentials?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationCredentialArgs>[]>;
+    /**
+     * The Amazon EC2 instances on which your SAP application is running.
+     */
     instances?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The SAP instance number of the application.
+     */
     sapInstanceNumber?: pulumi.Input<string>;
+    /**
+     * The System ID of the application.
+     */
     sid?: pulumi.Input<string>;
     /**
      * The tags of a SystemsManagerSAP application.

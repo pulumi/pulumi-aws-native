@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetRoleAliasArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The role alias.
+        /// </summary>
         [Input("roleAlias", required: true)]
         public string RoleAliasValue { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetRoleAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The role alias.
+        /// </summary>
         [Input("roleAlias", required: true)]
         public Input<string> RoleAlias { get; set; } = null!;
 
@@ -51,9 +57,23 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetRoleAliasResult
     {
+        /// <summary>
+        /// The number of seconds for which the credential is valid.
+        /// </summary>
         public readonly int? CredentialDurationSeconds;
+        /// <summary>
+        /// The role alias ARN.
+        /// </summary>
         public readonly string? RoleAliasArn;
+        /// <summary>
+        /// The role ARN.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

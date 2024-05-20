@@ -16,14 +16,24 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	Components          DeploymentComponentDeploymentSpecificationMapOutput `pulumi:"components"`
-	DeploymentId        pulumi.StringOutput                                 `pulumi:"deploymentId"`
-	DeploymentName      pulumi.StringPtrOutput                              `pulumi:"deploymentName"`
-	DeploymentPolicies  DeploymentPoliciesPtrOutput                         `pulumi:"deploymentPolicies"`
-	IotJobConfiguration DeploymentIoTJobConfigurationPtrOutput              `pulumi:"iotJobConfiguration"`
-	ParentTargetArn     pulumi.StringPtrOutput                              `pulumi:"parentTargetArn"`
-	Tags                pulumi.StringMapOutput                              `pulumi:"tags"`
-	TargetArn           pulumi.StringOutput                                 `pulumi:"targetArn"`
+	// The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+	Components DeploymentComponentDeploymentSpecificationMapOutput `pulumi:"components"`
+	// The ID of the deployment.
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
+	// The name of the deployment.
+	DeploymentName pulumi.StringPtrOutput `pulumi:"deploymentName"`
+	// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+	DeploymentPolicies DeploymentPoliciesPtrOutput `pulumi:"deploymentPolicies"`
+	// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+	IotJobConfiguration DeploymentIoTJobConfigurationPtrOutput `pulumi:"iotJobConfiguration"`
+	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+	ParentTargetArn pulumi.StringPtrOutput `pulumi:"parentTargetArn"`
+	// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The ARN of the target AWS IoT thing or thing group.
+	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -78,24 +88,42 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	Components          map[string]DeploymentComponentDeploymentSpecification `pulumi:"components"`
-	DeploymentName      *string                                               `pulumi:"deploymentName"`
-	DeploymentPolicies  *DeploymentPolicies                                   `pulumi:"deploymentPolicies"`
-	IotJobConfiguration *DeploymentIoTJobConfiguration                        `pulumi:"iotJobConfiguration"`
-	ParentTargetArn     *string                                               `pulumi:"parentTargetArn"`
-	Tags                map[string]string                                     `pulumi:"tags"`
-	TargetArn           string                                                `pulumi:"targetArn"`
+	// The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+	Components map[string]DeploymentComponentDeploymentSpecification `pulumi:"components"`
+	// The name of the deployment.
+	DeploymentName *string `pulumi:"deploymentName"`
+	// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+	DeploymentPolicies *DeploymentPolicies `pulumi:"deploymentPolicies"`
+	// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+	IotJobConfiguration *DeploymentIoTJobConfiguration `pulumi:"iotJobConfiguration"`
+	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+	ParentTargetArn *string `pulumi:"parentTargetArn"`
+	// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags map[string]string `pulumi:"tags"`
+	// The ARN of the target AWS IoT thing or thing group.
+	TargetArn string `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	Components          DeploymentComponentDeploymentSpecificationMapInput
-	DeploymentName      pulumi.StringPtrInput
-	DeploymentPolicies  DeploymentPoliciesPtrInput
+	// The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+	Components DeploymentComponentDeploymentSpecificationMapInput
+	// The name of the deployment.
+	DeploymentName pulumi.StringPtrInput
+	// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+	DeploymentPolicies DeploymentPoliciesPtrInput
+	// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 	IotJobConfiguration DeploymentIoTJobConfigurationPtrInput
-	ParentTargetArn     pulumi.StringPtrInput
-	Tags                pulumi.StringMapInput
-	TargetArn           pulumi.StringInput
+	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
+	ParentTargetArn pulumi.StringPtrInput
+	// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	//
+	// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
+	Tags pulumi.StringMapInput
+	// The ARN of the target AWS IoT thing or thing group.
+	TargetArn pulumi.StringInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -135,34 +163,44 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
 func (o DeploymentOutput) Components() DeploymentComponentDeploymentSpecificationMapOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentComponentDeploymentSpecificationMapOutput { return v.Components }).(DeploymentComponentDeploymentSpecificationMapOutput)
 }
 
+// The ID of the deployment.
 func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
+// The name of the deployment.
 func (o DeploymentOutput) DeploymentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.DeploymentName }).(pulumi.StringPtrOutput)
 }
 
+// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
 func (o DeploymentOutput) DeploymentPolicies() DeploymentPoliciesPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentPoliciesPtrOutput { return v.DeploymentPolicies }).(DeploymentPoliciesPtrOutput)
 }
 
+// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 func (o DeploymentOutput) IotJobConfiguration() DeploymentIoTJobConfigurationPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentIoTJobConfigurationPtrOutput { return v.IotJobConfiguration }).(DeploymentIoTJobConfigurationPtrOutput)
 }
 
+// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
 func (o DeploymentOutput) ParentTargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.ParentTargetArn }).(pulumi.StringPtrOutput)
 }
 
+// Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+//
+// This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
 func (o DeploymentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The ARN of the target AWS IoT thing or thing group.
 func (o DeploymentOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

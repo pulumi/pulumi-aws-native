@@ -17,21 +17,29 @@ import (
 type Subscriber struct {
 	pulumi.CustomResourceState
 
+	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+	//
+	// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
 	AccessTypes SubscriberAccessTypesItemArrayOutput `pulumi:"accessTypes"`
 	// The ARN for the data lake.
-	DataLakeArn       pulumi.StringOutput `pulumi:"dataLakeArn"`
-	ResourceShareArn  pulumi.StringOutput `pulumi:"resourceShareArn"`
+	DataLakeArn pulumi.StringOutput `pulumi:"dataLakeArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
+	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
+	// The ARN name of the Amazon Security Lake subscriber.
 	ResourceShareName pulumi.StringOutput `pulumi:"resourceShareName"`
-	S3BucketArn       pulumi.StringOutput `pulumi:"s3BucketArn"`
+	// The Amazon Resource Name (ARN) of the S3 bucket.
+	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// The supported AWS services from which logs and events are collected.
-	Sources       pulumi.ArrayOutput  `pulumi:"sources"`
+	Sources pulumi.ArrayOutput `pulumi:"sources"`
+	// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 	SubscriberArn pulumi.StringOutput `pulumi:"subscriberArn"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrOutput `pulumi:"subscriberDescription"`
 	// The AWS identity used to access your data.
 	SubscriberIdentity SubscriberIdentityPropertiesOutput `pulumi:"subscriberIdentity"`
 	// The name of your Security Lake subscriber account.
-	SubscriberName    pulumi.StringOutput `pulumi:"subscriberName"`
+	SubscriberName pulumi.StringOutput `pulumi:"subscriberName"`
+	// The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
 	SubscriberRoleArn pulumi.StringOutput `pulumi:"subscriberRoleArn"`
 	// An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -93,6 +101,9 @@ func (SubscriberState) ElementType() reflect.Type {
 }
 
 type subscriberArgs struct {
+	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+	//
+	// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
 	AccessTypes []SubscriberAccessTypesItem `pulumi:"accessTypes"`
 	// The ARN for the data lake.
 	DataLakeArn string `pulumi:"dataLakeArn"`
@@ -110,6 +121,9 @@ type subscriberArgs struct {
 
 // The set of arguments for constructing a Subscriber resource.
 type SubscriberArgs struct {
+	// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+	//
+	// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
 	AccessTypes SubscriberAccessTypesItemArrayInput
 	// The ARN for the data lake.
 	DataLakeArn pulumi.StringInput
@@ -162,6 +176,9 @@ func (o SubscriberOutput) ToSubscriberOutputWithContext(ctx context.Context) Sub
 	return o
 }
 
+// You can choose to notify subscribers of new objects with an Amazon Simple Queue Service (Amazon SQS) queue or through messaging to an HTTPS endpoint provided by the subscriber.
+//
+// Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
 func (o SubscriberOutput) AccessTypes() SubscriberAccessTypesItemArrayOutput {
 	return o.ApplyT(func(v *Subscriber) SubscriberAccessTypesItemArrayOutput { return v.AccessTypes }).(SubscriberAccessTypesItemArrayOutput)
 }
@@ -171,14 +188,17 @@ func (o SubscriberOutput) DataLakeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.DataLakeArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Security Lake subscriber.
 func (o SubscriberOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }
 
+// The ARN name of the Amazon Security Lake subscriber.
 func (o SubscriberOutput) ResourceShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.ResourceShareName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the S3 bucket.
 func (o SubscriberOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }
@@ -188,6 +208,7 @@ func (o SubscriberOutput) Sources() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.ArrayOutput { return v.Sources }).(pulumi.ArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Security Lake subscriber.
 func (o SubscriberOutput) SubscriberArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.SubscriberArn }).(pulumi.StringOutput)
 }
@@ -207,6 +228,7 @@ func (o SubscriberOutput) SubscriberName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.SubscriberName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role used to create the Security Lake subscriber.
 func (o SubscriberOutput) SubscriberRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.SubscriberRoleArn }).(pulumi.StringOutput)
 }

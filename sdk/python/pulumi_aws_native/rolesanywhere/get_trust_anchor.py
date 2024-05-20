@@ -47,36 +47,57 @@ class GetTrustAnchorResult:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether the trust anchor is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the trust anchor.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationSettings")
     def notification_settings(self) -> Optional[Sequence['outputs.TrustAnchorNotificationSetting']]:
+        """
+        A list of notification settings to be associated to the trust anchor.
+        """
         return pulumi.get(self, "notification_settings")
 
     @property
     @pulumi.getter
     def source(self) -> Optional['outputs.TrustAnchorSource']:
+        """
+        The trust anchor type and its related certificate data.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to attach to the trust anchor.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trustAnchorArn")
     def trust_anchor_arn(self) -> Optional[str]:
+        """
+        The ARN of the trust anchor.
+        """
         return pulumi.get(self, "trust_anchor_arn")
 
     @property
     @pulumi.getter(name="trustAnchorId")
     def trust_anchor_id(self) -> Optional[str]:
+        """
+        The unique identifier of the trust anchor.
+        """
         return pulumi.get(self, "trust_anchor_id")
 
 
@@ -99,6 +120,9 @@ def get_trust_anchor(trust_anchor_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustAnchorResult:
     """
     Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
+
+
+    :param str trust_anchor_id: The unique identifier of the trust anchor.
     """
     __args__ = dict()
     __args__['trustAnchorId'] = trust_anchor_id
@@ -120,5 +144,8 @@ def get_trust_anchor_output(trust_anchor_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustAnchorResult]:
     """
     Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
+
+
+    :param str trust_anchor_id: The unique identifier of the trust anchor.
     """
     ...

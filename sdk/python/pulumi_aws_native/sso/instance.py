@@ -22,6 +22,7 @@ class InstanceArgs:
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] name: The name you want to assign to this Identity Center (SSO) Instance
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies tags to be attached to the instance of IAM Identity Center.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -43,6 +44,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Specifies tags to be attached to the instance of IAM Identity Center.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -64,6 +68,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name you want to assign to this Identity Center (SSO) Instance
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies tags to be attached to the instance of IAM Identity Center.
         """
         ...
     @overload
@@ -179,5 +184,8 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Specifies tags to be attached to the instance of IAM Identity Center.
+        """
         return pulumi.get(self, "tags")
 

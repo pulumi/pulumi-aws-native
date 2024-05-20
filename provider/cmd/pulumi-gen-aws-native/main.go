@@ -32,36 +32,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
+type schemaUrls []string
+
+func (s *schemaUrls) String() string {
+	return fmt.Sprint(*s)
+}
+
+func (s *schemaUrls) Set(value string) error {
+	if len(*s) > 0 {
+		return errors.New("--schema-urls flag already set")
+	}
+
+	urls := strings.Split(value, ",")
+	for _, u := range urls {
+		*s = append(*s, u)
+	}
+	return nil
+}
+
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>)"
+		const usageFormat = "Usage: %s [OPTIONS] <operation>"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
 	}
 
-	var version string
+	var version, operation, schemaFolder, docsUrl string
+	var jsonSchemaUrls schemaUrls
 	flag.StringVar(&version, "version", "", "the provider version to record in the generated code")
+	flag.StringVar(&schemaFolder, "schema-folder", "", "The folder containing the CloudFormation schema files")
+	flag.StringVar(&docsUrl, "docs-url", "", "The URL to download the CloudFormation docs")
+	flag.Var(&jsonSchemaUrls, "schema-urls", "A comma delimited list of CloudFormation schema urls")
 
 	flag.Parse()
-	args := flag.Args()
-	if len(args) < 3 {
+	operation = flag.Arg(0)
+	fmt.Printf("%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s\n", operation, version, schemaFolder, docsUrl, jsonSchemaUrls)
+	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsUrl == "") {
 		flag.Usage()
 		return
 	}
 
-	operation, schemaFolder, version := args[0], args[1], args[2]
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
 	semanticsDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 
 	switch operation {
-	case "discovery":
-		if len(args) != 4 {
-			fmt.Println("Error: discovery operation requires additional schema urls argument")
+	case "docs":
+		if docsUrl == "" {
+			fmt.Println("Error: docs operation requires additional --docs-url argument")
 			flag.Usage()
 			return
 		}
-		jsonSchemaUrls := strings.Split(args[3], ",")
+
+		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
+			panic(fmt.Errorf("error download CloudFormation docs: %v", err))
+		}
+
+	case "discovery":
+		if jsonSchemaUrls == nil {
+			fmt.Println("Error: discovery operation requires additional --schema-urls argument")
+			flag.Usage()
+			return
+		}
 
 		if err := writeSupportedResourceTypes(genDir); err != nil {
 			panic(fmt.Errorf("error writing supported resource types: %v", err))
@@ -73,12 +105,16 @@ func main() {
 	case "schema":
 		supportedTypes := readSupportedResourceTypes(genDir)
 		jsonSchemas := readJsonSchemas(schemaFolder)
+		docsTypes, err := schema.ReadCloudFormationDocsFile(filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"))
+		if err != nil {
+			panic(fmt.Errorf("error reading CloudFormation docs file: %v", err))
+		}
 		semanticsDocument, err := schema.GatherSemantics(semanticsDir)
 		if err != nil {
 			panic(fmt.Errorf("error gathering semantics: %v", err))
 		}
 
-		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
+		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes)
 		if err != nil {
 			panic(fmt.Errorf("error generating schema: %v", err))
 		}
@@ -218,6 +254,29 @@ func cleanDir(dir string, perm os.FileMode) error {
 	}
 
 	return os.MkdirAll(dir, perm)
+}
+
+func downloadCloudFormationDocs(url, outDir string) error {
+	// start with an empty directory
+	err := cleanDir(outDir, 0755)
+	if err != nil {
+		return err
+	}
+	resp, err := http.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	outPath := filepath.Join(outDir, "CloudFormationDocumentation.json")
+	if err := os.WriteFile(outPath, body, 0644); err != nil {
+		return err
+	}
+	return nil
 }
 
 func downloadCloudFormationSchemas(urls []string, outDir string) error {

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCategoricalMeasureField
     {
+        /// <summary>
+        /// The aggregation function of the measure field.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardCategoricalAggregationFunction? AggregationFunction;
+        /// <summary>
+        /// The column that is used in the `CategoricalMeasureField` .
+        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The format configuration of the field.
+        /// </summary>
         public readonly Outputs.DashboardStringFormatConfiguration? FormatConfiguration;
 
         [OutputConstructor]

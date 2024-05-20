@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Outputs
     [OutputType]
     public sealed class CampaignDialerConfig
     {
+        /// <summary>
+        /// The configuration of the agentless dialer.
+        /// </summary>
         public readonly Outputs.CampaignAgentlessDialerConfig? AgentlessDialerConfig;
+        /// <summary>
+        /// The configuration of the predictive dialer.
+        /// </summary>
         public readonly Outputs.CampaignPredictiveDialerConfig? PredictiveDialerConfig;
+        /// <summary>
+        /// The configuration of the progressive dialer.
+        /// </summary>
         public readonly Outputs.CampaignProgressiveDialerConfig? ProgressiveDialerConfig;
 
         [OutputConstructor]

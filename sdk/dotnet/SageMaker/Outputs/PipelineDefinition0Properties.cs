@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
+    /// <summary>
+    /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+    /// </summary>
     [OutputType]
     public sealed class PipelineDefinition0Properties
     {

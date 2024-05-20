@@ -35,6 +35,7 @@ class PatchBaselineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PatchBaseline resource.
+        :param pulumi.Input['PatchBaselineRuleGroupArgs'] approval_rules: A set of rules used to include patches in the baseline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_patches: A list of explicitly approved patches for the baseline.
         :param pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel'] approved_patches_compliance_level: Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
         :param pulumi.Input[bool] approved_patches_enable_non_security: Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
@@ -81,6 +82,9 @@ class PatchBaselineArgs:
     @property
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> Optional[pulumi.Input['PatchBaselineRuleGroupArgs']]:
+        """
+        A set of rules used to include patches in the baseline.
+        """
         return pulumi.get(self, "approval_rules")
 
     @approval_rules.setter
@@ -423,6 +427,7 @@ class PatchBaseline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['PatchBaselineRuleGroupArgs']] approval_rules: A set of rules used to include patches in the baseline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_patches: A list of explicitly approved patches for the baseline.
         :param pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel'] approved_patches_compliance_level: Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
         :param pulumi.Input[bool] approved_patches_enable_non_security: Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
@@ -697,6 +702,9 @@ class PatchBaseline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> pulumi.Output[Optional['outputs.PatchBaselineRuleGroup']]:
+        """
+        A set of rules used to include patches in the baseline.
+        """
         return pulumi.get(self, "approval_rules")
 
     @property

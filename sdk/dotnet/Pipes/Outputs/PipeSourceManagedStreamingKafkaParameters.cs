@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceManagedStreamingKafkaParameters
     {
+        /// <summary>
+        /// The maximum number of records to include in each batch.
+        /// </summary>
         public readonly int? BatchSize;
+        /// <summary>
+        /// The name of the destination queue to consume.
+        /// </summary>
         public readonly string? ConsumerGroupId;
+        /// <summary>
+        /// The credentials needed to access the resource.
+        /// </summary>
         public readonly Union<Outputs.PipeMskAccessCredentials0Properties, Outputs.PipeMskAccessCredentials1Properties>? Credentials;
+        /// <summary>
+        /// The maximum length of a time to wait for events.
+        /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
+        /// <summary>
+        /// (Streams only) The position in a stream from which to start reading.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeMskStartPosition? StartingPosition;
+        /// <summary>
+        /// The name of the topic that the pipe will read from.
+        /// </summary>
         public readonly string TopicName;
 
         [OutputConstructor]

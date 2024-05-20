@@ -30,6 +30,9 @@ class GetDhcpOptionsResult:
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> Optional[str]:
+        """
+        The ID of the DHCP options set.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @property
@@ -55,6 +58,9 @@ def get_dhcp_options(dhcp_options_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDhcpOptionsResult:
     """
     Resource Type definition for AWS::EC2::DHCPOptions
+
+
+    :param str dhcp_options_id: The ID of the DHCP options set.
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id
@@ -71,5 +77,8 @@ def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDhcpOptionsResult]:
     """
     Resource Type definition for AWS::EC2::DHCPOptions
+
+
+    :param str dhcp_options_id: The ID of the DHCP options set.
     """
     ...

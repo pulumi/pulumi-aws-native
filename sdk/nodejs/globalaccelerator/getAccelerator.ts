@@ -62,6 +62,11 @@ export interface GetAcceleratorResult {
      * Name of accelerator.
      */
     readonly name?: string;
+    /**
+     * Create tags for an accelerator.
+     *
+     * For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

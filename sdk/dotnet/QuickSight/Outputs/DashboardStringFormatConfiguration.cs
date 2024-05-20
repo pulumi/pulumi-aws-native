@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardStringFormatConfiguration
     {
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         public readonly Outputs.DashboardNullValueFormatConfiguration? NullValueFormatConfiguration;
+        /// <summary>
+        /// The formatting configuration for numeric strings.
+        /// </summary>
         public readonly Outputs.DashboardNumericFormatConfiguration? NumericFormatConfiguration;
 
         [OutputConstructor]

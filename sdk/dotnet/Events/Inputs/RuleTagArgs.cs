@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The value for the specified tag key.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

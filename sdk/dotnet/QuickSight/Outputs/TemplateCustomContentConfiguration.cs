@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCustomContentConfiguration
     {
+        /// <summary>
+        /// The content type of the custom content visual. You can use this to have the visual render as an image.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateCustomContentType? ContentType;
+        /// <summary>
+        /// The input URL that links to the custom content that you want in the custom visual.
+        /// </summary>
         public readonly string? ContentUrl;
+        /// <summary>
+        /// The sizing options for the size of the custom content visual. This structure is required when the `ContentType` of the visual is `'IMAGE'` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateCustomContentImageScalingConfiguration? ImageScaling;
 
         [OutputConstructor]

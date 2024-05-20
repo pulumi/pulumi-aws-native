@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class QuickConnectPhoneNumberQuickConnectConfig
     {
+        /// <summary>
+        /// The phone number in E.164 format.
+        /// </summary>
         public readonly string PhoneNumber;
 
         [OutputConstructor]

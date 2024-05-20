@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
+        /// <summary>
+        /// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
+        /// </summary>
         [Input("tempDirectory")]
         public Input<Inputs.DatasetS3LocationArgs>? TempDirectory { get; set; }
 

@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.Synthetics
         /// Retention period of successful canary runs represented in number of days
         /// </summary>
         public readonly int? SuccessRetentionPeriod;
+        /// <summary>
+        /// The list of key-value pairs that are associated with the canary.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Provide VPC Configuration if enabled.

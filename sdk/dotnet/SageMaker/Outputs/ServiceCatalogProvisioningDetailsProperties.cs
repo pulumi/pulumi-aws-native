@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ServiceCatalogProvisioningDetailsProperties
     {
+        /// <summary>
+        /// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
+        /// </summary>
         public readonly string? PathId;
+        /// <summary>
+        /// The ID of the product to provision.
+        /// </summary>
         public readonly string ProductId;
+        /// <summary>
+        /// The ID of the provisioning artifact.
+        /// </summary>
         public readonly string? ProvisioningArtifactId;
         /// <summary>
         /// Parameters specified by the administrator that are required for provisioning the product.

@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
         /// </summary>
         public readonly string? Quality;
+        /// <summary>
+        /// The timestamp associated with the asset property value. The default is the current event time.
+        /// </summary>
         public readonly Outputs.DetectorModelAssetPropertyTimestamp? Timestamp;
+        /// <summary>
+        /// The value to send to an asset property.
+        /// </summary>
         public readonly Outputs.DetectorModelAssetPropertyVariant Value;
 
         [OutputConstructor]

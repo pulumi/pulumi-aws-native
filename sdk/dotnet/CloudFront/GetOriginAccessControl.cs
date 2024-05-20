@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginAccessControlArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetOriginAccessControlInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetOriginAccessControlResult
     {
+        /// <summary>
+        /// The unique identifier of the origin access control.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The origin access control.
+        /// </summary>
         public readonly Outputs.OriginAccessControlConfig? OriginAccessControlConfig;
 
         [OutputConstructor]

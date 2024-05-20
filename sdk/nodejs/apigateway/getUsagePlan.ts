@@ -20,6 +20,9 @@ export function getUsagePlan(args: GetUsagePlanArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetUsagePlanArgs {
+    /**
+     * The ID for the usage plan. For example: `abc123` .
+     */
     id: string;
 }
 
@@ -32,6 +35,9 @@ export interface GetUsagePlanResult {
      * The description of a usage plan.
      */
     readonly description?: string;
+    /**
+     * The ID for the usage plan. For example: `abc123` .
+     */
     readonly id?: string;
     /**
      * The target maximum number of permitted requests per a given unit time interval.
@@ -59,5 +65,8 @@ export function getUsagePlanOutput(args: GetUsagePlanOutputArgs, opts?: pulumi.I
 }
 
 export interface GetUsagePlanOutputArgs {
+    /**
+     * The ID for the usage plan. For example: `abc123` .
+     */
     id: pulumi.Input<string>;
 }

@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGrowthRateComputation
     {
+        /// <summary>
+        /// The ID for a computation.
+        /// </summary>
         public readonly string ComputationId;
+        /// <summary>
+        /// The name of a computation.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The period size setup of a growth rate computation.
+        /// </summary>
         public readonly double? PeriodSize;
+        /// <summary>
+        /// The time field that is used in a computation.
+        /// </summary>
         public readonly Outputs.DashboardDimensionField? Time;
+        /// <summary>
+        /// The value field that is used in a computation.
+        /// </summary>
         public readonly Outputs.DashboardMeasureField? Value;
 
         [OutputConstructor]

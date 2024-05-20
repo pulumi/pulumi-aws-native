@@ -19,20 +19,46 @@ export function getLandingZone(args: GetLandingZoneArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetLandingZoneArgs {
+    /**
+     * The unique identifier of the landing zone.
+     */
     landingZoneIdentifier: string;
 }
 
 export interface GetLandingZoneResult {
+    /**
+     * The ARN of the landing zone.
+     */
     readonly arn?: string;
+    /**
+     * The drift status of the landing zone.
+     */
     readonly driftStatus?: enums.controltower.LandingZoneDriftStatus;
+    /**
+     * The unique identifier of the landing zone.
+     */
     readonly landingZoneIdentifier?: string;
+    /**
+     * The latest available version of the landing zone.
+     */
     readonly latestAvailableVersion?: string;
     /**
+     * The landing zone manifest JSON text file that specifies the landing zone configurations.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
      */
     readonly manifest?: any;
+    /**
+     * The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
+     */
     readonly status?: enums.controltower.LandingZoneStatus;
+    /**
+     * Tags to be applied to the landing zone.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The landing zone's current deployed version.
+     */
     readonly version?: string;
 }
 /**
@@ -43,5 +69,8 @@ export function getLandingZoneOutput(args: GetLandingZoneOutputArgs, opts?: pulu
 }
 
 export interface GetLandingZoneOutputArgs {
+    /**
+     * The unique identifier of the landing zone.
+     */
     landingZoneIdentifier: pulumi.Input<string>;
 }

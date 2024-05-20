@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentBindingPropertiesValue
     {
+        /// <summary>
+        /// Describes the properties to customize with data at runtime.
+        /// </summary>
         public readonly Outputs.ComponentBindingPropertiesValueProperties? BindingProperties;
+        /// <summary>
+        /// The default value of the property.
+        /// </summary>
         public readonly string? DefaultValue;
+        /// <summary>
+        /// The property type.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

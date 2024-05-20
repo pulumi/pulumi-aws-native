@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleAssetPropertyTimestamp
     {
+        /// <summary>
+        /// Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+        /// </summary>
         public readonly string? OffsetInNanos;
+        /// <summary>
+        /// A string that contains the time in seconds since epoch. Accepts substitution templates.
+        /// </summary>
         public readonly string TimeInSeconds;
 
         [OutputConstructor]

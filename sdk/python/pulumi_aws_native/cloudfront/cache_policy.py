@@ -19,12 +19,16 @@ class CachePolicyArgs:
                  cache_policy_config: pulumi.Input['CachePolicyConfigArgs']):
         """
         The set of arguments for constructing a CachePolicy resource.
+        :param pulumi.Input['CachePolicyConfigArgs'] cache_policy_config: The cache policy configuration.
         """
         pulumi.set(__self__, "cache_policy_config", cache_policy_config)
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Input['CachePolicyConfigArgs']:
+        """
+        The cache policy configuration.
+        """
         return pulumi.get(self, "cache_policy_config")
 
     @cache_policy_config.setter
@@ -44,6 +48,7 @@ class CachePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CachePolicyConfigArgs']] cache_policy_config: The cache policy configuration.
         """
         ...
     @overload
@@ -114,15 +119,24 @@ class CachePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Output['outputs.CachePolicyConfig']:
+        """
+        The cache policy configuration.
+        """
         return pulumi.get(self, "cache_policy_config")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        The date and time when the cache policy was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 

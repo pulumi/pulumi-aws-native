@@ -19,13 +19,30 @@ export function getTestGridProject(args: GetTestGridProjectArgs, opts?: pulumi.I
 }
 
 export interface GetTestGridProjectArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetTestGridProjectResult {
+    /**
+     * The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * A human-readable description for the project.
+     */
     readonly description?: string;
+    /**
+     * A human-readable name for the project.
+     */
     readonly name?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -36,5 +53,8 @@ export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opt
 }
 
 export interface GetTestGridProjectOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

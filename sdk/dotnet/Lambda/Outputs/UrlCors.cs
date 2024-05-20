@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// Represents a collection of exposed headers.
         /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
+        /// <summary>
+        /// The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
+        /// </summary>
         public readonly int? MaxAge;
 
         [OutputConstructor]

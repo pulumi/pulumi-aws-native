@@ -13,10 +13,22 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileOAuth2Credentials
     {
+        /// <summary>
+        /// The access token used to access the connector on your behalf.
+        /// </summary>
         public readonly string? AccessToken;
+        /// <summary>
+        /// The identifier for the desired client.
+        /// </summary>
         public readonly string? ClientId;
+        /// <summary>
+        /// The client secret used by the OAuth client to authenticate to the authorization server.
+        /// </summary>
         public readonly string? ClientSecret;
         public readonly Outputs.ConnectorProfileConnectorOAuthRequest? OAuthRequest;
+        /// <summary>
+        /// The refresh token used to refresh an expired access token.
+        /// </summary>
         public readonly string? RefreshToken;
 
         [OutputConstructor]

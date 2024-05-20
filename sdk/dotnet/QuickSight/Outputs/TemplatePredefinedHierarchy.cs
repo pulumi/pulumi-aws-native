@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePredefinedHierarchy
     {
+        /// <summary>
+        /// The list of columns that define the predefined hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnIdentifier> Columns;
+        /// <summary>
+        /// The option that determines the drill down filters for the predefined hierarchy.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDrillDownFilter> DrillDownFilters;
+        /// <summary>
+        /// The hierarchy ID of the predefined hierarchy.
+        /// </summary>
         public readonly string HierarchyId;
 
         [OutputConstructor]

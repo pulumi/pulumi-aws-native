@@ -37,7 +37,15 @@ export class ResourceGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that specifies the resource group that is created.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The tags (key and value pairs) that will be associated with the resource group.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     public readonly resourceGroupTags!: pulumi.Output<outputs.inspector.ResourceGroupTag[]>;
 
     /**
@@ -71,5 +79,10 @@ export class ResourceGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceGroup resource.
  */
 export interface ResourceGroupArgs {
+    /**
+     * The tags (key and value pairs) that will be associated with the resource group.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     */
     resourceGroupTags: pulumi.Input<pulumi.Input<inputs.inspector.ResourceGroupTagArgs>[]>;
 }

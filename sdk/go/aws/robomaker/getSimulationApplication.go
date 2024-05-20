@@ -23,10 +23,12 @@ func LookupSimulationApplication(ctx *pulumi.Context, args *LookupSimulationAppl
 }
 
 type LookupSimulationApplicationArgs struct {
+	// The Amazon Resource Name (ARN) of the simulation application.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupSimulationApplicationResult struct {
+	// The Amazon Resource Name (ARN) of the simulation application.
 	Arn *string `pulumi:"arn"`
 	// The current revision id.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
@@ -36,7 +38,8 @@ type LookupSimulationApplicationResult struct {
 	RobotSoftwareSuite *SimulationApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite *SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
-	Tags                    map[string]string                             `pulumi:"tags"`
+	// A map that contains tag keys and tag values that are attached to the simulation application.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupSimulationApplicationOutput(ctx *pulumi.Context, args LookupSimulationApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationApplicationResultOutput {
@@ -53,6 +56,7 @@ func LookupSimulationApplicationOutput(ctx *pulumi.Context, args LookupSimulatio
 }
 
 type LookupSimulationApplicationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the simulation application.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -74,6 +78,7 @@ func (o LookupSimulationApplicationResultOutput) ToLookupSimulationApplicationRe
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the simulation application.
 func (o LookupSimulationApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSimulationApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -102,6 +107,7 @@ func (o LookupSimulationApplicationResultOutput) SimulationSoftwareSuite() Simul
 	}).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
 }
 
+// A map that contains tag keys and tag values that are attached to the simulation application.
 func (o LookupSimulationApplicationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSimulationApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -17,14 +17,16 @@ type Environment struct {
 	pulumi.CustomResourceState
 
 	// The description of the environment.
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
-	EngineType  EnvironmentEngineTypeOutput `pulumi:"engineType"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The target platform for the runtime environment.
+	EngineType EnvironmentEngineTypeOutput `pulumi:"engineType"`
 	// The version of the runtime engine for the environment.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The Amazon Resource Name (ARN) of the runtime environment.
 	EnvironmentArn pulumi.StringOutput `pulumi:"environmentArn"`
 	// The unique identifier of the environment.
-	EnvironmentId          pulumi.StringOutput                        `pulumi:"environmentId"`
+	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrOutput `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
@@ -104,10 +106,12 @@ func (EnvironmentState) ElementType() reflect.Type {
 
 type environmentArgs struct {
 	// The description of the environment.
-	Description *string               `pulumi:"description"`
-	EngineType  EnvironmentEngineType `pulumi:"engineType"`
+	Description *string `pulumi:"description"`
+	// The target platform for the runtime environment.
+	EngineType EnvironmentEngineType `pulumi:"engineType"`
 	// The version of the runtime engine for the environment.
-	EngineVersion          *string                            `pulumi:"engineVersion"`
+	EngineVersion *string `pulumi:"engineVersion"`
+	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
 	InstanceType string `pulumi:"instanceType"`
@@ -133,9 +137,11 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// The description of the environment.
 	Description pulumi.StringPtrInput
-	EngineType  EnvironmentEngineTypeInput
+	// The target platform for the runtime environment.
+	EngineType EnvironmentEngineTypeInput
 	// The version of the runtime engine for the environment.
-	EngineVersion          pulumi.StringPtrInput
+	EngineVersion pulumi.StringPtrInput
+	// Defines the details of a high availability configuration.
 	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrInput
 	// The type of instance underlying the environment.
 	InstanceType pulumi.StringInput
@@ -199,6 +205,7 @@ func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The target platform for the runtime environment.
 func (o EnvironmentOutput) EngineType() EnvironmentEngineTypeOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentEngineTypeOutput { return v.EngineType }).(EnvironmentEngineTypeOutput)
 }
@@ -218,6 +225,7 @@ func (o EnvironmentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
+// Defines the details of a high availability configuration.
 func (o EnvironmentOutput) HighAvailabilityConfig() EnvironmentHighAvailabilityConfigPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentHighAvailabilityConfigPtrOutput { return v.HighAvailabilityConfig }).(EnvironmentHighAvailabilityConfigPtrOutput)
 }

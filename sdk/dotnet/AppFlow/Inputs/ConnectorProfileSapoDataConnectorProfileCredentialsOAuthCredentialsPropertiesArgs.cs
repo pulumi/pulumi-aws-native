@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
+    /// <summary>
+    /// The SAPOData OAuth type authentication credentials.
+    /// </summary>
     public sealed class ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessToken")]

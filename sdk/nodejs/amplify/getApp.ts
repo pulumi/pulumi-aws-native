@@ -19,24 +19,74 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetAppArgs {
+    /**
+     * ARN for the Amplify App.
+     */
     arn: string;
 }
 
 export interface GetAppResult {
+    /**
+     * Unique Id for the Amplify App.
+     */
     readonly appId?: string;
+    /**
+     * Name for the Amplify App.
+     */
     readonly appName?: string;
+    /**
+     * ARN for the Amplify App.
+     */
     readonly arn?: string;
+    /**
+     * The build specification (build spec) for an Amplify app.
+     */
     readonly buildSpec?: string;
+    /**
+     * The custom HTTP headers for an Amplify app.
+     */
     readonly customHeaders?: string;
+    /**
+     * The custom rewrite and redirect rules for an Amplify app.
+     */
     readonly customRules?: outputs.amplify.AppCustomRule[];
+    /**
+     * Default domain for the Amplify App.
+     */
     readonly defaultDomain?: string;
+    /**
+     * The description of the Amplify app.
+     */
     readonly description?: string;
+    /**
+     * Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
+     */
     readonly enableBranchAutoDeletion?: boolean;
+    /**
+     * The environment variables for the Amplify app.
+     *
+     * For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
+     */
     readonly environmentVariables?: outputs.amplify.AppEnvironmentVariable[];
+    /**
+     * AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
+     */
     readonly iamServiceRole?: string;
+    /**
+     * The name of the Amplify app.
+     */
     readonly name?: string;
+    /**
+     * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+     */
     readonly platform?: enums.amplify.AppPlatform;
+    /**
+     * The Git repository for the Amplify app.
+     */
     readonly repository?: string;
+    /**
+     * The tag for an Amplify app.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -47,5 +97,8 @@ export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetAppOutputArgs {
+    /**
+     * ARN for the Amplify App.
+     */
     arn: pulumi.Input<string>;
 }

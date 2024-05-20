@@ -16,13 +16,28 @@ export function getMeteredProduct(args: GetMeteredProductArgs, opts?: pulumi.Inv
 }
 
 export interface GetMeteredProductArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the metered product.
+     */
     arn: string;
 }
 
 export interface GetMeteredProductResult {
+    /**
+     * The Amazon Resource Name (ARN) of the metered product.
+     */
     readonly arn?: string;
+    /**
+     * The family to which the metered product belongs.
+     */
     readonly family?: string;
+    /**
+     * The port on which the metered product should run.
+     */
     readonly port?: number;
+    /**
+     * The vendor.
+     */
     readonly vendor?: string;
 }
 /**
@@ -33,5 +48,8 @@ export function getMeteredProductOutput(args: GetMeteredProductOutputArgs, opts?
 }
 
 export interface GetMeteredProductOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the metered product.
+     */
     arn: pulumi.Input<string>;
 }

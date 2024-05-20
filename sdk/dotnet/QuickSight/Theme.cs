@@ -21,12 +21,21 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account where you want to store the new theme.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        /// </summary>
         [Output("baseThemeId")]
         public Output<string> BaseThemeId { get; private set; } = null!;
 
+        /// <summary>
+        /// The theme configuration, which contains the theme display properties.
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.ThemeConfiguration> Configuration { get; private set; } = null!;
 
@@ -42,24 +51,42 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// A display name for the theme.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid grouping of resource permissions to apply to the new theme.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ThemeResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+        /// </summary>
         [Output("themeId")]
         public Output<string> ThemeId { get; private set; } = null!;
 
+        /// <summary>
+        /// Theme type.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.QuickSight.ThemeType> Type { get; private set; } = null!;
 
         [Output("version")]
         public Output<Outputs.ThemeVersion> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+        /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
@@ -113,20 +140,36 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class ThemeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AWS account where you want to store the new theme.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
+        /// </summary>
         [Input("baseThemeId", required: true)]
         public Input<string> BaseThemeId { get; set; } = null!;
 
+        /// <summary>
+        /// The theme configuration, which contains the theme display properties.
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.ThemeConfigurationArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// A display name for the theme.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.ThemeResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// A valid grouping of resource permissions to apply to the new theme.
+        /// </summary>
         public InputList<Inputs.ThemeResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.ThemeResourcePermissionArgs>());
@@ -135,15 +178,25 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+        /// </summary>
         [Input("themeId", required: true)]
         public Input<string> ThemeId { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
+        /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 

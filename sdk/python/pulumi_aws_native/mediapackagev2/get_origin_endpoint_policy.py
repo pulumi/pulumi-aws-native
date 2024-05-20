@@ -27,6 +27,8 @@ class GetOriginEndpointPolicyResult:
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
+        The policy associated with the origin endpoint.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -47,6 +49,11 @@ def get_origin_endpoint_policy(channel_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginEndpointPolicyResult:
     """
     <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
+
+
+    :param str channel_group_name: The name of the channel group associated with the origin endpoint policy.
+    :param str channel_name: The channel name associated with the origin endpoint policy.
+    :param str origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
     """
     __args__ = dict()
     __args__['channelGroupName'] = channel_group_name
@@ -66,5 +73,10 @@ def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointPolicyResult]:
     """
     <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
+
+
+    :param str channel_group_name: The name of the channel group associated with the origin endpoint policy.
+    :param str channel_name: The channel name associated with the origin endpoint policy.
+    :param str origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
     """
     ...

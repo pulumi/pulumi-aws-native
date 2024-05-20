@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormFieldValidationConfiguration
     {
+        /// <summary>
+        /// The validation to perform on a number value.
+        /// </summary>
         public readonly ImmutableArray<double> NumValues;
+        /// <summary>
+        /// The validation to perform on a string value.
+        /// </summary>
         public readonly ImmutableArray<string> StrValues;
+        /// <summary>
+        /// The validation to perform on an object type. ``
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The validation message to display.
+        /// </summary>
         public readonly string? ValidationMessage;
 
         [OutputConstructor]

@@ -113,6 +113,7 @@ func (o ApplicationDefinition1PropertiesOutput) Content() pulumi.StringOutput {
 
 // Defines the details of a high availability configuration.
 type EnvironmentHighAvailabilityConfig struct {
+	// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
 }
 
@@ -129,6 +130,7 @@ type EnvironmentHighAvailabilityConfigInput interface {
 
 // Defines the details of a high availability configuration.
 type EnvironmentHighAvailabilityConfigArgs struct {
+	// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
 	DesiredCapacity pulumi.IntInput `pulumi:"desiredCapacity"`
 }
 
@@ -210,6 +212,7 @@ func (o EnvironmentHighAvailabilityConfigOutput) ToEnvironmentHighAvailabilityCo
 	}).(EnvironmentHighAvailabilityConfigPtrOutput)
 }
 
+// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
 func (o EnvironmentHighAvailabilityConfigOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v EnvironmentHighAvailabilityConfig) int { return v.DesiredCapacity }).(pulumi.IntOutput)
 }
@@ -238,6 +241,7 @@ func (o EnvironmentHighAvailabilityConfigPtrOutput) Elem() EnvironmentHighAvaila
 	}).(EnvironmentHighAvailabilityConfigOutput)
 }
 
+// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
 func (o EnvironmentHighAvailabilityConfigPtrOutput) DesiredCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnvironmentHighAvailabilityConfig) *int {
 		if v == nil {

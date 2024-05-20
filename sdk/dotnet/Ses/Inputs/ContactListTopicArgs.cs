@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ses.Inputs
 
     public sealed class ContactListTopicArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        /// </summary>
         [Input("defaultSubscriptionStatus", required: true)]
         public Input<string> DefaultSubscriptionStatus { get; set; } = null!;
 

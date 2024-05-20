@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupCaptchaConfig
     {
+        /// <summary>
+        /// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
+        /// </summary>
         public readonly Outputs.RuleGroupImmunityTimeProperty? ImmunityTimeProperty;
 
         [OutputConstructor]

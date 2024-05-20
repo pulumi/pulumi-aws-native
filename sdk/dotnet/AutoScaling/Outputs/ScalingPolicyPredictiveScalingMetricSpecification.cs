@@ -13,12 +13,35 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingMetricSpecification
     {
+        /// <summary>
+        /// The customized capacity metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric? CustomizedCapacityMetricSpecification;
+        /// <summary>
+        /// The customized load metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric? CustomizedLoadMetricSpecification;
+        /// <summary>
+        /// The customized scaling metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric? CustomizedScalingMetricSpecification;
+        /// <summary>
+        /// The predefined load metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric? PredefinedLoadMetricSpecification;
+        /// <summary>
+        /// The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair? PredefinedMetricPairSpecification;
+        /// <summary>
+        /// The predefined scaling metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric? PredefinedScalingMetricSpecification;
+        /// <summary>
+        /// Specifies the target utilization.
+        /// 
+        /// &gt; Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval.
+        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

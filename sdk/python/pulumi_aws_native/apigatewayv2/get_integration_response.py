@@ -52,6 +52,9 @@ class GetIntegrationResponseResult:
     @property
     @pulumi.getter(name="integrationResponseId")
     def integration_response_id(self) -> Optional[str]:
+        """
+        The integration response ID.
+        """
         return pulumi.get(self, "integration_response_id")
 
     @property
@@ -115,6 +118,7 @@ def get_integration_response(api_id: Optional[str] = None,
 
     :param str api_id: The API identifier.
     :param str integration_id: The integration ID.
+    :param str integration_response_id: The integration response ID.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -143,5 +147,6 @@ def get_integration_response_output(api_id: Optional[pulumi.Input[str]] = None,
 
     :param str api_id: The API identifier.
     :param str integration_id: The integration ID.
+    :param str integration_response_id: The integration response ID.
     """
     ...

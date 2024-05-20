@@ -37,10 +37,62 @@ export class IdentityProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityProvider.__pulumiType;
     }
 
+    /**
+     * The ARN of the identity provider.
+     */
     public /*out*/ readonly identityProviderArn!: pulumi.Output<string>;
+    /**
+     * The identity provider details. The following list describes the provider detail keys for each identity provider type.
+     *
+     * - For Google and Login with Amazon:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `authorize_scopes`
+     * - For Facebook:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `authorize_scopes`
+     * - `api_version`
+     * - For Sign in with Apple:
+     *
+     * - `client_id`
+     * - `team_id`
+     * - `key_id`
+     * - `private_key`
+     * - `authorize_scopes`
+     * - For OIDC providers:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `attributes_request_method`
+     * - `oidc_issuer`
+     * - `authorize_scopes`
+     * - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+     * - For SAML providers:
+     *
+     * - `MetadataFile` OR `MetadataURL`
+     * - `IDPSignout` (boolean) *optional*
+     * - `IDPInit` (boolean) *optional*
+     * - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+     * - `EncryptedResponses` (boolean) *optional*
+     */
     public readonly identityProviderDetails!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The identity provider name.
+     */
     public readonly identityProviderName!: pulumi.Output<string>;
+    /**
+     * The identity provider type.
+     */
     public readonly identityProviderType!: pulumi.Output<enums.workspacesweb.IdentityProviderType>;
+    /**
+     * The ARN of the identity provider.
+     */
     public readonly portalArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -83,8 +135,57 @@ export class IdentityProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a IdentityProvider resource.
  */
 export interface IdentityProviderArgs {
+    /**
+     * The identity provider details. The following list describes the provider detail keys for each identity provider type.
+     *
+     * - For Google and Login with Amazon:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `authorize_scopes`
+     * - For Facebook:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `authorize_scopes`
+     * - `api_version`
+     * - For Sign in with Apple:
+     *
+     * - `client_id`
+     * - `team_id`
+     * - `key_id`
+     * - `private_key`
+     * - `authorize_scopes`
+     * - For OIDC providers:
+     *
+     * - `client_id`
+     * - `client_secret`
+     * - `attributes_request_method`
+     * - `oidc_issuer`
+     * - `authorize_scopes`
+     * - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+     * - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+     * - For SAML providers:
+     *
+     * - `MetadataFile` OR `MetadataURL`
+     * - `IDPSignout` (boolean) *optional*
+     * - `IDPInit` (boolean) *optional*
+     * - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+     * - `EncryptedResponses` (boolean) *optional*
+     */
     identityProviderDetails: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The identity provider name.
+     */
     identityProviderName?: pulumi.Input<string>;
+    /**
+     * The identity provider type.
+     */
     identityProviderType: pulumi.Input<enums.workspacesweb.IdentityProviderType>;
+    /**
+     * The ARN of the identity provider.
+     */
     portalArn?: pulumi.Input<string>;
 }

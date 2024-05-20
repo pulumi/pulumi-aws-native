@@ -14,8 +14,47 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApiKeyRestrictions struct {
-	AllowActions   []string `pulumi:"allowActions"`
-	AllowReferers  []string `pulumi:"allowReferers"`
+	// A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
+	//
+	// The following are valid values for the actions.
+	//
+	// - *Map actions*
+	//
+	// - `geo:GetMap*` - Allows all actions needed for map rendering.
+	// - *Place actions*
+	//
+	// - `geo:SearchPlaceIndexForText` - Allows geocoding.
+	// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
+	// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
+	// - `geo:GetPlace` - Allows finding a place by place ID.
+	// - *Route actions*
+	//
+	// - `geo:CalculateRoute` - Allows point to point routing.
+	// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+	//
+	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
+	AllowActions []string `pulumi:"allowActions"`
+	// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9) or any symbols in this list `$\-._+!*`(),;/?:@=&`
+	// - May contain a percent (%) if followed by 2 hexadecimal digits (A-F, a-f, 0-9); this is used for URL encoding purposes.
+	// - May contain wildcard characters question mark (?) and asterisk (*).
+	//
+	// Question mark (?) will replace any single character (including hexadecimal digits).
+	//
+	// Asterisk (*) will replace any multiple characters (including multiple hexadecimal digits).
+	// - No spaces allowed. For example, `https://example.com` .
+	AllowReferers []string `pulumi:"allowReferers"`
+	// A list of allowed resource ARNs that a API key bearer can perform actions on.
+	//
+	// - The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.
+	// - The resources must be in the same `partition` , `region` , and `account-id` as the key that is being created.
+	// - Other than wildcards, you must include the full ARN, including the `arn` , `partition` , `service` , `region` , `account-id` and `resource-id` delimited by colons (:).
+	// - No spaces allowed, even with wildcards. For example, `arn:aws:geo:region: *account-id* :map/ExampleMap*` .
+	//
+	// For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
 	AllowResources []string `pulumi:"allowResources"`
 }
 
@@ -31,8 +70,47 @@ type ApiKeyRestrictionsInput interface {
 }
 
 type ApiKeyRestrictionsArgs struct {
-	AllowActions   pulumi.StringArrayInput `pulumi:"allowActions"`
-	AllowReferers  pulumi.StringArrayInput `pulumi:"allowReferers"`
+	// A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
+	//
+	// The following are valid values for the actions.
+	//
+	// - *Map actions*
+	//
+	// - `geo:GetMap*` - Allows all actions needed for map rendering.
+	// - *Place actions*
+	//
+	// - `geo:SearchPlaceIndexForText` - Allows geocoding.
+	// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
+	// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
+	// - `geo:GetPlace` - Allows finding a place by place ID.
+	// - *Route actions*
+	//
+	// - `geo:CalculateRoute` - Allows point to point routing.
+	// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+	//
+	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
+	AllowActions pulumi.StringArrayInput `pulumi:"allowActions"`
+	// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9) or any symbols in this list `$\-._+!*`(),;/?:@=&`
+	// - May contain a percent (%) if followed by 2 hexadecimal digits (A-F, a-f, 0-9); this is used for URL encoding purposes.
+	// - May contain wildcard characters question mark (?) and asterisk (*).
+	//
+	// Question mark (?) will replace any single character (including hexadecimal digits).
+	//
+	// Asterisk (*) will replace any multiple characters (including multiple hexadecimal digits).
+	// - No spaces allowed. For example, `https://example.com` .
+	AllowReferers pulumi.StringArrayInput `pulumi:"allowReferers"`
+	// A list of allowed resource ARNs that a API key bearer can perform actions on.
+	//
+	// - The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.
+	// - The resources must be in the same `partition` , `region` , and `account-id` as the key that is being created.
+	// - Other than wildcards, you must include the full ARN, including the `arn` , `partition` , `service` , `region` , `account-id` and `resource-id` delimited by colons (:).
+	// - No spaces allowed, even with wildcards. For example, `arn:aws:geo:region: *account-id* :map/ExampleMap*` .
+	//
+	// For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
 	AllowResources pulumi.StringArrayInput `pulumi:"allowResources"`
 }
 
@@ -62,14 +140,53 @@ func (o ApiKeyRestrictionsOutput) ToApiKeyRestrictionsOutputWithContext(ctx cont
 	return o
 }
 
+// A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
+//
+// The following are valid values for the actions.
+//
+// - *Map actions*
+//
+// - `geo:GetMap*` - Allows all actions needed for map rendering.
+// - *Place actions*
+//
+// - `geo:SearchPlaceIndexForText` - Allows geocoding.
+// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
+// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
+// - `geo:GetPlace` - Allows finding a place by place ID.
+// - *Route actions*
+//
+// - `geo:CalculateRoute` - Allows point to point routing.
+// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+//
+// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 func (o ApiKeyRestrictionsOutput) AllowActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiKeyRestrictions) []string { return v.AllowActions }).(pulumi.StringArrayOutput)
 }
 
+// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
+//
+// Requirements:
+//
+// - Contain only alphanumeric characters (A–Z, a–z, 0–9) or any symbols in this list `$\-._+!*`(),;/?:@=&`
+// - May contain a percent (%) if followed by 2 hexadecimal digits (A-F, a-f, 0-9); this is used for URL encoding purposes.
+// - May contain wildcard characters question mark (?) and asterisk (*).
+//
+// Question mark (?) will replace any single character (including hexadecimal digits).
+//
+// Asterisk (*) will replace any multiple characters (including multiple hexadecimal digits).
+// - No spaces allowed. For example, `https://example.com` .
 func (o ApiKeyRestrictionsOutput) AllowReferers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiKeyRestrictions) []string { return v.AllowReferers }).(pulumi.StringArrayOutput)
 }
 
+// A list of allowed resource ARNs that a API key bearer can perform actions on.
+//
+// - The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.
+// - The resources must be in the same `partition` , `region` , and `account-id` as the key that is being created.
+// - Other than wildcards, you must include the full ARN, including the `arn` , `partition` , `service` , `region` , `account-id` and `resource-id` delimited by colons (:).
+// - No spaces allowed, even with wildcards. For example, `arn:aws:geo:region: *account-id* :map/ExampleMap*` .
+//
+// For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
 func (o ApiKeyRestrictionsOutput) AllowResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiKeyRestrictions) []string { return v.AllowResources }).(pulumi.StringArrayOutput)
 }
@@ -98,6 +215,25 @@ func (o ApiKeyRestrictionsPtrOutput) Elem() ApiKeyRestrictionsOutput {
 	}).(ApiKeyRestrictionsOutput)
 }
 
+// A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
+//
+// The following are valid values for the actions.
+//
+// - *Map actions*
+//
+// - `geo:GetMap*` - Allows all actions needed for map rendering.
+// - *Place actions*
+//
+// - `geo:SearchPlaceIndexForText` - Allows geocoding.
+// - `geo:SearchPlaceIndexForPosition` - Allows reverse geocoding.
+// - `geo:SearchPlaceIndexForSuggestions` - Allows generating suggestions from text.
+// - `geo:GetPlace` - Allows finding a place by place ID.
+// - *Route actions*
+//
+// - `geo:CalculateRoute` - Allows point to point routing.
+// - `geo:CalculateRouteMatrix` - Allows calculating a matrix of routes.
+//
+// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetMapTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 func (o ApiKeyRestrictionsPtrOutput) AllowActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiKeyRestrictions) []string {
 		if v == nil {
@@ -107,6 +243,18 @@ func (o ApiKeyRestrictionsPtrOutput) AllowActions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
+//
+// Requirements:
+//
+// - Contain only alphanumeric characters (A–Z, a–z, 0–9) or any symbols in this list `$\-._+!*`(),;/?:@=&`
+// - May contain a percent (%) if followed by 2 hexadecimal digits (A-F, a-f, 0-9); this is used for URL encoding purposes.
+// - May contain wildcard characters question mark (?) and asterisk (*).
+//
+// Question mark (?) will replace any single character (including hexadecimal digits).
+//
+// Asterisk (*) will replace any multiple characters (including multiple hexadecimal digits).
+// - No spaces allowed. For example, `https://example.com` .
 func (o ApiKeyRestrictionsPtrOutput) AllowReferers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiKeyRestrictions) []string {
 		if v == nil {
@@ -116,6 +264,14 @@ func (o ApiKeyRestrictionsPtrOutput) AllowReferers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of allowed resource ARNs that a API key bearer can perform actions on.
+//
+// - The ARN must be the correct ARN for a map, place, or route ARN. You may include wildcards in the resource-id to match multiple resources of the same type.
+// - The resources must be in the same `partition` , `region` , and `account-id` as the key that is being created.
+// - Other than wildcards, you must include the full ARN, including the `arn` , `partition` , `service` , `region` , `account-id` and `resource-id` delimited by colons (:).
+// - No spaces allowed, even with wildcards. For example, `arn:aws:geo:region: *account-id* :map/ExampleMap*` .
+//
+// For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
 func (o ApiKeyRestrictionsPtrOutput) AllowResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiKeyRestrictions) []string {
 		if v == nil {
@@ -142,9 +298,49 @@ type GeofenceCollectionTag struct {
 }
 
 type MapConfiguration struct {
-	CustomLayers  []string `pulumi:"customLayers"`
-	PoliticalView *string  `pulumi:"politicalView"`
-	Style         string   `pulumi:"style"`
+	// Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as the `POI` layer for the VectorEsriNavigation style.
+	//
+	// > Currenlty only `VectorEsriNavigation` supports CustomLayers. For more information, see [Custom Layers](https://docs.aws.amazon.com//location/latest/developerguide/map-concepts.html#map-custom-layers) .
+	CustomLayers []string `pulumi:"customLayers"`
+	// Specifies the map political view selected from an available data provider.
+	PoliticalView *string `pulumi:"politicalView"`
+	// Specifies the map style selected from an available data provider.
+	//
+	// Valid [Esri map styles](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) :
+	//
+	// - `VectorEsriNavigation` – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places, such as shops, services, restaurants, attractions, and other points of interest. Enable the `POI` layer by setting it in CustomLayers to leverage the additional places data.
+	// - `RasterEsriImagery` – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide.
+	// - `VectorEsriLightGrayCanvas` – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+	// - `VectorEsriTopographic` – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.
+	// - `VectorEsriStreets` – The Esri Street Map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.
+	// - `VectorEsriDarkGrayCanvas` – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+	//
+	// Valid [HERE Technologies map styles](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) :
+	//
+	// - `VectorHereExplore` – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.
+	// - `RasterHereExploreSatellite` – A global map containing high resolution satellite imagery.
+	// - `HybridHereExploreSatellite` – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.
+	//
+	// > Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.
+	// - `VectorHereContrast` – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
+	//
+	// > The `VectorHereContrast` style has been renamed from `VectorHereBerlin` . `VectorHereBerlin` has been deprecated, but will continue to work in applications that use it.
+	// - `VectorHereExploreTruck` – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.
+	//
+	// Valid [GrabMaps map styles](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) :
+	//
+	// - `VectorGrabStandardLight` – The Grab Standard Light map style provides a basemap with detailed land use coloring, area names, roads, landmarks, and points of interest covering Southeast Asia.
+	// - `VectorGrabStandardDark` – The Grab Standard Dark map style provides a dark variation of the standard basemap covering Southeast Asia.
+	//
+	// > Grab provides maps only for countries in Southeast Asia, and is only available in the Asia Pacific (Singapore) Region ( `ap-southeast-1` ). For more information, see [GrabMaps countries and area covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+	//
+	// Valid [Open Data map styles](https://docs.aws.amazon.com/location/latest/developerguide/open-data.html) :
+	//
+	// - `VectorOpenDataStandardLight` – The Open Data Standard Light map style provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
+	// - `VectorOpenDataStandardDark` – Open Data Standard Dark is a dark-themed map style that provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
+	// - `VectorOpenDataVisualizationLight` – The Open Data Visualization Light map style is a light-themed style with muted colors and fewer features that aids in understanding overlaid data.
+	// - `VectorOpenDataVisualizationDark` – The Open Data Visualization Dark map style is a dark-themed style with muted colors and fewer features that aids in understanding overlaid data.
+	Style string `pulumi:"style"`
 }
 
 // MapConfigurationInput is an input type that accepts MapConfigurationArgs and MapConfigurationOutput values.
@@ -159,9 +355,49 @@ type MapConfigurationInput interface {
 }
 
 type MapConfigurationArgs struct {
-	CustomLayers  pulumi.StringArrayInput `pulumi:"customLayers"`
-	PoliticalView pulumi.StringPtrInput   `pulumi:"politicalView"`
-	Style         pulumi.StringInput      `pulumi:"style"`
+	// Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as the `POI` layer for the VectorEsriNavigation style.
+	//
+	// > Currenlty only `VectorEsriNavigation` supports CustomLayers. For more information, see [Custom Layers](https://docs.aws.amazon.com//location/latest/developerguide/map-concepts.html#map-custom-layers) .
+	CustomLayers pulumi.StringArrayInput `pulumi:"customLayers"`
+	// Specifies the map political view selected from an available data provider.
+	PoliticalView pulumi.StringPtrInput `pulumi:"politicalView"`
+	// Specifies the map style selected from an available data provider.
+	//
+	// Valid [Esri map styles](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) :
+	//
+	// - `VectorEsriNavigation` – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places, such as shops, services, restaurants, attractions, and other points of interest. Enable the `POI` layer by setting it in CustomLayers to leverage the additional places data.
+	// - `RasterEsriImagery` – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide.
+	// - `VectorEsriLightGrayCanvas` – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+	// - `VectorEsriTopographic` – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.
+	// - `VectorEsriStreets` – The Esri Street Map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.
+	// - `VectorEsriDarkGrayCanvas` – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+	//
+	// Valid [HERE Technologies map styles](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) :
+	//
+	// - `VectorHereExplore` – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.
+	// - `RasterHereExploreSatellite` – A global map containing high resolution satellite imagery.
+	// - `HybridHereExploreSatellite` – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.
+	//
+	// > Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.
+	// - `VectorHereContrast` – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
+	//
+	// > The `VectorHereContrast` style has been renamed from `VectorHereBerlin` . `VectorHereBerlin` has been deprecated, but will continue to work in applications that use it.
+	// - `VectorHereExploreTruck` – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.
+	//
+	// Valid [GrabMaps map styles](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) :
+	//
+	// - `VectorGrabStandardLight` – The Grab Standard Light map style provides a basemap with detailed land use coloring, area names, roads, landmarks, and points of interest covering Southeast Asia.
+	// - `VectorGrabStandardDark` – The Grab Standard Dark map style provides a dark variation of the standard basemap covering Southeast Asia.
+	//
+	// > Grab provides maps only for countries in Southeast Asia, and is only available in the Asia Pacific (Singapore) Region ( `ap-southeast-1` ). For more information, see [GrabMaps countries and area covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+	//
+	// Valid [Open Data map styles](https://docs.aws.amazon.com/location/latest/developerguide/open-data.html) :
+	//
+	// - `VectorOpenDataStandardLight` – The Open Data Standard Light map style provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
+	// - `VectorOpenDataStandardDark` – Open Data Standard Dark is a dark-themed map style that provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
+	// - `VectorOpenDataVisualizationLight` – The Open Data Visualization Light map style is a light-themed style with muted colors and fewer features that aids in understanding overlaid data.
+	// - `VectorOpenDataVisualizationDark` – The Open Data Visualization Dark map style is a dark-themed style with muted colors and fewer features that aids in understanding overlaid data.
+	Style pulumi.StringInput `pulumi:"style"`
 }
 
 func (MapConfigurationArgs) ElementType() reflect.Type {
@@ -190,14 +426,54 @@ func (o MapConfigurationOutput) ToMapConfigurationOutputWithContext(ctx context.
 	return o
 }
 
+// Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as the `POI` layer for the VectorEsriNavigation style.
+//
+// > Currenlty only `VectorEsriNavigation` supports CustomLayers. For more information, see [Custom Layers](https://docs.aws.amazon.com//location/latest/developerguide/map-concepts.html#map-custom-layers) .
 func (o MapConfigurationOutput) CustomLayers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MapConfiguration) []string { return v.CustomLayers }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the map political view selected from an available data provider.
 func (o MapConfigurationOutput) PoliticalView() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MapConfiguration) *string { return v.PoliticalView }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the map style selected from an available data provider.
+//
+// Valid [Esri map styles](https://docs.aws.amazon.com/location/latest/developerguide/esri.html) :
+//
+// - `VectorEsriNavigation` – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places, such as shops, services, restaurants, attractions, and other points of interest. Enable the `POI` layer by setting it in CustomLayers to leverage the additional places data.
+// - `RasterEsriImagery` – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide.
+// - `VectorEsriLightGrayCanvas` – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+// - `VectorEsriTopographic` – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.
+// - `VectorEsriStreets` – The Esri Street Map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.
+// - `VectorEsriDarkGrayCanvas` – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that's designed to draw attention to your thematic content.
+//
+// Valid [HERE Technologies map styles](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html) :
+//
+// - `VectorHereExplore` – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.
+// - `RasterHereExploreSatellite` – A global map containing high resolution satellite imagery.
+// - `HybridHereExploreSatellite` – A global map displaying the road network, street names, and city labels over satellite imagery. This style will automatically retrieve both raster and vector tiles, and your charges will be based on total tiles retrieved.
+//
+// > Hybrid styles use both vector and raster tiles when rendering the map that you see. This means that more tiles are retrieved than when using either vector or raster tiles alone. Your charges will include all tiles retrieved.
+// - `VectorHereContrast` – The HERE Contrast (Berlin) map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
+//
+// > The `VectorHereContrast` style has been renamed from `VectorHereBerlin` . `VectorHereBerlin` has been deprecated, but will continue to work in applications that use it.
+// - `VectorHereExploreTruck` – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.
+//
+// Valid [GrabMaps map styles](https://docs.aws.amazon.com/location/latest/developerguide/grab.html) :
+//
+// - `VectorGrabStandardLight` – The Grab Standard Light map style provides a basemap with detailed land use coloring, area names, roads, landmarks, and points of interest covering Southeast Asia.
+// - `VectorGrabStandardDark` – The Grab Standard Dark map style provides a dark variation of the standard basemap covering Southeast Asia.
+//
+// > Grab provides maps only for countries in Southeast Asia, and is only available in the Asia Pacific (Singapore) Region ( `ap-southeast-1` ). For more information, see [GrabMaps countries and area covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area) .
+//
+// Valid [Open Data map styles](https://docs.aws.amazon.com/location/latest/developerguide/open-data.html) :
+//
+// - `VectorOpenDataStandardLight` – The Open Data Standard Light map style provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
+// - `VectorOpenDataStandardDark` – Open Data Standard Dark is a dark-themed map style that provides a detailed basemap for the world suitable for website and mobile application use. The map includes highways major roads, minor roads, railways, water features, cities, parks, landmarks, building footprints, and administrative boundaries.
+// - `VectorOpenDataVisualizationLight` – The Open Data Visualization Light map style is a light-themed style with muted colors and fewer features that aids in understanding overlaid data.
+// - `VectorOpenDataVisualizationDark` – The Open Data Visualization Dark map style is a dark-themed style with muted colors and fewer features that aids in understanding overlaid data.
 func (o MapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v MapConfiguration) string { return v.Style }).(pulumi.StringOutput)
 }
@@ -211,6 +487,14 @@ type MapTag struct {
 }
 
 type PlaceIndexDataSourceConfiguration struct {
+	// Specifies how the results of an operation will be stored by the caller.
+	//
+	// Valid values include:
+	//
+	// - `SingleUse` specifies that the results won't be stored.
+	// - `Storage` specifies that the result can be cached or stored in a database.
+	//
+	// Default value: `SingleUse`
 	IntendedUse *PlaceIndexIntendedUse `pulumi:"intendedUse"`
 }
 
@@ -226,6 +510,14 @@ type PlaceIndexDataSourceConfigurationInput interface {
 }
 
 type PlaceIndexDataSourceConfigurationArgs struct {
+	// Specifies how the results of an operation will be stored by the caller.
+	//
+	// Valid values include:
+	//
+	// - `SingleUse` specifies that the results won't be stored.
+	// - `Storage` specifies that the result can be cached or stored in a database.
+	//
+	// Default value: `SingleUse`
 	IntendedUse PlaceIndexIntendedUsePtrInput `pulumi:"intendedUse"`
 }
 
@@ -306,6 +598,14 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
+// Specifies how the results of an operation will be stored by the caller.
+//
+// Valid values include:
+//
+// - `SingleUse` specifies that the results won't be stored.
+// - `Storage` specifies that the result can be cached or stored in a database.
+//
+// Default value: `SingleUse`
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() PlaceIndexIntendedUsePtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *PlaceIndexIntendedUse { return v.IntendedUse }).(PlaceIndexIntendedUsePtrOutput)
 }
@@ -334,6 +634,14 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceC
 	}).(PlaceIndexDataSourceConfigurationOutput)
 }
 
+// Specifies how the results of an operation will be stored by the caller.
+//
+// Valid values include:
+//
+// - `SingleUse` specifies that the results won't be stored.
+// - `Storage` specifies that the result can be cached or stored in a database.
+//
+// Default value: `SingleUse`
 func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() PlaceIndexIntendedUsePtrOutput {
 	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *PlaceIndexIntendedUse {
 		if v == nil {

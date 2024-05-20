@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.Ecs
         [Input("cluster", required: true)]
         public string Cluster { get; set; } = null!;
 
+        /// <summary>
+        /// Not currently supported in AWS CloudFormation .
+        /// </summary>
         [Input("serviceArn", required: true)]
         public string ServiceArn { get; set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.Ecs
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
+        /// <summary>
+        /// Not currently supported in AWS CloudFormation .
+        /// </summary>
         [Input("serviceArn", required: true)]
         public Input<string> ServiceArn { get; set; } = null!;
 
@@ -102,6 +108,9 @@ namespace Pulumi.AwsNative.Ecs
         /// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLoadBalancer> LoadBalancers;
+        /// <summary>
+        /// The name of the Amazon ECS service, such as `sample-webapp` .
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -124,6 +133,9 @@ namespace Pulumi.AwsNative.Ecs
         ///  The default is ``NONE``.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServicePropagateTags? PropagateTags;
+        /// <summary>
+        /// Not currently supported in AWS CloudFormation .
+        /// </summary>
         public readonly string? ServiceArn;
         /// <summary>
         /// The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).

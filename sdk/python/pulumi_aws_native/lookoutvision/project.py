@@ -17,6 +17,7 @@ class ProjectArgs:
                  project_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Project resource.
+        :param pulumi.Input[str] project_name: The name of the project.
         """
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
@@ -24,6 +25,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -43,6 +47,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] project_name: The name of the project.
         """
         ...
     @overload
@@ -111,10 +116,16 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name of the project.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[str]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "project_name")
 

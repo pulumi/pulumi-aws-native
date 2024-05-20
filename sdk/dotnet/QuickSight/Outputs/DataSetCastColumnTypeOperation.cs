@@ -25,7 +25,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             format supported by Amazon QuickSight to denote the source data format.&lt;/p&gt;
         /// </summary>
         public readonly string? Format;
+        /// <summary>
+        /// New column data type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataType NewColumnType;
+        /// <summary>
+        /// The sub data type of the new column. Sub types are only available for decimal columns that are part of a SPICE dataset.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? SubType;
 
         [OutputConstructor]

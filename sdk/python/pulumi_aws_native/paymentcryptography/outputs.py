@@ -46,6 +46,14 @@ class KeyAttributes(dict):
                  key_class: 'KeyClass',
                  key_modes_of_use: 'outputs.KeyModesOfUse',
                  key_usage: 'KeyUsage'):
+        """
+        :param 'KeyAlgorithm' key_algorithm: The key algorithm to be use during creation of an AWS Payment Cryptography key.
+               
+               For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
+        :param 'KeyClass' key_class: The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+        :param 'KeyModesOfUse' key_modes_of_use: The list of cryptographic operations that you can perform using the key.
+        :param 'KeyUsage' key_usage: The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+        """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "key_class", key_class)
         pulumi.set(__self__, "key_modes_of_use", key_modes_of_use)
@@ -54,21 +62,35 @@ class KeyAttributes(dict):
     @property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> 'KeyAlgorithm':
+        """
+        The key algorithm to be use during creation of an AWS Payment Cryptography key.
+
+        For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
+        """
         return pulumi.get(self, "key_algorithm")
 
     @property
     @pulumi.getter(name="keyClass")
     def key_class(self) -> 'KeyClass':
+        """
+        The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+        """
         return pulumi.get(self, "key_class")
 
     @property
     @pulumi.getter(name="keyModesOfUse")
     def key_modes_of_use(self) -> 'outputs.KeyModesOfUse':
+        """
+        The list of cryptographic operations that you can perform using the key.
+        """
         return pulumi.get(self, "key_modes_of_use")
 
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> 'KeyUsage':
+        """
+        The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+        """
         return pulumi.get(self, "key_usage")
 
 
@@ -103,6 +125,16 @@ class KeyModesOfUse(dict):
                  unwrap: Optional[bool] = None,
                  verify: Optional[bool] = None,
                  wrap: Optional[bool] = None):
+        """
+        :param bool decrypt: Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
+        :param bool derive_key: Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
+        :param bool encrypt: Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
+        :param bool generate: Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+        :param bool no_restrictions: Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
+        :param bool sign: Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
+        :param bool verify: Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
+        :param bool wrap: Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
+        """
         if decrypt is not None:
             pulumi.set(__self__, "decrypt", decrypt)
         if derive_key is not None:
@@ -125,31 +157,49 @@ class KeyModesOfUse(dict):
     @property
     @pulumi.getter
     def decrypt(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
+        """
         return pulumi.get(self, "decrypt")
 
     @property
     @pulumi.getter(name="deriveKey")
     def derive_key(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
+        """
         return pulumi.get(self, "derive_key")
 
     @property
     @pulumi.getter
     def encrypt(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
+        """
         return pulumi.get(self, "encrypt")
 
     @property
     @pulumi.getter
     def generate(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+        """
         return pulumi.get(self, "generate")
 
     @property
     @pulumi.getter(name="noRestrictions")
     def no_restrictions(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
+        """
         return pulumi.get(self, "no_restrictions")
 
     @property
     @pulumi.getter
     def sign(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
+        """
         return pulumi.get(self, "sign")
 
     @property
@@ -160,11 +210,17 @@ class KeyModesOfUse(dict):
     @property
     @pulumi.getter
     def verify(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
+        """
         return pulumi.get(self, "verify")
 
     @property
     @pulumi.getter
     def wrap(self) -> Optional[bool]:
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
+        """
         return pulumi.get(self, "wrap")
 
 

@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        /// </summary>
         [Output("trustAnchorArn")]
         public Output<string?> TrustAnchorArn { get; private set; } = null!;
 
@@ -95,6 +98,9 @@ namespace Pulumi.AwsNative.RolesAnywhere
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
+        /// </summary>
         [Input("trustAnchorArn")]
         public Input<string>? TrustAnchorArn { get; set; }
 

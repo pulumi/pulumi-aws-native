@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateCategoricalDimensionField
     {
+        /// <summary>
+        /// The column that is used in the `CategoricalDimensionField` .
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The custom field ID.
+        /// </summary>
         public readonly string FieldId;
+        /// <summary>
+        /// The format configuration of the field.
+        /// </summary>
         public readonly Outputs.TemplateStringFormatConfiguration? FormatConfiguration;
+        /// <summary>
+        /// The custom hierarchy ID.
+        /// </summary>
         public readonly string? HierarchyId;
 
         [OutputConstructor]

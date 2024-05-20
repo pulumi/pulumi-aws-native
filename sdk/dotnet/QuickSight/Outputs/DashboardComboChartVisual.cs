@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardComboChartVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration settings of the visual.
+        /// </summary>
         public readonly Outputs.DashboardComboChartConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The column hierarchy that is used during drill-downs and drill-ups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardColumnHierarchy> ColumnHierarchies;
+        /// <summary>
+        /// The subtitle that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.DashboardVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.DashboardVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

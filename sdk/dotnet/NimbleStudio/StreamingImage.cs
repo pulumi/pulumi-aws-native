@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the streaming image resource.
+        /// </summary>
         [Output("streamingImageId")]
         public Output<string> StreamingImageId { get; private set; } = null!;
 
@@ -63,6 +66,11 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -143,6 +151,12 @@ namespace Pulumi.AwsNative.NimbleStudio
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

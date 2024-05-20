@@ -93,6 +93,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("amiType")]
         public Output<string?> AmiType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) associated with the managed node group.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.HealthLake
 
     public sealed class GetFhirDatastoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        /// </summary>
         [Input("datastoreId", required: true)]
         public string DatastoreId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.HealthLake
 
     public sealed class GetFhirDatastoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        /// </summary>
         [Input("datastoreId", required: true)]
         public Input<string> DatastoreId { get; set; } = null!;
 
@@ -52,10 +58,27 @@ namespace Pulumi.AwsNative.HealthLake
     public sealed class GetFhirDatastoreResult
     {
         public readonly Outputs.FhirDatastoreCreatedAt? CreatedAt;
+        /// <summary>
+        /// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+        /// </summary>
         public readonly string? DatastoreArn;
+        /// <summary>
+        /// The endpoint for the created Data Store.
+        /// </summary>
         public readonly string? DatastoreEndpoint;
+        /// <summary>
+        /// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        /// </summary>
         public readonly string? DatastoreId;
+        /// <summary>
+        /// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+        /// </summary>
         public readonly Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus? DatastoreStatus;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

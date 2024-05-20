@@ -17,7 +17,9 @@ import (
 type Collection struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	// Returns the Amazon Resource Name of the collection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ID for the collection that you are creating.
 	CollectionId pulumi.StringOutput `pulumi:"collectionId"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -70,6 +72,7 @@ func (CollectionState) ElementType() reflect.Type {
 }
 
 type collectionArgs struct {
+	// ID for the collection that you are creating.
 	CollectionId string `pulumi:"collectionId"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -77,6 +80,7 @@ type collectionArgs struct {
 
 // The set of arguments for constructing a Collection resource.
 type CollectionArgs struct {
+	// ID for the collection that you are creating.
 	CollectionId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -119,10 +123,12 @@ func (o CollectionOutput) ToCollectionOutputWithContext(ctx context.Context) Col
 	return o
 }
 
+// Returns the Amazon Resource Name of the collection.
 func (o CollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// ID for the collection that you are creating.
 func (o CollectionOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.CollectionId }).(pulumi.StringOutput)
 }

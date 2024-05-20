@@ -37,8 +37,17 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginRequestPolicy.__pulumiType;
     }
 
+    /**
+     * The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The date and time when the origin request policy was last modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * The origin request policy configuration.
+     */
     public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyConfig>;
 
     /**
@@ -72,5 +81,8 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginRequestPolicy resource.
  */
 export interface OriginRequestPolicyArgs {
+    /**
+     * The origin request policy configuration.
+     */
     originRequestPolicyConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyConfigArgs>;
 }

@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("botId", required: true)]
         public string BotId { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the bot.
+        /// </summary>
         [Input("botVersion", required: true)]
         public string BotVersionValue { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetBotVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the bot.
+        /// </summary>
         [Input("botId", required: true)]
         public Input<string> BotId { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the bot.
+        /// </summary>
         [Input("botVersion", required: true)]
         public Input<string> BotVersion { get; set; } = null!;
 
@@ -57,7 +69,13 @@ namespace Pulumi.AwsNative.Lex
     [OutputType]
     public sealed class GetBotVersionResult
     {
+        /// <summary>
+        /// The version of the bot.
+        /// </summary>
         public readonly string? BotVersionValue;
+        /// <summary>
+        /// The description of the version.
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

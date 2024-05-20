@@ -73,6 +73,11 @@ export class Accelerator extends pulumi.CustomResource {
      * Name of accelerator.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Create tags for an accelerator.
+     *
+     * For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -133,5 +138,10 @@ export interface AcceleratorArgs {
      * Name of accelerator.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Create tags for an accelerator.
+     *
+     * For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

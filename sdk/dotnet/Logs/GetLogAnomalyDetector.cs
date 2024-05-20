@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Logs
         /// Current status of detector.
         /// </summary>
         public readonly string? AnomalyDetectorStatus;
+        /// <summary>
+        /// The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
+        /// </summary>
         public readonly double? AnomalyVisibilityTime;
         /// <summary>
         /// When detector was created.
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.Logs
         /// How often log group is evaluated
         /// </summary>
         public readonly Pulumi.AwsNative.Logs.LogAnomalyDetectorEvaluationFrequency? EvaluationFrequency;
+        /// <summary>
+        /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
+        /// </summary>
         public readonly string? FilterPattern;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.

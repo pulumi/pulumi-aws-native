@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetEc2FleetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the EC2 Fleet.
+        /// </summary>
         [Input("fleetId", required: true)]
         public string FleetId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetEc2FleetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the EC2 Fleet.
+        /// </summary>
         [Input("fleetId", required: true)]
         public Input<string> FleetId { get; set; } = null!;
 
@@ -51,9 +57,23 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetEc2FleetResult
     {
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         public readonly string? Context;
+        /// <summary>
+        /// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+        /// 
+        /// Supported only for fleets of type `maintain` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.Ec2FleetExcessCapacityTerminationPolicy? ExcessCapacityTerminationPolicy;
+        /// <summary>
+        /// The ID of the EC2 Fleet.
+        /// </summary>
         public readonly string? FleetId;
+        /// <summary>
+        /// The number of units to request.
+        /// </summary>
         public readonly Outputs.Ec2FleetTargetCapacitySpecificationRequest? TargetCapacitySpecification;
 
         [OutputConstructor]

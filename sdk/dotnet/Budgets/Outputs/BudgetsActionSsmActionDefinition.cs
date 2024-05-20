@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     [OutputType]
     public sealed class BudgetsActionSsmActionDefinition
     {
+        /// <summary>
+        /// The EC2 and RDS instance IDs.
+        /// </summary>
         public readonly ImmutableArray<string> InstanceIds;
+        /// <summary>
+        /// The Region to run the ( SSM ) document.
+        /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// The action subType.
+        /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionSsmActionDefinitionSubtype Subtype;
 
         [OutputConstructor]

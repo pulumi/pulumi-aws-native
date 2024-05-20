@@ -37,6 +37,9 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
+    /**
+     * The `arn` of the table.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name for the database which the table to be created belongs to.

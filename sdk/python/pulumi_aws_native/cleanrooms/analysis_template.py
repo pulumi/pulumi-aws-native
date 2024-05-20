@@ -28,7 +28,12 @@ class AnalysisTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AnalysisTemplate resource.
+        :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
+        :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
+        :param pulumi.Input['AnalysisTemplateAnalysisSourceArgs'] source: The source of the analysis template.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
+        :param pulumi.Input[str] description: The description of the analysis template.
+        :param pulumi.Input[str] name: The name of the analysis template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         pulumi.set(__self__, "format", format)
@@ -46,6 +51,9 @@ class AnalysisTemplateArgs:
     @property
     @pulumi.getter
     def format(self) -> pulumi.Input['AnalysisTemplateFormat']:
+        """
+        The format of the analysis template.
+        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -55,6 +63,9 @@ class AnalysisTemplateArgs:
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier for a membership resource.
+        """
         return pulumi.get(self, "membership_identifier")
 
     @membership_identifier.setter
@@ -64,6 +75,9 @@ class AnalysisTemplateArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input['AnalysisTemplateAnalysisSourceArgs']:
+        """
+        The source of the analysis template.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -85,6 +99,9 @@ class AnalysisTemplateArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the analysis template.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -94,6 +111,9 @@ class AnalysisTemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the analysis template.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -132,6 +152,11 @@ class AnalysisTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisParameterArgs']]]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
+        :param pulumi.Input[str] description: The description of the analysis template.
+        :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
+        :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
+        :param pulumi.Input[str] name: The name of the analysis template.
+        :param pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']] source: The source of the analysis template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         ...
@@ -243,46 +268,83 @@ class AnalysisTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="analysisTemplateIdentifier")
     def analysis_template_identifier(self) -> pulumi.Output[str]:
+        """
+        Returns the identifier for the analysis template.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        """
         return pulumi.get(self, "analysis_template_identifier")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the analysis template.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> pulumi.Output[str]:
+        """
+        Returns the unique ARN for the analysis template’s associated collaboration.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "collaboration_arn")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Output[str]:
+        """
+        Returns the unique ID for the associated collaboration of the analysis template.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the analysis template.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def format(self) -> pulumi.Output['AnalysisTemplateFormat']:
+        """
+        The format of the analysis template.
+        """
         return pulumi.get(self, "format")
 
     @property
     @pulumi.getter(name="membershipArn")
     def membership_arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "membership_arn")
 
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Output[str]:
+        """
+        The identifier for a membership resource.
+        """
         return pulumi.get(self, "membership_identifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the analysis template.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -293,6 +355,9 @@ class AnalysisTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.AnalysisTemplateAnalysisSource']:
+        """
+        The source of the analysis template.
+        """
         return pulumi.get(self, "source")
 
     @property

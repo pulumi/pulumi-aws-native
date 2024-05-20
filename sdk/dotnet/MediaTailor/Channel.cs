@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("audiences")]
         public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        /// </summary>
         [Output("fillerSlate")]
         public Output<Outputs.ChannelSlateSource?> FillerSlate { get; private set; } = null!;
 
+        /// <summary>
+        /// The log configuration.
+        /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.ChannelLogConfigurationForChannel?> LogConfiguration { get; private set; } = null!;
 
@@ -42,6 +51,13 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("outputs")]
         public Output<ImmutableArray<Outputs.ChannelRequestOutputItem>> Outputs { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of playback mode for this channel.
+        /// 
+        /// `LINEAR` - Programs play back-to-back only once.
+        /// 
+        /// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+        /// </summary>
         [Output("playbackMode")]
         public Output<Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode> PlaybackMode { get; private set; } = null!;
 
@@ -51,9 +67,15 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The tier for this channel. STANDARD tier channels can contain live programs.
+        /// </summary>
         [Output("tier")]
         public Output<Pulumi.AwsNative.MediaTailor.ChannelTier?> Tier { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for time-shifted viewing.
+        /// </summary>
         [Output("timeShiftConfiguration")]
         public Output<Outputs.ChannelTimeShiftConfiguration?> TimeShiftConfiguration { get; private set; } = null!;
 
@@ -119,12 +141,21 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _audiences = value;
         }
 
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
 
+        /// <summary>
+        /// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        /// </summary>
         [Input("fillerSlate")]
         public Input<Inputs.ChannelSlateSourceArgs>? FillerSlate { get; set; }
 
+        /// <summary>
+        /// The log configuration.
+        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ChannelLogConfigurationForChannelArgs>? LogConfiguration { get; set; }
 
@@ -140,6 +171,13 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _outputs = value;
         }
 
+        /// <summary>
+        /// The type of playback mode for this channel.
+        /// 
+        /// `LINEAR` - Programs play back-to-back only once.
+        /// 
+        /// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+        /// </summary>
         [Input("playbackMode", required: true)]
         public Input<Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode> PlaybackMode { get; set; } = null!;
 
@@ -155,9 +193,15 @@ namespace Pulumi.AwsNative.MediaTailor
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The tier for this channel. STANDARD tier channels can contain live programs.
+        /// </summary>
         [Input("tier")]
         public Input<Pulumi.AwsNative.MediaTailor.ChannelTier>? Tier { get; set; }
 
+        /// <summary>
+        /// The configuration for time-shifted viewing.
+        /// </summary>
         [Input("timeShiftConfiguration")]
         public Input<Inputs.ChannelTimeShiftConfigurationArgs>? TimeShiftConfiguration { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateConditionalFormattingIcon
     {
+        /// <summary>
+        /// Determines the custom condition for an icon set.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingCustomIconCondition? CustomCondition;
+        /// <summary>
+        /// Formatting configuration for icon set.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingIconSet? IconSet;
 
         [OutputConstructor]

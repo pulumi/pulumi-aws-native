@@ -50,6 +50,9 @@ export interface GetAppResult {
      * The list of events you would like to subscribe and get notification for.
      */
     readonly eventSubscriptions?: outputs.resiliencehub.AppEventSubscription[];
+    /**
+     * Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+     */
     readonly permissionModel?: outputs.resiliencehub.AppPermissionModel;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -59,6 +62,9 @@ export interface GetAppResult {
      * An array of ResourceMapping objects.
      */
     readonly resourceMappings?: outputs.resiliencehub.AppResourceMapping[];
+    /**
+     * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CleanRoomsMl.Outputs
     [OutputType]
     public sealed class TrainingDatasetGlueDataSource
     {
+        /// <summary>
+        /// The Glue catalog that contains the training data.
+        /// </summary>
         public readonly string? CatalogId;
+        /// <summary>
+        /// The Glue database that contains the training data.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The Glue table that contains the training data.
+        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineActivity
     {
+        /// <summary>
+        /// Adds other attributes based on existing attributes in the message.
+        /// </summary>
         public readonly Outputs.PipelineAddAttributes? AddAttributes;
+        /// <summary>
+        /// Determines the source of the messages to be processed.
+        /// </summary>
         public readonly Outputs.PipelineChannel? Channel;
+        /// <summary>
+        /// Specifies where to store the processed message data.
+        /// </summary>
         public readonly Outputs.PipelineDatastore? Datastore;
+        /// <summary>
+        /// Adds data from the AWS IoT device registry to your message.
+        /// </summary>
         public readonly Outputs.PipelineDeviceRegistryEnrich? DeviceRegistryEnrich;
+        /// <summary>
+        /// Adds information from the AWS IoT Device Shadows service to a message.
+        /// </summary>
         public readonly Outputs.PipelineDeviceShadowEnrich? DeviceShadowEnrich;
+        /// <summary>
+        /// Filters a message based on its attributes.
+        /// </summary>
         public readonly Outputs.PipelineFilter? Filter;
+        /// <summary>
+        /// Runs a Lambda function to modify the message.
+        /// </summary>
         public readonly Outputs.PipelineLambda? Lambda;
+        /// <summary>
+        /// Computes an arithmetic expression using the message's attributes and adds it to the message.
+        /// </summary>
         public readonly Outputs.PipelineMath? Math;
+        /// <summary>
+        /// Removes attributes from a message.
+        /// </summary>
         public readonly Outputs.PipelineRemoveAttributes? RemoveAttributes;
+        /// <summary>
+        /// Creates a new message using only the specified attributes from the original message.
+        /// </summary>
         public readonly Outputs.PipelineSelectAttributes? SelectAttributes;
 
         [OutputConstructor]

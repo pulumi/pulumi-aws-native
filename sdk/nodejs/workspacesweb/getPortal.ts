@@ -19,28 +19,100 @@ export function getPortal(args: GetPortalArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPortalArgs {
+    /**
+     * The ARN of the web portal.
+     */
     portalArn: string;
 }
 
 export interface GetPortalResult {
+    /**
+     * The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
+     *
+     * `Standard` web portals are authenticated directly through your identity provider (IdP). User and group access to your web portal is controlled through your IdP. You need to include an IdP resource in your template to integrate your IdP with your web portal. Completing the configuration for your IdP requires exchanging WorkSpaces Web’s SP metadata with your IdP’s IdP metadata. If your IdP requires the SP metadata first before returning the IdP metadata, you should follow these steps:
+     *
+     * 1. Create and deploy a CloudFormation template with a `Standard` portal with no `IdentityProvider` resource.
+     *
+     * 2. Retrieve the SP metadata using `Fn:GetAtt` , the WorkSpaces Web console, or by the calling the `GetPortalServiceProviderMetadata` API.
+     *
+     * 3. Submit the data to your IdP.
+     *
+     * 4. Add an `IdentityProvider` resource to your CloudFormation template.
+     *
+     * `IAM Identity Center` web portals are authenticated through AWS IAM Identity Center . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in IAM Identity Center . User and group assignment must be done through the WorkSpaces Web console. These cannot be configured in CloudFormation.
+     */
     readonly authenticationType?: enums.workspacesweb.PortalAuthenticationType;
+    /**
+     * The ARN of the browser settings that is associated with this web portal.
+     */
     readonly browserSettingsArn?: string;
+    /**
+     * The browser that users see when using a streaming session.
+     */
     readonly browserType?: enums.workspacesweb.PortalBrowserType;
+    /**
+     * The creation date of the web portal.
+     */
     readonly creationDate?: string;
+    /**
+     * The name of the web portal.
+     */
     readonly displayName?: string;
+    /**
+     * The type and resources of the underlying instance.
+     */
     readonly instanceType?: enums.workspacesweb.PortalInstanceType;
+    /**
+     * The ARN of the IP access settings that is associated with the web portal.
+     */
     readonly ipAccessSettingsArn?: string;
+    /**
+     * The maximum number of concurrent sessions for the portal.
+     */
     readonly maxConcurrentSessions?: number;
+    /**
+     * The ARN of the network settings that is associated with the web portal.
+     */
     readonly networkSettingsArn?: string;
+    /**
+     * The ARN of the web portal.
+     */
     readonly portalArn?: string;
+    /**
+     * The endpoint URL of the web portal that users access in order to start streaming sessions.
+     */
     readonly portalEndpoint?: string;
+    /**
+     * The status of the web portal.
+     */
     readonly portalStatus?: enums.workspacesweb.PortalStatus;
+    /**
+     * The renderer that is used in streaming sessions.
+     */
     readonly rendererType?: enums.workspacesweb.PortalRendererType;
+    /**
+     * The SAML metadata of the service provider.
+     */
     readonly serviceProviderSamlMetadata?: string;
+    /**
+     * A message that explains why the web portal is in its current status.
+     */
     readonly statusReason?: string;
+    /**
+     * The tags to add to the web portal. A tag is a key-value pair.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ARN of the trust store that is associated with the web portal.
+     */
     readonly trustStoreArn?: string;
+    /**
+     * The ARN of the user access logging settings that is associated with the web portal.
+     */
     readonly userAccessLoggingSettingsArn?: string;
+    /**
+     * The ARN of the user settings that is associated with the web portal.
+     */
     readonly userSettingsArn?: string;
 }
 /**
@@ -51,5 +123,8 @@ export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetPortalOutputArgs {
+    /**
+     * The ARN of the web portal.
+     */
     portalArn: pulumi.Input<string>;
 }

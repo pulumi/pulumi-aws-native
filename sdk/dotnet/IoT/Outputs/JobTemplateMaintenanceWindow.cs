@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class JobTemplateMaintenanceWindow
     {
+        /// <summary>
+        /// Displays the duration of the next maintenance window.
+        /// </summary>
         public readonly int? DurationInMinutes;
+        /// <summary>
+        /// Displays the start time of the next maintenance window.
+        /// </summary>
         public readonly string? StartTime;
 
         [OutputConstructor]

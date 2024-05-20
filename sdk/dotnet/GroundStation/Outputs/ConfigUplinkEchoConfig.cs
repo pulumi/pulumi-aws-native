@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigUplinkEchoConfig
     {
+        /// <summary>
+        /// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
+        /// </summary>
         public readonly string? AntennaUplinkConfigArn;
+        /// <summary>
+        /// Whether or not uplink echo is enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

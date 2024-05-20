@@ -16,6 +16,9 @@ import (
 type FileSystem struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the EFS file system.
+	//
+	// Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// For One Zone file systems, specify the AWS Availability Zone in which to create the file system. Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type) in the *Amazon EFS User Guide*.
 	//   One Zone file systems are not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
@@ -25,8 +28,9 @@ type FileSystem struct {
 	// (Optional) A boolean that specifies whether or not to bypass the ``FileSystemPolicy`` lockout safety check. The lockout safety check determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future ``PutFileSystemPolicy`` requests on this file system. Set ``BypassPolicyLockoutSafetyCheck`` to ``True`` only when you intend to prevent the IAM principal that is making the request from making subsequent ``PutFileSystemPolicy`` requests on this file system. The default value is ``False``.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying a KmsKeyId for an existing kms-key-long. If you don't specify a kms-key, then the default kms-key for EFS, ``/aws/elasticfilesystem``, is used to protect the encrypted file system.
-	Encrypted    pulumi.BoolPtrOutput `pulumi:"encrypted"`
-	FileSystemId pulumi.StringOutput  `pulumi:"fileSystemId"`
+	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
+	// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
+	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
@@ -239,6 +243,9 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the EFS file system.
+//
+// Example: `arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system/fs-0123456789abcdef8`
 func (o FileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -265,6 +272,7 @@ func (o FileSystemOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the EFS file system. For example: `fs-abcdef0123456789a`
 func (o FileSystemOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }

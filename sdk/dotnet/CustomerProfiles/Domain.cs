@@ -51,9 +51,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The process of matching duplicate profiles.
+        /// </summary>
         [Output("matching")]
         public Output<Outputs.DomainMatching?> Matching { get; private set; } = null!;
 
+        /// <summary>
+        /// The process of matching duplicate profiles using Rule-Based matching.
+        /// </summary>
         [Output("ruleBasedMatching")]
         public Output<Outputs.DomainRuleBasedMatching?> RuleBasedMatching { get; private set; } = null!;
 
@@ -139,9 +145,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// The process of matching duplicate profiles.
+        /// </summary>
         [Input("matching")]
         public Input<Inputs.DomainMatchingArgs>? Matching { get; set; }
 
+        /// <summary>
+        /// The process of matching duplicate profiles using Rule-Based matching.
+        /// </summary>
         [Input("ruleBasedMatching")]
         public Input<Inputs.DomainRuleBasedMatchingArgs>? RuleBasedMatching { get; set; }
 

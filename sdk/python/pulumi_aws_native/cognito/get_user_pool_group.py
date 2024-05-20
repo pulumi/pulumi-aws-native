@@ -32,16 +32,29 @@ class GetUserPoolGroupResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A string containing the description of the group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def precedence(self) -> Optional[int]:
+        """
+        A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+
+        Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+
+        The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        """
         return pulumi.get(self, "precedence")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The role Amazon Resource Name (ARN) for the group.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -61,6 +74,10 @@ def get_user_pool_group(group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolGroupResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolGroup
+
+
+    :param str group_name: The name of the group. Must be unique.
+    :param str user_pool_id: The user pool ID for the user pool.
     """
     __args__ = dict()
     __args__['groupName'] = group_name
@@ -80,5 +97,9 @@ def get_user_pool_group_output(group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolGroupResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolGroup
+
+
+    :param str group_name: The name of the group. Must be unique.
+    :param str user_pool_id: The user pool ID for the user pool.
     """
     ...

@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that you want to create a topic in.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("topicId", required: true)]
         public string TopicId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that you want to create a topic in.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the topic. This ID is unique per AWS Region for each AWS account.
+        /// </summary>
         [Input("topicId", required: true)]
         public Input<string> TopicId { get; set; } = null!;
 
@@ -57,10 +69,25 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetTopicResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the topic.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The data sets that the topic is associated with.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicDatasetMetadata> DataSets;
+        /// <summary>
+        /// The description of the topic.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The name of the topic.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The user experience version of the topic.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion? UserExperienceVersion;
 
         [OutputConstructor]

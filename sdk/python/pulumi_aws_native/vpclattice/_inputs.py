@@ -38,6 +38,10 @@ class ListenerDefaultActionArgs:
     def __init__(__self__, *,
                  fixed_response: Optional[pulumi.Input['ListenerFixedResponseArgs']] = None,
                  forward: Optional[pulumi.Input['ListenerForwardArgs']] = None):
+        """
+        :param pulumi.Input['ListenerFixedResponseArgs'] fixed_response: Describes an action that returns a custom HTTP response.
+        :param pulumi.Input['ListenerForwardArgs'] forward: Describes a forward action. You can use forward actions to route requests to one or more target groups.
+        """
         if fixed_response is not None:
             pulumi.set(__self__, "fixed_response", fixed_response)
         if forward is not None:
@@ -46,6 +50,9 @@ class ListenerDefaultActionArgs:
     @property
     @pulumi.getter(name="fixedResponse")
     def fixed_response(self) -> Optional[pulumi.Input['ListenerFixedResponseArgs']]:
+        """
+        Describes an action that returns a custom HTTP response.
+        """
         return pulumi.get(self, "fixed_response")
 
     @fixed_response.setter
@@ -55,6 +62,9 @@ class ListenerDefaultActionArgs:
     @property
     @pulumi.getter
     def forward(self) -> Optional[pulumi.Input['ListenerForwardArgs']]:
+        """
+        Describes a forward action. You can use forward actions to route requests to one or more target groups.
+        """
         return pulumi.get(self, "forward")
 
     @forward.setter
@@ -66,11 +76,17 @@ class ListenerDefaultActionArgs:
 class ListenerFixedResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] status_code: The HTTP response code.
+        """
         pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[int]:
+        """
+        The HTTP response code.
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -82,11 +98,21 @@ class ListenerFixedResponseArgs:
 class ListenerForwardArgs:
     def __init__(__self__, *,
                  target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerWeightedTargetGroupArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerWeightedTargetGroupArgs']]] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+               
+               The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+        """
         pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerWeightedTargetGroupArgs']]]:
+        """
+        The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+
+        The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+        """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
@@ -99,6 +125,10 @@ class ListenerWeightedTargetGroupArgs:
     def __init__(__self__, *,
                  target_group_identifier: pulumi.Input[str],
                  weight: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] target_group_identifier: The ID of the target group.
+        :param pulumi.Input[int] weight: Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+        """
         pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
@@ -106,6 +136,9 @@ class ListenerWeightedTargetGroupArgs:
     @property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Input[str]:
+        """
+        The ID of the target group.
+        """
         return pulumi.get(self, "target_group_identifier")
 
     @target_group_identifier.setter
@@ -115,6 +148,9 @@ class ListenerWeightedTargetGroupArgs:
     @property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+        """
         return pulumi.get(self, "weight")
 
     @weight.setter
@@ -127,6 +163,10 @@ class RuleActionArgs:
     def __init__(__self__, *,
                  fixed_response: Optional[pulumi.Input['RuleFixedResponseArgs']] = None,
                  forward: Optional[pulumi.Input['RuleForwardArgs']] = None):
+        """
+        :param pulumi.Input['RuleFixedResponseArgs'] fixed_response: The fixed response action. The rule returns a custom HTTP response.
+        :param pulumi.Input['RuleForwardArgs'] forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
         if fixed_response is not None:
             pulumi.set(__self__, "fixed_response", fixed_response)
         if forward is not None:
@@ -135,6 +175,9 @@ class RuleActionArgs:
     @property
     @pulumi.getter(name="fixedResponse")
     def fixed_response(self) -> Optional[pulumi.Input['RuleFixedResponseArgs']]:
+        """
+        The fixed response action. The rule returns a custom HTTP response.
+        """
         return pulumi.get(self, "fixed_response")
 
     @fixed_response.setter
@@ -144,6 +187,9 @@ class RuleActionArgs:
     @property
     @pulumi.getter
     def forward(self) -> Optional[pulumi.Input['RuleForwardArgs']]:
+        """
+        The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
         return pulumi.get(self, "forward")
 
     @forward.setter
@@ -155,11 +201,17 @@ class RuleActionArgs:
 class RuleFixedResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] status_code: The HTTP response code.
+        """
         pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Input[int]:
+        """
+        The HTTP response code.
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -171,11 +223,21 @@ class RuleFixedResponseArgs:
 class RuleForwardArgs:
     def __init__(__self__, *,
                  target_groups: pulumi.Input[Sequence[pulumi.Input['RuleWeightedTargetGroupArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RuleWeightedTargetGroupArgs']]] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+               
+               The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+        """
         pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['RuleWeightedTargetGroupArgs']]]:
+        """
+        The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+
+        The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+        """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
@@ -189,6 +251,11 @@ class RuleHeaderMatchTypeArgs:
                  contains: Optional[pulumi.Input[str]] = None,
                  exact: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] contains: A contains type match.
+        :param pulumi.Input[str] exact: An exact type match.
+        :param pulumi.Input[str] prefix: A prefix type match. Matches the value with the prefix.
+        """
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
         if exact is not None:
@@ -199,6 +266,9 @@ class RuleHeaderMatchTypeArgs:
     @property
     @pulumi.getter
     def contains(self) -> Optional[pulumi.Input[str]]:
+        """
+        A contains type match.
+        """
         return pulumi.get(self, "contains")
 
     @contains.setter
@@ -208,6 +278,9 @@ class RuleHeaderMatchTypeArgs:
     @property
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
+        """
+        An exact type match.
+        """
         return pulumi.get(self, "exact")
 
     @exact.setter
@@ -217,6 +290,9 @@ class RuleHeaderMatchTypeArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A prefix type match. Matches the value with the prefix.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -230,6 +306,11 @@ class RuleHeaderMatchArgs:
                  match: pulumi.Input['RuleHeaderMatchTypeArgs'],
                  name: pulumi.Input[str],
                  case_sensitive: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['RuleHeaderMatchTypeArgs'] match: The header match type.
+        :param pulumi.Input[str] name: The name of the header.
+        :param pulumi.Input[bool] case_sensitive: Indicates whether the match is case sensitive.
+        """
         pulumi.set(__self__, "match", match)
         pulumi.set(__self__, "name", name)
         if case_sensitive is not None:
@@ -238,6 +319,9 @@ class RuleHeaderMatchArgs:
     @property
     @pulumi.getter
     def match(self) -> pulumi.Input['RuleHeaderMatchTypeArgs']:
+        """
+        The header match type.
+        """
         return pulumi.get(self, "match")
 
     @match.setter
@@ -247,6 +331,9 @@ class RuleHeaderMatchArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the header.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -256,6 +343,9 @@ class RuleHeaderMatchArgs:
     @property
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the match is case sensitive.
+        """
         return pulumi.get(self, "case_sensitive")
 
     @case_sensitive.setter
@@ -269,6 +359,11 @@ class RuleHttpMatchArgs:
                  header_matches: Optional[pulumi.Input[Sequence[pulumi.Input['RuleHeaderMatchArgs']]]] = None,
                  method: Optional[pulumi.Input['RuleHttpMatchMethod']] = None,
                  path_match: Optional[pulumi.Input['RulePathMatchArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RuleHeaderMatchArgs']]] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        :param pulumi.Input['RuleHttpMatchMethod'] method: The HTTP method type.
+        :param pulumi.Input['RulePathMatchArgs'] path_match: The path match.
+        """
         if header_matches is not None:
             pulumi.set(__self__, "header_matches", header_matches)
         if method is not None:
@@ -279,6 +374,9 @@ class RuleHttpMatchArgs:
     @property
     @pulumi.getter(name="headerMatches")
     def header_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleHeaderMatchArgs']]]]:
+        """
+        The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        """
         return pulumi.get(self, "header_matches")
 
     @header_matches.setter
@@ -288,6 +386,9 @@ class RuleHttpMatchArgs:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input['RuleHttpMatchMethod']]:
+        """
+        The HTTP method type.
+        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -297,6 +398,9 @@ class RuleHttpMatchArgs:
     @property
     @pulumi.getter(name="pathMatch")
     def path_match(self) -> Optional[pulumi.Input['RulePathMatchArgs']]:
+        """
+        The path match.
+        """
         return pulumi.get(self, "path_match")
 
     @path_match.setter
@@ -308,11 +412,17 @@ class RuleHttpMatchArgs:
 class RuleMatchArgs:
     def __init__(__self__, *,
                  http_match: pulumi.Input['RuleHttpMatchArgs']):
+        """
+        :param pulumi.Input['RuleHttpMatchArgs'] http_match: The HTTP criteria that a rule must match.
+        """
         pulumi.set(__self__, "http_match", http_match)
 
     @property
     @pulumi.getter(name="httpMatch")
     def http_match(self) -> pulumi.Input['RuleHttpMatchArgs']:
+        """
+        The HTTP criteria that a rule must match.
+        """
         return pulumi.get(self, "http_match")
 
     @http_match.setter
@@ -325,6 +435,10 @@ class RulePathMatchTypeArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] exact: An exact match of the path.
+        :param pulumi.Input[str] prefix: A prefix match of the path.
+        """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
         if prefix is not None:
@@ -333,6 +447,9 @@ class RulePathMatchTypeArgs:
     @property
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
+        """
+        An exact match of the path.
+        """
         return pulumi.get(self, "exact")
 
     @exact.setter
@@ -342,6 +459,9 @@ class RulePathMatchTypeArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A prefix match of the path.
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -354,6 +474,10 @@ class RulePathMatchArgs:
     def __init__(__self__, *,
                  match: pulumi.Input['RulePathMatchTypeArgs'],
                  case_sensitive: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['RulePathMatchTypeArgs'] match: The type of path match.
+        :param pulumi.Input[bool] case_sensitive: Indicates whether the match is case sensitive.
+        """
         pulumi.set(__self__, "match", match)
         if case_sensitive is not None:
             pulumi.set(__self__, "case_sensitive", case_sensitive)
@@ -361,6 +485,9 @@ class RulePathMatchArgs:
     @property
     @pulumi.getter
     def match(self) -> pulumi.Input['RulePathMatchTypeArgs']:
+        """
+        The type of path match.
+        """
         return pulumi.get(self, "match")
 
     @match.setter
@@ -370,6 +497,9 @@ class RulePathMatchArgs:
     @property
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the match is case sensitive.
+        """
         return pulumi.get(self, "case_sensitive")
 
     @case_sensitive.setter
@@ -382,6 +512,10 @@ class RuleWeightedTargetGroupArgs:
     def __init__(__self__, *,
                  target_group_identifier: pulumi.Input[str],
                  weight: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] target_group_identifier: The ID of the target group.
+        :param pulumi.Input[int] weight: Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+        """
         pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
@@ -389,6 +523,9 @@ class RuleWeightedTargetGroupArgs:
     @property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Input[str]:
+        """
+        The ID of the target group.
+        """
         return pulumi.get(self, "target_group_identifier")
 
     @target_group_identifier.setter
@@ -398,6 +535,9 @@ class RuleWeightedTargetGroupArgs:
     @property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+        """
         return pulumi.get(self, "weight")
 
     @weight.setter
@@ -410,6 +550,10 @@ class ServiceDnsEntryArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain_name: The domain name of the service.
+        :param pulumi.Input[str] hosted_zone_id: The ID of the hosted zone.
+        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -418,6 +562,9 @@ class ServiceDnsEntryArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name of the service.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -427,6 +574,9 @@ class ServiceDnsEntryArgs:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -439,6 +589,10 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] domain_name: The domain name of the service.
+        :param pulumi.Input[str] hosted_zone_id: The ID of the hosted zone.
+        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -447,6 +601,9 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain name of the service.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -456,6 +613,9 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -473,6 +633,15 @@ class TargetGroupConfigArgs:
                  protocol: Optional[pulumi.Input['TargetGroupConfigProtocol']] = None,
                  protocol_version: Optional[pulumi.Input['TargetGroupConfigProtocolVersion']] = None,
                  vpc_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['TargetGroupHealthCheckConfigArgs'] health_check: The health check configuration. Not supported if the target group type is `LAMBDA` or `ALB` .
+        :param pulumi.Input['TargetGroupConfigIpAddressType'] ip_address_type: The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
+        :param pulumi.Input['TargetGroupConfigLambdaEventStructureVersion'] lambda_event_structure_version: The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
+        :param pulumi.Input[int] port: The port on which the targets are listening. For HTTP, the default is 80. For HTTPS, the default is 443. Not supported if the target group type is `LAMBDA` .
+        :param pulumi.Input['TargetGroupConfigProtocol'] protocol: The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
+        :param pulumi.Input['TargetGroupConfigProtocolVersion'] protocol_version: The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
+        :param pulumi.Input[str] vpc_identifier: The ID of the VPC. Not supported if the target group type is `LAMBDA` .
+        """
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
@@ -491,6 +660,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckConfigArgs']]:
+        """
+        The health check configuration. Not supported if the target group type is `LAMBDA` or `ALB` .
+        """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
@@ -500,6 +672,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input['TargetGroupConfigIpAddressType']]:
+        """
+        The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -509,6 +684,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter(name="lambdaEventStructureVersion")
     def lambda_event_structure_version(self) -> Optional[pulumi.Input['TargetGroupConfigLambdaEventStructureVersion']]:
+        """
+        The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
+        """
         return pulumi.get(self, "lambda_event_structure_version")
 
     @lambda_event_structure_version.setter
@@ -518,6 +696,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the targets are listening. For HTTP, the default is 80. For HTTPS, the default is 443. Not supported if the target group type is `LAMBDA` .
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -527,6 +708,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input['TargetGroupConfigProtocol']]:
+        """
+        The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -536,6 +720,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional[pulumi.Input['TargetGroupConfigProtocolVersion']]:
+        """
+        The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
+        """
         return pulumi.get(self, "protocol_version")
 
     @protocol_version.setter
@@ -545,6 +732,9 @@ class TargetGroupConfigArgs:
     @property
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC. Not supported if the target group type is `LAMBDA` .
+        """
         return pulumi.get(self, "vpc_identifier")
 
     @vpc_identifier.setter
@@ -565,6 +755,18 @@ class TargetGroupHealthCheckConfigArgs:
                  protocol: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocol']] = None,
                  protocol_version: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether health checking is enabled.
+        :param pulumi.Input[int] health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+        :param pulumi.Input[int] health_check_timeout_seconds: The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+        :param pulumi.Input[int] healthy_threshold_count: The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        :param pulumi.Input['TargetGroupMatcherArgs'] matcher: The codes to use when checking for a successful response from a target.
+        :param pulumi.Input[str] path: The destination for health checks on the targets. If the protocol version is `HTTP/1.1` or `HTTP/2` , specify a valid URI (for example, `/path?query` ). The default path is `/` . Health checks are not supported if the protocol version is `gRPC` , however, you can choose `HTTP/1.1` or `HTTP/2` and specify a valid URI.
+        :param pulumi.Input[int] port: The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+        :param pulumi.Input['TargetGroupHealthCheckConfigProtocol'] protocol: The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
+        :param pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion'] protocol_version: The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
+        :param pulumi.Input[int] unhealthy_threshold_count: The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if health_check_interval_seconds is not None:
@@ -589,6 +791,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether health checking is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -598,6 +803,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter(name="healthCheckIntervalSeconds")
     def health_check_interval_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+        """
         return pulumi.get(self, "health_check_interval_seconds")
 
     @health_check_interval_seconds.setter
@@ -607,6 +815,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter(name="healthCheckTimeoutSeconds")
     def health_check_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+        """
         return pulumi.get(self, "health_check_timeout_seconds")
 
     @health_check_timeout_seconds.setter
@@ -616,6 +827,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter(name="healthyThresholdCount")
     def healthy_threshold_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        """
         return pulumi.get(self, "healthy_threshold_count")
 
     @healthy_threshold_count.setter
@@ -625,6 +839,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter
     def matcher(self) -> Optional[pulumi.Input['TargetGroupMatcherArgs']]:
+        """
+        The codes to use when checking for a successful response from a target.
+        """
         return pulumi.get(self, "matcher")
 
     @matcher.setter
@@ -634,6 +851,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination for health checks on the targets. If the protocol version is `HTTP/1.1` or `HTTP/2` , specify a valid URI (for example, `/path?query` ). The default path is `/` . Health checks are not supported if the protocol version is `gRPC` , however, you can choose `HTTP/1.1` or `HTTP/2` and specify a valid URI.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -643,6 +863,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -652,6 +875,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocol']]:
+        """
+        The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -661,6 +887,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter(name="protocolVersion")
     def protocol_version(self) -> Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']]:
+        """
+        The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
+        """
         return pulumi.get(self, "protocol_version")
 
     @protocol_version.setter
@@ -670,6 +899,9 @@ class TargetGroupHealthCheckConfigArgs:
     @property
     @pulumi.getter(name="unhealthyThresholdCount")
     def unhealthy_threshold_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+        """
         return pulumi.get(self, "unhealthy_threshold_count")
 
     @unhealthy_threshold_count.setter
@@ -681,11 +913,17 @@ class TargetGroupHealthCheckConfigArgs:
 class TargetGroupMatcherArgs:
     def __init__(__self__, *,
                  http_code: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] http_code: The HTTP code to use when checking for a successful response from a target.
+        """
         pulumi.set(__self__, "http_code", http_code)
 
     @property
     @pulumi.getter(name="httpCode")
     def http_code(self) -> pulumi.Input[str]:
+        """
+        The HTTP code to use when checking for a successful response from a target.
+        """
         return pulumi.get(self, "http_code")
 
     @http_code.setter
@@ -698,6 +936,10 @@ class TargetGroupTargetArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the target. If the target group type is `INSTANCE` , this is an instance ID. If the target group type is `IP` , this is an IP address. If the target group type is `LAMBDA` , this is the ARN of a Lambda function. If the target group type is `ALB` , this is the ARN of an Application Load Balancer.
+        :param pulumi.Input[int] port: The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
         pulumi.set(__self__, "id", id)
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -705,6 +947,9 @@ class TargetGroupTargetArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the target. If the target group type is `INSTANCE` , this is an instance ID. If the target group type is `IP` , this is an IP address. If the target group type is `LAMBDA` , this is the ARN of a Lambda function. If the target group type is `ALB` , this is the ARN of an Application Load Balancer.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -714,6 +959,9 @@ class TargetGroupTargetArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
         return pulumi.get(self, "port")
 
     @port.setter

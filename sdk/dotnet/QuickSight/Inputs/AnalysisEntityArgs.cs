@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisEntityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The hierarchical path of the entity within the analysis, template, or dashboard definition tree.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

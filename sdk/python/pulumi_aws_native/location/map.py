@@ -26,6 +26,18 @@ class MapArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Map resource.
+        :param pulumi.Input['MapConfigurationArgs'] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        :param pulumi.Input[str] description: An optional description for the map resource.
+        :param pulumi.Input[str] map_name: The name for the map resource.
+               
+               Requirements:
+               
+               - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+               - Must be a unique map resource name.
+               - No spaces allowed. For example, `ExampleMap` .
+        :param pulumi.Input['MapPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
+               
+               *Allowed Values* : `RequestBasedUsage`
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -41,6 +53,9 @@ class MapArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input['MapConfigurationArgs']:
+        """
+        Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -50,6 +65,9 @@ class MapArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description for the map resource.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -59,6 +77,15 @@ class MapArgs:
     @property
     @pulumi.getter(name="mapName")
     def map_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the map resource.
+
+        Requirements:
+
+        - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        - Must be a unique map resource name.
+        - No spaces allowed. For example, `ExampleMap` .
+        """
         return pulumi.get(self, "map_name")
 
     @map_name.setter
@@ -68,6 +95,11 @@ class MapArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> Optional[pulumi.Input['MapPricingPlan']]:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -103,6 +135,18 @@ class Map(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        :param pulumi.Input[str] description: An optional description for the map resource.
+        :param pulumi.Input[str] map_name: The name for the map resource.
+               
+               Requirements:
+               
+               - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+               - Must be a unique map resource name.
+               - No spaces allowed. For example, `ExampleMap` .
+        :param pulumi.Input['MapPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
+               
+               *Allowed Values* : `RequestBasedUsage`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -192,36 +236,69 @@ class Map(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.MapConfiguration']:
+        """
+        Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description for the map resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> pulumi.Output[str]:
+        """
+        Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+
+        - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+        """
         return pulumi.get(self, "map_arn")
 
     @property
     @pulumi.getter(name="mapName")
     def map_name(self) -> pulumi.Output[str]:
+        """
+        The name for the map resource.
+
+        Requirements:
+
+        - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        - Must be a unique map resource name.
+        - No spaces allowed. For example, `ExampleMap` .
+        """
         return pulumi.get(self, "map_name")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[Optional['MapPricingPlan']]:
+        """
+        No longer used. If included, the only allowed value is `RequestBasedUsage` .
+
+        *Allowed Values* : `RequestBasedUsage`
+        """
         return pulumi.get(self, "pricing_plan")
 
     @property
@@ -235,5 +312,8 @@ class Map(pulumi.CustomResource):
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
+        """
+        The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 

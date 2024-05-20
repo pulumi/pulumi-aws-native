@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateVisualPalette
     {
+        /// <summary>
+        /// The chart color options for the visual palette.
+        /// </summary>
         public readonly string? ChartColor;
+        /// <summary>
+        /// The color map options for the visual palette.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataPathColor> ColorMap;
 
         [OutputConstructor]

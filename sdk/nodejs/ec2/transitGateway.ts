@@ -37,19 +37,58 @@ export class TransitGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGateway.__pulumiType;
     }
 
+    /**
+     * A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+     */
     public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the default association route table.
+     */
     public readonly associationDefaultRouteTableId!: pulumi.Output<string | undefined>;
+    /**
+     * Enable or disable automatic acceptance of attachment requests. Disabled by default.
+     */
     public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the transit gateway.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * Enable or disable automatic association with the default association route table. Enabled by default.
+     */
     public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
+    /**
+     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+     */
     public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the transit gateway.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Enable or disable DNS support. Enabled by default.
+     */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether multicast is enabled on the transit gateway
+     */
     public readonly multicastSupport!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the default propagation route table.
+     */
     public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
+    /**
+     * The tags for the transit gateway.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly transitGatewayArn!: pulumi.Output<string>;
+    /**
+     * The transit gateway CIDR blocks.
+     */
     public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
+    /**
+     * Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+     */
     public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
 
     /**
@@ -104,16 +143,52 @@ export class TransitGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGateway resource.
  */
 export interface TransitGatewayArgs {
+    /**
+     * A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
+     */
     amazonSideAsn?: pulumi.Input<number>;
+    /**
+     * The ID of the default association route table.
+     */
     associationDefaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * Enable or disable automatic acceptance of attachment requests. Disabled by default.
+     */
     autoAcceptSharedAttachments?: pulumi.Input<string>;
+    /**
+     * Enable or disable automatic association with the default association route table. Enabled by default.
+     */
     defaultRouteTableAssociation?: pulumi.Input<string>;
+    /**
+     * Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+     */
     defaultRouteTablePropagation?: pulumi.Input<string>;
+    /**
+     * The description of the transit gateway.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Enable or disable DNS support. Enabled by default.
+     */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Indicates whether multicast is enabled on the transit gateway
+     */
     multicastSupport?: pulumi.Input<string>;
+    /**
+     * The ID of the default propagation route table.
+     */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * The tags for the transit gateway.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The transit gateway CIDR blocks.
+     */
     transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+     */
     vpnEcmpSupport?: pulumi.Input<string>;
 }

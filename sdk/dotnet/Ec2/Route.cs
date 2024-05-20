@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("carrierGatewayId")]
         public Output<string?> CarrierGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv4 CIDR block.
+        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 

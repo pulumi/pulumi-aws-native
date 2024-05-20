@@ -229,12 +229,31 @@ namespace Pulumi.AwsNative.Ecs
     [AwsNativeResourceType("aws-native:ecs:CapacityProvider")]
     public partial class CapacityProvider : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Auto Scaling group settings for the capacity provider.
+        /// </summary>
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider> AutoScalingGroupProvider { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
+        /// 
+        /// The following basic restrictions apply to tags:
+        /// 
+        /// - Maximum number of tags per resource - 50
+        /// - For each resource, each tag key must be unique, and each tag key can have only one value.
+        /// - Maximum key length - 128 Unicode characters in UTF-8
+        /// - Maximum value length - 256 Unicode characters in UTF-8
+        /// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        /// - Tag keys and values are case-sensitive.
+        /// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -288,14 +307,34 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Auto Scaling group settings for the capacity provider.
+        /// </summary>
         [Input("autoScalingGroupProvider", required: true)]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs> AutoScalingGroupProvider { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
+        /// 
+        /// The following basic restrictions apply to tags:
+        /// 
+        /// - Maximum number of tags per resource - 50
+        /// - For each resource, each tag key must be unique, and each tag key can have only one value.
+        /// - Maximum key length - 128 Unicode characters in UTF-8
+        /// - Maximum value length - 256 Unicode characters in UTF-8
+        /// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        /// - Tag keys and values are case-sensitive.
+        /// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

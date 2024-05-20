@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGaugeChartOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The arc configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("arc")]
         public Input<Inputs.TemplateArcConfigurationArgs>? Arc { get; set; }
 
+        /// <summary>
+        /// The arc axis configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("arcAxis")]
         public Input<Inputs.TemplateArcAxisConfigurationArgs>? ArcAxis { get; set; }
 
+        /// <summary>
+        /// The comparison configuration of a `GaugeChartVisual` .
+        /// </summary>
         [Input("comparison")]
         public Input<Inputs.TemplateComparisonConfigurationArgs>? Comparison { get; set; }
 
+        /// <summary>
+        /// The options that determine the primary value display type.
+        /// </summary>
         [Input("primaryValueDisplayType")]
         public Input<Pulumi.AwsNative.QuickSight.TemplatePrimaryValueDisplayType>? PrimaryValueDisplayType { get; set; }
 
+        /// <summary>
+        /// The options that determine the primary value font configuration.
+        /// </summary>
         [Input("primaryValueFontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? PrimaryValueFontConfiguration { get; set; }
 

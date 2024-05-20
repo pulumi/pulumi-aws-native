@@ -22,6 +22,9 @@ class LoggingConfigurationInitArgs:
                  firewall_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
+        :param pulumi.Input[str] firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        :param pulumi.Input['LoggingConfigurationArgs'] logging_configuration: Defines how AWS Network Firewall performs logging for a `Firewall` .
+        :param pulumi.Input[str] firewall_name: The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
         """
         pulumi.set(__self__, "firewall_arn", firewall_arn)
         pulumi.set(__self__, "logging_configuration", logging_configuration)
@@ -31,6 +34,9 @@ class LoggingConfigurationInitArgs:
     @property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        """
         return pulumi.get(self, "firewall_arn")
 
     @firewall_arn.setter
@@ -40,6 +46,9 @@ class LoggingConfigurationInitArgs:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Input['LoggingConfigurationArgs']:
+        """
+        Defines how AWS Network Firewall performs logging for a `Firewall` .
+        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -49,6 +58,9 @@ class LoggingConfigurationInitArgs:
     @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        """
         return pulumi.get(self, "firewall_name")
 
     @firewall_name.setter
@@ -70,6 +82,9 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        :param pulumi.Input[str] firewall_name: The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        :param pulumi.Input[pulumi.InputType['LoggingConfigurationArgs']] logging_configuration: Defines how AWS Network Firewall performs logging for a `Firewall` .
         """
         ...
     @overload
@@ -146,15 +161,24 @@ class LoggingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        """
         return pulumi.get(self, "firewall_arn")
 
     @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
+        """
         return pulumi.get(self, "firewall_name")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfiguration']:
+        """
+        Defines how AWS Network Firewall performs logging for a `Firewall` .
+        """
         return pulumi.get(self, "logging_configuration")
 

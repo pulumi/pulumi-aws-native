@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeFilterCriteria
     {
+        /// <summary>
+        /// The event patterns.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipeFilter> Filters;
 
         [OutputConstructor]

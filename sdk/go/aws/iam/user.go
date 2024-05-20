@@ -18,6 +18,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
+	// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::User` resource. For example: `arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of group names to which you want to add the user.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
@@ -198,6 +199,7 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// Returns the Amazon Resource Name (ARN) for the specified `AWS::IAM::User` resource. For example: `arn:aws:iam::123456789012:user/mystack-myuser-1CCXAFG2H2U4D` .
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

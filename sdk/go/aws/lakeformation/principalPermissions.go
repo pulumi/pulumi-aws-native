@@ -23,11 +23,13 @@ type PrincipalPermissions struct {
 	// Indicates the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption PrincipalPermissionsPermissionArrayOutput `pulumi:"permissionsWithGrantOption"`
 	// The principal to be granted a permission.
-	Principal           PrincipalPermissionsDataLakePrincipalOutput `pulumi:"principal"`
-	PrincipalIdentifier pulumi.StringOutput                         `pulumi:"principalIdentifier"`
+	Principal PrincipalPermissionsDataLakePrincipalOutput `pulumi:"principal"`
+	// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
+	PrincipalIdentifier pulumi.StringOutput `pulumi:"principalIdentifier"`
 	// The resource to be granted or revoked permissions.
-	Resource           PrincipalPermissionsResourceOutput `pulumi:"resource"`
-	ResourceIdentifier pulumi.StringOutput                `pulumi:"resourceIdentifier"`
+	Resource PrincipalPermissionsResourceOutput `pulumi:"resource"`
+	// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
+	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
 }
 
 // NewPrincipalPermissions registers a new resource with the given unique name, arguments, and options.
@@ -175,6 +177,7 @@ func (o PrincipalPermissionsOutput) Principal() PrincipalPermissionsDataLakePrin
 	return o.ApplyT(func(v *PrincipalPermissions) PrincipalPermissionsDataLakePrincipalOutput { return v.Principal }).(PrincipalPermissionsDataLakePrincipalOutput)
 }
 
+// Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
 func (o PrincipalPermissionsOutput) PrincipalIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) pulumi.StringOutput { return v.PrincipalIdentifier }).(pulumi.StringOutput)
 }
@@ -184,6 +187,7 @@ func (o PrincipalPermissionsOutput) Resource() PrincipalPermissionsResourceOutpu
 	return o.ApplyT(func(v *PrincipalPermissions) PrincipalPermissionsResourceOutput { return v.Resource }).(PrincipalPermissionsResourceOutput)
 }
 
+// Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
 func (o PrincipalPermissionsOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }

@@ -49,6 +49,11 @@ class DetectorCfnDataSourceConfigurations(dict):
                  kubernetes: Optional['outputs.DetectorCfnKubernetesConfiguration'] = None,
                  malware_protection: Optional['outputs.DetectorCfnMalwareProtectionConfiguration'] = None,
                  s3_logs: Optional['outputs.DetectorCfns3LogsConfiguration'] = None):
+        """
+        :param 'DetectorCfnKubernetesConfiguration' kubernetes: Describes which Kubernetes data sources are enabled for a detector.
+        :param 'DetectorCfnMalwareProtectionConfiguration' malware_protection: Describes whether Malware Protection will be enabled as a data source.
+        :param 'DetectorCfns3LogsConfiguration' s3_logs: Describes whether S3 data event logs are enabled as a data source.
+        """
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
         if malware_protection is not None:
@@ -59,16 +64,25 @@ class DetectorCfnDataSourceConfigurations(dict):
     @property
     @pulumi.getter
     def kubernetes(self) -> Optional['outputs.DetectorCfnKubernetesConfiguration']:
+        """
+        Describes which Kubernetes data sources are enabled for a detector.
+        """
         return pulumi.get(self, "kubernetes")
 
     @property
     @pulumi.getter(name="malwareProtection")
     def malware_protection(self) -> Optional['outputs.DetectorCfnMalwareProtectionConfiguration']:
+        """
+        Describes whether Malware Protection will be enabled as a data source.
+        """
         return pulumi.get(self, "malware_protection")
 
     @property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional['outputs.DetectorCfns3LogsConfiguration']:
+        """
+        Describes whether S3 data event logs are enabled as a data source.
+        """
         return pulumi.get(self, "s3_logs")
 
 
@@ -77,6 +91,10 @@ class DetectorCfnFeatureAdditionalConfiguration(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  status: Optional[str] = None):
+        """
+        :param str name: Name of the additional configuration.
+        :param str status: Status of the additional configuration.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if status is not None:
@@ -85,11 +103,17 @@ class DetectorCfnFeatureAdditionalConfiguration(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name of the additional configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        Status of the additional configuration.
+        """
         return pulumi.get(self, "status")
 
 
@@ -116,6 +140,11 @@ class DetectorCfnFeatureConfiguration(dict):
                  name: str,
                  status: 'DetectorCfnFeatureConfigurationStatus',
                  additional_configuration: Optional[Sequence['outputs.DetectorCfnFeatureAdditionalConfiguration']] = None):
+        """
+        :param str name: Name of the feature.
+        :param 'DetectorCfnFeatureConfigurationStatus' status: Status of the feature configuration.
+        :param Sequence['DetectorCfnFeatureAdditionalConfiguration'] additional_configuration: Information about the additional configuration of a feature in your account.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "status", status)
         if additional_configuration is not None:
@@ -124,16 +153,25 @@ class DetectorCfnFeatureConfiguration(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the feature.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> 'DetectorCfnFeatureConfigurationStatus':
+        """
+        Status of the feature configuration.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="additionalConfiguration")
     def additional_configuration(self) -> Optional[Sequence['outputs.DetectorCfnFeatureAdditionalConfiguration']]:
+        """
+        Information about the additional configuration of a feature in your account.
+        """
         return pulumi.get(self, "additional_configuration")
 
 
@@ -141,11 +179,17 @@ class DetectorCfnFeatureConfiguration(dict):
 class DetectorCfnKubernetesAuditLogsConfiguration(dict):
     def __init__(__self__, *,
                  enable: bool):
+        """
+        :param bool enable: Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+        """
         pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
     def enable(self) -> bool:
+        """
+        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+        """
         return pulumi.get(self, "enable")
 
 
@@ -170,11 +214,17 @@ class DetectorCfnKubernetesConfiguration(dict):
 
     def __init__(__self__, *,
                  audit_logs: 'outputs.DetectorCfnKubernetesAuditLogsConfiguration'):
+        """
+        :param 'DetectorCfnKubernetesAuditLogsConfiguration' audit_logs: Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+        """
         pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
     def audit_logs(self) -> 'outputs.DetectorCfnKubernetesAuditLogsConfiguration':
+        """
+        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
+        """
         return pulumi.get(self, "audit_logs")
 
 
@@ -199,12 +249,18 @@ class DetectorCfnMalwareProtectionConfiguration(dict):
 
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: Optional['outputs.DetectorCfnScanEc2InstanceWithFindingsConfiguration'] = None):
+        """
+        :param 'DetectorCfnScanEc2InstanceWithFindingsConfiguration' scan_ec2_instance_with_findings: Describes the configuration of Malware Protection for EC2 instances with findings.
+        """
         if scan_ec2_instance_with_findings is not None:
             pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
     def scan_ec2_instance_with_findings(self) -> Optional['outputs.DetectorCfnScanEc2InstanceWithFindingsConfiguration']:
+        """
+        Describes the configuration of Malware Protection for EC2 instances with findings.
+        """
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 
 
@@ -229,12 +285,18 @@ class DetectorCfnScanEc2InstanceWithFindingsConfiguration(dict):
 
     def __init__(__self__, *,
                  ebs_volumes: Optional[bool] = None):
+        """
+        :param bool ebs_volumes: Describes the configuration for scanning EBS volumes as data source.
+        """
         if ebs_volumes is not None:
             pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
     @property
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[bool]:
+        """
+        Describes the configuration for scanning EBS volumes as data source.
+        """
         return pulumi.get(self, "ebs_volumes")
 
 
@@ -242,11 +304,17 @@ class DetectorCfnScanEc2InstanceWithFindingsConfiguration(dict):
 class DetectorCfns3LogsConfiguration(dict):
     def __init__(__self__, *,
                  enable: bool):
+        """
+        :param bool enable: The status of S3 data event logs as a data source.
+        """
         pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
     def enable(self) -> bool:
+        """
+        The status of S3 data event logs as a data source.
+        """
         return pulumi.get(self, "enable")
 
 
@@ -380,12 +448,218 @@ class FilterCondition(dict):
 class FilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterion: Optional[Mapping[str, 'outputs.FilterCondition']] = None):
+        """
+        :param Mapping[str, 'FilterCondition'] criterion: Represents a map of finding properties that match specified conditions and values when querying findings.
+               
+               For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+               
+               - accountId
+               - id
+               - region
+               - severity
+               
+               To filter on the basis of severity, API and CFN use the following input list for the condition:
+               
+               - *Low* : `["1", "2", "3"]`
+               - *Medium* : `["4", "5", "6"]`
+               - *High* : `["7", "8", "9"]`
+               
+               For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+               - type
+               - updatedAt
+               
+               Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+               - resource.accessKeyDetails.accessKeyId
+               - resource.accessKeyDetails.principalId
+               - resource.accessKeyDetails.userName
+               - resource.accessKeyDetails.userType
+               - resource.instanceDetails.iamInstanceProfile.id
+               - resource.instanceDetails.imageId
+               - resource.instanceDetails.instanceId
+               - resource.instanceDetails.tags.key
+               - resource.instanceDetails.tags.value
+               - resource.instanceDetails.networkInterfaces.ipv6Addresses
+               - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+               - resource.instanceDetails.networkInterfaces.publicDnsName
+               - resource.instanceDetails.networkInterfaces.publicIp
+               - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+               - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+               - resource.instanceDetails.networkInterfaces.subnetId
+               - resource.instanceDetails.networkInterfaces.vpcId
+               - resource.instanceDetails.outpostArn
+               - resource.resourceType
+               - resource.s3BucketDetails.publicAccess.effectivePermissions
+               - resource.s3BucketDetails.name
+               - resource.s3BucketDetails.tags.key
+               - resource.s3BucketDetails.tags.value
+               - resource.s3BucketDetails.type
+               - service.action.actionType
+               - service.action.awsApiCallAction.api
+               - service.action.awsApiCallAction.callerType
+               - service.action.awsApiCallAction.errorCode
+               - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+               - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+               - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+               - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+               - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+               - service.action.awsApiCallAction.serviceName
+               - service.action.dnsRequestAction.domain
+               - service.action.networkConnectionAction.blocked
+               - service.action.networkConnectionAction.connectionDirection
+               - service.action.networkConnectionAction.localPortDetails.port
+               - service.action.networkConnectionAction.protocol
+               - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+               - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+               - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+               - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+               - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+               - service.action.networkConnectionAction.remotePortDetails.port
+               - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+               - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+               - service.action.kubernetesApiCallAction.requestUri
+               - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+               - service.action.networkConnectionAction.protocol
+               - service.action.awsApiCallAction.serviceName
+               - service.action.awsApiCallAction.remoteAccountDetails.accountId
+               - service.additionalInfo.threatListName
+               - service.resourceRole
+               - resource.eksClusterDetails.name
+               - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+               - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+               - resource.kubernetesDetails.kubernetesUserDetails.username
+               - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+               - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+               - service.ebsVolumeScanDetails.scanId
+               - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+               - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+               - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+               - resource.ecsClusterDetails.name
+               - resource.ecsClusterDetails.taskDetails.containers.image
+               - resource.ecsClusterDetails.taskDetails.definitionArn
+               - resource.containerDetails.image
+               - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+               - resource.rdsDbInstanceDetails.dbClusterIdentifier
+               - resource.rdsDbInstanceDetails.engine
+               - resource.rdsDbUserDetails.user
+               - resource.rdsDbInstanceDetails.tags.key
+               - resource.rdsDbInstanceDetails.tags.value
+               - service.runtimeDetails.process.executableSha256
+               - service.runtimeDetails.process.name
+               - service.runtimeDetails.process.name
+               - resource.lambdaDetails.functionName
+               - resource.lambdaDetails.functionArn
+               - resource.lambdaDetails.tags.key
+               - resource.lambdaDetails.tags.value
+        """
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
     def criterion(self) -> Optional[Mapping[str, 'outputs.FilterCondition']]:
+        """
+        Represents a map of finding properties that match specified conditions and values when querying findings.
+
+        For information about JSON criterion mapping to their console equivalent, see [Finding criteria](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) . The following are the available criterion:
+
+        - accountId
+        - id
+        - region
+        - severity
+
+        To filter on the basis of severity, API and CFN use the following input list for the condition:
+
+        - *Low* : `["1", "2", "3"]`
+        - *Medium* : `["4", "5", "6"]`
+        - *High* : `["7", "8", "9"]`
+
+        For more information, see [Severity levels for GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity) .
+        - type
+        - updatedAt
+
+        Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+        - resource.accessKeyDetails.accessKeyId
+        - resource.accessKeyDetails.principalId
+        - resource.accessKeyDetails.userName
+        - resource.accessKeyDetails.userType
+        - resource.instanceDetails.iamInstanceProfile.id
+        - resource.instanceDetails.imageId
+        - resource.instanceDetails.instanceId
+        - resource.instanceDetails.tags.key
+        - resource.instanceDetails.tags.value
+        - resource.instanceDetails.networkInterfaces.ipv6Addresses
+        - resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+        - resource.instanceDetails.networkInterfaces.publicDnsName
+        - resource.instanceDetails.networkInterfaces.publicIp
+        - resource.instanceDetails.networkInterfaces.securityGroups.groupId
+        - resource.instanceDetails.networkInterfaces.securityGroups.groupName
+        - resource.instanceDetails.networkInterfaces.subnetId
+        - resource.instanceDetails.networkInterfaces.vpcId
+        - resource.instanceDetails.outpostArn
+        - resource.resourceType
+        - resource.s3BucketDetails.publicAccess.effectivePermissions
+        - resource.s3BucketDetails.name
+        - resource.s3BucketDetails.tags.key
+        - resource.s3BucketDetails.tags.value
+        - resource.s3BucketDetails.type
+        - service.action.actionType
+        - service.action.awsApiCallAction.api
+        - service.action.awsApiCallAction.callerType
+        - service.action.awsApiCallAction.errorCode
+        - service.action.awsApiCallAction.remoteIpDetails.city.cityName
+        - service.action.awsApiCallAction.remoteIpDetails.country.countryName
+        - service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+        - service.action.awsApiCallAction.remoteIpDetails.organization.asn
+        - service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+        - service.action.awsApiCallAction.serviceName
+        - service.action.dnsRequestAction.domain
+        - service.action.networkConnectionAction.blocked
+        - service.action.networkConnectionAction.connectionDirection
+        - service.action.networkConnectionAction.localPortDetails.port
+        - service.action.networkConnectionAction.protocol
+        - service.action.networkConnectionAction.remoteIpDetails.city.cityName
+        - service.action.networkConnectionAction.remoteIpDetails.country.countryName
+        - service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+        - service.action.networkConnectionAction.remoteIpDetails.organization.asn
+        - service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+        - service.action.networkConnectionAction.remotePortDetails.port
+        - service.action.awsApiCallAction.remoteAccountDetails.affiliated
+        - service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4
+        - service.action.kubernetesApiCallAction.requestUri
+        - service.action.networkConnectionAction.localIpDetails.ipAddressV4
+        - service.action.networkConnectionAction.protocol
+        - service.action.awsApiCallAction.serviceName
+        - service.action.awsApiCallAction.remoteAccountDetails.accountId
+        - service.additionalInfo.threatListName
+        - service.resourceRole
+        - resource.eksClusterDetails.name
+        - resource.kubernetesDetails.kubernetesWorkloadDetails.name
+        - resource.kubernetesDetails.kubernetesWorkloadDetails.namespace
+        - resource.kubernetesDetails.kubernetesUserDetails.username
+        - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image
+        - resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix
+        - service.ebsVolumeScanDetails.scanId
+        - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name
+        - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity
+        - service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash
+        - resource.ecsClusterDetails.name
+        - resource.ecsClusterDetails.taskDetails.containers.image
+        - resource.ecsClusterDetails.taskDetails.definitionArn
+        - resource.containerDetails.image
+        - resource.rdsDbInstanceDetails.dbInstanceIdentifier
+        - resource.rdsDbInstanceDetails.dbClusterIdentifier
+        - resource.rdsDbInstanceDetails.engine
+        - resource.rdsDbUserDetails.user
+        - resource.rdsDbInstanceDetails.tags.key
+        - resource.rdsDbInstanceDetails.tags.value
+        - service.runtimeDetails.process.executableSha256
+        - service.runtimeDetails.process.name
+        - service.runtimeDetails.process.name
+        - resource.lambdaDetails.functionName
+        - resource.lambdaDetails.functionArn
+        - resource.lambdaDetails.tags.key
+        - resource.lambdaDetails.tags.value
+        """
         return pulumi.get(self, "criterion")
 
 

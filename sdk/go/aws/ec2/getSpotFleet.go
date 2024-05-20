@@ -23,11 +23,14 @@ func LookupSpotFleet(ctx *pulumi.Context, args *LookupSpotFleetArgs, opts ...pul
 }
 
 type LookupSpotFleetArgs struct {
+	// The ID of the Spot Fleet.
 	Id string `pulumi:"id"`
 }
 
 type LookupSpotFleetResult struct {
-	Id                         *string                     `pulumi:"id"`
+	// The ID of the Spot Fleet.
+	Id *string `pulumi:"id"`
+	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData *SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
 }
 
@@ -45,6 +48,7 @@ func LookupSpotFleetOutput(ctx *pulumi.Context, args LookupSpotFleetOutputArgs, 
 }
 
 type LookupSpotFleetOutputArgs struct {
+	// The ID of the Spot Fleet.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupSpotFleetResultOutput) ToLookupSpotFleetResultOutputWithContext(ct
 	return o
 }
 
+// The ID of the Spot Fleet.
 func (o LookupSpotFleetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpotFleetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Describes the configuration of a Spot Fleet request.
 func (o LookupSpotFleetResultOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataPtrOutput {
 	return o.ApplyT(func(v LookupSpotFleetResult) *SpotFleetRequestConfigData { return v.SpotFleetRequestConfigData }).(SpotFleetRequestConfigDataPtrOutput)
 }

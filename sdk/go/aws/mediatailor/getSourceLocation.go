@@ -24,15 +24,19 @@ func LookupSourceLocation(ctx *pulumi.Context, args *LookupSourceLocationArgs, o
 }
 
 type LookupSourceLocationArgs struct {
+	// The name of the source location.
 	SourceLocationName string `pulumi:"sourceLocationName"`
 }
 
 type LookupSourceLocationResult struct {
+	// The access configuration for the source location.
 	AccessConfiguration *SourceLocationAccessConfiguration `pulumi:"accessConfiguration"`
 	// <p>The ARN of the source location.</p>
-	Arn                                 *string                                            `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The default segment delivery configuration.
 	DefaultSegmentDeliveryConfiguration *SourceLocationDefaultSegmentDeliveryConfiguration `pulumi:"defaultSegmentDeliveryConfiguration"`
-	HttpConfiguration                   *SourceLocationHttpConfiguration                   `pulumi:"httpConfiguration"`
+	// The HTTP configuration for the source location.
+	HttpConfiguration *SourceLocationHttpConfiguration `pulumi:"httpConfiguration"`
 	// <p>A list of the segment delivery configurations associated with this resource.</p>
 	SegmentDeliveryConfigurations []SourceLocationSegmentDeliveryConfiguration `pulumi:"segmentDeliveryConfigurations"`
 	// The tags to assign to the source location.
@@ -53,6 +57,7 @@ func LookupSourceLocationOutput(ctx *pulumi.Context, args LookupSourceLocationOu
 }
 
 type LookupSourceLocationOutputArgs struct {
+	// The name of the source location.
 	SourceLocationName pulumi.StringInput `pulumi:"sourceLocationName"`
 }
 
@@ -74,6 +79,7 @@ func (o LookupSourceLocationResultOutput) ToLookupSourceLocationResultOutputWith
 	return o
 }
 
+// The access configuration for the source location.
 func (o LookupSourceLocationResultOutput) AccessConfiguration() SourceLocationAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *SourceLocationAccessConfiguration { return v.AccessConfiguration }).(SourceLocationAccessConfigurationPtrOutput)
 }
@@ -83,12 +89,14 @@ func (o LookupSourceLocationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The default segment delivery configuration.
 func (o LookupSourceLocationResultOutput) DefaultSegmentDeliveryConfiguration() SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *SourceLocationDefaultSegmentDeliveryConfiguration {
 		return v.DefaultSegmentDeliveryConfiguration
 	}).(SourceLocationDefaultSegmentDeliveryConfigurationPtrOutput)
 }
 
+// The HTTP configuration for the source location.
 func (o LookupSourceLocationResultOutput) HttpConfiguration() SourceLocationHttpConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupSourceLocationResult) *SourceLocationHttpConfiguration { return v.HttpConfiguration }).(SourceLocationHttpConfigurationPtrOutput)
 }

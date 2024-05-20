@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainSnapshotOptions
     {
+        /// <summary>
+        /// The hour in UTC during which the service takes an automated daily snapshot of the indexes in the OpenSearch Service domain. For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
+        /// </summary>
         public readonly int? AutomatedSnapshotStartHour;
 
         [OutputConstructor]

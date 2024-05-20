@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:KeyValueStore")]
     public partial class KeyValueStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the key value store.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique Id for the key value store.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A comment for the key value store.
+        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// The import source for the key value store.
+        /// </summary>
         [Output("importSource")]
         public Output<Outputs.KeyValueStoreImportSource?> ImportSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the key value store.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -82,12 +97,21 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class KeyValueStoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A comment for the key value store.
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// The import source for the key value store.
+        /// </summary>
         [Input("importSource")]
         public Input<Inputs.KeyValueStoreImportSourceArgs>? ImportSource { get; set; }
 
+        /// <summary>
+        /// The name of the key value store.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

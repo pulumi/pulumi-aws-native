@@ -27,6 +27,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetPlaceIndexArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the place index resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique place index resource name.
+        /// - No spaces allowed. For example, `ExamplePlaceIndex` .
+        /// </summary>
         [Input("indexName", required: true)]
         public string IndexName { get; set; } = null!;
 
@@ -38,6 +47,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GetPlaceIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the place index resource.
+        /// 
+        /// Requirements:
+        /// 
+        /// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+        /// - Must be a unique place index resource name.
+        /// - No spaces allowed. For example, `ExamplePlaceIndex` .
+        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
@@ -51,16 +69,43 @@ namespace Pulumi.AwsNative.Location
     [OutputType]
     public sealed class GetPlaceIndexResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The timestamp for when the place index resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? CreateTime;
+        /// <summary>
+        /// Specifies the data storage option requesting Places.
+        /// </summary>
         public readonly Outputs.PlaceIndexDataSourceConfiguration? DataSourceConfiguration;
+        /// <summary>
+        /// The optional description for the place index resource.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Synonym for `Arn` . The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS .
+        /// 
+        /// - Format example: `arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex`
+        /// </summary>
         public readonly string? IndexArn;
+        /// <summary>
+        /// No longer used. If included, the only allowed value is `RequestBasedUsage` .
+        /// 
+        /// *Allowed Values* : `RequestBasedUsage`
+        /// </summary>
         public readonly Pulumi.AwsNative.Location.PlaceIndexPricingPlan? PricingPlan;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp for when the place index resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        /// </summary>
         public readonly string? UpdateTime;
 
         [OutputConstructor]

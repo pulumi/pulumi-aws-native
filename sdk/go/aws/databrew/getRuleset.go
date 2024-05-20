@@ -33,7 +33,10 @@ type LookupRulesetResult struct {
 	Description *string `pulumi:"description"`
 	// List of the data quality rules in the ruleset
 	Rules []RulesetRule `pulumi:"rules"`
-	Tags  []aws.Tag     `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupRulesetResultOutput {
@@ -82,6 +85,9 @@ func (o LookupRulesetResultOutput) Rules() RulesetRuleArrayOutput {
 	return o.ApplyT(func(v LookupRulesetResult) []RulesetRule { return v.Rules }).(RulesetRuleArrayOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupRulesetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRulesetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

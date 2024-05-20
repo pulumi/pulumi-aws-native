@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSnowflakeRoleConfiguration
     {
+        /// <summary>
+        /// Enable Snowflake role
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The Snowflake role you wish to configure
+        /// </summary>
         public readonly string? SnowflakeRole;
 
         [OutputConstructor]

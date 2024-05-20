@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
     /// </summary>
     public sealed class ResponsePlanActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about the Systems Manager automation document that will be used as a runbook during an incident.
+        /// </summary>
         [Input("ssmAutomation")]
         public Input<Inputs.ResponsePlanSsmAutomationArgs>? SsmAutomation { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilledMapConditionalFormattingOption
     {
+        /// <summary>
+        /// The conditional formatting that determines the shape of the filled map.
+        /// </summary>
         public readonly Outputs.DashboardFilledMapShapeConditionalFormatting Shape;
 
         [OutputConstructor]

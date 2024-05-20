@@ -26,6 +26,13 @@ class FleetArgs:
                  min_worker_count: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+        :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: The configuration details for the fleet.
+        :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
+        :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
+        :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
+        :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
+        :param pulumi.Input[str] farm_id: The farm ID.
+        :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "display_name", display_name)
@@ -41,6 +48,9 @@ class FleetArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']]:
+        """
+        The configuration details for the fleet.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -50,6 +60,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the fleet summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -59,6 +72,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="maxWorkerCount")
     def max_worker_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of workers specified in the fleet.
+        """
         return pulumi.get(self, "max_worker_count")
 
     @max_worker_count.setter
@@ -68,6 +84,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The IAM role that workers in the fleet use when processing jobs.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -77,6 +96,9 @@ class FleetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description that helps identify what the fleet is used for.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,6 +108,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The farm ID.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -95,6 +120,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="minWorkerCount")
     def min_worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of workers in the fleet.
+        """
         return pulumi.get(self, "min_worker_count")
 
     @min_worker_count.setter
@@ -120,6 +148,13 @@ class Fleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[pulumi.InputType['FleetConfiguration0PropertiesArgs'], pulumi.InputType['FleetConfiguration1PropertiesArgs']]] configuration: The configuration details for the fleet.
+        :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
+        :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
+        :param pulumi.Input[str] farm_id: The farm ID.
+        :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
+        :param pulumi.Input[int] min_worker_count: The minimum number of workers in the fleet.
+        :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
         """
         ...
     @overload
@@ -222,6 +257,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned to the fleet.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -232,50 +270,80 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
+        """
+        The configuration details for the fleet.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description that helps identify what the fleet is used for.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The display name of the fleet summary to update.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The farm ID.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> pulumi.Output[str]:
+        """
+        The fleet ID.
+        """
         return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="maxWorkerCount")
     def max_worker_count(self) -> pulumi.Output[int]:
+        """
+        The maximum number of workers specified in the fleet.
+        """
         return pulumi.get(self, "max_worker_count")
 
     @property
     @pulumi.getter(name="minWorkerCount")
     def min_worker_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The minimum number of workers in the fleet.
+        """
         return pulumi.get(self, "min_worker_count")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The IAM role that workers in the fleet use when processing jobs.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['FleetStatus']:
+        """
+        The status of the fleet.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> pulumi.Output[int]:
+        """
+        The number of workers in the fleet summary.
+        """
         return pulumi.get(self, "worker_count")
 

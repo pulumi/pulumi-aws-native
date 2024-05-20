@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Omics.Inputs
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
+        /// <summary>
+        /// The encryption type.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Omics.SequenceStoreEncryptionType> Type { get; set; } = null!;
 

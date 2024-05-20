@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationS3SourceProperties
     {
+        /// <summary>
+        /// The Amazon S3 bucket name where the source files are stored.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// The object key for the Amazon S3 bucket in which the source files are stored.
+        /// </summary>
         public readonly string? BucketPrefix;
 
         [OutputConstructor]

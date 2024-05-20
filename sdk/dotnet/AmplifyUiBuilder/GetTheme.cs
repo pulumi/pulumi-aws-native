@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class GetThemeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID for the Amplify app associated with the theme.
+        /// </summary>
         [Input("appId", required: true)]
         public string AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName", required: true)]
         public string EnvironmentName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the theme.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
     public sealed class GetThemeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique ID for the Amplify app associated with the theme.
+        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the backend environment that is a part of the Amplify app.
+        /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID for the theme.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -63,12 +81,33 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [OutputType]
     public sealed class GetThemeResult
     {
+        /// <summary>
+        /// The time that the theme was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The ID for the theme.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The time that the theme was modified.
+        /// </summary>
         public readonly string? ModifiedAt;
+        /// <summary>
+        /// The name of the theme.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Describes the properties that can be overriden to customize a theme.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeValues> Overrides;
+        /// <summary>
+        /// One or more key-value pairs to use when tagging the theme.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// A list of key-value pairs that defines the properties of the theme.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ThemeValues> Values;
 
         [OutputConstructor]

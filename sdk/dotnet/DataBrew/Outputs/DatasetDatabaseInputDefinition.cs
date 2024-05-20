@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
         /// </summary>
         public readonly string? QueryString;
+        /// <summary>
+        /// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
+        /// </summary>
         public readonly Outputs.DatasetS3Location? TempDirectory;
 
         [OutputConstructor]

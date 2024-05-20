@@ -41,11 +41,17 @@ export class ResourceAssociation extends pulumi.CustomResource {
      * The name or the Id of the Application.
      */
     public readonly application!: pulumi.Output<string>;
+    /**
+     * The Amazon resource name (ARN) that specifies the application.
+     */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
      * The name or the Id of the Resource.
      */
     public readonly resource!: pulumi.Output<string>;
+    /**
+     * The Amazon resource name (ARN) that specifies the resource.
+     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * The type of the CFN Resource for now it's enum CFN_STACK.

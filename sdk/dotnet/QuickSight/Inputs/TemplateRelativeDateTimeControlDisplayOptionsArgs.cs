@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateRelativeDateTimeControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Customize how dates are formatted in controls.
+        /// </summary>
         [Input("dateTimeFormat")]
         public Input<string>? DateTimeFormat { get; set; }
 
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.TemplateLabelOptionsArgs>? TitleOptions { get; set; }
 

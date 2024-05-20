@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class GetDirectoryRegistrationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        /// </summary>
         [Input("directoryRegistrationArn", required: true)]
         public string DirectoryRegistrationArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class GetDirectoryRegistrationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        /// </summary>
         [Input("directoryRegistrationArn", required: true)]
         public Input<string> DirectoryRegistrationArn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [OutputType]
     public sealed class GetDirectoryRegistrationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+        /// </summary>
         public readonly string? DirectoryRegistrationArn;
 
         [OutputConstructor]

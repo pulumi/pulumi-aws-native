@@ -17,23 +17,33 @@ type VpcConnection struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-	Arn                pulumi.StringOutput                                   `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The availability status of the VPC connection.
 	AvailabilityStatus VpcConnectionVpcConnectionAvailabilityStatusPtrOutput `pulumi:"availabilityStatus"`
-	AwsAccountId       pulumi.StringPtrOutput                                `pulumi:"awsAccountId"`
+	// The AWS account ID of the account where you want to create a new VPC connection.
+	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// <p>The time that the VPC connection was created.</p>
-	CreatedTime  pulumi.StringOutput      `pulumi:"createdTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
 	// <p>The time that the VPC connection was last updated.</p>
-	LastUpdatedTime pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringPtrOutput `pulumi:"name"`
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The display name for the VPC connection.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// <p>A list of network interfaces.</p>
-	NetworkInterfaces VpcConnectionNetworkInterfaceArrayOutput       `pulumi:"networkInterfaces"`
-	RoleArn           pulumi.StringPtrOutput                         `pulumi:"roleArn"`
-	SecurityGroupIds  pulumi.StringArrayOutput                       `pulumi:"securityGroupIds"`
-	Status            VpcConnectionVpcConnectionResourceStatusOutput `pulumi:"status"`
-	SubnetIds         pulumi.StringArrayOutput                       `pulumi:"subnetIds"`
-	Tags              aws.TagArrayOutput                             `pulumi:"tags"`
-	VpcConnectionId   pulumi.StringPtrOutput                         `pulumi:"vpcConnectionId"`
+	NetworkInterfaces VpcConnectionNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	// The ARN of the IAM role associated with the VPC connection.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The Amazon EC2 security group IDs associated with the VPC connection.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// The HTTP status of the request.
+	Status VpcConnectionVpcConnectionResourceStatusOutput `pulumi:"status"`
+	// A list of subnet IDs for the VPC connection.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+	VpcConnectionId pulumi.StringPtrOutput `pulumi:"vpcConnectionId"`
 	// <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -83,28 +93,46 @@ func (VpcConnectionState) ElementType() reflect.Type {
 }
 
 type vpcConnectionArgs struct {
+	// The availability status of the VPC connection.
 	AvailabilityStatus *VpcConnectionVpcConnectionAvailabilityStatus `pulumi:"availabilityStatus"`
-	AwsAccountId       *string                                       `pulumi:"awsAccountId"`
-	DnsResolvers       []string                                      `pulumi:"dnsResolvers"`
-	Name               *string                                       `pulumi:"name"`
-	RoleArn            *string                                       `pulumi:"roleArn"`
-	SecurityGroupIds   []string                                      `pulumi:"securityGroupIds"`
-	SubnetIds          []string                                      `pulumi:"subnetIds"`
-	Tags               []aws.Tag                                     `pulumi:"tags"`
-	VpcConnectionId    *string                                       `pulumi:"vpcConnectionId"`
+	// The AWS account ID of the account where you want to create a new VPC connection.
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	DnsResolvers []string `pulumi:"dnsResolvers"`
+	// The display name for the VPC connection.
+	Name *string `pulumi:"name"`
+	// The ARN of the IAM role associated with the VPC connection.
+	RoleArn *string `pulumi:"roleArn"`
+	// The Amazon EC2 security group IDs associated with the VPC connection.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs for the VPC connection.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+	VpcConnectionId *string `pulumi:"vpcConnectionId"`
 }
 
 // The set of arguments for constructing a VpcConnection resource.
 type VpcConnectionArgs struct {
+	// The availability status of the VPC connection.
 	AvailabilityStatus VpcConnectionVpcConnectionAvailabilityStatusPtrInput
-	AwsAccountId       pulumi.StringPtrInput
-	DnsResolvers       pulumi.StringArrayInput
-	Name               pulumi.StringPtrInput
-	RoleArn            pulumi.StringPtrInput
-	SecurityGroupIds   pulumi.StringArrayInput
-	SubnetIds          pulumi.StringArrayInput
-	Tags               aws.TagArrayInput
-	VpcConnectionId    pulumi.StringPtrInput
+	// The AWS account ID of the account where you want to create a new VPC connection.
+	AwsAccountId pulumi.StringPtrInput
+	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+	DnsResolvers pulumi.StringArrayInput
+	// The display name for the VPC connection.
+	Name pulumi.StringPtrInput
+	// The ARN of the IAM role associated with the VPC connection.
+	RoleArn pulumi.StringPtrInput
+	// The Amazon EC2 security group IDs associated with the VPC connection.
+	SecurityGroupIds pulumi.StringArrayInput
+	// A list of subnet IDs for the VPC connection.
+	SubnetIds pulumi.StringArrayInput
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+	Tags aws.TagArrayInput
+	// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+	VpcConnectionId pulumi.StringPtrInput
 }
 
 func (VpcConnectionArgs) ElementType() reflect.Type {
@@ -149,12 +177,14 @@ func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The availability status of the VPC connection.
 func (o VpcConnectionOutput) AvailabilityStatus() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 		return v.AvailabilityStatus
 	}).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
+// The AWS account ID of the account where you want to create a new VPC connection.
 func (o VpcConnectionOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
@@ -164,6 +194,7 @@ func (o VpcConnectionOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 func (o VpcConnectionOutput) DnsResolvers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.DnsResolvers }).(pulumi.StringArrayOutput)
 }
@@ -173,6 +204,7 @@ func (o VpcConnectionOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// The display name for the VPC connection.
 func (o VpcConnectionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -182,26 +214,32 @@ func (o VpcConnectionOutput) NetworkInterfaces() VpcConnectionNetworkInterfaceAr
 	return o.ApplyT(func(v *VpcConnection) VpcConnectionNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(VpcConnectionNetworkInterfaceArrayOutput)
 }
 
+// The ARN of the IAM role associated with the VPC connection.
 func (o VpcConnectionOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon EC2 security group IDs associated with the VPC connection.
 func (o VpcConnectionOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The HTTP status of the request.
 func (o VpcConnectionOutput) Status() VpcConnectionVpcConnectionResourceStatusOutput {
 	return o.ApplyT(func(v *VpcConnection) VpcConnectionVpcConnectionResourceStatusOutput { return v.Status }).(VpcConnectionVpcConnectionResourceStatusOutput)
 }
 
+// A list of subnet IDs for the VPC connection.
 func (o VpcConnectionOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
 func (o VpcConnectionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
 func (o VpcConnectionOutput) VpcConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.VpcConnectionId }).(pulumi.StringPtrOutput)
 }

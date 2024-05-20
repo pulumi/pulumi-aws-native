@@ -24,16 +24,25 @@ func LookupRestoreTestingPlan(ctx *pulumi.Context, args *LookupRestoreTestingPla
 }
 
 type LookupRestoreTestingPlanArgs struct {
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
 }
 
 type LookupRestoreTestingPlanResult struct {
-	RecoveryPointSelection     *RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
-	RestoreTestingPlanArn      *string                                                 `pulumi:"restoreTestingPlanArn"`
-	ScheduleExpression         *string                                                 `pulumi:"scheduleExpression"`
-	ScheduleExpressionTimezone *string                                                 `pulumi:"scheduleExpressionTimezone"`
-	StartWindowHours           *int                                                    `pulumi:"startWindowHours"`
-	Tags                       []aws.Tag                                               `pulumi:"tags"`
+	// The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
+	RecoveryPointSelection *RestoreTestingPlanRestoreTestingRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+	RestoreTestingPlanArn *string `pulumi:"restoreTestingPlanArn"`
+	// A CRON expression in specified timezone when a restore testing plan is executed.
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
+	// Defaults to 24 hours.
+	//
+	// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+	StartWindowHours *int `pulumi:"startWindowHours"`
+	// Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRestoreTestingPlanOutput(ctx *pulumi.Context, args LookupRestoreTestingPlanOutputArgs, opts ...pulumi.InvokeOption) LookupRestoreTestingPlanResultOutput {
@@ -50,6 +59,7 @@ func LookupRestoreTestingPlanOutput(ctx *pulumi.Context, args LookupRestoreTesti
 }
 
 type LookupRestoreTestingPlanOutputArgs struct {
+	// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
 	RestoreTestingPlanName pulumi.StringInput `pulumi:"restoreTestingPlanName"`
 }
 
@@ -71,28 +81,36 @@ func (o LookupRestoreTestingPlanResultOutput) ToLookupRestoreTestingPlanResultOu
 	return o
 }
 
+// The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
 func (o LookupRestoreTestingPlanResultOutput) RecoveryPointSelection() RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *RestoreTestingPlanRestoreTestingRecoveryPointSelection {
 		return v.RecoveryPointSelection
 	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput)
 }
 
+// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
 func (o LookupRestoreTestingPlanResultOutput) RestoreTestingPlanArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.RestoreTestingPlanArn }).(pulumi.StringPtrOutput)
 }
 
+// A CRON expression in specified timezone when a restore testing plan is executed.
 func (o LookupRestoreTestingPlanResultOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
+// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
 func (o LookupRestoreTestingPlanResultOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *string { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
 }
 
+// Defaults to 24 hours.
+//
+// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
 func (o LookupRestoreTestingPlanResultOutput) StartWindowHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) *int { return v.StartWindowHours }).(pulumi.IntPtrOutput)
 }
 
+// Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
 func (o LookupRestoreTestingPlanResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRestoreTestingPlanResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -28,6 +28,15 @@ class IndexArgs:
                  type: Optional[pulumi.Input['IndexType']] = None):
         """
         The set of arguments for constructing a Index resource.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application using the index.
+        :param pulumi.Input[str] display_name: The name of the index.
+        :param pulumi.Input['IndexCapacityConfigurationArgs'] capacity_configuration: The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        :param pulumi.Input[str] description: A description for the Amazon Q Business index.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]] document_attribute_configurations: Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+               
+               For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input['IndexType'] type: The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -45,6 +54,9 @@ class IndexArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q Business application using the index.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -54,6 +66,9 @@ class IndexArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the index.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -63,6 +78,9 @@ class IndexArgs:
     @property
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> Optional[pulumi.Input['IndexCapacityConfigurationArgs']]:
+        """
+        The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
@@ -72,6 +90,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Amazon Q Business index.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -81,6 +102,11 @@ class IndexArgs:
     @property
     @pulumi.getter(name="documentAttributeConfigurations")
     def document_attribute_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentAttributeConfigurationArgs']]]]:
+        """
+        Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+
+        For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        """
         return pulumi.get(self, "document_attribute_configurations")
 
     @document_attribute_configurations.setter
@@ -90,6 +116,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,6 +128,9 @@ class IndexArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['IndexType']]:
+        """
+        The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -124,6 +156,15 @@ class Index(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business application using the index.
+        :param pulumi.Input[pulumi.InputType['IndexCapacityConfigurationArgs']] capacity_configuration: The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        :param pulumi.Input[str] description: A description for the Amazon Q Business index.
+        :param pulumi.Input[str] display_name: The name of the index.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentAttributeConfigurationArgs']]]] document_attribute_configurations: Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+               
+               For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input['IndexType'] type: The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
         """
         ...
     @overload
@@ -224,41 +265,67 @@ class Index(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q Business application using the index.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> pulumi.Output[Optional['outputs.IndexCapacityConfiguration']]:
+        """
+        The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
+        """
         return pulumi.get(self, "capacity_configuration")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the index was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the Amazon Q Business index.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of the index.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="documentAttributeConfigurations")
     def document_attribute_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.IndexDocumentAttributeConfiguration']]]:
+        """
+        Configuration information for document attributes. Document attributes are metadata or fields associated with your documents. For example, the company department name associated with each document.
+
+        For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
+        """
         return pulumi.get(self, "document_attribute_configurations")
 
     @property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of an Amazon Q Business index.
+        """
         return pulumi.get(self, "index_arn")
 
     @property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the index.
+        """
         return pulumi.get(self, "index_id")
 
     @property
@@ -269,20 +336,32 @@ class Index(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['IndexStatus']:
+        """
+        The current status of the index. When the status is `ACTIVE` , the index is ready.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional['IndexType']]:
+        """
+        The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The Unix timestamp when the index was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetTopicRuleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// *Pattern* : `[a-zA-Z0-9:_-]+`
+        /// </summary>
         [Input("ruleName", required: true)]
         public string RuleName { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetTopicRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the rule.
+        /// 
+        /// *Pattern* : `[a-zA-Z0-9:_-]+`
+        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 
@@ -51,8 +61,23 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetTopicRuleResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Metadata which can be used to manage the topic rule.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: --tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The rule payload.
+        /// </summary>
         public readonly Outputs.TopicRulePayload? TopicRulePayload;
 
         [OutputConstructor]

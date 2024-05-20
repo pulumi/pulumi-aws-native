@@ -16,6 +16,7 @@ import (
 type ChannelPolicy struct {
 	pulumi.CustomResourceState
 
+	// The name of the channel associated with this Channel Policy.
 	ChannelName pulumi.StringOutput `pulumi:"channelName"`
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
 	//
@@ -73,6 +74,7 @@ func (ChannelPolicyState) ElementType() reflect.Type {
 }
 
 type channelPolicyArgs struct {
+	// The name of the channel associated with this Channel Policy.
 	ChannelName string `pulumi:"channelName"`
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
 	//
@@ -82,6 +84,7 @@ type channelPolicyArgs struct {
 
 // The set of arguments for constructing a ChannelPolicy resource.
 type ChannelPolicyArgs struct {
+	// The name of the channel associated with this Channel Policy.
 	ChannelName pulumi.StringInput
 	// <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
 	//
@@ -126,6 +129,7 @@ func (o ChannelPolicyOutput) ToChannelPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the channel associated with this Channel Policy.
 func (o ChannelPolicyOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelPolicy) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }

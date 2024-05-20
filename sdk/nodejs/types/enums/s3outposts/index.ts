@@ -7,6 +7,9 @@ export const BucketRuleStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+ */
 export type BucketRuleStatus = (typeof BucketRuleStatus)[keyof typeof BucketRuleStatus];
 
 export const EndpointAccessType = {
@@ -27,4 +30,7 @@ export const EndpointStatus = {
     DeleteFailed: "Delete_Failed",
 } as const;
 
+/**
+ * The status of the endpoint.
+ */
 export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];

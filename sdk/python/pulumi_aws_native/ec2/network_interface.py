@@ -38,6 +38,7 @@ class NetworkInterfaceArgs:
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
+        :param pulumi.Input['NetworkInterfaceConnectionTrackingSpecificationArgs'] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[str] description: A description for the network interface.
         :param pulumi.Input[bool] enable_primary_ipv6: If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
@@ -103,6 +104,9 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="connectionTrackingSpecification")
     def connection_tracking_specification(self) -> Optional[pulumi.Input['NetworkInterfaceConnectionTrackingSpecificationArgs']]:
+        """
+        A connection tracking specification for the network interface.
+        """
         return pulumi.get(self, "connection_tracking_specification")
 
     @connection_tracking_specification.setter
@@ -318,6 +322,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['NetworkInterfaceConnectionTrackingSpecificationArgs']] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[str] description: A description for the network interface.
         :param pulumi.Input[bool] enable_primary_ipv6: If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
@@ -468,6 +473,9 @@ class NetworkInterface(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectionTrackingSpecification")
     def connection_tracking_specification(self) -> pulumi.Output[Optional['outputs.NetworkInterfaceConnectionTrackingSpecification']]:
+        """
+        A connection tracking specification for the network interface.
+        """
         return pulumi.get(self, "connection_tracking_specification")
 
     @property

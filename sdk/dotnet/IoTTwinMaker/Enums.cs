@@ -161,6 +161,9 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The component type status state.
+    /// </summary>
     [EnumType]
     public readonly struct ComponentTypeStatusState : IEquatable<ComponentTypeStatusState>
     {

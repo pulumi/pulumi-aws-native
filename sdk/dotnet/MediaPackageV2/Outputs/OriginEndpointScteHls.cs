@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     [OutputType]
     public sealed class OriginEndpointScteHls
     {
+        /// <summary>
+        /// The SCTE-35 HLS ad-marker configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointAdMarkerHls? AdMarkerHls;
 
         [OutputConstructor]

@@ -39,9 +39,15 @@ namespace Pulumi.AwsNative.Ecs
         [Output("launchType")]
         public Output<Pulumi.AwsNative.Ecs.TaskSetLaunchType?> LaunchType { get; private set; } = null!;
 
+        /// <summary>
+        /// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
+        /// <summary>
+        /// The network configuration for the task set.
+        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
@@ -69,6 +75,19 @@ namespace Pulumi.AwsNative.Ecs
         [Output("serviceRegistries")]
         public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+        /// 
+        /// The following basic restrictions apply to tags:
+        /// 
+        /// - Maximum number of tags per resource - 50
+        /// - For each resource, each tag key must be unique, and each tag key can have only one value.
+        /// - Maximum key length - 128 Unicode characters in UTF-8
+        /// - Maximum value length - 256 Unicode characters in UTF-8
+        /// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        /// - Tag keys and values are case-sensitive.
+        /// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -155,12 +174,19 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("loadBalancers")]
         private InputList<Inputs.TaskSetLoadBalancerArgs>? _loadBalancers;
+
+        /// <summary>
+        /// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        /// </summary>
         public InputList<Inputs.TaskSetLoadBalancerArgs> LoadBalancers
         {
             get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.TaskSetLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
 
+        /// <summary>
+        /// The network configuration for the task set.
+        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
@@ -196,6 +222,20 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+        /// 
+        /// The following basic restrictions apply to tags:
+        /// 
+        /// - Maximum number of tags per resource - 50
+        /// - For each resource, each tag key must be unique, and each tag key can have only one value.
+        /// - Maximum key length - 128 Unicode characters in UTF-8
+        /// - Maximum value length - 256 Unicode characters in UTF-8
+        /// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        /// - Tag keys and values are case-sensitive.
+        /// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

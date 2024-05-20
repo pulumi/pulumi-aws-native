@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGeospatialHeatmapDataColor
     {
+        /// <summary>
+        /// The hex color to be used in the heatmap point style.
+        /// </summary>
         public readonly string Color;
 
         [OutputConstructor]

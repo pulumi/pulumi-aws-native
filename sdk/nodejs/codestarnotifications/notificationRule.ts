@@ -37,16 +37,49 @@ export class NotificationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationRule.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the notification rule.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name or email alias of the person who created the notification rule.
+     */
     public readonly createdBy!: pulumi.Output<string | undefined>;
+    /**
+     * The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+     */
     public readonly detailType!: pulumi.Output<enums.codestarnotifications.NotificationRuleDetailType>;
+    /**
+     * The event type associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+     */
     public readonly eventTypeId!: pulumi.Output<string | undefined>;
+    /**
+     * A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+     */
     public readonly eventTypeIds!: pulumi.Output<string[]>;
+    /**
+     * The name for the notification rule. Notification rule names must be unique in your AWS account .
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
+     */
     public readonly resource!: pulumi.Output<string>;
+    /**
+     * The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+     */
     public readonly status!: pulumi.Output<enums.codestarnotifications.NotificationRuleStatus | undefined>;
+    /**
+     * A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+     */
     public readonly targetAddress!: pulumi.Output<string | undefined>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+     */
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
     /**
@@ -107,14 +140,44 @@ export class NotificationRule extends pulumi.CustomResource {
  * The set of arguments for constructing a NotificationRule resource.
  */
 export interface NotificationRuleArgs {
+    /**
+     * The name or email alias of the person who created the notification rule.
+     */
     createdBy?: pulumi.Input<string>;
+    /**
+     * The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+     */
     detailType: pulumi.Input<enums.codestarnotifications.NotificationRuleDetailType>;
+    /**
+     * The event type associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+     */
     eventTypeId?: pulumi.Input<string>;
+    /**
+     * A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+     */
     eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name for the notification rule. Notification rule names must be unique in your AWS account .
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the notification rule. Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
+     */
     resource: pulumi.Input<string>;
+    /**
+     * The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+     */
     status?: pulumi.Input<enums.codestarnotifications.NotificationRuleStatus>;
+    /**
+     * A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
+     */
     targetAddress?: pulumi.Input<string>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+     */
     targets: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTargetArgs>[]>;
 }

@@ -21,8 +21,9 @@ type LifecyclePolicy struct {
 	// The name of the policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy pulumi.StringOutput       `pulumi:"policy"`
-	Type   LifecyclePolicyTypeOutput `pulumi:"type"`
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The type of lifecycle policy.
+	Type LifecyclePolicyTypeOutput `pulumi:"type"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
@@ -81,8 +82,9 @@ type lifecyclePolicyArgs struct {
 	// The name of the policy
 	Name *string `pulumi:"name"`
 	// The JSON policy document that is the content for the policy
-	Policy string              `pulumi:"policy"`
-	Type   LifecyclePolicyType `pulumi:"type"`
+	Policy string `pulumi:"policy"`
+	// The type of lifecycle policy.
+	Type LifecyclePolicyType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
@@ -93,7 +95,8 @@ type LifecyclePolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The JSON policy document that is the content for the policy
 	Policy pulumi.StringInput
-	Type   LifecyclePolicyTypeInput
+	// The type of lifecycle policy.
+	Type LifecyclePolicyTypeInput
 }
 
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
@@ -148,6 +151,7 @@ func (o LifecyclePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
+// The type of lifecycle policy.
 func (o LifecyclePolicyOutput) Type() LifecyclePolicyTypeOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyTypeOutput { return v.Type }).(LifecyclePolicyTypeOutput)
 }

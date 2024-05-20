@@ -19,10 +19,16 @@ export function getExecutionPlan(args: GetExecutionPlanArgs, opts?: pulumi.Invok
 }
 
 export interface GetExecutionPlanArgs {
+    /**
+     * The identifier of the rescore execution plan.
+     */
     id: string;
 }
 
 export interface GetExecutionPlanResult {
+    /**
+     * The Amazon Resource Name (ARN) of the rescore execution plan.
+     */
     readonly arn?: string;
     /**
      * Capacity units
@@ -32,7 +38,13 @@ export interface GetExecutionPlanResult {
      * A description for the execution plan
      */
     readonly description?: string;
+    /**
+     * The identifier of the rescore execution plan.
+     */
     readonly id?: string;
+    /**
+     * A name for the rescore execution plan.
+     */
     readonly name?: string;
     /**
      * Tags for labeling the execution plan
@@ -47,5 +59,8 @@ export function getExecutionPlanOutput(args: GetExecutionPlanOutputArgs, opts?: 
 }
 
 export interface GetExecutionPlanOutputArgs {
+    /**
+     * The identifier of the rescore execution plan.
+     */
     id: pulumi.Input<string>;
 }

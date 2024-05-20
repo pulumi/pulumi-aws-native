@@ -13,16 +13,58 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetDefinition
     {
+        /// <summary>
+        /// The layout content type of the sheet. Choose one of the following options:
+        /// 
+        /// - `PAGINATED` : Creates a sheet for a paginated report.
+        /// - `INTERACTIVE` : Creates a sheet for an interactive dashboard.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSheetContentType? ContentType;
+        /// <summary>
+        /// A description of the sheet.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The list of filter controls that are on a sheet.
+        /// 
+        /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFilterControl> FilterControls;
+        /// <summary>
+        /// Layouts define how the components of a sheet are arranged.
+        /// 
+        /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardLayout> Layouts;
+        /// <summary>
+        /// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The list of parameter controls that are on a sheet.
+        /// 
+        /// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardParameterControl> ParameterControls;
+        /// <summary>
+        /// The control layouts of the sheet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSheetControlLayout> SheetControlLayouts;
+        /// <summary>
+        /// The unique identifier of a sheet.
+        /// </summary>
         public readonly string SheetId;
+        /// <summary>
+        /// The text boxes that are on a sheet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSheetTextBox> TextBoxes;
+        /// <summary>
+        /// The title of the sheet.
+        /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardVisual> Visuals;
 
         [OutputConstructor]

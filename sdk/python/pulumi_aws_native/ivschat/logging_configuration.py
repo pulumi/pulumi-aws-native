@@ -24,6 +24,7 @@ class LoggingConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'] destination_configuration: The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
         :param pulumi.Input[str] name: The name of the logging configuration. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -36,6 +37,9 @@ class LoggingConfigurationArgs:
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']:
+        """
+        The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -81,6 +85,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']] destination_configuration: The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
         :param pulumi.Input[str] name: The name of the logging configuration. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -177,6 +182,9 @@ class LoggingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Output['outputs.LoggingConfigurationDestinationConfiguration']:
+        """
+        The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
+        """
         return pulumi.get(self, "destination_configuration")
 
     @property

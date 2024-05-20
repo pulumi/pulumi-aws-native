@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainAutoMerging
     {
+        /// <summary>
+        /// Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
+        /// </summary>
         public readonly Outputs.DomainConflictResolution? ConflictResolution;
+        /// <summary>
+        /// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+        /// </summary>
         public readonly Outputs.DomainConsolidation? Consolidation;
         /// <summary>
         /// The flag that enables the auto-merging of duplicate profiles.

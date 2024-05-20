@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationHlsPackage
     {
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         public readonly Outputs.PackagingConfigurationHlsEncryption? Encryption;
         /// <summary>
         /// A list of HLS manifest configurations.
@@ -25,6 +28,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
         /// </summary>
         public readonly bool? IncludeDvbSubtitles;
+        /// <summary>
+        /// Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
+        /// </summary>
         public readonly int? SegmentDurationSeconds;
         /// <summary>
         /// When enabled, audio streams will be placed in rendition groups in the output.

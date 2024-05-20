@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreParquetConfiguration
     {
+        /// <summary>
+        /// Information needed to define a schema.
+        /// </summary>
         public readonly Outputs.DatastoreSchemaDefinition? SchemaDefinition;
 
         [OutputConstructor]

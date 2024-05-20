@@ -20,12 +20,18 @@ export const AnalysisTemplateAnalysisParameterType = {
     Varbyte: "VARBYTE",
 } as const;
 
+/**
+ * The type of parameter.
+ */
 export type AnalysisTemplateAnalysisParameterType = (typeof AnalysisTemplateAnalysisParameterType)[keyof typeof AnalysisTemplateAnalysisParameterType];
 
 export const AnalysisTemplateFormat = {
     Sql: "SQL",
 } as const;
 
+/**
+ * The format of the analysis template.
+ */
 export type AnalysisTemplateFormat = (typeof AnalysisTemplateFormat)[keyof typeof AnalysisTemplateFormat];
 
 export const CollaborationMemberAbility = {
@@ -133,10 +139,18 @@ export const PrivacyBudgetTemplateAutoRefresh = {
     None: "NONE",
 } as const;
 
+/**
+ * How often the privacy budget refreshes.
+ *
+ * > If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+ */
 export type PrivacyBudgetTemplateAutoRefresh = (typeof PrivacyBudgetTemplateAutoRefresh)[keyof typeof PrivacyBudgetTemplateAutoRefresh];
 
 export const PrivacyBudgetTemplatePrivacyBudgetType = {
     DifferentialPrivacy: "DIFFERENTIAL_PRIVACY",
 } as const;
 
+/**
+ * Specifies the type of the privacy budget template.
+ */
 export type PrivacyBudgetTemplatePrivacyBudgetType = (typeof PrivacyBudgetTemplatePrivacyBudgetType)[keyof typeof PrivacyBudgetTemplatePrivacyBudgetType];

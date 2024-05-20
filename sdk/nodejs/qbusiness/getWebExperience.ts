@@ -20,22 +20,64 @@ export function getWebExperience(args: GetWebExperienceArgs, opts?: pulumi.Invok
 }
 
 export interface GetWebExperienceArgs {
+    /**
+     * The identifier of the Amazon Q Business web experience.
+     */
     applicationId: string;
+    /**
+     * The identifier of your Amazon Q Business web experience.
+     */
     webExperienceId: string;
 }
 
 export interface GetWebExperienceResult {
+    /**
+     * The Unix timestamp when the Amazon Q Business application was last updated.
+     */
     readonly createdAt?: string;
+    /**
+     * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
+     */
     readonly defaultEndpoint?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the service role attached to your web experience.
+     */
     readonly roleArn?: string;
+    /**
+     * Determines whether sample prompts are enabled in the web experience for an end user.
+     */
     readonly samplePromptsControlMode?: enums.qbusiness.WebExperienceSamplePromptsControlMode;
+    /**
+     * The status of your Amazon Q Business web experience.
+     */
     readonly status?: enums.qbusiness.WebExperienceStatus;
+    /**
+     * A subtitle to personalize your Amazon Q Business web experience.
+     */
     readonly subtitle?: string;
+    /**
+     * A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The title for your Amazon Q Business web experience.
+     */
     readonly title?: string;
+    /**
+     * The Unix timestamp when your Amazon Q Business web experience was updated.
+     */
     readonly updatedAt?: string;
+    /**
+     * The Amazon Resource Name (ARN) of an Amazon Q Business web experience.
+     */
     readonly webExperienceArn?: string;
+    /**
+     * The identifier of your Amazon Q Business web experience.
+     */
     readonly webExperienceId?: string;
+    /**
+     * A message in an Amazon Q Business web experience.
+     */
     readonly welcomeMessage?: string;
 }
 /**
@@ -46,6 +88,12 @@ export function getWebExperienceOutput(args: GetWebExperienceOutputArgs, opts?: 
 }
 
 export interface GetWebExperienceOutputArgs {
+    /**
+     * The identifier of the Amazon Q Business web experience.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The identifier of your Amazon Q Business web experience.
+     */
     webExperienceId: pulumi.Input<string>;
 }

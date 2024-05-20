@@ -27,6 +27,8 @@ class SequenceStoreArgs:
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
         :param pulumi.Input[str] name: A name for the store.
+        :param pulumi.Input['SequenceStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -78,6 +80,9 @@ class SequenceStoreArgs:
     @property
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> Optional[pulumi.Input['SequenceStoreSseConfigArgs']]:
+        """
+        Server-side encryption (SSE) settings for the store.
+        """
         return pulumi.get(self, "sse_config")
 
     @sse_config.setter
@@ -87,6 +92,9 @@ class SequenceStoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags for the store.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -113,6 +121,8 @@ class SequenceStore(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] fallback_location: An S3 URI representing the bucket and folder to store failed read set uploads.
         :param pulumi.Input[str] name: A name for the store.
+        :param pulumi.Input[pulumi.InputType['SequenceStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
     @overload
@@ -237,15 +247,24 @@ class SequenceStore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sequenceStoreId")
     def sequence_store_id(self) -> pulumi.Output[str]:
+        """
+        The store's ID.
+        """
         return pulumi.get(self, "sequence_store_id")
 
     @property
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> pulumi.Output[Optional['outputs.SequenceStoreSseConfig']]:
+        """
+        Server-side encryption (SSE) settings for the store.
+        """
         return pulumi.get(self, "sse_config")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Tags for the store.
+        """
         return pulumi.get(self, "tags")
 

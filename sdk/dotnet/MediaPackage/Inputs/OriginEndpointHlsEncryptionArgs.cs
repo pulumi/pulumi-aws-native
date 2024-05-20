@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("repeatExtXKey")]
         public Input<bool>? RepeatExtXKey { get; set; }
 
+        /// <summary>
+        /// Parameters for the SPEKE key provider.
+        /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 

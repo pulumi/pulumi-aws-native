@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// The ARN of the response plan.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The AWS Chatbot chat channel used for collaboration during an incident.
+        /// </summary>
         public readonly Outputs.ResponsePlanChatChannel? ChatChannel;
         /// <summary>
         /// The display name of the response plan.
@@ -74,6 +77,9 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// The list of engagements to use.
         /// </summary>
         public readonly ImmutableArray<string> Engagements;
+        /// <summary>
+        /// Details used to create an incident when using this response plan.
+        /// </summary>
         public readonly Outputs.ResponsePlanIncidentTemplate? IncidentTemplate;
         /// <summary>
         /// The list of integrations.

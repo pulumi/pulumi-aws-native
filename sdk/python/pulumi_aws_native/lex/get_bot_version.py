@@ -29,11 +29,17 @@ class GetBotVersionResult:
     @property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[str]:
+        """
+        The version of the bot.
+        """
         return pulumi.get(self, "bot_version")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
 
@@ -52,6 +58,10 @@ def get_bot_version(bot_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotVersionResult:
     """
     A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+
+
+    :param str bot_id: The unique identifier of the bot.
+    :param str bot_version: The version of the bot.
     """
     __args__ = dict()
     __args__['botId'] = bot_id
@@ -70,5 +80,9 @@ def get_bot_version_output(bot_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotVersionResult]:
     """
     A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
+
+
+    :param str bot_id: The unique identifier of the bot.
+    :param str bot_version: The version of the bot.
     """
     ...

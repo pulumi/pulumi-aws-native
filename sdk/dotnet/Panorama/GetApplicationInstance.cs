@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetApplicationInstanceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The application instance's ID.
+        /// </summary>
         [Input("applicationInstanceId", required: true)]
         public string ApplicationInstanceId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class GetApplicationInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The application instance's ID.
+        /// </summary>
         [Input("applicationInstanceId", required: true)]
         public Input<string> ApplicationInstanceId { get; set; } = null!;
 
@@ -51,14 +57,41 @@ namespace Pulumi.AwsNative.Panorama
     [OutputType]
     public sealed class GetApplicationInstanceResult
     {
+        /// <summary>
+        /// The application instance's ID.
+        /// </summary>
         public readonly string? ApplicationInstanceId;
+        /// <summary>
+        /// The application instance's ARN.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The application instance's created time.
+        /// </summary>
         public readonly int? CreatedTime;
+        /// <summary>
+        /// The application instance's default runtime context device name.
+        /// </summary>
         public readonly string? DefaultRuntimeContextDeviceName;
+        /// <summary>
+        /// The application instance's health status.
+        /// </summary>
         public readonly Pulumi.AwsNative.Panorama.ApplicationInstanceHealthStatus? HealthStatus;
+        /// <summary>
+        /// The application instance's last updated time.
+        /// </summary>
         public readonly int? LastUpdatedTime;
+        /// <summary>
+        /// The application instance's status.
+        /// </summary>
         public readonly Pulumi.AwsNative.Panorama.ApplicationInstanceStatus? Status;
+        /// <summary>
+        /// The application instance's status description.
+        /// </summary>
         public readonly string? StatusDescription;
+        /// <summary>
+        /// Tags for the application instance.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

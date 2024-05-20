@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
     {
         [Input("securityGroupIdList", required: true)]
         private InputList<string>? _securityGroupIdList;
+
+        /// <summary>
+        /// An array of strings containing the list of security groups.
+        /// </summary>
         public InputList<string> SecurityGroupIdList
         {
             get => _securityGroupIdList ?? (_securityGroupIdList = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
         [Input("subnetIdList", required: true)]
         private InputList<string>? _subnetIdList;
+
+        /// <summary>
+        /// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
+        /// </summary>
         public InputList<string> SubnetIdList
         {
             get => _subnetIdList ?? (_subnetIdList = new InputList<string>());

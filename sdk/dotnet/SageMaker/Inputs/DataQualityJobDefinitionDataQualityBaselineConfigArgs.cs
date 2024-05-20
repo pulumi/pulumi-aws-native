@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DataQualityJobDefinitionDataQualityBaselineConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the job that performs baselining for the data quality monitoring job.
+        /// </summary>
         [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
+        /// <summary>
+        /// The constraints resource for a monitoring job.
+        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.DataQualityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
+        /// <summary>
+        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// </summary>
         [Input("statisticsResource")]
         public Input<Inputs.DataQualityJobDefinitionStatisticsResourceArgs>? StatisticsResource { get; set; }
 

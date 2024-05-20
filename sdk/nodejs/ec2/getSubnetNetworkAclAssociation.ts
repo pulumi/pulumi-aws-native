@@ -16,10 +16,16 @@ export function getSubnetNetworkAclAssociation(args: GetSubnetNetworkAclAssociat
 }
 
 export interface GetSubnetNetworkAclAssociationArgs {
+    /**
+     * Returns the value of this object's AssociationId property.
+     */
     associationId: string;
 }
 
 export interface GetSubnetNetworkAclAssociationResult {
+    /**
+     * Returns the value of this object's AssociationId property.
+     */
     readonly associationId?: string;
 }
 /**
@@ -30,5 +36,8 @@ export function getSubnetNetworkAclAssociationOutput(args: GetSubnetNetworkAclAs
 }
 
 export interface GetSubnetNetworkAclAssociationOutputArgs {
+    /**
+     * Returns the value of this object's AssociationId property.
+     */
     associationId: pulumi.Input<string>;
 }

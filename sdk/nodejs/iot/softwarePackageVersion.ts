@@ -39,9 +39,18 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
 
     public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Error reason for a package version failure during creation or update.
+     */
     public /*out*/ readonly errorReason!: pulumi.Output<string>;
     public readonly packageName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the package.
+     */
     public /*out*/ readonly packageVersionArn!: pulumi.Output<string>;
+    /**
+     * The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.iot.SoftwarePackageVersionPackageVersionStatus>;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -21,21 +21,51 @@ namespace Pulumi.AwsNative.Iam
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The contents of the public key certificate.
+        /// </summary>
         [Output("certificateBody")]
         public Output<string?> CertificateBody { get; private set; } = null!;
 
+        /// <summary>
+        /// The contents of the public key certificate chain.
+        /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
+        /// <summary>
+        /// The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        /// 
+        /// This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+        /// 
+        /// &gt; If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
+        /// <summary>
+        /// The contents of the private key in PEM-encoded format.
+        /// 
+        /// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+        /// 
+        /// - Any printable ASCII character ranging from the space character ( `\u0020` ) through the end of the ASCII character range
+        /// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\u00FF` )
+        /// - The special characters tab ( `\u0009` ), line feed ( `\u000A` ), and carriage return ( `\u000D` )
+        /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+        /// 
+        /// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         [Output("serverCertificateName")]
         public Output<string?> ServerCertificateName { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -91,23 +121,54 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class ServerCertificateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The contents of the public key certificate.
+        /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
+        /// <summary>
+        /// The contents of the public key certificate chain.
+        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
+        /// <summary>
+        /// The path for the server certificate. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
+        /// 
+        /// This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\u0021` ) through the DEL character ( `\u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
+        /// 
+        /// &gt; If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The contents of the private key in PEM-encoded format.
+        /// 
+        /// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+        /// 
+        /// - Any printable ASCII character ranging from the space character ( `\u0020` ) through the end of the ASCII character range
+        /// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\u00FF` )
+        /// - The special characters tab ( `\u0009` ), line feed ( `\u000A` ), and carriage return ( `\u000D` )
+        /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
+        /// <summary>
+        /// The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
+        /// 
+        /// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         [Input("serverCertificateName")]
         public Input<string>? ServerCertificateName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

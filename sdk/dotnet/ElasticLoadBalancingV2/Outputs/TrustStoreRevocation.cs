@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class TrustStoreRevocation
     {
+        /// <summary>
+        /// The number of revoked certificates.
+        /// </summary>
         public readonly int? NumberOfRevokedEntries;
+        /// <summary>
+        /// The revocation ID of the revocation file.
+        /// </summary>
         public readonly string? RevocationId;
+        /// <summary>
+        /// The type of revocation file.
+        /// </summary>
         public readonly string? RevocationType;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the trust store.
+        /// </summary>
         public readonly string? TrustStoreArn;
 
         [OutputConstructor]

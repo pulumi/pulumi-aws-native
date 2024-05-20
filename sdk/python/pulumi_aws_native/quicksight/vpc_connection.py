@@ -29,6 +29,15 @@ class VpcConnectionArgs:
                  vpc_connection_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
+        :param pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus'] availability_status: The availability status of the VPC connection.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID of the account where you want to create a new VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[str] name: The display name for the VPC connection.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The Amazon EC2 security group IDs associated with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        :param pulumi.Input[str] vpc_connection_id: The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
         """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
@@ -52,6 +61,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="availabilityStatus")
     def availability_status(self) -> Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']]:
+        """
+        The availability status of the VPC connection.
+        """
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
@@ -61,6 +73,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the account where you want to create a new VPC connection.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -70,6 +85,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="dnsResolvers")
     def dns_resolvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        """
         return pulumi.get(self, "dns_resolvers")
 
     @dns_resolvers.setter
@@ -79,6 +97,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name for the VPC connection.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -88,6 +109,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role associated with the VPC connection.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -97,6 +121,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon EC2 security group IDs associated with the VPC connection.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -106,6 +133,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of subnet IDs for the VPC connection.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -115,6 +145,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,6 +157,9 @@ class VpcConnectionArgs:
     @property
     @pulumi.getter(name="vpcConnectionId")
     def vpc_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+        """
         return pulumi.get(self, "vpc_connection_id")
 
     @vpc_connection_id.setter
@@ -151,6 +187,15 @@ class VpcConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus'] availability_status: The availability status of the VPC connection.
+        :param pulumi.Input[str] aws_account_id: The AWS account ID of the account where you want to create a new VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[str] name: The display name for the VPC connection.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The Amazon EC2 security group IDs associated with the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs for the VPC connection.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        :param pulumi.Input[str] vpc_connection_id: The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
         """
         ...
     @overload
@@ -261,11 +306,17 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="availabilityStatus")
     def availability_status(self) -> pulumi.Output[Optional['VpcConnectionVpcConnectionAvailabilityStatus']]:
+        """
+        The availability status of the VPC connection.
+        """
         return pulumi.get(self, "availability_status")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account ID of the account where you want to create a new VPC connection.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
@@ -279,6 +330,9 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dnsResolvers")
     def dns_resolvers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        """
         return pulumi.get(self, "dns_resolvers")
 
     @property
@@ -292,6 +346,9 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name for the VPC connection.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -305,31 +362,49 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM role associated with the VPC connection.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Amazon EC2 security group IDs associated with the VPC connection.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['VpcConnectionVpcConnectionResourceStatus']:
+        """
+        The HTTP status of the request.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of subnet IDs for the VPC connection.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcConnectionId")
     def vpc_connection_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+        """
         return pulumi.get(self, "vpc_connection_id")
 
     @property

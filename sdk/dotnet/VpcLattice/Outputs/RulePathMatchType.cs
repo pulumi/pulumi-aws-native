@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class RulePathMatchType
     {
+        /// <summary>
+        /// An exact match of the path.
+        /// </summary>
         public readonly string? Exact;
+        /// <summary>
+        /// A prefix match of the path.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

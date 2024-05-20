@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeBatchArrayProperties
     {
+        /// <summary>
+        /// The size of the array, if this is an array batch job.
+        /// </summary>
         public readonly int? Size;
 
         [OutputConstructor]

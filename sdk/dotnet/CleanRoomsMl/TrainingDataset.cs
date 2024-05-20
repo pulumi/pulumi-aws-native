@@ -15,15 +15,29 @@ namespace Pulumi.AwsNative.CleanRoomsMl
     [AwsNativeResourceType("aws-native:cleanroomsml:TrainingDataset")]
     public partial class TrainingDataset : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description of the training dataset.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the training dataset.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+        /// 
+        /// Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the training dataset.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.CleanRoomsMl.TrainingDatasetStatus> Status { get; private set; } = null!;
 
@@ -33,9 +47,15 @@ namespace Pulumi.AwsNative.CleanRoomsMl
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
+        /// </summary>
         [Output("trainingData")]
         public Output<ImmutableArray<Outputs.TrainingDatasetDataset>> TrainingData { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training dataset.
+        /// </summary>
         [Output("trainingDatasetArn")]
         public Output<string> TrainingDatasetArn { get; private set; } = null!;
 
@@ -91,12 +111,23 @@ namespace Pulumi.AwsNative.CleanRoomsMl
 
     public sealed class TrainingDatasetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the training dataset.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the training dataset.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+        /// 
+        /// Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -114,6 +145,10 @@ namespace Pulumi.AwsNative.CleanRoomsMl
 
         [Input("trainingData", required: true)]
         private InputList<Inputs.TrainingDatasetDatasetArgs>? _trainingData;
+
+        /// <summary>
+        /// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
+        /// </summary>
         public InputList<Inputs.TrainingDatasetDatasetArgs> TrainingData
         {
             get => _trainingData ?? (_trainingData = new InputList<Inputs.TrainingDatasetDatasetArgs>());

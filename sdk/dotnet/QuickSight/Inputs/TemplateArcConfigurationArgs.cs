@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateArcConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that determines the arc angle of a `GaugeChartVisual` .
+        /// </summary>
         [Input("arcAngle")]
         public Input<double>? ArcAngle { get; set; }
 
+        /// <summary>
+        /// The options that determine the arc thickness of a `GaugeChartVisual` .
+        /// </summary>
         [Input("arcThickness")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateArcThicknessOptions>? ArcThickness { get; set; }
 

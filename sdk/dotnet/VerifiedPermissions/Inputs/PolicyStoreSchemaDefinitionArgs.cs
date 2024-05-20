@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Inputs
 
     public sealed class PolicyStoreSchemaDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the *Amazon Verified Permissions User Guide* .
+        /// </summary>
         [Input("cedarJson")]
         public Input<string>? CedarJson { get; set; }
 

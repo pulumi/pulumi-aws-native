@@ -20,7 +20,13 @@ export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetTemplateArgs {
+    /**
+     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     awsAccountId: string;
+    /**
+     * An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+     */
     templateId: string;
 }
 
@@ -37,8 +43,17 @@ export interface GetTemplateResult {
      * <p>Time when this was last updated.</p>
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * A display name for the template.
+     */
     readonly name?: string;
+    /**
+     * A list of resource permissions to be set on the template.
+     */
     readonly permissions?: outputs.quicksight.TemplateResourcePermission[];
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+     */
     readonly tags?: outputs.Tag[];
     readonly version?: outputs.quicksight.TemplateVersion;
 }
@@ -50,6 +65,12 @@ export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetTemplateOutputArgs {
+    /**
+     * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+     */
     templateId: pulumi.Input<string>;
 }

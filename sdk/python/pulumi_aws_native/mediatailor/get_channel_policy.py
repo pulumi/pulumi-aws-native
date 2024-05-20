@@ -47,6 +47,9 @@ def get_channel_policy(channel_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelPolicyResult:
     """
     Definition of AWS::MediaTailor::ChannelPolicy Resource Type
+
+
+    :param str channel_name: The name of the channel associated with this Channel Policy.
     """
     __args__ = dict()
     __args__['channelName'] = channel_name
@@ -62,5 +65,8 @@ def get_channel_policy_output(channel_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelPolicyResult]:
     """
     Definition of AWS::MediaTailor::ChannelPolicy Resource Type
+
+
+    :param str channel_name: The name of the channel associated with this Channel Policy.
     """
     ...

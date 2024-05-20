@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.HealthImaging
     [AwsNativeResourceType("aws-native:healthimaging:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The timestamp when the data store was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the data store.
+        /// </summary>
         [Output("datastoreArn")]
         public Output<string> DatastoreArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The data store identifier.
+        /// </summary>
         [Output("datastoreId")]
         public Output<string> DatastoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The data store name.
+        /// </summary>
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
 
+        /// <summary>
+        /// The data store status.
+        /// </summary>
         [Output("datastoreStatus")]
         public Output<Pulumi.AwsNative.HealthImaging.DatastoreStatus> DatastoreStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags provided when creating a data store.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the data store was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -90,14 +114,24 @@ namespace Pulumi.AwsNative.HealthImaging
 
     public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data store name.
+        /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags provided when creating a data store.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

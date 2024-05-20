@@ -34,7 +34,13 @@ export class ServicePrincipalName extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServicePrincipalName.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+     */
     public readonly connectorArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+     */
     public readonly directoryRegistrationArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -65,6 +71,12 @@ export class ServicePrincipalName extends pulumi.CustomResource {
  * The set of arguments for constructing a ServicePrincipalName resource.
  */
 export interface ServicePrincipalNameArgs {
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+     */
     connectorArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
+     */
     directoryRegistrationArn?: pulumi.Input<string>;
 }

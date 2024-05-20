@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:ProvisioningTemplate")]
     public partial class ProvisioningTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description of the fleet provisioning template.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// True to enable the fleet provisioning template, otherwise false.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Creates a pre-provisioning hook template.
+        /// </summary>
         [Output("preProvisioningHook")]
         public Output<Outputs.ProvisioningTemplateProvisioningHook?> PreProvisioningHook { get; private set; } = null!;
 
+        /// <summary>
+        /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        /// </summary>
         [Output("provisioningRoleArn")]
         public Output<string> ProvisioningRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata that can be used to manage the fleet provisioning template.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN that identifies the provisioning template.
+        /// </summary>
         [Output("templateArn")]
         public Output<string> TemplateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The JSON formatted contents of the fleet provisioning template version.
+        /// </summary>
         [Output("templateBody")]
         public Output<string> TemplateBody { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the fleet provisioning template.
+        /// </summary>
         [Output("templateName")]
         public Output<string?> TemplateName { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the provisioning template.
+        /// </summary>
         [Output("templateType")]
         public Output<Pulumi.AwsNative.IoT.ProvisioningTemplateTemplateType?> TemplateType { get; private set; } = null!;
 
@@ -92,32 +119,57 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class ProvisioningTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the fleet provisioning template.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// True to enable the fleet provisioning template, otherwise false.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Creates a pre-provisioning hook template.
+        /// </summary>
         [Input("preProvisioningHook")]
         public Input<Inputs.ProvisioningTemplateProvisioningHookArgs>? PreProvisioningHook { get; set; }
 
+        /// <summary>
+        /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        /// </summary>
         [Input("provisioningRoleArn", required: true)]
         public Input<string> ProvisioningRoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata that can be used to manage the fleet provisioning template.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The JSON formatted contents of the fleet provisioning template version.
+        /// </summary>
         [Input("templateBody", required: true)]
         public Input<string> TemplateBody { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the fleet provisioning template.
+        /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
 
+        /// <summary>
+        /// The type of the provisioning template.
+        /// </summary>
         [Input("templateType")]
         public Input<Pulumi.AwsNative.IoT.ProvisioningTemplateTemplateType>? TemplateType { get; set; }
 

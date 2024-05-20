@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationMarketoSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Marketo flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

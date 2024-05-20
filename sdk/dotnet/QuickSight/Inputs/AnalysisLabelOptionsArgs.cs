@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The text for the label.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// The font configuration of the label.
+        /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.AnalysisFontConfigurationArgs>? FontConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines whether or not the label is visible.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

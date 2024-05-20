@@ -37,6 +37,9 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationAggregator.__pulumiType;
     }
 
+    /**
+     * Provides a list of source accounts and regions to be aggregated.
+     */
     public readonly accountAggregationSources!: pulumi.Output<outputs.configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the aggregator.
@@ -46,6 +49,9 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      * The name of the aggregator.
      */
     public readonly configurationAggregatorName!: pulumi.Output<string | undefined>;
+    /**
+     * Provides an organization and list of regions to be aggregated.
+     */
     public readonly organizationAggregationSource!: pulumi.Output<outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * The tags for the configuration aggregator.
@@ -86,11 +92,17 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationAggregator resource.
  */
 export interface ConfigurationAggregatorArgs {
+    /**
+     * Provides a list of source accounts and regions to be aggregated.
+     */
     accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[]>;
     /**
      * The name of the aggregator.
      */
     configurationAggregatorName?: pulumi.Input<string>;
+    /**
+     * Provides an organization and list of regions to be aggregated.
+     */
     organizationAggregationSource?: pulumi.Input<inputs.configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs>;
     /**
      * The tags for the configuration aggregator.

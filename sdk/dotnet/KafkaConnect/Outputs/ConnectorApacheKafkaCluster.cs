@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
         /// The bootstrap servers string of the Apache Kafka cluster.
         /// </summary>
         public readonly string BootstrapServers;
+        /// <summary>
+        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        /// </summary>
         public readonly Outputs.ConnectorVpc Vpc;
 
         [OutputConstructor]

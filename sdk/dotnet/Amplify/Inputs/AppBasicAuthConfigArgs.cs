@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Amplify.Inputs
 
     public sealed class AppBasicAuthConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables basic authorization for the Amplify app's branches.
+        /// </summary>
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
+        /// <summary>
+        /// The password for basic authorization.
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// The user name for basic authorization.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

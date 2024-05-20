@@ -82,6 +82,9 @@ class GetScheduleResult:
     @property
     @pulumi.getter(name="flexibleTimeWindow")
     def flexible_time_window(self) -> Optional['outputs.ScheduleFlexibleTimeWindow']:
+        """
+        Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+        """
         return pulumi.get(self, "flexible_time_window")
 
     @property
@@ -127,11 +130,19 @@ class GetScheduleResult:
     @property
     @pulumi.getter
     def state(self) -> Optional['ScheduleState']:
+        """
+        Specifies whether the schedule is enabled or disabled.
+
+        *Allowed Values* : `ENABLED` | `DISABLED`
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def target(self) -> Optional['outputs.ScheduleTarget']:
+        """
+        The schedule's target details.
+        """
         return pulumi.get(self, "target")
 
 
@@ -158,6 +169,9 @@ def get_schedule(name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Definition of AWS::Scheduler::Schedule Resource Type
+
+
+    :param str name: The name of the schedule.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -183,5 +197,8 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Definition of AWS::Scheduler::Schedule Resource Type
+
+
+    :param str name: The name of the schedule.
     """
     ...

@@ -54,11 +54,17 @@ class GetApiResult:
     @property
     @pulumi.getter(name="apiEndpoint")
     def api_endpoint(self) -> Optional[str]:
+        """
+        The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
+        """
         return pulumi.get(self, "api_endpoint")
 
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[str]:
+        """
+        The API identifier.
+        """
         return pulumi.get(self, "api_id")
 
     @property
@@ -148,6 +154,9 @@ def get_api(api_id: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
     The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
+
+
+    :param str api_id: The API identifier.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -172,5 +181,8 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
     """
     The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
+
+
+    :param str api_id: The API identifier.
     """
     ...

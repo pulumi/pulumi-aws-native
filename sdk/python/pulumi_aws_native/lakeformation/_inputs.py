@@ -755,12 +755,19 @@ class TagAssociationDatabaseResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] catalog_id: The identifier for the Data Catalog . By default, it should be the account ID of the caller.
+        :param pulumi.Input[str] name: The name of the database resource. Unique to the Data Catalog.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the Data Catalog . By default, it should be the account ID of the caller.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -770,6 +777,9 @@ class TagAssociationDatabaseResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the database resource. Unique to the Data Catalog.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -822,6 +832,12 @@ class TagAssociationResourceArgs:
                  database: Optional[pulumi.Input['TagAssociationDatabaseResourceArgs']] = None,
                  table: Optional[pulumi.Input['TagAssociationTableResourceArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['TagAssociationTableWithColumnsResourceArgs']] = None):
+        """
+        :param pulumi.Input['TagAssociationCatalogResourceArgs'] catalog: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+        :param pulumi.Input['TagAssociationDatabaseResourceArgs'] database: The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        :param pulumi.Input['TagAssociationTableResourceArgs'] table: The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        :param pulumi.Input['TagAssociationTableWithColumnsResourceArgs'] table_with_columns: The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+        """
         if catalog is not None:
             pulumi.set(__self__, "catalog", catalog)
         if database is not None:
@@ -834,6 +850,9 @@ class TagAssociationResourceArgs:
     @property
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input['TagAssociationCatalogResourceArgs']]:
+        """
+        The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+        """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
@@ -843,6 +862,9 @@ class TagAssociationResourceArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input['TagAssociationDatabaseResourceArgs']]:
+        """
+        The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -852,6 +874,9 @@ class TagAssociationResourceArgs:
     @property
     @pulumi.getter
     def table(self) -> Optional[pulumi.Input['TagAssociationTableResourceArgs']]:
+        """
+        The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
         return pulumi.get(self, "table")
 
     @table.setter
@@ -861,6 +886,9 @@ class TagAssociationResourceArgs:
     @property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional[pulumi.Input['TagAssociationTableWithColumnsResourceArgs']]:
+        """
+        The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+        """
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
@@ -875,6 +903,14 @@ class TagAssociationTableResourceArgs:
                  database_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  table_wildcard: Optional[pulumi.Input['TagAssociationTableWildcardArgs']] = None):
+        """
+        :param pulumi.Input[str] catalog_id: The identifier for the Data Catalog . By default, it is the account ID of the caller.
+        :param pulumi.Input[str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] name: The name of the table.
+        :param pulumi.Input['TagAssociationTableWildcardArgs'] table_wildcard: A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+               
+               At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         if name is not None:
@@ -885,6 +921,9 @@ class TagAssociationTableResourceArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the Data Catalog . By default, it is the account ID of the caller.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -894,6 +933,9 @@ class TagAssociationTableResourceArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -903,6 +945,9 @@ class TagAssociationTableResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -912,6 +957,11 @@ class TagAssociationTableResourceArgs:
     @property
     @pulumi.getter(name="tableWildcard")
     def table_wildcard(self) -> Optional[pulumi.Input['TagAssociationTableWildcardArgs']]:
+        """
+        A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+
+        At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
+        """
         return pulumi.get(self, "table_wildcard")
 
     @table_wildcard.setter
@@ -932,6 +982,14 @@ class TagAssociationTableWithColumnsResourceArgs:
                  column_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  database_name: pulumi.Input[str],
                  name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] catalog_id: A wildcard object representing every table under a database.
+               
+               At least one of TableResource$Name or TableResource$TableWildcard is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+        :param pulumi.Input[str] database_name: The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] name: The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "column_names", column_names)
         pulumi.set(__self__, "database_name", database_name)
@@ -940,6 +998,11 @@ class TagAssociationTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        A wildcard object representing every table under a database.
+
+        At least one of TableResource$Name or TableResource$TableWildcard is required.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -949,6 +1012,9 @@ class TagAssociationTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -958,6 +1024,9 @@ class TagAssociationTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -967,6 +1036,9 @@ class TagAssociationTableWithColumnsResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
         return pulumi.get(self, "name")
 
     @name.setter

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolPolicies
     {
+        /// <summary>
+        /// The password policy.
+        /// </summary>
         public readonly Outputs.UserPoolPasswordPolicy? PasswordPolicy;
 
         [OutputConstructor]

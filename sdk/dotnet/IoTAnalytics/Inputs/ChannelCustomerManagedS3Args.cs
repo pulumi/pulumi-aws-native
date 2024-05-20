@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class ChannelCustomerManagedS3Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket in which channel data is stored.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
+        /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 
+        /// <summary>
+        /// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

@@ -15,54 +15,105 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application the data source will be attached to.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         /// </summary>
         [Output("configuration")]
         public Output<object> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business data source was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a data source in an Amazon Q Business application.
+        /// </summary>
         [Output("dataSourceArn")]
         public Output<string> DataSourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q Business data source.
+        /// </summary>
         [Output("dataSourceId")]
         public Output<string> DataSourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the data source connector.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Amazon Q Business data source.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides the configuration information for altering document metadata and content during the document ingestion process.
+        /// 
+        /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        /// </summary>
         [Output("documentEnrichmentConfiguration")]
         public Output<Outputs.DataSourceDocumentEnrichmentConfiguration?> DocumentEnrichmentConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the index the data source is attached to.
+        /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the Amazon Q Business data source.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.QBusiness.DataSourceStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+        /// 
+        /// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        /// </summary>
         [Output("syncSchedule")]
         public Output<string?> SyncSchedule { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the Amazon Q Business data source.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The Unix timestamp when the Amazon Q Business data source was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+        /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.DataSourceVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
 
@@ -116,41 +167,75 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q Business application the data source will be attached to.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
+        /// Configuration information to connect to your data source repository. For configuration templates for your specific data source, see [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<object> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// A description for the data source connector.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the Amazon Q Business data source.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// Provides the configuration information for altering document metadata and content during the document ingestion process.
+        /// 
+        /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        /// </summary>
         [Input("documentEnrichmentConfiguration")]
         public Input<Inputs.DataSourceDocumentEnrichmentConfigurationArgs>? DocumentEnrichmentConfiguration { get; set; }
 
+        /// <summary>
+        /// The identifier of the index the data source is attached to.
+        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
+        /// 
+        /// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
+        /// </summary>
         [Input("syncSchedule")]
         public Input<string>? SyncSchedule { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
+        /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 

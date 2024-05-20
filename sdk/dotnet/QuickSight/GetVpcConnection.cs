@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetVpcConnectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID of the account where you want to create a new VPC connection.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+        /// </summary>
         [Input("vpcConnectionId", required: true)]
         public string VpcConnectionId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetVpcConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID of the account where you want to create a new VPC connection.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
+        /// </summary>
         [Input("vpcConnectionId", required: true)]
         public Input<string> VpcConnectionId { get; set; } = null!;
 
@@ -61,24 +73,45 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the VPC connection.&lt;/p&gt;
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The availability status of the VPC connection.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionAvailabilityStatus? AvailabilityStatus;
         /// <summary>
         /// &lt;p&gt;The time that the VPC connection was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        /// </summary>
         public readonly ImmutableArray<string> DnsResolvers;
         /// <summary>
         /// &lt;p&gt;The time that the VPC connection was last updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// The display name for the VPC connection.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// &lt;p&gt;A list of network interfaces.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.VpcConnectionNetworkInterface> NetworkInterfaces;
+        /// <summary>
+        /// The ARN of the IAM role associated with the VPC connection.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The Amazon EC2 security group IDs associated with the VPC connection.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The HTTP status of the request.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionResourceStatus? Status;
+        /// <summary>
+        /// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// &lt;p&gt;The Amazon EC2 VPC ID associated with the VPC connection.&lt;/p&gt;

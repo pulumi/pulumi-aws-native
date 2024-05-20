@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardKpiComparisonValueConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting of the comparison value's icon.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingIcon? Icon;
+        /// <summary>
+        /// The conditional formatting of the comparison value's text color.
+        /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? TextColor;
 
         [OutputConstructor]

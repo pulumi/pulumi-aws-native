@@ -212,6 +212,15 @@ export class DbCluster extends pulumi.CustomResource {
      * A value that indicates whether the DB cluster is publicly accessible.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+     *
+     * - `CreateDBInstance`
+     * - `DescribeDBInstances`
+     * - `DeleteDBInstance`
+     *
+     * For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+     */
     public readonly readEndpoint!: pulumi.Output<outputs.rds.DbClusterReadEndpoint | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
@@ -583,6 +592,15 @@ export interface DbClusterArgs {
      * A value that indicates whether the DB cluster is publicly accessible.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+     *
+     * - `CreateDBInstance`
+     * - `DescribeDBInstances`
+     * - `DeleteDBInstance`
+     *
+     * For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
+     */
     readEndpoint?: pulumi.Input<inputs.rds.DbClusterReadEndpointArgs>;
     /**
      * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.

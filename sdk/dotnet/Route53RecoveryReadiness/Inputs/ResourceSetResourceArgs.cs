@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
 
+        /// <summary>
+        /// A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
+        /// </summary>
         [Input("dnsTargetResource")]
         public Input<Inputs.ResourceSetDnsTargetResourceArgs>? DnsTargetResource { get; set; }
 

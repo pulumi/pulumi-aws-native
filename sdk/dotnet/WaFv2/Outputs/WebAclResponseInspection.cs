@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclResponseInspection
     {
+        /// <summary>
+        /// Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionBodyContains? BodyContains;
+        /// <summary>
+        /// Configures inspection of the response header for success and failure indicators.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionHeader? Header;
+        /// <summary>
+        /// Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionJson? Json;
+        /// <summary>
+        /// Configures inspection of the response status code for success and failure indicators.
+        /// </summary>
         public readonly Outputs.WebAclResponseInspectionStatusCode? StatusCode;
 
         [OutputConstructor]

@@ -24,6 +24,11 @@ class TemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
+        :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        :param pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']] definition: Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        :param pulumi.Input[str] name: Name of the templates. Template names must be unique.
+        :param pulumi.Input[bool] reenroll_all_certificate_holders: This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a template consisting of a key-value pair.
         """
         pulumi.set(__self__, "connector_arn", connector_arn)
         pulumi.set(__self__, "definition", definition)
@@ -37,6 +42,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        """
         return pulumi.get(self, "connector_arn")
 
     @connector_arn.setter
@@ -46,6 +54,9 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']]:
+        """
+        Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -55,6 +66,9 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the templates. Template names must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +78,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="reenrollAllCertificateHolders")
     def reenroll_all_certificate_holders(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+        """
         return pulumi.get(self, "reenroll_all_certificate_holders")
 
     @reenroll_all_certificate_holders.setter
@@ -73,6 +90,9 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata assigned to a template consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,6 +116,11 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        :param pulumi.Input[Union[pulumi.InputType['TemplateDefinition0PropertiesArgs'], pulumi.InputType['TemplateDefinition1PropertiesArgs'], pulumi.InputType['TemplateDefinition2PropertiesArgs']]] definition: Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        :param pulumi.Input[str] name: Name of the templates. Template names must be unique.
+        :param pulumi.Input[bool] reenroll_all_certificate_holders: This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a template consisting of a key-value pair.
         """
         ...
     @overload
@@ -180,30 +205,48 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        """
         return pulumi.get(self, "connector_arn")
 
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Any]:
+        """
+        Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the templates. Template names must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="reenrollAllCertificateHolders")
     def reenroll_all_certificate_holders(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+        """
         return pulumi.get(self, "reenroll_all_certificate_holders")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Metadata assigned to a template consisting of a key-value pair.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateArn")
     def template_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        """
         return pulumi.get(self, "template_arn")
 

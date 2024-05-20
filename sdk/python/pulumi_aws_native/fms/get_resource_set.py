@@ -42,21 +42,33 @@ class GetResourceSetResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the resource set.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceTypeList")
     def resource_type_list(self) -> Optional[Sequence[str]]:
+        """
+        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        """
         return pulumi.get(self, "resource_type_list")
 
     @property
@@ -88,6 +100,9 @@ def get_resource_set(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceSetResult:
     """
     Creates an AWS Firewall Manager resource set.
+
+
+    :param str id: A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -108,5 +123,8 @@ def get_resource_set_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSetResult]:
     """
     Creates an AWS Firewall Manager resource set.
+
+
+    :param str id: A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
     """
     ...

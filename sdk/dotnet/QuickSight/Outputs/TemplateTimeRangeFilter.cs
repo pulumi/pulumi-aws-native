@@ -13,15 +13,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTimeRangeFilter
     {
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
+        /// <summary>
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+        /// </summary>
         public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// The exclude period of the time range filter.
+        /// </summary>
         public readonly Outputs.TemplateExcludePeriodConfiguration? ExcludePeriodConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// Determines whether the maximum value in the filter value range should be included in the filtered results.
+        /// </summary>
         public readonly bool? IncludeMaximum;
+        /// <summary>
+        /// Determines whether the minimum value in the filter value range should be included in the filtered results.
+        /// </summary>
         public readonly bool? IncludeMinimum;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterNullOption NullOption;
+        /// <summary>
+        /// The maximum value for the filter value range.
+        /// </summary>
         public readonly Outputs.TemplateTimeRangeFilterValue? RangeMaximumValue;
+        /// <summary>
+        /// The minimum value for the filter value range.
+        /// </summary>
         public readonly Outputs.TemplateTimeRangeFilterValue? RangeMinimumValue;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? TimeGranularity;
 
         [OutputConstructor]

@@ -26,6 +26,9 @@ export interface GetPatchBaselineArgs {
 }
 
 export interface GetPatchBaselineResult {
+    /**
+     * A set of rules used to include patches in the baseline.
+     */
     readonly approvalRules?: outputs.ssm.PatchBaselineRuleGroup;
     /**
      * A list of explicitly approved patches for the baseline.

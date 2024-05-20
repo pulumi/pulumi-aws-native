@@ -37,15 +37,51 @@ export class Collaboration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Collaboration.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified collaboration.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Returns the unique identifier of the specified collaboration.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+     */
     public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
+    /**
+     * A display name of the collaboration creator.
+     */
     public readonly creatorDisplayName!: pulumi.Output<string>;
+    /**
+     * The abilities granted to the collaboration creator.
+     *
+     * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+     */
     public readonly creatorMemberAbilities!: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[]>;
+    /**
+     * An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+     */
     public readonly creatorPaymentConfiguration!: pulumi.Output<outputs.cleanrooms.CollaborationPaymentConfiguration | undefined>;
+    /**
+     * The settings for client-side encryption for cryptographic computing.
+     */
     public readonly dataEncryptionMetadata!: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
+    /**
+     * A description of the collaboration provided by the collaboration owner.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * A list of initial members, not including the creator. This list is immutable.
+     */
     public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[]>;
+    /**
+     * A human-readable identifier provided by the collaboration owner. Display names are not unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An indicator as to whether query logging has been enabled or disabled for the collaboration.
+     */
     public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.CollaborationQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -113,13 +149,39 @@ export class Collaboration extends pulumi.CustomResource {
  * The set of arguments for constructing a Collaboration resource.
  */
 export interface CollaborationArgs {
+    /**
+     * A display name of the collaboration creator.
+     */
     creatorDisplayName: pulumi.Input<string>;
+    /**
+     * The abilities granted to the collaboration creator.
+     *
+     * *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+     */
     creatorMemberAbilities: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
+    /**
+     * An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+     */
     creatorPaymentConfiguration?: pulumi.Input<inputs.cleanrooms.CollaborationPaymentConfigurationArgs>;
+    /**
+     * The settings for client-side encryption for cryptographic computing.
+     */
     dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadataArgs>;
+    /**
+     * A description of the collaboration provided by the collaboration owner.
+     */
     description: pulumi.Input<string>;
+    /**
+     * A list of initial members, not including the creator. This list is immutable.
+     */
     members: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[]>;
+    /**
+     * A human-readable identifier provided by the collaboration owner. Display names are not unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * An indicator as to whether query logging has been enabled or disabled for the collaboration.
+     */
     queryLogStatus: pulumi.Input<enums.cleanrooms.CollaborationQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

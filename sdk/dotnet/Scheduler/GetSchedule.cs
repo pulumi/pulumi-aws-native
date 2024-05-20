@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Scheduler
 
     public sealed class GetScheduleArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Scheduler
 
     public sealed class GetScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the schedule.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.Scheduler
         /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
         /// </summary>
         public readonly string? EndDate;
+        /// <summary>
+        /// Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
+        /// </summary>
         public readonly Outputs.ScheduleFlexibleTimeWindow? FlexibleTimeWindow;
         /// <summary>
         /// The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
@@ -84,7 +93,15 @@ namespace Pulumi.AwsNative.Scheduler
         /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the StartDate you specify.
         /// </summary>
         public readonly string? StartDate;
+        /// <summary>
+        /// Specifies whether the schedule is enabled or disabled.
+        /// 
+        /// *Allowed Values* : `ENABLED` | `DISABLED`
+        /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.ScheduleState? State;
+        /// <summary>
+        /// The schedule's target details.
+        /// </summary>
         public readonly Outputs.ScheduleTarget? Target;
 
         [OutputConstructor]

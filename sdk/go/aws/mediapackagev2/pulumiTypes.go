@@ -79,13 +79,15 @@ type ChannelTag struct {
 // <p>The parameters for encrypting content.</p>
 type OriginEndpointEncryption struct {
 	// <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
-	ConstantInitializationVector *string                        `pulumi:"constantInitializationVector"`
-	EncryptionMethod             OriginEndpointEncryptionMethod `pulumi:"encryptionMethod"`
+	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
+	// The encryption method to use.
+	EncryptionMethod OriginEndpointEncryptionMethod `pulumi:"encryptionMethod"`
 	// <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
 	//          <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
 	//          </p>
-	KeyRotationIntervalSeconds *int                           `pulumi:"keyRotationIntervalSeconds"`
-	SpekeKeyProvider           OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
+	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
+	// The SPEKE key provider to use for encryption.
+	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // OriginEndpointEncryptionInput is an input type that accepts OriginEndpointEncryptionArgs and OriginEndpointEncryptionOutput values.
@@ -102,13 +104,15 @@ type OriginEndpointEncryptionInput interface {
 // <p>The parameters for encrypting content.</p>
 type OriginEndpointEncryptionArgs struct {
 	// <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
-	ConstantInitializationVector pulumi.StringPtrInput               `pulumi:"constantInitializationVector"`
-	EncryptionMethod             OriginEndpointEncryptionMethodInput `pulumi:"encryptionMethod"`
+	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
+	// The encryption method to use.
+	EncryptionMethod OriginEndpointEncryptionMethodInput `pulumi:"encryptionMethod"`
 	// <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
 	//          <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
 	//          </p>
-	KeyRotationIntervalSeconds pulumi.IntPtrInput                  `pulumi:"keyRotationIntervalSeconds"`
-	SpekeKeyProvider           OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
+	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
+	// The SPEKE key provider to use for encryption.
+	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (OriginEndpointEncryptionArgs) ElementType() reflect.Type {
@@ -194,6 +198,7 @@ func (o OriginEndpointEncryptionOutput) ConstantInitializationVector() pulumi.St
 	return o.ApplyT(func(v OriginEndpointEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
 }
 
+// The encryption method to use.
 func (o OriginEndpointEncryptionOutput) EncryptionMethod() OriginEndpointEncryptionMethodOutput {
 	return o.ApplyT(func(v OriginEndpointEncryption) OriginEndpointEncryptionMethod { return v.EncryptionMethod }).(OriginEndpointEncryptionMethodOutput)
 }
@@ -206,6 +211,7 @@ func (o OriginEndpointEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntP
 	return o.ApplyT(func(v OriginEndpointEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The SPEKE key provider to use for encryption.
 func (o OriginEndpointEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -244,6 +250,7 @@ func (o OriginEndpointEncryptionPtrOutput) ConstantInitializationVector() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The encryption method to use.
 func (o OriginEndpointEncryptionPtrOutput) EncryptionMethod() OriginEndpointEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryption) *OriginEndpointEncryptionMethod {
 		if v == nil {
@@ -266,6 +273,7 @@ func (o OriginEndpointEncryptionPtrOutput) KeyRotationIntervalSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The SPEKE key provider to use for encryption.
 func (o OriginEndpointEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -277,7 +285,17 @@ func (o OriginEndpointEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpek
 
 // <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
 type OriginEndpointEncryptionContractConfiguration struct {
+	// A collection of audio encryption presets.
+	//
+	// Value description:
+	//
+	// - `PRESET-AUDIO-1` - Use one content key to encrypt all of the audio tracks in your stream.
+	// - `PRESET-AUDIO-2` - Use one content key to encrypt all of the stereo audio tracks and one content key to encrypt all of the multichannel audio tracks.
+	// - `PRESET-AUDIO-3` - Use one content key to encrypt all of the stereo audio tracks, one content key to encrypt all of the multichannel audio tracks with 3 to 6 channels, and one content key to encrypt all of the multichannel audio tracks with more than 6 channels.
+	// - `SHARED` - Use the same content key for all of the audio and video tracks in your stream.
+	// - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
 	PresetSpeke20Audio OriginEndpointPresetSpeke20Audio `pulumi:"presetSpeke20Audio"`
+	// The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
 	PresetSpeke20Video OriginEndpointPresetSpeke20Video `pulumi:"presetSpeke20Video"`
 }
 
@@ -294,7 +312,17 @@ type OriginEndpointEncryptionContractConfigurationInput interface {
 
 // <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
 type OriginEndpointEncryptionContractConfigurationArgs struct {
+	// A collection of audio encryption presets.
+	//
+	// Value description:
+	//
+	// - `PRESET-AUDIO-1` - Use one content key to encrypt all of the audio tracks in your stream.
+	// - `PRESET-AUDIO-2` - Use one content key to encrypt all of the stereo audio tracks and one content key to encrypt all of the multichannel audio tracks.
+	// - `PRESET-AUDIO-3` - Use one content key to encrypt all of the stereo audio tracks, one content key to encrypt all of the multichannel audio tracks with 3 to 6 channels, and one content key to encrypt all of the multichannel audio tracks with more than 6 channels.
+	// - `SHARED` - Use the same content key for all of the audio and video tracks in your stream.
+	// - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
 	PresetSpeke20Audio OriginEndpointPresetSpeke20AudioInput `pulumi:"presetSpeke20Audio"`
+	// The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
 	PresetSpeke20Video OriginEndpointPresetSpeke20VideoInput `pulumi:"presetSpeke20Video"`
 }
 
@@ -376,12 +404,22 @@ func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEnc
 	}).(OriginEndpointEncryptionContractConfigurationPtrOutput)
 }
 
+// A collection of audio encryption presets.
+//
+// Value description:
+//
+// - `PRESET-AUDIO-1` - Use one content key to encrypt all of the audio tracks in your stream.
+// - `PRESET-AUDIO-2` - Use one content key to encrypt all of the stereo audio tracks and one content key to encrypt all of the multichannel audio tracks.
+// - `PRESET-AUDIO-3` - Use one content key to encrypt all of the stereo audio tracks, one content key to encrypt all of the multichannel audio tracks with 3 to 6 channels, and one content key to encrypt all of the multichannel audio tracks with more than 6 channels.
+// - `SHARED` - Use the same content key for all of the audio and video tracks in your stream.
+// - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
 func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Audio() OriginEndpointPresetSpeke20AudioOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionContractConfiguration) OriginEndpointPresetSpeke20Audio {
 		return v.PresetSpeke20Audio
 	}).(OriginEndpointPresetSpeke20AudioOutput)
 }
 
+// The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
 func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Video() OriginEndpointPresetSpeke20VideoOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionContractConfiguration) OriginEndpointPresetSpeke20Video {
 		return v.PresetSpeke20Video
@@ -412,6 +450,15 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) Elem() OriginEnd
 	}).(OriginEndpointEncryptionContractConfigurationOutput)
 }
 
+// A collection of audio encryption presets.
+//
+// Value description:
+//
+// - `PRESET-AUDIO-1` - Use one content key to encrypt all of the audio tracks in your stream.
+// - `PRESET-AUDIO-2` - Use one content key to encrypt all of the stereo audio tracks and one content key to encrypt all of the multichannel audio tracks.
+// - `PRESET-AUDIO-3` - Use one content key to encrypt all of the stereo audio tracks, one content key to encrypt all of the multichannel audio tracks with 3 to 6 channels, and one content key to encrypt all of the multichannel audio tracks with more than 6 channels.
+// - `SHARED` - Use the same content key for all of the audio and video tracks in your stream.
+// - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Audio() OriginEndpointPresetSpeke20AudioPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfiguration) *OriginEndpointPresetSpeke20Audio {
 		if v == nil {
@@ -421,6 +468,7 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Aud
 	}).(OriginEndpointPresetSpeke20AudioPtrOutput)
 }
 
+// The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Video() OriginEndpointPresetSpeke20VideoPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfiguration) *OriginEndpointPresetSpeke20Video {
 		if v == nil {
@@ -432,8 +480,10 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Vid
 
 // <p>The encryption type.</p>
 type OriginEndpointEncryptionMethod struct {
+	// The encryption method to use.
 	CmafEncryptionMethod *OriginEndpointCmafEncryptionMethod `pulumi:"cmafEncryptionMethod"`
-	TsEncryptionMethod   *OriginEndpointTsEncryptionMethod   `pulumi:"tsEncryptionMethod"`
+	// The encryption method to use.
+	TsEncryptionMethod *OriginEndpointTsEncryptionMethod `pulumi:"tsEncryptionMethod"`
 }
 
 // OriginEndpointEncryptionMethodInput is an input type that accepts OriginEndpointEncryptionMethodArgs and OriginEndpointEncryptionMethodOutput values.
@@ -449,8 +499,10 @@ type OriginEndpointEncryptionMethodInput interface {
 
 // <p>The encryption type.</p>
 type OriginEndpointEncryptionMethodArgs struct {
+	// The encryption method to use.
 	CmafEncryptionMethod OriginEndpointCmafEncryptionMethodPtrInput `pulumi:"cmafEncryptionMethod"`
-	TsEncryptionMethod   OriginEndpointTsEncryptionMethodPtrInput   `pulumi:"tsEncryptionMethod"`
+	// The encryption method to use.
+	TsEncryptionMethod OriginEndpointTsEncryptionMethodPtrInput `pulumi:"tsEncryptionMethod"`
 }
 
 func (OriginEndpointEncryptionMethodArgs) ElementType() reflect.Type {
@@ -531,12 +583,14 @@ func (o OriginEndpointEncryptionMethodOutput) ToOriginEndpointEncryptionMethodPt
 	}).(OriginEndpointEncryptionMethodPtrOutput)
 }
 
+// The encryption method to use.
 func (o OriginEndpointEncryptionMethodOutput) CmafEncryptionMethod() OriginEndpointCmafEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionMethod) *OriginEndpointCmafEncryptionMethod {
 		return v.CmafEncryptionMethod
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
+// The encryption method to use.
 func (o OriginEndpointEncryptionMethodOutput) TsEncryptionMethod() OriginEndpointTsEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionMethod) *OriginEndpointTsEncryptionMethod { return v.TsEncryptionMethod }).(OriginEndpointTsEncryptionMethodPtrOutput)
 }
@@ -565,6 +619,7 @@ func (o OriginEndpointEncryptionMethodPtrOutput) Elem() OriginEndpointEncryption
 	}).(OriginEndpointEncryptionMethodOutput)
 }
 
+// The encryption method to use.
 func (o OriginEndpointEncryptionMethodPtrOutput) CmafEncryptionMethod() OriginEndpointCmafEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionMethod) *OriginEndpointCmafEncryptionMethod {
 		if v == nil {
@@ -574,6 +629,7 @@ func (o OriginEndpointEncryptionMethodPtrOutput) CmafEncryptionMethod() OriginEn
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
+// The encryption method to use.
 func (o OriginEndpointEncryptionMethodPtrOutput) TsEncryptionMethod() OriginEndpointTsEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionMethod) *OriginEndpointTsEncryptionMethod {
 		if v == nil {
@@ -794,8 +850,9 @@ type OriginEndpointHlsManifestConfiguration struct {
 	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
 	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-	ProgramDateTimeIntervalSeconds *int                   `pulumi:"programDateTimeIntervalSeconds"`
-	ScteHls                        *OriginEndpointScteHls `pulumi:"scteHls"`
+	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
+	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
+	ScteHls *OriginEndpointScteHls `pulumi:"scteHls"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
 }
@@ -825,8 +882,9 @@ type OriginEndpointHlsManifestConfigurationArgs struct {
 	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
 	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput            `pulumi:"programDateTimeIntervalSeconds"`
-	ScteHls                        OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
+	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
+	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
+	ScteHls OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -914,6 +972,7 @@ func (o OriginEndpointHlsManifestConfigurationOutput) ProgramDateTimeIntervalSec
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
 func (o OriginEndpointHlsManifestConfigurationOutput) ScteHls() OriginEndpointScteHlsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *OriginEndpointScteHls { return v.ScteHls }).(OriginEndpointScteHlsPtrOutput)
 }
@@ -957,8 +1016,9 @@ type OriginEndpointLowLatencyHlsManifestConfiguration struct {
 	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
 	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-	ProgramDateTimeIntervalSeconds *int                   `pulumi:"programDateTimeIntervalSeconds"`
-	ScteHls                        *OriginEndpointScteHls `pulumi:"scteHls"`
+	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
+	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
+	ScteHls *OriginEndpointScteHls `pulumi:"scteHls"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
 }
@@ -988,8 +1048,9 @@ type OriginEndpointLowLatencyHlsManifestConfigurationArgs struct {
 	//          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
 	//          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput            `pulumi:"programDateTimeIntervalSeconds"`
-	ScteHls                        OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
+	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
+	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
+	ScteHls OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -1077,6 +1138,7 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ProgramDateTimeI
 	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
 func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ScteHls() OriginEndpointScteHlsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointScteHls { return v.ScteHls }).(OriginEndpointScteHlsPtrOutput)
 }
@@ -1248,6 +1310,7 @@ func (o OriginEndpointSctePtrOutput) ScteFilter() OriginEndpointScteFilterArrayO
 
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteHls struct {
+	// The SCTE-35 HLS ad-marker configuration.
 	AdMarkerHls *OriginEndpointAdMarkerHls `pulumi:"adMarkerHls"`
 }
 
@@ -1264,6 +1327,7 @@ type OriginEndpointScteHlsInput interface {
 
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteHlsArgs struct {
+	// The SCTE-35 HLS ad-marker configuration.
 	AdMarkerHls OriginEndpointAdMarkerHlsPtrInput `pulumi:"adMarkerHls"`
 }
 
@@ -1345,6 +1409,7 @@ func (o OriginEndpointScteHlsOutput) ToOriginEndpointScteHlsPtrOutputWithContext
 	}).(OriginEndpointScteHlsPtrOutput)
 }
 
+// The SCTE-35 HLS ad-marker configuration.
 func (o OriginEndpointScteHlsOutput) AdMarkerHls() OriginEndpointAdMarkerHlsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointScteHls) *OriginEndpointAdMarkerHls { return v.AdMarkerHls }).(OriginEndpointAdMarkerHlsPtrOutput)
 }
@@ -1373,6 +1438,7 @@ func (o OriginEndpointScteHlsPtrOutput) Elem() OriginEndpointScteHlsOutput {
 	}).(OriginEndpointScteHlsOutput)
 }
 
+// The SCTE-35 HLS ad-marker configuration.
 func (o OriginEndpointScteHlsPtrOutput) AdMarkerHls() OriginEndpointAdMarkerHlsPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointScteHls) *OriginEndpointAdMarkerHls {
 		if v == nil {
@@ -1384,10 +1450,12 @@ func (o OriginEndpointScteHlsPtrOutput) AdMarkerHls() OriginEndpointAdMarkerHlsP
 
 // <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
 type OriginEndpointSegment struct {
+	// Whether to use encryption for the segment.
 	Encryption *OriginEndpointEncryption `pulumi:"encryption"`
 	// <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
-	IncludeIframeOnlyStreams *bool               `pulumi:"includeIframeOnlyStreams"`
-	Scte                     *OriginEndpointScte `pulumi:"scte"`
+	IncludeIframeOnlyStreams *bool `pulumi:"includeIframeOnlyStreams"`
+	// The SCTE-35 configuration associated with the segment.
+	Scte *OriginEndpointScte `pulumi:"scte"`
 	// <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 	// <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
@@ -1411,10 +1479,12 @@ type OriginEndpointSegmentInput interface {
 
 // <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
 type OriginEndpointSegmentArgs struct {
+	// Whether to use encryption for the segment.
 	Encryption OriginEndpointEncryptionPtrInput `pulumi:"encryption"`
 	// <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
-	IncludeIframeOnlyStreams pulumi.BoolPtrInput        `pulumi:"includeIframeOnlyStreams"`
-	Scte                     OriginEndpointSctePtrInput `pulumi:"scte"`
+	IncludeIframeOnlyStreams pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStreams"`
+	// The SCTE-35 configuration associated with the segment.
+	Scte OriginEndpointSctePtrInput `pulumi:"scte"`
 	// <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 	// <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
@@ -1503,6 +1573,7 @@ func (o OriginEndpointSegmentOutput) ToOriginEndpointSegmentPtrOutputWithContext
 	}).(OriginEndpointSegmentPtrOutput)
 }
 
+// Whether to use encryption for the segment.
 func (o OriginEndpointSegmentOutput) Encryption() OriginEndpointEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointSegment) *OriginEndpointEncryption { return v.Encryption }).(OriginEndpointEncryptionPtrOutput)
 }
@@ -1512,6 +1583,7 @@ func (o OriginEndpointSegmentOutput) IncludeIframeOnlyStreams() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OriginEndpointSegment) *bool { return v.IncludeIframeOnlyStreams }).(pulumi.BoolPtrOutput)
 }
 
+// The SCTE-35 configuration associated with the segment.
 func (o OriginEndpointSegmentOutput) Scte() OriginEndpointSctePtrOutput {
 	return o.ApplyT(func(v OriginEndpointSegment) *OriginEndpointScte { return v.Scte }).(OriginEndpointSctePtrOutput)
 }
@@ -1560,6 +1632,7 @@ func (o OriginEndpointSegmentPtrOutput) Elem() OriginEndpointSegmentOutput {
 	}).(OriginEndpointSegmentOutput)
 }
 
+// Whether to use encryption for the segment.
 func (o OriginEndpointSegmentPtrOutput) Encryption() OriginEndpointEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSegment) *OriginEndpointEncryption {
 		if v == nil {
@@ -1579,6 +1652,7 @@ func (o OriginEndpointSegmentPtrOutput) IncludeIframeOnlyStreams() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The SCTE-35 configuration associated with the segment.
 func (o OriginEndpointSegmentPtrOutput) Scte() OriginEndpointSctePtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSegment) *OriginEndpointScte {
 		if v == nil {
@@ -1631,7 +1705,8 @@ func (o OriginEndpointSegmentPtrOutput) TsUseAudioRenditionGroup() pulumi.BoolPt
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProvider struct {
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
-	DrmSystems                      []OriginEndpointDrmSystem                     `pulumi:"drmSystems"`
+	DrmSystems []OriginEndpointDrmSystem `pulumi:"drmSystems"`
+	// The encryption contract configuration associated with the SPEKE key provider.
 	EncryptionContractConfiguration OriginEndpointEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
 	// <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
 	//          <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
@@ -1661,7 +1736,8 @@ type OriginEndpointSpekeKeyProviderInput interface {
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProviderArgs struct {
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
-	DrmSystems                      OriginEndpointDrmSystemArrayInput                  `pulumi:"drmSystems"`
+	DrmSystems OriginEndpointDrmSystemArrayInput `pulumi:"drmSystems"`
+	// The encryption contract configuration associated with the SPEKE key provider.
 	EncryptionContractConfiguration OriginEndpointEncryptionContractConfigurationInput `pulumi:"encryptionContractConfiguration"`
 	// <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
 	//          <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
@@ -1760,6 +1836,7 @@ func (o OriginEndpointSpekeKeyProviderOutput) DrmSystems() OriginEndpointDrmSyst
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) []OriginEndpointDrmSystem { return v.DrmSystems }).(OriginEndpointDrmSystemArrayOutput)
 }
 
+// The encryption contract configuration associated with the SPEKE key provider.
 func (o OriginEndpointSpekeKeyProviderOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) OriginEndpointEncryptionContractConfiguration {
 		return v.EncryptionContractConfiguration
@@ -1824,6 +1901,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) DrmSystems() OriginEndpointDrmS
 	}).(OriginEndpointDrmSystemArrayOutput)
 }
 
+// The encryption contract configuration associated with the SPEKE key provider.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
 		if v == nil {

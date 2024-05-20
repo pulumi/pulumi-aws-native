@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CleanRoomsMl
 
     public sealed class GetTrainingDatasetArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training dataset.
+        /// </summary>
         [Input("trainingDatasetArn", required: true)]
         public string TrainingDatasetArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CleanRoomsMl
 
     public sealed class GetTrainingDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training dataset.
+        /// </summary>
         [Input("trainingDatasetArn", required: true)]
         public Input<string> TrainingDatasetArn { get; set; } = null!;
 
@@ -51,11 +57,17 @@ namespace Pulumi.AwsNative.CleanRoomsMl
     [OutputType]
     public sealed class GetTrainingDatasetResult
     {
+        /// <summary>
+        /// The status of the training dataset.
+        /// </summary>
         public readonly Pulumi.AwsNative.CleanRoomsMl.TrainingDatasetStatus? Status;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the training dataset.
+        /// </summary>
         public readonly string? TrainingDatasetArn;
 
         [OutputConstructor]

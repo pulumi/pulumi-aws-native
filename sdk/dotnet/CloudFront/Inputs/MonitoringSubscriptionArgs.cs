@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class MonitoringSubscriptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A subscription configuration for additional CloudWatch metrics.
+        /// </summary>
         [Input("realtimeMetricsSubscriptionConfig")]
         public Input<Inputs.MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs>? RealtimeMetricsSubscriptionConfig { get; set; }
 

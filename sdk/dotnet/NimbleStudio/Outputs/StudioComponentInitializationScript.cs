@@ -21,7 +21,13 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         ///             version is "2021-03-31".&lt;/p&gt;
         /// </summary>
         public readonly string? LaunchProfileProtocolVersion;
+        /// <summary>
+        /// The platform of the initialization script, either Windows or Linux.
+        /// </summary>
         public readonly Pulumi.AwsNative.NimbleStudio.StudioComponentLaunchProfilePlatform? Platform;
+        /// <summary>
+        /// The method to use when running the initialization script.
+        /// </summary>
         public readonly Pulumi.AwsNative.NimbleStudio.StudioComponentInitializationScriptRunContext? RunContext;
         /// <summary>
         /// &lt;p&gt;The initialization script.&lt;/p&gt;

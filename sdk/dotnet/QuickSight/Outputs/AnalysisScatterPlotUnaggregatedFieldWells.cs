@@ -13,10 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisScatterPlotUnaggregatedFieldWells
     {
+        /// <summary>
+        /// The category field well of a scatter plot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Category;
+        /// <summary>
+        /// The label field well of a scatter plot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Label;
+        /// <summary>
+        /// The size field well of a scatter plot.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Size;
+        /// <summary>
+        /// The x-axis field well of a scatter plot.
+        /// 
+        /// The x-axis is a dimension field and cannot be aggregated.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> XAxis;
+        /// <summary>
+        /// The y-axis field well of a scatter plot.
+        /// 
+        /// The y-axis is a dimension field and cannot be aggregated.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> YAxis;
 
         [OutputConstructor]

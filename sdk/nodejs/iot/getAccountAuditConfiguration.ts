@@ -26,7 +26,21 @@ export interface GetAccountAuditConfigurationArgs {
 }
 
 export interface GetAccountAuditConfigurationResult {
+    /**
+     * Specifies which audit checks are enabled and disabled for this account.
+     *
+     * Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+     *
+     * If an enabled check is removed from the template, it will also be disabled.
+     *
+     * You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+     *
+     * For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
+     */
     readonly auditCheckConfigurations?: outputs.iot.AccountAuditConfigurationAuditCheckConfigurations;
+    /**
+     * Information about the targets to which audit notifications are sent.
+     */
     readonly auditNotificationTargetConfigurations?: outputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurations;
     /**
      * The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.

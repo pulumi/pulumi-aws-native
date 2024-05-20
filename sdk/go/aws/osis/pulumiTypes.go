@@ -603,7 +603,8 @@ type PipelineVpcEndpoint struct {
 	// The unique identifier of the endpoint.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// The ID for your VPC. AWS Privatelink generates this value when you create a VPC.
-	VpcId      *string             `pulumi:"vpcId"`
+	VpcId *string `pulumi:"vpcId"`
+	// Information about the VPC, including associated subnets and security groups.
 	VpcOptions *PipelineVpcOptions `pulumi:"vpcOptions"`
 }
 
@@ -632,6 +633,7 @@ func (o PipelineVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
+// Information about the VPC, including associated subnets and security groups.
 func (o PipelineVpcEndpointOutput) VpcOptions() PipelineVpcOptionsPtrOutput {
 	return o.ApplyT(func(v PipelineVpcEndpoint) *PipelineVpcOptions { return v.VpcOptions }).(PipelineVpcOptionsPtrOutput)
 }

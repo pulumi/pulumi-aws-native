@@ -65,6 +65,9 @@ export class ScalingPolicy extends pulumi.CustomResource {
      * The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
      */
     public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
+    /**
+     * Returns the name of a scaling policy.
+     */
     public /*out*/ readonly policyName!: pulumi.Output<string>;
     /**
      * One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling

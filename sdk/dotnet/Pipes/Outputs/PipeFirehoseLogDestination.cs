@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeFirehoseLogDestination
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Firehose delivery stream to which EventBridge delivers the pipe log records.
+        /// </summary>
         public readonly string? DeliveryStreamArn;
 
         [OutputConstructor]

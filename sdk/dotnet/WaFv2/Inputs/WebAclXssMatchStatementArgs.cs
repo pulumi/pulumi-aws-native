@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     /// </summary>
     public sealed class WebAclXssMatchStatementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The part of the web request that you want AWS WAF to inspect.
+        /// </summary>
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebAclFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
         [Input("textTransformations", required: true)]
         private InputList<Inputs.WebAclTextTransformationArgs>? _textTransformations;
+
+        /// <summary>
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
+        /// </summary>
         public InputList<Inputs.WebAclTextTransformationArgs> TextTransformations
         {
             get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebAclTextTransformationArgs>());

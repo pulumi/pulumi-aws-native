@@ -33,16 +33,27 @@ class GetVirtualMfaDeviceResult:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[str]:
+        """
+        Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
+        """
         return pulumi.get(self, "serial_number")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags that you want to attach to the new IAM virtual MFA device. Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+
+        > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
+        """
+        The IAM user associated with this virtual MFA device.
+        """
         return pulumi.get(self, "users")
 
 
@@ -61,6 +72,9 @@ def get_virtual_mfa_device(serial_number: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMfaDeviceResult:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice
+
+
+    :param str serial_number: Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
     """
     __args__ = dict()
     __args__['serialNumber'] = serial_number
@@ -78,5 +92,8 @@ def get_virtual_mfa_device_output(serial_number: Optional[pulumi.Input[str]] = N
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMfaDeviceResult]:
     """
     Resource Type definition for AWS::IAM::VirtualMFADevice
+
+
+    :param str serial_number: Returns the serial number for the specified `AWS::IAM::VirtualMFADevice` resource.
     """
     ...

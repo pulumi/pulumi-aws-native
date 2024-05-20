@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Pipes
 
     public sealed class GetPipeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the pipe.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Pipes
 
     public sealed class GetPipeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the pipe.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,18 +57,57 @@ namespace Pulumi.AwsNative.Pipes
     [OutputType]
     public sealed class GetPipeResult
     {
+        /// <summary>
+        /// The ARN of the pipe.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The time the pipe was created.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The state the pipe is in.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeState? CurrentState;
+        /// <summary>
+        /// A description of the pipe.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The state the pipe should be in.
+        /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeRequestedPipeState? DesiredState;
+        /// <summary>
+        /// The ARN of the enrichment resource.
+        /// </summary>
         public readonly string? Enrichment;
+        /// <summary>
+        /// The parameters required to set up enrichment on your pipe.
+        /// </summary>
         public readonly Outputs.PipeEnrichmentParameters? EnrichmentParameters;
+        /// <summary>
+        /// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// The logging configuration settings for the pipe.
+        /// </summary>
         public readonly Outputs.PipeLogConfiguration? LogConfiguration;
+        /// <summary>
+        /// The ARN of the role that allows the pipe to send data to the target.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The reason the pipe is in its current state.
+        /// </summary>
         public readonly string? StateReason;
+        /// <summary>
+        /// The list of key-value pairs to associate with the pipe.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The ARN of the target resource.
+        /// </summary>
         public readonly string? Target;
 
         [OutputConstructor]

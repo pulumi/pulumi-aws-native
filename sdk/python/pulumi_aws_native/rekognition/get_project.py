@@ -26,6 +26,9 @@ class GetProjectResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        Returns the Amazon Resource Name of the project.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -42,6 +45,9 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
+
+
+    :param str project_name: The name of the project to create.
     """
     __args__ = dict()
     __args__['projectName'] = project_name
@@ -57,5 +63,8 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
+
+
+    :param str project_name: The name of the project to create.
     """
     ...

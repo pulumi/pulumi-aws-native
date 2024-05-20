@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class GlobalTableKinesisStreamSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The precision for the time and date that the stream was created.
+        /// </summary>
         [Input("approximateCreationDateTimePrecision")]
         public Input<Pulumi.AwsNative.DynamoDb.GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision>? ApproximateCreationDateTimePrecision { get; set; }
 
+        /// <summary>
+        /// The ARN for a specific Kinesis data stream.
+        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 

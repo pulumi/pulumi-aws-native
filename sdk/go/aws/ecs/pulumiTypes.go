@@ -14,9 +14,19 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CapacityProviderAutoScalingGroupProvider struct {
-	AutoScalingGroupArn          string                                                                `pulumi:"autoScalingGroupArn"`
-	ManagedDraining              *CapacityProviderAutoScalingGroupProviderManagedDraining              `pulumi:"managedDraining"`
-	ManagedScaling               *CapacityProviderManagedScaling                                       `pulumi:"managedScaling"`
+	// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
+	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
+	// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
+	ManagedDraining *CapacityProviderAutoScalingGroupProviderManagedDraining `pulumi:"managedDraining"`
+	// The managed scaling settings for the Auto Scaling group capacity provider.
+	ManagedScaling *CapacityProviderManagedScaling `pulumi:"managedScaling"`
+	// The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+	//
+	// > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
+	//
+	// When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+	//
+	// When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
 	ManagedTerminationProtection *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection `pulumi:"managedTerminationProtection"`
 }
 
@@ -32,9 +42,19 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderArgs struct {
-	AutoScalingGroupArn          pulumi.StringInput                                                           `pulumi:"autoScalingGroupArn"`
-	ManagedDraining              CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput              `pulumi:"managedDraining"`
-	ManagedScaling               CapacityProviderManagedScalingPtrInput                                       `pulumi:"managedScaling"`
+	// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
+	AutoScalingGroupArn pulumi.StringInput `pulumi:"autoScalingGroupArn"`
+	// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
+	ManagedDraining CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput `pulumi:"managedDraining"`
+	// The managed scaling settings for the Auto Scaling group capacity provider.
+	ManagedScaling CapacityProviderManagedScalingPtrInput `pulumi:"managedScaling"`
+	// The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+	//
+	// > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
+	//
+	// When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+	//
+	// When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
 	ManagedTerminationProtection CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput `pulumi:"managedTerminationProtection"`
 }
 
@@ -64,22 +84,32 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 	return o
 }
 
+// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
 func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }
 
+// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedDraining() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedDraining {
 		return v.ManagedDraining
 	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
 }
 
+// The managed scaling settings for the Auto Scaling group capacity provider.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderManagedScaling {
 		return v.ManagedScaling
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
+// The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+//
+// > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
+//
+// When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+//
+// When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection {
 		return v.ManagedTerminationProtection
@@ -110,6 +140,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
+// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
 		if v == nil {
@@ -119,6 +150,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedDraining() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedDraining {
 		if v == nil {
@@ -128,6 +160,7 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedDraining() Cap
 	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
 }
 
+// The managed scaling settings for the Auto Scaling group capacity provider.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderManagedScaling {
 		if v == nil {
@@ -137,6 +170,13 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() Capa
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
+// The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
+//
+// > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
+//
+// When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
+//
+// When managed termination protection is off, your Amazon EC2 instances aren't protected from termination when the Auto Scaling group scales in.
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection {
 		if v == nil {
@@ -148,11 +188,20 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 
 // The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScaling struct {
-	InstanceWarmupPeriod   *int                                  `pulumi:"instanceWarmupPeriod"`
-	MaximumScalingStepSize *int                                  `pulumi:"maximumScalingStepSize"`
-	MinimumScalingStepSize *int                                  `pulumi:"minimumScalingStepSize"`
-	Status                 *CapacityProviderManagedScalingStatus `pulumi:"status"`
-	TargetCapacity         *int                                  `pulumi:"targetCapacity"`
+	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
+	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
+	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
+	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+	//
+	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+	//
+	// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
+	MinimumScalingStepSize *int `pulumi:"minimumScalingStepSize"`
+	// Determines whether to use managed scaling for the capacity provider.
+	Status *CapacityProviderManagedScalingStatus `pulumi:"status"`
+	// The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
+	TargetCapacity *int `pulumi:"targetCapacity"`
 }
 
 // CapacityProviderManagedScalingInput is an input type that accepts CapacityProviderManagedScalingArgs and CapacityProviderManagedScalingOutput values.
@@ -168,11 +217,20 @@ type CapacityProviderManagedScalingInput interface {
 
 // The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScalingArgs struct {
-	InstanceWarmupPeriod   pulumi.IntPtrInput                           `pulumi:"instanceWarmupPeriod"`
-	MaximumScalingStepSize pulumi.IntPtrInput                           `pulumi:"maximumScalingStepSize"`
-	MinimumScalingStepSize pulumi.IntPtrInput                           `pulumi:"minimumScalingStepSize"`
-	Status                 CapacityProviderManagedScalingStatusPtrInput `pulumi:"status"`
-	TargetCapacity         pulumi.IntPtrInput                           `pulumi:"targetCapacity"`
+	// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
+	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
+	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
+	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+	//
+	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+	//
+	// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
+	MinimumScalingStepSize pulumi.IntPtrInput `pulumi:"minimumScalingStepSize"`
+	// Determines whether to use managed scaling for the capacity provider.
+	Status CapacityProviderManagedScalingStatusPtrInput `pulumi:"status"`
+	// The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
+	TargetCapacity pulumi.IntPtrInput `pulumi:"targetCapacity"`
 }
 
 func (CapacityProviderManagedScalingArgs) ElementType() reflect.Type {
@@ -253,22 +311,31 @@ func (o CapacityProviderManagedScalingOutput) ToCapacityProviderManagedScalingPt
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
+// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
 func (o CapacityProviderManagedScalingOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.InstanceWarmupPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
 func (o CapacityProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+//
+// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+//
+// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 func (o CapacityProviderManagedScalingOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
+// Determines whether to use managed scaling for the capacity provider.
 func (o CapacityProviderManagedScalingOutput) Status() CapacityProviderManagedScalingStatusPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *CapacityProviderManagedScalingStatus { return v.Status }).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
+// The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
 func (o CapacityProviderManagedScalingOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.TargetCapacity }).(pulumi.IntPtrOutput)
 }
@@ -297,6 +364,7 @@ func (o CapacityProviderManagedScalingPtrOutput) Elem() CapacityProviderManagedS
 	}).(CapacityProviderManagedScalingOutput)
 }
 
+// The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
 func (o CapacityProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -306,6 +374,7 @@ func (o CapacityProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter. If this parameter is omitted, the default value of `10000` is used.
 func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -315,6 +384,11 @@ func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+//
+// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
+//
+// If you use a capacity provider with an Auto Scaling group configured with more than one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the exact minimum scaling step size value and will ignore both the maximum scaling step size as well as the capacity demand.
 func (o CapacityProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -324,6 +398,7 @@ func (o CapacityProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Determines whether to use managed scaling for the capacity provider.
 func (o CapacityProviderManagedScalingPtrOutput) Status() CapacityProviderManagedScalingStatusPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *CapacityProviderManagedScalingStatus {
 		if v == nil {
@@ -333,6 +408,7 @@ func (o CapacityProviderManagedScalingPtrOutput) Status() CapacityProviderManage
 	}).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
+// The target capacity utilization as a percentage for the capacity provider. The specified value must be greater than `0` and less than or equal to `100` . For example, if you want the capacity provider to maintain 10% spare capacity, then that means the utilization is 90%, so use a `targetCapacity` of `90` . The default value of `100` percent results in the Amazon EC2 instances in your Auto Scaling group being completely used.
 func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -343,7 +419,9 @@ func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrO
 }
 
 type CapacityProviderTag struct {
-	Key   *string `pulumi:"key"`
+	// One part of a key-value pair that make up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key *string `pulumi:"key"`
+	// The optional part of a key-value pair that make up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value *string `pulumi:"value"`
 }
 
@@ -11443,6 +11521,9 @@ func (o TaskSetLoadBalancerArrayOutput) Index(i pulumi.IntInput) TaskSetLoadBala
 
 // An object representing the network configuration for a task or service.
 type TaskSetNetworkConfiguration struct {
+	// The VPC subnets and security groups that are associated with a task.
+	//
+	// > All specified subnets and security groups must be from the same VPC.
 	AwsVpcConfiguration *TaskSetAwsVpcConfiguration `pulumi:"awsVpcConfiguration"`
 }
 
@@ -11459,6 +11540,9 @@ type TaskSetNetworkConfigurationInput interface {
 
 // An object representing the network configuration for a task or service.
 type TaskSetNetworkConfigurationArgs struct {
+	// The VPC subnets and security groups that are associated with a task.
+	//
+	// > All specified subnets and security groups must be from the same VPC.
 	AwsVpcConfiguration TaskSetAwsVpcConfigurationPtrInput `pulumi:"awsVpcConfiguration"`
 }
 
@@ -11540,6 +11624,9 @@ func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationPtrOutpu
 	}).(TaskSetNetworkConfigurationPtrOutput)
 }
 
+// The VPC subnets and security groups that are associated with a task.
+//
+// > All specified subnets and security groups must be from the same VPC.
 func (o TaskSetNetworkConfigurationOutput) AwsVpcConfiguration() TaskSetAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskSetNetworkConfiguration) *TaskSetAwsVpcConfiguration { return v.AwsVpcConfiguration }).(TaskSetAwsVpcConfigurationPtrOutput)
 }
@@ -11568,6 +11655,9 @@ func (o TaskSetNetworkConfigurationPtrOutput) Elem() TaskSetNetworkConfiguration
 	}).(TaskSetNetworkConfigurationOutput)
 }
 
+// The VPC subnets and security groups that are associated with a task.
+//
+// > All specified subnets and security groups must be from the same VPC.
 func (o TaskSetNetworkConfigurationPtrOutput) AwsVpcConfiguration() TaskSetAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskSetNetworkConfiguration) *TaskSetAwsVpcConfiguration {
 		if v == nil {
@@ -11858,7 +11948,9 @@ func (o TaskSetServiceRegistryArrayOutput) Index(i pulumi.IntInput) TaskSetServi
 }
 
 type TaskSetTag struct {
-	Key   *string `pulumi:"key"`
+	// One part of a key-value pair that make up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key *string `pulumi:"key"`
+	// The optional part of a key-value pair that make up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value *string `pulumi:"value"`
 }
 

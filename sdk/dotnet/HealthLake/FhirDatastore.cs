@@ -18,33 +18,65 @@ namespace Pulumi.AwsNative.HealthLake
         [Output("createdAt")]
         public Output<Outputs.FhirDatastoreCreatedAt> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+        /// </summary>
         [Output("datastoreArn")]
         public Output<string> DatastoreArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The endpoint for the created Data Store.
+        /// </summary>
         [Output("datastoreEndpoint")]
         public Output<string> DatastoreEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        /// </summary>
         [Output("datastoreId")]
         public Output<string> DatastoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// The user generated name for the data store.
+        /// </summary>
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+        /// </summary>
         [Output("datastoreStatus")]
         public Output<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus> DatastoreStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The FHIR version of the data store. The only supported version is R4.
+        /// </summary>
         [Output("datastoreTypeVersion")]
         public Output<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The identity provider configuration that you gave when the data store was created.
+        /// </summary>
         [Output("identityProviderConfiguration")]
         public Output<Outputs.FhirDatastoreIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        /// </summary>
         [Output("preloadDataConfig")]
         public Output<Outputs.FhirDatastorePreloadDataConfig?> PreloadDataConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        /// </summary>
         [Output("sseConfiguration")]
         public Output<Outputs.FhirDatastoreSseConfiguration?> SseConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -101,23 +133,44 @@ namespace Pulumi.AwsNative.HealthLake
 
     public sealed class FhirDatastoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user generated name for the data store.
+        /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
 
+        /// <summary>
+        /// The FHIR version of the data store. The only supported version is R4.
+        /// </summary>
         [Input("datastoreTypeVersion", required: true)]
         public Input<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The identity provider configuration that you gave when the data store was created.
+        /// </summary>
         [Input("identityProviderConfiguration")]
         public Input<Inputs.FhirDatastoreIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
+        /// <summary>
+        /// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        /// </summary>
         [Input("preloadDataConfig")]
         public Input<Inputs.FhirDatastorePreloadDataConfigArgs>? PreloadDataConfig { get; set; }
 
+        /// <summary>
+        /// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        /// </summary>
         [Input("sseConfiguration")]
         public Input<Inputs.FhirDatastoreSseConfigurationArgs>? SseConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class FormInputBindingPropertiesValuePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An Amplify DataStore model.
+        /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 

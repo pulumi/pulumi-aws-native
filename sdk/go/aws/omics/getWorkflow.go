@@ -23,18 +23,27 @@ func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulum
 }
 
 type LookupWorkflowArgs struct {
+	// The workflow's ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupWorkflowResult struct {
-	Arn          *string           `pulumi:"arn"`
-	CreationTime *string           `pulumi:"creationTime"`
-	Description  *string           `pulumi:"description"`
-	Id           *string           `pulumi:"id"`
-	Name         *string           `pulumi:"name"`
-	Status       *WorkflowStatus   `pulumi:"status"`
-	Tags         map[string]string `pulumi:"tags"`
-	Type         *WorkflowType     `pulumi:"type"`
+	// The ARN for the workflow.
+	Arn *string `pulumi:"arn"`
+	// When the workflow was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The parameter's description.
+	Description *string `pulumi:"description"`
+	// The workflow's ID.
+	Id *string `pulumi:"id"`
+	// The workflow's name.
+	Name *string `pulumi:"name"`
+	// The workflow's status.
+	Status *WorkflowStatus `pulumi:"status"`
+	// Tags for the workflow.
+	Tags map[string]string `pulumi:"tags"`
+	// The workflow's type.
+	Type *WorkflowType `pulumi:"type"`
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
@@ -51,6 +60,7 @@ func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, op
 }
 
 type LookupWorkflowOutputArgs struct {
+	// The workflow's ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -72,34 +82,42 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx 
 	return o
 }
 
+// The ARN for the workflow.
 func (o LookupWorkflowResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// When the workflow was created.
 func (o LookupWorkflowResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The parameter's description.
 func (o LookupWorkflowResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The workflow's ID.
 func (o LookupWorkflowResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The workflow's name.
 func (o LookupWorkflowResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The workflow's status.
 func (o LookupWorkflowResultOutput) Status() WorkflowStatusPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowStatus { return v.Status }).(WorkflowStatusPtrOutput)
 }
 
+// Tags for the workflow.
 func (o LookupWorkflowResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The workflow's type.
 func (o LookupWorkflowResultOutput) Type() WorkflowTypePtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowType { return v.Type }).(WorkflowTypePtrOutput)
 }

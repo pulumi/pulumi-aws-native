@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ResourceExplorer2.Outputs
     [OutputType]
     public sealed class ViewIncludedProperty
     {
+        /// <summary>
+        /// The name of the property that is included in this view.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -21,12 +21,21 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("bridgeArn")]
         public Output<string> BridgeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the bridge. Possible values are: ACTIVE or STANDBY.
+        /// </summary>
         [Output("bridgeState")]
         public Output<Pulumi.AwsNative.MediaConnect.BridgeStateEnum> BridgeState { get; private set; } = null!;
 
+        /// <summary>
+        /// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        /// </summary>
         [Output("egressGatewayBridge")]
         public Output<Outputs.BridgeEgressGatewayBridge?> EgressGatewayBridge { get; private set; } = null!;
 
+        /// <summary>
+        /// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        /// </summary>
         [Output("ingressGatewayBridge")]
         public Output<Outputs.BridgeIngressGatewayBridge?> IngressGatewayBridge { get; private set; } = null!;
 
@@ -48,6 +57,9 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("placementArn")]
         public Output<string> PlacementArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The settings for source failover.
+        /// </summary>
         [Output("sourceFailoverConfig")]
         public Output<Outputs.BridgeFailoverConfig?> SourceFailoverConfig { get; private set; } = null!;
 
@@ -102,9 +114,15 @@ namespace Pulumi.AwsNative.MediaConnect
 
     public sealed class BridgeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+        /// </summary>
         [Input("egressGatewayBridge")]
         public Input<Inputs.BridgeEgressGatewayBridgeArgs>? EgressGatewayBridge { get; set; }
 
+        /// <summary>
+        /// Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+        /// </summary>
         [Input("ingressGatewayBridge")]
         public Input<Inputs.BridgeIngressGatewayBridgeArgs>? IngressGatewayBridge { get; set; }
 
@@ -132,6 +150,9 @@ namespace Pulumi.AwsNative.MediaConnect
         [Input("placementArn", required: true)]
         public Input<string> PlacementArn { get; set; } = null!;
 
+        /// <summary>
+        /// The settings for source failover.
+        /// </summary>
         [Input("sourceFailoverConfig")]
         public Input<Inputs.BridgeFailoverConfigArgs>? SourceFailoverConfig { get; set; }
 

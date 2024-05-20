@@ -28,6 +28,7 @@ type LookupAlarmArgs struct {
 }
 
 type LookupAlarmResult struct {
+	// The Amazon Resource Name (ARN) of the alarm.
 	AlarmArn *string `pulumi:"alarmArn"`
 	// The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.
 	ComparisonOperator *string `pulumi:"comparisonOperator"`
@@ -85,6 +86,7 @@ func (o LookupAlarmResultOutput) ToLookupAlarmResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the alarm.
 func (o LookupAlarmResultOutput) AlarmArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.AlarmArn }).(pulumi.StringPtrOutput)
 }

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class InferenceComponentComputeResourceRequirementsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum MB of memory to allocate to run a model that you assign to an inference component.
+        /// </summary>
         [Input("maxMemoryRequiredInMb")]
         public Input<int>? MaxMemoryRequiredInMb { get; set; }
 
+        /// <summary>
+        /// The minimum MB of memory to allocate to run a model that you assign to an inference component.
+        /// </summary>
         [Input("minMemoryRequiredInMb")]
         public Input<int>? MinMemoryRequiredInMb { get; set; }
 
+        /// <summary>
+        /// The number of accelerators to allocate to run a model that you assign to an inference component. Accelerators include GPUs and AWS Inferentia.
+        /// </summary>
         [Input("numberOfAcceleratorDevicesRequired")]
         public Input<double>? NumberOfAcceleratorDevicesRequired { get; set; }
 
+        /// <summary>
+        /// The number of CPU cores to allocate to run a model that you assign to an inference component.
+        /// </summary>
         [Input("numberOfCpuCoresRequired")]
         public Input<double>? NumberOfCpuCoresRequired { get; set; }
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Acmpca
 
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the issued certificate.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.Acmpca
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the issued certificate.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -63,7 +69,13 @@ namespace Pulumi.AwsNative.Acmpca
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the issued certificate.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The issued Base64 PEM-encoded certificate.
+        /// </summary>
         public readonly string? CertificateValue;
 
         [OutputConstructor]

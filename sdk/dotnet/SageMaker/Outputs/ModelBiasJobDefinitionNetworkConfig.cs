@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         /// </summary>
         public readonly bool? EnableNetworkIsolation;
+        /// <summary>
+        /// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        /// </summary>
         public readonly Outputs.ModelBiasJobDefinitionVpcConfig? VpcConfig;
 
         [OutputConstructor]

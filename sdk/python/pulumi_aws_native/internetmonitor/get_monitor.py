@@ -62,61 +62,111 @@ class GetMonitorResult:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The time when the monitor was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="healthEventsConfig")
     def health_events_config(self) -> Optional['outputs.MonitorHealthEventsConfig']:
+        """
+        A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
+
+        Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Amazon CloudWatch Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
+
+        You can also set thresholds for local health scores,, where Internet Monitor creates a health event when scores cross a threshold for one or more city-networks, in addition to creating an event when an overall score crosses a threshold.
+
+        If you don't set a health event threshold, the default value is 95%.
+
+        For local thresholds, you also set a minimum percentage of overall traffic that is impacted by an issue before Internet Monitor creates an event. In addition, you can disable local thresholds, for performance scores, availability scores, or both.
+
+        For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
+        """
         return pulumi.get(self, "health_events_config")
 
     @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
     def internet_measurements_log_delivery(self) -> Optional['outputs.MonitorInternetMeasurementsLogDelivery']:
+        """
+        Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
+        """
         return pulumi.get(self, "internet_measurements_log_delivery")
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")
     def max_city_networks_to_monitor(self) -> Optional[int]:
+        """
+        The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
+
+        For more information, see [Choosing a city-network maximum value](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html) in *Using Amazon CloudWatch Internet Monitor* .
+        """
         return pulumi.get(self, "max_city_networks_to_monitor")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        The last time that the monitor was modified.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
     @pulumi.getter(name="monitorArn")
     def monitor_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the monitor.
+        """
         return pulumi.get(self, "monitor_arn")
 
     @property
     @pulumi.getter(name="processingStatus")
     def processing_status(self) -> Optional['MonitorProcessingStatusCode']:
+        """
+        The health of data processing for the monitor. For more information, see `ProcessingStatus` under [MonitorListMember](https://docs.aws.amazon.com/internet-monitor/latest/api/API_MonitorListMember.html) in the *Amazon CloudWatch Internet Monitor API Reference* .
+        """
         return pulumi.get(self, "processing_status")
 
     @property
     @pulumi.getter(name="processingStatusInfo")
     def processing_status_info(self) -> Optional[str]:
+        """
+        Additional information about the health of the data processing for the monitor.
+        """
         return pulumi.get(self, "processing_status_info")
 
     @property
     @pulumi.getter
     def resources(self) -> Optional[Sequence[str]]:
+        """
+        The resources that have been added for the monitor, listed by their Amazon Resource Names (ARNs). Use this option to add or remove resources when making an update.
+
+        > Be aware that if you include content in the `Resources` field when you update a monitor, the `ResourcesToAdd` and `ResourcesToRemove` fields must be empty.
+        """
         return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['MonitorConfigState']:
+        """
+        The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for a monitor, listed as a set of *key:value* pairs.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trafficPercentageToMonitor")
     def traffic_percentage_to_monitor(self) -> Optional[int]:
+        """
+        The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
+        """
         return pulumi.get(self, "traffic_percentage_to_monitor")
 
 
@@ -144,6 +194,9 @@ def get_monitor(monitor_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
+
+
+    :param str monitor_name: The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name
@@ -170,5 +223,8 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
+
+
+    :param str monitor_name: The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
     """
     ...

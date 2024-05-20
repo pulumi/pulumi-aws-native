@@ -16,6 +16,7 @@ import (
 type ReplicationConfig struct {
 	pulumi.CustomResourceState
 
+	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrOutput `pulumi:"computeConfig"`
 	// The Amazon Resource Name (ARN) of the Replication Config
 	ReplicationConfigArn pulumi.StringPtrOutput `pulumi:"replicationConfigArn"`
@@ -89,6 +90,7 @@ func (ReplicationConfigState) ElementType() reflect.Type {
 }
 
 type replicationConfigArgs struct {
+	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig *ReplicationConfigComputeConfig `pulumi:"computeConfig"`
 	// The Amazon Resource Name (ARN) of the Replication Config
 	ReplicationConfigArn *string `pulumi:"replicationConfigArn"`
@@ -120,6 +122,7 @@ type replicationConfigArgs struct {
 
 // The set of arguments for constructing a ReplicationConfig resource.
 type ReplicationConfigArgs struct {
+	// Configuration parameters for provisioning an AWS DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrInput
 	// The Amazon Resource Name (ARN) of the Replication Config
 	ReplicationConfigArn pulumi.StringPtrInput
@@ -186,6 +189,7 @@ func (o ReplicationConfigOutput) ToReplicationConfigOutputWithContext(ctx contex
 	return o
 }
 
+// Configuration parameters for provisioning an AWS DMS Serverless replication.
 func (o ReplicationConfigOutput) ComputeConfig() ReplicationConfigComputeConfigPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfig) ReplicationConfigComputeConfigPtrOutput { return v.ComputeConfig }).(ReplicationConfigComputeConfigPtrOutput)
 }

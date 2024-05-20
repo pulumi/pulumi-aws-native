@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetReferenceStoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Input("referenceStoreId", required: true)]
         public string ReferenceStoreId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetReferenceStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         [Input("referenceStoreId", required: true)]
         public Input<string> ReferenceStoreId { get; set; } = null!;
 
@@ -59,6 +65,9 @@ namespace Pulumi.AwsNative.Omics
         /// When the store was created.
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The store's ID.
+        /// </summary>
         public readonly string? ReferenceStoreId;
 
         [OutputConstructor]

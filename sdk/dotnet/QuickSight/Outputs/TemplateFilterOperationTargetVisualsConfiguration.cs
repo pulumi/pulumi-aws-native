@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilterOperationTargetVisualsConfiguration
     {
+        /// <summary>
+        /// The configuration of the same-sheet target visuals that you want to be filtered.
+        /// </summary>
         public readonly Outputs.TemplateSameSheetTargetVisualConfiguration? SameSheetTargetVisualConfiguration;
 
         [OutputConstructor]

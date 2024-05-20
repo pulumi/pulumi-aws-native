@@ -16,11 +16,29 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensAccountLevel
     {
+        /// <summary>
+        /// This property contains the details of account-level activity metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensActivityMetrics? ActivityMetrics;
+        /// <summary>
+        /// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics;
+        /// <summary>
+        /// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
+        /// <summary>
+        /// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensBucketLevel BucketLevel;
+        /// <summary>
+        /// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensDetailedStatusCodesMetrics? DetailedStatusCodesMetrics;
+        /// <summary>
+        /// This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+        /// </summary>
         public readonly Outputs.StorageLensGroupLevel? StorageLensGroupLevel;
 
         [OutputConstructor]

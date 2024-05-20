@@ -13,16 +13,46 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardBoxPlotChartConfiguration
     {
+        /// <summary>
+        /// The box plot chart options for a box plot visual
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotOptions? BoxPlotOptions;
+        /// <summary>
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? CategoryAxis;
+        /// <summary>
+        /// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotFieldWells? FieldWells;
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The label options (label text, label visibility and sort icon visibility) of a box plot value.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference line setup of the visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The sort configuration of a `BoxPlotVisual` .
+        /// </summary>
         public readonly Outputs.DashboardBoxPlotSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip display setup of the visual.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// The palette (chart color) display setup of the visual.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 
         [OutputConstructor]

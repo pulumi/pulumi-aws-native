@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class FormCta
     {
+        /// <summary>
+        /// Displays a cancel button.
+        /// </summary>
         public readonly Outputs.FormButton? Cancel;
+        /// <summary>
+        /// Displays a clear button.
+        /// </summary>
         public readonly Outputs.FormButton? Clear;
+        /// <summary>
+        /// The position of the button.
+        /// </summary>
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.FormButtonsPosition? Position;
+        /// <summary>
+        /// Displays a submit button.
+        /// </summary>
         public readonly Outputs.FormButton? Submit;
 
         [OutputConstructor]

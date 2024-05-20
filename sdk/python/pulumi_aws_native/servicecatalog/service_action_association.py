@@ -19,6 +19,9 @@ class ServiceActionAssociationArgs:
                  service_action_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ServiceActionAssociation resource.
+        :param pulumi.Input[str] product_id: The product identifier. For example, `prod-abcdzk7xy33qa` .
+        :param pulumi.Input[str] provisioning_artifact_id: The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+        :param pulumi.Input[str] service_action_id: The self-service action identifier. For example, `act-fs7abcd89wxyz` .
         """
         pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
@@ -27,6 +30,9 @@ class ServiceActionAssociationArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[str]:
+        """
+        The product identifier. For example, `prod-abcdzk7xy33qa` .
+        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -36,6 +42,9 @@ class ServiceActionAssociationArgs:
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -45,6 +54,9 @@ class ServiceActionAssociationArgs:
     @property
     @pulumi.getter(name="serviceActionId")
     def service_action_id(self) -> pulumi.Input[str]:
+        """
+        The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        """
         return pulumi.get(self, "service_action_id")
 
     @service_action_id.setter
@@ -66,6 +78,9 @@ class ServiceActionAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] product_id: The product identifier. For example, `prod-abcdzk7xy33qa` .
+        :param pulumi.Input[str] provisioning_artifact_id: The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+        :param pulumi.Input[str] service_action_id: The self-service action identifier. For example, `act-fs7abcd89wxyz` .
         """
         ...
     @overload
@@ -144,15 +159,24 @@ class ServiceActionAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[str]:
+        """
+        The product identifier. For example, `prod-abcdzk7xy33qa` .
+        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne` .
+        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="serviceActionId")
     def service_action_id(self) -> pulumi.Output[str]:
+        """
+        The self-service action identifier. For example, `act-fs7abcd89wxyz` .
+        """
         return pulumi.get(self, "service_action_id")
 

@@ -38,26 +38,41 @@ class GetVpcEndpointServiceResult:
     @property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> Optional[bool]:
+        """
+        Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+        """
         return pulumi.get(self, "acceptance_required")
 
     @property
     @pulumi.getter(name="gatewayLoadBalancerArns")
     def gateway_load_balancer_arns(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+        """
         return pulumi.get(self, "gateway_load_balancer_arns")
 
     @property
     @pulumi.getter(name="networkLoadBalancerArns")
     def network_load_balancer_arns(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARNs) of the Network Load Balancers.
+        """
         return pulumi.get(self, "network_load_balancer_arns")
 
     @property
     @pulumi.getter(name="payerResponsibility")
     def payer_responsibility(self) -> Optional[str]:
+        """
+        The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+        """
         return pulumi.get(self, "payer_responsibility")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[str]:
+        """
+        The ID of the endpoint service.
+        """
         return pulumi.get(self, "service_id")
 
 
@@ -78,6 +93,9 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServiceResult:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
+
+
+    :param str service_id: The ID of the endpoint service.
     """
     __args__ = dict()
     __args__['serviceId'] = service_id
@@ -97,5 +115,8 @@ def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = No
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
+
+
+    :param str service_id: The ID of the endpoint service.
     """
     ...

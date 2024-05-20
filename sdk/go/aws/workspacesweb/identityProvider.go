@@ -16,11 +16,53 @@ import (
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
-	IdentityProviderArn     pulumi.StringOutput        `pulumi:"identityProviderArn"`
-	IdentityProviderDetails pulumi.StringMapOutput     `pulumi:"identityProviderDetails"`
-	IdentityProviderName    pulumi.StringOutput        `pulumi:"identityProviderName"`
-	IdentityProviderType    IdentityProviderTypeOutput `pulumi:"identityProviderType"`
-	PortalArn               pulumi.StringPtrOutput     `pulumi:"portalArn"`
+	// The ARN of the identity provider.
+	IdentityProviderArn pulumi.StringOutput `pulumi:"identityProviderArn"`
+	// The identity provider details. The following list describes the provider detail keys for each identity provider type.
+	//
+	// - For Google and Login with Amazon:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `authorize_scopes`
+	// - For Facebook:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `authorize_scopes`
+	// - `api_version`
+	// - For Sign in with Apple:
+	//
+	// - `client_id`
+	// - `team_id`
+	// - `key_id`
+	// - `private_key`
+	// - `authorize_scopes`
+	// - For OIDC providers:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `attributes_request_method`
+	// - `oidc_issuer`
+	// - `authorize_scopes`
+	// - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+	// - For SAML providers:
+	//
+	// - `MetadataFile` OR `MetadataURL`
+	// - `IDPSignout` (boolean) *optional*
+	// - `IDPInit` (boolean) *optional*
+	// - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+	// - `EncryptedResponses` (boolean) *optional*
+	IdentityProviderDetails pulumi.StringMapOutput `pulumi:"identityProviderDetails"`
+	// The identity provider name.
+	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
+	// The identity provider type.
+	IdentityProviderType IdentityProviderTypeOutput `pulumi:"identityProviderType"`
+	// The ARN of the identity provider.
+	PortalArn pulumi.StringPtrOutput `pulumi:"portalArn"`
 }
 
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
@@ -73,18 +115,100 @@ func (IdentityProviderState) ElementType() reflect.Type {
 }
 
 type identityProviderArgs struct {
-	IdentityProviderDetails map[string]string    `pulumi:"identityProviderDetails"`
-	IdentityProviderName    *string              `pulumi:"identityProviderName"`
-	IdentityProviderType    IdentityProviderType `pulumi:"identityProviderType"`
-	PortalArn               *string              `pulumi:"portalArn"`
+	// The identity provider details. The following list describes the provider detail keys for each identity provider type.
+	//
+	// - For Google and Login with Amazon:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `authorize_scopes`
+	// - For Facebook:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `authorize_scopes`
+	// - `api_version`
+	// - For Sign in with Apple:
+	//
+	// - `client_id`
+	// - `team_id`
+	// - `key_id`
+	// - `private_key`
+	// - `authorize_scopes`
+	// - For OIDC providers:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `attributes_request_method`
+	// - `oidc_issuer`
+	// - `authorize_scopes`
+	// - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+	// - For SAML providers:
+	//
+	// - `MetadataFile` OR `MetadataURL`
+	// - `IDPSignout` (boolean) *optional*
+	// - `IDPInit` (boolean) *optional*
+	// - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+	// - `EncryptedResponses` (boolean) *optional*
+	IdentityProviderDetails map[string]string `pulumi:"identityProviderDetails"`
+	// The identity provider name.
+	IdentityProviderName *string `pulumi:"identityProviderName"`
+	// The identity provider type.
+	IdentityProviderType IdentityProviderType `pulumi:"identityProviderType"`
+	// The ARN of the identity provider.
+	PortalArn *string `pulumi:"portalArn"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
 type IdentityProviderArgs struct {
+	// The identity provider details. The following list describes the provider detail keys for each identity provider type.
+	//
+	// - For Google and Login with Amazon:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `authorize_scopes`
+	// - For Facebook:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `authorize_scopes`
+	// - `api_version`
+	// - For Sign in with Apple:
+	//
+	// - `client_id`
+	// - `team_id`
+	// - `key_id`
+	// - `private_key`
+	// - `authorize_scopes`
+	// - For OIDC providers:
+	//
+	// - `client_id`
+	// - `client_secret`
+	// - `attributes_request_method`
+	// - `oidc_issuer`
+	// - `authorize_scopes`
+	// - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+	// - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+	// - For SAML providers:
+	//
+	// - `MetadataFile` OR `MetadataURL`
+	// - `IDPSignout` (boolean) *optional*
+	// - `IDPInit` (boolean) *optional*
+	// - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+	// - `EncryptedResponses` (boolean) *optional*
 	IdentityProviderDetails pulumi.StringMapInput
-	IdentityProviderName    pulumi.StringPtrInput
-	IdentityProviderType    IdentityProviderTypeInput
-	PortalArn               pulumi.StringPtrInput
+	// The identity provider name.
+	IdentityProviderName pulumi.StringPtrInput
+	// The identity provider type.
+	IdentityProviderType IdentityProviderTypeInput
+	// The ARN of the identity provider.
+	PortalArn pulumi.StringPtrInput
 }
 
 func (IdentityProviderArgs) ElementType() reflect.Type {
@@ -124,22 +248,64 @@ func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.
 	return o
 }
 
+// The ARN of the identity provider.
 func (o IdentityProviderOutput) IdentityProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.IdentityProviderArn }).(pulumi.StringOutput)
 }
 
+// The identity provider details. The following list describes the provider detail keys for each identity provider type.
+//
+// - For Google and Login with Amazon:
+//
+// - `client_id`
+// - `client_secret`
+// - `authorize_scopes`
+// - For Facebook:
+//
+// - `client_id`
+// - `client_secret`
+// - `authorize_scopes`
+// - `api_version`
+// - For Sign in with Apple:
+//
+// - `client_id`
+// - `team_id`
+// - `key_id`
+// - `private_key`
+// - `authorize_scopes`
+// - For OIDC providers:
+//
+// - `client_id`
+// - `client_secret`
+// - `attributes_request_method`
+// - `oidc_issuer`
+// - `authorize_scopes`
+// - `authorize_url` *if not available from discovery URL specified by oidc_issuer key*
+// - `token_url` *if not available from discovery URL specified by oidc_issuer key*
+// - `attributes_url` *if not available from discovery URL specified by oidc_issuer key*
+// - `jwks_uri` *if not available from discovery URL specified by oidc_issuer key*
+// - For SAML providers:
+//
+// - `MetadataFile` OR `MetadataURL`
+// - `IDPSignout` (boolean) *optional*
+// - `IDPInit` (boolean) *optional*
+// - `RequestSigningAlgorithm` (string) *optional* - Only accepts `rsa-sha256`
+// - `EncryptedResponses` (boolean) *optional*
 func (o IdentityProviderOutput) IdentityProviderDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringMapOutput { return v.IdentityProviderDetails }).(pulumi.StringMapOutput)
 }
 
+// The identity provider name.
 func (o IdentityProviderOutput) IdentityProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.IdentityProviderName }).(pulumi.StringOutput)
 }
 
+// The identity provider type.
 func (o IdentityProviderOutput) IdentityProviderType() IdentityProviderTypeOutput {
 	return o.ApplyT(func(v *IdentityProvider) IdentityProviderTypeOutput { return v.IdentityProviderType }).(IdentityProviderTypeOutput)
 }
 
+// The ARN of the identity provider.
 func (o IdentityProviderOutput) PortalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.PortalArn }).(pulumi.StringPtrOutput)
 }

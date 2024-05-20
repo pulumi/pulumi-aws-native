@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Ce.Outputs
     [OutputType]
     public sealed class AnomalySubscriptionSubscriber
     {
+        /// <summary>
+        /// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+        /// </summary>
         public readonly string Address;
+        /// <summary>
+        /// Indicates if the subscriber accepts the notifications.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ce.AnomalySubscriptionSubscriberStatus? Status;
+        /// <summary>
+        /// The notification delivery channel.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ce.AnomalySubscriptionSubscriberType Type;
 
         [OutputConstructor]

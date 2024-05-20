@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName", required: true)]
         public string ChannelName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
@@ -59,13 +65,29 @@ namespace Pulumi.AwsNative.MediaTailor
         /// &lt;p&gt;The list of audiences defined in channel.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
+        /// <summary>
+        /// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        /// </summary>
         public readonly Outputs.ChannelSlateSource? FillerSlate;
+        /// <summary>
+        /// The log configuration.
+        /// </summary>
         public readonly Outputs.ChannelLogConfigurationForChannel? LogConfiguration;
+        /// <summary>
+        /// The type of playback mode for this channel.
+        /// 
+        /// `LINEAR` - Programs play back-to-back only once.
+        /// 
+        /// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode? PlaybackMode;
         /// <summary>
         /// The tags to assign to the channel.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The configuration for time-shifted viewing.
+        /// </summary>
         public readonly Outputs.ChannelTimeShiftConfiguration? TimeShiftConfiguration;
 
         [OutputConstructor]

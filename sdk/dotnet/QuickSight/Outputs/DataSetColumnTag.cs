@@ -22,7 +22,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetColumnTag
     {
+        /// <summary>
+        /// A description for a column.
+        /// </summary>
         public readonly Outputs.DataSetColumnDescription? ColumnDescription;
+        /// <summary>
+        /// A geospatial role for a column.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetGeoSpatialDataRole? ColumnGeographicRole;
 
         [OutputConstructor]

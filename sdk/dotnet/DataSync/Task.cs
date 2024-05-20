@@ -67,15 +67,27 @@ namespace Pulumi.AwsNative.DataSync
         [Output("destinationLocationArn")]
         public Output<string> DestinationLocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the destination elastic network interfaces (ENIs) that were created for your subnet.
+        /// </summary>
         [Output("destinationNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> DestinationNetworkInterfaceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// </summary>
         [Output("excludes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Excludes { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// </summary>
         [Output("includes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Includes { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        /// </summary>
         [Output("manifestConfig")]
         public Output<Outputs.TaskManifestConfig?> ManifestConfig { get; private set; } = null!;
 
@@ -85,9 +97,15 @@ namespace Pulumi.AwsNative.DataSync
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        /// </summary>
         [Output("options")]
         public Output<Outputs.TaskOptions?> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+        /// </summary>
         [Output("schedule")]
         public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
@@ -97,6 +115,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("sourceLocationArn")]
         public Output<string> SourceLocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARNs of the source ENIs that were created for your subnet.
+        /// </summary>
         [Output("sourceNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> SourceNetworkInterfaceArns { get; private set; } = null!;
 
@@ -118,6 +139,11 @@ namespace Pulumi.AwsNative.DataSync
         [Output("taskArn")]
         public Output<string> TaskArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        /// 
+        /// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        /// </summary>
         [Output("taskReportConfig")]
         public Output<Outputs.TaskReportConfig?> TaskReportConfig { get; private set; } = null!;
 
@@ -185,6 +211,10 @@ namespace Pulumi.AwsNative.DataSync
 
         [Input("excludes")]
         private InputList<Inputs.TaskFilterRuleArgs>? _excludes;
+
+        /// <summary>
+        /// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Excludes
         {
             get => _excludes ?? (_excludes = new InputList<Inputs.TaskFilterRuleArgs>());
@@ -193,12 +223,19 @@ namespace Pulumi.AwsNative.DataSync
 
         [Input("includes")]
         private InputList<Inputs.TaskFilterRuleArgs>? _includes;
+
+        /// <summary>
+        /// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Includes
         {
             get => _includes ?? (_includes = new InputList<Inputs.TaskFilterRuleArgs>());
             set => _includes = value;
         }
 
+        /// <summary>
+        /// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        /// </summary>
         [Input("manifestConfig")]
         public Input<Inputs.TaskManifestConfigArgs>? ManifestConfig { get; set; }
 
@@ -208,9 +245,15 @@ namespace Pulumi.AwsNative.DataSync
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.TaskOptionsArgs>? Options { get; set; }
 
+        /// <summary>
+        /// Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
@@ -232,6 +275,11 @@ namespace Pulumi.AwsNative.DataSync
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        /// 
+        /// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
+        /// </summary>
         [Input("taskReportConfig")]
         public Input<Inputs.TaskReportConfigArgs>? TaskReportConfig { get; set; }
 

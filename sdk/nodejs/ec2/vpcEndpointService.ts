@@ -34,11 +34,29 @@ export class VpcEndpointService extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpointService.__pulumiType;
     }
 
+    /**
+     * Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+     */
     public readonly acceptanceRequired!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
+     */
     public readonly contributorInsightsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+     */
     public readonly gatewayLoadBalancerArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Amazon Resource Names (ARNs) of the Network Load Balancers.
+     */
     public readonly networkLoadBalancerArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+     */
     public readonly payerResponsibility!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the endpoint service.
+     */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
 
     /**
@@ -75,9 +93,24 @@ export class VpcEndpointService extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcEndpointService resource.
  */
 export interface VpcEndpointServiceArgs {
+    /**
+     * Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
+     */
     acceptanceRequired?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
+     */
     contributorInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
+     */
     gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Names (ARNs) of the Network Load Balancers.
+     */
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+     */
     payerResponsibility?: pulumi.Input<string>;
 }

@@ -20,6 +20,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
         [Input("valuesMap", required: true)]
         private InputList<Inputs.DatasetFilterValueArgs>? _valuesMap;
+
+        /// <summary>
+        /// The map of substitution variable names to their values used in this filter expression.
+        /// </summary>
         public InputList<Inputs.DatasetFilterValueArgs> ValuesMap
         {
             get => _valuesMap ?? (_valuesMap = new InputList<Inputs.DatasetFilterValueArgs>());

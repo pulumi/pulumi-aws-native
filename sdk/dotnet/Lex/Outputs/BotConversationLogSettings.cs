@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotConversationLogSettings
     {
+        /// <summary>
+        /// The Amazon S3 settings for logging audio to an S3 bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotAudioLogSetting> AudioLogSettings;
+        /// <summary>
+        /// The Amazon CloudWatch Logs settings for logging text and metadata.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotTextLogSetting> TextLogSettings;
 
         [OutputConstructor]

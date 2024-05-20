@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         [Input("evaluationPeriods")]
         public Input<int>? EvaluationPeriods { get; set; }
 
+        /// <summary>
+        /// The fleet location.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 

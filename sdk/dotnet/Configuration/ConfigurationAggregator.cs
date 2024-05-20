@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Provides a list of source accounts and regions to be aggregated.
+        /// </summary>
         [Output("accountAggregationSources")]
         public Output<ImmutableArray<Outputs.ConfigurationAggregatorAccountAggregationSource>> AccountAggregationSources { get; private set; } = null!;
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.Configuration
         [Output("configurationAggregatorName")]
         public Output<string?> ConfigurationAggregatorName { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides an organization and list of regions to be aggregated.
+        /// </summary>
         [Output("organizationAggregationSource")]
         public Output<Outputs.ConfigurationAggregatorOrganizationAggregationSource?> OrganizationAggregationSource { get; private set; } = null!;
 
@@ -90,6 +96,10 @@ namespace Pulumi.AwsNative.Configuration
     {
         [Input("accountAggregationSources")]
         private InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>? _accountAggregationSources;
+
+        /// <summary>
+        /// Provides a list of source accounts and regions to be aggregated.
+        /// </summary>
         public InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs> AccountAggregationSources
         {
             get => _accountAggregationSources ?? (_accountAggregationSources = new InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>());
@@ -102,6 +112,9 @@ namespace Pulumi.AwsNative.Configuration
         [Input("configurationAggregatorName")]
         public Input<string>? ConfigurationAggregatorName { get; set; }
 
+        /// <summary>
+        /// Provides an organization and list of regions to be aggregated.
+        /// </summary>
         [Input("organizationAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs>? OrganizationAggregationSource { get; set; }
 

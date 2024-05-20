@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
 
     public sealed class FlywheelEntityTypesListItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+        /// 
+        /// Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AnalysisTemplateAnalysisParameter struct {
-	DefaultValue *string                               `pulumi:"defaultValue"`
-	Name         string                                `pulumi:"name"`
-	Type         AnalysisTemplateAnalysisParameterType `pulumi:"type"`
+	// Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+	Name string `pulumi:"name"`
+	// The type of parameter.
+	Type AnalysisTemplateAnalysisParameterType `pulumi:"type"`
 }
 
 // AnalysisTemplateAnalysisParameterInput is an input type that accepts AnalysisTemplateAnalysisParameterArgs and AnalysisTemplateAnalysisParameterOutput values.
@@ -31,9 +34,12 @@ type AnalysisTemplateAnalysisParameterInput interface {
 }
 
 type AnalysisTemplateAnalysisParameterArgs struct {
-	DefaultValue pulumi.StringPtrInput                      `pulumi:"defaultValue"`
-	Name         pulumi.StringInput                         `pulumi:"name"`
-	Type         AnalysisTemplateAnalysisParameterTypeInput `pulumi:"type"`
+	// Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of parameter.
+	Type AnalysisTemplateAnalysisParameterTypeInput `pulumi:"type"`
 }
 
 func (AnalysisTemplateAnalysisParameterArgs) ElementType() reflect.Type {
@@ -87,14 +93,17 @@ func (o AnalysisTemplateAnalysisParameterOutput) ToAnalysisTemplateAnalysisParam
 	return o
 }
 
+// Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
 func (o AnalysisTemplateAnalysisParameterOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisTemplateAnalysisParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
 func (o AnalysisTemplateAnalysisParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTemplateAnalysisParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of parameter.
 func (o AnalysisTemplateAnalysisParameterOutput) Type() AnalysisTemplateAnalysisParameterTypeOutput {
 	return o.ApplyT(func(v AnalysisTemplateAnalysisParameter) AnalysisTemplateAnalysisParameterType { return v.Type }).(AnalysisTemplateAnalysisParameterTypeOutput)
 }
@@ -120,6 +129,7 @@ func (o AnalysisTemplateAnalysisParameterArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type AnalysisTemplateAnalysisSchema struct {
+	// The tables referenced in the analysis schema.
 	ReferencedTables []string `pulumi:"referencedTables"`
 }
 
@@ -137,6 +147,7 @@ func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaOu
 	return o
 }
 
+// The tables referenced in the analysis schema.
 func (o AnalysisTemplateAnalysisSchemaOutput) ReferencedTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisTemplateAnalysisSchema) []string { return v.ReferencedTables }).(pulumi.StringArrayOutput)
 }
@@ -165,6 +176,7 @@ func (o AnalysisTemplateAnalysisSchemaPtrOutput) Elem() AnalysisTemplateAnalysis
 	}).(AnalysisTemplateAnalysisSchemaOutput)
 }
 
+// The tables referenced in the analysis schema.
 func (o AnalysisTemplateAnalysisSchemaPtrOutput) ReferencedTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnalysisTemplateAnalysisSchema) []string {
 		if v == nil {
@@ -175,6 +187,7 @@ func (o AnalysisTemplateAnalysisSchemaPtrOutput) ReferencedTables() pulumi.Strin
 }
 
 type AnalysisTemplateAnalysisSource struct {
+	// The query text.
 	Text string `pulumi:"text"`
 }
 
@@ -190,6 +203,7 @@ type AnalysisTemplateAnalysisSourceInput interface {
 }
 
 type AnalysisTemplateAnalysisSourceArgs struct {
+	// The query text.
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -219,20 +233,27 @@ func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOu
 	return o
 }
 
+// The query text.
 func (o AnalysisTemplateAnalysisSourceOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTemplateAnalysisSource) string { return v.Text }).(pulumi.StringOutput)
 }
 
 type AnalysisTemplateTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type CollaborationDataEncryptionMetadata struct {
-	AllowCleartext                        bool `pulumi:"allowCleartext"`
-	AllowDuplicates                       bool `pulumi:"allowDuplicates"`
+	// Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
+	AllowCleartext bool `pulumi:"allowCleartext"`
+	// Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
+	AllowDuplicates bool `pulumi:"allowDuplicates"`
+	// Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
 	AllowJoinsOnColumnsWithDifferentNames bool `pulumi:"allowJoinsOnColumnsWithDifferentNames"`
-	PreserveNulls                         bool `pulumi:"preserveNulls"`
+	// Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
+	PreserveNulls bool `pulumi:"preserveNulls"`
 }
 
 // CollaborationDataEncryptionMetadataInput is an input type that accepts CollaborationDataEncryptionMetadataArgs and CollaborationDataEncryptionMetadataOutput values.
@@ -247,10 +268,14 @@ type CollaborationDataEncryptionMetadataInput interface {
 }
 
 type CollaborationDataEncryptionMetadataArgs struct {
-	AllowCleartext                        pulumi.BoolInput `pulumi:"allowCleartext"`
-	AllowDuplicates                       pulumi.BoolInput `pulumi:"allowDuplicates"`
+	// Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
+	AllowCleartext pulumi.BoolInput `pulumi:"allowCleartext"`
+	// Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
+	AllowDuplicates pulumi.BoolInput `pulumi:"allowDuplicates"`
+	// Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
 	AllowJoinsOnColumnsWithDifferentNames pulumi.BoolInput `pulumi:"allowJoinsOnColumnsWithDifferentNames"`
-	PreserveNulls                         pulumi.BoolInput `pulumi:"preserveNulls"`
+	// Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
+	PreserveNulls pulumi.BoolInput `pulumi:"preserveNulls"`
 }
 
 func (CollaborationDataEncryptionMetadataArgs) ElementType() reflect.Type {
@@ -330,18 +355,22 @@ func (o CollaborationDataEncryptionMetadataOutput) ToCollaborationDataEncryption
 	}).(CollaborationDataEncryptionMetadataPtrOutput)
 }
 
+// Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataOutput) AllowCleartext() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowCleartext }).(pulumi.BoolOutput)
 }
 
+// Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataOutput) AllowDuplicates() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowDuplicates }).(pulumi.BoolOutput)
 }
 
+// Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataOutput) AllowJoinsOnColumnsWithDifferentNames() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowJoinsOnColumnsWithDifferentNames }).(pulumi.BoolOutput)
 }
 
+// Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataOutput) PreserveNulls() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.PreserveNulls }).(pulumi.BoolOutput)
 }
@@ -370,6 +399,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) Elem() CollaborationDataEn
 	}).(CollaborationDataEncryptionMetadataOutput)
 }
 
+// Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowCleartext() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -379,6 +409,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowCleartext() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowDuplicates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -388,6 +419,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowDuplicates() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowJoinsOnColumnsWithDifferentNames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -397,6 +429,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowJoinsOnColumnsWithDif
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
 func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -407,9 +440,17 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.Boo
 }
 
 type CollaborationMemberSpecification struct {
-	AccountId            string                             `pulumi:"accountId"`
-	DisplayName          string                             `pulumi:"displayName"`
-	MemberAbilities      []CollaborationMemberAbility       `pulumi:"memberAbilities"`
+	// The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+	AccountId string `pulumi:"accountId"`
+	// The member's display name.
+	DisplayName string `pulumi:"displayName"`
+	// The abilities granted to the collaboration member.
+	//
+	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	MemberAbilities []CollaborationMemberAbility `pulumi:"memberAbilities"`
+	// The collaboration member's payment responsibilities set by the collaboration creator.
+	//
+	// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
 	PaymentConfiguration *CollaborationPaymentConfiguration `pulumi:"paymentConfiguration"`
 }
 
@@ -425,9 +466,17 @@ type CollaborationMemberSpecificationInput interface {
 }
 
 type CollaborationMemberSpecificationArgs struct {
-	AccountId            pulumi.StringInput                        `pulumi:"accountId"`
-	DisplayName          pulumi.StringInput                        `pulumi:"displayName"`
-	MemberAbilities      CollaborationMemberAbilityArrayInput      `pulumi:"memberAbilities"`
+	// The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The member's display name.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The abilities granted to the collaboration member.
+	//
+	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+	MemberAbilities CollaborationMemberAbilityArrayInput `pulumi:"memberAbilities"`
+	// The collaboration member's payment responsibilities set by the collaboration creator.
+	//
+	// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
 	PaymentConfiguration CollaborationPaymentConfigurationPtrInput `pulumi:"paymentConfiguration"`
 }
 
@@ -482,18 +531,26 @@ func (o CollaborationMemberSpecificationOutput) ToCollaborationMemberSpecificati
 	return o
 }
 
+// The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
 func (o CollaborationMemberSpecificationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v CollaborationMemberSpecification) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// The member's display name.
 func (o CollaborationMemberSpecificationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v CollaborationMemberSpecification) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The abilities granted to the collaboration member.
+//
+// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 func (o CollaborationMemberSpecificationOutput) MemberAbilities() CollaborationMemberAbilityArrayOutput {
 	return o.ApplyT(func(v CollaborationMemberSpecification) []CollaborationMemberAbility { return v.MemberAbilities }).(CollaborationMemberAbilityArrayOutput)
 }
 
+// The collaboration member's payment responsibilities set by the collaboration creator.
+//
+// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
 func (o CollaborationMemberSpecificationOutput) PaymentConfiguration() CollaborationPaymentConfigurationPtrOutput {
 	return o.ApplyT(func(v CollaborationMemberSpecification) *CollaborationPaymentConfiguration {
 		return v.PaymentConfiguration
@@ -521,6 +578,7 @@ func (o CollaborationMemberSpecificationArrayOutput) Index(i pulumi.IntInput) Co
 }
 
 type CollaborationPaymentConfiguration struct {
+	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 	QueryCompute CollaborationQueryComputePaymentConfig `pulumi:"queryCompute"`
 }
 
@@ -536,6 +594,7 @@ type CollaborationPaymentConfigurationInput interface {
 }
 
 type CollaborationPaymentConfigurationArgs struct {
+	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 	QueryCompute CollaborationQueryComputePaymentConfigInput `pulumi:"queryCompute"`
 }
 
@@ -616,6 +675,7 @@ func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigura
 	}).(CollaborationPaymentConfigurationPtrOutput)
 }
 
+// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 func (o CollaborationPaymentConfigurationOutput) QueryCompute() CollaborationQueryComputePaymentConfigOutput {
 	return o.ApplyT(func(v CollaborationPaymentConfiguration) CollaborationQueryComputePaymentConfig {
 		return v.QueryCompute
@@ -646,6 +706,7 @@ func (o CollaborationPaymentConfigurationPtrOutput) Elem() CollaborationPaymentC
 	}).(CollaborationPaymentConfigurationOutput)
 }
 
+// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 func (o CollaborationPaymentConfigurationPtrOutput) QueryCompute() CollaborationQueryComputePaymentConfigPtrOutput {
 	return o.ApplyT(func(v *CollaborationPaymentConfiguration) *CollaborationQueryComputePaymentConfig {
 		if v == nil {
@@ -656,6 +717,11 @@ func (o CollaborationPaymentConfigurationPtrOutput) QueryCompute() Collaboration
 }
 
 type CollaborationQueryComputePaymentConfig struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -671,6 +737,11 @@ type CollaborationQueryComputePaymentConfigInput interface {
 }
 
 type CollaborationQueryComputePaymentConfigArgs struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -751,6 +822,11 @@ func (o CollaborationQueryComputePaymentConfigOutput) ToCollaborationQueryComput
 	}).(CollaborationQueryComputePaymentConfigPtrOutput)
 }
 
+// Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
 func (o CollaborationQueryComputePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationQueryComputePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -779,6 +855,11 @@ func (o CollaborationQueryComputePaymentConfigPtrOutput) Elem() CollaborationQue
 	}).(CollaborationQueryComputePaymentConfigOutput)
 }
 
+// Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
 func (o CollaborationQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationQueryComputePaymentConfig) *bool {
 		if v == nil {
@@ -789,7 +870,9 @@ func (o CollaborationQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.
 }
 
 type CollaborationTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -1000,8 +1083,10 @@ func (o ConfiguredTableAggregationConstraintArrayOutput) Index(i pulumi.IntInput
 }
 
 type ConfiguredTableAnalysisRule struct {
+	// A policy that describes the associated data usage limitations.
 	Policy ConfiguredTableAnalysisRulePolicy `pulumi:"policy"`
-	Type   ConfiguredTableAnalysisRuleType   `pulumi:"type"`
+	// The type of analysis rule.
+	Type ConfiguredTableAnalysisRuleType `pulumi:"type"`
 }
 
 // ConfiguredTableAnalysisRuleInput is an input type that accepts ConfiguredTableAnalysisRuleArgs and ConfiguredTableAnalysisRuleOutput values.
@@ -1016,8 +1101,10 @@ type ConfiguredTableAnalysisRuleInput interface {
 }
 
 type ConfiguredTableAnalysisRuleArgs struct {
+	// A policy that describes the associated data usage limitations.
 	Policy ConfiguredTableAnalysisRulePolicyInput `pulumi:"policy"`
-	Type   ConfiguredTableAnalysisRuleTypeInput   `pulumi:"type"`
+	// The type of analysis rule.
+	Type ConfiguredTableAnalysisRuleTypeInput `pulumi:"type"`
 }
 
 func (ConfiguredTableAnalysisRuleArgs) ElementType() reflect.Type {
@@ -1071,10 +1158,12 @@ func (o ConfiguredTableAnalysisRuleOutput) ToConfiguredTableAnalysisRuleOutputWi
 	return o
 }
 
+// A policy that describes the associated data usage limitations.
 func (o ConfiguredTableAnalysisRuleOutput) Policy() ConfiguredTableAnalysisRulePolicyOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRule) ConfiguredTableAnalysisRulePolicy { return v.Policy }).(ConfiguredTableAnalysisRulePolicyOutput)
 }
 
+// The type of analysis rule.
 func (o ConfiguredTableAnalysisRuleOutput) Type() ConfiguredTableAnalysisRuleTypeOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRule) ConfiguredTableAnalysisRuleType { return v.Type }).(ConfiguredTableAnalysisRuleTypeOutput)
 }
@@ -1319,6 +1408,7 @@ func (o ConfiguredTableAnalysisRuleListOutput) ListColumns() pulumi.StringArrayO
 }
 
 type ConfiguredTableAnalysisRulePolicy struct {
+	// Controls on the query specifications that can be run on a configured table.
 	V1 interface{} `pulumi:"v1"`
 }
 
@@ -1334,6 +1424,7 @@ type ConfiguredTableAnalysisRulePolicyInput interface {
 }
 
 type ConfiguredTableAnalysisRulePolicyArgs struct {
+	// Controls on the query specifications that can be run on a configured table.
 	V1 pulumi.Input `pulumi:"v1"`
 }
 
@@ -1363,6 +1454,7 @@ func (o ConfiguredTableAnalysisRulePolicyOutput) ToConfiguredTableAnalysisRulePo
 	return o
 }
 
+// Controls on the query specifications that can be run on a configured table.
 func (o ConfiguredTableAnalysisRulePolicyOutput) V1() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicy) interface{} { return v.V1 }).(pulumi.AnyOutput)
 }
@@ -1519,7 +1611,9 @@ func (o ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) Custom() Configure
 }
 
 type ConfiguredTableAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -1753,8 +1847,10 @@ func (o ConfiguredTableDifferentialPrivacyColumnArrayOutput) Index(i pulumi.IntI
 }
 
 type ConfiguredTableGlueTableReference struct {
+	// The name of the database the AWS Glue table belongs to.
 	DatabaseName string `pulumi:"databaseName"`
-	TableName    string `pulumi:"tableName"`
+	// The name of the AWS Glue table.
+	TableName string `pulumi:"tableName"`
 }
 
 // ConfiguredTableGlueTableReferenceInput is an input type that accepts ConfiguredTableGlueTableReferenceArgs and ConfiguredTableGlueTableReferenceOutput values.
@@ -1769,8 +1865,10 @@ type ConfiguredTableGlueTableReferenceInput interface {
 }
 
 type ConfiguredTableGlueTableReferenceArgs struct {
+	// The name of the database the AWS Glue table belongs to.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	TableName    pulumi.StringInput `pulumi:"tableName"`
+	// The name of the AWS Glue table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (ConfiguredTableGlueTableReferenceArgs) ElementType() reflect.Type {
@@ -1799,15 +1897,18 @@ func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableRefer
 	return o
 }
 
+// The name of the database the AWS Glue table belongs to.
 func (o ConfiguredTableGlueTableReferenceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableGlueTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the AWS Glue table.
 func (o ConfiguredTableGlueTableReferenceOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableGlueTableReference) string { return v.TableName }).(pulumi.StringOutput)
 }
 
 type ConfiguredTableTableReference struct {
+	// If present, a reference to the AWS Glue table referred to by this table reference.
 	Glue ConfiguredTableGlueTableReference `pulumi:"glue"`
 }
 
@@ -1823,6 +1924,7 @@ type ConfiguredTableTableReferenceInput interface {
 }
 
 type ConfiguredTableTableReferenceArgs struct {
+	// If present, a reference to the AWS Glue table referred to by this table reference.
 	Glue ConfiguredTableGlueTableReferenceInput `pulumi:"glue"`
 }
 
@@ -1852,16 +1954,20 @@ func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutp
 	return o
 }
 
+// If present, a reference to the AWS Glue table referred to by this table reference.
 func (o ConfiguredTableTableReferenceOutput) Glue() ConfiguredTableGlueTableReferenceOutput {
 	return o.ApplyT(func(v ConfiguredTableTableReference) ConfiguredTableGlueTableReference { return v.Glue }).(ConfiguredTableGlueTableReferenceOutput)
 }
 
 type ConfiguredTableTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
 type MembershipPaymentConfiguration struct {
+	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfig `pulumi:"queryCompute"`
 }
 
@@ -1877,6 +1983,7 @@ type MembershipPaymentConfigurationInput interface {
 }
 
 type MembershipPaymentConfigurationArgs struct {
+	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfigInput `pulumi:"queryCompute"`
 }
 
@@ -1957,6 +2064,7 @@ func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPt
 	}).(MembershipPaymentConfigurationPtrOutput)
 }
 
+// The payment responsibilities accepted by the collaboration member for query compute costs.
 func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipQueryComputePaymentConfigOutput {
 	return o.ApplyT(func(v MembershipPaymentConfiguration) MembershipQueryComputePaymentConfig { return v.QueryCompute }).(MembershipQueryComputePaymentConfigOutput)
 }
@@ -1985,6 +2093,7 @@ func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigu
 	}).(MembershipPaymentConfigurationOutput)
 }
 
+// The payment responsibilities accepted by the collaboration member for query compute costs.
 func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryComputePaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipQueryComputePaymentConfig {
 		if v == nil {
@@ -1995,6 +2104,7 @@ func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryC
 }
 
 type MembershipProtectedQueryOutputConfiguration struct {
+	// Required configuration for a protected query with an `S3` output type.
 	S3 MembershipProtectedQueryS3OutputConfiguration `pulumi:"s3"`
 }
 
@@ -2010,6 +2120,7 @@ type MembershipProtectedQueryOutputConfigurationInput interface {
 }
 
 type MembershipProtectedQueryOutputConfigurationArgs struct {
+	// Required configuration for a protected query with an `S3` output type.
 	S3 MembershipProtectedQueryS3OutputConfigurationInput `pulumi:"s3"`
 }
 
@@ -2090,6 +2201,7 @@ func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
 }
 
+// Required configuration for a protected query with an `S3` output type.
 func (o MembershipProtectedQueryOutputConfigurationOutput) S3() MembershipProtectedQueryS3OutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryOutputConfiguration) MembershipProtectedQueryS3OutputConfiguration {
 		return v.S3
@@ -2120,6 +2232,7 @@ func (o MembershipProtectedQueryOutputConfigurationPtrOutput) Elem() MembershipP
 	}).(MembershipProtectedQueryOutputConfigurationOutput)
 }
 
+// Required configuration for a protected query with an `S3` output type.
 func (o MembershipProtectedQueryOutputConfigurationPtrOutput) S3() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryOutputConfiguration) *MembershipProtectedQueryS3OutputConfiguration {
 		if v == nil {
@@ -2130,8 +2243,10 @@ func (o MembershipProtectedQueryOutputConfigurationPtrOutput) S3() MembershipPro
 }
 
 type MembershipProtectedQueryResultConfiguration struct {
+	// Configuration for protected query results.
 	OutputConfiguration MembershipProtectedQueryOutputConfiguration `pulumi:"outputConfiguration"`
-	RoleArn             *string                                     `pulumi:"roleArn"`
+	// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // MembershipProtectedQueryResultConfigurationInput is an input type that accepts MembershipProtectedQueryResultConfigurationArgs and MembershipProtectedQueryResultConfigurationOutput values.
@@ -2146,8 +2261,10 @@ type MembershipProtectedQueryResultConfigurationInput interface {
 }
 
 type MembershipProtectedQueryResultConfigurationArgs struct {
+	// Configuration for protected query results.
 	OutputConfiguration MembershipProtectedQueryOutputConfigurationInput `pulumi:"outputConfiguration"`
-	RoleArn             pulumi.StringPtrInput                            `pulumi:"roleArn"`
+	// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (MembershipProtectedQueryResultConfigurationArgs) ElementType() reflect.Type {
@@ -2227,12 +2344,14 @@ func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
+// Configuration for protected query results.
 func (o MembershipProtectedQueryResultConfigurationOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryResultConfiguration) MembershipProtectedQueryOutputConfiguration {
 		return v.OutputConfiguration
 	}).(MembershipProtectedQueryOutputConfigurationOutput)
 }
 
+// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
 func (o MembershipProtectedQueryResultConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryResultConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2261,6 +2380,7 @@ func (o MembershipProtectedQueryResultConfigurationPtrOutput) Elem() MembershipP
 	}).(MembershipProtectedQueryResultConfigurationOutput)
 }
 
+// Configuration for protected query results.
 func (o MembershipProtectedQueryResultConfigurationPtrOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryResultConfiguration) *MembershipProtectedQueryOutputConfiguration {
 		if v == nil {
@@ -2270,6 +2390,7 @@ func (o MembershipProtectedQueryResultConfigurationPtrOutput) OutputConfiguratio
 	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
 }
 
+// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
 func (o MembershipProtectedQueryResultConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryResultConfiguration) *string {
 		if v == nil {
@@ -2280,8 +2401,11 @@ func (o MembershipProtectedQueryResultConfigurationPtrOutput) RoleArn() pulumi.S
 }
 
 type MembershipProtectedQueryS3OutputConfiguration struct {
-	Bucket       string                 `pulumi:"bucket"`
-	KeyPrefix    *string                `pulumi:"keyPrefix"`
+	// The S3 bucket to unload the protected query results.
+	Bucket string `pulumi:"bucket"`
+	// The S3 prefix to unload the protected query results.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+	// Intended file format of the result.
 	ResultFormat MembershipResultFormat `pulumi:"resultFormat"`
 }
 
@@ -2297,8 +2421,11 @@ type MembershipProtectedQueryS3OutputConfigurationInput interface {
 }
 
 type MembershipProtectedQueryS3OutputConfigurationArgs struct {
-	Bucket       pulumi.StringInput          `pulumi:"bucket"`
-	KeyPrefix    pulumi.StringPtrInput       `pulumi:"keyPrefix"`
+	// The S3 bucket to unload the protected query results.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 prefix to unload the protected query results.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	// Intended file format of the result.
 	ResultFormat MembershipResultFormatInput `pulumi:"resultFormat"`
 }
 
@@ -2379,14 +2506,17 @@ func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToMembershipProtect
 	}).(MembershipProtectedQueryS3OutputConfigurationPtrOutput)
 }
 
+// The S3 bucket to unload the protected query results.
 func (o MembershipProtectedQueryS3OutputConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The S3 prefix to unload the protected query results.
 func (o MembershipProtectedQueryS3OutputConfigurationOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// Intended file format of the result.
 func (o MembershipProtectedQueryS3OutputConfigurationOutput) ResultFormat() MembershipResultFormatOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) MembershipResultFormat { return v.ResultFormat }).(MembershipResultFormatOutput)
 }
@@ -2415,6 +2545,7 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) Elem() Membershi
 	}).(MembershipProtectedQueryS3OutputConfigurationOutput)
 }
 
+// The S3 bucket to unload the protected query results.
 func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *string {
 		if v == nil {
@@ -2424,6 +2555,7 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) Bucket() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 prefix to unload the protected query results.
 func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *string {
 		if v == nil {
@@ -2433,6 +2565,7 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) KeyPrefix() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Intended file format of the result.
 func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ResultFormat() MembershipResultFormatPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *MembershipResultFormat {
 		if v == nil {
@@ -2443,6 +2576,14 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ResultFormat() M
 }
 
 type MembershipQueryComputePaymentConfig struct {
+	// Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+	//
+	// If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -2458,6 +2599,14 @@ type MembershipQueryComputePaymentConfigInput interface {
 }
 
 type MembershipQueryComputePaymentConfigArgs struct {
+	// Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+	//
+	// If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -2538,6 +2687,14 @@ func (o MembershipQueryComputePaymentConfigOutput) ToMembershipQueryComputePayme
 	}).(MembershipQueryComputePaymentConfigPtrOutput)
 }
 
+// Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+//
+// If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
 func (o MembershipQueryComputePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v MembershipQueryComputePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -2566,6 +2723,14 @@ func (o MembershipQueryComputePaymentConfigPtrOutput) Elem() MembershipQueryComp
 	}).(MembershipQueryComputePaymentConfigOutput)
 }
 
+// Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+//
+// If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
 func (o MembershipQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MembershipQueryComputePaymentConfig) *bool {
 		if v == nil {
@@ -2576,12 +2741,17 @@ func (o MembershipQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.Boo
 }
 
 type MembershipTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
+// Specifies the epislon and noise parameters for the privacy budget template.
 type ParametersProperties struct {
-	Epsilon            int `pulumi:"epsilon"`
+	// The epsilon value that you want to use.
+	Epsilon int `pulumi:"epsilon"`
+	// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
 	UsersNoisePerQuery int `pulumi:"usersNoisePerQuery"`
 }
 
@@ -2596,8 +2766,11 @@ type ParametersPropertiesInput interface {
 	ToParametersPropertiesOutputWithContext(context.Context) ParametersPropertiesOutput
 }
 
+// Specifies the epislon and noise parameters for the privacy budget template.
 type ParametersPropertiesArgs struct {
-	Epsilon            pulumi.IntInput `pulumi:"epsilon"`
+	// The epsilon value that you want to use.
+	Epsilon pulumi.IntInput `pulumi:"epsilon"`
+	// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
 	UsersNoisePerQuery pulumi.IntInput `pulumi:"usersNoisePerQuery"`
 }
 
@@ -2613,6 +2786,7 @@ func (i ParametersPropertiesArgs) ToParametersPropertiesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParametersPropertiesOutput)
 }
 
+// Specifies the epislon and noise parameters for the privacy budget template.
 type ParametersPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ParametersPropertiesOutput) ElementType() reflect.Type {
@@ -2627,10 +2801,12 @@ func (o ParametersPropertiesOutput) ToParametersPropertiesOutputWithContext(ctx 
 	return o
 }
 
+// The epsilon value that you want to use.
 func (o ParametersPropertiesOutput) Epsilon() pulumi.IntOutput {
 	return o.ApplyT(func(v ParametersProperties) int { return v.Epsilon }).(pulumi.IntOutput)
 }
 
+// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
 func (o ParametersPropertiesOutput) UsersNoisePerQuery() pulumi.IntOutput {
 	return o.ApplyT(func(v ParametersProperties) int { return v.UsersNoisePerQuery }).(pulumi.IntOutput)
 }
@@ -2659,6 +2835,7 @@ func (o ParametersPropertiesPtrOutput) Elem() ParametersPropertiesOutput {
 	}).(ParametersPropertiesOutput)
 }
 
+// The epsilon value that you want to use.
 func (o ParametersPropertiesPtrOutput) Epsilon() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ParametersProperties) *int {
 		if v == nil {
@@ -2668,6 +2845,7 @@ func (o ParametersPropertiesPtrOutput) Epsilon() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
 func (o ParametersPropertiesPtrOutput) UsersNoisePerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ParametersProperties) *int {
 		if v == nil {
@@ -2678,7 +2856,13 @@ func (o ParametersPropertiesPtrOutput) UsersNoisePerQuery() pulumi.IntPtrOutput 
 }
 
 type PrivacyBudgetTemplateTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with `aws:` . digits, whitespace, `_` , `.` , `:` , `/` , `=` , `+` , `@` , `-` , and `"` .
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_` , `.` , `/` , `=` , `+` , and `-` .
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Value string `pulumi:"value"`
 }
 

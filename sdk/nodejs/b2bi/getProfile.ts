@@ -23,15 +23,36 @@ export interface GetProfileArgs {
 }
 
 export interface GetProfileResult {
+    /**
+     * Returns the name for the business associated with this profile.
+     */
     readonly businessName?: string;
+    /**
+     * Returns the timestamp for creation date and time of the profile.
+     */
     readonly createdAt?: string;
     readonly email?: string;
+    /**
+     * Returns the name of the logging group.
+     */
     readonly logGroupName?: string;
+    /**
+     * Returns the timestamp that identifies the most recent date and time that the profile was modified.
+     */
     readonly modifiedAt?: string;
+    /**
+     * Returns the display name for profile.
+     */
     readonly name?: string;
     readonly phone?: string;
+    /**
+     * Returns an Amazon Resource Name (ARN) for the profile.
+     */
     readonly profileArn?: string;
     readonly profileId?: string;
+    /**
+     * A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

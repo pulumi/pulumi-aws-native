@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TopicNumericRangeFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An aggregation function that specifies how to calculate the value of a numeric field for a topic, Valid values for this structure are `NO_AGGREGATION` , `SUM` , `AVERAGE` , `COUNT` , `DISTINCT_COUNT` , `MAX` , `MEDIAN` , `MIN` , `STDEV` , `STDEVP` , `VAR` , and `VARP` .
+        /// </summary>
         [Input("aggregation")]
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedFilterAggType>? Aggregation { get; set; }
 
+        /// <summary>
+        /// The constant used in a numeric range filter.
+        /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicRangeFilterConstantArgs>? Constant { get; set; }
 
+        /// <summary>
+        /// A Boolean value that indicates whether the endpoints of the numeric range are included in the filter. If set to true, topics whose numeric field value is equal to the endpoint values will be included in the filter. If set to false, topics whose numeric field value is equal to the endpoint values will be excluded from the filter.
+        /// </summary>
         [Input("inclusive")]
         public Input<bool>? Inclusive { get; set; }
 

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class UserProficiencyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+        /// </summary>
         [Input("attributeValue", required: true)]
         public Input<string> AttributeValue { get; set; } = null!;
 
+        /// <summary>
+        /// The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+        /// </summary>
         [Input("level", required: true)]
         public Input<double> Level { get; set; } = null!;
 

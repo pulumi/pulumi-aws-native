@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Ssm
     [OutputType]
     public sealed class GetPatchBaselineResult
     {
+        /// <summary>
+        /// A set of rules used to include patches in the baseline.
+        /// </summary>
         public readonly Outputs.PatchBaselineRuleGroup? ApprovalRules;
         /// <summary>
         /// A list of explicitly approved patches for the baseline.

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetModelPackageArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model package.
+        /// </summary>
         [Input("modelPackageArn", required: true)]
         public string ModelPackageArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetModelPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model package.
+        /// </summary>
         [Input("modelPackageArn", required: true)]
         public Input<string> ModelPackageArn { get; set; } = null!;
 
@@ -51,18 +57,67 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetModelPackageResult
     {
+        /// <summary>
+        /// An array of additional Inference Specification objects.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ModelPackageAdditionalInferenceSpecificationDefinition> AdditionalInferenceSpecifications;
+        /// <summary>
+        /// A description provided when the model approval is set.
+        /// </summary>
         public readonly string? ApprovalDescription;
+        /// <summary>
+        /// Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html) .
+        /// </summary>
         public readonly bool? CertifyForMarketplace;
+        /// <summary>
+        /// The time that the model package was created.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The metadata properties for the model package.
+        /// </summary>
         public readonly Outputs.ModelPackageCustomerMetadataProperties? CustomerMetadataProperties;
+        /// <summary>
+        /// The last time the model package was modified.
+        /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// The approval status of the model. This can be one of the following values.
+        /// 
+        /// - `APPROVED` - The model is approved
+        /// - `REJECTED` - The model is rejected.
+        /// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus? ModelApprovalStatus;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model package.
+        /// </summary>
         public readonly string? ModelPackageArn;
+        /// <summary>
+        /// The name of the model.
+        /// </summary>
         public readonly string? ModelPackageName;
+        /// <summary>
+        /// The status of the model package. This can be one of the following values.
+        /// 
+        /// - `PENDING` - The model package creation is pending.
+        /// - `IN_PROGRESS` - The model package is in the process of being created.
+        /// - `COMPLETED` - The model package was successfully created.
+        /// - `FAILED` - The model package creation failed.
+        /// - `DELETING` - The model package is in the process of being deleted.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageStatus? ModelPackageStatus;
+        /// <summary>
+        /// Specifies the validation and image scan statuses of the model package.
+        /// </summary>
         public readonly Outputs.ModelPackageStatusDetails? ModelPackageStatusDetails;
+        /// <summary>
+        /// The version number of a versioned model.
+        /// </summary>
         public readonly int? ModelPackageVersion;
+        /// <summary>
+        /// Indicates if you want to skip model validation.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ModelPackageSkipModelValidation? SkipModelValidation;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

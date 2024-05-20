@@ -15,33 +15,63 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAccessScopeAnalysis")]
     public partial class NetworkInsightsAccessScopeAnalysis : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The number of network interfaces analyzed.
+        /// </summary>
         [Output("analyzedEniCount")]
         public Output<int> AnalyzedEniCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The end date of the analysis.
+        /// </summary>
         [Output("endDate")]
         public Output<string> EndDate { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether there are findings (true | false | unknown).
+        /// </summary>
         [Output("findingsFound")]
         public Output<Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeAnalysisFindingsFound> FindingsFound { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the Network Access Scope analysis.
+        /// </summary>
         [Output("networkInsightsAccessScopeAnalysisArn")]
         public Output<string> NetworkInsightsAccessScopeAnalysisArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Network Access Scope analysis.
+        /// </summary>
         [Output("networkInsightsAccessScopeAnalysisId")]
         public Output<string> NetworkInsightsAccessScopeAnalysisId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Network Access Scope.
+        /// </summary>
         [Output("networkInsightsAccessScopeId")]
         public Output<string> NetworkInsightsAccessScopeId { get; private set; } = null!;
 
+        /// <summary>
+        /// The start date of the analysis.
+        /// </summary>
         [Output("startDate")]
         public Output<string> StartDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the analysis (running | succeeded | failed).
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Ec2.NetworkInsightsAccessScopeAnalysisStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The status message.
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -94,11 +124,18 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class NetworkInsightsAccessScopeAnalysisArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Network Access Scope.
+        /// </summary>
         [Input("networkInsightsAccessScopeId", required: true)]
         public Input<string> NetworkInsightsAccessScopeId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

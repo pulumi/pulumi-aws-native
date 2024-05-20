@@ -37,21 +37,35 @@ class GetEc2FleetResult:
     @property
     @pulumi.getter
     def context(self) -> Optional[str]:
+        """
+        Reserved.
+        """
         return pulumi.get(self, "context")
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> Optional['Ec2FleetExcessCapacityTerminationPolicy']:
+        """
+        Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+
+        Supported only for fleets of type `maintain` .
+        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> Optional[str]:
+        """
+        The ID of the EC2 Fleet.
+        """
         return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> Optional['outputs.Ec2FleetTargetCapacitySpecificationRequest']:
+        """
+        The number of units to request.
+        """
         return pulumi.get(self, "target_capacity_specification")
 
 
@@ -71,6 +85,9 @@ def get_ec2_fleet(fleet_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEc2FleetResult:
     """
     Resource Type definition for AWS::EC2::EC2Fleet
+
+
+    :param str fleet_id: The ID of the EC2 Fleet.
     """
     __args__ = dict()
     __args__['fleetId'] = fleet_id
@@ -89,5 +106,8 @@ def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEc2FleetResult]:
     """
     Resource Type definition for AWS::EC2::EC2Fleet
+
+
+    :param str fleet_id: The ID of the EC2 Fleet.
     """
     ...

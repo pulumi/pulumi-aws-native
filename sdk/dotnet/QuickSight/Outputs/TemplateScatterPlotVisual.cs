@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateScatterPlotVisual
     {
+        /// <summary>
+        /// The list of custom actions that are configured for a visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateVisualCustomAction> Actions;
+        /// <summary>
+        /// The configuration settings of the visual.
+        /// </summary>
         public readonly Outputs.TemplateScatterPlotConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The column hierarchy that is used during drill-downs and drill-ups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnHierarchy> ColumnHierarchies;
+        /// <summary>
+        /// The subtitle that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualSubtitleLabelOptions? Subtitle;
+        /// <summary>
+        /// The title that is displayed on the visual.
+        /// </summary>
         public readonly Outputs.TemplateVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

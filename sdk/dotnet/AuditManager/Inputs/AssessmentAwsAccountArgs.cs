@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
     /// </summary>
     public sealed class AssessmentAwsAccountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The email address that's associated with the AWS account .
+        /// </summary>
         [Input("emailAddress")]
         public Input<string>? EmailAddress { get; set; }
 
+        /// <summary>
+        /// The identifier for the AWS account .
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The name of the AWS account .
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

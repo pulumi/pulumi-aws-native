@@ -76,7 +76,13 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    /**
+     * The parallelism configuration applied to the pipeline.
+     */
     public readonly parallelismConfiguration!: pulumi.Output<outputs.sagemaker.ParallelismConfigurationProperties | undefined>;
+    /**
+     * The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+     */
     public readonly pipelineDefinition!: pulumi.Output<outputs.sagemaker.PipelineDefinition0Properties | outputs.sagemaker.PipelineDefinition1Properties>;
     /**
      * The description of the Pipeline.
@@ -94,6 +100,9 @@ export class Pipeline extends pulumi.CustomResource {
      * Role Arn
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The tags of the pipeline.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -140,7 +149,13 @@ export class Pipeline extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * The parallelism configuration applied to the pipeline.
+     */
     parallelismConfiguration?: pulumi.Input<inputs.sagemaker.ParallelismConfigurationPropertiesArgs>;
+    /**
+     * The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+     */
     pipelineDefinition: pulumi.Input<inputs.sagemaker.PipelineDefinition0PropertiesArgs | inputs.sagemaker.PipelineDefinition1PropertiesArgs>;
     /**
      * The description of the Pipeline.
@@ -158,5 +173,8 @@ export interface PipelineArgs {
      * Role Arn
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * The tags of the pipeline.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

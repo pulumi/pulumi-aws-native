@@ -21,6 +21,9 @@ class BotVersionArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BotVersion resource.
+        :param pulumi.Input[str] bot_id: The unique identifier of the bot.
+        :param pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]] bot_version_locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        :param pulumi.Input[str] description: The description of the version.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version_locale_specification", bot_version_locale_specification)
@@ -30,6 +33,9 @@ class BotVersionArgs:
     @property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the bot.
+        """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
@@ -39,6 +45,9 @@ class BotVersionArgs:
     @property
     @pulumi.getter(name="botVersionLocaleSpecification")
     def bot_version_locale_specification(self) -> pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]]:
+        """
+        Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        """
         return pulumi.get(self, "bot_version_locale_specification")
 
     @bot_version_locale_specification.setter
@@ -48,6 +57,9 @@ class BotVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -69,6 +81,9 @@ class BotVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] bot_id: The unique identifier of the bot.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotVersionLocaleSpecificationArgs']]]] bot_version_locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        :param pulumi.Input[str] description: The description of the version.
         """
         ...
     @overload
@@ -147,20 +162,32 @@ class BotVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="botId")
     def bot_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the bot.
+        """
         return pulumi.get(self, "bot_id")
 
     @property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[str]:
+        """
+        The version of the bot.
+        """
         return pulumi.get(self, "bot_version")
 
     @property
     @pulumi.getter(name="botVersionLocaleSpecification")
     def bot_version_locale_specification(self) -> pulumi.Output[Sequence['outputs.BotVersionLocaleSpecification']]:
+        """
+        Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        """
         return pulumi.get(self, "bot_version_locale_specification")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the version.
+        """
         return pulumi.get(self, "description")
 

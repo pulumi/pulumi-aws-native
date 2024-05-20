@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Input("connectorArn", required: true)]
         public string ConnectorArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Input("connectorArn", required: true)]
         public Input<string> ConnectorArn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [OutputType]
     public sealed class GetConnectorResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         public readonly string? ConnectorArn;
 
         [OutputConstructor]

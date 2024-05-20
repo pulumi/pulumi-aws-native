@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTableStyleTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cell type of the table style target.
+        /// </summary>
         [Input("cellType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisStyledCellType> CellType { get; set; } = null!;
 

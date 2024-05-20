@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.Ses
     public sealed class GetTemplateResult
     {
         public readonly string? Id;
+        /// <summary>
+        /// The content of the email, composed of a subject line and either an HTML part or a text-only part.
+        /// </summary>
         public readonly Outputs.Template? TemplateValue;
 
         [OutputConstructor]

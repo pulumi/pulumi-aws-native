@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.PcaConnectorAd.Inputs
 
     public sealed class TemplateGroupAccessControlEntryAccessRightsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Allow or deny an Active Directory group from autoenrolling certificates issued against a template. The Active Directory group must be allowed to enroll to allow autoenrollment
+        /// </summary>
         [Input("autoEnroll")]
         public Input<Pulumi.AwsNative.PcaConnectorAd.TemplateGroupAccessControlEntryAccessRight>? AutoEnroll { get; set; }
 
+        /// <summary>
+        /// Allow or deny an Active Directory group from enrolling certificates issued against a template.
+        /// </summary>
         [Input("enroll")]
         public Input<Pulumi.AwsNative.PcaConnectorAd.TemplateGroupAccessControlEntryAccessRight>? Enroll { get; set; }
 

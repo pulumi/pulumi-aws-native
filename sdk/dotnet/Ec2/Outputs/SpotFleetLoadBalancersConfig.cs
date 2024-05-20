@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetLoadBalancersConfig
     {
+        /// <summary>
+        /// The Classic Load Balancers.
+        /// </summary>
         public readonly Outputs.SpotFleetClassicLoadBalancersConfig? ClassicLoadBalancersConfig;
+        /// <summary>
+        /// The target groups.
+        /// </summary>
         public readonly Outputs.SpotFleetTargetGroupsConfig? TargetGroupsConfig;
 
         [OutputConstructor]

@@ -15,51 +15,116 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Availability Zone in which to create the Capacity Reservation.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the remaining capacity, which indicates the number of instances that can be launched in the Capacity Reservation. For example: `9` .
+        /// </summary>
         [Output("availableInstanceCount")]
         public Output<int> AvailableInstanceCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Capacity Reservation.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+        /// </summary>
         [Output("ebsOptimized")]
         public Output<bool?> EbsOptimized { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+        /// 
+        /// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+        /// 
+        /// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+        /// </summary>
         [Output("endDate")]
         public Output<string?> EndDate { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+        /// 
+        /// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+        /// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+        /// </summary>
         [Output("endDateType")]
         public Output<string?> EndDateType { get; private set; } = null!;
 
+        /// <summary>
+        /// *Deprecated.*
+        /// </summary>
         [Output("ephemeralStorage")]
         public Output<bool?> EphemeralStorage { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of instances for which to reserve capacity.
+        /// 
+        /// Valid range: 1 - 1000
+        /// </summary>
         [Output("instanceCount")]
         public Output<int> InstanceCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+        /// 
+        /// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+        /// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+        /// 
+        /// Default: `open`
+        /// </summary>
         [Output("instanceMatchCriteria")]
         public Output<string?> InstanceMatchCriteria { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of operating system for which to reserve capacity.
+        /// </summary>
         [Output("instancePlatform")]
         public Output<string> InstancePlatform { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </summary>
         [Output("outPostArn")]
         public Output<string?> OutPostArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         [Output("placementGroupArn")]
         public Output<string?> PlacementGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to apply to the Capacity Reservation during launch.
+        /// </summary>
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.CapacityReservationTagSpecification>> TagSpecifications { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+        /// 
+        /// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+        /// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+        /// </summary>
         [Output("tenancy")]
         public Output<string?> Tenancy { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
+        /// </summary>
         [Output("totalInstanceCount")]
         public Output<int> TotalInstanceCount { get; private set; } = null!;
 
@@ -121,47 +186,104 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Availability Zone in which to create the Capacity Reservation.
+        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+        /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
+        /// <summary>
+        /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
+        /// 
+        /// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
+        /// 
+        /// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
+        /// <summary>
+        /// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+        /// 
+        /// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
+        /// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
+        /// </summary>
         [Input("endDateType")]
         public Input<string>? EndDateType { get; set; }
 
+        /// <summary>
+        /// *Deprecated.*
+        /// </summary>
         [Input("ephemeralStorage")]
         public Input<bool>? EphemeralStorage { get; set; }
 
+        /// <summary>
+        /// The number of instances for which to reserve capacity.
+        /// 
+        /// Valid range: 1 - 1000
+        /// </summary>
         [Input("instanceCount", required: true)]
         public Input<int> InstanceCount { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+        /// 
+        /// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
+        /// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+        /// 
+        /// Default: `open`
+        /// </summary>
         [Input("instanceMatchCriteria")]
         public Input<string>? InstanceMatchCriteria { get; set; }
 
+        /// <summary>
+        /// The type of operating system for which to reserve capacity.
+        /// </summary>
         [Input("instancePlatform", required: true)]
         public Input<string> InstancePlatform { get; set; } = null!;
 
+        /// <summary>
+        /// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </summary>
         [Input("outPostArn")]
         public Input<string>? OutPostArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
+        /// </summary>
         [Input("placementGroupArn")]
         public Input<string>? PlacementGroupArn { get; set; }
 
         [Input("tagSpecifications")]
         private InputList<Inputs.CapacityReservationTagSpecificationArgs>? _tagSpecifications;
+
+        /// <summary>
+        /// The tags to apply to the Capacity Reservation during launch.
+        /// </summary>
         public InputList<Inputs.CapacityReservationTagSpecificationArgs> TagSpecifications
         {
             get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.CapacityReservationTagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
 
+        /// <summary>
+        /// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+        /// 
+        /// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
+        /// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+        /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 

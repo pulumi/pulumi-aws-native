@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DashboardVisualPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines if hidden fields are included in an exported dashboard.
+        /// </summary>
         [Input("exportHiddenFieldsOption")]
         public Input<Inputs.DashboardExportHiddenFieldsOptionArgs>? ExportHiddenFieldsOption { get; set; }
 

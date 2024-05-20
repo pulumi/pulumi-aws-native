@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardRowAlternateColorOptions
     {
+        /// <summary>
+        /// Determines the list of row alternate colors.
+        /// </summary>
         public readonly ImmutableArray<string> RowAlternateColors;
+        /// <summary>
+        /// Determines the widget status.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardWidgetStatus? Status;
+        /// <summary>
+        /// The primary background color options for alternate rows.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardWidgetStatus? UsePrimaryBackgroundColor;
 
         [OutputConstructor]

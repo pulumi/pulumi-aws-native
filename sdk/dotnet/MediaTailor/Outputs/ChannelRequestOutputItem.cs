@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
     [OutputType]
     public sealed class ChannelRequestOutputItem
     {
+        /// <summary>
+        /// DASH manifest configuration parameters.
+        /// </summary>
         public readonly Outputs.ChannelDashPlaylistSettings? DashPlaylistSettings;
+        /// <summary>
+        /// HLS playlist configuration parameters.
+        /// </summary>
         public readonly Outputs.ChannelHlsPlaylistSettings? HlsPlaylistSettings;
         /// <summary>
         /// &lt;p&gt;The name of the manifest for the channel. The name appears in the &lt;code&gt;PlaybackUrl&lt;/code&gt;.&lt;/p&gt;

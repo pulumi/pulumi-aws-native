@@ -19,6 +19,8 @@ class UserPoolUserToGroupAttachmentArgs:
                  username: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserPoolUserToGroupAttachment resource.
+        :param pulumi.Input[str] group_name: The name of the group that you want to add your user to.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -27,6 +29,9 @@ class UserPoolUserToGroupAttachmentArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the group that you want to add your user to.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -36,6 +41,9 @@ class UserPoolUserToGroupAttachmentArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -66,6 +74,8 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_name: The name of the group that you want to add your user to.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
         ...
     @overload
@@ -144,11 +154,17 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the group that you want to add your user to.
+        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @property

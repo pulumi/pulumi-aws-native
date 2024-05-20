@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class InferenceExperimentModelVariantConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for the infrastructure that the model will be deployed to.
+        /// </summary>
         [Input("infrastructureConfig", required: true)]
         public Input<Inputs.InferenceExperimentModelInfrastructureConfigArgs> InfrastructureConfig { get; set; } = null!;
 

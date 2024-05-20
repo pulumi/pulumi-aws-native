@@ -21,9 +21,13 @@ type ScheduleGroup struct {
 	// The time at which the schedule group was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The time at which the schedule group was last modified.
-	LastModificationDate pulumi.StringOutput          `pulumi:"lastModificationDate"`
-	Name                 pulumi.StringPtrOutput       `pulumi:"name"`
-	State                ScheduleGroupStateEnumOutput `pulumi:"state"`
+	LastModificationDate pulumi.StringOutput `pulumi:"lastModificationDate"`
+	// The name of the schedule group.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Specifies the state of the schedule group.
+	//
+	// *Allowed Values* : `ACTIVE` | `DELETING`
+	State ScheduleGroupStateEnumOutput `pulumi:"state"`
 	// The list of tags to associate with the schedule group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -72,6 +76,7 @@ func (ScheduleGroupState) ElementType() reflect.Type {
 }
 
 type scheduleGroupArgs struct {
+	// The name of the schedule group.
 	Name *string `pulumi:"name"`
 	// The list of tags to associate with the schedule group.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -79,6 +84,7 @@ type scheduleGroupArgs struct {
 
 // The set of arguments for constructing a ScheduleGroup resource.
 type ScheduleGroupArgs struct {
+	// The name of the schedule group.
 	Name pulumi.StringPtrInput
 	// The list of tags to associate with the schedule group.
 	Tags aws.TagArrayInput
@@ -136,10 +142,14 @@ func (o ScheduleGroupOutput) LastModificationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringOutput { return v.LastModificationDate }).(pulumi.StringOutput)
 }
 
+// The name of the schedule group.
 func (o ScheduleGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the state of the schedule group.
+//
+// *Allowed Values* : `ACTIVE` | `DELETING`
 func (o ScheduleGroupOutput) State() ScheduleGroupStateEnumOutput {
 	return o.ApplyT(func(v *ScheduleGroup) ScheduleGroupStateEnumOutput { return v.State }).(ScheduleGroupStateEnumOutput)
 }

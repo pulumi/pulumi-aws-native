@@ -52,21 +52,33 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="healthCheckConfiguration")
     def health_check_configuration(self) -> Optional['outputs.ServiceHealthCheckConfiguration']:
+        """
+        The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
+        """
         return pulumi.get(self, "health_check_configuration")
 
     @property
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> Optional['outputs.ServiceInstanceConfiguration']:
+        """
+        The runtime configuration of instances (scaling units) of your service.
+        """
         return pulumi.get(self, "instance_configuration")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional['outputs.ServiceNetworkConfiguration']:
+        """
+        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="observabilityConfiguration")
     def observability_configuration(self) -> Optional['outputs.ServiceObservabilityConfiguration']:
+        """
+        The observability configuration of your service.
+        """
         return pulumi.get(self, "observability_configuration")
 
     @property
@@ -96,6 +108,9 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional['outputs.ServiceSourceConfiguration']:
+        """
+        The source to deploy to the App Runner service. It can be a code or an image repository.
+        """
         return pulumi.get(self, "source_configuration")
 
     @property

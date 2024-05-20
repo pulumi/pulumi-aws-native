@@ -19,6 +19,13 @@ class StateMachineVersionArgs:
                  state_machine_revision_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StateMachineVersion resource.
+        :param pulumi.Input[str] state_machine_arn: The Amazon Resource Name (ARN) of the state machine.
+        :param pulumi.Input[str] description: An optional description of the state machine version.
+        :param pulumi.Input[str] state_machine_revision_id: Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+               
+               Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+               
+               To specify the initial state machine revision, set the value as `INITIAL` .
         """
         pulumi.set(__self__, "state_machine_arn", state_machine_arn)
         if description is not None:
@@ -29,6 +36,9 @@ class StateMachineVersionArgs:
     @property
     @pulumi.getter(name="stateMachineArn")
     def state_machine_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the state machine.
+        """
         return pulumi.get(self, "state_machine_arn")
 
     @state_machine_arn.setter
@@ -38,6 +48,9 @@ class StateMachineVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the state machine version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -47,6 +60,13 @@ class StateMachineVersionArgs:
     @property
     @pulumi.getter(name="stateMachineRevisionId")
     def state_machine_revision_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+
+        Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+
+        To specify the initial state machine revision, set the value as `INITIAL` .
+        """
         return pulumi.get(self, "state_machine_revision_id")
 
     @state_machine_revision_id.setter
@@ -68,6 +88,13 @@ class StateMachineVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: An optional description of the state machine version.
+        :param pulumi.Input[str] state_machine_arn: The Amazon Resource Name (ARN) of the state machine.
+        :param pulumi.Input[str] state_machine_revision_id: Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+               
+               Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+               
+               To specify the initial state machine revision, set the value as `INITIAL` .
         """
         ...
     @overload
@@ -144,20 +171,36 @@ class StateMachineVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description of the state machine version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="stateMachineArn")
     def state_machine_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the state machine.
+        """
         return pulumi.get(self, "state_machine_arn")
 
     @property
     @pulumi.getter(name="stateMachineRevisionId")
     def state_machine_revision_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
+
+        Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.
+
+        To specify the initial state machine revision, set the value as `INITIAL` .
+        """
         return pulumi.get(self, "state_machine_revision_id")
 

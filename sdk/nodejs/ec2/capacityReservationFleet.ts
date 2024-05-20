@@ -69,15 +69,54 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityReservationFleet.__pulumiType;
     }
 
+    /**
+     * The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+     *
+     * Valid values: `prioritized`
+     */
     public readonly allocationStrategy!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the Capacity Reservation Fleet.
+     */
     public /*out*/ readonly capacityReservationFleetId!: pulumi.Output<string>;
+    /**
+     * The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+     *
+     * The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+     */
     public readonly endDate!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+     *
+     * Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+     */
     public readonly instanceMatchCriteria!: pulumi.Output<enums.ec2.CapacityReservationFleetInstanceMatchCriteria | undefined>;
+    /**
+     * Information about the instance types for which to reserve the capacity.
+     */
     public readonly instanceTypeSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationFleetInstanceTypeSpecification[] | undefined>;
+    /**
+     * Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+     */
     public readonly noRemoveEndDate!: pulumi.Output<boolean | undefined>;
+    /**
+     * Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+     */
     public readonly removeEndDate!: pulumi.Output<boolean | undefined>;
+    /**
+     * The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
+     */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationFleetTagSpecification[] | undefined>;
+    /**
+     * Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+     *
+     * - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+     * - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+     */
     public readonly tenancy!: pulumi.Output<enums.ec2.CapacityReservationFleetTenancy | undefined>;
+    /**
+     * The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+     */
     public readonly totalTargetCapacity!: pulumi.Output<number | undefined>;
 
     /**
@@ -124,13 +163,49 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
  * The set of arguments for constructing a CapacityReservationFleet resource.
  */
 export interface CapacityReservationFleetArgs {
+    /**
+     * The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
+     *
+     * Valid values: `prioritized`
+     */
     allocationStrategy?: pulumi.Input<string>;
+    /**
+     * The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
+     *
+     * The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
+     */
     endDate?: pulumi.Input<string>;
+    /**
+     * Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+     *
+     * Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
+     */
     instanceMatchCriteria?: pulumi.Input<enums.ec2.CapacityReservationFleetInstanceMatchCriteria>;
+    /**
+     * Information about the instance types for which to reserve the capacity.
+     */
     instanceTypeSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationFleetInstanceTypeSpecificationArgs>[]>;
+    /**
+     * Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+     */
     noRemoveEndDate?: pulumi.Input<boolean>;
+    /**
+     * Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
+     */
     removeEndDate?: pulumi.Input<boolean>;
+    /**
+     * The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
+     */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationFleetTagSpecificationArgs>[]>;
+    /**
+     * Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+     *
+     * - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+     * - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
+     */
     tenancy?: pulumi.Input<enums.ec2.CapacityReservationFleetTenancy>;
+    /**
+     * The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
+     */
     totalTargetCapacity?: pulumi.Input<number>;
 }

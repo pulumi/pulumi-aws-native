@@ -12,18 +12,33 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorMetricSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about an AppFlow datasource.
+        /// </summary>
         [Input("appFlowConfig")]
         public Input<Inputs.AnomalyDetectorAppFlowConfigArgs>? AppFlowConfig { get; set; }
 
+        /// <summary>
+        /// Details about an Amazon CloudWatch monitoring datasource.
+        /// </summary>
         [Input("cloudwatchConfig")]
         public Input<Inputs.AnomalyDetectorCloudwatchConfigArgs>? CloudwatchConfig { get; set; }
 
+        /// <summary>
+        /// Details about an Amazon Relational Database Service (RDS) datasource.
+        /// </summary>
         [Input("rdsSourceConfig")]
         public Input<Inputs.AnomalyDetectorRdsSourceConfigArgs>? RdsSourceConfig { get; set; }
 
+        /// <summary>
+        /// Details about an Amazon Redshift database datasource.
+        /// </summary>
         [Input("redshiftSourceConfig")]
         public Input<Inputs.AnomalyDetectorRedshiftSourceConfigArgs>? RedshiftSourceConfig { get; set; }
 
+        /// <summary>
+        /// Contains information about the configuration of the S3 bucket that contains source files.
+        /// </summary>
         [Input("s3SourceConfig")]
         public Input<Inputs.AnomalyDetectorS3SourceConfigArgs>? S3SourceConfig { get; set; }
 

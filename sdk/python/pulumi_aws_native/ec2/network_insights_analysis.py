@@ -24,6 +24,10 @@ class NetworkInsightsAnalysisArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
+        :param pulumi.Input[str] network_insights_path_id: The ID of the path.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply.
         """
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
         if additional_accounts is not None:
@@ -36,6 +40,9 @@ class NetworkInsightsAnalysisArgs:
     @property
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the path.
+        """
         return pulumi.get(self, "network_insights_path_id")
 
     @network_insights_path_id.setter
@@ -45,6 +52,9 @@ class NetworkInsightsAnalysisArgs:
     @property
     @pulumi.getter(name="additionalAccounts")
     def additional_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The member accounts that contain resources that the path can traverse.
+        """
         return pulumi.get(self, "additional_accounts")
 
     @additional_accounts.setter
@@ -54,6 +64,9 @@ class NetworkInsightsAnalysisArgs:
     @property
     @pulumi.getter(name="filterInArns")
     def filter_in_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        """
         return pulumi.get(self, "filter_in_arns")
 
     @filter_in_arns.setter
@@ -63,6 +76,9 @@ class NetworkInsightsAnalysisArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to apply.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -85,6 +101,10 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_accounts: The member accounts that contain resources that the path can traverse.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        :param pulumi.Input[str] network_insights_path_id: The ID of the path.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply.
         """
         ...
     @overload
@@ -184,75 +204,120 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="additionalAccounts")
     def additional_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The member accounts that contain resources that the path can traverse.
+        """
         return pulumi.get(self, "additional_accounts")
 
     @property
     @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]:
+        """
+        Potential intermediate components.
+        """
         return pulumi.get(self, "alternate_path_hints")
 
     @property
     @pulumi.getter
     def explanations(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
+        """
+        The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        """
         return pulumi.get(self, "explanations")
 
     @property
     @pulumi.getter(name="filterInArns")
     def filter_in_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Amazon Resource Names (ARN) of the resources that the path must traverse.
+        """
         return pulumi.get(self, "filter_in_arns")
 
     @property
     @pulumi.getter(name="forwardPathComponents")
     def forward_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
+        """
+        The components in the path from source to destination.
+        """
         return pulumi.get(self, "forward_path_components")
 
     @property
     @pulumi.getter(name="networkInsightsAnalysisArn")
     def network_insights_analysis_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the network insights analysis.
+        """
         return pulumi.get(self, "network_insights_analysis_arn")
 
     @property
     @pulumi.getter(name="networkInsightsAnalysisId")
     def network_insights_analysis_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network insights analysis.
+        """
         return pulumi.get(self, "network_insights_analysis_id")
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the path.
+        """
         return pulumi.get(self, "network_insights_path_id")
 
     @property
     @pulumi.getter(name="networkPathFound")
     def network_path_found(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether the destination is reachable from the source.
+        """
         return pulumi.get(self, "network_path_found")
 
     @property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
+        """
+        The components in the path from destination to source.
+        """
         return pulumi.get(self, "return_path_components")
 
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[str]:
+        """
+        The time the analysis started.
+        """
         return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['NetworkInsightsAnalysisStatus']:
+        """
+        The status of the network insights analysis.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        The status message, if the status is `failed` .
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="suggestedAccounts")
     def suggested_accounts(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IDs of potential intermediate accounts.
+        """
         return pulumi.get(self, "suggested_accounts")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to apply.
+        """
         return pulumi.get(self, "tags")
 

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastoreIotSiteWiseMultiLayerStorage
     {
+        /// <summary>
+        /// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
+        /// </summary>
         public readonly Outputs.DatastoreCustomerManagedS3Storage? CustomerManagedS3Storage;
 
         [OutputConstructor]

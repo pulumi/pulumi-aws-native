@@ -16,6 +16,7 @@ import (
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
+	// The provider-assigned unique ID for this managed resource.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//
@@ -126,6 +127,7 @@ func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The provider-assigned unique ID for this managed resource.
 func (o TopicPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }

@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.IoT
         /// The aggregation field to perform aggregation and metric emission
         /// </summary>
         public readonly string? AggregationField;
+        /// <summary>
+        /// The type of the aggregation query.
+        /// </summary>
         public readonly Outputs.FleetMetricAggregationType? AggregationType;
         /// <summary>
         /// The creation date of a fleet metric

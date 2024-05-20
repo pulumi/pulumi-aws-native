@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelPackageExplainabilityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The explainability report for a model.
+        /// </summary>
         [Input("report")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Report { get; set; }
 

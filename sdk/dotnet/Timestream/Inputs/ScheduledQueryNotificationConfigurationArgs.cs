@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// </summary>
     public sealed class ScheduledQueryNotificationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details on SNS configuration.
+        /// </summary>
         [Input("snsConfiguration", required: true)]
         public Input<Inputs.ScheduledQuerySnsConfigurationArgs> SnsConfiguration { get; set; } = null!;
 

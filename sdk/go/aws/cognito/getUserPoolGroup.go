@@ -23,14 +23,23 @@ func LookupUserPoolGroup(ctx *pulumi.Context, args *LookupUserPoolGroupArgs, opt
 }
 
 type LookupUserPoolGroupArgs struct {
-	GroupName  string `pulumi:"groupName"`
+	// The name of the group. Must be unique.
+	GroupName string `pulumi:"groupName"`
+	// The user pool ID for the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolGroupResult struct {
+	// A string containing the description of the group.
 	Description *string `pulumi:"description"`
-	Precedence  *int    `pulumi:"precedence"`
-	RoleArn     *string `pulumi:"roleArn"`
+	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+	//
+	// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+	//
+	// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+	Precedence *int `pulumi:"precedence"`
+	// The role Amazon Resource Name (ARN) for the group.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 func LookupUserPoolGroupOutput(ctx *pulumi.Context, args LookupUserPoolGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolGroupResultOutput {
@@ -47,7 +56,9 @@ func LookupUserPoolGroupOutput(ctx *pulumi.Context, args LookupUserPoolGroupOutp
 }
 
 type LookupUserPoolGroupOutputArgs struct {
-	GroupName  pulumi.StringInput `pulumi:"groupName"`
+	// The name of the group. Must be unique.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -69,14 +80,21 @@ func (o LookupUserPoolGroupResultOutput) ToLookupUserPoolGroupResultOutputWithCo
 	return o
 }
 
+// A string containing the description of the group.
 func (o LookupUserPoolGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+//
+// Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+//
+// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
 func (o LookupUserPoolGroupResultOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolGroupResult) *int { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
+// The role Amazon Resource Name (ARN) for the group.
 func (o LookupUserPoolGroupResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolGroupResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

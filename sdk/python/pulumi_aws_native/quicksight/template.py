@@ -30,6 +30,18 @@ class TemplateArgs:
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Template resource.
+        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        :param pulumi.Input[str] template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        :param pulumi.Input[str] name: A display name for the template.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]] permissions: A list of resource permissions to be set on the template.
+        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+               
+               Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        :param pulumi.Input['TemplateValidationStrategyArgs'] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        :param pulumi.Input[str] version_description: A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "template_id", template_id)
@@ -51,6 +63,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
+        """
+        The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -60,6 +75,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Input[str]:
+        """
+        An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
@@ -78,6 +96,9 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A display name for the template.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -87,6 +108,9 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]]:
+        """
+        A list of resource permissions to be set on the template.
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -96,6 +120,13 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
+        """
+        The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+
+        Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -105,6 +136,9 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,6 +148,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="validationStrategy")
     def validation_strategy(self) -> Optional[pulumi.Input['TemplateValidationStrategyArgs']]:
+        """
+        The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        """
         return pulumi.get(self, "validation_strategy")
 
     @validation_strategy.setter
@@ -123,6 +160,9 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+        """
         return pulumi.get(self, "version_description")
 
     @version_description.setter
@@ -150,6 +190,18 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        :param pulumi.Input[str] name: A display name for the template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]] permissions: A list of resource permissions to be set on the template.
+        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+               
+               Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        :param pulumi.Input[str] template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        :param pulumi.Input[pulumi.InputType['TemplateValidationStrategyArgs']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        :param pulumi.Input[str] version_description: A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
         """
         ...
     @overload
@@ -260,6 +312,9 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
+        """
+        The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
@@ -286,31 +341,53 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A display name for the template.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateResourcePermission']]]:
+        """
+        A list of resource permissions to be set on the template.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
+        """
+        The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+
+        Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
+        """
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Output[str]:
+        """
+        An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+        """
         return pulumi.get(self, "template_id")
 
     @property
     @pulumi.getter(name="validationStrategy")
     def validation_strategy(self) -> pulumi.Output[Optional['outputs.TemplateValidationStrategy']]:
+        """
+        The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        """
         return pulumi.get(self, "validation_strategy")
 
     @property
@@ -321,5 +398,8 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
+        """
         return pulumi.get(self, "version_description")
 

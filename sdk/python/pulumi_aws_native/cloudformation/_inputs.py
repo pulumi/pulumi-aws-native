@@ -67,6 +67,13 @@ class ManagedExecutionPropertiesArgs:
                  active: Optional[pulumi.Input[bool]] = None):
         """
         Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        :param pulumi.Input[bool] active: When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+               
+               > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+               > 
+               > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set. 
+               
+               When `false` (default), StackSets performs one operation at a time in request order.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -74,6 +81,15 @@ class ManagedExecutionPropertiesArgs:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When `true` , StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
+
+        > If there are already running or queued operations, StackSets queues all incoming operations even if they are non-conflicting.
+        > 
+        > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set. 
+
+        When `false` (default), StackSets performs one operation at a time in request order.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -242,6 +258,30 @@ class StackSetOperationPreferencesArgs:
                  region_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+        :param pulumi.Input[int] failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+               
+               Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
+        :param pulumi.Input[int] failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+               
+               When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
+               
+               Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
+        :param pulumi.Input[int] max_concurrent_count: The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
+               
+               Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+               
+               Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+        :param pulumi.Input[int] max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
+               
+               When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+               
+               Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+               
+               Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+        :param pulumi.Input['StackSetRegionConcurrencyType'] region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] region_order: The order of the Regions where you want to perform the stack operation.
+               
+               > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
         """
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
@@ -259,6 +299,11 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+
+        Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
+        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
@@ -268,6 +313,13 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+
+        When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
+
+        Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
+        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
@@ -277,6 +329,13 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
+
+        Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+
+        Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+        """
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
@@ -286,6 +345,15 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum percentage of accounts in which to perform this operation at one time.
+
+        When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+
+        Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+
+        Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
+        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
@@ -295,6 +363,9 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[pulumi.Input['StackSetRegionConcurrencyType']]:
+        """
+        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+        """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
@@ -304,6 +375,11 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="regionOrder")
     def region_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The order of the Regions where you want to perform the stack operation.
+
+        > `RegionOrder` isn't followed if `AutoDeployment` is enabled.
+        """
         return pulumi.get(self, "region_order")
 
     @region_order.setter
@@ -356,6 +432,7 @@ class StackSetStackInstancesArgs:
                  parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None):
         """
         Stack instances in some specific accounts and Regions.
+        :param pulumi.Input['StackSetDeploymentTargetsArgs'] deployment_targets: The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
         """
@@ -367,6 +444,9 @@ class StackSetStackInstancesArgs:
     @property
     @pulumi.getter(name="deploymentTargets")
     def deployment_targets(self) -> pulumi.Input['StackSetDeploymentTargetsArgs']:
+        """
+        The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
+        """
         return pulumi.get(self, "deployment_targets")
 
     @deployment_targets.setter

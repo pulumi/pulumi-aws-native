@@ -19,11 +19,22 @@ export function getActivity(args: GetActivityArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetActivityArgs {
+    /**
+     * Returns the ARN of the resource.
+     */
     arn: string;
 }
 
 export interface GetActivityResult {
+    /**
+     * Returns the ARN of the resource.
+     */
     readonly arn?: string;
+    /**
+     * The list of tags to add to a resource.
+     *
+     * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -34,5 +45,8 @@ export function getActivityOutput(args: GetActivityOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetActivityOutputArgs {
+    /**
+     * Returns the ARN of the resource.
+     */
     arn: pulumi.Input<string>;
 }

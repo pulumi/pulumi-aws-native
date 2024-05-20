@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
+        /// <summary>
+        /// The type of KMS key that is used to encrypt studio data.
+        /// </summary>
         [Input("keyType", required: true)]
         public Input<Pulumi.AwsNative.NimbleStudio.StudioEncryptionConfigurationKeyType> KeyType { get; set; } = null!;
 

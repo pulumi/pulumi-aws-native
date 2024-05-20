@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
     {
         [Input("customVocabularyItems", required: true)]
         private InputList<Inputs.BotCustomVocabularyItemArgs>? _customVocabularyItems;
+
+        /// <summary>
+        /// Specifies a list of words that you expect to be used during a conversation with your bot.
+        /// </summary>
         public InputList<Inputs.BotCustomVocabularyItemArgs> CustomVocabularyItems
         {
             get => _customVocabularyItems ?? (_customVocabularyItems = new InputList<Inputs.BotCustomVocabularyItemArgs>());

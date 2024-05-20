@@ -24,6 +24,18 @@ class AliasArgs:
                  routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
+        :param pulumi.Input[str] function_name: The name or ARN of the Lambda function.
+               
+               **Name formats** - *Function name* - `MyFunction` .
+               - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+               - *Partial ARN* - `123456789012:function:MyFunction` .
+               
+               The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+        :param pulumi.Input[str] function_version: The function version that the alias invokes.
+        :param pulumi.Input[str] description: A description of the alias.
+        :param pulumi.Input[str] name: The name of the alias.
+        :param pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs'] provisioned_concurrency_config: Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
+        :param pulumi.Input['AliasRoutingConfigurationArgs'] routing_config: The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "function_version", function_version)
@@ -39,6 +51,15 @@ class AliasArgs:
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[str]:
+        """
+        The name or ARN of the Lambda function.
+
+        **Name formats** - *Function name* - `MyFunction` .
+        - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+        - *Partial ARN* - `123456789012:function:MyFunction` .
+
+        The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -48,6 +69,9 @@ class AliasArgs:
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Input[str]:
+        """
+        The function version that the alias invokes.
+        """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
@@ -57,6 +81,9 @@ class AliasArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the alias.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -66,6 +93,9 @@ class AliasArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the alias.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -75,6 +105,9 @@ class AliasArgs:
     @property
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']]:
+        """
+        Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
+        """
         return pulumi.get(self, "provisioned_concurrency_config")
 
     @provisioned_concurrency_config.setter
@@ -84,6 +117,9 @@ class AliasArgs:
     @property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigurationArgs']]:
+        """
+        The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+        """
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
@@ -108,6 +144,18 @@ class Alias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the alias.
+        :param pulumi.Input[str] function_name: The name or ARN of the Lambda function.
+               
+               **Name formats** - *Function name* - `MyFunction` .
+               - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+               - *Partial ARN* - `123456789012:function:MyFunction` .
+               
+               The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+        :param pulumi.Input[str] function_version: The function version that the alias invokes.
+        :param pulumi.Input[str] name: The name of the alias.
+        :param pulumi.Input[pulumi.InputType['AliasProvisionedConcurrencyConfigurationArgs']] provisioned_concurrency_config: Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
+        :param pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']] routing_config: The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
         """
         ...
     @overload
@@ -200,30 +248,54 @@ class Alias(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the alias.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
+        """
+        The name or ARN of the Lambda function.
+
+        **Name formats** - *Function name* - `MyFunction` .
+        - *Function ARN* - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction` .
+        - *Partial ARN* - `123456789012:function:MyFunction` .
+
+        The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+        """
         return pulumi.get(self, "function_name")
 
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Output[str]:
+        """
+        The function version that the alias invokes.
+        """
         return pulumi.get(self, "function_version")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the alias.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> pulumi.Output[Optional['outputs.AliasProvisionedConcurrencyConfiguration']]:
+        """
+        Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
+        """
         return pulumi.get(self, "provisioned_concurrency_config")
 
     @property
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> pulumi.Output[Optional['outputs.AliasRoutingConfiguration']]:
+        """
+        The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+        """
         return pulumi.get(self, "routing_config")
 

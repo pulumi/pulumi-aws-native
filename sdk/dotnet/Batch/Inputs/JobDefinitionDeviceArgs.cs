@@ -12,14 +12,24 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionDeviceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The path inside the container that's used to expose the host device. By default, the `hostPath` value is used.
+        /// </summary>
         [Input("containerPath")]
         public Input<string>? ContainerPath { get; set; }
 
+        /// <summary>
+        /// The path for the device on the host container instance.
+        /// </summary>
         [Input("hostPath")]
         public Input<string>? HostPath { get; set; }
 
         [Input("permissions")]
         private InputList<string>? _permissions;
+
+        /// <summary>
+        /// The explicit permissions to provide to the container for the device. By default, the container has permissions for `read` , `write` , and `mknod` for the device.
+        /// </summary>
         public InputList<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<string>());

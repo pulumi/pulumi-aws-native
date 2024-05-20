@@ -26,7 +26,13 @@ export interface GetJobArgs {
 }
 
 export interface GetJobResult {
+    /**
+     * One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+     */
     readonly dataCatalogOutputs?: outputs.databrew.JobDataCatalogOutput[];
+    /**
+     * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+     */
     readonly databaseOutputs?: outputs.databrew.JobDatabaseOutput[];
     /**
      * Dataset name
@@ -60,6 +66,9 @@ export interface GetJobResult {
      * Output location
      */
     readonly outputLocation?: outputs.databrew.JobOutputLocation;
+    /**
+     * One or more artifacts that represent output from running the job.
+     */
     readonly outputs?: outputs.databrew.JobOutput[];
     /**
      * Profile Job configuration
@@ -69,6 +78,9 @@ export interface GetJobResult {
      * Project name
      */
     readonly projectName?: string;
+    /**
+     * A series of data transformation steps that the job runs.
+     */
     readonly recipe?: outputs.databrew.JobRecipe;
     /**
      * Role arn

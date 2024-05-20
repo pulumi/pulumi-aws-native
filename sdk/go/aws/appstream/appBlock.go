@@ -16,16 +16,28 @@ import (
 type AppBlock struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput            `pulumi:"arn"`
-	CreatedTime            pulumi.StringOutput            `pulumi:"createdTime"`
-	Description            pulumi.StringPtrOutput         `pulumi:"description"`
-	DisplayName            pulumi.StringPtrOutput         `pulumi:"displayName"`
-	Name                   pulumi.StringOutput            `pulumi:"name"`
-	PackagingType          pulumi.StringPtrOutput         `pulumi:"packagingType"`
+	// The ARN of the app block.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The time when the app block was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The description of the app block.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the app block.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The name of the app block.
+	//
+	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The packaging type of the app block.
+	PackagingType pulumi.StringPtrOutput `pulumi:"packagingType"`
+	// The post setup script details of the app block.
 	PostSetupScriptDetails AppBlockScriptDetailsPtrOutput `pulumi:"postSetupScriptDetails"`
-	SetupScriptDetails     AppBlockScriptDetailsPtrOutput `pulumi:"setupScriptDetails"`
-	SourceS3Location       AppBlockS3LocationOutput       `pulumi:"sourceS3Location"`
-	Tags                   pulumi.ArrayOutput             `pulumi:"tags"`
+	// The setup script details of the app block.
+	SetupScriptDetails AppBlockScriptDetailsPtrOutput `pulumi:"setupScriptDetails"`
+	// The source S3 location of the app block.
+	SourceS3Location AppBlockS3LocationOutput `pulumi:"sourceS3Location"`
+	// The tags of the app block.
+	Tags pulumi.ArrayOutput `pulumi:"tags"`
 }
 
 // NewAppBlock registers a new resource with the given unique name, arguments, and options.
@@ -81,26 +93,46 @@ func (AppBlockState) ElementType() reflect.Type {
 }
 
 type appBlockArgs struct {
-	Description            *string                `pulumi:"description"`
-	DisplayName            *string                `pulumi:"displayName"`
-	Name                   *string                `pulumi:"name"`
-	PackagingType          *string                `pulumi:"packagingType"`
+	// The description of the app block.
+	Description *string `pulumi:"description"`
+	// The display name of the app block.
+	DisplayName *string `pulumi:"displayName"`
+	// The name of the app block.
+	//
+	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+	Name *string `pulumi:"name"`
+	// The packaging type of the app block.
+	PackagingType *string `pulumi:"packagingType"`
+	// The post setup script details of the app block.
 	PostSetupScriptDetails *AppBlockScriptDetails `pulumi:"postSetupScriptDetails"`
-	SetupScriptDetails     *AppBlockScriptDetails `pulumi:"setupScriptDetails"`
-	SourceS3Location       AppBlockS3Location     `pulumi:"sourceS3Location"`
-	Tags                   []interface{}          `pulumi:"tags"`
+	// The setup script details of the app block.
+	SetupScriptDetails *AppBlockScriptDetails `pulumi:"setupScriptDetails"`
+	// The source S3 location of the app block.
+	SourceS3Location AppBlockS3Location `pulumi:"sourceS3Location"`
+	// The tags of the app block.
+	Tags []interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppBlock resource.
 type AppBlockArgs struct {
-	Description            pulumi.StringPtrInput
-	DisplayName            pulumi.StringPtrInput
-	Name                   pulumi.StringPtrInput
-	PackagingType          pulumi.StringPtrInput
+	// The description of the app block.
+	Description pulumi.StringPtrInput
+	// The display name of the app block.
+	DisplayName pulumi.StringPtrInput
+	// The name of the app block.
+	//
+	// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+	Name pulumi.StringPtrInput
+	// The packaging type of the app block.
+	PackagingType pulumi.StringPtrInput
+	// The post setup script details of the app block.
 	PostSetupScriptDetails AppBlockScriptDetailsPtrInput
-	SetupScriptDetails     AppBlockScriptDetailsPtrInput
-	SourceS3Location       AppBlockS3LocationInput
-	Tags                   pulumi.ArrayInput
+	// The setup script details of the app block.
+	SetupScriptDetails AppBlockScriptDetailsPtrInput
+	// The source S3 location of the app block.
+	SourceS3Location AppBlockS3LocationInput
+	// The tags of the app block.
+	Tags pulumi.ArrayInput
 }
 
 func (AppBlockArgs) ElementType() reflect.Type {
@@ -140,42 +172,54 @@ func (o AppBlockOutput) ToAppBlockOutputWithContext(ctx context.Context) AppBloc
 	return o
 }
 
+// The ARN of the app block.
 func (o AppBlockOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The time when the app block was created.
 func (o AppBlockOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The description of the app block.
 func (o AppBlockOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the app block.
 func (o AppBlockOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the app block.
+//
+// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
 func (o AppBlockOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The packaging type of the app block.
 func (o AppBlockOutput) PackagingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringPtrOutput { return v.PackagingType }).(pulumi.StringPtrOutput)
 }
 
+// The post setup script details of the app block.
 func (o AppBlockOutput) PostSetupScriptDetails() AppBlockScriptDetailsPtrOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockScriptDetailsPtrOutput { return v.PostSetupScriptDetails }).(AppBlockScriptDetailsPtrOutput)
 }
 
+// The setup script details of the app block.
 func (o AppBlockOutput) SetupScriptDetails() AppBlockScriptDetailsPtrOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockScriptDetailsPtrOutput { return v.SetupScriptDetails }).(AppBlockScriptDetailsPtrOutput)
 }
 
+// The source S3 location of the app block.
 func (o AppBlockOutput) SourceS3Location() AppBlockS3LocationOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockS3LocationOutput { return v.SourceS3Location }).(AppBlockS3LocationOutput)
 }
 
+// The tags of the app block.
 func (o AppBlockOutput) Tags() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.ArrayOutput { return v.Tags }).(pulumi.ArrayOutput)
 }

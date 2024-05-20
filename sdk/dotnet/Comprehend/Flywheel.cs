@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.Comprehend
     [AwsNativeResourceType("aws-native:comprehend:Flywheel")]
     public partial class Flywheel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Number (ARN) of the active model version.
+        /// </summary>
         [Output("activeModelArn")]
         public Output<string?> ActiveModelArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the flywheel.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        /// </summary>
         [Output("dataAccessRoleArn")]
         public Output<string> DataAccessRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon S3 URI of the data lake location.
+        /// </summary>
         [Output("dataLakeS3Uri")]
         public Output<string> DataLakeS3Uri { get; private set; } = null!;
 
+        /// <summary>
+        /// Data security configuration.
+        /// </summary>
         [Output("dataSecurityConfig")]
         public Output<Outputs.FlywheelDataSecurityConfig?> DataSecurityConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for the flywheel.
+        /// </summary>
         [Output("flywheelName")]
         public Output<string> FlywheelName { get; private set; } = null!;
 
+        /// <summary>
+        /// Model type of the flywheel's model.
+        /// </summary>
         [Output("modelType")]
         public Output<Pulumi.AwsNative.Comprehend.FlywheelModelType?> ModelType { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration about the model associated with a flywheel.
+        /// </summary>
         [Output("taskConfig")]
         public Output<Outputs.FlywheelTaskConfig?> TaskConfig { get; private set; } = null!;
 
@@ -94,32 +121,57 @@ namespace Pulumi.AwsNative.Comprehend
 
     public sealed class FlywheelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Number (ARN) of the active model version.
+        /// </summary>
         [Input("activeModelArn")]
         public Input<string>? ActiveModelArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        /// </summary>
         [Input("dataAccessRoleArn", required: true)]
         public Input<string> DataAccessRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon S3 URI of the data lake location.
+        /// </summary>
         [Input("dataLakeS3Uri", required: true)]
         public Input<string> DataLakeS3Uri { get; set; } = null!;
 
+        /// <summary>
+        /// Data security configuration.
+        /// </summary>
         [Input("dataSecurityConfig")]
         public Input<Inputs.FlywheelDataSecurityConfigArgs>? DataSecurityConfig { get; set; }
 
+        /// <summary>
+        /// Name for the flywheel.
+        /// </summary>
         [Input("flywheelName")]
         public Input<string>? FlywheelName { get; set; }
 
+        /// <summary>
+        /// Model type of the flywheel's model.
+        /// </summary>
         [Input("modelType")]
         public Input<Pulumi.AwsNative.Comprehend.FlywheelModelType>? ModelType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Configuration about the model associated with a flywheel.
+        /// </summary>
         [Input("taskConfig")]
         public Input<Inputs.FlywheelTaskConfigArgs>? TaskConfig { get; set; }
 

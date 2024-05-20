@@ -1062,6 +1062,9 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the function.
+        """
         return pulumi.get(self, "arn")
 
     @property

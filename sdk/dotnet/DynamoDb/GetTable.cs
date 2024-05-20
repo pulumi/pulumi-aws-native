@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.DynamoDb
     [OutputType]
     public sealed class GetTableResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` .
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// A list of attributes that describe the key schema for the table and indexes.
@@ -134,6 +137,11 @@ namespace Pulumi.AwsNative.DynamoDb
         /// Specifies the settings to enable server-side encryption.
         /// </summary>
         public readonly Outputs.TableSseSpecification? SseSpecification;
+        /// <summary>
+        /// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` .
+        /// 
+        /// &gt; You must specify the `StreamSpecification` property to use this attribute.
+        /// </summary>
         public readonly string? StreamArn;
         /// <summary>
         /// The settings for the DDB table stream, which capture changes to items stored in the table.

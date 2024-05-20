@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.KinesisFirehose
 {
+    /// <summary>
+    /// Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode>
     {
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod : IEquatable<DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>
     {
@@ -66,6 +72,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Defines how documents should be delivered to Amazon S3.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode>
     {
@@ -94,6 +103,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of connectivity used to access the Amazon MSK cluster.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamAuthenticationConfigurationConnectivity : IEquatable<DeliveryStreamAuthenticationConfigurationConnectivity>
     {
@@ -122,6 +134,11 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
+    /// 
+    /// When the `NO_DOCUMENT_ID` option is chosen, Firehose does not include any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts, this may cause the same record to be indexed more than once with different document IDs. This option enables write-heavy operations, such as the ingestion of logs and observability data, to consume less resources in the Amazon OpenSearch Service domain, resulting in improved performance.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat : IEquatable<DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat>
     {
@@ -150,6 +167,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod : IEquatable<DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>
     {
@@ -181,6 +201,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode>
     {
@@ -209,6 +232,13 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates the type of customer master key (CMK) to use for encryption. The default setting is `AWS_OWNED_CMK` . For more information about CMKs, see [Customer Master Keys (CMKs)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) .
+    /// 
+    /// You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
+    /// 
+    /// &gt; To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see [About Symmetric and Asymmetric CMKs](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html) in the AWS Key Management Service developer guide.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamEncryptionConfigurationInputKeyType : IEquatable<DeliveryStreamEncryptionConfigurationInputKeyType>
     {
@@ -237,6 +267,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamEncryptionConfigurationNoEncryptionConfig : IEquatable<DeliveryStreamEncryptionConfigurationNoEncryptionConfig>
     {
@@ -264,6 +297,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat : IEquatable<DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat>
     {
@@ -295,6 +331,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode>
     {
@@ -323,6 +362,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamHttpEndpointRequestConfigurationContentEncoding : IEquatable<DeliveryStreamHttpEndpointRequestConfigurationContentEncoding>
     {
@@ -351,6 +393,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of processor. Valid values: `Lambda` .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamProcessorType : IEquatable<DeliveryStreamProcessorType>
     {
@@ -383,6 +428,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamRedshiftDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamRedshiftDestinationConfigurationS3BackupMode>
     {
@@ -411,6 +459,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamS3DestinationConfigurationCompressionFormat : IEquatable<DeliveryStreamS3DestinationConfigurationCompressionFormat>
     {
@@ -442,6 +493,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption : IEquatable<DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption>
     {
@@ -471,6 +525,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Choose an S3 backup mode
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode>
     {
@@ -499,6 +556,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// This type can be either `Raw` or `Event` .
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamSplunkDestinationConfigurationHecEndpointType : IEquatable<DeliveryStreamSplunkDestinationConfigurationHecEndpointType>
     {
@@ -527,6 +587,12 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The delivery stream type. This can be one of the following values:
+    /// 
+    /// - `DirectPut` : Provider applications access the delivery stream directly.
+    /// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamType : IEquatable<DeliveryStreamType>
     {

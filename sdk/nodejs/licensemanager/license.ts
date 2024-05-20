@@ -41,17 +41,29 @@ export class License extends pulumi.CustomResource {
      * Beneficiary of the license.
      */
     public readonly beneficiary!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration for consumption of the license.
+     */
     public readonly consumptionConfiguration!: pulumi.Output<outputs.licensemanager.LicenseConsumptionConfiguration>;
+    /**
+     * License entitlements.
+     */
     public readonly entitlements!: pulumi.Output<outputs.licensemanager.LicenseEntitlement[]>;
     /**
      * Home region for the created license.
      */
     public readonly homeRegion!: pulumi.Output<string>;
+    /**
+     * License issuer.
+     */
     public readonly issuer!: pulumi.Output<outputs.licensemanager.LicenseIssuerData>;
     /**
      * Amazon Resource Name is a unique name for each resource.
      */
     public /*out*/ readonly licenseArn!: pulumi.Output<string>;
+    /**
+     * License metadata.
+     */
     public readonly licenseMetadata!: pulumi.Output<outputs.licensemanager.LicenseMetadata[] | undefined>;
     /**
      * Name for the created license.
@@ -65,7 +77,13 @@ export class License extends pulumi.CustomResource {
      * ProductSKU of the license.
      */
     public readonly productSku!: pulumi.Output<string | undefined>;
+    /**
+     * License status.
+     */
     public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * Date and time range during which the license is valid, in ISO8601-UTC format.
+     */
     public readonly validity!: pulumi.Output<outputs.licensemanager.LicenseValidityDateFormat>;
     /**
      * The version of the license.
@@ -142,13 +160,25 @@ export interface LicenseArgs {
      * Beneficiary of the license.
      */
     beneficiary?: pulumi.Input<string>;
+    /**
+     * Configuration for consumption of the license.
+     */
     consumptionConfiguration: pulumi.Input<inputs.licensemanager.LicenseConsumptionConfigurationArgs>;
+    /**
+     * License entitlements.
+     */
     entitlements: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseEntitlementArgs>[]>;
     /**
      * Home region for the created license.
      */
     homeRegion: pulumi.Input<string>;
+    /**
+     * License issuer.
+     */
     issuer: pulumi.Input<inputs.licensemanager.LicenseIssuerDataArgs>;
+    /**
+     * License metadata.
+     */
     licenseMetadata?: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseMetadataArgs>[]>;
     /**
      * Name for the created license.
@@ -162,6 +192,12 @@ export interface LicenseArgs {
      * ProductSKU of the license.
      */
     productSku?: pulumi.Input<string>;
+    /**
+     * License status.
+     */
     status?: pulumi.Input<string>;
+    /**
+     * Date and time range during which the license is valid, in ISO8601-UTC format.
+     */
     validity: pulumi.Input<inputs.licensemanager.LicenseValidityDateFormatArgs>;
 }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class AliasProvisionedConcurrencyConfiguration
     {
+        /// <summary>
+        /// The amount of provisioned concurrency to allocate for the alias.
+        /// </summary>
         public readonly int ProvisionedConcurrentExecutions;
 
         [OutputConstructor]

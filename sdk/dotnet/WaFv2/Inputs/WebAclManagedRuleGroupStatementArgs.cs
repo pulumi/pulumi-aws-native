@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("excludedRules")]
         private InputList<Inputs.WebAclExcludedRuleArgs>? _excludedRules;
+
+        /// <summary>
+        /// Rules in the referenced rule group whose actions are set to `Count` .
+        /// 
+        /// &gt; Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+        /// </summary>
         public InputList<Inputs.WebAclExcludedRuleArgs> ExcludedRules
         {
             get => _excludedRules ?? (_excludedRules = new InputList<Inputs.WebAclExcludedRuleArgs>());
@@ -32,6 +38,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
             set => _managedRuleGroupConfigs = value;
         }
 
+        /// <summary>
+        /// The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -47,12 +56,21 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
             set => _ruleActionOverrides = value;
         }
 
+        /// <summary>
+        /// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
+        /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.WebAclStatementArgs>? ScopeDownStatement { get; set; }
 
+        /// <summary>
+        /// The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.
+        /// </summary>
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the managed rule group to use. If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetIpamResourceDiscoveryResult
     {
+        /// <summary>
+        /// The resource discovery description.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Amazon Resource Name (Arn) for the Resource Discovery.

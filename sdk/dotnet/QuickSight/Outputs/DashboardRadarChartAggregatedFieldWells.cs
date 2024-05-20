@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardRadarChartAggregatedFieldWells
     {
+        /// <summary>
+        /// The aggregated field well categories of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Category;
+        /// <summary>
+        /// The color that are assigned to the aggregated field wells of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Color;
+        /// <summary>
+        /// The values that are assigned to the aggregated field wells of a radar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Values;
 
         [OutputConstructor]

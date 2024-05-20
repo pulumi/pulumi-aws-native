@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.Amplify.Inputs
 
     public sealed class DomainSubDomainSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The branch name setting for the subdomain.
+        /// 
+        /// *Length Constraints:* Minimum length of 1. Maximum length of 255.
+        /// 
+        /// *Pattern:* (?s).+
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// The prefix setting for the subdomain.
+        /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
 

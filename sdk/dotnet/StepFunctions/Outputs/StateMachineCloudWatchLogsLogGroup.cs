@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineCloudWatchLogsLogGroup
     {
+        /// <summary>
+        /// The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        /// </summary>
         public readonly string? LogGroupArn;
 
         [OutputConstructor]

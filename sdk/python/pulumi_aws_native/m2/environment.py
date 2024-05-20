@@ -32,9 +32,11 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] engine_version: The version of the runtime engine for the environment.
+        :param pulumi.Input['EnvironmentHighAvailabilityConfigArgs'] high_availability_config: Defines the details of a high availability configuration.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
@@ -72,6 +74,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input['EnvironmentEngineType']:
+        """
+        The target platform for the runtime environment.
+        """
         return pulumi.get(self, "engine_type")
 
     @engine_type.setter
@@ -117,6 +122,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']]:
+        """
+        Defines the details of a high availability configuration.
+        """
         return pulumi.get(self, "high_availability_config")
 
     @high_availability_config.setter
@@ -245,7 +253,9 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the environment.
+        :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[str] engine_version: The version of the runtime engine for the environment.
+        :param pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']] high_availability_config: Defines the details of a high availability configuration.
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
@@ -373,6 +383,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Output['EnvironmentEngineType']:
+        """
+        The target platform for the runtime environment.
+        """
         return pulumi.get(self, "engine_type")
 
     @property
@@ -402,6 +415,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> pulumi.Output[Optional['outputs.EnvironmentHighAvailabilityConfig']]:
+        """
+        Defines the details of a high availability configuration.
+        """
         return pulumi.get(self, "high_availability_config")
 
     @property

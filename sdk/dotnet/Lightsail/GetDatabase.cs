@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// Indicates the certificate that needs to be associated with the database.
         /// </summary>
         public readonly string? CaCertificateIdentifier;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+        /// </summary>
         public readonly string? DatabaseArn;
         /// <summary>
         /// The daily time range during which automated backups are created for your new database if automated backups are enabled.

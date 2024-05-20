@@ -13,13 +13,40 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterSliderControl
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.DashboardSliderControlDisplayOptions? DisplayOptions;
+        /// <summary>
+        /// The ID of the `FilterSliderControl` .
+        /// </summary>
         public readonly string FilterControlId;
+        /// <summary>
+        /// The larger value that is displayed at the right of the slider.
+        /// </summary>
         public readonly double MaximumValue;
+        /// <summary>
+        /// The smaller value that is displayed at the left of the slider.
+        /// </summary>
         public readonly double MinimumValue;
+        /// <summary>
+        /// The source filter ID of the `FilterSliderControl` .
+        /// </summary>
         public readonly string SourceFilterId;
+        /// <summary>
+        /// The number of increments that the slider bar is divided into.
+        /// </summary>
         public readonly double StepSize;
+        /// <summary>
+        /// The title of the `FilterSliderControl` .
+        /// </summary>
         public readonly string Title;
+        /// <summary>
+        /// The type of the `FilterSliderControl` . Choose one of the following options:
+        /// 
+        /// - `SINGLE_POINT` : Filter against(equals) a single data point.
+        /// - `RANGE` : Filter data that is in a specified range.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSheetControlSliderType? Type;
 
         [OutputConstructor]

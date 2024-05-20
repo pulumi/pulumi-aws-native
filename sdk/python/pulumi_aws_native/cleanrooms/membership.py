@@ -26,6 +26,10 @@ class MembershipArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Membership resource.
+        :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
+        :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
+        :param pulumi.Input['MembershipProtectedQueryResultConfigurationArgs'] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input['MembershipPaymentConfigurationArgs'] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         pulumi.set(__self__, "collaboration_identifier", collaboration_identifier)
@@ -40,6 +44,9 @@ class MembershipArgs:
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique ID for the associated collaboration.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @collaboration_identifier.setter
@@ -49,6 +56,9 @@ class MembershipArgs:
     @property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Input['MembershipQueryLogStatus']:
+        """
+        An indicator as to whether query logging has been enabled or disabled for the membership.
+        """
         return pulumi.get(self, "query_log_status")
 
     @query_log_status.setter
@@ -58,6 +68,9 @@ class MembershipArgs:
     @property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']]:
+        """
+        The default protected query result configuration as specified by the member who can receive results.
+        """
         return pulumi.get(self, "default_result_configuration")
 
     @default_result_configuration.setter
@@ -67,6 +80,9 @@ class MembershipArgs:
     @property
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional[pulumi.Input['MembershipPaymentConfigurationArgs']]:
+        """
+        The payment responsibilities accepted by the collaboration member.
+        """
         return pulumi.get(self, "payment_configuration")
 
     @payment_configuration.setter
@@ -102,6 +118,10 @@ class Membership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
+        :param pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']] payment_configuration: The payment responsibilities accepted by the collaboration member.
+        :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         ...
@@ -193,41 +213,73 @@ class Membership(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified membership.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationArn")
     def collaboration_arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified collaboration.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "collaboration_arn")
 
     @property
     @pulumi.getter(name="collaborationCreatorAccountId")
     def collaboration_creator_account_id(self) -> pulumi.Output[str]:
+        """
+        Returns the unique identifier of the specified collaboration creator account.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "collaboration_creator_account_id")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique ID for the associated collaboration.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> pulumi.Output[Optional['outputs.MembershipProtectedQueryResultConfiguration']]:
+        """
+        The default protected query result configuration as specified by the member who can receive results.
+        """
         return pulumi.get(self, "default_result_configuration")
 
     @property
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Output[str]:
+        """
+        Returns the unique identifier of the specified membership.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
+        """
         return pulumi.get(self, "membership_identifier")
 
     @property
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> pulumi.Output[Optional['outputs.MembershipPaymentConfiguration']]:
+        """
+        The payment responsibilities accepted by the collaboration member.
+        """
         return pulumi.get(self, "payment_configuration")
 
     @property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Output['MembershipQueryLogStatus']:
+        """
+        An indicator as to whether query logging has been enabled or disabled for the membership.
+        """
         return pulumi.get(self, "query_log_status")
 
     @property

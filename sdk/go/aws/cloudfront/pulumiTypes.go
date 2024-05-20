@@ -14,11 +14,21 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CachePolicyConfig struct {
-	Comment                                  *string                                             `pulumi:"comment"`
-	DefaultTtl                               float64                                             `pulumi:"defaultTtl"`
-	MaxTtl                                   float64                                             `pulumi:"maxTtl"`
-	MinTtl                                   float64                                             `pulumi:"minTtl"`
-	Name                                     string                                              `pulumi:"name"`
+	// A comment to describe the cache policy. The comment cannot be longer than 128 characters.
+	Comment *string `pulumi:"comment"`
+	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+	//
+	// The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
+	DefaultTtl float64 `pulumi:"defaultTtl"`
+	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+	//
+	// The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
+	MaxTtl float64 `pulumi:"maxTtl"`
+	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+	MinTtl float64 `pulumi:"minTtl"`
+	// A unique name to identify the cache policy.
+	Name string `pulumi:"name"`
+	// The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
@@ -34,11 +44,21 @@ type CachePolicyConfigInput interface {
 }
 
 type CachePolicyConfigArgs struct {
-	Comment                                  pulumi.StringPtrInput                                    `pulumi:"comment"`
-	DefaultTtl                               pulumi.Float64Input                                      `pulumi:"defaultTtl"`
-	MaxTtl                                   pulumi.Float64Input                                      `pulumi:"maxTtl"`
-	MinTtl                                   pulumi.Float64Input                                      `pulumi:"minTtl"`
-	Name                                     pulumi.StringInput                                       `pulumi:"name"`
+	// A comment to describe the cache policy. The comment cannot be longer than 128 characters.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+	//
+	// The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
+	DefaultTtl pulumi.Float64Input `pulumi:"defaultTtl"`
+	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+	//
+	// The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
+	MaxTtl pulumi.Float64Input `pulumi:"maxTtl"`
+	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+	MinTtl pulumi.Float64Input `pulumi:"minTtl"`
+	// A unique name to identify the cache policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
@@ -68,26 +88,36 @@ func (o CachePolicyConfigOutput) ToCachePolicyConfigOutputWithContext(ctx contex
 	return o
 }
 
+// A comment to describe the cache policy. The comment cannot be longer than 128 characters.
 func (o CachePolicyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CachePolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+//
+// The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
 func (o CachePolicyConfigOutput) DefaultTtl() pulumi.Float64Output {
 	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.DefaultTtl }).(pulumi.Float64Output)
 }
 
+// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+//
+// The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
 func (o CachePolicyConfigOutput) MaxTtl() pulumi.Float64Output {
 	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MaxTtl }).(pulumi.Float64Output)
 }
 
+// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 func (o CachePolicyConfigOutput) MinTtl() pulumi.Float64Output {
 	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MinTtl }).(pulumi.Float64Output)
 }
 
+// A unique name to identify the cache policy.
 func (o CachePolicyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
 func (o CachePolicyConfigOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
 	return o.ApplyT(func(v CachePolicyConfig) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		return v.ParametersInCacheKeyAndForwardedToOrigin
@@ -118,6 +148,7 @@ func (o CachePolicyConfigPtrOutput) Elem() CachePolicyConfigOutput {
 	}).(CachePolicyConfigOutput)
 }
 
+// A comment to describe the cache policy. The comment cannot be longer than 128 characters.
 func (o CachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *string {
 		if v == nil {
@@ -127,6 +158,9 @@ func (o CachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+//
+// The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
 func (o CachePolicyConfigPtrOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
@@ -136,6 +170,9 @@ func (o CachePolicyConfigPtrOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+//
+// The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
 func (o CachePolicyConfigPtrOutput) MaxTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
@@ -145,6 +182,7 @@ func (o CachePolicyConfigPtrOutput) MaxTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
 func (o CachePolicyConfigPtrOutput) MinTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
@@ -154,6 +192,7 @@ func (o CachePolicyConfigPtrOutput) MinTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// A unique name to identify the cache policy.
 func (o CachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *string {
 		if v == nil {
@@ -163,6 +202,7 @@ func (o CachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
 func (o CachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		if v == nil {
@@ -173,8 +213,15 @@ func (o CachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() C
 }
 
 type CachePolicyCookiesConfig struct {
-	CookieBehavior string   `pulumi:"cookieBehavior"`
-	Cookies        []string `pulumi:"cookies"`
+	// Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+	// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+	// - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
+	// - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+	CookieBehavior string `pulumi:"cookieBehavior"`
+	// Contains a list of cookie names.
+	Cookies []string `pulumi:"cookies"`
 }
 
 // CachePolicyCookiesConfigInput is an input type that accepts CachePolicyCookiesConfigArgs and CachePolicyCookiesConfigOutput values.
@@ -189,8 +236,15 @@ type CachePolicyCookiesConfigInput interface {
 }
 
 type CachePolicyCookiesConfigArgs struct {
-	CookieBehavior pulumi.StringInput      `pulumi:"cookieBehavior"`
-	Cookies        pulumi.StringArrayInput `pulumi:"cookies"`
+	// Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+	// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+	// - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
+	// - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
+	// Contains a list of cookie names.
+	Cookies pulumi.StringArrayInput `pulumi:"cookies"`
 }
 
 func (CachePolicyCookiesConfigArgs) ElementType() reflect.Type {
@@ -219,10 +273,17 @@ func (o CachePolicyCookiesConfigOutput) ToCachePolicyCookiesConfigOutputWithCont
 	return o
 }
 
+// Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+// - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
+// - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
 }
 
+// Contains a list of cookie names.
 func (o CachePolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
 }
@@ -251,6 +312,12 @@ func (o CachePolicyCookiesConfigPtrOutput) Elem() CachePolicyCookiesConfigOutput
 	}).(CachePolicyCookiesConfigOutput)
 }
 
+// Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+// - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
+// - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyCookiesConfig) *string {
 		if v == nil {
@@ -260,6 +327,7 @@ func (o CachePolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a list of cookie names.
 func (o CachePolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyCookiesConfig) []string {
 		if v == nil {
@@ -270,8 +338,13 @@ func (o CachePolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
 }
 
 type CachePolicyHeadersConfig struct {
-	HeaderBehavior string   `pulumi:"headerBehavior"`
-	Headers        []string `pulumi:"headers"`
+	// Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+	// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
+	HeaderBehavior string `pulumi:"headerBehavior"`
+	// Contains a list of HTTP header names.
+	Headers []string `pulumi:"headers"`
 }
 
 // CachePolicyHeadersConfigInput is an input type that accepts CachePolicyHeadersConfigArgs and CachePolicyHeadersConfigOutput values.
@@ -286,8 +359,13 @@ type CachePolicyHeadersConfigInput interface {
 }
 
 type CachePolicyHeadersConfigArgs struct {
-	HeaderBehavior pulumi.StringInput      `pulumi:"headerBehavior"`
-	Headers        pulumi.StringArrayInput `pulumi:"headers"`
+	// Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+	// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
+	HeaderBehavior pulumi.StringInput `pulumi:"headerBehavior"`
+	// Contains a list of HTTP header names.
+	Headers pulumi.StringArrayInput `pulumi:"headers"`
 }
 
 func (CachePolicyHeadersConfigArgs) ElementType() reflect.Type {
@@ -316,10 +394,15 @@ func (o CachePolicyHeadersConfigOutput) ToCachePolicyHeadersConfigOutputWithCont
 	return o
 }
 
+// Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
 }
 
+// Contains a list of HTTP header names.
 func (o CachePolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
@@ -348,6 +431,10 @@ func (o CachePolicyHeadersConfigPtrOutput) Elem() CachePolicyHeadersConfigOutput
 	}).(CachePolicyHeadersConfigOutput)
 }
 
+// Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyHeadersConfig) *string {
 		if v == nil {
@@ -357,6 +444,7 @@ func (o CachePolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a list of HTTP header names.
 func (o CachePolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyHeadersConfig) []string {
 		if v == nil {
@@ -367,11 +455,40 @@ func (o CachePolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
-	CookiesConfig              CachePolicyCookiesConfig      `pulumi:"cookiesConfig"`
-	EnableAcceptEncodingBrotli *bool                         `pulumi:"enableAcceptEncodingBrotli"`
-	EnableAcceptEncodingGzip   bool                          `pulumi:"enableAcceptEncodingGzip"`
-	HeadersConfig              CachePolicyHeadersConfig      `pulumi:"headersConfig"`
-	QueryStringsConfig         CachePolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
+	// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
+	CookiesConfig CachePolicyCookiesConfig `pulumi:"cookiesConfig"`
+	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	//
+	// This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+	//
+	// - Normalizes the value of the viewer's `Accept-Encoding` header
+	// - Includes the normalized header in the cache key
+	// - Includes the normalized header in the request to the origin, if a request is necessary
+	//
+	// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+	//
+	// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+	//
+	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+	EnableAcceptEncodingBrotli *bool `pulumi:"enableAcceptEncodingBrotli"`
+	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	//
+	// This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+	//
+	// - Normalizes the value of the viewer's `Accept-Encoding` header
+	// - Includes the normalized header in the cache key
+	// - Includes the normalized header in the request to the origin, if a request is necessary
+	//
+	// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+	//
+	// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+	//
+	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+	EnableAcceptEncodingGzip bool `pulumi:"enableAcceptEncodingGzip"`
+	// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
+	HeadersConfig CachePolicyHeadersConfig `pulumi:"headersConfig"`
+	// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
+	QueryStringsConfig CachePolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
 // CachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
@@ -386,11 +503,40 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
-	CookiesConfig              CachePolicyCookiesConfigInput      `pulumi:"cookiesConfig"`
-	EnableAcceptEncodingBrotli pulumi.BoolPtrInput                `pulumi:"enableAcceptEncodingBrotli"`
-	EnableAcceptEncodingGzip   pulumi.BoolInput                   `pulumi:"enableAcceptEncodingGzip"`
-	HeadersConfig              CachePolicyHeadersConfigInput      `pulumi:"headersConfig"`
-	QueryStringsConfig         CachePolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
+	// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
+	CookiesConfig CachePolicyCookiesConfigInput `pulumi:"cookiesConfig"`
+	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	//
+	// This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+	//
+	// - Normalizes the value of the viewer's `Accept-Encoding` header
+	// - Includes the normalized header in the cache key
+	// - Includes the normalized header in the request to the origin, if a request is necessary
+	//
+	// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+	//
+	// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+	//
+	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+	EnableAcceptEncodingBrotli pulumi.BoolPtrInput `pulumi:"enableAcceptEncodingBrotli"`
+	// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	//
+	// This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+	//
+	// - Normalizes the value of the viewer's `Accept-Encoding` header
+	// - Includes the normalized header in the cache key
+	// - Includes the normalized header in the request to the origin, if a request is necessary
+	//
+	// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+	//
+	// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+	//
+	// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+	EnableAcceptEncodingGzip pulumi.BoolInput `pulumi:"enableAcceptEncodingGzip"`
+	// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
+	HeadersConfig CachePolicyHeadersConfigInput `pulumi:"headersConfig"`
+	// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
+	QueryStringsConfig CachePolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
 }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ElementType() reflect.Type {
@@ -419,26 +565,55 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicy
 	return o
 }
 
+// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) CookiesConfig() CachePolicyCookiesConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyCookiesConfig {
 		return v.CookiesConfig
 	}).(CachePolicyCookiesConfigOutput)
 }
 
+// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+//
+// This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+//
+// - Normalizes the value of the viewer's `Accept-Encoding` header
+// - Includes the normalized header in the cache key
+// - Includes the normalized header in the request to the origin, if a request is necessary
+//
+// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+//
+// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+//
+// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingBrotli }).(pulumi.BoolPtrOutput)
 }
 
+// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+//
+// This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+//
+// - Normalizes the value of the viewer's `Accept-Encoding` header
+// - Includes the normalized header in the cache key
+// - Includes the normalized header in the request to the origin, if a request is necessary
+//
+// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+//
+// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+//
+// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingGzip() pulumi.BoolOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) bool { return v.EnableAcceptEncodingGzip }).(pulumi.BoolOutput)
 }
 
+// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) HeadersConfig() CachePolicyHeadersConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyHeadersConfig {
 		return v.HeadersConfig
 	}).(CachePolicyHeadersConfigOutput)
 }
 
+// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsConfig() CachePolicyQueryStringsConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyQueryStringsConfig {
 		return v.QueryStringsConfig
@@ -469,6 +644,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() Cac
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
+// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyCookiesConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyCookiesConfig {
 		if v == nil {
@@ -478,6 +654,19 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesCon
 	}).(CachePolicyCookiesConfigPtrOutput)
 }
 
+// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+//
+// This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+//
+// - Normalizes the value of the viewer's `Accept-Encoding` header
+// - Includes the normalized header in the cache key
+// - Includes the normalized header in the request to the origin, if a request is necessary
+//
+// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+//
+// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+//
+// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
 		if v == nil {
@@ -487,6 +676,19 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcce
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+//
+// This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
+//
+// - Normalizes the value of the viewer's `Accept-Encoding` header
+// - Includes the normalized header in the cache key
+// - Includes the normalized header in the request to the origin, if a request is necessary
+//
+// For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
+//
+// If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
+//
+// If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
 		if v == nil {
@@ -496,6 +698,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcce
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyHeadersConfig {
 		if v == nil {
@@ -505,6 +708,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersCon
 	}).(CachePolicyHeadersConfigPtrOutput)
 }
 
+// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyQueryStringsConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyQueryStringsConfig {
 		if v == nil {
@@ -515,8 +719,15 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStrin
 }
 
 type CachePolicyQueryStringsConfig struct {
-	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
-	QueryStrings        []string `pulumi:"queryStrings"`
+	// Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+	// - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
+	// - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+	QueryStringBehavior string `pulumi:"queryStringBehavior"`
+	// Contains a list of query string names.
+	QueryStrings []string `pulumi:"queryStrings"`
 }
 
 // CachePolicyQueryStringsConfigInput is an input type that accepts CachePolicyQueryStringsConfigArgs and CachePolicyQueryStringsConfigOutput values.
@@ -531,8 +742,15 @@ type CachePolicyQueryStringsConfigInput interface {
 }
 
 type CachePolicyQueryStringsConfigArgs struct {
-	QueryStringBehavior pulumi.StringInput      `pulumi:"queryStringBehavior"`
-	QueryStrings        pulumi.StringArrayInput `pulumi:"queryStrings"`
+	// Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+	// - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
+	// - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
+	// Contains a list of query string names.
+	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
 }
 
 func (CachePolicyQueryStringsConfigArgs) ElementType() reflect.Type {
@@ -561,10 +779,17 @@ func (o CachePolicyQueryStringsConfigOutput) ToCachePolicyQueryStringsConfigOutp
 	return o
 }
 
+// Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+// - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
+// - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
 
+// Contains a list of query string names.
 func (o CachePolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
 }
@@ -593,6 +818,12 @@ func (o CachePolicyQueryStringsConfigPtrOutput) Elem() CachePolicyQueryStringsCo
 	}).(CachePolicyQueryStringsConfigOutput)
 }
 
+// Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
+// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
+// - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
+// - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) *string {
 		if v == nil {
@@ -602,6 +833,7 @@ func (o CachePolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a list of query string names.
 func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) []string {
 		if v == nil {
@@ -612,6 +844,7 @@ func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArra
 }
 
 type CloudFrontOriginAccessIdentityConfig struct {
+	// A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
 	Comment string `pulumi:"comment"`
 }
 
@@ -627,6 +860,7 @@ type CloudFrontOriginAccessIdentityConfigInput interface {
 }
 
 type CloudFrontOriginAccessIdentityConfigArgs struct {
+	// A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
 	Comment pulumi.StringInput `pulumi:"comment"`
 }
 
@@ -656,6 +890,7 @@ func (o CloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIden
 	return o
 }
 
+// A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
 func (o CloudFrontOriginAccessIdentityConfigOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFrontOriginAccessIdentityConfig) string { return v.Comment }).(pulumi.StringOutput)
 }
@@ -684,6 +919,7 @@ func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Elem() CloudFrontOriginAc
 	}).(CloudFrontOriginAccessIdentityConfigOutput)
 }
 
+// A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
 func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityConfig) *string {
 		if v == nil {
@@ -694,12 +930,18 @@ func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPt
 }
 
 type ContinuousDeploymentPolicyConfig struct {
-	Enabled                     bool                                                                `pulumi:"enabled"`
-	SingleHeaderPolicyConfig    *ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties `pulumi:"singleHeaderPolicyConfig"`
-	SingleWeightPolicyConfig    *ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties `pulumi:"singleWeightPolicyConfig"`
-	StagingDistributionDnsNames []string                                                            `pulumi:"stagingDistributionDnsNames"`
-	TrafficConfig               *ContinuousDeploymentPolicyTrafficConfig                            `pulumi:"trafficConfig"`
-	Type                        *ContinuousDeploymentPolicyConfigType                               `pulumi:"type"`
+	// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
+	Enabled bool `pulumi:"enabled"`
+	// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
+	SingleHeaderPolicyConfig *ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties `pulumi:"singleHeaderPolicyConfig"`
+	// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+	SingleWeightPolicyConfig *ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties `pulumi:"singleWeightPolicyConfig"`
+	// The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
+	StagingDistributionDnsNames []string `pulumi:"stagingDistributionDnsNames"`
+	// Contains the parameters for routing production traffic from your primary to staging distributions.
+	TrafficConfig *ContinuousDeploymentPolicyTrafficConfig `pulumi:"trafficConfig"`
+	// The type of traffic configuration.
+	Type *ContinuousDeploymentPolicyConfigType `pulumi:"type"`
 }
 
 // ContinuousDeploymentPolicyConfigInput is an input type that accepts ContinuousDeploymentPolicyConfigArgs and ContinuousDeploymentPolicyConfigOutput values.
@@ -714,12 +956,18 @@ type ContinuousDeploymentPolicyConfigInput interface {
 }
 
 type ContinuousDeploymentPolicyConfigArgs struct {
-	Enabled                     pulumi.BoolInput                                                           `pulumi:"enabled"`
-	SingleHeaderPolicyConfig    ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrInput `pulumi:"singleHeaderPolicyConfig"`
-	SingleWeightPolicyConfig    ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrInput `pulumi:"singleWeightPolicyConfig"`
-	StagingDistributionDnsNames pulumi.StringArrayInput                                                    `pulumi:"stagingDistributionDnsNames"`
-	TrafficConfig               ContinuousDeploymentPolicyTrafficConfigPtrInput                            `pulumi:"trafficConfig"`
-	Type                        ContinuousDeploymentPolicyConfigTypePtrInput                               `pulumi:"type"`
+	// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
+	SingleHeaderPolicyConfig ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrInput `pulumi:"singleHeaderPolicyConfig"`
+	// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+	SingleWeightPolicyConfig ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrInput `pulumi:"singleWeightPolicyConfig"`
+	// The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
+	StagingDistributionDnsNames pulumi.StringArrayInput `pulumi:"stagingDistributionDnsNames"`
+	// Contains the parameters for routing production traffic from your primary to staging distributions.
+	TrafficConfig ContinuousDeploymentPolicyTrafficConfigPtrInput `pulumi:"trafficConfig"`
+	// The type of traffic configuration.
+	Type ContinuousDeploymentPolicyConfigTypePtrInput `pulumi:"type"`
 }
 
 func (ContinuousDeploymentPolicyConfigArgs) ElementType() reflect.Type {
@@ -748,32 +996,38 @@ func (o ContinuousDeploymentPolicyConfigOutput) ToContinuousDeploymentPolicyConf
 	return o
 }
 
+// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
 func (o ContinuousDeploymentPolicyConfigOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
 func (o ContinuousDeploymentPolicyConfigOutput) SingleHeaderPolicyConfig() ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties {
 		return v.SingleHeaderPolicyConfig
 	}).(ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrOutput)
 }
 
+// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
 func (o ContinuousDeploymentPolicyConfigOutput) SingleWeightPolicyConfig() ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties {
 		return v.SingleWeightPolicyConfig
 	}).(ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrOutput)
 }
 
+// The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
 func (o ContinuousDeploymentPolicyConfigOutput) StagingDistributionDnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) []string { return v.StagingDistributionDnsNames }).(pulumi.StringArrayOutput)
 }
 
+// Contains the parameters for routing production traffic from your primary to staging distributions.
 func (o ContinuousDeploymentPolicyConfigOutput) TrafficConfig() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyTrafficConfig {
 		return v.TrafficConfig
 	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
 }
 
+// The type of traffic configuration.
 func (o ContinuousDeploymentPolicyConfigOutput) Type() ContinuousDeploymentPolicyConfigTypePtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyConfigType { return v.Type }).(ContinuousDeploymentPolicyConfigTypePtrOutput)
 }
@@ -802,6 +1056,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) Elem() ContinuousDeploymentPo
 	}).(ContinuousDeploymentPolicyConfigOutput)
 }
 
+// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
 func (o ContinuousDeploymentPolicyConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *bool {
 		if v == nil {
@@ -811,6 +1066,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
 func (o ContinuousDeploymentPolicyConfigPtrOutput) SingleHeaderPolicyConfig() ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties {
 		if v == nil {
@@ -820,6 +1076,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) SingleHeaderPolicyConfig() Co
 	}).(ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrOutput)
 }
 
+// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
 func (o ContinuousDeploymentPolicyConfigPtrOutput) SingleWeightPolicyConfig() ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties {
 		if v == nil {
@@ -829,6 +1086,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) SingleWeightPolicyConfig() Co
 	}).(ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrOutput)
 }
 
+// The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
 func (o ContinuousDeploymentPolicyConfigPtrOutput) StagingDistributionDnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) []string {
 		if v == nil {
@@ -838,6 +1096,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) StagingDistributionDnsNames()
 	}).(pulumi.StringArrayOutput)
 }
 
+// Contains the parameters for routing production traffic from your primary to staging distributions.
 func (o ContinuousDeploymentPolicyConfigPtrOutput) TrafficConfig() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyTrafficConfig {
 		if v == nil {
@@ -847,6 +1106,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) TrafficConfig() ContinuousDep
 	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
 }
 
+// The type of traffic configuration.
 func (o ContinuousDeploymentPolicyConfigPtrOutput) Type() ContinuousDeploymentPolicyConfigTypePtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyConfigType {
 		if v == nil {
@@ -856,6 +1116,7 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) Type() ContinuousDeploymentPo
 	}).(ContinuousDeploymentPolicyConfigTypePtrOutput)
 }
 
+// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
 type ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties struct {
 	Header string `pulumi:"header"`
 	Value  string `pulumi:"value"`
@@ -872,6 +1133,7 @@ type ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesInput int
 	ToContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesOutputWithContext(context.Context) ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesOutput
 }
 
+// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
 type ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs struct {
 	Header pulumi.StringInput `pulumi:"header"`
 	Value  pulumi.StringInput `pulumi:"value"`
@@ -930,6 +1192,7 @@ func (i *continuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrOutput)
 }
 
+// This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
 type ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesOutput) ElementType() reflect.Type {
@@ -1004,6 +1267,7 @@ func (o ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
 type ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties struct {
 	SessionStickinessConfig *ContinuousDeploymentPolicySessionStickinessConfig `pulumi:"sessionStickinessConfig"`
 	Weight                  float64                                            `pulumi:"weight"`
@@ -1020,6 +1284,7 @@ type ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesInput int
 	ToContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesOutputWithContext(context.Context) ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesOutput
 }
 
+// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
 type ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs struct {
 	SessionStickinessConfig ContinuousDeploymentPolicySessionStickinessConfigPtrInput `pulumi:"sessionStickinessConfig"`
 	Weight                  pulumi.Float64Input                                       `pulumi:"weight"`
@@ -1078,6 +1343,7 @@ func (i *continuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrOutput)
 }
 
+// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
 type ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesOutput) ElementType() reflect.Type {
@@ -1155,7 +1421,9 @@ func (o ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesPtrOut
 }
 
 type ContinuousDeploymentPolicySessionStickinessConfig struct {
-	IdleTtl    int `pulumi:"idleTtl"`
+	// The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
+	IdleTtl int `pulumi:"idleTtl"`
+	// The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
 	MaximumTtl int `pulumi:"maximumTtl"`
 }
 
@@ -1171,7 +1439,9 @@ type ContinuousDeploymentPolicySessionStickinessConfigInput interface {
 }
 
 type ContinuousDeploymentPolicySessionStickinessConfigArgs struct {
-	IdleTtl    pulumi.IntInput `pulumi:"idleTtl"`
+	// The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
+	IdleTtl pulumi.IntInput `pulumi:"idleTtl"`
+	// The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
 	MaximumTtl pulumi.IntInput `pulumi:"maximumTtl"`
 }
 
@@ -1252,10 +1522,12 @@ func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) ToContinuousDep
 	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
 }
 
+// The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
 func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) IdleTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.IdleTtl }).(pulumi.IntOutput)
 }
 
+// The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
 func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) MaximumTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.MaximumTtl }).(pulumi.IntOutput)
 }
@@ -1284,6 +1556,7 @@ func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) Elem() Conti
 	}).(ContinuousDeploymentPolicySessionStickinessConfigOutput)
 }
 
+// The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
 func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) IdleTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) *int {
 		if v == nil {
@@ -1293,6 +1566,7 @@ func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) IdleTtl() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
 func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) *int {
 		if v == nil {
@@ -1303,8 +1577,10 @@ func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) MaximumTtl()
 }
 
 type ContinuousDeploymentPolicySingleHeaderConfig struct {
+	// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
 	Header string `pulumi:"header"`
-	Value  string `pulumi:"value"`
+	// The request header value.
+	Value string `pulumi:"value"`
 }
 
 // ContinuousDeploymentPolicySingleHeaderConfigInput is an input type that accepts ContinuousDeploymentPolicySingleHeaderConfigArgs and ContinuousDeploymentPolicySingleHeaderConfigOutput values.
@@ -1319,8 +1595,10 @@ type ContinuousDeploymentPolicySingleHeaderConfigInput interface {
 }
 
 type ContinuousDeploymentPolicySingleHeaderConfigArgs struct {
+	// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
 	Header pulumi.StringInput `pulumi:"header"`
-	Value  pulumi.StringInput `pulumi:"value"`
+	// The request header value.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ContinuousDeploymentPolicySingleHeaderConfigArgs) ElementType() reflect.Type {
@@ -1400,10 +1678,12 @@ func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) ToContinuousDeployme
 	}).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
 }
 
+// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
 func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicySingleHeaderConfig) string { return v.Header }).(pulumi.StringOutput)
 }
 
+// The request header value.
 func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicySingleHeaderConfig) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1432,6 +1712,7 @@ func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Elem() Continuous
 	}).(ContinuousDeploymentPolicySingleHeaderConfigOutput)
 }
 
+// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
 func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleHeaderConfig) *string {
 		if v == nil {
@@ -1441,6 +1722,7 @@ func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Header() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The request header value.
 func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleHeaderConfig) *string {
 		if v == nil {
@@ -1451,8 +1733,10 @@ func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Value() pulumi.St
 }
 
 type ContinuousDeploymentPolicySingleWeightConfig struct {
+	// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
 	SessionStickinessConfig *ContinuousDeploymentPolicySessionStickinessConfig `pulumi:"sessionStickinessConfig"`
-	Weight                  float64                                            `pulumi:"weight"`
+	// The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
+	Weight float64 `pulumi:"weight"`
 }
 
 // ContinuousDeploymentPolicySingleWeightConfigInput is an input type that accepts ContinuousDeploymentPolicySingleWeightConfigArgs and ContinuousDeploymentPolicySingleWeightConfigOutput values.
@@ -1467,8 +1751,10 @@ type ContinuousDeploymentPolicySingleWeightConfigInput interface {
 }
 
 type ContinuousDeploymentPolicySingleWeightConfigArgs struct {
+	// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
 	SessionStickinessConfig ContinuousDeploymentPolicySessionStickinessConfigPtrInput `pulumi:"sessionStickinessConfig"`
-	Weight                  pulumi.Float64Input                                       `pulumi:"weight"`
+	// The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
+	Weight pulumi.Float64Input `pulumi:"weight"`
 }
 
 func (ContinuousDeploymentPolicySingleWeightConfigArgs) ElementType() reflect.Type {
@@ -1548,12 +1834,14 @@ func (o ContinuousDeploymentPolicySingleWeightConfigOutput) ToContinuousDeployme
 	}).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
 }
 
+// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
 func (o ContinuousDeploymentPolicySingleWeightConfigOutput) SessionStickinessConfig() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicySingleWeightConfig) *ContinuousDeploymentPolicySessionStickinessConfig {
 		return v.SessionStickinessConfig
 	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
 }
 
+// The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
 func (o ContinuousDeploymentPolicySingleWeightConfigOutput) Weight() pulumi.Float64Output {
 	return o.ApplyT(func(v ContinuousDeploymentPolicySingleWeightConfig) float64 { return v.Weight }).(pulumi.Float64Output)
 }
@@ -1582,6 +1870,7 @@ func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) Elem() Continuous
 	}).(ContinuousDeploymentPolicySingleWeightConfigOutput)
 }
 
+// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
 func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) SessionStickinessConfig() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleWeightConfig) *ContinuousDeploymentPolicySessionStickinessConfig {
 		if v == nil {
@@ -1591,6 +1880,7 @@ func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) SessionStickiness
 	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
 }
 
+// The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
 func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleWeightConfig) *float64 {
 		if v == nil {
@@ -1601,9 +1891,12 @@ func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) Weight() pulumi.F
 }
 
 type ContinuousDeploymentPolicyTrafficConfig struct {
+	// Determines which HTTP requests are sent to the staging distribution.
 	SingleHeaderConfig *ContinuousDeploymentPolicySingleHeaderConfig `pulumi:"singleHeaderConfig"`
+	// Contains the percentage of traffic to send to the staging distribution.
 	SingleWeightConfig *ContinuousDeploymentPolicySingleWeightConfig `pulumi:"singleWeightConfig"`
-	Type               ContinuousDeploymentPolicyTrafficConfigType   `pulumi:"type"`
+	// The type of traffic configuration.
+	Type ContinuousDeploymentPolicyTrafficConfigType `pulumi:"type"`
 }
 
 // ContinuousDeploymentPolicyTrafficConfigInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigArgs and ContinuousDeploymentPolicyTrafficConfigOutput values.
@@ -1618,9 +1911,12 @@ type ContinuousDeploymentPolicyTrafficConfigInput interface {
 }
 
 type ContinuousDeploymentPolicyTrafficConfigArgs struct {
+	// Determines which HTTP requests are sent to the staging distribution.
 	SingleHeaderConfig ContinuousDeploymentPolicySingleHeaderConfigPtrInput `pulumi:"singleHeaderConfig"`
+	// Contains the percentage of traffic to send to the staging distribution.
 	SingleWeightConfig ContinuousDeploymentPolicySingleWeightConfigPtrInput `pulumi:"singleWeightConfig"`
-	Type               ContinuousDeploymentPolicyTrafficConfigTypeInput     `pulumi:"type"`
+	// The type of traffic configuration.
+	Type ContinuousDeploymentPolicyTrafficConfigTypeInput `pulumi:"type"`
 }
 
 func (ContinuousDeploymentPolicyTrafficConfigArgs) ElementType() reflect.Type {
@@ -1700,18 +1996,21 @@ func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPol
 	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
 }
 
+// Determines which HTTP requests are sent to the staging distribution.
 func (o ContinuousDeploymentPolicyTrafficConfigOutput) SingleHeaderConfig() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleHeaderConfig {
 		return v.SingleHeaderConfig
 	}).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
 }
 
+// Contains the percentage of traffic to send to the staging distribution.
 func (o ContinuousDeploymentPolicyTrafficConfigOutput) SingleWeightConfig() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleWeightConfig {
 		return v.SingleWeightConfig
 	}).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
 }
 
+// The type of traffic configuration.
 func (o ContinuousDeploymentPolicyTrafficConfigOutput) Type() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) ContinuousDeploymentPolicyTrafficConfigType {
 		return v.Type
@@ -1742,6 +2041,7 @@ func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) Elem() ContinuousDeplo
 	}).(ContinuousDeploymentPolicyTrafficConfigOutput)
 }
 
+// Determines which HTTP requests are sent to the staging distribution.
 func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleHeaderConfig() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleHeaderConfig {
 		if v == nil {
@@ -1751,6 +2051,7 @@ func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleHeaderConfig() C
 	}).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
 }
 
+// Contains the percentage of traffic to send to the staging distribution.
 func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleWeightConfig() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleWeightConfig {
 		if v == nil {
@@ -1760,6 +2061,7 @@ func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleWeightConfig() C
 	}).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
 }
 
+// The type of traffic configuration.
 func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) Type() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfigType {
 		if v == nil {
@@ -6960,9 +7262,12 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 }
 
 type FunctionConfig struct {
-	Comment                   string                             `pulumi:"comment"`
+	// A comment to describe the function.
+	Comment string `pulumi:"comment"`
+	// The configuration for the key value store associations.
 	KeyValueStoreAssociations []FunctionKeyValueStoreAssociation `pulumi:"keyValueStoreAssociations"`
-	Runtime                   string                             `pulumi:"runtime"`
+	// The function's runtime environment version.
+	Runtime string `pulumi:"runtime"`
 }
 
 // FunctionConfigInput is an input type that accepts FunctionConfigArgs and FunctionConfigOutput values.
@@ -6977,9 +7282,12 @@ type FunctionConfigInput interface {
 }
 
 type FunctionConfigArgs struct {
-	Comment                   pulumi.StringInput                         `pulumi:"comment"`
+	// A comment to describe the function.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The configuration for the key value store associations.
 	KeyValueStoreAssociations FunctionKeyValueStoreAssociationArrayInput `pulumi:"keyValueStoreAssociations"`
-	Runtime                   pulumi.StringInput                         `pulumi:"runtime"`
+	// The function's runtime environment version.
+	Runtime pulumi.StringInput `pulumi:"runtime"`
 }
 
 func (FunctionConfigArgs) ElementType() reflect.Type {
@@ -7008,14 +7316,17 @@ func (o FunctionConfigOutput) ToFunctionConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A comment to describe the function.
 func (o FunctionConfigOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// The configuration for the key value store associations.
 func (o FunctionConfigOutput) KeyValueStoreAssociations() FunctionKeyValueStoreAssociationArrayOutput {
 	return o.ApplyT(func(v FunctionConfig) []FunctionKeyValueStoreAssociation { return v.KeyValueStoreAssociations }).(FunctionKeyValueStoreAssociationArrayOutput)
 }
 
+// The function's runtime environment version.
 func (o FunctionConfigOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionConfig) string { return v.Runtime }).(pulumi.StringOutput)
 }
@@ -7044,6 +7355,7 @@ func (o FunctionConfigPtrOutput) Elem() FunctionConfigOutput {
 	}).(FunctionConfigOutput)
 }
 
+// A comment to describe the function.
 func (o FunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfig) *string {
 		if v == nil {
@@ -7053,6 +7365,7 @@ func (o FunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for the key value store associations.
 func (o FunctionConfigPtrOutput) KeyValueStoreAssociations() FunctionKeyValueStoreAssociationArrayOutput {
 	return o.ApplyT(func(v *FunctionConfig) []FunctionKeyValueStoreAssociation {
 		if v == nil {
@@ -7062,6 +7375,7 @@ func (o FunctionConfigPtrOutput) KeyValueStoreAssociations() FunctionKeyValueSto
 	}).(FunctionKeyValueStoreAssociationArrayOutput)
 }
 
+// The function's runtime environment version.
 func (o FunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfig) *string {
 		if v == nil {
@@ -7072,6 +7386,7 @@ func (o FunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 }
 
 type FunctionKeyValueStoreAssociation struct {
+	// The Amazon Resource Name (ARN) of the key value store association.
 	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
 }
 
@@ -7087,6 +7402,7 @@ type FunctionKeyValueStoreAssociationInput interface {
 }
 
 type FunctionKeyValueStoreAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the key value store association.
 	KeyValueStoreArn pulumi.StringInput `pulumi:"keyValueStoreArn"`
 }
 
@@ -7141,6 +7457,7 @@ func (o FunctionKeyValueStoreAssociationOutput) ToFunctionKeyValueStoreAssociati
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the key value store association.
 func (o FunctionKeyValueStoreAssociationOutput) KeyValueStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionKeyValueStoreAssociation) string { return v.KeyValueStoreArn }).(pulumi.StringOutput)
 }
@@ -7166,6 +7483,7 @@ func (o FunctionKeyValueStoreAssociationArrayOutput) Index(i pulumi.IntInput) Fu
 }
 
 type FunctionMetadata struct {
+	// The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
 	FunctionArn *string `pulumi:"functionArn"`
 }
 
@@ -7181,6 +7499,7 @@ type FunctionMetadataInput interface {
 }
 
 type FunctionMetadataArgs struct {
+	// The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
 	FunctionArn pulumi.StringPtrInput `pulumi:"functionArn"`
 }
 
@@ -7261,6 +7580,7 @@ func (o FunctionMetadataOutput) ToFunctionMetadataPtrOutputWithContext(ctx conte
 	}).(FunctionMetadataPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
 func (o FunctionMetadataOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionMetadata) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
@@ -7289,6 +7609,7 @@ func (o FunctionMetadataPtrOutput) Elem() FunctionMetadataOutput {
 	}).(FunctionMetadataOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
 func (o FunctionMetadataPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionMetadata) *string {
 		if v == nil {
@@ -7299,9 +7620,12 @@ func (o FunctionMetadataPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type KeyGroupConfig struct {
-	Comment *string  `pulumi:"comment"`
-	Items   []string `pulumi:"items"`
-	Name    string   `pulumi:"name"`
+	// A comment to describe the key group. The comment cannot be longer than 128 characters.
+	Comment *string `pulumi:"comment"`
+	// A list of the identifiers of the public keys in the key group.
+	Items []string `pulumi:"items"`
+	// A name to identify the key group.
+	Name string `pulumi:"name"`
 }
 
 // KeyGroupConfigInput is an input type that accepts KeyGroupConfigArgs and KeyGroupConfigOutput values.
@@ -7316,9 +7640,12 @@ type KeyGroupConfigInput interface {
 }
 
 type KeyGroupConfigArgs struct {
-	Comment pulumi.StringPtrInput   `pulumi:"comment"`
-	Items   pulumi.StringArrayInput `pulumi:"items"`
-	Name    pulumi.StringInput      `pulumi:"name"`
+	// A comment to describe the key group. The comment cannot be longer than 128 characters.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// A list of the identifiers of the public keys in the key group.
+	Items pulumi.StringArrayInput `pulumi:"items"`
+	// A name to identify the key group.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (KeyGroupConfigArgs) ElementType() reflect.Type {
@@ -7347,14 +7674,17 @@ func (o KeyGroupConfigOutput) ToKeyGroupConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A comment to describe the key group. The comment cannot be longer than 128 characters.
 func (o KeyGroupConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyGroupConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// A list of the identifiers of the public keys in the key group.
 func (o KeyGroupConfigOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyGroupConfig) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
 
+// A name to identify the key group.
 func (o KeyGroupConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyGroupConfig) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7383,6 +7713,7 @@ func (o KeyGroupConfigPtrOutput) Elem() KeyGroupConfigOutput {
 	}).(KeyGroupConfigOutput)
 }
 
+// A comment to describe the key group. The comment cannot be longer than 128 characters.
 func (o KeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyGroupConfig) *string {
 		if v == nil {
@@ -7392,6 +7723,7 @@ func (o KeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of the identifiers of the public keys in the key group.
 func (o KeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KeyGroupConfig) []string {
 		if v == nil {
@@ -7401,6 +7733,7 @@ func (o KeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A name to identify the key group.
 func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyGroupConfig) *string {
 		if v == nil {
@@ -7411,7 +7744,9 @@ func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type KeyValueStoreImportSource struct {
-	SourceArn  string `pulumi:"sourceArn"`
+	// The Amazon Resource Name (ARN) of the import source for the key value store.
+	SourceArn string `pulumi:"sourceArn"`
+	// The source type of the import source for the key value store.
 	SourceType string `pulumi:"sourceType"`
 }
 
@@ -7427,7 +7762,9 @@ type KeyValueStoreImportSourceInput interface {
 }
 
 type KeyValueStoreImportSourceArgs struct {
-	SourceArn  pulumi.StringInput `pulumi:"sourceArn"`
+	// The Amazon Resource Name (ARN) of the import source for the key value store.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
+	// The source type of the import source for the key value store.
 	SourceType pulumi.StringInput `pulumi:"sourceType"`
 }
 
@@ -7508,10 +7845,12 @@ func (o KeyValueStoreImportSourceOutput) ToKeyValueStoreImportSourcePtrOutputWit
 	}).(KeyValueStoreImportSourcePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the import source for the key value store.
 func (o KeyValueStoreImportSourceOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyValueStoreImportSource) string { return v.SourceArn }).(pulumi.StringOutput)
 }
 
+// The source type of the import source for the key value store.
 func (o KeyValueStoreImportSourceOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyValueStoreImportSource) string { return v.SourceType }).(pulumi.StringOutput)
 }
@@ -7540,6 +7879,7 @@ func (o KeyValueStoreImportSourcePtrOutput) Elem() KeyValueStoreImportSourceOutp
 	}).(KeyValueStoreImportSourceOutput)
 }
 
+// The Amazon Resource Name (ARN) of the import source for the key value store.
 func (o KeyValueStoreImportSourcePtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyValueStoreImportSource) *string {
 		if v == nil {
@@ -7549,6 +7889,7 @@ func (o KeyValueStoreImportSourcePtrOutput) SourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source type of the import source for the key value store.
 func (o KeyValueStoreImportSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyValueStoreImportSource) *string {
 		if v == nil {
@@ -7559,6 +7900,7 @@ func (o KeyValueStoreImportSourcePtrOutput) SourceType() pulumi.StringPtrOutput 
 }
 
 type MonitoringSubscriptionType struct {
+	// A subscription configuration for additional CloudWatch metrics.
 	RealtimeMetricsSubscriptionConfig *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig `pulumi:"realtimeMetricsSubscriptionConfig"`
 }
 
@@ -7574,6 +7916,7 @@ type MonitoringSubscriptionTypeInput interface {
 }
 
 type MonitoringSubscriptionTypeArgs struct {
+	// A subscription configuration for additional CloudWatch metrics.
 	RealtimeMetricsSubscriptionConfig MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput `pulumi:"realtimeMetricsSubscriptionConfig"`
 }
 
@@ -7603,6 +7946,7 @@ func (o MonitoringSubscriptionTypeOutput) ToMonitoringSubscriptionTypeOutputWith
 	return o
 }
 
+// A subscription configuration for additional CloudWatch metrics.
 func (o MonitoringSubscriptionTypeOutput) RealtimeMetricsSubscriptionConfig() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringSubscriptionType) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
 		return v.RealtimeMetricsSubscriptionConfig
@@ -7633,6 +7977,7 @@ func (o MonitoringSubscriptionTypePtrOutput) Elem() MonitoringSubscriptionTypeOu
 	}).(MonitoringSubscriptionTypeOutput)
 }
 
+// A subscription configuration for additional CloudWatch metrics.
 func (o MonitoringSubscriptionTypePtrOutput) RealtimeMetricsSubscriptionConfig() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringSubscriptionType) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
 		if v == nil {
@@ -7643,6 +7988,7 @@ func (o MonitoringSubscriptionTypePtrOutput) RealtimeMetricsSubscriptionConfig()
 }
 
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfig struct {
+	// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	RealtimeMetricsSubscriptionStatus MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus `pulumi:"realtimeMetricsSubscriptionStatus"`
 }
 
@@ -7658,6 +8004,7 @@ type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput interface {
 }
 
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs struct {
+	// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 	RealtimeMetricsSubscriptionStatus MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput `pulumi:"realtimeMetricsSubscriptionStatus"`
 }
 
@@ -7738,6 +8085,7 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitor
 	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
 }
 
+// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) RealtimeMetricsSubscriptionStatus() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput {
 	return o.ApplyT(func(v MonitoringSubscriptionRealtimeMetricsSubscriptionConfig) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus {
 		return v.RealtimeMetricsSubscriptionStatus
@@ -7768,6 +8116,7 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) Elem()
 	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
 }
 
+// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) RealtimeMetricsSubscriptionStatus() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput {
 	return o.ApplyT(func(v *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus {
 		if v == nil {
@@ -7778,11 +8127,22 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) Realti
 }
 
 type OriginAccessControlConfig struct {
-	Description                   *string `pulumi:"description"`
-	Name                          string  `pulumi:"name"`
-	OriginAccessControlOriginType string  `pulumi:"originAccessControlOriginType"`
-	SigningBehavior               string  `pulumi:"signingBehavior"`
-	SigningProtocol               string  `pulumi:"signingProtocol"`
+	// A description of the origin access control.
+	Description *string `pulumi:"description"`
+	// A name to identify the origin access control. You can specify up to 64 characters.
+	Name string `pulumi:"name"`
+	// The type of origin that this origin access control is for.
+	OriginAccessControlOriginType string `pulumi:"originAccessControlOriginType"`
+	// Specifies which requests CloudFront signs (adds authentication information to). Specify `always` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide* .
+	//
+	// This field can have one of the following values:
+	//
+	// - `always` – CloudFront signs all origin requests, overwriting the `Authorization` header from the viewer request if one exists.
+	// - `never` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+	// - `no-override` – If the viewer request doesn't contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn't sign the origin request and instead passes along the `Authorization` header from the viewer request. *WARNING: To pass along the `Authorization` header from the viewer request, you *must* add the `Authorization` header to a [cache policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html) for all cache behaviors that use origins associated with this origin access control.*
+	SigningBehavior string `pulumi:"signingBehavior"`
+	// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4` .
+	SigningProtocol string `pulumi:"signingProtocol"`
 }
 
 // OriginAccessControlConfigInput is an input type that accepts OriginAccessControlConfigArgs and OriginAccessControlConfigOutput values.
@@ -7797,11 +8157,22 @@ type OriginAccessControlConfigInput interface {
 }
 
 type OriginAccessControlConfigArgs struct {
-	Description                   pulumi.StringPtrInput `pulumi:"description"`
-	Name                          pulumi.StringInput    `pulumi:"name"`
-	OriginAccessControlOriginType pulumi.StringInput    `pulumi:"originAccessControlOriginType"`
-	SigningBehavior               pulumi.StringInput    `pulumi:"signingBehavior"`
-	SigningProtocol               pulumi.StringInput    `pulumi:"signingProtocol"`
+	// A description of the origin access control.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A name to identify the origin access control. You can specify up to 64 characters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of origin that this origin access control is for.
+	OriginAccessControlOriginType pulumi.StringInput `pulumi:"originAccessControlOriginType"`
+	// Specifies which requests CloudFront signs (adds authentication information to). Specify `always` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide* .
+	//
+	// This field can have one of the following values:
+	//
+	// - `always` – CloudFront signs all origin requests, overwriting the `Authorization` header from the viewer request if one exists.
+	// - `never` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+	// - `no-override` – If the viewer request doesn't contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn't sign the origin request and instead passes along the `Authorization` header from the viewer request. *WARNING: To pass along the `Authorization` header from the viewer request, you *must* add the `Authorization` header to a [cache policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html) for all cache behaviors that use origins associated with this origin access control.*
+	SigningBehavior pulumi.StringInput `pulumi:"signingBehavior"`
+	// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4` .
+	SigningProtocol pulumi.StringInput `pulumi:"signingProtocol"`
 }
 
 func (OriginAccessControlConfigArgs) ElementType() reflect.Type {
@@ -7830,22 +8201,33 @@ func (o OriginAccessControlConfigOutput) ToOriginAccessControlConfigOutputWithCo
 	return o
 }
 
+// A description of the origin access control.
 func (o OriginAccessControlConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginAccessControlConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name to identify the origin access control. You can specify up to 64 characters.
 func (o OriginAccessControlConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of origin that this origin access control is for.
 func (o OriginAccessControlConfigOutput) OriginAccessControlOriginType() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.OriginAccessControlOriginType }).(pulumi.StringOutput)
 }
 
+// Specifies which requests CloudFront signs (adds authentication information to). Specify `always` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide* .
+//
+// This field can have one of the following values:
+//
+// - `always` – CloudFront signs all origin requests, overwriting the `Authorization` header from the viewer request if one exists.
+// - `never` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+// - `no-override` – If the viewer request doesn't contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn't sign the origin request and instead passes along the `Authorization` header from the viewer request. *WARNING: To pass along the `Authorization` header from the viewer request, you *must* add the `Authorization` header to a [cache policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html) for all cache behaviors that use origins associated with this origin access control.*
 func (o OriginAccessControlConfigOutput) SigningBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.SigningBehavior }).(pulumi.StringOutput)
 }
 
+// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4` .
 func (o OriginAccessControlConfigOutput) SigningProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginAccessControlConfig) string { return v.SigningProtocol }).(pulumi.StringOutput)
 }
@@ -7874,6 +8256,7 @@ func (o OriginAccessControlConfigPtrOutput) Elem() OriginAccessControlConfigOutp
 	}).(OriginAccessControlConfigOutput)
 }
 
+// A description of the origin access control.
 func (o OriginAccessControlConfigPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
 		if v == nil {
@@ -7883,6 +8266,7 @@ func (o OriginAccessControlConfigPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A name to identify the origin access control. You can specify up to 64 characters.
 func (o OriginAccessControlConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
 		if v == nil {
@@ -7892,6 +8276,7 @@ func (o OriginAccessControlConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of origin that this origin access control is for.
 func (o OriginAccessControlConfigPtrOutput) OriginAccessControlOriginType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
 		if v == nil {
@@ -7901,6 +8286,13 @@ func (o OriginAccessControlConfigPtrOutput) OriginAccessControlOriginType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies which requests CloudFront signs (adds authentication information to). Specify `always` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide* .
+//
+// This field can have one of the following values:
+//
+// - `always` – CloudFront signs all origin requests, overwriting the `Authorization` header from the viewer request if one exists.
+// - `never` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+// - `no-override` – If the viewer request doesn't contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn't sign the origin request and instead passes along the `Authorization` header from the viewer request. *WARNING: To pass along the `Authorization` header from the viewer request, you *must* add the `Authorization` header to a [cache policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html) for all cache behaviors that use origins associated with this origin access control.*
 func (o OriginAccessControlConfigPtrOutput) SigningBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
 		if v == nil {
@@ -7910,6 +8302,7 @@ func (o OriginAccessControlConfigPtrOutput) SigningBehavior() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4` .
 func (o OriginAccessControlConfigPtrOutput) SigningProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginAccessControlConfig) *string {
 		if v == nil {
@@ -7920,10 +8313,15 @@ func (o OriginAccessControlConfigPtrOutput) SigningProtocol() pulumi.StringPtrOu
 }
 
 type OriginRequestPolicyConfig struct {
-	Comment            *string                               `pulumi:"comment"`
-	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
-	HeadersConfig      OriginRequestPolicyHeadersConfig      `pulumi:"headersConfig"`
-	Name               string                                `pulumi:"name"`
+	// A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
+	Comment *string `pulumi:"comment"`
+	// The cookies from viewer requests to include in origin requests.
+	CookiesConfig OriginRequestPolicyCookiesConfig `pulumi:"cookiesConfig"`
+	// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
+	HeadersConfig OriginRequestPolicyHeadersConfig `pulumi:"headersConfig"`
+	// A unique name to identify the origin request policy.
+	Name string `pulumi:"name"`
+	// The URL query strings from viewer requests to include in origin requests.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
@@ -7939,10 +8337,15 @@ type OriginRequestPolicyConfigInput interface {
 }
 
 type OriginRequestPolicyConfigArgs struct {
-	Comment            pulumi.StringPtrInput                      `pulumi:"comment"`
-	CookiesConfig      OriginRequestPolicyCookiesConfigInput      `pulumi:"cookiesConfig"`
-	HeadersConfig      OriginRequestPolicyHeadersConfigInput      `pulumi:"headersConfig"`
-	Name               pulumi.StringInput                         `pulumi:"name"`
+	// A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The cookies from viewer requests to include in origin requests.
+	CookiesConfig OriginRequestPolicyCookiesConfigInput `pulumi:"cookiesConfig"`
+	// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
+	HeadersConfig OriginRequestPolicyHeadersConfigInput `pulumi:"headersConfig"`
+	// A unique name to identify the origin request policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL query strings from viewer requests to include in origin requests.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
 }
 
@@ -7972,22 +8375,27 @@ func (o OriginRequestPolicyConfigOutput) ToOriginRequestPolicyConfigOutputWithCo
 	return o
 }
 
+// A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
 func (o OriginRequestPolicyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The cookies from viewer requests to include in origin requests.
 func (o OriginRequestPolicyConfigOutput) CookiesConfig() OriginRequestPolicyCookiesConfigOutput {
 	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyCookiesConfig { return v.CookiesConfig }).(OriginRequestPolicyCookiesConfigOutput)
 }
 
+// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
 func (o OriginRequestPolicyConfigOutput) HeadersConfig() OriginRequestPolicyHeadersConfigOutput {
 	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyHeadersConfig { return v.HeadersConfig }).(OriginRequestPolicyHeadersConfigOutput)
 }
 
+// A unique name to identify the origin request policy.
 func (o OriginRequestPolicyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The URL query strings from viewer requests to include in origin requests.
 func (o OriginRequestPolicyConfigOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigOutput {
 	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyQueryStringsConfig { return v.QueryStringsConfig }).(OriginRequestPolicyQueryStringsConfigOutput)
 }
@@ -8016,6 +8424,7 @@ func (o OriginRequestPolicyConfigPtrOutput) Elem() OriginRequestPolicyConfigOutp
 	}).(OriginRequestPolicyConfigOutput)
 }
 
+// A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
 func (o OriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyConfig) *string {
 		if v == nil {
@@ -8025,6 +8434,7 @@ func (o OriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The cookies from viewer requests to include in origin requests.
 func (o OriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyCookiesConfigPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyCookiesConfig {
 		if v == nil {
@@ -8034,6 +8444,7 @@ func (o OriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyC
 	}).(OriginRequestPolicyCookiesConfigPtrOutput)
 }
 
+// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
 func (o OriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyHeadersConfig {
 		if v == nil {
@@ -8043,6 +8454,7 @@ func (o OriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyH
 	}).(OriginRequestPolicyHeadersConfigPtrOutput)
 }
 
+// A unique name to identify the origin request policy.
 func (o OriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyConfig) *string {
 		if v == nil {
@@ -8052,6 +8464,7 @@ func (o OriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL query strings from viewer requests to include in origin requests.
 func (o OriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyQueryStringsConfig {
 		if v == nil {
@@ -8062,8 +8475,15 @@ func (o OriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPo
 }
 
 type OriginRequestPolicyCookiesConfig struct {
-	CookieBehavior string   `pulumi:"cookieBehavior"`
-	Cookies        []string `pulumi:"cookies"`
+	// Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
+	// - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allExcept` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `CookieNames` type, which are not included.
+	CookieBehavior string `pulumi:"cookieBehavior"`
+	// Contains a list of cookie names.
+	Cookies []string `pulumi:"cookies"`
 }
 
 // OriginRequestPolicyCookiesConfigInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs and OriginRequestPolicyCookiesConfigOutput values.
@@ -8078,8 +8498,15 @@ type OriginRequestPolicyCookiesConfigInput interface {
 }
 
 type OriginRequestPolicyCookiesConfigArgs struct {
-	CookieBehavior pulumi.StringInput      `pulumi:"cookieBehavior"`
-	Cookies        pulumi.StringArrayInput `pulumi:"cookies"`
+	// Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
+	// - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allExcept` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `CookieNames` type, which are not included.
+	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
+	// Contains a list of cookie names.
+	Cookies pulumi.StringArrayInput `pulumi:"cookies"`
 }
 
 func (OriginRequestPolicyCookiesConfigArgs) ElementType() reflect.Type {
@@ -8108,10 +8535,17 @@ func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConf
 	return o
 }
 
+// Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
+// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
+// - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+// - `allExcept` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `CookieNames` type, which are not included.
 func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
 }
 
+// Contains a list of cookie names.
 func (o OriginRequestPolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
 }
@@ -8140,6 +8574,12 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCoo
 	}).(OriginRequestPolicyCookiesConfigOutput)
 }
 
+// Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
+// - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
+// - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+// - `allExcept` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `CookieNames` type, which are not included.
 func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *string {
 		if v == nil {
@@ -8149,6 +8589,7 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a list of cookie names.
 func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) []string {
 		if v == nil {
@@ -8159,8 +8600,16 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayO
 }
 
 type OriginRequestPolicyHeadersConfig struct {
-	HeaderBehavior string   `pulumi:"headerBehavior"`
-	Headers        []string `pulumi:"headers"`
+	// Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
+	// - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+	// - `allExcept` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `Headers` type, which are not included.
+	HeaderBehavior string `pulumi:"headerBehavior"`
+	// Contains a list of HTTP header names.
+	Headers []string `pulumi:"headers"`
 }
 
 // OriginRequestPolicyHeadersConfigInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs and OriginRequestPolicyHeadersConfigOutput values.
@@ -8175,8 +8624,16 @@ type OriginRequestPolicyHeadersConfigInput interface {
 }
 
 type OriginRequestPolicyHeadersConfigArgs struct {
-	HeaderBehavior pulumi.StringInput      `pulumi:"headerBehavior"`
-	Headers        pulumi.StringArrayInput `pulumi:"headers"`
+	// Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
+	// - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+	// - `allExcept` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `Headers` type, which are not included.
+	HeaderBehavior pulumi.StringInput `pulumi:"headerBehavior"`
+	// Contains a list of HTTP header names.
+	Headers pulumi.StringArrayInput `pulumi:"headers"`
 }
 
 func (OriginRequestPolicyHeadersConfigArgs) ElementType() reflect.Type {
@@ -8205,10 +8662,18 @@ func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConf
 	return o
 }
 
+// Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in a `CachePolicy` *are* included in origin requests.
+// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
+// - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+// - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+// - `allExcept` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `Headers` type, which are not included.
 func (o OriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
 }
 
+// Contains a list of HTTP header names.
 func (o OriginRequestPolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
@@ -8237,6 +8702,13 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHea
 	}).(OriginRequestPolicyHeadersConfigOutput)
 }
 
+// Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in a `CachePolicy` *are* included in origin requests.
+// - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
+// - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+// - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+// - `allExcept` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `Headers` type, which are not included.
 func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *string {
 		if v == nil {
@@ -8246,6 +8718,7 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a list of HTTP header names.
 func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) []string {
 		if v == nil {
@@ -8256,8 +8729,15 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayO
 }
 
 type OriginRequestPolicyQueryStringsConfig struct {
-	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
-	QueryStrings        []string `pulumi:"queryStrings"`
+	// Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
+	// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
+	QueryStringBehavior string `pulumi:"queryStringBehavior"`
+	// Contains a list of query string names.
+	QueryStrings []string `pulumi:"queryStrings"`
 }
 
 // OriginRequestPolicyQueryStringsConfigInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs and OriginRequestPolicyQueryStringsConfigOutput values.
@@ -8272,8 +8752,15 @@ type OriginRequestPolicyQueryStringsConfigInput interface {
 }
 
 type OriginRequestPolicyQueryStringsConfigArgs struct {
-	QueryStringBehavior pulumi.StringInput      `pulumi:"queryStringBehavior"`
-	QueryStrings        pulumi.StringArrayInput `pulumi:"queryStrings"`
+	// Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+	//
+	// - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
+	// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
+	// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+	// - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
+	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
+	// Contains a list of query string names.
+	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
 }
 
 func (OriginRequestPolicyQueryStringsConfigArgs) ElementType() reflect.Type {
@@ -8302,10 +8789,17 @@ func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryS
 	return o
 }
 
+// Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
+// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
+// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+// - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
 
+// Contains a list of query string names.
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
 }
@@ -8334,6 +8828,12 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPoli
 	}).(OriginRequestPolicyQueryStringsConfigOutput)
 }
 
+// Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+//
+// - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
+// - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
+// - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+// - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
 func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *string {
 		if v == nil {
@@ -8343,6 +8843,7 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a list of query string names.
 func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) []string {
 		if v == nil {
@@ -8353,10 +8854,14 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.St
 }
 
 type PublicKeyConfig struct {
-	CallerReference string  `pulumi:"callerReference"`
-	Comment         *string `pulumi:"comment"`
-	EncodedKey      string  `pulumi:"encodedKey"`
-	Name            string  `pulumi:"name"`
+	// A string included in the request to help make sure that the request can't be replayed.
+	CallerReference string `pulumi:"callerReference"`
+	// A comment to describe the public key. The comment cannot be longer than 128 characters.
+	Comment *string `pulumi:"comment"`
+	// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+	EncodedKey string `pulumi:"encodedKey"`
+	// A name to help identify the public key.
+	Name string `pulumi:"name"`
 }
 
 // PublicKeyConfigInput is an input type that accepts PublicKeyConfigArgs and PublicKeyConfigOutput values.
@@ -8371,10 +8876,14 @@ type PublicKeyConfigInput interface {
 }
 
 type PublicKeyConfigArgs struct {
-	CallerReference pulumi.StringInput    `pulumi:"callerReference"`
-	Comment         pulumi.StringPtrInput `pulumi:"comment"`
-	EncodedKey      pulumi.StringInput    `pulumi:"encodedKey"`
-	Name            pulumi.StringInput    `pulumi:"name"`
+	// A string included in the request to help make sure that the request can't be replayed.
+	CallerReference pulumi.StringInput `pulumi:"callerReference"`
+	// A comment to describe the public key. The comment cannot be longer than 128 characters.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+	EncodedKey pulumi.StringInput `pulumi:"encodedKey"`
+	// A name to help identify the public key.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (PublicKeyConfigArgs) ElementType() reflect.Type {
@@ -8403,18 +8912,22 @@ func (o PublicKeyConfigOutput) ToPublicKeyConfigOutputWithContext(ctx context.Co
 	return o
 }
 
+// A string included in the request to help make sure that the request can't be replayed.
 func (o PublicKeyConfigOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyConfig) string { return v.CallerReference }).(pulumi.StringOutput)
 }
 
+// A comment to describe the public key. The comment cannot be longer than 128 characters.
 func (o PublicKeyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicKeyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 func (o PublicKeyConfigOutput) EncodedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyConfig) string { return v.EncodedKey }).(pulumi.StringOutput)
 }
 
+// A name to help identify the public key.
 func (o PublicKeyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8443,6 +8956,7 @@ func (o PublicKeyConfigPtrOutput) Elem() PublicKeyConfigOutput {
 	}).(PublicKeyConfigOutput)
 }
 
+// A string included in the request to help make sure that the request can't be replayed.
 func (o PublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
@@ -8452,6 +8966,7 @@ func (o PublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A comment to describe the public key. The comment cannot be longer than 128 characters.
 func (o PublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
@@ -8461,6 +8976,7 @@ func (o PublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
 func (o PublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
@@ -8470,6 +8986,7 @@ func (o PublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A name to help identify the public key.
 func (o PublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
@@ -8480,8 +8997,10 @@ func (o PublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type RealtimeLogConfigEndPoint struct {
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 	KinesisStreamConfig RealtimeLogConfigKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
-	StreamType          string                               `pulumi:"streamType"`
+	// The type of data stream where you are sending real-time log data. The only valid value is `Kinesis` .
+	StreamType string `pulumi:"streamType"`
 }
 
 // RealtimeLogConfigEndPointInput is an input type that accepts RealtimeLogConfigEndPointArgs and RealtimeLogConfigEndPointOutput values.
@@ -8496,8 +9015,10 @@ type RealtimeLogConfigEndPointInput interface {
 }
 
 type RealtimeLogConfigEndPointArgs struct {
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 	KinesisStreamConfig RealtimeLogConfigKinesisStreamConfigInput `pulumi:"kinesisStreamConfig"`
-	StreamType          pulumi.StringInput                        `pulumi:"streamType"`
+	// The type of data stream where you are sending real-time log data. The only valid value is `Kinesis` .
+	StreamType pulumi.StringInput `pulumi:"streamType"`
 }
 
 func (RealtimeLogConfigEndPointArgs) ElementType() reflect.Type {
@@ -8551,10 +9072,12 @@ func (o RealtimeLogConfigEndPointOutput) ToRealtimeLogConfigEndPointOutputWithCo
 	return o
 }
 
+// Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 func (o RealtimeLogConfigEndPointOutput) KinesisStreamConfig() RealtimeLogConfigKinesisStreamConfigOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndPoint) RealtimeLogConfigKinesisStreamConfig { return v.KinesisStreamConfig }).(RealtimeLogConfigKinesisStreamConfigOutput)
 }
 
+// The type of data stream where you are sending real-time log data. The only valid value is `Kinesis` .
 func (o RealtimeLogConfigEndPointOutput) StreamType() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndPoint) string { return v.StreamType }).(pulumi.StringOutput)
 }
@@ -8580,7 +9103,11 @@ func (o RealtimeLogConfigEndPointArrayOutput) Index(i pulumi.IntInput) RealtimeL
 }
 
 type RealtimeLogConfigKinesisStreamConfig struct {
-	RoleArn   string `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
+	//
+	// For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
+	RoleArn string `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -8596,7 +9123,11 @@ type RealtimeLogConfigKinesisStreamConfigInput interface {
 }
 
 type RealtimeLogConfigKinesisStreamConfigArgs struct {
-	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
+	//
+	// For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -8626,15 +9157,20 @@ func (o RealtimeLogConfigKinesisStreamConfigOutput) ToRealtimeLogConfigKinesisSt
 	return o
 }
 
+// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
+//
+// For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
 func (o RealtimeLogConfigKinesisStreamConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
 func (o RealtimeLogConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }
 
 type ResponseHeadersPolicyAccessControlAllowHeaders struct {
+	// The list of HTTP header names. You can specify `*` to allow all headers.
 	Items []string `pulumi:"items"`
 }
 
@@ -8650,6 +9186,7 @@ type ResponseHeadersPolicyAccessControlAllowHeadersInput interface {
 }
 
 type ResponseHeadersPolicyAccessControlAllowHeadersArgs struct {
+	// The list of HTTP header names. You can specify `*` to allow all headers.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -8730,6 +9267,7 @@ func (o ResponseHeadersPolicyAccessControlAllowHeadersOutput) ToResponseHeadersP
 	}).(ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput)
 }
 
+// The list of HTTP header names. You can specify `*` to allow all headers.
 func (o ResponseHeadersPolicyAccessControlAllowHeadersOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyAccessControlAllowHeaders) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -8758,6 +9296,7 @@ func (o ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput) Elem() Response
 	}).(ResponseHeadersPolicyAccessControlAllowHeadersOutput)
 }
 
+// The list of HTTP header names. You can specify `*` to allow all headers.
 func (o ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyAccessControlAllowHeaders) []string {
 		if v == nil {
@@ -8768,6 +9307,18 @@ func (o ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput) Items() pulumi.
 }
 
 type ResponseHeadersPolicyAccessControlAllowMethods struct {
+	// The list of HTTP methods. Valid values are:
+	//
+	// - `GET`
+	// - `DELETE`
+	// - `HEAD`
+	// - `OPTIONS`
+	// - `PATCH`
+	// - `POST`
+	// - `PUT`
+	// - `ALL`
+	//
+	// `ALL` is a special value that includes all of the listed HTTP methods.
 	Items []string `pulumi:"items"`
 }
 
@@ -8783,6 +9334,18 @@ type ResponseHeadersPolicyAccessControlAllowMethodsInput interface {
 }
 
 type ResponseHeadersPolicyAccessControlAllowMethodsArgs struct {
+	// The list of HTTP methods. Valid values are:
+	//
+	// - `GET`
+	// - `DELETE`
+	// - `HEAD`
+	// - `OPTIONS`
+	// - `PATCH`
+	// - `POST`
+	// - `PUT`
+	// - `ALL`
+	//
+	// `ALL` is a special value that includes all of the listed HTTP methods.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -8863,6 +9426,18 @@ func (o ResponseHeadersPolicyAccessControlAllowMethodsOutput) ToResponseHeadersP
 	}).(ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput)
 }
 
+// The list of HTTP methods. Valid values are:
+//
+// - `GET`
+// - `DELETE`
+// - `HEAD`
+// - `OPTIONS`
+// - `PATCH`
+// - `POST`
+// - `PUT`
+// - `ALL`
+//
+// `ALL` is a special value that includes all of the listed HTTP methods.
 func (o ResponseHeadersPolicyAccessControlAllowMethodsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyAccessControlAllowMethods) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -8891,6 +9466,18 @@ func (o ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput) Elem() Response
 	}).(ResponseHeadersPolicyAccessControlAllowMethodsOutput)
 }
 
+// The list of HTTP methods. Valid values are:
+//
+// - `GET`
+// - `DELETE`
+// - `HEAD`
+// - `OPTIONS`
+// - `PATCH`
+// - `POST`
+// - `PUT`
+// - `ALL`
+//
+// `ALL` is a special value that includes all of the listed HTTP methods.
 func (o ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyAccessControlAllowMethods) []string {
 		if v == nil {
@@ -8901,6 +9488,7 @@ func (o ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput) Items() pulumi.
 }
 
 type ResponseHeadersPolicyAccessControlAllowOrigins struct {
+	// The list of origins (domain names). You can specify `*` to allow all origins.
 	Items []string `pulumi:"items"`
 }
 
@@ -8916,6 +9504,7 @@ type ResponseHeadersPolicyAccessControlAllowOriginsInput interface {
 }
 
 type ResponseHeadersPolicyAccessControlAllowOriginsArgs struct {
+	// The list of origins (domain names). You can specify `*` to allow all origins.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -8996,6 +9585,7 @@ func (o ResponseHeadersPolicyAccessControlAllowOriginsOutput) ToResponseHeadersP
 	}).(ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput)
 }
 
+// The list of origins (domain names). You can specify `*` to allow all origins.
 func (o ResponseHeadersPolicyAccessControlAllowOriginsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyAccessControlAllowOrigins) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -9024,6 +9614,7 @@ func (o ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput) Elem() Response
 	}).(ResponseHeadersPolicyAccessControlAllowOriginsOutput)
 }
 
+// The list of origins (domain names). You can specify `*` to allow all origins.
 func (o ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyAccessControlAllowOrigins) []string {
 		if v == nil {
@@ -9034,6 +9625,7 @@ func (o ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput) Items() pulumi.
 }
 
 type ResponseHeadersPolicyAccessControlExposeHeaders struct {
+	// The list of HTTP headers. You can specify `*` to expose all headers.
 	Items []string `pulumi:"items"`
 }
 
@@ -9049,6 +9641,7 @@ type ResponseHeadersPolicyAccessControlExposeHeadersInput interface {
 }
 
 type ResponseHeadersPolicyAccessControlExposeHeadersArgs struct {
+	// The list of HTTP headers. You can specify `*` to expose all headers.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -9129,6 +9722,7 @@ func (o ResponseHeadersPolicyAccessControlExposeHeadersOutput) ToResponseHeaders
 	}).(ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput)
 }
 
+// The list of HTTP headers. You can specify `*` to expose all headers.
 func (o ResponseHeadersPolicyAccessControlExposeHeadersOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyAccessControlExposeHeaders) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -9157,6 +9751,7 @@ func (o ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput) Elem() Respons
 	}).(ResponseHeadersPolicyAccessControlExposeHeadersOutput)
 }
 
+// The list of HTTP headers. You can specify `*` to expose all headers.
 func (o ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyAccessControlExposeHeaders) []string {
 		if v == nil {
@@ -9167,12 +9762,23 @@ func (o ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput) Items() pulumi
 }
 
 type ResponseHeadersPolicyConfig struct {
-	Comment                   *string                                         `pulumi:"comment"`
-	CorsConfig                *ResponseHeadersPolicyCorsConfig                `pulumi:"corsConfig"`
-	CustomHeadersConfig       *ResponseHeadersPolicyCustomHeadersConfig       `pulumi:"customHeadersConfig"`
-	Name                      string                                          `pulumi:"name"`
-	RemoveHeadersConfig       *ResponseHeadersPolicyRemoveHeadersConfig       `pulumi:"removeHeadersConfig"`
-	SecurityHeadersConfig     *ResponseHeadersPolicySecurityHeadersConfig     `pulumi:"securityHeadersConfig"`
+	// A comment to describe the response headers policy.
+	//
+	// The comment cannot be longer than 128 characters.
+	Comment *string `pulumi:"comment"`
+	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+	CorsConfig *ResponseHeadersPolicyCorsConfig `pulumi:"corsConfig"`
+	// A configuration for a set of custom HTTP response headers.
+	CustomHeadersConfig *ResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfig"`
+	// A name to identify the response headers policy.
+	//
+	// The name must be unique for response headers policies in this AWS account .
+	Name string `pulumi:"name"`
+	// A configuration for a set of HTTP headers to remove from the HTTP response.
+	RemoveHeadersConfig *ResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfig"`
+	// A configuration for a set of security-related HTTP response headers.
+	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
+	// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
 	ServerTimingHeadersConfig *ResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfig"`
 }
 
@@ -9188,12 +9794,23 @@ type ResponseHeadersPolicyConfigInput interface {
 }
 
 type ResponseHeadersPolicyConfigArgs struct {
-	Comment                   pulumi.StringPtrInput                                  `pulumi:"comment"`
-	CorsConfig                ResponseHeadersPolicyCorsConfigPtrInput                `pulumi:"corsConfig"`
-	CustomHeadersConfig       ResponseHeadersPolicyCustomHeadersConfigPtrInput       `pulumi:"customHeadersConfig"`
-	Name                      pulumi.StringInput                                     `pulumi:"name"`
-	RemoveHeadersConfig       ResponseHeadersPolicyRemoveHeadersConfigPtrInput       `pulumi:"removeHeadersConfig"`
-	SecurityHeadersConfig     ResponseHeadersPolicySecurityHeadersConfigPtrInput     `pulumi:"securityHeadersConfig"`
+	// A comment to describe the response headers policy.
+	//
+	// The comment cannot be longer than 128 characters.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+	CorsConfig ResponseHeadersPolicyCorsConfigPtrInput `pulumi:"corsConfig"`
+	// A configuration for a set of custom HTTP response headers.
+	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrInput `pulumi:"customHeadersConfig"`
+	// A name to identify the response headers policy.
+	//
+	// The name must be unique for response headers policies in this AWS account .
+	Name pulumi.StringInput `pulumi:"name"`
+	// A configuration for a set of HTTP headers to remove from the HTTP response.
+	RemoveHeadersConfig ResponseHeadersPolicyRemoveHeadersConfigPtrInput `pulumi:"removeHeadersConfig"`
+	// A configuration for a set of security-related HTTP response headers.
+	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput `pulumi:"securityHeadersConfig"`
+	// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
 	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrInput `pulumi:"serverTimingHeadersConfig"`
 }
 
@@ -9223,36 +9840,47 @@ func (o ResponseHeadersPolicyConfigOutput) ToResponseHeadersPolicyConfigOutputWi
 	return o
 }
 
+// A comment to describe the response headers policy.
+//
+// The comment cannot be longer than 128 characters.
 func (o ResponseHeadersPolicyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
 func (o ResponseHeadersPolicyConfigOutput) CorsConfig() ResponseHeadersPolicyCorsConfigPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicyCorsConfig { return v.CorsConfig }).(ResponseHeadersPolicyCorsConfigPtrOutput)
 }
 
+// A configuration for a set of custom HTTP response headers.
 func (o ResponseHeadersPolicyConfigOutput) CustomHeadersConfig() ResponseHeadersPolicyCustomHeadersConfigPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicyCustomHeadersConfig {
 		return v.CustomHeadersConfig
 	}).(ResponseHeadersPolicyCustomHeadersConfigPtrOutput)
 }
 
+// A name to identify the response headers policy.
+//
+// The name must be unique for response headers policies in this AWS account .
 func (o ResponseHeadersPolicyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A configuration for a set of HTTP headers to remove from the HTTP response.
 func (o ResponseHeadersPolicyConfigOutput) RemoveHeadersConfig() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicyRemoveHeadersConfig {
 		return v.RemoveHeadersConfig
 	}).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
 }
 
+// A configuration for a set of security-related HTTP response headers.
 func (o ResponseHeadersPolicyConfigOutput) SecurityHeadersConfig() ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicySecurityHeadersConfig {
 		return v.SecurityHeadersConfig
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
 }
 
+// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
 func (o ResponseHeadersPolicyConfigOutput) ServerTimingHeadersConfig() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyConfig) *ResponseHeadersPolicyServerTimingHeadersConfig {
 		return v.ServerTimingHeadersConfig
@@ -9283,6 +9911,9 @@ func (o ResponseHeadersPolicyConfigPtrOutput) Elem() ResponseHeadersPolicyConfig
 	}).(ResponseHeadersPolicyConfigOutput)
 }
 
+// A comment to describe the response headers policy.
+//
+// The comment cannot be longer than 128 characters.
 func (o ResponseHeadersPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *string {
 		if v == nil {
@@ -9292,6 +9923,7 @@ func (o ResponseHeadersPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
 func (o ResponseHeadersPolicyConfigPtrOutput) CorsConfig() ResponseHeadersPolicyCorsConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyCorsConfig {
 		if v == nil {
@@ -9301,6 +9933,7 @@ func (o ResponseHeadersPolicyConfigPtrOutput) CorsConfig() ResponseHeadersPolicy
 	}).(ResponseHeadersPolicyCorsConfigPtrOutput)
 }
 
+// A configuration for a set of custom HTTP response headers.
 func (o ResponseHeadersPolicyConfigPtrOutput) CustomHeadersConfig() ResponseHeadersPolicyCustomHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyCustomHeadersConfig {
 		if v == nil {
@@ -9310,6 +9943,9 @@ func (o ResponseHeadersPolicyConfigPtrOutput) CustomHeadersConfig() ResponseHead
 	}).(ResponseHeadersPolicyCustomHeadersConfigPtrOutput)
 }
 
+// A name to identify the response headers policy.
+//
+// The name must be unique for response headers policies in this AWS account .
 func (o ResponseHeadersPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *string {
 		if v == nil {
@@ -9319,6 +9955,7 @@ func (o ResponseHeadersPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A configuration for a set of HTTP headers to remove from the HTTP response.
 func (o ResponseHeadersPolicyConfigPtrOutput) RemoveHeadersConfig() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyRemoveHeadersConfig {
 		if v == nil {
@@ -9328,6 +9965,7 @@ func (o ResponseHeadersPolicyConfigPtrOutput) RemoveHeadersConfig() ResponseHead
 	}).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
 }
 
+// A configuration for a set of security-related HTTP response headers.
 func (o ResponseHeadersPolicyConfigPtrOutput) SecurityHeadersConfig() ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicySecurityHeadersConfig {
 		if v == nil {
@@ -9337,6 +9975,7 @@ func (o ResponseHeadersPolicyConfigPtrOutput) SecurityHeadersConfig() ResponseHe
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
 }
 
+// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
 func (o ResponseHeadersPolicyConfigPtrOutput) ServerTimingHeadersConfig() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyConfig) *ResponseHeadersPolicyServerTimingHeadersConfig {
 		if v == nil {
@@ -9347,8 +9986,10 @@ func (o ResponseHeadersPolicyConfigPtrOutput) ServerTimingHeadersConfig() Respon
 }
 
 type ResponseHeadersPolicyContentSecurityPolicy struct {
+	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 	ContentSecurityPolicy string `pulumi:"contentSecurityPolicy"`
-	Override              bool   `pulumi:"override"`
+	// A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override bool `pulumi:"override"`
 }
 
 // ResponseHeadersPolicyContentSecurityPolicyInput is an input type that accepts ResponseHeadersPolicyContentSecurityPolicyArgs and ResponseHeadersPolicyContentSecurityPolicyOutput values.
@@ -9363,8 +10004,10 @@ type ResponseHeadersPolicyContentSecurityPolicyInput interface {
 }
 
 type ResponseHeadersPolicyContentSecurityPolicyArgs struct {
+	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 	ContentSecurityPolicy pulumi.StringInput `pulumi:"contentSecurityPolicy"`
-	Override              pulumi.BoolInput   `pulumi:"override"`
+	// A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override pulumi.BoolInput `pulumi:"override"`
 }
 
 func (ResponseHeadersPolicyContentSecurityPolicyArgs) ElementType() reflect.Type {
@@ -9444,10 +10087,12 @@ func (o ResponseHeadersPolicyContentSecurityPolicyOutput) ToResponseHeadersPolic
 	}).(ResponseHeadersPolicyContentSecurityPolicyPtrOutput)
 }
 
+// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 func (o ResponseHeadersPolicyContentSecurityPolicyOutput) ContentSecurityPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyContentSecurityPolicy) string { return v.ContentSecurityPolicy }).(pulumi.StringOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyContentSecurityPolicyOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyContentSecurityPolicy) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -9476,6 +10121,7 @@ func (o ResponseHeadersPolicyContentSecurityPolicyPtrOutput) Elem() ResponseHead
 	}).(ResponseHeadersPolicyContentSecurityPolicyOutput)
 }
 
+// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 func (o ResponseHeadersPolicyContentSecurityPolicyPtrOutput) ContentSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyContentSecurityPolicy) *string {
 		if v == nil {
@@ -9485,6 +10131,7 @@ func (o ResponseHeadersPolicyContentSecurityPolicyPtrOutput) ContentSecurityPoli
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyContentSecurityPolicyPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyContentSecurityPolicy) *bool {
 		if v == nil {
@@ -9495,6 +10142,7 @@ func (o ResponseHeadersPolicyContentSecurityPolicyPtrOutput) Override() pulumi.B
 }
 
 type ResponseHeadersPolicyContentTypeOptions struct {
+	// A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 }
 
@@ -9510,6 +10158,7 @@ type ResponseHeadersPolicyContentTypeOptionsInput interface {
 }
 
 type ResponseHeadersPolicyContentTypeOptionsArgs struct {
+	// A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 }
 
@@ -9590,6 +10239,7 @@ func (o ResponseHeadersPolicyContentTypeOptionsOutput) ToResponseHeadersPolicyCo
 	}).(ResponseHeadersPolicyContentTypeOptionsPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyContentTypeOptionsOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyContentTypeOptions) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -9618,6 +10268,7 @@ func (o ResponseHeadersPolicyContentTypeOptionsPtrOutput) Elem() ResponseHeaders
 	}).(ResponseHeadersPolicyContentTypeOptionsOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyContentTypeOptionsPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyContentTypeOptions) *bool {
 		if v == nil {
@@ -9628,13 +10279,32 @@ func (o ResponseHeadersPolicyContentTypeOptionsPtrOutput) Override() pulumi.Bool
 }
 
 type ResponseHeadersPolicyCorsConfig struct {
-	AccessControlAllowCredentials bool                                             `pulumi:"accessControlAllowCredentials"`
-	AccessControlAllowHeaders     ResponseHeadersPolicyAccessControlAllowHeaders   `pulumi:"accessControlAllowHeaders"`
-	AccessControlAllowMethods     ResponseHeadersPolicyAccessControlAllowMethods   `pulumi:"accessControlAllowMethods"`
-	AccessControlAllowOrigins     ResponseHeadersPolicyAccessControlAllowOrigins   `pulumi:"accessControlAllowOrigins"`
-	AccessControlExposeHeaders    *ResponseHeadersPolicyAccessControlExposeHeaders `pulumi:"accessControlExposeHeaders"`
-	AccessControlMaxAgeSec        *int                                             `pulumi:"accessControlMaxAgeSec"`
-	OriginOverride                bool                                             `pulumi:"originOverride"`
+	// A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
+	AccessControlAllowCredentials bool `pulumi:"accessControlAllowCredentials"`
+	// A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+	AccessControlAllowHeaders ResponseHeadersPolicyAccessControlAllowHeaders `pulumi:"accessControlAllowHeaders"`
+	// A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
+	AccessControlAllowMethods ResponseHeadersPolicyAccessControlAllowMethods `pulumi:"accessControlAllowMethods"`
+	// A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+	AccessControlAllowOrigins ResponseHeadersPolicyAccessControlAllowOrigins `pulumi:"accessControlAllowOrigins"`
+	// A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+	//
+	// For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+	AccessControlExposeHeaders *ResponseHeadersPolicyAccessControlExposeHeaders `pulumi:"accessControlExposeHeaders"`
+	// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
+	//
+	// For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
+	AccessControlMaxAgeSec *int `pulumi:"accessControlMaxAgeSec"`
+	// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
+	OriginOverride bool `pulumi:"originOverride"`
 }
 
 // ResponseHeadersPolicyCorsConfigInput is an input type that accepts ResponseHeadersPolicyCorsConfigArgs and ResponseHeadersPolicyCorsConfigOutput values.
@@ -9649,13 +10319,32 @@ type ResponseHeadersPolicyCorsConfigInput interface {
 }
 
 type ResponseHeadersPolicyCorsConfigArgs struct {
-	AccessControlAllowCredentials pulumi.BoolInput                                        `pulumi:"accessControlAllowCredentials"`
-	AccessControlAllowHeaders     ResponseHeadersPolicyAccessControlAllowHeadersInput     `pulumi:"accessControlAllowHeaders"`
-	AccessControlAllowMethods     ResponseHeadersPolicyAccessControlAllowMethodsInput     `pulumi:"accessControlAllowMethods"`
-	AccessControlAllowOrigins     ResponseHeadersPolicyAccessControlAllowOriginsInput     `pulumi:"accessControlAllowOrigins"`
-	AccessControlExposeHeaders    ResponseHeadersPolicyAccessControlExposeHeadersPtrInput `pulumi:"accessControlExposeHeaders"`
-	AccessControlMaxAgeSec        pulumi.IntPtrInput                                      `pulumi:"accessControlMaxAgeSec"`
-	OriginOverride                pulumi.BoolInput                                        `pulumi:"originOverride"`
+	// A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
+	AccessControlAllowCredentials pulumi.BoolInput `pulumi:"accessControlAllowCredentials"`
+	// A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+	AccessControlAllowHeaders ResponseHeadersPolicyAccessControlAllowHeadersInput `pulumi:"accessControlAllowHeaders"`
+	// A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
+	AccessControlAllowMethods ResponseHeadersPolicyAccessControlAllowMethodsInput `pulumi:"accessControlAllowMethods"`
+	// A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+	//
+	// For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+	AccessControlAllowOrigins ResponseHeadersPolicyAccessControlAllowOriginsInput `pulumi:"accessControlAllowOrigins"`
+	// A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+	//
+	// For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+	AccessControlExposeHeaders ResponseHeadersPolicyAccessControlExposeHeadersPtrInput `pulumi:"accessControlExposeHeaders"`
+	// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
+	//
+	// For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
+	AccessControlMaxAgeSec pulumi.IntPtrInput `pulumi:"accessControlMaxAgeSec"`
+	// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
+	OriginOverride pulumi.BoolInput `pulumi:"originOverride"`
 }
 
 func (ResponseHeadersPolicyCorsConfigArgs) ElementType() reflect.Type {
@@ -9735,38 +10424,57 @@ func (o ResponseHeadersPolicyCorsConfigOutput) ToResponseHeadersPolicyCorsConfig
 	}).(ResponseHeadersPolicyCorsConfigPtrOutput)
 }
 
+// A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlAllowCredentials() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) bool { return v.AccessControlAllowCredentials }).(pulumi.BoolOutput)
 }
 
+// A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlAllowHeaders() ResponseHeadersPolicyAccessControlAllowHeadersOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) ResponseHeadersPolicyAccessControlAllowHeaders {
 		return v.AccessControlAllowHeaders
 	}).(ResponseHeadersPolicyAccessControlAllowHeadersOutput)
 }
 
+// A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlAllowMethods() ResponseHeadersPolicyAccessControlAllowMethodsOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) ResponseHeadersPolicyAccessControlAllowMethods {
 		return v.AccessControlAllowMethods
 	}).(ResponseHeadersPolicyAccessControlAllowMethodsOutput)
 }
 
+// A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlAllowOrigins() ResponseHeadersPolicyAccessControlAllowOriginsOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) ResponseHeadersPolicyAccessControlAllowOrigins {
 		return v.AccessControlAllowOrigins
 	}).(ResponseHeadersPolicyAccessControlAllowOriginsOutput)
 }
 
+// A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+//
+// For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlExposeHeaders() ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) *ResponseHeadersPolicyAccessControlExposeHeaders {
 		return v.AccessControlExposeHeaders
 	}).(ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput)
 }
 
+// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
+//
+// For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlMaxAgeSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) *int { return v.AccessControlMaxAgeSec }).(pulumi.IntPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
 func (o ResponseHeadersPolicyCorsConfigOutput) OriginOverride() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) bool { return v.OriginOverride }).(pulumi.BoolOutput)
 }
@@ -9795,6 +10503,9 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) Elem() ResponseHeadersPolicyCo
 	}).(ResponseHeadersPolicyCorsConfigOutput)
 }
 
+// A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *bool {
 		if v == nil {
@@ -9804,6 +10515,9 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowCredentials(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowHeaders() ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *ResponseHeadersPolicyAccessControlAllowHeaders {
 		if v == nil {
@@ -9813,6 +10527,9 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowHeaders() Re
 	}).(ResponseHeadersPolicyAccessControlAllowHeadersPtrOutput)
 }
 
+// A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowMethods() ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *ResponseHeadersPolicyAccessControlAllowMethods {
 		if v == nil {
@@ -9822,6 +10539,9 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowMethods() Re
 	}).(ResponseHeadersPolicyAccessControlAllowMethodsPtrOutput)
 }
 
+// A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+//
+// For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowOrigins() ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *ResponseHeadersPolicyAccessControlAllowOrigins {
 		if v == nil {
@@ -9831,6 +10551,9 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlAllowOrigins() Re
 	}).(ResponseHeadersPolicyAccessControlAllowOriginsPtrOutput)
 }
 
+// A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+//
+// For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlExposeHeaders() ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *ResponseHeadersPolicyAccessControlExposeHeaders {
 		if v == nil {
@@ -9840,6 +10563,9 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlExposeHeaders() R
 	}).(ResponseHeadersPolicyAccessControlExposeHeadersPtrOutput)
 }
 
+// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
+//
+// For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlMaxAgeSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *int {
 		if v == nil {
@@ -9849,6 +10575,7 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlMaxAgeSec() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) OriginOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *bool {
 		if v == nil {
@@ -9859,9 +10586,12 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) OriginOverride() pulumi.BoolPt
 }
 
 type ResponseHeadersPolicyCustomHeader struct {
-	Header   string `pulumi:"header"`
-	Override bool   `pulumi:"override"`
-	Value    string `pulumi:"value"`
+	// The HTTP response header name.
+	Header string `pulumi:"header"`
+	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
+	Override bool `pulumi:"override"`
+	// The value for the HTTP response header.
+	Value string `pulumi:"value"`
 }
 
 // ResponseHeadersPolicyCustomHeaderInput is an input type that accepts ResponseHeadersPolicyCustomHeaderArgs and ResponseHeadersPolicyCustomHeaderOutput values.
@@ -9876,9 +10606,12 @@ type ResponseHeadersPolicyCustomHeaderInput interface {
 }
 
 type ResponseHeadersPolicyCustomHeaderArgs struct {
-	Header   pulumi.StringInput `pulumi:"header"`
-	Override pulumi.BoolInput   `pulumi:"override"`
-	Value    pulumi.StringInput `pulumi:"value"`
+	// The HTTP response header name.
+	Header pulumi.StringInput `pulumi:"header"`
+	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
+	Override pulumi.BoolInput `pulumi:"override"`
+	// The value for the HTTP response header.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ResponseHeadersPolicyCustomHeaderArgs) ElementType() reflect.Type {
@@ -9932,14 +10665,17 @@ func (o ResponseHeadersPolicyCustomHeaderOutput) ToResponseHeadersPolicyCustomHe
 	return o
 }
 
+// The HTTP response header name.
 func (o ResponseHeadersPolicyCustomHeaderOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeader) string { return v.Header }).(pulumi.StringOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
 func (o ResponseHeadersPolicyCustomHeaderOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeader) bool { return v.Override }).(pulumi.BoolOutput)
 }
 
+// The value for the HTTP response header.
 func (o ResponseHeadersPolicyCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9965,6 +10701,7 @@ func (o ResponseHeadersPolicyCustomHeaderArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type ResponseHeadersPolicyCustomHeadersConfig struct {
+	// The list of HTTP response headers and their values.
 	Items []ResponseHeadersPolicyCustomHeader `pulumi:"items"`
 }
 
@@ -9980,6 +10717,7 @@ type ResponseHeadersPolicyCustomHeadersConfigInput interface {
 }
 
 type ResponseHeadersPolicyCustomHeadersConfigArgs struct {
+	// The list of HTTP response headers and their values.
 	Items ResponseHeadersPolicyCustomHeaderArrayInput `pulumi:"items"`
 }
 
@@ -10060,6 +10798,7 @@ func (o ResponseHeadersPolicyCustomHeadersConfigOutput) ToResponseHeadersPolicyC
 	}).(ResponseHeadersPolicyCustomHeadersConfigPtrOutput)
 }
 
+// The list of HTTP response headers and their values.
 func (o ResponseHeadersPolicyCustomHeadersConfigOutput) Items() ResponseHeadersPolicyCustomHeaderArrayOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeadersConfig) []ResponseHeadersPolicyCustomHeader { return v.Items }).(ResponseHeadersPolicyCustomHeaderArrayOutput)
 }
@@ -10088,6 +10827,7 @@ func (o ResponseHeadersPolicyCustomHeadersConfigPtrOutput) Elem() ResponseHeader
 	}).(ResponseHeadersPolicyCustomHeadersConfigOutput)
 }
 
+// The list of HTTP response headers and their values.
 func (o ResponseHeadersPolicyCustomHeadersConfigPtrOutput) Items() ResponseHeadersPolicyCustomHeaderArrayOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCustomHeadersConfig) []ResponseHeadersPolicyCustomHeader {
 		if v == nil {
@@ -10098,8 +10838,12 @@ func (o ResponseHeadersPolicyCustomHeadersConfigPtrOutput) Items() ResponseHeade
 }
 
 type ResponseHeadersPolicyFrameOptions struct {
+	// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
+	//
+	// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 	FrameOption string `pulumi:"frameOption"`
-	Override    bool   `pulumi:"override"`
+	// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override bool `pulumi:"override"`
 }
 
 // ResponseHeadersPolicyFrameOptionsInput is an input type that accepts ResponseHeadersPolicyFrameOptionsArgs and ResponseHeadersPolicyFrameOptionsOutput values.
@@ -10114,8 +10858,12 @@ type ResponseHeadersPolicyFrameOptionsInput interface {
 }
 
 type ResponseHeadersPolicyFrameOptionsArgs struct {
+	// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
+	//
+	// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 	FrameOption pulumi.StringInput `pulumi:"frameOption"`
-	Override    pulumi.BoolInput   `pulumi:"override"`
+	// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override pulumi.BoolInput `pulumi:"override"`
 }
 
 func (ResponseHeadersPolicyFrameOptionsArgs) ElementType() reflect.Type {
@@ -10195,10 +10943,14 @@ func (o ResponseHeadersPolicyFrameOptionsOutput) ToResponseHeadersPolicyFrameOpt
 	}).(ResponseHeadersPolicyFrameOptionsPtrOutput)
 }
 
+// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
+//
+// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 func (o ResponseHeadersPolicyFrameOptionsOutput) FrameOption() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyFrameOptions) string { return v.FrameOption }).(pulumi.StringOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyFrameOptionsOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyFrameOptions) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -10227,6 +10979,9 @@ func (o ResponseHeadersPolicyFrameOptionsPtrOutput) Elem() ResponseHeadersPolicy
 	}).(ResponseHeadersPolicyFrameOptionsOutput)
 }
 
+// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
+//
+// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 func (o ResponseHeadersPolicyFrameOptionsPtrOutput) FrameOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyFrameOptions) *string {
 		if v == nil {
@@ -10236,6 +10991,7 @@ func (o ResponseHeadersPolicyFrameOptionsPtrOutput) FrameOption() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyFrameOptionsPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyFrameOptions) *bool {
 		if v == nil {
@@ -10246,7 +11002,20 @@ func (o ResponseHeadersPolicyFrameOptionsPtrOutput) Override() pulumi.BoolPtrOut
 }
 
 type ResponseHeadersPolicyReferrerPolicy struct {
-	Override       bool   `pulumi:"override"`
+	// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override bool `pulumi:"override"`
+	// The value of the `Referrer-Policy` HTTP response header. Valid values are:
+	//
+	// - `no-referrer`
+	// - `no-referrer-when-downgrade`
+	// - `origin`
+	// - `origin-when-cross-origin`
+	// - `same-origin`
+	// - `strict-origin`
+	// - `strict-origin-when-cross-origin`
+	// - `unsafe-url`
+	//
+	// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 	ReferrerPolicy string `pulumi:"referrerPolicy"`
 }
 
@@ -10262,7 +11031,20 @@ type ResponseHeadersPolicyReferrerPolicyInput interface {
 }
 
 type ResponseHeadersPolicyReferrerPolicyArgs struct {
-	Override       pulumi.BoolInput   `pulumi:"override"`
+	// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override pulumi.BoolInput `pulumi:"override"`
+	// The value of the `Referrer-Policy` HTTP response header. Valid values are:
+	//
+	// - `no-referrer`
+	// - `no-referrer-when-downgrade`
+	// - `origin`
+	// - `origin-when-cross-origin`
+	// - `same-origin`
+	// - `strict-origin`
+	// - `strict-origin-when-cross-origin`
+	// - `unsafe-url`
+	//
+	// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 	ReferrerPolicy pulumi.StringInput `pulumi:"referrerPolicy"`
 }
 
@@ -10343,10 +11125,23 @@ func (o ResponseHeadersPolicyReferrerPolicyOutput) ToResponseHeadersPolicyReferr
 	}).(ResponseHeadersPolicyReferrerPolicyPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyReferrerPolicyOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyReferrerPolicy) bool { return v.Override }).(pulumi.BoolOutput)
 }
 
+// The value of the `Referrer-Policy` HTTP response header. Valid values are:
+//
+// - `no-referrer`
+// - `no-referrer-when-downgrade`
+// - `origin`
+// - `origin-when-cross-origin`
+// - `same-origin`
+// - `strict-origin`
+// - `strict-origin-when-cross-origin`
+// - `unsafe-url`
+//
+// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 func (o ResponseHeadersPolicyReferrerPolicyOutput) ReferrerPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyReferrerPolicy) string { return v.ReferrerPolicy }).(pulumi.StringOutput)
 }
@@ -10375,6 +11170,7 @@ func (o ResponseHeadersPolicyReferrerPolicyPtrOutput) Elem() ResponseHeadersPoli
 	}).(ResponseHeadersPolicyReferrerPolicyOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyReferrerPolicyPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyReferrerPolicy) *bool {
 		if v == nil {
@@ -10384,6 +11180,18 @@ func (o ResponseHeadersPolicyReferrerPolicyPtrOutput) Override() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The value of the `Referrer-Policy` HTTP response header. Valid values are:
+//
+// - `no-referrer`
+// - `no-referrer-when-downgrade`
+// - `origin`
+// - `origin-when-cross-origin`
+// - `same-origin`
+// - `strict-origin`
+// - `strict-origin-when-cross-origin`
+// - `unsafe-url`
+//
+// For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 func (o ResponseHeadersPolicyReferrerPolicyPtrOutput) ReferrerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyReferrerPolicy) *string {
 		if v == nil {
@@ -10394,6 +11202,7 @@ func (o ResponseHeadersPolicyReferrerPolicyPtrOutput) ReferrerPolicy() pulumi.St
 }
 
 type ResponseHeadersPolicyRemoveHeader struct {
+	// The HTTP header name.
 	Header string `pulumi:"header"`
 }
 
@@ -10409,6 +11218,7 @@ type ResponseHeadersPolicyRemoveHeaderInput interface {
 }
 
 type ResponseHeadersPolicyRemoveHeaderArgs struct {
+	// The HTTP header name.
 	Header pulumi.StringInput `pulumi:"header"`
 }
 
@@ -10463,6 +11273,7 @@ func (o ResponseHeadersPolicyRemoveHeaderOutput) ToResponseHeadersPolicyRemoveHe
 	return o
 }
 
+// The HTTP header name.
 func (o ResponseHeadersPolicyRemoveHeaderOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyRemoveHeader) string { return v.Header }).(pulumi.StringOutput)
 }
@@ -10488,6 +11299,7 @@ func (o ResponseHeadersPolicyRemoveHeaderArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type ResponseHeadersPolicyRemoveHeadersConfig struct {
+	// The list of HTTP header names.
 	Items []ResponseHeadersPolicyRemoveHeader `pulumi:"items"`
 }
 
@@ -10503,6 +11315,7 @@ type ResponseHeadersPolicyRemoveHeadersConfigInput interface {
 }
 
 type ResponseHeadersPolicyRemoveHeadersConfigArgs struct {
+	// The list of HTTP header names.
 	Items ResponseHeadersPolicyRemoveHeaderArrayInput `pulumi:"items"`
 }
 
@@ -10583,6 +11396,7 @@ func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) ToResponseHeadersPolicyR
 	}).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
 }
 
+// The list of HTTP header names.
 func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) Items() ResponseHeadersPolicyRemoveHeaderArrayOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyRemoveHeadersConfig) []ResponseHeadersPolicyRemoveHeader { return v.Items }).(ResponseHeadersPolicyRemoveHeaderArrayOutput)
 }
@@ -10611,6 +11425,7 @@ func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) Elem() ResponseHeader
 	}).(ResponseHeadersPolicyRemoveHeadersConfigOutput)
 }
 
+// The list of HTTP header names.
 func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) Items() ResponseHeadersPolicyRemoveHeaderArrayOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyRemoveHeadersConfig) []ResponseHeadersPolicyRemoveHeader {
 		if v == nil {
@@ -10621,12 +11436,30 @@ func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) Items() ResponseHeade
 }
 
 type ResponseHeadersPolicySecurityHeadersConfig struct {
-	ContentSecurityPolicy   *ResponseHeadersPolicyContentSecurityPolicy   `pulumi:"contentSecurityPolicy"`
-	ContentTypeOptions      *ResponseHeadersPolicyContentTypeOptions      `pulumi:"contentTypeOptions"`
-	FrameOptions            *ResponseHeadersPolicyFrameOptions            `pulumi:"frameOptions"`
-	ReferrerPolicy          *ResponseHeadersPolicyReferrerPolicy          `pulumi:"referrerPolicy"`
+	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+	//
+	// For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+	ContentSecurityPolicy *ResponseHeadersPolicyContentSecurityPolicy `pulumi:"contentSecurityPolicy"`
+	// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
+	//
+	// For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+	ContentTypeOptions *ResponseHeadersPolicyContentTypeOptions `pulumi:"contentTypeOptions"`
+	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
+	//
+	// For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+	FrameOptions *ResponseHeadersPolicyFrameOptions `pulumi:"frameOptions"`
+	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
+	//
+	// For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+	ReferrerPolicy *ResponseHeadersPolicyReferrerPolicy `pulumi:"referrerPolicy"`
+	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
+	//
+	// For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 	StrictTransportSecurity *ResponseHeadersPolicyStrictTransportSecurity `pulumi:"strictTransportSecurity"`
-	XssProtection           *ResponseHeadersPolicyXssProtection           `pulumi:"xssProtection"`
+	// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
+	//
+	// For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	XssProtection *ResponseHeadersPolicyXssProtection `pulumi:"xssProtection"`
 }
 
 // ResponseHeadersPolicySecurityHeadersConfigInput is an input type that accepts ResponseHeadersPolicySecurityHeadersConfigArgs and ResponseHeadersPolicySecurityHeadersConfigOutput values.
@@ -10641,12 +11474,30 @@ type ResponseHeadersPolicySecurityHeadersConfigInput interface {
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigArgs struct {
-	ContentSecurityPolicy   ResponseHeadersPolicyContentSecurityPolicyPtrInput   `pulumi:"contentSecurityPolicy"`
-	ContentTypeOptions      ResponseHeadersPolicyContentTypeOptionsPtrInput      `pulumi:"contentTypeOptions"`
-	FrameOptions            ResponseHeadersPolicyFrameOptionsPtrInput            `pulumi:"frameOptions"`
-	ReferrerPolicy          ResponseHeadersPolicyReferrerPolicyPtrInput          `pulumi:"referrerPolicy"`
+	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+	//
+	// For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+	ContentSecurityPolicy ResponseHeadersPolicyContentSecurityPolicyPtrInput `pulumi:"contentSecurityPolicy"`
+	// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
+	//
+	// For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+	ContentTypeOptions ResponseHeadersPolicyContentTypeOptionsPtrInput `pulumi:"contentTypeOptions"`
+	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
+	//
+	// For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+	FrameOptions ResponseHeadersPolicyFrameOptionsPtrInput `pulumi:"frameOptions"`
+	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
+	//
+	// For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+	ReferrerPolicy ResponseHeadersPolicyReferrerPolicyPtrInput `pulumi:"referrerPolicy"`
+	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
+	//
+	// For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 	StrictTransportSecurity ResponseHeadersPolicyStrictTransportSecurityPtrInput `pulumi:"strictTransportSecurity"`
-	XssProtection           ResponseHeadersPolicyXssProtectionPtrInput           `pulumi:"xssProtection"`
+	// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
+	//
+	// For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	XssProtection ResponseHeadersPolicyXssProtectionPtrInput `pulumi:"xssProtection"`
 }
 
 func (ResponseHeadersPolicySecurityHeadersConfigArgs) ElementType() reflect.Type {
@@ -10726,36 +11577,54 @@ func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ToResponseHeadersPolic
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
 }
 
+// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+//
+// For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ContentSecurityPolicy() ResponseHeadersPolicyContentSecurityPolicyPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyContentSecurityPolicy {
 		return v.ContentSecurityPolicy
 	}).(ResponseHeadersPolicyContentSecurityPolicyPtrOutput)
 }
 
+// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
+//
+// For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ContentTypeOptions() ResponseHeadersPolicyContentTypeOptionsPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyContentTypeOptions {
 		return v.ContentTypeOptions
 	}).(ResponseHeadersPolicyContentTypeOptionsPtrOutput)
 }
 
+// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
+//
+// For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) FrameOptions() ResponseHeadersPolicyFrameOptionsPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyFrameOptions {
 		return v.FrameOptions
 	}).(ResponseHeadersPolicyFrameOptionsPtrOutput)
 }
 
+// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
+//
+// For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ReferrerPolicy() ResponseHeadersPolicyReferrerPolicyPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyReferrerPolicy {
 		return v.ReferrerPolicy
 	}).(ResponseHeadersPolicyReferrerPolicyPtrOutput)
 }
 
+// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
+//
+// For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) StrictTransportSecurity() ResponseHeadersPolicyStrictTransportSecurityPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyStrictTransportSecurity {
 		return v.StrictTransportSecurity
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
+// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
+//
+// For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) XssProtection() ResponseHeadersPolicyXssProtectionPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXssProtection {
 		return v.XssProtection
@@ -10786,6 +11655,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) Elem() ResponseHead
 	}).(ResponseHeadersPolicySecurityHeadersConfigOutput)
 }
 
+// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+//
+// For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ContentSecurityPolicy() ResponseHeadersPolicyContentSecurityPolicyPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyContentSecurityPolicy {
 		if v == nil {
@@ -10795,6 +11667,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ContentSecurityPoli
 	}).(ResponseHeadersPolicyContentSecurityPolicyPtrOutput)
 }
 
+// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
+//
+// For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ContentTypeOptions() ResponseHeadersPolicyContentTypeOptionsPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyContentTypeOptions {
 		if v == nil {
@@ -10804,6 +11679,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ContentTypeOptions(
 	}).(ResponseHeadersPolicyContentTypeOptionsPtrOutput)
 }
 
+// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
+//
+// For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) FrameOptions() ResponseHeadersPolicyFrameOptionsPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyFrameOptions {
 		if v == nil {
@@ -10813,6 +11691,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) FrameOptions() Resp
 	}).(ResponseHeadersPolicyFrameOptionsPtrOutput)
 }
 
+// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
+//
+// For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ReferrerPolicy() ResponseHeadersPolicyReferrerPolicyPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyReferrerPolicy {
 		if v == nil {
@@ -10822,6 +11703,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ReferrerPolicy() Re
 	}).(ResponseHeadersPolicyReferrerPolicyPtrOutput)
 }
 
+// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
+//
+// For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) StrictTransportSecurity() ResponseHeadersPolicyStrictTransportSecurityPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyStrictTransportSecurity {
 		if v == nil {
@@ -10831,6 +11715,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) StrictTransportSecu
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
+// Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
+//
+// For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XssProtection() ResponseHeadersPolicyXssProtectionPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXssProtection {
 		if v == nil {
@@ -10841,7 +11728,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XssProtection() Res
 }
 
 type ResponseHeadersPolicyServerTimingHeadersConfig struct {
-	Enabled      bool     `pulumi:"enabled"`
+	// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+	Enabled bool `pulumi:"enabled"`
+	// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the `Server-Timing` header to. When you set the sampling rate to 100, CloudFront adds the `Server-Timing` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
 	SamplingRate *float64 `pulumi:"samplingRate"`
 }
 
@@ -10857,7 +11746,9 @@ type ResponseHeadersPolicyServerTimingHeadersConfigInput interface {
 }
 
 type ResponseHeadersPolicyServerTimingHeadersConfigArgs struct {
-	Enabled      pulumi.BoolInput       `pulumi:"enabled"`
+	// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the `Server-Timing` header to. When you set the sampling rate to 100, CloudFront adds the `Server-Timing` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
 	SamplingRate pulumi.Float64PtrInput `pulumi:"samplingRate"`
 }
 
@@ -10938,10 +11829,12 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersP
 	}).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
 func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyServerTimingHeadersConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the `Server-Timing` header to. When you set the sampling rate to 100, CloudFront adds the `Server-Timing` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
 func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) SamplingRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyServerTimingHeadersConfig) *float64 { return v.SamplingRate }).(pulumi.Float64PtrOutput)
 }
@@ -10970,6 +11863,7 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Elem() Response
 	}).(ResponseHeadersPolicyServerTimingHeadersConfigOutput)
 }
 
+// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
 func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) *bool {
 		if v == nil {
@@ -10979,6 +11873,7 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the `Server-Timing` header to. When you set the sampling rate to 100, CloudFront adds the `Server-Timing` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
 func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) *float64 {
 		if v == nil {
@@ -10989,10 +11884,14 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() 
 }
 
 type ResponseHeadersPolicyStrictTransportSecurity struct {
-	AccessControlMaxAgeSec int   `pulumi:"accessControlMaxAgeSec"`
-	IncludeSubdomains      *bool `pulumi:"includeSubdomains"`
-	Override               bool  `pulumi:"override"`
-	Preload                *bool `pulumi:"preload"`
+	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+	AccessControlMaxAgeSec int `pulumi:"accessControlMaxAgeSec"`
+	// A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+	IncludeSubdomains *bool `pulumi:"includeSubdomains"`
+	// A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override bool `pulumi:"override"`
+	// A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+	Preload *bool `pulumi:"preload"`
 }
 
 // ResponseHeadersPolicyStrictTransportSecurityInput is an input type that accepts ResponseHeadersPolicyStrictTransportSecurityArgs and ResponseHeadersPolicyStrictTransportSecurityOutput values.
@@ -11007,10 +11906,14 @@ type ResponseHeadersPolicyStrictTransportSecurityInput interface {
 }
 
 type ResponseHeadersPolicyStrictTransportSecurityArgs struct {
-	AccessControlMaxAgeSec pulumi.IntInput     `pulumi:"accessControlMaxAgeSec"`
-	IncludeSubdomains      pulumi.BoolPtrInput `pulumi:"includeSubdomains"`
-	Override               pulumi.BoolInput    `pulumi:"override"`
-	Preload                pulumi.BoolPtrInput `pulumi:"preload"`
+	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+	AccessControlMaxAgeSec pulumi.IntInput `pulumi:"accessControlMaxAgeSec"`
+	// A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+	IncludeSubdomains pulumi.BoolPtrInput `pulumi:"includeSubdomains"`
+	// A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override pulumi.BoolInput `pulumi:"override"`
+	// A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+	Preload pulumi.BoolPtrInput `pulumi:"preload"`
 }
 
 func (ResponseHeadersPolicyStrictTransportSecurityArgs) ElementType() reflect.Type {
@@ -11090,18 +11993,22 @@ func (o ResponseHeadersPolicyStrictTransportSecurityOutput) ToResponseHeadersPol
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
+// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
 func (o ResponseHeadersPolicyStrictTransportSecurityOutput) AccessControlMaxAgeSec() pulumi.IntOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyStrictTransportSecurity) int { return v.AccessControlMaxAgeSec }).(pulumi.IntOutput)
 }
 
+// A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
 func (o ResponseHeadersPolicyStrictTransportSecurityOutput) IncludeSubdomains() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyStrictTransportSecurity) *bool { return v.IncludeSubdomains }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyStrictTransportSecurityOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyStrictTransportSecurity) bool { return v.Override }).(pulumi.BoolOutput)
 }
 
+// A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
 func (o ResponseHeadersPolicyStrictTransportSecurityOutput) Preload() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyStrictTransportSecurity) *bool { return v.Preload }).(pulumi.BoolPtrOutput)
 }
@@ -11130,6 +12037,7 @@ func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) Elem() ResponseHe
 	}).(ResponseHeadersPolicyStrictTransportSecurityOutput)
 }
 
+// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
 func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) AccessControlMaxAgeSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyStrictTransportSecurity) *int {
 		if v == nil {
@@ -11139,6 +12047,7 @@ func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) AccessControlMaxA
 	}).(pulumi.IntPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
 func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) IncludeSubdomains() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyStrictTransportSecurity) *bool {
 		if v == nil {
@@ -11148,6 +12057,7 @@ func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) IncludeSubdomains
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyStrictTransportSecurity) *bool {
 		if v == nil {
@@ -11157,6 +12067,7 @@ func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) Override() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
 func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) Preload() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyStrictTransportSecurity) *bool {
 		if v == nil {
@@ -11167,10 +12078,22 @@ func (o ResponseHeadersPolicyStrictTransportSecurityPtrOutput) Preload() pulumi.
 }
 
 type ResponseHeadersPolicyXssProtection struct {
-	ModeBlock  *bool   `pulumi:"modeBlock"`
-	Override   bool    `pulumi:"override"`
-	Protection bool    `pulumi:"protection"`
-	ReportUri  *string `pulumi:"reportUri"`
+	// A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+	//
+	// For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	ModeBlock *bool `pulumi:"modeBlock"`
+	// A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override bool `pulumi:"override"`
+	// A Boolean that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
+	//
+	// For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	Protection bool `pulumi:"protection"`
+	// A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
+	//
+	// You cannot specify a `ReportUri` when `ModeBlock` is `true` .
+	//
+	// For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	ReportUri *string `pulumi:"reportUri"`
 }
 
 // ResponseHeadersPolicyXssProtectionInput is an input type that accepts ResponseHeadersPolicyXssProtectionArgs and ResponseHeadersPolicyXssProtectionOutput values.
@@ -11185,10 +12108,22 @@ type ResponseHeadersPolicyXssProtectionInput interface {
 }
 
 type ResponseHeadersPolicyXssProtectionArgs struct {
-	ModeBlock  pulumi.BoolPtrInput   `pulumi:"modeBlock"`
-	Override   pulumi.BoolInput      `pulumi:"override"`
-	Protection pulumi.BoolInput      `pulumi:"protection"`
-	ReportUri  pulumi.StringPtrInput `pulumi:"reportUri"`
+	// A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+	//
+	// For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	ModeBlock pulumi.BoolPtrInput `pulumi:"modeBlock"`
+	// A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	Override pulumi.BoolInput `pulumi:"override"`
+	// A Boolean that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
+	//
+	// For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	Protection pulumi.BoolInput `pulumi:"protection"`
+	// A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
+	//
+	// You cannot specify a `ReportUri` when `ModeBlock` is `true` .
+	//
+	// For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+	ReportUri pulumi.StringPtrInput `pulumi:"reportUri"`
 }
 
 func (ResponseHeadersPolicyXssProtectionArgs) ElementType() reflect.Type {
@@ -11268,18 +12203,30 @@ func (o ResponseHeadersPolicyXssProtectionOutput) ToResponseHeadersPolicyXssProt
 	}).(ResponseHeadersPolicyXssProtectionPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+//
+// For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicyXssProtectionOutput) ModeBlock() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) *bool { return v.ModeBlock }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyXssProtectionOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) bool { return v.Override }).(pulumi.BoolOutput)
 }
 
+// A Boolean that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
+//
+// For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicyXssProtectionOutput) Protection() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) bool { return v.Protection }).(pulumi.BoolOutput)
 }
 
+// A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
+//
+// You cannot specify a `ReportUri` when `ModeBlock` is `true` .
+//
+// For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicyXssProtectionOutput) ReportUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyXssProtection) *string { return v.ReportUri }).(pulumi.StringPtrOutput)
 }
@@ -11308,6 +12255,9 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) Elem() ResponseHeadersPolic
 	}).(ResponseHeadersPolicyXssProtectionOutput)
 }
 
+// A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+//
+// For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicyXssProtectionPtrOutput) ModeBlock() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *bool {
 		if v == nil {
@@ -11317,6 +12267,7 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) ModeBlock() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyXssProtectionPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *bool {
 		if v == nil {
@@ -11326,6 +12277,9 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) Override() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
+//
+// For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicyXssProtectionPtrOutput) Protection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *bool {
 		if v == nil {
@@ -11335,6 +12289,11 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) Protection() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
+//
+// You cannot specify a `ReportUri` when `ModeBlock` is `true` .
+//
+// For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
 func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyXssProtection) *string {
 		if v == nil {

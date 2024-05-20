@@ -24,8 +24,10 @@ type TaskSet struct {
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
-	LaunchType           TaskSetLaunchTypePtrOutput           `pulumi:"launchType"`
-	LoadBalancers        TaskSetLoadBalancerArrayOutput       `pulumi:"loadBalancers"`
+	LaunchType TaskSetLaunchTypePtrOutput `pulumi:"launchType"`
+	// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+	LoadBalancers TaskSetLoadBalancerArrayOutput `pulumi:"loadBalancers"`
+	// The network configuration for the task set.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
 	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
@@ -35,7 +37,18 @@ type TaskSet struct {
 	Service pulumi.StringOutput `pulumi:"service"`
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries TaskSetServiceRegistryArrayOutput `pulumi:"serviceRegistries"`
-	Tags              aws.TagArrayOutput                `pulumi:"tags"`
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
 }
@@ -106,8 +119,10 @@ type taskSetArgs struct {
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
 	ExternalId *string `pulumi:"externalId"`
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
-	LaunchType           *TaskSetLaunchType           `pulumi:"launchType"`
-	LoadBalancers        []TaskSetLoadBalancer        `pulumi:"loadBalancers"`
+	LaunchType *TaskSetLaunchType `pulumi:"launchType"`
+	// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+	LoadBalancers []TaskSetLoadBalancer `pulumi:"loadBalancers"`
+	// The network configuration for the task set.
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
 	PlatformVersion *string `pulumi:"platformVersion"`
@@ -117,7 +132,18 @@ type taskSetArgs struct {
 	Service string `pulumi:"service"`
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries []TaskSetServiceRegistry `pulumi:"serviceRegistries"`
-	Tags              []aws.Tag                `pulumi:"tags"`
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -129,8 +155,10 @@ type TaskSetArgs struct {
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
 	ExternalId pulumi.StringPtrInput
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
-	LaunchType           TaskSetLaunchTypePtrInput
-	LoadBalancers        TaskSetLoadBalancerArrayInput
+	LaunchType TaskSetLaunchTypePtrInput
+	// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+	LoadBalancers TaskSetLoadBalancerArrayInput
+	// The network configuration for the task set.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
 	PlatformVersion pulumi.StringPtrInput
@@ -140,7 +168,18 @@ type TaskSetArgs struct {
 	Service pulumi.StringInput
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries TaskSetServiceRegistryArrayInput
-	Tags              aws.TagArrayInput
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+	//
+	// The following basic restrictions apply to tags:
+	//
+	// - Maximum number of tags per resource - 50
+	// - For each resource, each tag key must be unique, and each tag key can have only one value.
+	// - Maximum key length - 128 Unicode characters in UTF-8
+	// - Maximum value length - 256 Unicode characters in UTF-8
+	// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	// - Tag keys and values are case-sensitive.
+	// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+	Tags aws.TagArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
 	TaskDefinition pulumi.StringInput
 }
@@ -202,10 +241,12 @@ func (o TaskSetOutput) LaunchType() TaskSetLaunchTypePtrOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetLaunchTypePtrOutput { return v.LaunchType }).(TaskSetLaunchTypePtrOutput)
 }
 
+// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 func (o TaskSetOutput) LoadBalancers() TaskSetLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetLoadBalancerArrayOutput { return v.LoadBalancers }).(TaskSetLoadBalancerArrayOutput)
 }
 
+// The network configuration for the task set.
 func (o TaskSetOutput) NetworkConfiguration() TaskSetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(TaskSetNetworkConfigurationPtrOutput)
 }
@@ -230,6 +271,17 @@ func (o TaskSetOutput) ServiceRegistries() TaskSetServiceRegistryArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetServiceRegistryArrayOutput { return v.ServiceRegistries }).(TaskSetServiceRegistryArrayOutput)
 }
 
+// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+//
+// The following basic restrictions apply to tags:
+//
+// - Maximum number of tags per resource - 50
+// - For each resource, each tag key must be unique, and each tag key can have only one value.
+// - Maximum key length - 128 Unicode characters in UTF-8
+// - Maximum value length - 256 Unicode characters in UTF-8
+// - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+// - Tag keys and values are case-sensitive.
+// - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 func (o TaskSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TaskSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

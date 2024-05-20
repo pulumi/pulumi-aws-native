@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     /// </summary>
     public sealed class ConnectorKafkaClusterEncryptionInTransitArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of encryption in transit to the Apache Kafka cluster.
+        /// </summary>
         [Input("encryptionType", required: true)]
         public Input<Pulumi.AwsNative.KafkaConnect.ConnectorKafkaClusterEncryptionInTransitType> EncryptionType { get; set; } = null!;
 

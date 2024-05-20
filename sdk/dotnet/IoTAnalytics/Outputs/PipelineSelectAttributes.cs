@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineSelectAttributes
     {
+        /// <summary>
+        /// A list of the attributes to select from the message.
+        /// </summary>
         public readonly ImmutableArray<string> Attributes;
+        /// <summary>
+        /// The name of the 'selectAttributes' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
 
         [OutputConstructor]

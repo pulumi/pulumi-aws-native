@@ -286,6 +286,9 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="pipelineId")
     def pipeline_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the pipeline.
+        """
         return pulumi.get(self, "pipeline_id")
 
     @property

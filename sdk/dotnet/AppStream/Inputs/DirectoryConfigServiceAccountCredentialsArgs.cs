@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppStream.Inputs
 
     public sealed class DirectoryConfigServiceAccountCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The password for the account.
+        /// </summary>
         [Input("accountPassword", required: true)]
         public Input<string> AccountPassword { get; set; } = null!;
 

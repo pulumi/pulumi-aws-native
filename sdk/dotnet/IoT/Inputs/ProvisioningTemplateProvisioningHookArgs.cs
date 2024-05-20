@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class ProvisioningTemplateProvisioningHookArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
+        /// </summary>
         [Input("payloadVersion")]
         public Input<string>? PayloadVersion { get; set; }
 
+        /// <summary>
+        /// The ARN of the target function.
+        /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }
 

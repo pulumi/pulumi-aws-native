@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class TlsInspectionConfigurationTlsInspectionConfiguration
     {
+        /// <summary>
+        /// Lists the server certificate configurations that are associated with the TLS configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationServerCertificateConfiguration> ServerCertificateConfigurations;
 
         [OutputConstructor]

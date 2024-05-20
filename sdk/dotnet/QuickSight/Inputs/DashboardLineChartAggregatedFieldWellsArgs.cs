@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("category")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _category;
+
+        /// <summary>
+        /// The category field wells of a line chart. Values are grouped by category fields.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> Category
         {
             get => _category ?? (_category = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("colors")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _colors;
+
+        /// <summary>
+        /// The color field wells of a line chart. Values are grouped by category fields.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("smallMultiples")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _smallMultiples;
+
+        /// <summary>
+        /// The small multiples field well of a line chart.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> SmallMultiples
         {
             get => _smallMultiples ?? (_smallMultiples = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -38,6 +50,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.DashboardMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The value field wells of a line chart. Values are aggregated based on categories.
+        /// </summary>
         public InputList<Inputs.DashboardMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.DashboardMeasureFieldArgs>());

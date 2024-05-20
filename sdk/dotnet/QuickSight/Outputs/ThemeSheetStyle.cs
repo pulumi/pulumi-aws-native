@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeSheetStyle
     {
+        /// <summary>
+        /// The display options for tiles.
+        /// </summary>
         public readonly Outputs.ThemeTileStyle? Tile;
+        /// <summary>
+        /// The layout options for tiles.
+        /// </summary>
         public readonly Outputs.ThemeTileLayoutStyle? TileLayout;
 
         [OutputConstructor]

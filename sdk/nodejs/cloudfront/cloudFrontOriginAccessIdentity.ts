@@ -61,8 +61,17 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudFrontOriginAccessIdentity.__pulumiType;
     }
 
+    /**
+     * The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The current configuration information for the identity.
+     */
     public readonly cloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.cloudfront.CloudFrontOriginAccessIdentityConfig>;
+    /**
+     * The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
+     */
     public /*out*/ readonly s3CanonicalUserId!: pulumi.Output<string>;
 
     /**
@@ -96,5 +105,8 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
  * The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
  */
 export interface CloudFrontOriginAccessIdentityArgs {
+    /**
+     * The current configuration information for the identity.
+     */
     cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.cloudfront.CloudFrontOriginAccessIdentityConfigArgs>;
 }

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateKpiFieldWells
     {
+        /// <summary>
+        /// The target value field wells of a KPI visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> TargetValues;
+        /// <summary>
+        /// The trend group field wells of a KPI visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDimensionField> TrendGroups;
+        /// <summary>
+        /// The value field wells of a KPI visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateMeasureField> Values;
 
         [OutputConstructor]

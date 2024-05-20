@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetPrivacyBudgetTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public string MembershipIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+        /// </summary>
         [Input("privacyBudgetTemplateIdentifier", required: true)]
         public string PrivacyBudgetTemplateIdentifier { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetPrivacyBudgetTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+        /// </summary>
         [Input("privacyBudgetTemplateIdentifier", required: true)]
         public Input<string> PrivacyBudgetTemplateIdentifier { get; set; } = null!;
 
@@ -57,11 +69,29 @@ namespace Pulumi.AwsNative.CleanRooms
     [OutputType]
     public sealed class GetPrivacyBudgetTemplateResult
     {
+        /// <summary>
+        /// The ARN of the privacy budget template.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ARN of the collaboration that contains this privacy budget template.
+        /// </summary>
         public readonly string? CollaborationArn;
+        /// <summary>
+        /// The unique ID of the collaboration that contains this privacy budget template.
+        /// </summary>
         public readonly string? CollaborationIdentifier;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the member who created the privacy budget template.
+        /// </summary>
         public readonly string? MembershipArn;
+        /// <summary>
+        /// Specifies the epislon and noise parameters for the privacy budget template.
+        /// </summary>
         public readonly Outputs.ParametersProperties? Parameters;
+        /// <summary>
+        /// A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
+        /// </summary>
         public readonly string? PrivacyBudgetTemplateIdentifier;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.

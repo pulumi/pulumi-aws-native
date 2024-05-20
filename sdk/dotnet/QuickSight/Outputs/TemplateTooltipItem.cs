@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateTooltipItem
     {
+        /// <summary>
+        /// The tooltip item for the columns that are not part of a field well.
+        /// </summary>
         public readonly Outputs.TemplateColumnTooltipItem? ColumnTooltipItem;
+        /// <summary>
+        /// The tooltip item for the fields.
+        /// </summary>
         public readonly Outputs.TemplateFieldTooltipItem? FieldTooltipItem;
 
         [OutputConstructor]

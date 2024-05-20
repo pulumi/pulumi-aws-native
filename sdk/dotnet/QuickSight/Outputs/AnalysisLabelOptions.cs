@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisLabelOptions
     {
+        /// <summary>
+        /// The text for the label.
+        /// </summary>
         public readonly string? CustomLabel;
+        /// <summary>
+        /// The font configuration of the label.
+        /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// Determines whether or not the label is visible.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

@@ -23,13 +23,17 @@ func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ..
 }
 
 type LookupCachePolicyArgs struct {
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 	Id string `pulumi:"id"`
 }
 
 type LookupCachePolicyResult struct {
+	// The cache policy configuration.
 	CachePolicyConfig *CachePolicyConfig `pulumi:"cachePolicyConfig"`
-	Id                *string            `pulumi:"id"`
-	LastModifiedTime  *string            `pulumi:"lastModifiedTime"`
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
+	Id *string `pulumi:"id"`
+	// The date and time when the cache policy was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 }
 
 func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupCachePolicyResultOutput {
@@ -46,6 +50,7 @@ func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputAr
 }
 
 type LookupCachePolicyOutputArgs struct {
+	// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContex
 	return o
 }
 
+// The cache policy configuration.
 func (o LookupCachePolicyResultOutput) CachePolicyConfig() CachePolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *CachePolicyConfig { return v.CachePolicyConfig }).(CachePolicyConfigPtrOutput)
 }
 
+// The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
 func (o LookupCachePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the cache policy was last modified.
 func (o LookupCachePolicyResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }

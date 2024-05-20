@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationZendeskSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Zendesk flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

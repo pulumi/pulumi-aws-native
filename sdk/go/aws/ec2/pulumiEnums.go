@@ -10,6 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
+//
+// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
 type CapacityReservationFleetInstanceMatchCriteria string
 
 const (
@@ -173,6 +176,10 @@ func (in *capacityReservationFleetInstanceMatchCriteriaPtr) ToCapacityReservatio
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
 }
 
+// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
+//
+// - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
+// - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
 type CapacityReservationFleetTenancy string
 
 const (
@@ -336,6 +343,11 @@ func (in *capacityReservationFleetTenancyPtr) ToCapacityReservationFleetTenancyP
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetTenancyPtrOutput)
 }
 
+// The replacement strategy to use. Only available for fleets of type `maintain` .
+//
+// `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+//
+// `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 type Ec2FleetCapacityRebalanceReplacementStrategy string
 
 const (
@@ -501,6 +513,11 @@ func (in *ec2FleetCapacityRebalanceReplacementStrategyPtr) ToEc2FleetCapacityReb
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+//
+// If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
+//
+// If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
 type Ec2FleetCapacityReservationOptionsRequestUsageStrategy string
 
 const (
@@ -664,6 +681,9 @@ func (in *ec2FleetCapacityReservationOptionsRequestUsageStrategyPtr) ToEc2FleetC
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
+// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+//
+// Supported only for fleets of type `maintain` .
 type Ec2FleetExcessCapacityTerminationPolicy string
 
 const (
@@ -1487,6 +1507,13 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Inde
 	}).(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
+//
+// - To include bare metal instance types, specify `included` .
+// - To require only bare metal instance types, specify `required` .
+// - To exclude bare metal instance types, specify `excluded` .
+//
+// Default: `excluded`
 type Ec2FleetInstanceRequirementsRequestBareMetal string
 
 const (
@@ -1654,6 +1681,13 @@ func (in *ec2FleetInstanceRequirementsRequestBareMetalPtr) ToEc2FleetInstanceReq
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+//
+// - To include burstable performance instance types, specify `included` .
+// - To require only burstable performance instance types, specify `required` .
+// - To exclude burstable performance instance types, specify `excluded` .
+//
+// Default: `excluded`
 type Ec2FleetInstanceRequirementsRequestBurstablePerformance string
 
 const (
@@ -2243,6 +2277,13 @@ func (o Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) I
 	}).(Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
 }
 
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+//
+// - To include instance types with instance store volumes, specify `included` .
+// - To require only instance types with instance store volumes, specify `required` .
+// - To exclude instance types with instance store volumes, specify `excluded` .
+//
+// Default: `included`
 type Ec2FleetInstanceRequirementsRequestLocalStorage string
 
 const (
@@ -2620,6 +2661,15 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Ind
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
 }
 
+// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+//
+// If the allocation strategy is `lowestPrice` , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+//
+// If the allocation strategy is `diversified` , EC2 Fleet launches instances from all the Spot Instance pools that you specify.
+//
+// If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
+//
+// *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`
 type Ec2FleetSpotOptionsRequestAllocationStrategy string
 
 const (
@@ -2791,6 +2841,9 @@ func (in *ec2FleetSpotOptionsRequestAllocationStrategyPtr) ToEc2FleetSpotOptions
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted.
+//
+// Default: `terminate`
 type Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior string
 
 const (
@@ -2958,6 +3011,7 @@ func (in *ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtr) ToEc2FleetS
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
+// The type of resource to tag.
 type Ec2FleetTagSpecificationResourceType string
 
 const (
@@ -3213,6 +3267,7 @@ func (in *ec2FleetTagSpecificationResourceTypePtr) ToEc2FleetTagSpecificationRes
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetTagSpecificationResourceTypePtrOutput)
 }
 
+// The default target capacity type.
 type Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType string
 
 const (
@@ -3378,6 +3433,9 @@ func (in *ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
+// The unit for the target capacity. You can specify this parameter only when using attributed-based instance type selection.
+//
+// Default: `units` (the number of instances)
 type Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType string
 
 const (
@@ -3545,6 +3603,13 @@ func (in *ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) T
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
+// The fleet type. The default value is `maintain` .
+//
+// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+// - `request` - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+//
+// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
 type Ec2FleetType string
 
 const (
@@ -3712,6 +3777,7 @@ func (in *ec2FleetTypePtr) ToEc2FleetTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetTypePtrOutput)
 }
 
+// The format for the flow log. The default is `plain-text` .
 type FlowLogDestinationOptionsPropertiesFileFormat string
 
 const (
@@ -5993,6 +6059,7 @@ func (in *launchTemplateCpuOptionsAmdSevSnpPtr) ToLaunchTemplateCpuOptionsAmdSev
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+// Indicates whether there are findings (true | false | unknown).
 type NetworkInsightsAccessScopeAnalysisFindingsFound string
 
 const (
@@ -6084,6 +6151,7 @@ func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the analysis (running | succeeded | failed).
 type NetworkInsightsAccessScopeAnalysisStatus string
 
 const (
@@ -6385,6 +6453,7 @@ func (o NetworkInsightsAccessScopeProtocolArrayOutput) Index(i pulumi.IntInput) 
 	}).(NetworkInsightsAccessScopeProtocolOutput)
 }
 
+// The status of the network insights analysis.
 type NetworkInsightsAnalysisStatus string
 
 const (
@@ -6973,6 +7042,7 @@ func (in *snapshotBlockPublicAccessStateEnumPtr) ToSnapshotBlockPublicAccessStat
 	return pulumi.ToOutputWithContext(ctx, in).(SnapshotBlockPublicAccessStateEnumPtrOutput)
 }
 
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
 type SpotFleetEbsBlockDeviceVolumeType string
 
 const (
@@ -7806,6 +7876,13 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Ind
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
 }
 
+// Indicates whether bare metal instance types must be included, excluded, or required.
+//
+// - To include bare metal instance types, specify `included` .
+// - To require only bare metal instance types, specify `required` .
+// - To exclude bare metal instance types, specify `excluded` .
+//
+// Default: `excluded`
 type SpotFleetInstanceRequirementsRequestBareMetal string
 
 const (
@@ -7973,6 +8050,13 @@ func (in *spotFleetInstanceRequirementsRequestBareMetalPtr) ToSpotFleetInstanceR
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
+//
+// - To include burstable performance instance types, specify `included` .
+// - To require only burstable performance instance types, specify `required` .
+// - To exclude burstable performance instance types, specify `excluded` .
+//
+// Default: `excluded`
 type SpotFleetInstanceRequirementsRequestBurstablePerformance string
 
 const (
@@ -8562,6 +8646,13 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) 
 	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
 }
 
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
+//
+// - To include instance types with instance store volumes, specify `included` .
+// - To require only instance types with instance store volumes, specify `required` .
+// - To exclude instance types with instance store volumes, specify `excluded` .
+//
+// Default: `included`
 type SpotFleetInstanceRequirementsRequestLocalStorage string
 
 const (
@@ -8939,6 +9030,16 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) In
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
 }
 
+// The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet launch configuration. For more information, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon EC2 User Guide* .
+//
+// - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
+// - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
+// - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
+// - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances.
+//
+// Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+//
+// Default: `lowestPrice`
 type SpotFleetRequestConfigDataAllocationStrategy string
 
 const (
@@ -9110,6 +9211,9 @@ func (in *spotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetRequestCon
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
+// Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
+//
+// Supported only for fleets of type `maintain` .
 type SpotFleetRequestConfigDataExcessCapacityTerminationPolicy string
 
 const (
@@ -9275,6 +9379,7 @@ func (in *spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFl
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
+// The behavior when a Spot Instance is interrupted. The default is `terminate` .
 type SpotFleetRequestConfigDataInstanceInterruptionBehavior string
 
 const (
@@ -9442,6 +9547,9 @@ func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleet
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
+// The unit for the target capacity. You can specify this parameter only when using attribute-based instance type selection.
+//
+// Default: `units` (the number of instances)
 type SpotFleetRequestConfigDataTargetCapacityUnitType string
 
 const (
@@ -9609,6 +9717,7 @@ func (in *spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ToSpotFleetReques
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
 }
 
+// The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
 type SpotFleetRequestConfigDataType string
 
 const (
@@ -9774,6 +9883,11 @@ func (in *spotFleetRequestConfigDataTypePtr) ToSpotFleetRequestConfigDataTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataTypePtrOutput)
 }
 
+// The replacement strategy to use. Only available for fleets of type `maintain` .
+//
+// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
+//
+// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
 type SpotFleetSpotCapacityRebalanceReplacementStrategy string
 
 const (
@@ -9939,6 +10053,7 @@ func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToSpotFleetSpotC
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
 type SpotFleetSpotPlacementTenancy string
 
 const (
@@ -10106,6 +10221,7 @@ func (in *spotFleetSpotPlacementTenancyPtr) ToSpotFleetSpotPlacementTenancyPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
 
+// The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
 type SpotFleetTagSpecificationResourceType string
 
 const (

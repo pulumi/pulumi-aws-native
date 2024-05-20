@@ -21,9 +21,11 @@ type VodSource struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// <p>A list of HTTP package configuration parameters for this VOD source.</p>
 	HttpPackageConfigurations VodSourceHttpPackageConfigurationArrayOutput `pulumi:"httpPackageConfigurations"`
-	SourceLocationName        pulumi.StringOutput                          `pulumi:"sourceLocationName"`
+	// The name of the source location that the VOD source is associated with.
+	SourceLocationName pulumi.StringOutput `pulumi:"sourceLocationName"`
 	// The tags to assign to the VOD source.
-	Tags          aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The name of the VOD source.
 	VodSourceName pulumi.StringOutput `pulumi:"vodSourceName"`
 }
 
@@ -80,19 +82,23 @@ func (VodSourceState) ElementType() reflect.Type {
 type vodSourceArgs struct {
 	// <p>A list of HTTP package configuration parameters for this VOD source.</p>
 	HttpPackageConfigurations []VodSourceHttpPackageConfiguration `pulumi:"httpPackageConfigurations"`
-	SourceLocationName        string                              `pulumi:"sourceLocationName"`
+	// The name of the source location that the VOD source is associated with.
+	SourceLocationName string `pulumi:"sourceLocationName"`
 	// The tags to assign to the VOD source.
-	Tags          []aws.Tag `pulumi:"tags"`
-	VodSourceName *string   `pulumi:"vodSourceName"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the VOD source.
+	VodSourceName *string `pulumi:"vodSourceName"`
 }
 
 // The set of arguments for constructing a VodSource resource.
 type VodSourceArgs struct {
 	// <p>A list of HTTP package configuration parameters for this VOD source.</p>
 	HttpPackageConfigurations VodSourceHttpPackageConfigurationArrayInput
-	SourceLocationName        pulumi.StringInput
+	// The name of the source location that the VOD source is associated with.
+	SourceLocationName pulumi.StringInput
 	// The tags to assign to the VOD source.
-	Tags          aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The name of the VOD source.
 	VodSourceName pulumi.StringPtrInput
 }
 
@@ -143,6 +149,7 @@ func (o VodSourceOutput) HttpPackageConfigurations() VodSourceHttpPackageConfigu
 	return o.ApplyT(func(v *VodSource) VodSourceHttpPackageConfigurationArrayOutput { return v.HttpPackageConfigurations }).(VodSourceHttpPackageConfigurationArrayOutput)
 }
 
+// The name of the source location that the VOD source is associated with.
 func (o VodSourceOutput) SourceLocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VodSource) pulumi.StringOutput { return v.SourceLocationName }).(pulumi.StringOutput)
 }
@@ -152,6 +159,7 @@ func (o VodSourceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VodSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The name of the VOD source.
 func (o VodSourceOutput) VodSourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VodSource) pulumi.StringOutput { return v.VodSourceName }).(pulumi.StringOutput)
 }

@@ -262,6 +262,7 @@ class ConnectPeerBgpOptions(dict):
                  peer_asn: Optional[float] = None):
         """
         Bgp options
+        :param float peer_asn: The Peer ASN of the BGP.
         """
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
@@ -269,6 +270,9 @@ class ConnectPeerBgpOptions(dict):
     @property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> Optional[float]:
+        """
+        The Peer ASN of the BGP.
+        """
         return pulumi.get(self, "peer_asn")
 
 
@@ -304,9 +308,11 @@ class ConnectPeerConfiguration(dict):
                  peer_address: Optional[str] = None,
                  protocol: Optional[str] = None):
         """
+        :param Sequence['ConnectPeerBgpConfiguration'] bgp_configurations: The Connect peer BGP configurations.
         :param str core_network_address: The IP address of a core network.
         :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
         :param str peer_address: The IP address of the Connect peer.
+        :param str protocol: The protocol used for a Connect peer configuration.
         """
         if bgp_configurations is not None:
             pulumi.set(__self__, "bgp_configurations", bgp_configurations)
@@ -322,6 +328,9 @@ class ConnectPeerConfiguration(dict):
     @property
     @pulumi.getter(name="bgpConfigurations")
     def bgp_configurations(self) -> Optional[Sequence['outputs.ConnectPeerBgpConfiguration']]:
+        """
+        The Connect peer BGP configurations.
+        """
         return pulumi.get(self, "bgp_configurations")
 
     @property
@@ -351,6 +360,9 @@ class ConnectPeerConfiguration(dict):
     @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
+        """
+        The protocol used for a Connect peer configuration.
+        """
         return pulumi.get(self, "protocol")
 
 
@@ -382,6 +394,7 @@ class CoreNetworkEdge(dict):
         """
         :param float asn: The ASN of a core network edge.
         :param str edge_location: The Region where a core network edge is located.
+        :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for core network edges.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -409,6 +422,9 @@ class CoreNetworkEdge(dict):
     @property
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
+        """
+        The inside IP addresses used for core network edges.
+        """
         return pulumi.get(self, "inside_cidr_blocks")
 
 
@@ -438,7 +454,9 @@ class CoreNetworkSegment(dict):
                  name: Optional[str] = None,
                  shared_segments: Optional[Sequence[str]] = None):
         """
+        :param Sequence[str] edge_locations: The Regions where the edges are located.
         :param str name: Name of segment
+        :param Sequence[str] shared_segments: The shared segments of a core network.
         """
         if edge_locations is not None:
             pulumi.set(__self__, "edge_locations", edge_locations)
@@ -450,6 +468,9 @@ class CoreNetworkSegment(dict):
     @property
     @pulumi.getter(name="edgeLocations")
     def edge_locations(self) -> Optional[Sequence[str]]:
+        """
+        The Regions where the edges are located.
+        """
         return pulumi.get(self, "edge_locations")
 
     @property
@@ -463,6 +484,9 @@ class CoreNetworkSegment(dict):
     @property
     @pulumi.getter(name="sharedSegments")
     def shared_segments(self) -> Optional[Sequence[str]]:
+        """
+        The shared segments of a core network.
+        """
         return pulumi.get(self, "shared_segments")
 
 

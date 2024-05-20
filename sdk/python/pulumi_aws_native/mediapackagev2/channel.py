@@ -23,7 +23,10 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+        :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the channel configuration.
+        :param pulumi.Input[str] channel_name: The name of the channel.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the channel.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         if channel_name is not None:
@@ -36,6 +39,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="channelGroupName")
     def channel_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the channel group associated with the channel configuration.
+        """
         return pulumi.get(self, "channel_group_name")
 
     @channel_group_name.setter
@@ -45,6 +51,9 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -66,6 +75,9 @@ class ChannelArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags associated with the channel.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -88,7 +100,10 @@ class Channel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the channel configuration.
+        :param pulumi.Input[str] channel_name: The name of the channel.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with the channel.
         """
         ...
     @overload
@@ -182,11 +197,17 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelGroupName")
     def channel_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel group associated with the channel configuration.
+        """
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "channel_name")
 
     @property
@@ -224,5 +245,8 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags associated with the channel.
+        """
         return pulumi.get(self, "tags")
 

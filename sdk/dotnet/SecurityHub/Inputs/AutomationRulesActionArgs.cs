@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 
     public sealed class AutomationRulesActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies that the automation rule action is an update to a finding field.
+        /// </summary>
         [Input("findingFieldsUpdate", required: true)]
         public Input<Inputs.AutomationRulesFindingFieldsUpdateArgs> FindingFieldsUpdate { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRulesActionType> Type { get; set; } = null!;
 

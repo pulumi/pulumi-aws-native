@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetLogDeliveryConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A user pool ID, for example `us-east-1_EXAMPLE` .
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetLogDeliveryConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A user pool ID, for example `us-east-1_EXAMPLE` .
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetLogDeliveryConfigurationResult
     {
+        /// <summary>
+        /// A user pool ID, for example `us-east-1_EXAMPLE` .
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The detailed activity logging destination of a user pool.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LogDeliveryConfigurationLogConfiguration> LogConfigurations;
 
         [OutputConstructor]

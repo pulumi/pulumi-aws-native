@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Comprehend
 
     public sealed class GetFlywheelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the flywheel.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Comprehend
 
     public sealed class GetFlywheelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the flywheel.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Comprehend
     [OutputType]
     public sealed class GetFlywheelResult
     {
+        /// <summary>
+        /// The Amazon Resource Number (ARN) of the active model version.
+        /// </summary>
         public readonly string? ActiveModelArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the flywheel.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+        /// </summary>
         public readonly string? DataAccessRoleArn;
+        /// <summary>
+        /// Data security configuration.
+        /// </summary>
         public readonly Outputs.FlywheelDataSecurityConfig? DataSecurityConfig;
+        /// <summary>
+        /// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

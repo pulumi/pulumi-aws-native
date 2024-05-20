@@ -19,10 +19,16 @@ export function getScheduledQuery(args: GetScheduledQueryArgs, opts?: pulumi.Inv
 }
 
 export interface GetScheduledQueryArgs {
+    /**
+     * The `ARN` of the scheduled query.
+     */
     arn: string;
 }
 
 export interface GetScheduledQueryResult {
+    /**
+     * The `ARN` of the scheduled query.
+     */
     readonly arn?: string;
     /**
      * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
@@ -56,6 +62,9 @@ export interface GetScheduledQueryResult {
      * Configuration of target store where scheduled query results are written to.
      */
     readonly sqTargetConfiguration?: string;
+    /**
+     * A list of key-value pairs to label the scheduled query.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -66,5 +75,8 @@ export function getScheduledQueryOutput(args: GetScheduledQueryOutputArgs, opts?
 }
 
 export interface GetScheduledQueryOutputArgs {
+    /**
+     * The `ARN` of the scheduled query.
+     */
     arn: pulumi.Input<string>;
 }

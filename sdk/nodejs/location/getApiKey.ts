@@ -19,20 +19,50 @@ export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetApiKeyArgs {
+    /**
+     * A custom name for the API key resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique API key name.
+     * - No spaces allowed. For example, `ExampleAPIKey` .
+     */
     keyName: string;
 }
 
 export interface GetApiKeyResult {
+    /**
+     * The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+     */
     readonly arn?: string;
+    /**
+     * The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+     */
     readonly createTime?: string;
+    /**
+     * Updates the description for the API key resource.
+     */
     readonly description?: string;
+    /**
+     * The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+     */
     readonly expireTime?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+     */
     readonly keyArn?: string;
+    /**
+     * The API key restrictions for the API key resource.
+     */
     readonly restrictions?: outputs.location.ApiKeyRestrictions;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     readonly updateTime?: string;
 }
 /**
@@ -43,5 +73,14 @@ export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetApiKeyOutputArgs {
+    /**
+     * A custom name for the API key resource.
+     *
+     * Requirements:
+     *
+     * - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique API key name.
+     * - No spaces allowed. For example, `ExampleAPIKey` .
+     */
     keyName: pulumi.Input<string>;
 }

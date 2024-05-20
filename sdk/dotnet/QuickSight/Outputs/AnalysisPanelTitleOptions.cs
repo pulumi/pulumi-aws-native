@@ -14,7 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisPanelTitleOptions
     {
         public readonly Outputs.AnalysisFontConfiguration? FontConfiguration;
+        /// <summary>
+        /// Sets the horizontal text alignment of the title within each panel.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisHorizontalTextAlignment? HorizontalTextAlignment;
+        /// <summary>
+        /// Determines whether or not panel titles are displayed.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

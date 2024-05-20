@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     [OutputType]
     public sealed class WirelessDeviceAbpV11
     {
+        /// <summary>
+        /// The DevAddr value.
+        /// </summary>
         public readonly string DevAddr;
+        /// <summary>
+        /// Session keys for ABP v1.1.
+        /// </summary>
         public readonly Outputs.WirelessDeviceSessionKeysAbpV11 SessionKeys;
 
         [OutputConstructor]

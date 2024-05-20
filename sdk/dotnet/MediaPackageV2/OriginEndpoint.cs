@@ -21,12 +21,21 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel group associated with the origin endpoint configuration.
+        /// </summary>
         [Output("channelGroupName")]
         public Output<string> ChannelGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The channel name associated with the origin endpoint.
+        /// </summary>
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// The container type associated with the origin endpoint configuration.
+        /// </summary>
         [Output("containerType")]
         public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType?> ContainerType { get; private set; } = null!;
 
@@ -60,9 +69,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the origin endpoint associated with the origin endpoint configuration.
+        /// </summary>
         [Output("originEndpointName")]
         public Output<string> OriginEndpointName { get; private set; } = null!;
 
+        /// <summary>
+        /// The segment associated with the origin endpoint.
+        /// </summary>
         [Output("segment")]
         public Output<Outputs.OriginEndpointSegment?> Segment { get; private set; } = null!;
 
@@ -72,6 +87,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("startoverWindowSeconds")]
         public Output<int?> StartoverWindowSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags associated with the origin endpoint.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -126,12 +144,21 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class OriginEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the origin endpoint configuration.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public Input<string> ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The channel name associated with the origin endpoint.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
+        /// <summary>
+        /// The container type associated with the origin endpoint configuration.
+        /// </summary>
         [Input("containerType")]
         public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType>? ContainerType { get; set; }
 
@@ -165,9 +192,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
             set => _lowLatencyHlsManifests = value;
         }
 
+        /// <summary>
+        /// The name of the origin endpoint associated with the origin endpoint configuration.
+        /// </summary>
         [Input("originEndpointName")]
         public Input<string>? OriginEndpointName { get; set; }
 
+        /// <summary>
+        /// The segment associated with the origin endpoint.
+        /// </summary>
         [Input("segment")]
         public Input<Inputs.OriginEndpointSegmentArgs>? Segment { get; set; }
 
@@ -179,6 +212,10 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags associated with the origin endpoint.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

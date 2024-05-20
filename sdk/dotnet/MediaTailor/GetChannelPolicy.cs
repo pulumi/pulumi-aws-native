@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetChannelPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel associated with this Channel Policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public string ChannelName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class GetChannelPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel associated with this Channel Policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 

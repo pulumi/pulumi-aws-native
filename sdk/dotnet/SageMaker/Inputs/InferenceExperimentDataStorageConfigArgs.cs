@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class InferenceExperimentDataStorageConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
+        /// </summary>
         [Input("contentType")]
         public Input<Inputs.InferenceExperimentCaptureContentTypeHeaderArgs>? ContentType { get; set; }
 

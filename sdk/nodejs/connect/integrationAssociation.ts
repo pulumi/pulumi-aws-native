@@ -78,9 +78,31 @@ export class IntegrationAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     public readonly instanceId!: pulumi.Output<string>;
+    /**
+     * ARN of the integration being associated with the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `140`
+     */
     public readonly integrationArn!: pulumi.Output<string>;
+    /**
+     * Identifier of the association with an Amazon Connect instance.
+     */
     public /*out*/ readonly integrationAssociationId!: pulumi.Output<string>;
+    /**
+     * Specifies the integration type to be associated with the instance.
+     *
+     * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+     */
     public readonly integrationType!: pulumi.Output<enums.connect.IntegrationAssociationIntegrationType>;
 
     /**
@@ -124,7 +146,26 @@ export class IntegrationAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a IntegrationAssociation resource.
  */
 export interface IntegrationAssociationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `100`
+     */
     instanceId: pulumi.Input<string>;
+    /**
+     * ARN of the integration being associated with the instance.
+     *
+     * *Minimum* : `1`
+     *
+     * *Maximum* : `140`
+     */
     integrationArn: pulumi.Input<string>;
+    /**
+     * Specifies the integration type to be associated with the instance.
+     *
+     * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+     */
     integrationType: pulumi.Input<enums.connect.IntegrationAssociationIntegrationType>;
 }

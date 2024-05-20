@@ -16,12 +16,23 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class SecurityProfileBehavior
     {
+        /// <summary>
+        /// The criteria that determine if a device is behaving normally in regard to the `metric` .
+        /// 
+        /// &gt; In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
+        /// </summary>
         public readonly Outputs.SecurityProfileBehaviorCriteria? Criteria;
+        /// <summary>
+        /// Value indicates exporting metrics related to the behavior when it is true.
+        /// </summary>
         public readonly bool? ExportMetric;
         /// <summary>
         /// What is measured by the behavior.
         /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// The dimension of the metric.
+        /// </summary>
         public readonly Outputs.SecurityProfileMetricDimension? MetricDimension;
         /// <summary>
         /// The name for the behavior.

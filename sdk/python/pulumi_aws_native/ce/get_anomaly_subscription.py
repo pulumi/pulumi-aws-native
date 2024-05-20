@@ -81,6 +81,9 @@ class GetAnomalySubscriptionResult:
     @property
     @pulumi.getter(name="subscriptionArn")
     def subscription_arn(self) -> Optional[str]:
+        """
+        The `AnomalySubscription` Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "subscription_arn")
 
     @property
@@ -128,6 +131,9 @@ def get_anomaly_subscription(subscription_arn: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAnomalySubscriptionResult:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
+
+
+    :param str subscription_arn: The `AnomalySubscription` Amazon Resource Name (ARN).
     """
     __args__ = dict()
     __args__['subscriptionArn'] = subscription_arn
@@ -150,5 +156,8 @@ def get_anomaly_subscription_output(subscription_arn: Optional[pulumi.Input[str]
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalySubscriptionResult]:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
+
+
+    :param str subscription_arn: The `AnomalySubscription` Amazon Resource Name (ARN).
     """
     ...

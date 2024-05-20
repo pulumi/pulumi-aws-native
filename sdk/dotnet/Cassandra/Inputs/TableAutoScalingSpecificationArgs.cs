@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     /// </summary>
     public sealed class TableAutoScalingSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The auto scaling settings for the table's read capacity.
+        /// </summary>
         [Input("readCapacityAutoScaling")]
         public Input<Inputs.TableAutoScalingSettingArgs>? ReadCapacityAutoScaling { get; set; }
 
+        /// <summary>
+        /// The auto scaling settings for the table's write capacity.
+        /// </summary>
         [Input("writeCapacityAutoScaling")]
         public Input<Inputs.TableAutoScalingSettingArgs>? WriteCapacityAutoScaling { get; set; }
 

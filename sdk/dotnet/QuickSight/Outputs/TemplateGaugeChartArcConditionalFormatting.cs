@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGaugeChartArcConditionalFormatting
     {
+        /// <summary>
+        /// The conditional formatting of the arc foreground color.
+        /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? ForegroundColor;
 
         [OutputConstructor]

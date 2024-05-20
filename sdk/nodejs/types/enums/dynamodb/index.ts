@@ -7,6 +7,9 @@ export const GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePre
     Millisecond: "MILLISECOND",
 } as const;
 
+/**
+ * The precision for the time and date that the stream was created.
+ */
 export type GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision = (typeof GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision)[keyof typeof GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision];
 
 export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = {

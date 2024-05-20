@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardColumnIdentifierArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// The data set that the column belongs to.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 

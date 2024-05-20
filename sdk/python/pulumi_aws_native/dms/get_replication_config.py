@@ -56,6 +56,9 @@ class GetReplicationConfigResult:
     @property
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> Optional['outputs.ReplicationConfigComputeConfig']:
+        """
+        Configuration parameters for provisioning an AWS DMS Serverless replication.
+        """
         return pulumi.get(self, "compute_config")
 
     @property

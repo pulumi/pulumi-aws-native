@@ -224,6 +224,7 @@ import (
 type PatchBaseline struct {
 	pulumi.CustomResourceState
 
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules PatchBaselineRuleGroupPtrOutput `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches pulumi.StringArrayOutput `pulumi:"approvedPatches"`
@@ -299,6 +300,7 @@ func (PatchBaselineState) ElementType() reflect.Type {
 }
 
 type patchBaselineArgs struct {
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules *PatchBaselineRuleGroup `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []string `pulumi:"approvedPatches"`
@@ -330,6 +332,7 @@ type patchBaselineArgs struct {
 
 // The set of arguments for constructing a PatchBaseline resource.
 type PatchBaselineArgs struct {
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules PatchBaselineRuleGroupPtrInput
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches pulumi.StringArrayInput
@@ -396,6 +399,7 @@ func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A set of rules used to include patches in the baseline.
 func (o PatchBaselineOutput) ApprovalRules() PatchBaselineRuleGroupPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselineRuleGroupPtrOutput { return v.ApprovalRules }).(PatchBaselineRuleGroupPtrOutput)
 }

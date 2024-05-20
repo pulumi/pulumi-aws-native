@@ -35,11 +35,17 @@ class JobTemplateArgs:
         """
         The set of arguments for constructing a JobTemplate resource.
         :param pulumi.Input[str] description: A description of the Job Template.
+        :param pulumi.Input[str] job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
         :param pulumi.Input['AbortConfigPropertiesArgs'] abort_config: The criteria that determine when and how a job abort takes place.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_package_versions: The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+               
+               *Note:* Up to 25 package version ARNS are allowed.
         :param pulumi.Input[str] document: The job document. Required if you don't specify a value for documentSource.
         :param pulumi.Input[str] document_source: An S3 link to the job document to use in the template. Required if you don't specify a value for document.
         :param pulumi.Input[str] job_arn: Optional for copying a JobTemplate from a pre-existing Job configuration.
+        :param pulumi.Input['JobExecutionsRetryConfigPropertiesArgs'] job_executions_retry_config: Allows you to create the criteria to retry a job.
         :param pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs'] job_executions_rollout_config: Allows you to create a staged rollout of a job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         :param pulumi.Input['PresignedUrlConfigPropertiesArgs'] presigned_url_config: Configuration for pre-signed S3 URLs.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata that can be used to manage the JobTemplate.
         :param pulumi.Input['TimeoutConfigPropertiesArgs'] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
@@ -84,6 +90,9 @@ class JobTemplateArgs:
     @property
     @pulumi.getter(name="jobTemplateId")
     def job_template_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        """
         return pulumi.get(self, "job_template_id")
 
     @job_template_id.setter
@@ -105,6 +114,11 @@ class JobTemplateArgs:
     @property
     @pulumi.getter(name="destinationPackageVersions")
     def destination_package_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+
+        *Note:* Up to 25 package version ARNS are allowed.
+        """
         return pulumi.get(self, "destination_package_versions")
 
     @destination_package_versions.setter
@@ -150,6 +164,9 @@ class JobTemplateArgs:
     @property
     @pulumi.getter(name="jobExecutionsRetryConfig")
     def job_executions_retry_config(self) -> Optional[pulumi.Input['JobExecutionsRetryConfigPropertiesArgs']]:
+        """
+        Allows you to create the criteria to retry a job.
+        """
         return pulumi.get(self, "job_executions_retry_config")
 
     @job_executions_retry_config.setter
@@ -171,6 +188,9 @@ class JobTemplateArgs:
     @property
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]]]:
+        """
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        """
         return pulumi.get(self, "maintenance_windows")
 
     @maintenance_windows.setter
@@ -240,10 +260,16 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AbortConfigPropertiesArgs']] abort_config: The criteria that determine when and how a job abort takes place.
         :param pulumi.Input[str] description: A description of the Job Template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_package_versions: The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+               
+               *Note:* Up to 25 package version ARNS are allowed.
         :param pulumi.Input[str] document: The job document. Required if you don't specify a value for documentSource.
         :param pulumi.Input[str] document_source: An S3 link to the job document to use in the template. Required if you don't specify a value for document.
         :param pulumi.Input[str] job_arn: Optional for copying a JobTemplate from a pre-existing Job configuration.
+        :param pulumi.Input[pulumi.InputType['JobExecutionsRetryConfigPropertiesArgs']] job_executions_retry_config: Allows you to create the criteria to retry a job.
         :param pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']] job_executions_rollout_config: Allows you to create a staged rollout of a job.
+        :param pulumi.Input[str] job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         :param pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']] presigned_url_config: Configuration for pre-signed S3 URLs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata that can be used to manage the JobTemplate.
         :param pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
@@ -363,6 +389,9 @@ class JobTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the job to use as the basis for the job template.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -376,6 +405,11 @@ class JobTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationPackageVersions")
     def destination_package_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The package version Amazon Resource Names (ARNs) that are installed on the device’s reserved named shadow ( `$package` ) when the job successfully completes.
+
+        *Note:* Up to 25 package version ARNS are allowed.
+        """
         return pulumi.get(self, "destination_package_versions")
 
     @property
@@ -405,6 +439,9 @@ class JobTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="jobExecutionsRetryConfig")
     def job_executions_retry_config(self) -> pulumi.Output[Optional['outputs.JobExecutionsRetryConfigProperties']]:
+        """
+        Allows you to create the criteria to retry a job.
+        """
         return pulumi.get(self, "job_executions_retry_config")
 
     @property
@@ -418,11 +455,17 @@ class JobTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="jobTemplateId")
     def job_template_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
+        """
         return pulumi.get(self, "job_template_id")
 
     @property
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> pulumi.Output[Optional[Sequence['outputs.JobTemplateMaintenanceWindow']]]:
+        """
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        """
         return pulumi.get(self, "maintenance_windows")
 
     @property

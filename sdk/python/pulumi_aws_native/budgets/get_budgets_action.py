@@ -50,41 +50,65 @@ class GetBudgetsActionResult:
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> Optional[str]:
+        """
+        A system-generated universally unique identifier (UUID) for the action.
+        """
         return pulumi.get(self, "action_id")
 
     @property
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> Optional['outputs.BudgetsActionActionThreshold']:
+        """
+        The trigger threshold of the action.
+        """
         return pulumi.get(self, "action_threshold")
 
     @property
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> Optional['BudgetsActionApprovalModel']:
+        """
+        This specifies if the action needs manual or automatic approval.
+        """
         return pulumi.get(self, "approval_model")
 
     @property
     @pulumi.getter
     def definition(self) -> Optional['outputs.BudgetsActionDefinition']:
+        """
+        Specifies all of the type-specific parameters.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[str]:
+        """
+        The role passed for action execution and reversion. Roles and actions must be in the same account.
+        """
         return pulumi.get(self, "execution_role_arn")
 
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> Optional['BudgetsActionNotificationType']:
+        """
+        The type of a notification.
+        """
         return pulumi.get(self, "notification_type")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter
     def subscribers(self) -> Optional[Sequence['outputs.BudgetsActionSubscriber']]:
+        """
+        A list of subscribers.
+        """
         return pulumi.get(self, "subscribers")
 
 
@@ -109,6 +133,10 @@ def get_budgets_action(action_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetsActionResult:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
+
+
+    :param str action_id: A system-generated universally unique identifier (UUID) for the action.
+    :param str budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
     """
     __args__ = dict()
     __args__['actionId'] = action_id
@@ -133,5 +161,9 @@ def get_budgets_action_output(action_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetsActionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
+
+
+    :param str action_id: A system-generated universally unique identifier (UUID) for the action.
+    :param str budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
     """
     ...

@@ -95,8 +95,9 @@ type Room struct {
 	// The maximum number of characters in a single message.
 	MaximumMessageLength pulumi.IntPtrOutput `pulumi:"maximumMessageLength"`
 	// The maximum number of messages per second that can be sent to the room.
-	MaximumMessageRatePerSecond pulumi.IntPtrOutput               `pulumi:"maximumMessageRatePerSecond"`
-	MessageReviewHandler        RoomMessageReviewHandlerPtrOutput `pulumi:"messageReviewHandler"`
+	MaximumMessageRatePerSecond pulumi.IntPtrOutput `pulumi:"maximumMessageRatePerSecond"`
+	// Configuration information for optional review of messages.
+	MessageReviewHandler RoomMessageReviewHandlerPtrOutput `pulumi:"messageReviewHandler"`
 	// The name of the room. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
@@ -148,8 +149,9 @@ type roomArgs struct {
 	// The maximum number of characters in a single message.
 	MaximumMessageLength *int `pulumi:"maximumMessageLength"`
 	// The maximum number of messages per second that can be sent to the room.
-	MaximumMessageRatePerSecond *int                      `pulumi:"maximumMessageRatePerSecond"`
-	MessageReviewHandler        *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
+	MaximumMessageRatePerSecond *int `pulumi:"maximumMessageRatePerSecond"`
+	// Configuration information for optional review of messages.
+	MessageReviewHandler *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
 	// The name of the room. The value does not need to be unique.
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
@@ -164,7 +166,8 @@ type RoomArgs struct {
 	MaximumMessageLength pulumi.IntPtrInput
 	// The maximum number of messages per second that can be sent to the room.
 	MaximumMessageRatePerSecond pulumi.IntPtrInput
-	MessageReviewHandler        RoomMessageReviewHandlerPtrInput
+	// Configuration information for optional review of messages.
+	MessageReviewHandler RoomMessageReviewHandlerPtrInput
 	// The name of the room. The value does not need to be unique.
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -233,6 +236,7 @@ func (o RoomOutput) MaximumMessageRatePerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Room) pulumi.IntPtrOutput { return v.MaximumMessageRatePerSecond }).(pulumi.IntPtrOutput)
 }
 
+// Configuration information for optional review of messages.
 func (o RoomOutput) MessageReviewHandler() RoomMessageReviewHandlerPtrOutput {
 	return o.ApplyT(func(v *Room) RoomMessageReviewHandlerPtrOutput { return v.MessageReviewHandler }).(RoomMessageReviewHandlerPtrOutput)
 }

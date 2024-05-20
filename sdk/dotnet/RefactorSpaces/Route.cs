@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [AwsNativeResourceType("aws-native:refactorspaces:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the route.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for the default route type.
+        /// </summary>
         [Output("defaultRoute")]
         public Output<Outputs.RouteDefaultRouteInput?> DefaultRoute { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Output("environmentIdentifier")]
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of Amazon API Gateway path resources to resource IDs.
+        /// </summary>
         [Output("pathResourceToId")]
         public Output<string> PathResourceToId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the route.
+        /// </summary>
         [Output("routeIdentifier")]
         public Output<string> RouteIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The route type of the route.
+        /// </summary>
         [Output("routeType")]
         public Output<Pulumi.AwsNative.RefactorSpaces.RouteType> RouteType { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the service.
+        /// </summary>
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
 
@@ -45,6 +69,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for the URI path route type.
+        /// </summary>
         [Output("uriPathRoute")]
         public Output<Outputs.RouteUriPathRouteInput?> UriPathRoute { get; private set; } = null!;
 
@@ -104,18 +131,33 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for the default route type.
+        /// </summary>
         [Input("defaultRoute")]
         public Input<Inputs.RouteDefaultRouteInputArgs>? DefaultRoute { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The route type of the route.
+        /// </summary>
         [Input("routeType", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.RouteType> RouteType { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the service.
+        /// </summary>
         [Input("serviceIdentifier", required: true)]
         public Input<string> ServiceIdentifier { get; set; } = null!;
 
@@ -131,6 +173,9 @@ namespace Pulumi.AwsNative.RefactorSpaces
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The configuration for the URI path route type.
+        /// </summary>
         [Input("uriPathRoute")]
         public Input<Inputs.RouteUriPathRouteInputArgs>? UriPathRoute { get; set; }
 

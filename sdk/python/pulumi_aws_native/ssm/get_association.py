@@ -76,6 +76,9 @@ class GetAssociationResult:
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
     def apply_only_at_cron_interval(self) -> Optional[bool]:
+        """
+        By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
+        """
         return pulumi.get(self, "apply_only_at_cron_interval")
 
     @property
@@ -97,16 +100,25 @@ class GetAssociationResult:
     @property
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> Optional[str]:
+        """
+        Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        """
         return pulumi.get(self, "automation_target_parameter_name")
 
     @property
     @pulumi.getter(name="calendarNames")
     def calendar_names(self) -> Optional[Sequence[str]]:
+        """
+        The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
+        """
         return pulumi.get(self, "calendar_names")
 
     @property
     @pulumi.getter(name="complianceSeverity")
     def compliance_severity(self) -> Optional['AssociationComplianceSeverity']:
+        """
+        The severity level that is assigned to the association.
+        """
         return pulumi.get(self, "compliance_severity")
 
     @property
@@ -128,11 +140,21 @@ class GetAssociationResult:
     @property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[str]:
+        """
+        The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+
+        If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .
+        """
         return pulumi.get(self, "max_concurrency")
 
     @property
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> Optional[str]:
+        """
+        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 managed nodes and set `MaxError` to 10%, then the system stops sending the request when the sixth error is received.
+
+        Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
+        """
         return pulumi.get(self, "max_errors")
 
     @property
@@ -146,6 +168,9 @@ class GetAssociationResult:
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional['outputs.AssociationInstanceAssociationOutputLocation']:
+        """
+        An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
+        """
         return pulumi.get(self, "output_location")
 
     @property
@@ -167,11 +192,21 @@ class GetAssociationResult:
     @property
     @pulumi.getter(name="scheduleOffset")
     def schedule_offset(self) -> Optional[int]:
+        """
+        Number of days to wait after the scheduled day to run an association.
+        """
         return pulumi.get(self, "schedule_offset")
 
     @property
     @pulumi.getter(name="syncCompliance")
     def sync_compliance(self) -> Optional['AssociationSyncCompliance']:
+        """
+        The mode for generating association compliance. You can specify `AUTO` or `MANUAL` . In `AUTO` mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is `COMPLIANT` . If the association execution doesn't run successfully, the association is `NON-COMPLIANT` .
+
+        In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
+
+        By default, all associations use `AUTO` mode.
+        """
         return pulumi.get(self, "sync_compliance")
 
     @property

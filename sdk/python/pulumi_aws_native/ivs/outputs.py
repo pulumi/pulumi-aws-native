@@ -29,6 +29,7 @@ class RecordingConfigurationDestinationConfiguration(dict):
                  s3: Optional['outputs.RecordingConfigurationS3DestinationConfiguration'] = None):
         """
         Recording Destination Configuration.
+        :param 'RecordingConfigurationS3DestinationConfiguration' s3: An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -36,6 +37,9 @@ class RecordingConfigurationDestinationConfiguration(dict):
     @property
     @pulumi.getter
     def s3(self) -> Optional['outputs.RecordingConfigurationS3DestinationConfiguration']:
+        """
+        An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
+        """
         return pulumi.get(self, "s3")
 
 
@@ -117,12 +121,16 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
                  bucket_name: str):
         """
         Recording S3 Destination Configuration.
+        :param str bucket_name: Location (S3 bucket name) where recorded videos will be stored.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
+        """
+        Location (S3 bucket name) where recorded videos will be stored.
+        """
         return pulumi.get(self, "bucket_name")
 
 

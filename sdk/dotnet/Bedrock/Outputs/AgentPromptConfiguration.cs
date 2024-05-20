@@ -20,10 +20,30 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Base Prompt Template.
         /// </summary>
         public readonly string? BasePromptTemplate;
+        /// <summary>
+        /// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        /// </summary>
         public readonly Outputs.AgentInferenceConfiguration? InferenceConfiguration;
+        /// <summary>
+        /// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentCreationMode? ParserMode;
+        /// <summary>
+        /// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentCreationMode? PromptCreationMode;
+        /// <summary>
+        /// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+        /// 
+        /// - `PRE_PROCESSING` – `ENABLED`
+        /// - `ORCHESTRATION` – `ENABLED`
+        /// - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
+        /// - `POST_PROCESSING` – `DISABLED`
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentPromptState? PromptState;
+        /// <summary>
+        /// The step in the agent sequence that this prompt configuration applies to.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentPromptType? PromptType;
 
         [OutputConstructor]

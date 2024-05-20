@@ -20,7 +20,12 @@ class OriginEndpointPolicyArgs:
                  policy: Any):
         """
         The set of arguments for constructing a OriginEndpointPolicy resource.
-        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the origin endpoint policy.
+        :param pulumi.Input[str] channel_name: The channel name associated with the origin endpoint policy.
+        :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
+        :param Any policy: The policy associated with the origin endpoint.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         pulumi.set(__self__, "channel_name", channel_name)
@@ -30,6 +35,9 @@ class OriginEndpointPolicyArgs:
     @property
     @pulumi.getter(name="channelGroupName")
     def channel_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the channel group associated with the origin endpoint policy.
+        """
         return pulumi.get(self, "channel_group_name")
 
     @channel_group_name.setter
@@ -39,6 +47,9 @@ class OriginEndpointPolicyArgs:
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Input[str]:
+        """
+        The channel name associated with the origin endpoint policy.
+        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -48,6 +59,9 @@ class OriginEndpointPolicyArgs:
     @property
     @pulumi.getter(name="originEndpointName")
     def origin_endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The name of the origin endpoint associated with the origin endpoint policy.
+        """
         return pulumi.get(self, "origin_endpoint_name")
 
     @origin_endpoint_name.setter
@@ -58,6 +72,8 @@ class OriginEndpointPolicyArgs:
     @pulumi.getter
     def policy(self) -> Any:
         """
+        The policy associated with the origin endpoint.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -82,7 +98,12 @@ class OriginEndpointPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the origin endpoint policy.
+        :param pulumi.Input[str] channel_name: The channel name associated with the origin endpoint policy.
+        :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
+        :param Any policy: The policy associated with the origin endpoint.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -166,22 +187,33 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelGroupName")
     def channel_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel group associated with the origin endpoint policy.
+        """
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[str]:
+        """
+        The channel name associated with the origin endpoint policy.
+        """
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="originEndpointName")
     def origin_endpoint_name(self) -> pulumi.Output[str]:
+        """
+        The name of the origin endpoint associated with the origin endpoint policy.
+        """
         return pulumi.get(self, "origin_endpoint_name")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
         """
+        The policy associated with the origin endpoint.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")

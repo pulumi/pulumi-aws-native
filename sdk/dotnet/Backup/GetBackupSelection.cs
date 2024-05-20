@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupSelectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Uniquely identifies the backup selection.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetBackupSelectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Uniquely identifies the backup selection.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Backup
     [OutputType]
     public sealed class GetBackupSelectionResult
     {
+        /// <summary>
+        /// Uniquely identifies the backup selection.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Uniquely identifies a request to assign a set of resources to a backup plan.
+        /// </summary>
         public readonly string? SelectionId;
 
         [OutputConstructor]

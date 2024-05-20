@@ -16,17 +16,34 @@ import (
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput                    `pulumi:"arn"`
-	CollectionArn  pulumi.StringOutput                    `pulumi:"collectionArn"`
-	CollectionName pulumi.StringOutput                    `pulumi:"collectionName"`
-	CreateTime     pulumi.StringOutput                    `pulumi:"createTime"`
-	Description    pulumi.StringPtrOutput                 `pulumi:"description"`
-	KmsKeyId       pulumi.StringPtrOutput                 `pulumi:"kmsKeyId"`
-	PricingPlan    GeofenceCollectionPricingPlanPtrOutput `pulumi:"pricingPlan"`
+	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
+	// A custom name for the geofence collection.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique geofence collection name.
+	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+	CollectionName pulumi.StringOutput `pulumi:"collectionName"`
+	// The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	// An optional description for the geofence collection.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+	KmsKeyId    pulumi.StringPtrOutput                 `pulumi:"kmsKeyId"`
+	PricingPlan GeofenceCollectionPricingPlanPtrOutput `pulumi:"pricingPlan"`
 	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 	PricingPlanDataSource pulumi.StringPtrOutput `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayOutput  `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -75,10 +92,19 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 }
 
 type geofenceCollectionArgs struct {
-	CollectionName *string                        `pulumi:"collectionName"`
-	Description    *string                        `pulumi:"description"`
-	KmsKeyId       *string                        `pulumi:"kmsKeyId"`
-	PricingPlan    *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	// A custom name for the geofence collection.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique geofence collection name.
+	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
+	CollectionName *string `pulumi:"collectionName"`
+	// An optional description for the geofence collection.
+	Description *string `pulumi:"description"`
+	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+	KmsKeyId    *string                        `pulumi:"kmsKeyId"`
+	PricingPlan *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
 	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
@@ -87,10 +113,19 @@ type geofenceCollectionArgs struct {
 
 // The set of arguments for constructing a GeofenceCollection resource.
 type GeofenceCollectionArgs struct {
+	// A custom name for the geofence collection.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique geofence collection name.
+	// - No spaces allowed. For example, `ExampleGeofenceCollection` .
 	CollectionName pulumi.StringPtrInput
-	Description    pulumi.StringPtrInput
-	KmsKeyId       pulumi.StringPtrInput
-	PricingPlan    GeofenceCollectionPricingPlanPtrInput
+	// An optional description for the geofence collection.
+	Description pulumi.StringPtrInput
+	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
+	KmsKeyId    pulumi.StringPtrInput
+	PricingPlan GeofenceCollectionPricingPlanPtrInput
 	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 	PricingPlanDataSource pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -134,26 +169,42 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
 func (o GeofenceCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
 func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionArn }).(pulumi.StringOutput)
 }
 
+// A custom name for the geofence collection.
+//
+// Requirements:
+//
+// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+// - Must be a unique geofence collection name.
+// - No spaces allowed. For example, `ExampleGeofenceCollection` .
 func (o GeofenceCollectionOutput) CollectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionName }).(pulumi.StringOutput)
 }
 
+// The timestamp for when the geofence collection resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o GeofenceCollectionOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
+// An optional description for the geofence collection.
 func (o GeofenceCollectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
 func (o GeofenceCollectionOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -172,6 +223,7 @@ func (o GeofenceCollectionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *GeofenceCollection) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o GeofenceCollectionOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

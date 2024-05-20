@@ -18,6 +18,7 @@ class SimulationApplicationVersionArgs:
                  current_revision_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SimulationApplicationVersion resource.
+        :param pulumi.Input[str] application: The application information for the simulation application.
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         """
         pulumi.set(__self__, "application", application)
@@ -27,6 +28,9 @@ class SimulationApplicationVersionArgs:
     @property
     @pulumi.getter
     def application(self) -> pulumi.Input[str]:
+        """
+        The application information for the simulation application.
+        """
         return pulumi.get(self, "application")
 
     @application.setter
@@ -59,6 +63,7 @@ class SimulationApplicationVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application: The application information for the simulation application.
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         """
         ...
@@ -135,16 +140,25 @@ class SimulationApplicationVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def application(self) -> pulumi.Output[str]:
+        """
+        The application information for the simulation application.
+        """
         return pulumi.get(self, "application")
 
     @property
     @pulumi.getter(name="applicationVersion")
     def application_version(self) -> pulumi.Output[str]:
+        """
+        The simulation application version.
+        """
         return pulumi.get(self, "application_version")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the simulation application version.
+        """
         return pulumi.get(self, "arn")
 
     @property

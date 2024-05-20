@@ -57,11 +57,15 @@ import (
 type IdentitySource struct {
 	pulumi.CustomResourceState
 
-	Configuration       IdentitySourceConfigurationPropertiesOutput `pulumi:"configuration"`
-	Details             IdentitySourceDetailsOutput                 `pulumi:"details"`
-	IdentitySourceId    pulumi.StringOutput                         `pulumi:"identitySourceId"`
-	PolicyStoreId       pulumi.StringOutput                         `pulumi:"policyStoreId"`
-	PrincipalEntityType pulumi.StringPtrOutput                      `pulumi:"principalEntityType"`
+	// Contains configuration information about an identity source.
+	Configuration IdentitySourceConfigurationPropertiesOutput `pulumi:"configuration"`
+	Details       IdentitySourceDetailsOutput                 `pulumi:"details"`
+	// The unique ID of the new or updated identity store.
+	IdentitySourceId pulumi.StringOutput `pulumi:"identitySourceId"`
+	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+	PrincipalEntityType pulumi.StringPtrOutput `pulumi:"principalEntityType"`
 }
 
 // NewIdentitySource registers a new resource with the given unique name, arguments, and options.
@@ -114,15 +118,21 @@ func (IdentitySourceState) ElementType() reflect.Type {
 }
 
 type identitySourceArgs struct {
-	Configuration       IdentitySourceConfigurationProperties `pulumi:"configuration"`
-	PolicyStoreId       string                                `pulumi:"policyStoreId"`
-	PrincipalEntityType *string                               `pulumi:"principalEntityType"`
+	// Contains configuration information about an identity source.
+	Configuration IdentitySourceConfigurationProperties `pulumi:"configuration"`
+	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+	PolicyStoreId string `pulumi:"policyStoreId"`
+	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+	PrincipalEntityType *string `pulumi:"principalEntityType"`
 }
 
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
-	Configuration       IdentitySourceConfigurationPropertiesInput
-	PolicyStoreId       pulumi.StringInput
+	// Contains configuration information about an identity source.
+	Configuration IdentitySourceConfigurationPropertiesInput
+	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+	PolicyStoreId pulumi.StringInput
+	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType pulumi.StringPtrInput
 }
 
@@ -163,6 +173,7 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Contains configuration information about an identity source.
 func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationPropertiesOutput {
 	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationPropertiesOutput { return v.Configuration }).(IdentitySourceConfigurationPropertiesOutput)
 }
@@ -171,14 +182,17 @@ func (o IdentitySourceOutput) Details() IdentitySourceDetailsOutput {
 	return o.ApplyT(func(v *IdentitySource) IdentitySourceDetailsOutput { return v.Details }).(IdentitySourceDetailsOutput)
 }
 
+// The unique ID of the new or updated identity store.
 func (o IdentitySourceOutput) IdentitySourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.IdentitySourceId }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 func (o IdentitySourceOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
+// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 func (o IdentitySourceOutput) PrincipalEntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringPtrOutput { return v.PrincipalEntityType }).(pulumi.StringPtrOutput)
 }

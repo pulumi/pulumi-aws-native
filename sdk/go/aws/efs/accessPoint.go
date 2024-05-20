@@ -19,11 +19,13 @@ import (
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
+	// The ID of the EFS access point.
 	AccessPointId pulumi.StringOutput `pulumi:"accessPointId"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
-	AccessPointTags aws.TagArrayOutput  `pulumi:"accessPointTags"`
-	Arn             pulumi.StringOutput `pulumi:"arn"`
+	AccessPointTags aws.TagArrayOutput `pulumi:"accessPointTags"`
+	// The Amazon Resource Name (ARN) of the access point.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The opaque string specified in the request to ensure idempotent creation.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example ``fs-0123456789abcedf2``.
@@ -149,6 +151,7 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The ID of the EFS access point.
 func (o AccessPointOutput) AccessPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.AccessPointId }).(pulumi.StringOutput)
 }
@@ -160,6 +163,7 @@ func (o AccessPointOutput) AccessPointTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *AccessPoint) aws.TagArrayOutput { return v.AccessPointTags }).(aws.TagArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the access point.
 func (o AccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

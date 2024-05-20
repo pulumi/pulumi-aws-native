@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLayout
     {
+        /// <summary>
+        /// The configuration that determines what the type of layout for a sheet.
+        /// </summary>
         public readonly Outputs.DashboardLayoutConfiguration Configuration;
 
         [OutputConstructor]

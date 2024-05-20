@@ -19,12 +19,24 @@ export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetKeyGroupArgs {
+    /**
+     * The identifier for the key group.
+     */
     id: string;
 }
 
 export interface GetKeyGroupResult {
+    /**
+     * The identifier for the key group.
+     */
     readonly id?: string;
+    /**
+     * The key group configuration.
+     */
     readonly keyGroupConfig?: outputs.cloudfront.KeyGroupConfig;
+    /**
+     * The date and time when the key group was last modified.
+     */
     readonly lastModifiedTime?: string;
 }
 /**
@@ -35,5 +47,8 @@ export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetKeyGroupOutputArgs {
+    /**
+     * The identifier for the key group.
+     */
     id: pulumi.Input<string>;
 }

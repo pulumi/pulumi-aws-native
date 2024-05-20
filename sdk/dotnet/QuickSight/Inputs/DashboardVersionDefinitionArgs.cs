@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("calculatedFields")]
         private InputList<Inputs.DashboardCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// An array of calculated field definitions for the dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardCalculatedFieldArgs> CalculatedFields
         {
             get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.DashboardCalculatedFieldArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("columnConfigurations")]
         private InputList<Inputs.DashboardColumnConfigurationArgs>? _columnConfigurations;
+
+        /// <summary>
+        /// An array of dashboard-level column configurations. Column configurations are used to set the default formatting for a column that is used throughout a dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardColumnConfigurationArgs> ColumnConfigurations
         {
             get => _columnConfigurations ?? (_columnConfigurations = new InputList<Inputs.DashboardColumnConfigurationArgs>());
@@ -33,6 +41,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("dataSetIdentifierDeclarations", required: true)]
         private InputList<Inputs.DashboardDataSetIdentifierDeclarationArgs>? _dataSetIdentifierDeclarations;
+
+        /// <summary>
+        /// An array of dataset identifier declarations. With this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.
+        /// </summary>
         public InputList<Inputs.DashboardDataSetIdentifierDeclarationArgs> DataSetIdentifierDeclarations
         {
             get => _dataSetIdentifierDeclarations ?? (_dataSetIdentifierDeclarations = new InputList<Inputs.DashboardDataSetIdentifierDeclarationArgs>());
@@ -41,17 +53,32 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("filterGroups")]
         private InputList<Inputs.DashboardFilterGroupArgs>? _filterGroups;
+
+        /// <summary>
+        /// The filter definitions for a dashboard.
+        /// 
+        /// For more information, see [Filtering Data in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.DashboardFilterGroupArgs> FilterGroups
         {
             get => _filterGroups ?? (_filterGroups = new InputList<Inputs.DashboardFilterGroupArgs>());
             set => _filterGroups = value;
         }
 
+        /// <summary>
+        /// An array of option definitions for a dashboard.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.DashboardAssetOptionsArgs>? Options { get; set; }
 
         [Input("parameterDeclarations")]
         private InputList<Inputs.DashboardParameterDeclarationArgs>? _parameterDeclarations;
+
+        /// <summary>
+        /// The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.
+        /// 
+        /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
+        /// </summary>
         public InputList<Inputs.DashboardParameterDeclarationArgs> ParameterDeclarations
         {
             get => _parameterDeclarations ?? (_parameterDeclarations = new InputList<Inputs.DashboardParameterDeclarationArgs>());
@@ -60,6 +87,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sheets")]
         private InputList<Inputs.DashboardSheetDefinitionArgs>? _sheets;
+
+        /// <summary>
+        /// An array of sheet definitions for a dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardSheetDefinitionArgs> Sheets
         {
             get => _sheets ?? (_sheets = new InputList<Inputs.DashboardSheetDefinitionArgs>());

@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("copySourceArn")]
         public Input<string>? CopySourceArn { get; set; }
 
+        /// <summary>
+        /// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
+        /// </summary>
         [Input("credentialPair")]
         public Input<Inputs.DataSourceCredentialPairArgs>? CredentialPair { get; set; }
 

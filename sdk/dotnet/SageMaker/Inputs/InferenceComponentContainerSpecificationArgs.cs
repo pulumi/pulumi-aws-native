@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class InferenceComponentContainerSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
+        /// </summary>
         [Input("artifactUrl")]
         public Input<string>? ArtifactUrl { get; set; }
 
@@ -20,12 +23,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         [Input("environment")]
         private InputMap<string>? _environment;
+
+        /// <summary>
+        /// The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
+        /// </summary>
         public InputMap<string> Environment
         {
             get => _environment ?? (_environment = new InputMap<string>());
             set => _environment = value;
         }
 
+        /// <summary>
+        /// The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
+        /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 

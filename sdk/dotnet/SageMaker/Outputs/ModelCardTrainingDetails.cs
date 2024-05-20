@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelCardTrainingDetails
     {
+        /// <summary>
+        /// The function that is optimized during model training.
+        /// </summary>
         public readonly Outputs.ModelCardObjectiveFunction? ObjectiveFunction;
+        /// <summary>
+        /// Details about any associated training jobs.
+        /// </summary>
         public readonly Outputs.ModelCardTrainingDetailsTrainingJobDetailsProperties? TrainingJobDetails;
+        /// <summary>
+        /// Any observations about training.
+        /// </summary>
         public readonly string? TrainingObservations;
 
         [OutputConstructor]

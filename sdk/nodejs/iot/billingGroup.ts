@@ -37,9 +37,21 @@ export class BillingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === BillingGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the billing group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the billing group.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The name of the billing group.
+     */
     public readonly billingGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The properties of the billing group.
+     */
     public readonly billingGroupProperties!: pulumi.Output<outputs.iot.BillingGroupPropertiesProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -80,7 +92,13 @@ export class BillingGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a BillingGroup resource.
  */
 export interface BillingGroupArgs {
+    /**
+     * The name of the billing group.
+     */
     billingGroupName?: pulumi.Input<string>;
+    /**
+     * The properties of the billing group.
+     */
     billingGroupProperties?: pulumi.Input<inputs.iot.BillingGroupPropertiesPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.

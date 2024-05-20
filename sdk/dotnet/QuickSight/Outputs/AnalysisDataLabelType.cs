@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDataLabelType
     {
+        /// <summary>
+        /// The option that specifies individual data values for labels.
+        /// </summary>
         public readonly Outputs.AnalysisDataPathLabelType? DataPathLabelType;
+        /// <summary>
+        /// Determines the label configuration for the entire field.
+        /// </summary>
         public readonly Outputs.AnalysisFieldLabelType? FieldLabelType;
+        /// <summary>
+        /// Determines the label configuration for the maximum value in a visual.
+        /// </summary>
         public readonly Outputs.AnalysisMaximumLabelType? MaximumLabelType;
+        /// <summary>
+        /// Determines the label configuration for the minimum value in a visual.
+        /// </summary>
         public readonly Outputs.AnalysisMinimumLabelType? MinimumLabelType;
+        /// <summary>
+        /// Determines the label configuration for range end value in a visual.
+        /// </summary>
         public readonly Outputs.AnalysisRangeEndsLabelType? RangeEndsLabelType;
 
         [OutputConstructor]

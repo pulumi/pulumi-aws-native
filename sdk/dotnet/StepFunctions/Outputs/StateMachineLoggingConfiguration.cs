@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     [OutputType]
     public sealed class StateMachineLoggingConfiguration
     {
+        /// <summary>
+        /// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.StateMachineLogDestination> Destinations;
+        /// <summary>
+        /// Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        /// </summary>
         public readonly bool? IncludeExecutionData;
+        /// <summary>
+        /// Defines which category of execution history events are logged.
+        /// </summary>
         public readonly Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel? Level;
 
         [OutputConstructor]

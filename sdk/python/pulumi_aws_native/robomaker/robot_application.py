@@ -25,10 +25,12 @@ class RobotApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RobotApplication resource.
+        :param pulumi.Input['RobotApplicationRobotSoftwareSuiteArgs'] robot_software_suite: The robot software suite used by the robot application.
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[str] name: The name of the robot application.
         :param pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]] sources: The sources of the robot application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the robot application.
         """
         pulumi.set(__self__, "robot_software_suite", robot_software_suite)
         if current_revision_id is not None:
@@ -45,6 +47,9 @@ class RobotApplicationArgs:
     @property
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> pulumi.Input['RobotApplicationRobotSoftwareSuiteArgs']:
+        """
+        The robot software suite used by the robot application.
+        """
         return pulumi.get(self, "robot_software_suite")
 
     @robot_software_suite.setter
@@ -102,6 +107,9 @@ class RobotApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map that contains tag keys and tag values that are attached to the robot application.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -205,7 +213,9 @@ class RobotApplication(pulumi.CustomResource):
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         :param pulumi.Input[str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[str] name: The name of the robot application.
+        :param pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite used by the robot application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]] sources: The sources of the robot application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map that contains tag keys and tag values that are attached to the robot application.
         """
         ...
     @overload
@@ -367,6 +377,9 @@ class RobotApplication(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the robot application.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -396,6 +409,9 @@ class RobotApplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> pulumi.Output['outputs.RobotApplicationRobotSoftwareSuite']:
+        """
+        The robot software suite used by the robot application.
+        """
         return pulumi.get(self, "robot_software_suite")
 
     @property
@@ -409,5 +425,8 @@ class RobotApplication(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map that contains tag keys and tag values that are attached to the robot application.
+        """
         return pulumi.get(self, "tags")
 

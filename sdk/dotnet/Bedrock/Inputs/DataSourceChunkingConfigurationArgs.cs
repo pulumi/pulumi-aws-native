@@ -15,9 +15,18 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class DataSourceChunkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+        /// 
+        /// - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+        /// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
+        /// </summary>
         [Input("chunkingStrategy", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.DataSourceChunkingStrategy> ChunkingStrategy { get; set; } = null!;
 
+        /// <summary>
+        /// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
+        /// </summary>
         [Input("fixedSizeChunkingConfiguration")]
         public Input<Inputs.DataSourceFixedSizeChunkingConfigurationArgs>? FixedSizeChunkingConfiguration { get; set; }
 

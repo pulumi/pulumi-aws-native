@@ -24,7 +24,9 @@ func LookupLiveSource(ctx *pulumi.Context, args *LookupLiveSourceArgs, opts ...p
 }
 
 type LookupLiveSourceArgs struct {
-	LiveSourceName     string `pulumi:"liveSourceName"`
+	// The name that's used to refer to a live source.
+	LiveSourceName string `pulumi:"liveSourceName"`
+	// The name of the source location.
 	SourceLocationName string `pulumi:"sourceLocationName"`
 }
 
@@ -51,7 +53,9 @@ func LookupLiveSourceOutput(ctx *pulumi.Context, args LookupLiveSourceOutputArgs
 }
 
 type LookupLiveSourceOutputArgs struct {
-	LiveSourceName     pulumi.StringInput `pulumi:"liveSourceName"`
+	// The name that's used to refer to a live source.
+	LiveSourceName pulumi.StringInput `pulumi:"liveSourceName"`
+	// The name of the source location.
 	SourceLocationName pulumi.StringInput `pulumi:"sourceLocationName"`
 }
 

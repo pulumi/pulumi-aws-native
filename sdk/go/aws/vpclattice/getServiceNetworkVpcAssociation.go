@@ -24,20 +24,31 @@ func LookupServiceNetworkVpcAssociation(ctx *pulumi.Context, args *LookupService
 }
 
 type LookupServiceNetworkVpcAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServiceNetworkVpcAssociationResult struct {
-	Arn                *string                             `pulumi:"arn"`
-	CreatedAt          *string                             `pulumi:"createdAt"`
-	Id                 *string                             `pulumi:"id"`
-	SecurityGroupIds   []string                            `pulumi:"securityGroupIds"`
-	ServiceNetworkArn  *string                             `pulumi:"serviceNetworkArn"`
-	ServiceNetworkId   *string                             `pulumi:"serviceNetworkId"`
-	ServiceNetworkName *string                             `pulumi:"serviceNetworkName"`
-	Status             *ServiceNetworkVpcAssociationStatus `pulumi:"status"`
-	Tags               []aws.Tag                           `pulumi:"tags"`
-	VpcId              *string                             `pulumi:"vpcId"`
+	// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
+	Arn *string `pulumi:"arn"`
+	// The date and time that the association was created, specified in ISO-8601 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ID of the specified association between the service network and the VPC.
+	Id *string `pulumi:"id"`
+	// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The Amazon Resource Name (ARN) of the service network.
+	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
+	// The ID of the service network.
+	ServiceNetworkId *string `pulumi:"serviceNetworkId"`
+	// The name of the service network.
+	ServiceNetworkName *string `pulumi:"serviceNetworkName"`
+	// The status of the association.
+	Status *ServiceNetworkVpcAssociationStatus `pulumi:"status"`
+	// The tags for the association.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupServiceNetworkVpcAssociationOutput(ctx *pulumi.Context, args LookupServiceNetworkVpcAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkVpcAssociationResultOutput {
@@ -54,6 +65,7 @@ func LookupServiceNetworkVpcAssociationOutput(ctx *pulumi.Context, args LookupSe
 }
 
 type LookupServiceNetworkVpcAssociationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -75,42 +87,52 @@ func (o LookupServiceNetworkVpcAssociationResultOutput) ToLookupServiceNetworkVp
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the association between the service network and the VPC.
 func (o LookupServiceNetworkVpcAssociationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time that the association was created, specified in ISO-8601 format.
 func (o LookupServiceNetworkVpcAssociationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the specified association between the service network and the VPC.
 func (o LookupServiceNetworkVpcAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 func (o LookupServiceNetworkVpcAssociationResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service network.
 func (o LookupServiceNetworkVpcAssociationResultOutput) ServiceNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.ServiceNetworkArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service network.
 func (o LookupServiceNetworkVpcAssociationResultOutput) ServiceNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.ServiceNetworkId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the service network.
 func (o LookupServiceNetworkVpcAssociationResultOutput) ServiceNetworkName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.ServiceNetworkName }).(pulumi.StringPtrOutput)
 }
 
+// The status of the association.
 func (o LookupServiceNetworkVpcAssociationResultOutput) Status() ServiceNetworkVpcAssociationStatusPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *ServiceNetworkVpcAssociationStatus { return v.Status }).(ServiceNetworkVpcAssociationStatusPtrOutput)
 }
 
+// The tags for the association.
 func (o LookupServiceNetworkVpcAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC.
 func (o LookupServiceNetworkVpcAssociationResultOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

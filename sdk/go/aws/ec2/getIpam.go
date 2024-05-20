@@ -35,7 +35,8 @@ type LookupIpamResult struct {
 	DefaultResourceDiscoveryAssociationId *string `pulumi:"defaultResourceDiscoveryAssociationId"`
 	// The Id of the default resource discovery, created with this IPAM.
 	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
-	Description                *string `pulumi:"description"`
+	// The description for the IPAM.
+	Description *string `pulumi:"description"`
 	// Id of the IPAM.
 	IpamId *string `pulumi:"ipamId"`
 	// The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
@@ -105,6 +106,7 @@ func (o LookupIpamResultOutput) DefaultResourceDiscoveryId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupIpamResult) *string { return v.DefaultResourceDiscoveryId }).(pulumi.StringPtrOutput)
 }
 
+// The description for the IPAM.
 func (o LookupIpamResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpamResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

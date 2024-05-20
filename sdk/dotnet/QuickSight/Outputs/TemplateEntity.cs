@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateEntity
     {
+        /// <summary>
+        /// The hierarchical path of the entity within the analysis, template, or dashboard definition tree.
+        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

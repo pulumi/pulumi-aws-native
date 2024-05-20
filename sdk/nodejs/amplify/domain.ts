@@ -37,18 +37,62 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    /**
+     * The unique ID for an Amplify app.
+     */
     public readonly appId!: pulumi.Output<string>;
+    /**
+     * ARN for the Domain Association.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Sets the branch patterns for automatic subdomain creation.
+     */
     public readonly autoSubDomainCreationPatterns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
+     */
     public readonly autoSubDomainIamRole!: pulumi.Output<string | undefined>;
     public /*out*/ readonly certificate!: pulumi.Output<outputs.amplify.DomainCertificate>;
+    /**
+     * DNS Record for certificate verification.
+     */
     public /*out*/ readonly certificateRecord!: pulumi.Output<string>;
+    /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     */
     public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainCertificateSettings | undefined>;
+    /**
+     * The domain name for the domain association.
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * Status for the Domain Association.
+     */
     public /*out*/ readonly domainStatus!: pulumi.Output<string>;
+    /**
+     * Enables the automated creation of subdomains for branches.
+     */
     public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
+    /**
+     * Reason for the current status of the domain.
+     */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    /**
+     * The setting for the subdomain.
+     */
     public readonly subDomainSettings!: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
+    /**
+     * The status of the domain update operation that is currently in progress. The following list describes the valid update states.
+     *
+     * - **REQUESTING_CERTIFICATE** - The certificate is in the process of being updated.
+     * - **PENDING_VERIFICATION** - Indicates that an Amplify managed certificate is in the process of being verified. This occurs during the creation of a custom domain or when a custom domain is updated to use a managed certificate.
+     * - **IMPORTING_CUSTOM_CERTIFICATE** - Indicates that an Amplify custom certificate is in the process of being imported. This occurs during the creation of a custom domain or when a custom domain is updated to use a custom certificate.
+     * - **PENDING_DEPLOYMENT** - Indicates that the subdomain or certificate changes are being propagated.
+     * - **AWAITING_APP_CNAME** - Amplify is waiting for CNAME records corresponding to subdomains to be propagated. If your custom domain is on Route 53, Amplify handles this for you automatically. For more information about custom domains, see [Setting up custom domains](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html) in the *Amplify Hosting User Guide* .
+     * - **UPDATE_COMPLETE** - The certificate has been associated with a domain.
+     * - **UPDATE_FAILED** - The certificate has failed to be provisioned or associated, and there is no existing active certificate to roll back to.
+     */
     public /*out*/ readonly updateStatus!: pulumi.Output<string>;
 
     /**
@@ -107,11 +151,32 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    /**
+     * The unique ID for an Amplify app.
+     */
     appId: pulumi.Input<string>;
+    /**
+     * Sets the branch patterns for automatic subdomain creation.
+     */
     autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
+     */
     autoSubDomainIamRole?: pulumi.Input<string>;
+    /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     */
     certificateSettings?: pulumi.Input<inputs.amplify.DomainCertificateSettingsArgs>;
+    /**
+     * The domain name for the domain association.
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * Enables the automated creation of subdomains for branches.
+     */
     enableAutoSubDomain?: pulumi.Input<boolean>;
+    /**
+     * The setting for the subdomain.
+     */
     subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;
 }

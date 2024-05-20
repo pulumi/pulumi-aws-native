@@ -16,7 +16,17 @@ import (
 type TrackerConsumer struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
 	ConsumerArn pulumi.StringOutput `pulumi:"consumerArn"`
+	// The name for the tracker resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique tracker resource name.
+	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
 }
 
@@ -71,13 +81,33 @@ func (TrackerConsumerState) ElementType() reflect.Type {
 }
 
 type trackerConsumerArgs struct {
+	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
 	ConsumerArn string `pulumi:"consumerArn"`
+	// The name for the tracker resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique tracker resource name.
+	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName string `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a TrackerConsumer resource.
 type TrackerConsumerArgs struct {
+	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
 	ConsumerArn pulumi.StringInput
+	// The name for the tracker resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique tracker resource name.
+	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName pulumi.StringInput
 }
 
@@ -118,10 +148,20 @@ func (o TrackerConsumerOutput) ToTrackerConsumerOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`
 func (o TrackerConsumerOutput) ConsumerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrackerConsumer) pulumi.StringOutput { return v.ConsumerArn }).(pulumi.StringOutput)
 }
 
+// The name for the tracker resource.
+//
+// Requirements:
+//
+// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+// - Must be a unique tracker resource name.
+// - No spaces allowed. For example, `ExampleTracker` .
 func (o TrackerConsumerOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrackerConsumer) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
 }

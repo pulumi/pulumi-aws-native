@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
     public sealed class ThemeValuesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the property.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The value of the property.
+        /// </summary>
         [Input("value")]
         public Input<Inputs.ThemeValueArgs>? Value { get; set; }
 

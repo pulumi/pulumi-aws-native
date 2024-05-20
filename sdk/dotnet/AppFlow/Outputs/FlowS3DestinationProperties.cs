@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowS3DestinationProperties
     {
+        /// <summary>
+        /// The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// The object key for the destination bucket in which Amazon AppFlow places the files.
+        /// </summary>
         public readonly string? BucketPrefix;
+        /// <summary>
+        /// The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
+        /// </summary>
         public readonly Outputs.FlowS3OutputFormatConfig? S3OutputFormatConfig;
 
         [OutputConstructor]

@@ -51,6 +51,14 @@ class TrailArgs:
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A custom set of tags (key-value pairs) for this trail.
+        :param pulumi.Input[str] trail_name: Specifies the name of the trail. The name must meet the following requirements:
+               
+               - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+               - Start with a letter or number, and end with a letter or number
+               - Be between 3 and 128 characters
+               - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+               - Not be in IP address format (for example, 192.168.5.4)
         """
         pulumi.set(__self__, "is_logging", is_logging)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -254,6 +262,9 @@ class TrailArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A custom set of tags (key-value pairs) for this trail.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -263,6 +274,15 @@ class TrailArgs:
     @property
     @pulumi.getter(name="trailName")
     def trail_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the trail. The name must meet the following requirements:
+
+        - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+        - Start with a letter or number, and end with a letter or number
+        - Be between 3 and 128 characters
+        - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+        - Not be in IP address format (for example, 192.168.5.4)
+        """
         return pulumi.get(self, "trail_name")
 
     @trail_name.setter
@@ -311,6 +331,14 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A custom set of tags (key-value pairs) for this trail.
+        :param pulumi.Input[str] trail_name: Specifies the name of the trail. The name must meet the following requirements:
+               
+               - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+               - Start with a letter or number, and end with a letter or number
+               - Be between 3 and 128 characters
+               - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+               - Not be in IP address format (for example, 192.168.5.4)
         """
         ...
     @overload
@@ -438,6 +466,9 @@ class Trail(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -539,6 +570,9 @@ class Trail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[str]:
+        """
+        `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
@@ -552,10 +586,22 @@ class Trail(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A custom set of tags (key-value pairs) for this trail.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trailName")
     def trail_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the trail. The name must meet the following requirements:
+
+        - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+        - Start with a letter or number, and end with a letter or number
+        - Be between 3 and 128 characters
+        - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+        - Not be in IP address format (for example, 192.168.5.4)
+        """
         return pulumi.get(self, "trail_name")
 

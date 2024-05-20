@@ -87,6 +87,15 @@ class GetAgentAliasResult:
     @property
     @pulumi.getter(name="agentAliasStatus")
     def agent_alias_status(self) -> Optional['AgentAliasStatus']:
+        """
+        The status of the alias of the agent and whether it is ready for use. The following statuses are possible:
+
+        - CREATING – The agent alias is being created.
+        - PREPARED – The agent alias is finished being created or updated and is ready to be invoked.
+        - FAILED – The agent alias API operation failed.
+        - UPDATING – The agent alias is being updated.
+        - DELETING – The agent alias is being deleted.
+        """
         return pulumi.get(self, "agent_alias_status")
 
     @property
@@ -116,6 +125,12 @@ class GetAgentAliasResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+
+        - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+        - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+        """
         return pulumi.get(self, "tags")
 
     @property

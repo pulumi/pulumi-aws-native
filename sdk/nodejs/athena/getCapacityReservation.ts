@@ -19,6 +19,9 @@ export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: 
 }
 
 export interface GetCapacityReservationArgs {
+    /**
+     * The ARN of the capacity reservation.
+     */
     arn: string;
 }
 
@@ -27,7 +30,13 @@ export interface GetCapacityReservationResult {
      * The number of DPUs Athena has provisioned and allocated for the reservation
      */
     readonly allocatedDpus?: number;
+    /**
+     * The ARN of the capacity reservation.
+     */
     readonly arn?: string;
+    /**
+     * Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+     */
     readonly capacityAssignmentConfiguration?: outputs.athena.CapacityReservationCapacityAssignmentConfiguration;
     /**
      * The date and time the reservation was created.
@@ -58,5 +67,8 @@ export function getCapacityReservationOutput(args: GetCapacityReservationOutputA
 }
 
 export interface GetCapacityReservationOutputArgs {
+    /**
+     * The ARN of the capacity reservation.
+     */
     arn: pulumi.Input<string>;
 }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTEvents
     [AwsNativeResourceType("aws-native:iotevents:DetectorModel")]
     public partial class DetectorModel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Information that defines how a detector operates.
+        /// </summary>
         [Output("detectorModelDefinition")]
         public Output<Outputs.DetectorModelDefinition> DetectorModelDefinition { get; private set; } = null!;
 
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.IoTEvents
 
     public sealed class DetectorModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information that defines how a detector operates.
+        /// </summary>
         [Input("detectorModelDefinition", required: true)]
         public Input<Inputs.DetectorModelDefinitionArgs> DetectorModelDefinition { get; set; } = null!;
 

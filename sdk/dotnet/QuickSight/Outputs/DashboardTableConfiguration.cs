@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTableConfiguration
     {
+        /// <summary>
+        /// The field options for a table visual.
+        /// </summary>
         public readonly Outputs.DashboardTableFieldOptions? FieldOptions;
+        /// <summary>
+        /// The field wells of the visual.
+        /// </summary>
         public readonly Outputs.DashboardTableFieldWells? FieldWells;
+        /// <summary>
+        /// The paginated report options for a table visual.
+        /// </summary>
         public readonly Outputs.DashboardTablePaginatedReportOptions? PaginatedReportOptions;
+        /// <summary>
+        /// The sort configuration for a `TableVisual` .
+        /// </summary>
         public readonly Outputs.DashboardTableSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// A collection of inline visualizations to display within a chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTableInlineVisualization> TableInlineVisualizations;
+        /// <summary>
+        /// The table options for a table visual.
+        /// </summary>
         public readonly Outputs.DashboardTableOptions? TableOptions;
+        /// <summary>
+        /// The total options for a table visual.
+        /// </summary>
         public readonly Outputs.DashboardTotalOptions? TotalOptions;
 
         [OutputConstructor]

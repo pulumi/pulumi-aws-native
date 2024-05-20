@@ -23,6 +23,7 @@ class AccessGrantsLocationArgs:
         The set of arguments for constructing a AccessGrantsLocation resource.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         :param pulumi.Input[str] location_scope: Descriptor for where the location actually points
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         if iam_role_arn is not None:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -58,6 +59,9 @@ class AccessGrantsLocationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,6 +85,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
         :param pulumi.Input[str] location_scope: Descriptor for where the location actually points
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         ...
     @overload
@@ -189,5 +194,8 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
+        """
         return pulumi.get(self, "tags")
 

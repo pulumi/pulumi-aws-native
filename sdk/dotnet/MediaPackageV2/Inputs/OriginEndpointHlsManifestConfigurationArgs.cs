@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("programDateTimeIntervalSeconds")]
         public Input<int>? ProgramDateTimeIntervalSeconds { get; set; }
 
+        /// <summary>
+        /// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
+        /// </summary>
         [Input("scteHls")]
         public Input<Inputs.OriginEndpointScteHlsArgs>? ScteHls { get; set; }
 

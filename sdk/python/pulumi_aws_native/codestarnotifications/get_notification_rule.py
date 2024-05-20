@@ -49,41 +49,65 @@ class GetNotificationRuleResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the notification rule.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
+        """
+        The name or email alias of the person who created the notification rule.
+        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter(name="detailType")
     def detail_type(self) -> Optional['NotificationRuleDetailType']:
+        """
+        The level of detail to include in the notifications for this resource. `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
+        """
         return pulumi.get(self, "detail_type")
 
     @property
     @pulumi.getter(name="eventTypeIds")
     def event_type_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of event types associated with this notification rule. For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
+        """
         return pulumi.get(self, "event_type_ids")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name for the notification rule. Notification rule names must be unique in your AWS account .
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['NotificationRuleStatus']:
+        """
+        The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.NotificationRuleTarget']]:
+        """
+        A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
+        """
         return pulumi.get(self, "targets")
 
 
@@ -107,6 +131,9 @@ def get_notification_rule(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationRuleResult:
     """
     Resource Type definition for AWS::CodeStarNotifications::NotificationRule
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the notification rule.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -129,5 +156,8 @@ def get_notification_rule_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationRuleResult]:
     """
     Resource Type definition for AWS::CodeStarNotifications::NotificationRule
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the notification rule.
     """
     ...

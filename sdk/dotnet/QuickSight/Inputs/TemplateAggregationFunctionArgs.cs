@@ -12,15 +12,35 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Aggregation for attributes.
+        /// </summary>
         [Input("attributeAggregationFunction")]
         public Input<Inputs.TemplateAttributeAggregationFunctionArgs>? AttributeAggregationFunction { get; set; }
 
+        /// <summary>
+        /// Aggregation for categorical values.
+        /// 
+        /// - `COUNT` : Aggregate by the total number of values, including duplicates.
+        /// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+        /// </summary>
         [Input("categoricalAggregationFunction")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateCategoricalAggregationFunction>? CategoricalAggregationFunction { get; set; }
 
+        /// <summary>
+        /// Aggregation for date values.
+        /// 
+        /// - `COUNT` : Aggregate by the total number of values, including duplicates.
+        /// - `DISTINCT_COUNT` : Aggregate by the total number of distinct values.
+        /// - `MIN` : Select the smallest date value.
+        /// - `MAX` : Select the largest date value.
+        /// </summary>
         [Input("dateAggregationFunction")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateDateAggregationFunction>? DateAggregationFunction { get; set; }
 
+        /// <summary>
+        /// Aggregation for numerical values.
+        /// </summary>
         [Input("numericalAggregationFunction")]
         public Input<Inputs.TemplateNumericalAggregationFunctionArgs>? NumericalAggregationFunction { get; set; }
 

@@ -17,12 +17,24 @@ export function getMember(args: GetMemberArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetMemberArgs {
+    /**
+     * The ID of the detector associated with the GuardDuty service to add the member to.
+     */
     detectorId: string;
+    /**
+     * The AWS account ID of the account to designate as a member.
+     */
     memberId: string;
 }
 
 export interface GetMemberResult {
+    /**
+     * The email address associated with the member account.
+     */
     readonly email?: string;
+    /**
+     * You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
+     */
     readonly status?: string;
 }
 /**
@@ -33,6 +45,12 @@ export function getMemberOutput(args: GetMemberOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetMemberOutputArgs {
+    /**
+     * The ID of the detector associated with the GuardDuty service to add the member to.
+     */
     detectorId: pulumi.Input<string>;
+    /**
+     * The AWS account ID of the account to designate as a member.
+     */
     memberId: pulumi.Input<string>;
 }

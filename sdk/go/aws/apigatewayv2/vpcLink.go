@@ -16,12 +16,16 @@ import (
 type VpcLink struct {
 	pulumi.CustomResourceState
 
-	Name             pulumi.StringOutput      `pulumi:"name"`
+	// The name of the VPC link.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of security group IDs for the VPC link.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// A list of subnet IDs to include in the VPC link.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// This resource type use map for Tags, suggest to use List of Tag
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	VpcLinkId pulumi.StringOutput    `pulumi:"vpcLinkId"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The VPC link ID.
+	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
 }
 
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +76,24 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	Name             *string  `pulumi:"name"`
+	// The name of the VPC link.
+	Name *string `pulumi:"name"`
+	// A list of security group IDs for the VPC link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// A list of subnet IDs to include in the VPC link.
+	SubnetIds []string `pulumi:"subnetIds"`
 	// This resource type use map for Tags, suggest to use List of Tag
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
-	Name             pulumi.StringPtrInput
+	// The name of the VPC link.
+	Name pulumi.StringPtrInput
+	// A list of security group IDs for the VPC link.
 	SecurityGroupIds pulumi.StringArrayInput
-	SubnetIds        pulumi.StringArrayInput
+	// A list of subnet IDs to include in the VPC link.
+	SubnetIds pulumi.StringArrayInput
 	// This resource type use map for Tags, suggest to use List of Tag
 	Tags pulumi.StringMapInput
 }
@@ -125,14 +135,17 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 	return o
 }
 
+// The name of the VPC link.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of security group IDs for the VPC link.
 func (o VpcLinkOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of subnet IDs to include in the VPC link.
 func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -142,6 +155,7 @@ func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The VPC link ID.
 func (o VpcLinkOutput) VpcLinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.VpcLinkId }).(pulumi.StringOutput)
 }

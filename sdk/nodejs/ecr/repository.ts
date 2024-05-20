@@ -79,6 +79,9 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
@@ -112,6 +115,9 @@ export class Repository extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */
     public readonly repositoryPolicyText!: pulumi.Output<any | undefined>;
+    /**
+     * Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+     */
     public /*out*/ readonly repositoryUri!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.

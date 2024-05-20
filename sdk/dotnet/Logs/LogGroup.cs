@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Logs
     [AwsNativeResourceType("aws-native:logs:LogGroup")]
     public partial class LogGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

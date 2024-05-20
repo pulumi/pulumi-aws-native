@@ -19,21 +19,86 @@ export function getDeliveryStream(args: GetDeliveryStreamArgs, opts?: pulumi.Inv
 }
 
 export interface GetDeliveryStreamArgs {
+    /**
+     * The name of the delivery stream.
+     */
     deliveryStreamName: string;
 }
 
 export interface GetDeliveryStreamResult {
+    /**
+     * Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
+     */
     readonly amazonOpenSearchServerlessDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration;
+    /**
+     * The destination in Amazon OpenSearch Service. You can specify only one destination.
+     */
     readonly amazonopensearchserviceDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration;
+    /**
+     * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
+     */
     readonly arn?: string;
+    /**
+     * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
+     */
     readonly deliveryStreamEncryptionConfigurationInput?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput;
+    /**
+     * An Amazon ES destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+     */
     readonly elasticsearchDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration;
+    /**
+     * An Amazon S3 destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+     */
     readonly extendedS3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration;
+    /**
+     * Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
+     */
     readonly httpEndpointDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration;
+    /**
+     * An Amazon Redshift destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+     */
     readonly redshiftDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration;
+    /**
+     * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
+     */
     readonly s3DestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+    /**
+     * Configure Snowflake destination
+     */
     readonly snowflakeDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration;
+    /**
+     * The configuration of a destination in Splunk for the delivery stream.
+     */
     readonly splunkDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration;
+    /**
+     * A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+     *
+     * You can specify up to 50 tags when creating a delivery stream.
+     *
+     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+     *
+     * *AccessDeniedException*
+     *
+     * User: arn:aws:sts::x:assumed-role/x/x is not authorized to perform: firehose:TagDeliveryStream on resource: arn:aws:firehose:us-east-1:x:deliverystream/x with an explicit deny in an identity-based policy.
+     *
+     * For an example IAM policy, see [Tag example.](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples)
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -44,5 +109,8 @@ export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?
 }
 
 export interface GetDeliveryStreamOutputArgs {
+    /**
+     * The name of the delivery stream.
+     */
     deliveryStreamName: pulumi.Input<string>;
 }

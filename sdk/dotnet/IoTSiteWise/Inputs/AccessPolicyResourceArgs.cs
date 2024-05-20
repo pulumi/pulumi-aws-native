@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// </summary>
     public sealed class AccessPolicyResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifies an AWS IoT SiteWise Monitor portal.
+        /// </summary>
         [Input("portal")]
         public Input<Inputs.AccessPolicyPortalArgs>? Portal { get; set; }
 
+        /// <summary>
+        /// Identifies a specific AWS IoT SiteWise Monitor project.
+        /// </summary>
         [Input("project")]
         public Input<Inputs.AccessPolicyProjectArgs>? Project { get; set; }
 

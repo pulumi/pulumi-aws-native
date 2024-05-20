@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     /// </summary>
     public sealed class CpuOptionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of CPU cores for the instance.
+        /// </summary>
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 
+        /// <summary>
+        /// The number of threads per CPU core.
+        /// </summary>
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 

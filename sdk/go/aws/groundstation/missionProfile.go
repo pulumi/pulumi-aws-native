@@ -97,24 +97,30 @@ import (
 type MissionProfile struct {
 	pulumi.CustomResourceState
 
-	Arn   pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
-	ContactPrePassDurationSeconds pulumi.IntPtrOutput                   `pulumi:"contactPrePassDurationSeconds"`
-	DataflowEdges                 MissionProfileDataflowEdgeArrayOutput `pulumi:"dataflowEdges"`
+	ContactPrePassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPrePassDurationSeconds"`
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+	DataflowEdges MissionProfileDataflowEdgeArrayOutput `pulumi:"dataflowEdges"`
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntOutput `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The region of the mission profile.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey MissionProfileStreamsKmsKeyPtrOutput `pulumi:"streamsKmsKey"`
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    pulumi.StringPtrOutput `pulumi:"streamsKmsRole"`
-	Tags              aws.TagArrayOutput     `pulumi:"tags"`
-	TrackingConfigArn pulumi.StringOutput    `pulumi:"trackingConfigArn"`
+	StreamsKmsRole pulumi.StringPtrOutput `pulumi:"streamsKmsRole"`
+	// Tags assigned to the mission profile.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+	TrackingConfigArn pulumi.StringOutput `pulumi:"trackingConfigArn"`
 }
 
 // NewMissionProfile registers a new resource with the given unique name, arguments, and options.
@@ -169,8 +175,9 @@ type missionProfileArgs struct {
 	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
-	ContactPrePassDurationSeconds *int                         `pulumi:"contactPrePassDurationSeconds"`
-	DataflowEdges                 []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
+	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+	DataflowEdges []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds int `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
@@ -178,9 +185,11 @@ type missionProfileArgs struct {
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey *MissionProfileStreamsKmsKey `pulumi:"streamsKmsKey"`
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    *string   `pulumi:"streamsKmsRole"`
-	Tags              []aws.Tag `pulumi:"tags"`
-	TrackingConfigArn string    `pulumi:"trackingConfigArn"`
+	StreamsKmsRole *string `pulumi:"streamsKmsRole"`
+	// Tags assigned to the mission profile.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
+	TrackingConfigArn string `pulumi:"trackingConfigArn"`
 }
 
 // The set of arguments for constructing a MissionProfile resource.
@@ -189,7 +198,8 @@ type MissionProfileArgs struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrInput
 	// Pre-pass time needed before the contact.
 	ContactPrePassDurationSeconds pulumi.IntPtrInput
-	DataflowEdges                 MissionProfileDataflowEdgeArrayInput
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
+	DataflowEdges MissionProfileDataflowEdgeArrayInput
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntInput
 	// A name used to identify a mission profile.
@@ -197,8 +207,10 @@ type MissionProfileArgs struct {
 	// The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
 	StreamsKmsKey MissionProfileStreamsKmsKeyPtrInput
 	// The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
-	StreamsKmsRole    pulumi.StringPtrInput
-	Tags              aws.TagArrayInput
+	StreamsKmsRole pulumi.StringPtrInput
+	// Tags assigned to the mission profile.
+	Tags aws.TagArrayInput
+	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn pulumi.StringInput
 }
 
@@ -239,10 +251,12 @@ func (o MissionProfileOutput) ToMissionProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o MissionProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 func (o MissionProfileOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -257,6 +271,7 @@ func (o MissionProfileOutput) ContactPrePassDurationSeconds() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v *MissionProfile) pulumi.IntPtrOutput { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 func (o MissionProfileOutput) DataflowEdges() MissionProfileDataflowEdgeArrayOutput {
 	return o.ApplyT(func(v *MissionProfile) MissionProfileDataflowEdgeArrayOutput { return v.DataflowEdges }).(MissionProfileDataflowEdgeArrayOutput)
 }
@@ -271,6 +286,7 @@ func (o MissionProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The region of the mission profile.
 func (o MissionProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -285,10 +301,12 @@ func (o MissionProfileOutput) StreamsKmsRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringPtrOutput { return v.StreamsKmsRole }).(pulumi.StringPtrOutput)
 }
 
+// Tags assigned to the mission profile.
 func (o MissionProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *MissionProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 func (o MissionProfileOutput) TrackingConfigArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.TrackingConfigArn }).(pulumi.StringOutput)
 }

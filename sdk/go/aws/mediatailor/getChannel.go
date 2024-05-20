@@ -24,6 +24,7 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
+	// The name of the channel.
 	ChannelName string `pulumi:"channelName"`
 }
 
@@ -31,12 +32,20 @@ type LookupChannelResult struct {
 	// <p>The ARN of the channel.</p>
 	Arn *string `pulumi:"arn"`
 	// <p>The list of audiences defined in channel.</p>
-	Audiences        []string                           `pulumi:"audiences"`
-	FillerSlate      *ChannelSlateSource                `pulumi:"fillerSlate"`
+	Audiences []string `pulumi:"audiences"`
+	// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+	FillerSlate *ChannelSlateSource `pulumi:"fillerSlate"`
+	// The log configuration.
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
-	PlaybackMode     *ChannelPlaybackMode               `pulumi:"playbackMode"`
+	// The type of playback mode for this channel.
+	//
+	// `LINEAR` - Programs play back-to-back only once.
+	//
+	// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
+	PlaybackMode *ChannelPlaybackMode `pulumi:"playbackMode"`
 	// The tags to assign to the channel.
-	Tags                   []aws.Tag                      `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The configuration for time-shifted viewing.
 	TimeShiftConfiguration *ChannelTimeShiftConfiguration `pulumi:"timeShiftConfiguration"`
 }
 
@@ -54,6 +63,7 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 }
 
 type LookupChannelOutputArgs struct {
+	// The name of the channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 }
 
@@ -85,14 +95,21 @@ func (o LookupChannelResultOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
+// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
 func (o LookupChannelResultOutput) FillerSlate() ChannelSlateSourcePtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelSlateSource { return v.FillerSlate }).(ChannelSlateSourcePtrOutput)
 }
 
+// The log configuration.
 func (o LookupChannelResultOutput) LogConfiguration() ChannelLogConfigurationForChannelPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelLogConfigurationForChannel { return v.LogConfiguration }).(ChannelLogConfigurationForChannelPtrOutput)
 }
 
+// The type of playback mode for this channel.
+//
+// `LINEAR` - Programs play back-to-back only once.
+//
+// `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
 func (o LookupChannelResultOutput) PlaybackMode() ChannelPlaybackModePtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelPlaybackMode { return v.PlaybackMode }).(ChannelPlaybackModePtrOutput)
 }
@@ -102,6 +119,7 @@ func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The configuration for time-shifted viewing.
 func (o LookupChannelResultOutput) TimeShiftConfiguration() ChannelTimeShiftConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelTimeShiftConfiguration { return v.TimeShiftConfiguration }).(ChannelTimeShiftConfigurationPtrOutput)
 }

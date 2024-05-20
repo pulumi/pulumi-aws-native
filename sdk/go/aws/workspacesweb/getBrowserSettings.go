@@ -24,14 +24,19 @@ func LookupBrowserSettings(ctx *pulumi.Context, args *LookupBrowserSettingsArgs,
 }
 
 type LookupBrowserSettingsArgs struct {
+	// The ARN of the browser settings.
 	BrowserSettingsArn string `pulumi:"browserSettingsArn"`
 }
 
 type LookupBrowserSettingsResult struct {
-	AssociatedPortalArns []string  `pulumi:"associatedPortalArns"`
-	BrowserPolicy        *string   `pulumi:"browserPolicy"`
-	BrowserSettingsArn   *string   `pulumi:"browserSettingsArn"`
-	Tags                 []aws.Tag `pulumi:"tags"`
+	// A list of web portal ARNs that the browser settings resource is associated with.
+	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+	BrowserPolicy *string `pulumi:"browserPolicy"`
+	// The ARN of the browser settings.
+	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupBrowserSettingsOutput(ctx *pulumi.Context, args LookupBrowserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserSettingsResultOutput {
@@ -48,6 +53,7 @@ func LookupBrowserSettingsOutput(ctx *pulumi.Context, args LookupBrowserSettings
 }
 
 type LookupBrowserSettingsOutputArgs struct {
+	// The ARN of the browser settings.
 	BrowserSettingsArn pulumi.StringInput `pulumi:"browserSettingsArn"`
 }
 
@@ -69,18 +75,22 @@ func (o LookupBrowserSettingsResultOutput) ToLookupBrowserSettingsResultOutputWi
 	return o
 }
 
+// A list of web portal ARNs that the browser settings resource is associated with.
 func (o LookupBrowserSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrowserSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
 func (o LookupBrowserSettingsResultOutput) BrowserPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBrowserSettingsResult) *string { return v.BrowserPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the browser settings.
 func (o LookupBrowserSettingsResultOutput) BrowserSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBrowserSettingsResult) *string { return v.BrowserSettingsArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o LookupBrowserSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBrowserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

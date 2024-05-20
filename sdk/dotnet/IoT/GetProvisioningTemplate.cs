@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetProvisioningTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the fleet provisioning template.
+        /// </summary>
         [Input("templateName", required: true)]
         public string TemplateName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetProvisioningTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the fleet provisioning template.
+        /// </summary>
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
 
@@ -51,12 +57,33 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetProvisioningTemplateResult
     {
+        /// <summary>
+        /// The description of the fleet provisioning template.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// True to enable the fleet provisioning template, otherwise false.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Creates a pre-provisioning hook template.
+        /// </summary>
         public readonly Outputs.ProvisioningTemplateProvisioningHook? PreProvisioningHook;
+        /// <summary>
+        /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        /// </summary>
         public readonly string? ProvisioningRoleArn;
+        /// <summary>
+        /// Metadata that can be used to manage the fleet provisioning template.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN that identifies the provisioning template.
+        /// </summary>
         public readonly string? TemplateArn;
+        /// <summary>
+        /// The JSON formatted contents of the fleet provisioning template version.
+        /// </summary>
         public readonly string? TemplateBody;
 
         [OutputConstructor]

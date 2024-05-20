@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("colors")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _colors;
+
+        /// <summary>
+        /// The color field wells of a geospatial map.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Colors
         {
             get => _colors ?? (_colors = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("geospatial")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _geospatial;
+
+        /// <summary>
+        /// The geospatial field wells of a geospatial map. Values are grouped by geospatial fields.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Geospatial
         {
             get => _geospatial ?? (_geospatial = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("values")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _values;
+
+        /// <summary>
+        /// The size field wells of a geospatial map. Values are aggregated based on geospatial fields.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.AnalysisMeasureFieldArgs>());

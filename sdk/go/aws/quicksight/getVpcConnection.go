@@ -24,26 +24,35 @@ func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opt
 }
 
 type LookupVpcConnectionArgs struct {
-	AwsAccountId    string `pulumi:"awsAccountId"`
+	// The AWS account ID of the account where you want to create a new VPC connection.
+	AwsAccountId string `pulumi:"awsAccountId"`
+	// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
 	VpcConnectionId string `pulumi:"vpcConnectionId"`
 }
 
 type LookupVpcConnectionResult struct {
 	// <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
-	Arn                *string                                       `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The availability status of the VPC connection.
 	AvailabilityStatus *VpcConnectionVpcConnectionAvailabilityStatus `pulumi:"availabilityStatus"`
 	// <p>The time that the VPC connection was created.</p>
-	CreatedTime  *string  `pulumi:"createdTime"`
+	CreatedTime *string `pulumi:"createdTime"`
+	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// <p>The time that the VPC connection was last updated.</p>
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	Name            *string `pulumi:"name"`
+	// The display name for the VPC connection.
+	Name *string `pulumi:"name"`
 	// <p>A list of network interfaces.</p>
-	NetworkInterfaces []VpcConnectionNetworkInterface           `pulumi:"networkInterfaces"`
-	RoleArn           *string                                   `pulumi:"roleArn"`
-	SecurityGroupIds  []string                                  `pulumi:"securityGroupIds"`
-	Status            *VpcConnectionVpcConnectionResourceStatus `pulumi:"status"`
-	Tags              []aws.Tag                                 `pulumi:"tags"`
+	NetworkInterfaces []VpcConnectionNetworkInterface `pulumi:"networkInterfaces"`
+	// The ARN of the IAM role associated with the VPC connection.
+	RoleArn *string `pulumi:"roleArn"`
+	// The Amazon EC2 security group IDs associated with the VPC connection.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The HTTP status of the request.
+	Status *VpcConnectionVpcConnectionResourceStatus `pulumi:"status"`
+	// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
+	Tags []aws.Tag `pulumi:"tags"`
 	// <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -62,7 +71,9 @@ func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutp
 }
 
 type LookupVpcConnectionOutputArgs struct {
-	AwsAccountId    pulumi.StringInput `pulumi:"awsAccountId"`
+	// The AWS account ID of the account where you want to create a new VPC connection.
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+	// The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
 	VpcConnectionId pulumi.StringInput `pulumi:"vpcConnectionId"`
 }
 
@@ -89,6 +100,7 @@ func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The availability status of the VPC connection.
 func (o LookupVpcConnectionResultOutput) AvailabilityStatus() VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *VpcConnectionVpcConnectionAvailabilityStatus {
 		return v.AvailabilityStatus
@@ -100,6 +112,7 @@ func (o LookupVpcConnectionResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 func (o LookupVpcConnectionResultOutput) DnsResolvers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []string { return v.DnsResolvers }).(pulumi.StringArrayOutput)
 }
@@ -109,6 +122,7 @@ func (o LookupVpcConnectionResultOutput) LastUpdatedTime() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The display name for the VPC connection.
 func (o LookupVpcConnectionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -118,18 +132,22 @@ func (o LookupVpcConnectionResultOutput) NetworkInterfaces() VpcConnectionNetwor
 	return o.ApplyT(func(v LookupVpcConnectionResult) []VpcConnectionNetworkInterface { return v.NetworkInterfaces }).(VpcConnectionNetworkInterfaceArrayOutput)
 }
 
+// The ARN of the IAM role associated with the VPC connection.
 func (o LookupVpcConnectionResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon EC2 security group IDs associated with the VPC connection.
 func (o LookupVpcConnectionResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The HTTP status of the request.
 func (o LookupVpcConnectionResultOutput) Status() VpcConnectionVpcConnectionResourceStatusPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *VpcConnectionVpcConnectionResourceStatus { return v.Status }).(VpcConnectionVpcConnectionResourceStatusPtrOutput)
 }
 
+// A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
 func (o LookupVpcConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

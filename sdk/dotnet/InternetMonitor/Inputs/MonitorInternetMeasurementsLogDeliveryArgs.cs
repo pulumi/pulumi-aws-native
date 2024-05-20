@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.InternetMonitor.Inputs
 
     public sealed class MonitorInternetMeasurementsLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
+        /// </summary>
         [Input("s3Config")]
         public Input<Inputs.MonitorS3ConfigArgs>? S3Config { get; set; }
 

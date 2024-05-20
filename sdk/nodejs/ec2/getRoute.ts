@@ -19,6 +19,9 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetRouteArgs {
+    /**
+     * The IPv4 CIDR block.
+     */
     cidrBlock: string;
     /**
      * The ID of the route table for the route.
@@ -32,6 +35,9 @@ export interface GetRouteResult {
      *  You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
     readonly carrierGatewayId?: string;
+    /**
+     * The IPv4 CIDR block.
+     */
     readonly cidrBlock?: string;
     /**
      * The Amazon Resource Name (ARN) of the core network.
@@ -84,6 +90,9 @@ export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetRouteOutputArgs {
+    /**
+     * The IPv4 CIDR block.
+     */
     cidrBlock: pulumi.Input<string>;
     /**
      * The ID of the route table for the route.

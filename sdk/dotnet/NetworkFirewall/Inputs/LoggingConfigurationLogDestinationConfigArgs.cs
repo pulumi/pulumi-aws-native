@@ -24,9 +24,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
             set => _logDestination = value;
         }
 
+        /// <summary>
+        /// The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
+        /// </summary>
         [Input("logDestinationType", required: true)]
         public Input<Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogDestinationType> LogDestinationType { get; set; } = null!;
 
+        /// <summary>
+        /// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+        /// </summary>
         [Input("logType", required: true)]
         public Input<Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogType> LogType { get; set; } = null!;
 

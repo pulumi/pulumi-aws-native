@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetListenerResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The action for the default rule. Each listener has a default rule. The default rule is used if no other rules match.
+        /// </summary>
         public readonly Outputs.ListenerDefaultAction? DefaultAction;
+        /// <summary>
+        /// The ID of the listener.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         public readonly string? ServiceArn;
+        /// <summary>
+        /// The ID of the service.
+        /// </summary>
         public readonly string? ServiceId;
+        /// <summary>
+        /// The tags for the listener.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

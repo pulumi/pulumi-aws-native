@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptionsInput
     {
+        /// <summary>
+        /// Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+        /// </summary>
         public readonly string? AnonymousAuthDisableDate;
+        /// <summary>
+        /// True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
+        /// </summary>
         public readonly bool? AnonymousAuthEnabled;
+        /// <summary>
+        /// True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// True to enable the internal user database.
+        /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
+        /// <summary>
+        /// Specifies information about the master user.
+        /// </summary>
         public readonly Outputs.DomainMasterUserOptions? MasterUserOptions;
+        /// <summary>
+        /// Container for information about the SAML configuration for OpenSearch Dashboards.
+        /// </summary>
         public readonly Outputs.DomainSamlOptions? SamlOptions;
 
         [OutputConstructor]

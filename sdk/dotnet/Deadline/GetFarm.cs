@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetFarmArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the farm.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Deadline
 
     public sealed class GetFarmInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the farm.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Deadline
     [OutputType]
     public sealed class GetFarmResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the farm.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A description of the farm that helps identify what the farm is used for.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the farm.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The farm ID.
+        /// </summary>
         public readonly string? FarmId;
 
         [OutputConstructor]

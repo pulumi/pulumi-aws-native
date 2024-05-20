@@ -42,18 +42,37 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:PolicyStore")]
     public partial class PolicyStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Descriptive text that you can provide to help with identification of the current policy store.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new or updated policy store.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        /// </summary>
         [Output("schema")]
         public Output<Outputs.PolicyStoreSchemaDefinition?> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the validation setting for this policy store.
+        /// 
+        /// Currently, the only valid and required value is `Mode` .
+        /// 
+        /// &gt; We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+        /// </summary>
         [Output("validationSettings")]
         public Output<Outputs.PolicyStoreValidationSettings> ValidationSettings { get; private set; } = null!;
 
@@ -102,12 +121,25 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class PolicyStoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Descriptive text that you can provide to help with identification of the current policy store.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
+        /// </summary>
         [Input("schema")]
         public Input<Inputs.PolicyStoreSchemaDefinitionArgs>? Schema { get; set; }
 
+        /// <summary>
+        /// Specifies the validation setting for this policy store.
+        /// 
+        /// Currently, the only valid and required value is `Mode` .
+        /// 
+        /// &gt; We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
+        /// </summary>
         [Input("validationSettings", required: true)]
         public Input<Inputs.PolicyStoreValidationSettingsArgs> ValidationSettings { get; set; } = null!;
 

@@ -22,6 +22,9 @@ class AnomalyMonitorMonitorDimension(str, Enum):
 
 
 class AnomalyMonitorMonitorType(str, Enum):
+    """
+    The possible type values.
+    """
     DIMENSIONAL = "DIMENSIONAL"
     CUSTOM = "CUSTOM"
 
@@ -36,14 +39,23 @@ class AnomalySubscriptionFrequency(str, Enum):
 
 
 class AnomalySubscriptionSubscriberStatus(str, Enum):
+    """
+    Indicates if the subscriber accepts the notifications.
+    """
     CONFIRMED = "CONFIRMED"
     DECLINED = "DECLINED"
 
 
 class AnomalySubscriptionSubscriberType(str, Enum):
+    """
+    The notification delivery channel.
+    """
     EMAIL = "EMAIL"
     SNS = "SNS"
 
 
 class CostCategoryRuleVersion(str, Enum):
+    """
+    The rule schema version in this particular Cost Category.
+    """
     COST_CATEGORY_EXPRESSION_V1 = "CostCategoryExpression.v1"

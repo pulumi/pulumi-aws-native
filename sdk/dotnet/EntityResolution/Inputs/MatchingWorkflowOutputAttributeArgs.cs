@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
 
     public sealed class MatchingWorkflowOutputAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables the ability to hash the column values in the output.
+        /// </summary>
         [Input("hashed")]
         public Input<bool>? Hashed { get; set; }
 
+        /// <summary>
+        /// A name of a column to be written to the output. This must be an `InputField` name in the schema mapping.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

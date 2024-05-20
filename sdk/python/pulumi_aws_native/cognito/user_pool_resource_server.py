@@ -22,6 +22,10 @@ class UserPoolResourceServerArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolResourceServer resource.
+        :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] name: A friendly name for the resource server.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -33,6 +37,9 @@ class UserPoolResourceServerArgs:
     @property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[str]:
+        """
+        A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -42,6 +49,9 @@ class UserPoolResourceServerArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -51,6 +61,9 @@ class UserPoolResourceServerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the resource server.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -60,6 +73,9 @@ class UserPoolResourceServerArgs:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]]:
+        """
+        A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -82,6 +98,10 @@ class UserPoolResourceServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        :param pulumi.Input[str] name: A friendly name for the resource server.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolResourceServerResourceServerScopeTypeArgs']]]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
         ...
     @overload
@@ -163,25 +183,40 @@ class UserPoolResourceServer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
+        """
+        A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        """
         return pulumi.get(self, "identifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A friendly name for the resource server.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolResourceServerResourceServerScopeType']]]:
+        """
+        A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
+        """
         return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 

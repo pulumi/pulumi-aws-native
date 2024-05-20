@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupSelectionConditionResourceType
     {
+        /// <summary>
+        /// The key in a key-value pair. For example, in `"Department": "accounting"` , `"Department"` is the key.
+        /// </summary>
         public readonly string ConditionKey;
+        /// <summary>
+        /// An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
+        /// </summary>
         public readonly string ConditionType;
+        /// <summary>
+        /// The value in a key-value pair. For example, in `"Department": "accounting"` , `"accounting"` is the value.
+        /// </summary>
         public readonly string ConditionValue;
 
         [OutputConstructor]

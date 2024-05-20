@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisTopBottomFilter
     {
+        /// <summary>
+        /// The aggregation and sort configuration of the top bottom filter.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisAggregationSortConfiguration> AggregationSortConfigurations;
+        /// <summary>
+        /// The column that the filter is applied to.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        /// <summary>
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+        /// </summary>
         public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
+        /// <summary>
+        /// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+        /// </summary>
         public readonly string FilterId;
+        /// <summary>
+        /// The number of items to include in the top bottom filter results.
+        /// </summary>
         public readonly double? Limit;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// The level of time precision that is used to aggregate `DateTime` values.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTimeGranularity? TimeGranularity;
 
         [OutputConstructor]

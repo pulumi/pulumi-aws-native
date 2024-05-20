@@ -63,10 +63,22 @@ export class IdentitySource extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentitySource.__pulumiType;
     }
 
+    /**
+     * Contains configuration information about an identity source.
+     */
     public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfigurationProperties>;
     public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
+    /**
+     * The unique ID of the new or updated identity store.
+     */
     public /*out*/ readonly identitySourceId!: pulumi.Output<string>;
+    /**
+     * Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+     */
     public readonly policyStoreId!: pulumi.Output<string>;
+    /**
+     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     */
     public readonly principalEntityType!: pulumi.Output<string | undefined>;
 
     /**
@@ -109,7 +121,16 @@ export class IdentitySource extends pulumi.CustomResource {
  * The set of arguments for constructing a IdentitySource resource.
  */
 export interface IdentitySourceArgs {
+    /**
+     * Contains configuration information about an identity source.
+     */
     configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs>;
+    /**
+     * Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+     */
     policyStoreId: pulumi.Input<string>;
+    /**
+     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     */
     principalEntityType?: pulumi.Input<string>;
 }

@@ -24,7 +24,16 @@ class BackupVaultArgs:
                  notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a BackupVault resource.
-        :param Any access_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        :param Any access_policy: A resource-based policy that is used to manage access permissions on the target backup vault.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the backup vault.
+        :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+               
+               To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+        :param pulumi.Input['BackupVaultLockConfigurationTypeArgs'] lock_configuration: Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        :param pulumi.Input['BackupVaultNotificationObjectTypeArgs'] notifications: The SNS event notifications for the specified backup vault.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -43,6 +52,8 @@ class BackupVaultArgs:
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[Any]:
         """
+        A resource-based policy that is used to manage access permissions on the target backup vault.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "access_policy")
@@ -54,6 +65,9 @@ class BackupVaultArgs:
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -63,6 +77,9 @@ class BackupVaultArgs:
     @property
     @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags to assign to the backup vault.
+        """
         return pulumi.get(self, "backup_vault_tags")
 
     @backup_vault_tags.setter
@@ -72,6 +89,11 @@ class BackupVaultArgs:
     @property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+
+        To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+        """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
@@ -81,6 +103,9 @@ class BackupVaultArgs:
     @property
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']]:
+        """
+        Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        """
         return pulumi.get(self, "lock_configuration")
 
     @lock_configuration.setter
@@ -90,6 +115,9 @@ class BackupVaultArgs:
     @property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]:
+        """
+        The SNS event notifications for the specified backup vault.
+        """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
@@ -114,7 +142,16 @@ class BackupVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any access_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        :param Any access_policy: A resource-based policy that is used to manage access permissions on the target backup vault.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the backup vault.
+        :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+               
+               To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+        :param pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']] lock_configuration: Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        :param pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']] notifications: The SNS event notifications for the specified backup vault.
         """
         ...
     @overload
@@ -199,6 +236,8 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[Optional[Any]]:
         """
+        A resource-based policy that is used to manage access permissions on the target backup vault.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "access_policy")
@@ -206,30 +245,50 @@ class BackupVault(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Output[str]:
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example, `arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault` .
+        """
         return pulumi.get(self, "backup_vault_arn")
 
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[str]:
+        """
+        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @property
     @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags to assign to the backup vault.
+        """
         return pulumi.get(self, "backup_vault_tags")
 
     @property
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
+
+        To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
+        """
         return pulumi.get(self, "encryption_key_arn")
 
     @property
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> pulumi.Output[Optional['outputs.BackupVaultLockConfigurationType']]:
+        """
+        Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        """
         return pulumi.get(self, "lock_configuration")
 
     @property
     @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional['outputs.BackupVaultNotificationObjectType']]:
+        """
+        The SNS event notifications for the specified backup vault.
+        """
         return pulumi.get(self, "notifications")
 

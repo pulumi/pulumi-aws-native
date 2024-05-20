@@ -26,6 +26,7 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: One or more resources to which events arriving through a channel are logged and stored.
+        :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] source: The ARN of an on-premises storage solution or application, or a partner event source.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -53,6 +54,9 @@ class ChannelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -100,6 +104,7 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDestinationArgs']]]] destinations: One or more resources to which events arriving through a channel are logged and stored.
+        :param pulumi.Input[str] name: The name of the channel.
         :param pulumi.Input[str] source: The ARN of an on-premises storage solution or application, or a partner event source.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -179,6 +184,9 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelArn")
     def channel_arn(self) -> pulumi.Output[str]:
+        """
+        `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
+        """
         return pulumi.get(self, "channel_arn")
 
     @property
@@ -192,6 +200,9 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the channel.
+        """
         return pulumi.get(self, "name")
 
     @property

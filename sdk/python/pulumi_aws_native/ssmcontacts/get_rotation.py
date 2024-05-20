@@ -71,6 +71,9 @@ class GetRotationResult:
     @property
     @pulumi.getter
     def recurrence(self) -> Optional['outputs.RotationRecurrenceSettings']:
+        """
+        Information about the rule that specifies when shift team members rotate.
+        """
         return pulumi.get(self, "recurrence")
 
     @property
@@ -84,6 +87,9 @@ class GetRotationResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property

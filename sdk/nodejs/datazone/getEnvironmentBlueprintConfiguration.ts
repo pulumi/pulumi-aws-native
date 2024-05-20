@@ -20,18 +20,48 @@ export function getEnvironmentBlueprintConfiguration(args: GetEnvironmentBluepri
 }
 
 export interface GetEnvironmentBlueprintConfigurationArgs {
+    /**
+     * The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+     */
     domainId: string;
+    /**
+     * The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+     */
     environmentBlueprintId: string;
 }
 
 export interface GetEnvironmentBlueprintConfigurationResult {
+    /**
+     * The timestamp of when an environment blueprint was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+     */
     readonly domainId?: string;
+    /**
+     * The enabled AWS Regions specified in a blueprint configuration.
+     */
     readonly enabledRegions?: string[];
+    /**
+     * The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+     */
     readonly environmentBlueprintId?: string;
+    /**
+     * The ARN of the manage access role.
+     */
     readonly manageAccessRoleArn?: string;
+    /**
+     * The ARN of the provisioning role.
+     */
     readonly provisioningRoleArn?: string;
+    /**
+     * The regional parameters of the environment blueprint.
+     */
     readonly regionalParameters?: outputs.datazone.EnvironmentBlueprintConfigurationRegionalParameter[];
+    /**
+     * The timestamp of when the environment blueprint was updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -42,6 +72,12 @@ export function getEnvironmentBlueprintConfigurationOutput(args: GetEnvironmentB
 }
 
 export interface GetEnvironmentBlueprintConfigurationOutputArgs {
+    /**
+     * The identifier of the Amazon DataZone domain in which an environment blueprint exists.
+     */
     domainId: pulumi.Input<string>;
+    /**
+     * The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
+     */
     environmentBlueprintId: pulumi.Input<string>;
 }

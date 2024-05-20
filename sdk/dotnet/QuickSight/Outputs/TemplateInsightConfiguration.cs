@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateInsightConfiguration
     {
+        /// <summary>
+        /// The computations configurations of the insight visual
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateComputation> Computations;
+        /// <summary>
+        /// The custom narrative of the insight visual.
+        /// </summary>
         public readonly Outputs.TemplateCustomNarrativeOptions? CustomNarrative;
 
         [OutputConstructor]

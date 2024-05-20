@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Evidently.Outputs
     [OutputType]
     public sealed class ExperimentTreatmentToWeight
     {
+        /// <summary>
+        /// The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
+        /// </summary>
         public readonly int SplitWeight;
+        /// <summary>
+        /// The name of the treatment.
+        /// </summary>
         public readonly string Treatment;
 
         [OutputConstructor]

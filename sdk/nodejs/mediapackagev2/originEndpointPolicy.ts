@@ -34,10 +34,21 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginEndpointPolicy.__pulumiType;
     }
 
+    /**
+     * The name of the channel group associated with the origin endpoint policy.
+     */
     public readonly channelGroupName!: pulumi.Output<string>;
+    /**
+     * The channel name associated with the origin endpoint policy.
+     */
     public readonly channelName!: pulumi.Output<string>;
+    /**
+     * The name of the origin endpoint associated with the origin endpoint policy.
+     */
     public readonly originEndpointName!: pulumi.Output<string>;
     /**
+     * The policy associated with the origin endpoint.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any>;
@@ -86,10 +97,21 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpointPolicy resource.
  */
 export interface OriginEndpointPolicyArgs {
+    /**
+     * The name of the channel group associated with the origin endpoint policy.
+     */
     channelGroupName: pulumi.Input<string>;
+    /**
+     * The channel name associated with the origin endpoint policy.
+     */
     channelName: pulumi.Input<string>;
+    /**
+     * The name of the origin endpoint associated with the origin endpoint policy.
+     */
     originEndpointName: pulumi.Input<string>;
     /**
+     * The policy associated with the origin endpoint.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
      */
     policy: any;

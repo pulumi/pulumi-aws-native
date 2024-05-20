@@ -44,6 +44,9 @@ class GetTableResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The `arn` of the table.
+        """
         return pulumi.get(self, "arn")
 
     @property

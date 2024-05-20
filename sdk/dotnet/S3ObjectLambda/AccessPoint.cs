@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         [Output("alias")]
         public Output<Outputs.AccessPointAlias> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ARN for the Object Lambda Access Point.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

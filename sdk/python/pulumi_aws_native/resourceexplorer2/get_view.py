@@ -36,21 +36,39 @@ class GetViewResult:
     @property
     @pulumi.getter
     def filters(self) -> Optional['outputs.ViewSearchFilter']:
+        """
+        An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+
+        For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+
+        > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
+        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> Optional[Sequence['outputs.ViewIncludedProperty']]:
+        """
+        A list of fields that provide additional information about the view.
+        """
         return pulumi.get(self, "included_properties")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag key and value pairs that are attached to the view.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="viewArn")
     def view_arn(self) -> Optional[str]:
+        """
+        The ARN of the new view. For example:
+
+        `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
+        """
         return pulumi.get(self, "view_arn")
 
 
@@ -70,6 +88,11 @@ def get_view(view_arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Definition of AWS::ResourceExplorer2::View Resource Type
+
+
+    :param str view_arn: The ARN of the new view. For example:
+           
+           `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
     """
     __args__ = dict()
     __args__['viewArn'] = view_arn
@@ -88,5 +111,10 @@ def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
     Definition of AWS::ResourceExplorer2::View Resource Type
+
+
+    :param str view_arn: The ARN of the new view. For example:
+           
+           `arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyView/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
     """
     ...

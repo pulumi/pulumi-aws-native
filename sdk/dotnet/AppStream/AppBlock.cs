@@ -15,33 +15,65 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:AppBlock")]
     public partial class AppBlock : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the app block.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the app block was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the app block.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the app block.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the app block.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The packaging type of the app block.
+        /// </summary>
         [Output("packagingType")]
         public Output<string?> PackagingType { get; private set; } = null!;
 
+        /// <summary>
+        /// The post setup script details of the app block.
+        /// </summary>
         [Output("postSetupScriptDetails")]
         public Output<Outputs.AppBlockScriptDetails?> PostSetupScriptDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The setup script details of the app block.
+        /// </summary>
         [Output("setupScriptDetails")]
         public Output<Outputs.AppBlockScriptDetails?> SetupScriptDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The source S3 location of the app block.
+        /// </summary>
         [Output("sourceS3Location")]
         public Output<Outputs.AppBlockS3Location> SourceS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags of the app block.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Union<Outputs.AppBlockTag0Properties, Outputs.AppBlockTag1Properties>>> Tags { get; private set; } = null!;
 
@@ -100,29 +132,56 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class AppBlockArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the app block.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the app block.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The name of the app block.
+        /// 
+        /// *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The packaging type of the app block.
+        /// </summary>
         [Input("packagingType")]
         public Input<string>? PackagingType { get; set; }
 
+        /// <summary>
+        /// The post setup script details of the app block.
+        /// </summary>
         [Input("postSetupScriptDetails")]
         public Input<Inputs.AppBlockScriptDetailsArgs>? PostSetupScriptDetails { get; set; }
 
+        /// <summary>
+        /// The setup script details of the app block.
+        /// </summary>
         [Input("setupScriptDetails")]
         public Input<Inputs.AppBlockScriptDetailsArgs>? SetupScriptDetails { get; set; }
 
+        /// <summary>
+        /// The source S3 location of the app block.
+        /// </summary>
         [Input("sourceS3Location", required: true)]
         public Input<Inputs.AppBlockS3LocationArgs> SourceS3Location { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Union<Inputs.AppBlockTag0PropertiesArgs, Inputs.AppBlockTag1PropertiesArgs>>? _tags;
+
+        /// <summary>
+        /// The tags of the app block.
+        /// </summary>
         public InputList<Union<Inputs.AppBlockTag0PropertiesArgs, Inputs.AppBlockTag1PropertiesArgs>> Tags
         {
             get => _tags ?? (_tags = new InputList<Union<Inputs.AppBlockTag0PropertiesArgs, Inputs.AppBlockTag1PropertiesArgs>>());

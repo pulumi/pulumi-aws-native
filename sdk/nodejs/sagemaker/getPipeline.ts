@@ -26,7 +26,13 @@ export interface GetPipelineArgs {
 }
 
 export interface GetPipelineResult {
+    /**
+     * The parallelism configuration applied to the pipeline.
+     */
     readonly parallelismConfiguration?: outputs.sagemaker.ParallelismConfigurationProperties;
+    /**
+     * The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+     */
     readonly pipelineDefinition?: outputs.sagemaker.PipelineDefinition0Properties | outputs.sagemaker.PipelineDefinition1Properties;
     /**
      * The description of the Pipeline.
@@ -40,6 +46,9 @@ export interface GetPipelineResult {
      * Role Arn
      */
     readonly roleArn?: string;
+    /**
+     * The tags of the pipeline.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

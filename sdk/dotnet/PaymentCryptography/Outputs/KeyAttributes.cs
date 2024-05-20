@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
     [OutputType]
     public sealed class KeyAttributes
     {
+        /// <summary>
+        /// The key algorithm to be use during creation of an AWS Payment Cryptography key.
+        /// 
+        /// For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyAlgorithm KeyAlgorithm;
+        /// <summary>
+        /// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyClass KeyClass;
+        /// <summary>
+        /// The list of cryptographic operations that you can perform using the key.
+        /// </summary>
         public readonly Outputs.KeyModesOfUse KeyModesOfUse;
+        /// <summary>
+        /// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyUsage KeyUsage;
 
         [OutputConstructor]

@@ -33,16 +33,25 @@ class GetPublicKeyResult:
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        The date and time when the public key was uploaded.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The identifier of the public key.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> Optional['outputs.PublicKeyConfig']:
+        """
+        Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        """
         return pulumi.get(self, "public_key_config")
 
 
@@ -61,6 +70,9 @@ def get_public_key(id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicKeyResult:
     """
     Resource Type definition for AWS::CloudFront::PublicKey
+
+
+    :param str id: The identifier of the public key.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Resource Type definition for AWS::CloudFront::PublicKey
+
+
+    :param str id: The identifier of the public key.
     """
     ...

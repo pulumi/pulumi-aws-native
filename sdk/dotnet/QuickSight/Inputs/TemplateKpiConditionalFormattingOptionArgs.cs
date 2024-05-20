@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateKpiConditionalFormattingOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The conditional formatting for the actual value of a KPI visual.
+        /// </summary>
         [Input("actualValue")]
         public Input<Inputs.TemplateKpiActualValueConditionalFormattingArgs>? ActualValue { get; set; }
 
+        /// <summary>
+        /// The conditional formatting for the comparison value of a KPI visual.
+        /// </summary>
         [Input("comparisonValue")]
         public Input<Inputs.TemplateKpiComparisonValueConditionalFormattingArgs>? ComparisonValue { get; set; }
 
+        /// <summary>
+        /// The conditional formatting for the primary value of a KPI visual.
+        /// </summary>
         [Input("primaryValue")]
         public Input<Inputs.TemplateKpiPrimaryValueConditionalFormattingArgs>? PrimaryValue { get; set; }
 
+        /// <summary>
+        /// The conditional formatting for the progress bar of a KPI visual.
+        /// </summary>
         [Input("progressBar")]
         public Input<Inputs.TemplateKpiProgressBarConditionalFormattingArgs>? ProgressBar { get; set; }
 

@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Ecr
         [Output("policyText")]
         public Output<object> PolicyText { get; private set; } = null!;
 
+        /// <summary>
+        /// The account ID of the private registry the policy is associated with.
+        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 

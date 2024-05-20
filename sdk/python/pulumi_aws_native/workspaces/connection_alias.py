@@ -22,6 +22,8 @@ class ConnectionAliasArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectionAlias resource.
+        :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags to associate with the connection alias.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         if tags is not None:
@@ -30,6 +32,9 @@ class ConnectionAliasArgs:
     @property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> pulumi.Input[str]:
+        """
+        The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+        """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
@@ -39,6 +44,9 @@ class ConnectionAliasArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags to associate with the connection alias.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -59,6 +67,8 @@ class ConnectionAlias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags to associate with the connection alias.
         """
         ...
     @overload
@@ -136,25 +146,40 @@ class ConnectionAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aliasId")
     def alias_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the connection alias, returned as a string.
+        """
         return pulumi.get(self, "alias_id")
 
     @property
     @pulumi.getter
     def associations(self) -> pulumi.Output[Sequence['outputs.ConnectionAliasAssociation']]:
+        """
+        The association status of the connection alias.
+        """
         return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter(name="connectionAliasState")
     def connection_alias_state(self) -> pulumi.Output['ConnectionAliasState']:
+        """
+        The current state of the connection alias, returned as a string.
+        """
         return pulumi.get(self, "connection_alias_state")
 
     @property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> pulumi.Output[str]:
+        """
+        The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
+        """
         return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags to associate with the connection alias.
+        """
         return pulumi.get(self, "tags")
 

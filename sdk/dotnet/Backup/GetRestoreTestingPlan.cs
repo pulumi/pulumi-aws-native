@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetRestoreTestingPlanArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public string RestoreTestingPlanName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetRestoreTestingPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
+        /// </summary>
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;
 
@@ -51,11 +57,31 @@ namespace Pulumi.AwsNative.Backup
     [OutputType]
     public sealed class GetRestoreTestingPlanResult
     {
+        /// <summary>
+        /// The specified criteria to assign a set of resources, such as recovery point types or backup vaults.
+        /// </summary>
         public readonly Outputs.RestoreTestingPlanRestoreTestingRecoveryPointSelection? RecoveryPointSelection;
+        /// <summary>
+        /// An Amazon Resource Name (ARN) that uniquely identifies a restore testing plan.
+        /// </summary>
         public readonly string? RestoreTestingPlanArn;
+        /// <summary>
+        /// A CRON expression in specified timezone when a restore testing plan is executed.
+        /// </summary>
         public readonly string? ScheduleExpression;
+        /// <summary>
+        /// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        /// </summary>
         public readonly string? ScheduleExpressionTimezone;
+        /// <summary>
+        /// Defaults to 24 hours.
+        /// 
+        /// A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
+        /// </summary>
         public readonly int? StartWindowHours;
+        /// <summary>
+        /// Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

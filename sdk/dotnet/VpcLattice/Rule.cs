@@ -15,30 +15,59 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Describes the action for a rule.
+        /// </summary>
         [Output("action")]
         public Output<Outputs.RuleAction> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the rule.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the listener.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Output("listenerIdentifier")]
         public Output<string?> ListenerIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule match.
+        /// </summary>
         [Output("match")]
         public Output<Outputs.RuleMatch> Match { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Output("serviceIdentifier")]
         public Output<string?> ServiceIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -93,26 +122,50 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the action for a rule.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RuleActionArgs> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Input("listenerIdentifier")]
         public Input<string>? ListenerIdentifier { get; set; }
 
+        /// <summary>
+        /// The rule match.
+        /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RuleMatchArgs> Match { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// 
+        /// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the rule.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

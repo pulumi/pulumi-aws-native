@@ -37,7 +37,10 @@ type LookupFleetResult struct {
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
 	Ec2InboundPermissions []FleetIpPermission `pulumi:"ec2InboundPermissions"`
 	// Unique fleet ID
-	FleetId   *string                      `pulumi:"fleetId"`
+	FleetId *string `pulumi:"fleetId"`
+	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
+	//
+	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
 	Locations []FleetLocationConfiguration `pulumi:"locations"`
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize *int `pulumi:"maxSize"`
@@ -120,6 +123,9 @@ func (o LookupFleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
+// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
+//
+// When using this parameter, Amazon GameLift requires you to include your home location in the request.
 func (o LookupFleetResultOutput) Locations() FleetLocationConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupFleetResult) []FleetLocationConfiguration { return v.Locations }).(FleetLocationConfigurationArrayOutput)
 }

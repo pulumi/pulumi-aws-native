@@ -39,7 +39,8 @@ type LookupDomainResult struct {
 	// The Amazon Resource Name (ARN) of the created domain.
 	DomainArn *string `pulumi:"domainArn"`
 	// The domain name.
-	DomainId       *string         `pulumi:"domainId"`
+	DomainId *string `pulumi:"domainId"`
+	// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 	DomainSettings *DomainSettings `pulumi:"domainSettings"`
 	// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
@@ -121,6 +122,7 @@ func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
+// A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
 func (o LookupDomainResultOutput) DomainSettings() DomainSettingsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainSettings { return v.DomainSettings }).(DomainSettingsPtrOutput)
 }

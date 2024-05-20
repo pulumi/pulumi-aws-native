@@ -15,33 +15,75 @@ namespace Pulumi.AwsNative.Kendra
     [AwsNativeResourceType("aws-native:kendra:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data source. For example:
+        /// 
+        /// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier for the data source. For example:
+        /// 
+        /// `b8cae438-6787-4091-8897-684a652bbb0a` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for altering document metadata and content during the document ingestion process.
+        /// </summary>
         [Output("customDocumentEnrichmentConfiguration")]
         public Output<Outputs.DataSourceCustomDocumentEnrichmentConfiguration?> CustomDocumentEnrichmentConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+        /// 
+        /// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `Configuration` parameter is required for all other data sources.
+        /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the data source connector.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the index you want to use with the data source connector.
+        /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
+        /// <summary>
+        /// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        /// </summary>
         [Output("languageCode")]
         public Output<string?> LanguageCode { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the data source.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+        /// 
+        /// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `RoleArn` parameter is required for all other data sources.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+        /// </summary>
         [Output("schedule")]
         public Output<string?> Schedule { get; private set; } = null!;
 
@@ -51,6 +93,9 @@ namespace Pulumi.AwsNative.Kendra
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the data source.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Kendra.DataSourceType> Type { get; private set; } = null!;
 
@@ -103,27 +148,59 @@ namespace Pulumi.AwsNative.Kendra
 
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration information for altering document metadata and content during the document ingestion process.
+        /// </summary>
         [Input("customDocumentEnrichmentConfiguration")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs>? CustomDocumentEnrichmentConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+        /// 
+        /// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `Configuration` parameter is required for all other data sources.
+        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.DataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
+        /// <summary>
+        /// A description for the data source connector.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The identifier of the index you want to use with the data source connector.
+        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
+        /// <summary>
+        /// The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
+        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
+        /// <summary>
+        /// The name of the data source.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to access the data source.
+        /// 
+        /// You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `RoleArn` parameter is required for all other data sources.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index. If you don't set a schedule, Amazon Kendra doesn't periodically update the index.
+        /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
@@ -139,6 +216,9 @@ namespace Pulumi.AwsNative.Kendra
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of the data source.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Kendra.DataSourceType> Type { get; set; } = null!;
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class GetTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        /// </summary>
         [Input("templateArn", required: true)]
         public string TemplateArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class GetTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        /// </summary>
         [Input("templateArn", required: true)]
         public Input<string> TemplateArn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [OutputType]
     public sealed class GetTemplateResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        /// </summary>
         public readonly string? TemplateArn;
 
         [OutputConstructor]

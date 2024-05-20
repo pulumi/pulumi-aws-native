@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("propertyId")]
         public Input<string>? PropertyId { get; set; }
 
+        /// <summary>
+        /// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
+        /// </summary>
         [Input("propertyValue", required: true)]
         public Input<Inputs.DetectorModelAssetPropertyValueArgs> PropertyValue { get; set; } = null!;
 

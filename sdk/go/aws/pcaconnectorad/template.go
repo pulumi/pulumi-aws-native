@@ -16,12 +16,18 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	ConnectorArn                  pulumi.StringOutput    `pulumi:"connectorArn"`
-	Definition                    pulumi.AnyOutput       `pulumi:"definition"`
-	Name                          pulumi.StringOutput    `pulumi:"name"`
-	ReenrollAllCertificateHolders pulumi.BoolPtrOutput   `pulumi:"reenrollAllCertificateHolders"`
-	Tags                          pulumi.StringMapOutput `pulumi:"tags"`
-	TemplateArn                   pulumi.StringOutput    `pulumi:"templateArn"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
+	// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+	Definition pulumi.AnyOutput `pulumi:"definition"`
+	// Name of the templates. Template names must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+	ReenrollAllCertificateHolders pulumi.BoolPtrOutput `pulumi:"reenrollAllCertificateHolders"`
+	// Metadata assigned to a template consisting of a key-value pair.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+	TemplateArn pulumi.StringOutput `pulumi:"templateArn"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -75,20 +81,30 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	ConnectorArn                  string            `pulumi:"connectorArn"`
-	Definition                    interface{}       `pulumi:"definition"`
-	Name                          *string           `pulumi:"name"`
-	ReenrollAllCertificateHolders *bool             `pulumi:"reenrollAllCertificateHolders"`
-	Tags                          map[string]string `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn string `pulumi:"connectorArn"`
+	// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+	Definition interface{} `pulumi:"definition"`
+	// Name of the templates. Template names must be unique.
+	Name *string `pulumi:"name"`
+	// This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+	ReenrollAllCertificateHolders *bool `pulumi:"reenrollAllCertificateHolders"`
+	// Metadata assigned to a template consisting of a key-value pair.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	ConnectorArn                  pulumi.StringInput
-	Definition                    pulumi.Input
-	Name                          pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+	ConnectorArn pulumi.StringInput
+	// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+	Definition pulumi.Input
+	// Name of the templates. Template names must be unique.
+	Name pulumi.StringPtrInput
+	// This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
 	ReenrollAllCertificateHolders pulumi.BoolPtrInput
-	Tags                          pulumi.StringMapInput
+	// Metadata assigned to a template consisting of a key-value pair.
+	Tags pulumi.StringMapInput
 }
 
 func (TemplateArgs) ElementType() reflect.Type {
@@ -128,26 +144,32 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 func (o TemplateOutput) ConnectorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
 }
 
+// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
 func (o TemplateOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Template) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }
 
+// Name of the templates. Template names must be unique.
 func (o TemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
 func (o TemplateOutput) ReenrollAllCertificateHolders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.BoolPtrOutput { return v.ReenrollAllCertificateHolders }).(pulumi.BoolPtrOutput)
 }
 
+// Metadata assigned to a template consisting of a key-value pair.
 func (o TemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 func (o TemplateOutput) TemplateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.TemplateArn }).(pulumi.StringOutput)
 }

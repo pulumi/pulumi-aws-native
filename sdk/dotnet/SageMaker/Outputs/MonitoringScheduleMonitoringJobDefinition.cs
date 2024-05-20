@@ -16,20 +16,41 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleMonitoringJobDefinition
     {
+        /// <summary>
+        /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
+        /// </summary>
         public readonly Outputs.MonitoringScheduleBaselineConfig? BaselineConfig;
         /// <summary>
         /// Sets the environment variables in the Docker container
         /// </summary>
         public readonly object? Environment;
+        /// <summary>
+        /// Configures the monitoring job to run a specified Docker container image.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringAppSpecification MonitoringAppSpecification;
+        /// <summary>
+        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs;
+        /// <summary>
+        /// The array of outputs from the monitoring job to be uploaded to Amazon S3.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringOutputConfig MonitoringOutputConfig;
+        /// <summary>
+        /// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringResources MonitoringResources;
+        /// <summary>
+        /// Specifies networking options for an monitoring job.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleNetworkConfig? NetworkConfig;
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Specifies a time limit for how long the monitoring job is allowed to run.
+        /// </summary>
         public readonly Outputs.MonitoringScheduleStoppingCondition? StoppingCondition;
 
         [OutputConstructor]

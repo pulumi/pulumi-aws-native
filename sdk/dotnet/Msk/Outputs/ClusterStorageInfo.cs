@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterStorageInfo
     {
+        /// <summary>
+        /// EBS volume information.
+        /// </summary>
         public readonly Outputs.ClusterEbsStorageInfo? EbsStorageInfo;
 
         [OutputConstructor]

@@ -37,9 +37,27 @@ export class CertificateProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificateProvider.__pulumiType;
     }
 
+    /**
+     * A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+     */
     public readonly accountDefaultForOperations!: pulumi.Output<enums.iot.CertificateProviderOperation[]>;
+    /**
+     * Returns the Amazon Resource Name (ARN) for the certificate. For example:
+     *
+     * `{ "Fn::GetAtt": ["MyCertificateProvider", "Arn"] }`
+     *
+     * A value similar to the following is returned:
+     *
+     * `arn:aws:iot:ap-southeast-2:123456789012:certprovider/my-certificate-provider`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the certificate provider.
+     */
     public readonly certificateProviderName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the Lambda function.
+     */
     public readonly lambdaFunctionArn!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -86,8 +104,17 @@ export class CertificateProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a CertificateProvider resource.
  */
 export interface CertificateProviderArgs {
+    /**
+     * A list of the operations that the certificate provider will use to generate certificates. Valid value: `CreateCertificateFromCsr` .
+     */
     accountDefaultForOperations: pulumi.Input<pulumi.Input<enums.iot.CertificateProviderOperation>[]>;
+    /**
+     * The name of the certificate provider.
+     */
     certificateProviderName?: pulumi.Input<string>;
+    /**
+     * The ARN of the Lambda function.
+     */
     lambdaFunctionArn: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

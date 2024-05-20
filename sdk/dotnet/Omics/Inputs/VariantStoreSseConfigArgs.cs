@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Omics.Inputs
 
     public sealed class VariantStoreSseConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An encryption key ARN.
+        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
+        /// <summary>
+        /// The encryption type.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Omics.VariantStoreEncryptionType> Type { get; set; } = null!;
 

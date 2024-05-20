@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetIdentityPoolRoleAttachmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetIdentityPoolRoleAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,21 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetIdentityPoolRoleAttachmentResult
     {
+        /// <summary>
+        /// The resource ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// How users for a specific identity provider are mapped to roles. This is a string to the `RoleMapping` object map. The string identifies the identity provider. For example: `graph.facebook.com` or `cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id` .
+        /// 
+        /// If the `IdentityProvider` field isn't provided in this object, the string is used as the identity provider name.
+        /// 
+        /// For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.IdentityPoolRoleAttachmentRoleMapping>? RoleMappings;
+        /// <summary>
+        /// The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Roles;
 
         [OutputConstructor]

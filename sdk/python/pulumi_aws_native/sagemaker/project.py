@@ -27,6 +27,8 @@ class ProjectArgs:
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[str] project_description: The description of the project.
+        :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs'] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -55,6 +57,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the project.
+        """
         return pulumi.get(self, "project_description")
 
     @project_description.setter
@@ -64,6 +69,9 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -143,6 +151,8 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] project_description: The description of the project.
+        :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[pulumi.InputType['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
         :param pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -274,21 +284,33 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the project.
+        """
         return pulumi.get(self, "project_arn")
 
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the project.
+        """
         return pulumi.get(self, "project_description")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the project. This ID is prepended to all entities associated with this project.
+        """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[str]:
+        """
+        The name of the project.
+        """
         return pulumi.get(self, "project_name")
 
     @property

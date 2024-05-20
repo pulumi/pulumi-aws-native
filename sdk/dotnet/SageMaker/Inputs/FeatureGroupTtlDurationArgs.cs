@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class FeatureGroupTtlDurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// `TtlDuration` time unit.
+        /// </summary>
         [Input("unit")]
         public Input<Pulumi.AwsNative.SageMaker.FeatureGroupUnit>? Unit { get; set; }
 
+        /// <summary>
+        /// `TtlDuration` time value.
+        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

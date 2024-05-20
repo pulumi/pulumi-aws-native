@@ -30,11 +30,17 @@ class GetVpcPeeringConnectionResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the peering connection.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Any tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -52,6 +58,9 @@ def get_vpc_peering_connection(id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcPeeringConnectionResult:
     """
     Resource Type definition for AWS::EC2::VPCPeeringConnection
+
+
+    :param str id: The ID of the peering connection.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -68,5 +77,8 @@ def get_vpc_peering_connection_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
     """
     Resource Type definition for AWS::EC2::VPCPeeringConnection
+
+
+    :param str id: The ID of the peering connection.
     """
     ...

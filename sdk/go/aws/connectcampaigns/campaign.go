@@ -20,10 +20,12 @@ type Campaign struct {
 	// Amazon Connect Campaign Arn
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon Connect Instance Arn
-	ConnectInstanceArn pulumi.StringOutput        `pulumi:"connectInstanceArn"`
-	DialerConfig       CampaignDialerConfigOutput `pulumi:"dialerConfig"`
+	ConnectInstanceArn pulumi.StringOutput `pulumi:"connectInstanceArn"`
+	// Contains information about the dialer configuration.
+	DialerConfig CampaignDialerConfigOutput `pulumi:"dialerConfig"`
 	// Amazon Connect Campaign Name
-	Name               pulumi.StringOutput              `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Contains information about the outbound call configuration.
 	OutboundCallConfig CampaignOutboundCallConfigOutput `pulumi:"outboundCallConfig"`
 	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -83,10 +85,12 @@ func (CampaignState) ElementType() reflect.Type {
 
 type campaignArgs struct {
 	// Amazon Connect Instance Arn
-	ConnectInstanceArn string               `pulumi:"connectInstanceArn"`
-	DialerConfig       CampaignDialerConfig `pulumi:"dialerConfig"`
+	ConnectInstanceArn string `pulumi:"connectInstanceArn"`
+	// Contains information about the dialer configuration.
+	DialerConfig CampaignDialerConfig `pulumi:"dialerConfig"`
 	// Amazon Connect Campaign Name
-	Name               *string                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Contains information about the outbound call configuration.
 	OutboundCallConfig CampaignOutboundCallConfig `pulumi:"outboundCallConfig"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -96,9 +100,11 @@ type campaignArgs struct {
 type CampaignArgs struct {
 	// Amazon Connect Instance Arn
 	ConnectInstanceArn pulumi.StringInput
-	DialerConfig       CampaignDialerConfigInput
+	// Contains information about the dialer configuration.
+	DialerConfig CampaignDialerConfigInput
 	// Amazon Connect Campaign Name
-	Name               pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Contains information about the outbound call configuration.
 	OutboundCallConfig CampaignOutboundCallConfigInput
 	// One or more tags.
 	Tags aws.TagArrayInput
@@ -151,6 +157,7 @@ func (o CampaignOutput) ConnectInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.ConnectInstanceArn }).(pulumi.StringOutput)
 }
 
+// Contains information about the dialer configuration.
 func (o CampaignOutput) DialerConfig() CampaignDialerConfigOutput {
 	return o.ApplyT(func(v *Campaign) CampaignDialerConfigOutput { return v.DialerConfig }).(CampaignDialerConfigOutput)
 }
@@ -160,6 +167,7 @@ func (o CampaignOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains information about the outbound call configuration.
 func (o CampaignOutput) OutboundCallConfig() CampaignOutboundCallConfigOutput {
 	return o.ApplyT(func(v *Campaign) CampaignOutboundCallConfigOutput { return v.OutboundCallConfig }).(CampaignOutboundCallConfigOutput)
 }

@@ -19,12 +19,24 @@ export function getBillingGroup(args: GetBillingGroupArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetBillingGroupArgs {
+    /**
+     * The name of the billing group.
+     */
     billingGroupName: string;
 }
 
 export interface GetBillingGroupResult {
+    /**
+     * The ARN of the billing group.
+     */
     readonly arn?: string;
+    /**
+     * The properties of the billing group.
+     */
     readonly billingGroupProperties?: outputs.iot.BillingGroupPropertiesProperties;
+    /**
+     * The ID of the billing group.
+     */
     readonly id?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -39,5 +51,8 @@ export function getBillingGroupOutput(args: GetBillingGroupOutputArgs, opts?: pu
 }
 
 export interface GetBillingGroupOutputArgs {
+    /**
+     * The name of the billing group.
+     */
     billingGroupName: pulumi.Input<string>;
 }

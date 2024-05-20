@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     {
         [Input("numValues")]
         private InputList<double>? _numValues;
+
+        /// <summary>
+        /// The validation to perform on a number value.
+        /// </summary>
         public InputList<double> NumValues
         {
             get => _numValues ?? (_numValues = new InputList<double>());
@@ -22,15 +26,25 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
 
         [Input("strValues")]
         private InputList<string>? _strValues;
+
+        /// <summary>
+        /// The validation to perform on a string value.
+        /// </summary>
         public InputList<string> StrValues
         {
             get => _strValues ?? (_strValues = new InputList<string>());
             set => _strValues = value;
         }
 
+        /// <summary>
+        /// The validation to perform on an object type. ``
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The validation message to display.
+        /// </summary>
         [Input("validationMessage")]
         public Input<string>? ValidationMessage { get; set; }
 

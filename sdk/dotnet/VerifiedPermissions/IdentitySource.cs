@@ -53,18 +53,30 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [AwsNativeResourceType("aws-native:verifiedpermissions:IdentitySource")]
     public partial class IdentitySource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Contains configuration information about an identity source.
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.IdentitySourceConfigurationProperties> Configuration { get; private set; } = null!;
 
         [Output("details")]
         public Output<Outputs.IdentitySourceDetails> Details { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new or updated identity store.
+        /// </summary>
         [Output("identitySourceId")]
         public Output<string> IdentitySourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+        /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// </summary>
         [Output("principalEntityType")]
         public Output<string?> PrincipalEntityType { get; private set; } = null!;
 
@@ -117,12 +129,21 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
     public sealed class IdentitySourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains configuration information about an identity source.
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.IdentitySourceConfigurationPropertiesArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
+        /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// </summary>
         [Input("principalEntityType")]
         public Input<string>? PrincipalEntityType { get; set; }
 

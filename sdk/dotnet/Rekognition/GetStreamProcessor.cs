@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Rekognition
     [OutputType]
     public sealed class GetStreamProcessorResult
     {
+        /// <summary>
+        /// Amazon Resource Name for the newly created stream processor.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Current status of the stream processor.

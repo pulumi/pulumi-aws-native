@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceOneDriveUsers
     {
+        /// <summary>
+        /// A list of users whose documents should be indexed. Specify the user names in email format, for example, `username@tenantdomain` . If you need to index the documents of more than 10 users, use the `OneDriveUserS3Path` field to specify the location of a file containing a list of users.
+        /// </summary>
         public readonly ImmutableArray<string> OneDriveUserList;
+        /// <summary>
+        /// The S3 bucket location of a file containing a list of users whose documents should be indexed.
+        /// </summary>
         public readonly Outputs.DataSourceS3Path? OneDriveUserS3Path;
 
         [OutputConstructor]

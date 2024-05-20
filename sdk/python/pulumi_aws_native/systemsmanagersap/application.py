@@ -28,6 +28,12 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] application_id: The ID of the application.
+        :param pulumi.Input['ApplicationType'] application_type: The type of the application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]] credentials: The credentials of the SAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
+        :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
+        :param pulumi.Input[str] sid: The System ID of the application.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of a SystemsManagerSAP application.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -46,6 +52,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the application.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -55,6 +64,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Input['ApplicationType']:
+        """
+        The type of the application.
+        """
         return pulumi.get(self, "application_type")
 
     @application_type.setter
@@ -64,6 +76,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]]:
+        """
+        The credentials of the SAP application.
+        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -73,6 +88,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon EC2 instances on which your SAP application is running.
+        """
         return pulumi.get(self, "instances")
 
     @instances.setter
@@ -82,6 +100,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="sapInstanceNumber")
     def sap_instance_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAP instance number of the application.
+        """
         return pulumi.get(self, "sap_instance_number")
 
     @sap_instance_number.setter
@@ -91,6 +112,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The System ID of the application.
+        """
         return pulumi.get(self, "sid")
 
     @sid.setter
@@ -128,6 +152,12 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_id: The ID of the application.
+        :param pulumi.Input['ApplicationType'] application_type: The type of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCredentialArgs']]]] credentials: The credentials of the SAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
+        :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
+        :param pulumi.Input[str] sid: The System ID of the application.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of a SystemsManagerSAP application.
         """
         ...
@@ -219,11 +249,17 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Output['ApplicationType']:
+        """
+        The type of the application.
+        """
         return pulumi.get(self, "application_type")
 
     @property
@@ -237,21 +273,33 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationCredential']]]:
+        """
+        The credentials of the SAP application.
+        """
         return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter
     def instances(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Amazon EC2 instances on which your SAP application is running.
+        """
         return pulumi.get(self, "instances")
 
     @property
     @pulumi.getter(name="sapInstanceNumber")
     def sap_instance_number(self) -> pulumi.Output[Optional[str]]:
+        """
+        The SAP instance number of the application.
+        """
         return pulumi.get(self, "sap_instance_number")
 
     @property
     @pulumi.getter
     def sid(self) -> pulumi.Output[Optional[str]]:
+        """
+        The System ID of the application.
+        """
         return pulumi.get(self, "sid")
 
     @property

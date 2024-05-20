@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The dimension type field with categorical type columns.
+        /// </summary>
         [Input("categoricalDimensionField")]
         public Input<Inputs.AnalysisCategoricalDimensionFieldArgs>? CategoricalDimensionField { get; set; }
 
+        /// <summary>
+        /// The dimension type field with date type columns.
+        /// </summary>
         [Input("dateDimensionField")]
         public Input<Inputs.AnalysisDateDimensionFieldArgs>? DateDimensionField { get; set; }
 
+        /// <summary>
+        /// The dimension type field with numerical type columns.
+        /// </summary>
         [Input("numericalDimensionField")]
         public Input<Inputs.AnalysisNumericalDimensionFieldArgs>? NumericalDimensionField { get; set; }
 

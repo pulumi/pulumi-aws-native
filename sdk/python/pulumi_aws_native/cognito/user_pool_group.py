@@ -21,6 +21,15 @@ class UserPoolGroupArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolGroup resource.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] description: A string containing the description of the group.
+        :param pulumi.Input[str] group_name: The name of the group. Must be unique.
+        :param pulumi.Input[int] precedence: A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+               
+               Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+               
+               The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        :param pulumi.Input[str] role_arn: The role Amazon Resource Name (ARN) for the group.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if description is not None:
@@ -35,6 +44,9 @@ class UserPoolGroupArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -44,6 +56,9 @@ class UserPoolGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string containing the description of the group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -53,6 +68,9 @@ class UserPoolGroupArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group. Must be unique.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -62,6 +80,13 @@ class UserPoolGroupArgs:
     @property
     @pulumi.getter
     def precedence(self) -> Optional[pulumi.Input[int]]:
+        """
+        A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+
+        Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+
+        The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        """
         return pulumi.get(self, "precedence")
 
     @precedence.setter
@@ -71,6 +96,9 @@ class UserPoolGroupArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role Amazon Resource Name (ARN) for the group.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -94,6 +122,15 @@ class UserPoolGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A string containing the description of the group.
+        :param pulumi.Input[str] group_name: The name of the group. Must be unique.
+        :param pulumi.Input[int] precedence: A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+               
+               Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+               
+               The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        :param pulumi.Input[str] role_arn: The role Amazon Resource Name (ARN) for the group.
+        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
         ...
     @overload
@@ -174,25 +211,44 @@ class UserPoolGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A string containing the description of the group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the group. Must be unique.
+        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter
     def precedence(self) -> pulumi.Output[Optional[int]]:
+        """
+        A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
+
+        Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
+
+        The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
+        """
         return pulumi.get(self, "precedence")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The role Amazon Resource Name (ARN) for the group.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool ID for the user pool.
+        """
         return pulumi.get(self, "user_pool_id")
 

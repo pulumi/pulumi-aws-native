@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class DetectorModelClearTimer
     {
+        /// <summary>
+        /// The name of the timer to clear.
+        /// </summary>
         public readonly string TimerName;
 
         [OutputConstructor]

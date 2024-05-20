@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class Ec2FleetTotalLocalStorageGbRequest
     {
+        /// <summary>
+        /// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

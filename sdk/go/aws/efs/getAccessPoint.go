@@ -26,15 +26,18 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 }
 
 type LookupAccessPointArgs struct {
+	// The ID of the EFS access point.
 	AccessPointId string `pulumi:"accessPointId"`
 }
 
 type LookupAccessPointResult struct {
+	// The ID of the EFS access point.
 	AccessPointId *string `pulumi:"accessPointId"`
 	// An array of key-value pairs to apply to this resource.
 	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 	AccessPointTags []aws.Tag `pulumi:"accessPointTags"`
-	Arn             *string   `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the access point.
+	Arn *string `pulumi:"arn"`
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
@@ -51,6 +54,7 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 }
 
 type LookupAccessPointOutputArgs struct {
+	// The ID of the EFS access point.
 	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
 }
 
@@ -72,6 +76,7 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContex
 	return o
 }
 
+// The ID of the EFS access point.
 func (o LookupAccessPointResultOutput) AccessPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
@@ -83,6 +88,7 @@ func (o LookupAccessPointResultOutput) AccessPointTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []aws.Tag { return v.AccessPointTags }).(aws.TagArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the access point.
 func (o LookupAccessPointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

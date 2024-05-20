@@ -24,14 +24,21 @@ func LookupTestGridProject(ctx *pulumi.Context, args *LookupTestGridProjectArgs,
 }
 
 type LookupTestGridProjectArgs struct {
+	// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupTestGridProjectResult struct {
-	Arn         *string   `pulumi:"arn"`
-	Description *string   `pulumi:"description"`
-	Name        *string   `pulumi:"name"`
-	Tags        []aws.Tag `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+	Arn *string `pulumi:"arn"`
+	// A human-readable description for the project.
+	Description *string `pulumi:"description"`
+	// A human-readable name for the project.
+	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupTestGridProjectOutput(ctx *pulumi.Context, args LookupTestGridProjectOutputArgs, opts ...pulumi.InvokeOption) LookupTestGridProjectResultOutput {
@@ -48,6 +55,7 @@ func LookupTestGridProjectOutput(ctx *pulumi.Context, args LookupTestGridProject
 }
 
 type LookupTestGridProjectOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -69,18 +77,24 @@ func (o LookupTestGridProjectResultOutput) ToLookupTestGridProjectResultOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 func (o LookupTestGridProjectResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTestGridProjectResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A human-readable description for the project.
 func (o LookupTestGridProjectResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTestGridProjectResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A human-readable name for the project.
 func (o LookupTestGridProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTestGridProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o LookupTestGridProjectResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTestGridProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

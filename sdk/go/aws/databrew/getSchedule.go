@@ -29,8 +29,9 @@ type LookupScheduleArgs struct {
 
 type LookupScheduleResult struct {
 	// Schedule cron
-	CronExpression *string  `pulumi:"cronExpression"`
-	JobNames       []string `pulumi:"jobNames"`
+	CronExpression *string `pulumi:"cronExpression"`
+	// A list of jobs to be run, according to the schedule.
+	JobNames []string `pulumi:"jobNames"`
 }
 
 func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleResultOutput {
@@ -74,6 +75,7 @@ func (o LookupScheduleResultOutput) CronExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScheduleResult) *string { return v.CronExpression }).(pulumi.StringPtrOutput)
 }
 
+// A list of jobs to be run, according to the schedule.
 func (o LookupScheduleResultOutput) JobNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupScheduleResult) []string { return v.JobNames }).(pulumi.StringArrayOutput)
 }

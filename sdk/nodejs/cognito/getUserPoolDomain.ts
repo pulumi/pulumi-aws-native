@@ -19,12 +19,24 @@ export function getUserPoolDomain(args: GetUserPoolDomainArgs, opts?: pulumi.Inv
 }
 
 export interface GetUserPoolDomainArgs {
+    /**
+     * The resource ID.
+     */
     id: string;
 }
 
 export interface GetUserPoolDomainResult {
+    /**
+     * The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+     */
     readonly cloudFrontDistribution?: string;
+    /**
+     * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+     */
     readonly customDomainConfig?: outputs.cognito.UserPoolDomainCustomDomainConfigType;
+    /**
+     * The resource ID.
+     */
     readonly id?: string;
 }
 /**
@@ -35,5 +47,8 @@ export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?
 }
 
 export interface GetUserPoolDomainOutputArgs {
+    /**
+     * The resource ID.
+     */
     id: pulumi.Input<string>;
 }

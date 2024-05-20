@@ -20,10 +20,16 @@ export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetRouteTableArgs {
+    /**
+     * The ID of the route table.
+     */
     routeTableId: string;
 }
 
 export interface GetRouteTableResult {
+    /**
+     * The ID of the route table.
+     */
     readonly routeTableId?: string;
     /**
      * Any tags assigned to the route table.
@@ -39,5 +45,8 @@ export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi
 }
 
 export interface GetRouteTableOutputArgs {
+    /**
+     * The ID of the route table.
+     */
     routeTableId: pulumi.Input<string>;
 }

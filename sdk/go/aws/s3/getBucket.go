@@ -37,13 +37,24 @@ type LookupBucketResult struct {
 	AccelerateConfiguration *BucketAccelerateConfiguration `pulumi:"accelerateConfiguration"`
 	// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 	AnalyticsConfigurations []BucketAnalyticsConfiguration `pulumi:"analyticsConfigurations"`
-	Arn                     *string                        `pulumi:"arn"`
+	// Returns the Amazon Resource Name (ARN) of the specified bucket.
+	//
+	// Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
+	Arn *string `pulumi:"arn"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
 	BucketEncryption *BucketEncryption `pulumi:"bucketEncryption"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
-	CorsConfiguration   *BucketCorsConfiguration `pulumi:"corsConfiguration"`
-	DomainName          *string                  `pulumi:"domainName"`
-	DualStackDomainName *string                  `pulumi:"dualStackDomainName"`
+	CorsConfiguration *BucketCorsConfiguration `pulumi:"corsConfiguration"`
+	// Returns the IPv4 DNS name of the specified bucket.
+	//
+	// Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
+	DomainName *string `pulumi:"domainName"`
+	// Returns the IPv6 DNS name of the specified bucket.
+	//
+	// Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+	//
+	// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
+	DualStackDomainName *string `pulumi:"dualStackDomainName"`
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
 	IntelligentTieringConfigurations []BucketIntelligentTieringConfiguration `pulumi:"intelligentTieringConfigurations"`
 	// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
@@ -68,7 +79,10 @@ type LookupBucketResult struct {
 	OwnershipControls *BucketOwnershipControls `pulumi:"ownershipControls"`
 	// Configuration that defines how Amazon S3 handles public access.
 	PublicAccessBlockConfiguration *BucketPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
-	RegionalDomainName             *string                               `pulumi:"regionalDomainName"`
+	// Returns the regional domain name of the specified bucket.
+	//
+	// Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
+	RegionalDomainName *string `pulumi:"regionalDomainName"`
 	// Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
 	//  Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
 	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
@@ -78,7 +92,12 @@ type LookupBucketResult struct {
 	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
 	// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 	WebsiteConfiguration *BucketWebsiteConfiguration `pulumi:"websiteConfiguration"`
-	WebsiteUrl           *string                     `pulumi:"websiteUrl"`
+	// Returns the Amazon S3 website endpoint for the specified bucket.
+	//
+	// Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+	//
+	// Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+	WebsiteUrl *string `pulumi:"websiteUrl"`
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
@@ -128,6 +147,9 @@ func (o LookupBucketResultOutput) AnalyticsConfigurations() BucketAnalyticsConfi
 	return o.ApplyT(func(v LookupBucketResult) []BucketAnalyticsConfiguration { return v.AnalyticsConfigurations }).(BucketAnalyticsConfigurationArrayOutput)
 }
 
+// Returns the Amazon Resource Name (ARN) of the specified bucket.
+//
+// Example: `arn:aws:s3:::DOC-EXAMPLE-BUCKET`
 func (o LookupBucketResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -142,10 +164,18 @@ func (o LookupBucketResultOutput) CorsConfiguration() BucketCorsConfigurationPtr
 	return o.ApplyT(func(v LookupBucketResult) *BucketCorsConfiguration { return v.CorsConfiguration }).(BucketCorsConfigurationPtrOutput)
 }
 
+// Returns the IPv4 DNS name of the specified bucket.
+//
+// Example: `DOC-EXAMPLE-BUCKET.s3.amazonaws.com`
 func (o LookupBucketResultOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// Returns the IPv6 DNS name of the specified bucket.
+//
+// Example: `DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
+//
+// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
 func (o LookupBucketResultOutput) DualStackDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.DualStackDomainName }).(pulumi.StringPtrOutput)
 }
@@ -209,6 +239,9 @@ func (o LookupBucketResultOutput) PublicAccessBlockConfiguration() BucketPublicA
 	}).(BucketPublicAccessBlockConfigurationPtrOutput)
 }
 
+// Returns the regional domain name of the specified bucket.
+//
+// Example: `DOC-EXAMPLE-BUCKET.s3.us-east-2.amazonaws.com`
 func (o LookupBucketResultOutput) RegionalDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.RegionalDomainName }).(pulumi.StringPtrOutput)
 }
@@ -235,6 +268,11 @@ func (o LookupBucketResultOutput) WebsiteConfiguration() BucketWebsiteConfigurat
 	return o.ApplyT(func(v LookupBucketResult) *BucketWebsiteConfiguration { return v.WebsiteConfiguration }).(BucketWebsiteConfigurationPtrOutput)
 }
 
+// Returns the Amazon S3 website endpoint for the specified bucket.
+//
+// Example (IPv4): `http://DOC-EXAMPLE-BUCKET.s3-website.us-east-2.amazonaws.com`
+//
+// Example (IPv6): `http://DOC-EXAMPLE-BUCKET.s3.dualstack.us-east-2.amazonaws.com`
 func (o LookupBucketResultOutput) WebsiteUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.WebsiteUrl }).(pulumi.StringPtrOutput)
 }

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("rulesetArn", required: true)]
         public Input<string> RulesetArn { get; set; } = null!;
 
+        /// <summary>
+        /// Mode of data quality validation. Default mode is "CHECK_ALL" which verifies all rules defined in the selected ruleset.
+        /// </summary>
         [Input("validationMode")]
         public Input<Pulumi.AwsNative.DataBrew.JobValidationMode>? ValidationMode { get; set; }
 

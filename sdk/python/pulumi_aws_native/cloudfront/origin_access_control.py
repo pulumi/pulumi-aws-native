@@ -19,12 +19,16 @@ class OriginAccessControlArgs:
                  origin_access_control_config: pulumi.Input['OriginAccessControlConfigArgs']):
         """
         The set of arguments for constructing a OriginAccessControl resource.
+        :param pulumi.Input['OriginAccessControlConfigArgs'] origin_access_control_config: The origin access control.
         """
         pulumi.set(__self__, "origin_access_control_config", origin_access_control_config)
 
     @property
     @pulumi.getter(name="originAccessControlConfig")
     def origin_access_control_config(self) -> pulumi.Input['OriginAccessControlConfigArgs']:
+        """
+        The origin access control.
+        """
         return pulumi.get(self, "origin_access_control_config")
 
     @origin_access_control_config.setter
@@ -44,6 +48,7 @@ class OriginAccessControl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['OriginAccessControlConfigArgs']] origin_access_control_config: The origin access control.
         """
         ...
     @overload
@@ -112,10 +117,16 @@ class OriginAccessControl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the origin access control.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="originAccessControlConfig")
     def origin_access_control_config(self) -> pulumi.Output['outputs.OriginAccessControlConfig']:
+        """
+        The origin access control.
+        """
         return pulumi.get(self, "origin_access_control_config")
 

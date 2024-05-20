@@ -293,6 +293,9 @@ export const FeatureGroupFeatureDefinitionFeatureType = {
     String: "String",
 } as const;
 
+/**
+ * The value type of a feature. Valid values are Integral, Fractional, or String.
+ */
 export type FeatureGroupFeatureDefinitionFeatureType = (typeof FeatureGroupFeatureDefinitionFeatureType)[keyof typeof FeatureGroupFeatureDefinitionFeatureType];
 
 export const FeatureGroupStorageType = {
@@ -1001,6 +1004,9 @@ export const SpaceSharingSettingsSharingType = {
     Shared: "Shared",
 } as const;
 
+/**
+ * Specifies the sharing type of the space.
+ */
 export type SpaceSharingSettingsSharingType = (typeof SpaceSharingSettingsSharingType)[keyof typeof SpaceSharingSettingsSharingType];
 
 export const UserProfileRStudioServerProAppSettingsAccessStatus = {

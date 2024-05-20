@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowGoogleAnalyticsSourceProperties
     {
+        /// <summary>
+        /// The object specified in the Google Analytics flow source.
+        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

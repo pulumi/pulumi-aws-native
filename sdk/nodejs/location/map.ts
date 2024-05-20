@@ -37,17 +37,53 @@ export class Map extends pulumi.CustomResource {
         return obj['__pulumiType'] === Map.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+     */
     public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
+    /**
+     * The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
+     * An optional description for the map resource.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Synonym for `Arn` . The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS .
+     *
+     * - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
+     */
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
+    /**
+     * The name for the map resource.
+     *
+     * Requirements:
+     *
+     * - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique map resource name.
+     * - No spaces allowed. For example, `ExampleMap` .
+     */
     public readonly mapName!: pulumi.Output<string>;
+    /**
+     * No longer used. If included, the only allowed value is `RequestBasedUsage` .
+     *
+     * *Allowed Values* : `RequestBasedUsage`
+     */
     public readonly pricingPlan!: pulumi.Output<enums.location.MapPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The timestamp for when the map resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -95,9 +131,29 @@ export class Map extends pulumi.CustomResource {
  * The set of arguments for constructing a Map resource.
  */
 export interface MapArgs {
+    /**
+     * Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
+     */
     configuration: pulumi.Input<inputs.location.MapConfigurationArgs>;
+    /**
+     * An optional description for the map resource.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name for the map resource.
+     *
+     * Requirements:
+     *
+     * - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+     * - Must be a unique map resource name.
+     * - No spaces allowed. For example, `ExampleMap` .
+     */
     mapName?: pulumi.Input<string>;
+    /**
+     * No longer used. If included, the only allowed value is `RequestBasedUsage` .
+     *
+     * *Allowed Values* : `RequestBasedUsage`
+     */
     pricingPlan?: pulumi.Input<enums.location.MapPricingPlan>;
     /**
      * An array of key-value pairs to apply to this resource.

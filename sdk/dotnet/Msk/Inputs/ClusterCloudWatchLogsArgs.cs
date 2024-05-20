@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterCloudWatchLogsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The CloudWatch log group that is the destination for broker logs.
+        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 

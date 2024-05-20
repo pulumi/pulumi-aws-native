@@ -37,12 +37,37 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfiguredTableAssociation.__pulumiType;
     }
 
+    /**
+     * Returns the Amazon Resource Name (ARN) of the specified configured table association.
+     *
+     * Example: `arn:aws:cleanrooms:us-east-1:111122223333:configuredtable/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Returns the unique identifier of the specified configured table association.
+     *
+     * Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+     */
     public /*out*/ readonly configuredTableAssociationIdentifier!: pulumi.Output<string>;
+    /**
+     * A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+     */
     public readonly configuredTableIdentifier!: pulumi.Output<string>;
+    /**
+     * A description of the configured table association.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique ID for the membership this configured table association belongs to.
+     */
     public readonly membershipIdentifier!: pulumi.Output<string>;
+    /**
+     * The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The service will assume this role to access catalog metadata and query the table.
+     */
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -98,10 +123,25 @@ export class ConfiguredTableAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfiguredTableAssociation resource.
  */
 export interface ConfiguredTableAssociationArgs {
+    /**
+     * A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+     */
     configuredTableIdentifier: pulumi.Input<string>;
+    /**
+     * A description of the configured table association.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The unique ID for the membership this configured table association belongs to.
+     */
     membershipIdentifier: pulumi.Input<string>;
+    /**
+     * The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The service will assume this role to access catalog metadata and query the table.
+     */
     roleArn: pulumi.Input<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

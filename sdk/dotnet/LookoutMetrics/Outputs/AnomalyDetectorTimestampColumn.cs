@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         /// A timestamp format for the timestamps in the dataset
         /// </summary>
         public readonly string? ColumnFormat;
+        /// <summary>
+        /// The name of the timestamp column.
+        /// </summary>
         public readonly string? ColumnName;
 
         [OutputConstructor]

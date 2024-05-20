@@ -28,9 +28,11 @@ class RotationArgs:
         """
         The set of arguments for constructing a Rotation resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_ids: Members of the rotation
+        :param pulumi.Input['RotationRecurrenceSettingsArgs'] recurrence: Information about the rule that specifies when shift team members rotate.
         :param pulumi.Input[str] start_time: Start time of the first shift of Oncall Schedule
         :param pulumi.Input[str] time_zone_id: TimeZone Identifier for the Oncall Schedule
         :param pulumi.Input[str] name: Name of the Rotation
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
         """
         pulumi.set(__self__, "contact_ids", contact_ids)
         pulumi.set(__self__, "recurrence", recurrence)
@@ -56,6 +58,9 @@ class RotationArgs:
     @property
     @pulumi.getter
     def recurrence(self) -> pulumi.Input['RotationRecurrenceSettingsArgs']:
+        """
+        Information about the rule that specifies when shift team members rotate.
+        """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
@@ -101,6 +106,9 @@ class RotationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -127,7 +135,9 @@ class Rotation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_ids: Members of the rotation
         :param pulumi.Input[str] name: Name of the Rotation
+        :param pulumi.Input[pulumi.InputType['RotationRecurrenceSettingsArgs']] recurrence: Information about the rule that specifies when shift team members rotate.
         :param pulumi.Input[str] start_time: Start time of the first shift of Oncall Schedule
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
         :param pulumi.Input[str] time_zone_id: TimeZone Identifier for the Oncall Schedule
         """
         ...
@@ -242,6 +252,9 @@ class Rotation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def recurrence(self) -> pulumi.Output['outputs.RotationRecurrenceSettings']:
+        """
+        Information about the rule that specifies when shift team members rotate.
+        """
         return pulumi.get(self, "recurrence")
 
     @property
@@ -255,6 +268,9 @@ class Rotation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        """
         return pulumi.get(self, "tags")
 
     @property

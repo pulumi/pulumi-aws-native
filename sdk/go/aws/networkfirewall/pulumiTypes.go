@@ -14,15 +14,41 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type FirewallPolicyType struct {
-	PolicyVariables                 *FirewallPolicyPolicyVariablesProperties    `pulumi:"policyVariables"`
-	StatefulDefaultActions          []string                                    `pulumi:"statefulDefaultActions"`
-	StatefulEngineOptions           *FirewallPolicyStatefulEngineOptions        `pulumi:"statefulEngineOptions"`
-	StatefulRuleGroupReferences     []FirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
-	StatelessCustomActions          []FirewallPolicyCustomAction                `pulumi:"statelessCustomActions"`
-	StatelessDefaultActions         []string                                    `pulumi:"statelessDefaultActions"`
-	StatelessFragmentDefaultActions []string                                    `pulumi:"statelessFragmentDefaultActions"`
-	StatelessRuleGroupReferences    []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
-	TlsInspectionConfigurationArn   *string                                     `pulumi:"tlsInspectionConfigurationArn"`
+	// Contains variables that you can use to override default Suricata settings in your firewall policy.
+	PolicyVariables *FirewallPolicyPolicyVariablesProperties `pulumi:"policyVariables"`
+	// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
+	//
+	// Valid values of the stateful default action:
+	//
+	// - aws:drop_strict
+	// - aws:drop_established
+	// - aws:alert_strict
+	// - aws:alert_established
+	//
+	// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+	StatefulDefaultActions []string `pulumi:"statefulDefaultActions"`
+	// Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
+	StatefulEngineOptions *FirewallPolicyStatefulEngineOptions `pulumi:"statefulEngineOptions"`
+	// References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
+	StatefulRuleGroupReferences []FirewallPolicyStatefulRuleGroupReference `pulumi:"statefulRuleGroupReferences"`
+	// The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
+	StatelessCustomActions []FirewallPolicyCustomAction `pulumi:"statelessCustomActions"`
+	// The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+	//
+	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+	//
+	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+	StatelessDefaultActions []string `pulumi:"statelessDefaultActions"`
+	// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+	//
+	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+	//
+	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+	StatelessFragmentDefaultActions []string `pulumi:"statelessFragmentDefaultActions"`
+	// References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
+	StatelessRuleGroupReferences []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
+	// The Amazon Resource Name (ARN) of the TLS inspection configuration.
+	TlsInspectionConfigurationArn *string `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 // FirewallPolicyTypeInput is an input type that accepts FirewallPolicyTypeArgs and FirewallPolicyTypeOutput values.
@@ -37,15 +63,41 @@ type FirewallPolicyTypeInput interface {
 }
 
 type FirewallPolicyTypeArgs struct {
-	PolicyVariables                 FirewallPolicyPolicyVariablesPropertiesPtrInput     `pulumi:"policyVariables"`
-	StatefulDefaultActions          pulumi.StringArrayInput                             `pulumi:"statefulDefaultActions"`
-	StatefulEngineOptions           FirewallPolicyStatefulEngineOptionsPtrInput         `pulumi:"statefulEngineOptions"`
-	StatefulRuleGroupReferences     FirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
-	StatelessCustomActions          FirewallPolicyCustomActionArrayInput                `pulumi:"statelessCustomActions"`
-	StatelessDefaultActions         pulumi.StringArrayInput                             `pulumi:"statelessDefaultActions"`
-	StatelessFragmentDefaultActions pulumi.StringArrayInput                             `pulumi:"statelessFragmentDefaultActions"`
-	StatelessRuleGroupReferences    FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
-	TlsInspectionConfigurationArn   pulumi.StringPtrInput                               `pulumi:"tlsInspectionConfigurationArn"`
+	// Contains variables that you can use to override default Suricata settings in your firewall policy.
+	PolicyVariables FirewallPolicyPolicyVariablesPropertiesPtrInput `pulumi:"policyVariables"`
+	// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
+	//
+	// Valid values of the stateful default action:
+	//
+	// - aws:drop_strict
+	// - aws:drop_established
+	// - aws:alert_strict
+	// - aws:alert_established
+	//
+	// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+	StatefulDefaultActions pulumi.StringArrayInput `pulumi:"statefulDefaultActions"`
+	// Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
+	StatefulEngineOptions FirewallPolicyStatefulEngineOptionsPtrInput `pulumi:"statefulEngineOptions"`
+	// References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
+	StatefulRuleGroupReferences FirewallPolicyStatefulRuleGroupReferenceArrayInput `pulumi:"statefulRuleGroupReferences"`
+	// The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
+	StatelessCustomActions FirewallPolicyCustomActionArrayInput `pulumi:"statelessCustomActions"`
+	// The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+	//
+	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+	//
+	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+	StatelessDefaultActions pulumi.StringArrayInput `pulumi:"statelessDefaultActions"`
+	// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+	//
+	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+	//
+	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+	StatelessFragmentDefaultActions pulumi.StringArrayInput `pulumi:"statelessFragmentDefaultActions"`
+	// References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
+	StatelessRuleGroupReferences FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
+	// The Amazon Resource Name (ARN) of the TLS inspection configuration.
+	TlsInspectionConfigurationArn pulumi.StringPtrInput `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 func (FirewallPolicyTypeArgs) ElementType() reflect.Type {
@@ -74,42 +126,68 @@ func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutputWithContext(ctx cont
 	return o
 }
 
+// Contains variables that you can use to override default Suricata settings in your firewall policy.
 func (o FirewallPolicyTypeOutput) PolicyVariables() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyType) *FirewallPolicyPolicyVariablesProperties { return v.PolicyVariables }).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
+// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
+//
+// Valid values of the stateful default action:
+//
+// - aws:drop_strict
+// - aws:drop_established
+// - aws:alert_strict
+// - aws:alert_established
+//
+// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o FirewallPolicyTypeOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
 }
 
+// Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
 func (o FirewallPolicyTypeOutput) StatefulEngineOptions() FirewallPolicyStatefulEngineOptionsPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyType) *FirewallPolicyStatefulEngineOptions { return v.StatefulEngineOptions }).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+// References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
 func (o FirewallPolicyTypeOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyStatefulRuleGroupReference {
 		return v.StatefulRuleGroupReferences
 	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
+// The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
 func (o FirewallPolicyTypeOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyCustomAction { return v.StatelessCustomActions }).(FirewallPolicyCustomActionArrayOutput)
 }
 
+// The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+//
+// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+//
+// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
 func (o FirewallPolicyTypeOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []string { return v.StatelessDefaultActions }).(pulumi.StringArrayOutput)
 }
 
+// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+//
+// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+//
+// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
 func (o FirewallPolicyTypeOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []string { return v.StatelessFragmentDefaultActions }).(pulumi.StringArrayOutput)
 }
 
+// References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
 func (o FirewallPolicyTypeOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyStatelessRuleGroupReference {
 		return v.StatelessRuleGroupReferences
 	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the TLS inspection configuration.
 func (o FirewallPolicyTypeOutput) TlsInspectionConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyType) *string { return v.TlsInspectionConfigurationArn }).(pulumi.StringPtrOutput)
 }
@@ -138,6 +216,7 @@ func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
 	}).(FirewallPolicyTypeOutput)
 }
 
+// Contains variables that you can use to override default Suricata settings in your firewall policy.
 func (o FirewallPolicyTypePtrOutput) PolicyVariables() FirewallPolicyPolicyVariablesPropertiesPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) *FirewallPolicyPolicyVariablesProperties {
 		if v == nil {
@@ -147,6 +226,16 @@ func (o FirewallPolicyTypePtrOutput) PolicyVariables() FirewallPolicyPolicyVaria
 	}).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
+// The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
+//
+// Valid values of the stateful default action:
+//
+// - aws:drop_strict
+// - aws:drop_established
+// - aws:alert_strict
+// - aws:alert_established
+//
+// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o FirewallPolicyTypePtrOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) []string {
 		if v == nil {
@@ -156,6 +245,7 @@ func (o FirewallPolicyTypePtrOutput) StatefulDefaultActions() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
 func (o FirewallPolicyTypePtrOutput) StatefulEngineOptions() FirewallPolicyStatefulEngineOptionsPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) *FirewallPolicyStatefulEngineOptions {
 		if v == nil {
@@ -165,6 +255,7 @@ func (o FirewallPolicyTypePtrOutput) StatefulEngineOptions() FirewallPolicyState
 	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+// References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
 func (o FirewallPolicyTypePtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyStatefulRuleGroupReference {
 		if v == nil {
@@ -174,6 +265,7 @@ func (o FirewallPolicyTypePtrOutput) StatefulRuleGroupReferences() FirewallPolic
 	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
+// The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
 func (o FirewallPolicyTypePtrOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyCustomAction {
 		if v == nil {
@@ -183,6 +275,11 @@ func (o FirewallPolicyTypePtrOutput) StatelessCustomActions() FirewallPolicyCust
 	}).(FirewallPolicyCustomActionArrayOutput)
 }
 
+// The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+//
+// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+//
+// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
 func (o FirewallPolicyTypePtrOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) []string {
 		if v == nil {
@@ -192,6 +289,11 @@ func (o FirewallPolicyTypePtrOutput) StatelessDefaultActions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+//
+// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+//
+// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
 func (o FirewallPolicyTypePtrOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) []string {
 		if v == nil {
@@ -201,6 +303,7 @@ func (o FirewallPolicyTypePtrOutput) StatelessFragmentDefaultActions() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
 func (o FirewallPolicyTypePtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyStatelessRuleGroupReference {
 		if v == nil {
@@ -210,6 +313,7 @@ func (o FirewallPolicyTypePtrOutput) StatelessRuleGroupReferences() FirewallPoli
 	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the TLS inspection configuration.
 func (o FirewallPolicyTypePtrOutput) TlsInspectionConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyType) *string {
 		if v == nil {
@@ -220,6 +324,9 @@ func (o FirewallPolicyTypePtrOutput) TlsInspectionConfigurationArn() pulumi.Stri
 }
 
 type FirewallPolicyActionDefinition struct {
+	// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+	//
+	// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
 	PublishMetricAction *FirewallPolicyPublishMetricAction `pulumi:"publishMetricAction"`
 }
 
@@ -235,6 +342,9 @@ type FirewallPolicyActionDefinitionInput interface {
 }
 
 type FirewallPolicyActionDefinitionArgs struct {
+	// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+	//
+	// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
 	PublishMetricAction FirewallPolicyPublishMetricActionPtrInput `pulumi:"publishMetricAction"`
 }
 
@@ -264,6 +374,9 @@ func (o FirewallPolicyActionDefinitionOutput) ToFirewallPolicyActionDefinitionOu
 	return o
 }
 
+// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+//
+// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
 func (o FirewallPolicyActionDefinitionOutput) PublishMetricAction() FirewallPolicyPublishMetricActionPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyActionDefinition) *FirewallPolicyPublishMetricAction {
 		return v.PublishMetricAction
@@ -271,8 +384,10 @@ func (o FirewallPolicyActionDefinitionOutput) PublishMetricAction() FirewallPoli
 }
 
 type FirewallPolicyCustomAction struct {
+	// The custom action associated with the action name.
 	ActionDefinition FirewallPolicyActionDefinition `pulumi:"actionDefinition"`
-	ActionName       string                         `pulumi:"actionName"`
+	// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+	ActionName string `pulumi:"actionName"`
 }
 
 // FirewallPolicyCustomActionInput is an input type that accepts FirewallPolicyCustomActionArgs and FirewallPolicyCustomActionOutput values.
@@ -287,8 +402,10 @@ type FirewallPolicyCustomActionInput interface {
 }
 
 type FirewallPolicyCustomActionArgs struct {
+	// The custom action associated with the action name.
 	ActionDefinition FirewallPolicyActionDefinitionInput `pulumi:"actionDefinition"`
-	ActionName       pulumi.StringInput                  `pulumi:"actionName"`
+	// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+	ActionName pulumi.StringInput `pulumi:"actionName"`
 }
 
 func (FirewallPolicyCustomActionArgs) ElementType() reflect.Type {
@@ -342,10 +459,12 @@ func (o FirewallPolicyCustomActionOutput) ToFirewallPolicyCustomActionOutputWith
 	return o
 }
 
+// The custom action associated with the action name.
 func (o FirewallPolicyCustomActionOutput) ActionDefinition() FirewallPolicyActionDefinitionOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomAction) FirewallPolicyActionDefinition { return v.ActionDefinition }).(FirewallPolicyActionDefinitionOutput)
 }
 
+// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
 func (o FirewallPolicyCustomActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomAction) string { return v.ActionName }).(pulumi.StringOutput)
 }
@@ -371,6 +490,7 @@ func (o FirewallPolicyCustomActionArrayOutput) Index(i pulumi.IntInput) Firewall
 }
 
 type FirewallPolicyDimension struct {
+	// The value to use in the custom metric dimension.
 	Value string `pulumi:"value"`
 }
 
@@ -386,6 +506,7 @@ type FirewallPolicyDimensionInput interface {
 }
 
 type FirewallPolicyDimensionArgs struct {
+	// The value to use in the custom metric dimension.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -440,6 +561,7 @@ func (o FirewallPolicyDimensionOutput) ToFirewallPolicyDimensionOutputWithContex
 	return o
 }
 
+// The value to use in the custom metric dimension.
 func (o FirewallPolicyDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -465,6 +587,7 @@ func (o FirewallPolicyDimensionArrayOutput) Index(i pulumi.IntInput) FirewallPol
 }
 
 type FirewallPolicyIpSet struct {
+	// The list of IP addresses and address ranges, in CIDR notation.
 	Definition []string `pulumi:"definition"`
 }
 
@@ -480,6 +603,7 @@ type FirewallPolicyIpSetInput interface {
 }
 
 type FirewallPolicyIpSetArgs struct {
+	// The list of IP addresses and address ranges, in CIDR notation.
 	Definition pulumi.StringArrayInput `pulumi:"definition"`
 }
 
@@ -534,6 +658,7 @@ func (o FirewallPolicyIpSetOutput) ToFirewallPolicyIpSetOutputWithContext(ctx co
 	return o
 }
 
+// The list of IP addresses and address ranges, in CIDR notation.
 func (o FirewallPolicyIpSetOutput) Definition() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyIpSet) []string { return v.Definition }).(pulumi.StringArrayOutput)
 }
@@ -558,6 +683,7 @@ func (o FirewallPolicyIpSetMapOutput) MapIndex(k pulumi.StringInput) FirewallPol
 	}).(FirewallPolicyIpSetOutput)
 }
 
+// Contains variables that you can use to override default Suricata settings in your firewall policy.
 type FirewallPolicyPolicyVariablesProperties struct {
 	RuleVariables map[string]FirewallPolicyIpSet `pulumi:"ruleVariables"`
 }
@@ -573,6 +699,7 @@ type FirewallPolicyPolicyVariablesPropertiesInput interface {
 	ToFirewallPolicyPolicyVariablesPropertiesOutputWithContext(context.Context) FirewallPolicyPolicyVariablesPropertiesOutput
 }
 
+// Contains variables that you can use to override default Suricata settings in your firewall policy.
 type FirewallPolicyPolicyVariablesPropertiesArgs struct {
 	RuleVariables FirewallPolicyIpSetMapInput `pulumi:"ruleVariables"`
 }
@@ -630,6 +757,7 @@ func (i *firewallPolicyPolicyVariablesPropertiesPtrType) ToFirewallPolicyPolicyV
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyPolicyVariablesPropertiesPtrOutput)
 }
 
+// Contains variables that you can use to override default Suricata settings in your firewall policy.
 type FirewallPolicyPolicyVariablesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyPolicyVariablesPropertiesOutput) ElementType() reflect.Type {
@@ -825,7 +953,13 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 }
 
 type FirewallPolicyStatefulEngineOptions struct {
-	RuleOrder             *FirewallPolicyRuleOrder             `pulumi:"ruleOrder"`
+	// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+	RuleOrder *FirewallPolicyRuleOrder `pulumi:"ruleOrder"`
+	// Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
+	//
+	// - `DROP` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.
+	// - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
+	// - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
 	StreamExceptionPolicy *FirewallPolicyStreamExceptionPolicy `pulumi:"streamExceptionPolicy"`
 }
 
@@ -841,7 +975,13 @@ type FirewallPolicyStatefulEngineOptionsInput interface {
 }
 
 type FirewallPolicyStatefulEngineOptionsArgs struct {
-	RuleOrder             FirewallPolicyRuleOrderPtrInput             `pulumi:"ruleOrder"`
+	// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+	RuleOrder FirewallPolicyRuleOrderPtrInput `pulumi:"ruleOrder"`
+	// Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
+	//
+	// - `DROP` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.
+	// - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
+	// - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
 	StreamExceptionPolicy FirewallPolicyStreamExceptionPolicyPtrInput `pulumi:"streamExceptionPolicy"`
 }
 
@@ -922,10 +1062,16 @@ func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngin
 	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o FirewallPolicyStatefulEngineOptionsOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder { return v.RuleOrder }).(FirewallPolicyRuleOrderPtrOutput)
 }
 
+// Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
+//
+// - `DROP` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.
+// - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
+// - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
 func (o FirewallPolicyStatefulEngineOptionsOutput) StreamExceptionPolicy() FirewallPolicyStreamExceptionPolicyPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyStreamExceptionPolicy {
 		return v.StreamExceptionPolicy
@@ -956,6 +1102,7 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) Elem() FirewallPolicyState
 	}).(FirewallPolicyStatefulEngineOptionsOutput)
 }
 
+// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o FirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder {
 		if v == nil {
@@ -965,6 +1112,11 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() FirewallPolicy
 	}).(FirewallPolicyRuleOrderPtrOutput)
 }
 
+// Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
+//
+// - `DROP` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.
+// - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
+// - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
 func (o FirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() FirewallPolicyStreamExceptionPolicyPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyStreamExceptionPolicy {
 		if v == nil {
@@ -975,6 +1127,7 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() Fi
 }
 
 type FirewallPolicyStatefulRuleGroupOverride struct {
+	// The action that changes the rule group from `DROP` to `ALERT` . This only applies to managed rule groups.
 	Action *FirewallPolicyOverrideAction `pulumi:"action"`
 }
 
@@ -990,6 +1143,7 @@ type FirewallPolicyStatefulRuleGroupOverrideInput interface {
 }
 
 type FirewallPolicyStatefulRuleGroupOverrideArgs struct {
+	// The action that changes the rule group from `DROP` to `ALERT` . This only applies to managed rule groups.
 	Action FirewallPolicyOverrideActionPtrInput `pulumi:"action"`
 }
 
@@ -1070,6 +1224,7 @@ func (o FirewallPolicyStatefulRuleGroupOverrideOutput) ToFirewallPolicyStatefulR
 	}).(FirewallPolicyStatefulRuleGroupOverridePtrOutput)
 }
 
+// The action that changes the rule group from `DROP` to `ALERT` . This only applies to managed rule groups.
 func (o FirewallPolicyStatefulRuleGroupOverrideOutput) Action() FirewallPolicyOverrideActionPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupOverride) *FirewallPolicyOverrideAction { return v.Action }).(FirewallPolicyOverrideActionPtrOutput)
 }
@@ -1098,6 +1253,7 @@ func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) Elem() FirewallPolicyS
 	}).(FirewallPolicyStatefulRuleGroupOverrideOutput)
 }
 
+// The action that changes the rule group from `DROP` to `ALERT` . This only applies to managed rule groups.
 func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) Action() FirewallPolicyOverrideActionPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyStatefulRuleGroupOverride) *FirewallPolicyOverrideAction {
 		if v == nil {
@@ -1108,9 +1264,16 @@ func (o FirewallPolicyStatefulRuleGroupOverridePtrOutput) Action() FirewallPolic
 }
 
 type FirewallPolicyStatefulRuleGroupReference struct {
-	Override    *FirewallPolicyStatefulRuleGroupOverride `pulumi:"override"`
-	Priority    *int                                     `pulumi:"priority"`
-	ResourceArn string                                   `pulumi:"resourceArn"`
+	// The action that allows the policy owner to override the behavior of the rule group within a policy.
+	Override *FirewallPolicyStatefulRuleGroupOverride `pulumi:"override"`
+	// An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+	//
+	// Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+	//
+	// You can change the priority settings of your rule groups at any time. To make it easier to insert rule groups later, number them so there's a wide range in between, for example use 100, 200, and so on.
+	Priority *int `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the stateful rule group.
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // FirewallPolicyStatefulRuleGroupReferenceInput is an input type that accepts FirewallPolicyStatefulRuleGroupReferenceArgs and FirewallPolicyStatefulRuleGroupReferenceOutput values.
@@ -1125,9 +1288,16 @@ type FirewallPolicyStatefulRuleGroupReferenceInput interface {
 }
 
 type FirewallPolicyStatefulRuleGroupReferenceArgs struct {
-	Override    FirewallPolicyStatefulRuleGroupOverridePtrInput `pulumi:"override"`
-	Priority    pulumi.IntPtrInput                              `pulumi:"priority"`
-	ResourceArn pulumi.StringInput                              `pulumi:"resourceArn"`
+	// The action that allows the policy owner to override the behavior of the rule group within a policy.
+	Override FirewallPolicyStatefulRuleGroupOverridePtrInput `pulumi:"override"`
+	// An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+	//
+	// Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+	//
+	// You can change the priority settings of your rule groups at any time. To make it easier to insert rule groups later, number them so there's a wide range in between, for example use 100, 200, and so on.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the stateful rule group.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (FirewallPolicyStatefulRuleGroupReferenceArgs) ElementType() reflect.Type {
@@ -1181,16 +1351,23 @@ func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyStateful
 	return o
 }
 
+// The action that allows the policy owner to override the behavior of the rule group within a policy.
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) Override() FirewallPolicyStatefulRuleGroupOverridePtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupReference) *FirewallPolicyStatefulRuleGroupOverride {
 		return v.Override
 	}).(FirewallPolicyStatefulRuleGroupOverridePtrOutput)
 }
 
+// An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+//
+// Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+//
+// You can change the priority settings of your rule groups at any time. To make it easier to insert rule groups later, number them so there's a wide range in between, for example use 100, 200, and so on.
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupReference) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the stateful rule group.
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1216,7 +1393,9 @@ func (o FirewallPolicyStatefulRuleGroupReferenceArrayOutput) Index(i pulumi.IntI
 }
 
 type FirewallPolicyStatelessRuleGroupReference struct {
-	Priority    int    `pulumi:"priority"`
+	// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+	Priority int `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the stateless rule group.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -1232,7 +1411,9 @@ type FirewallPolicyStatelessRuleGroupReferenceInput interface {
 }
 
 type FirewallPolicyStatelessRuleGroupReferenceArgs struct {
-	Priority    pulumi.IntInput    `pulumi:"priority"`
+	// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Amazon Resource Name (ARN) of the stateless rule group.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -1287,10 +1468,12 @@ func (o FirewallPolicyStatelessRuleGroupReferenceOutput) ToFirewallPolicyStatele
 	return o
 }
 
+// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
 func (o FirewallPolicyStatelessRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallPolicyStatelessRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of the stateless rule group.
 func (o FirewallPolicyStatelessRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyStatelessRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1316,7 +1499,9 @@ func (o FirewallPolicyStatelessRuleGroupReferenceArrayOutput) Index(i pulumi.Int
 }
 
 type FirewallPolicyTag struct {
-	Key   string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+	Key string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
 	Value string `pulumi:"value"`
 }
 
@@ -1427,11 +1612,14 @@ func (o FirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) FirewallSubne
 }
 
 type FirewallTag struct {
-	Key   string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+	Key string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
 	Value string `pulumi:"value"`
 }
 
 type LoggingConfigurationType struct {
+	// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
 	LogDestinationConfigs []LoggingConfigurationLogDestinationConfig `pulumi:"logDestinationConfigs"`
 }
 
@@ -1447,6 +1635,7 @@ type LoggingConfigurationTypeInput interface {
 }
 
 type LoggingConfigurationTypeArgs struct {
+	// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
 	LogDestinationConfigs LoggingConfigurationLogDestinationConfigArrayInput `pulumi:"logDestinationConfigs"`
 }
 
@@ -1476,6 +1665,7 @@ func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypeOutputWithCont
 	return o
 }
 
+// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
 func (o LoggingConfigurationTypeOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v LoggingConfigurationType) []LoggingConfigurationLogDestinationConfig {
 		return v.LogDestinationConfigs
@@ -1506,6 +1696,7 @@ func (o LoggingConfigurationTypePtrOutput) Elem() LoggingConfigurationTypeOutput
 	}).(LoggingConfigurationTypeOutput)
 }
 
+// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
 func (o LoggingConfigurationTypePtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v *LoggingConfigurationType) []LoggingConfigurationLogDestinationConfig {
 		if v == nil {
@@ -1517,9 +1708,11 @@ func (o LoggingConfigurationTypePtrOutput) LogDestinationConfigs() LoggingConfig
 
 type LoggingConfigurationLogDestinationConfig struct {
 	// A key-value pair to configure the logDestinations.
-	LogDestination     map[string]string                                          `pulumi:"logDestination"`
+	LogDestination map[string]string `pulumi:"logDestination"`
+	// The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
 	LogDestinationType LoggingConfigurationLogDestinationConfigLogDestinationType `pulumi:"logDestinationType"`
-	LogType            LoggingConfigurationLogDestinationConfigLogType            `pulumi:"logType"`
+	// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+	LogType LoggingConfigurationLogDestinationConfigLogType `pulumi:"logType"`
 }
 
 // LoggingConfigurationLogDestinationConfigInput is an input type that accepts LoggingConfigurationLogDestinationConfigArgs and LoggingConfigurationLogDestinationConfigOutput values.
@@ -1535,9 +1728,11 @@ type LoggingConfigurationLogDestinationConfigInput interface {
 
 type LoggingConfigurationLogDestinationConfigArgs struct {
 	// A key-value pair to configure the logDestinations.
-	LogDestination     pulumi.StringMapInput                                           `pulumi:"logDestination"`
+	LogDestination pulumi.StringMapInput `pulumi:"logDestination"`
+	// The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
 	LogDestinationType LoggingConfigurationLogDestinationConfigLogDestinationTypeInput `pulumi:"logDestinationType"`
-	LogType            LoggingConfigurationLogDestinationConfigLogTypeInput            `pulumi:"logType"`
+	// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+	LogType LoggingConfigurationLogDestinationConfigLogTypeInput `pulumi:"logType"`
 }
 
 func (LoggingConfigurationLogDestinationConfigArgs) ElementType() reflect.Type {
@@ -1596,12 +1791,14 @@ func (o LoggingConfigurationLogDestinationConfigOutput) LogDestination() pulumi.
 	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) map[string]string { return v.LogDestination }).(pulumi.StringMapOutput)
 }
 
+// The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
 func (o LoggingConfigurationLogDestinationConfigOutput) LogDestinationType() LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput {
 	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) LoggingConfigurationLogDestinationConfigLogDestinationType {
 		return v.LogDestinationType
 	}).(LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput)
 }
 
+// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
 func (o LoggingConfigurationLogDestinationConfigOutput) LogType() LoggingConfigurationLogDestinationConfigLogTypeOutput {
 	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) LoggingConfigurationLogDestinationConfigLogType {
 		return v.LogType
@@ -1629,9 +1826,13 @@ func (o LoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntI
 }
 
 type RuleGroupType struct {
-	ReferenceSets       *RuleGroupReferenceSets       `pulumi:"referenceSets"`
-	RuleVariables       *RuleGroupRuleVariables       `pulumi:"ruleVariables"`
-	RulesSource         RuleGroupRulesSource          `pulumi:"rulesSource"`
+	// The reference sets for the stateful rule group.
+	ReferenceSets *RuleGroupReferenceSets `pulumi:"referenceSets"`
+	// Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
+	RuleVariables *RuleGroupRuleVariables `pulumi:"ruleVariables"`
+	// The stateful rules or stateless rules for the rule group.
+	RulesSource RuleGroupRulesSource `pulumi:"rulesSource"`
+	// Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
 	StatefulRuleOptions *RuleGroupStatefulRuleOptions `pulumi:"statefulRuleOptions"`
 }
 
@@ -1647,9 +1848,13 @@ type RuleGroupTypeInput interface {
 }
 
 type RuleGroupTypeArgs struct {
-	ReferenceSets       RuleGroupReferenceSetsPtrInput       `pulumi:"referenceSets"`
-	RuleVariables       RuleGroupRuleVariablesPtrInput       `pulumi:"ruleVariables"`
-	RulesSource         RuleGroupRulesSourceInput            `pulumi:"rulesSource"`
+	// The reference sets for the stateful rule group.
+	ReferenceSets RuleGroupReferenceSetsPtrInput `pulumi:"referenceSets"`
+	// Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
+	RuleVariables RuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
+	// The stateful rules or stateless rules for the rule group.
+	RulesSource RuleGroupRulesSourceInput `pulumi:"rulesSource"`
+	// Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
 	StatefulRuleOptions RuleGroupStatefulRuleOptionsPtrInput `pulumi:"statefulRuleOptions"`
 }
 
@@ -1730,18 +1935,22 @@ func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Con
 	}).(RuleGroupTypePtrOutput)
 }
 
+// The reference sets for the stateful rule group.
 func (o RuleGroupTypeOutput) ReferenceSets() RuleGroupReferenceSetsPtrOutput {
 	return o.ApplyT(func(v RuleGroupType) *RuleGroupReferenceSets { return v.ReferenceSets }).(RuleGroupReferenceSetsPtrOutput)
 }
 
+// Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
 func (o RuleGroupTypeOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v RuleGroupType) *RuleGroupRuleVariables { return v.RuleVariables }).(RuleGroupRuleVariablesPtrOutput)
 }
 
+// The stateful rules or stateless rules for the rule group.
 func (o RuleGroupTypeOutput) RulesSource() RuleGroupRulesSourceOutput {
 	return o.ApplyT(func(v RuleGroupType) RuleGroupRulesSource { return v.RulesSource }).(RuleGroupRulesSourceOutput)
 }
 
+// Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
 func (o RuleGroupTypeOutput) StatefulRuleOptions() RuleGroupStatefulRuleOptionsPtrOutput {
 	return o.ApplyT(func(v RuleGroupType) *RuleGroupStatefulRuleOptions { return v.StatefulRuleOptions }).(RuleGroupStatefulRuleOptionsPtrOutput)
 }
@@ -1770,6 +1979,7 @@ func (o RuleGroupTypePtrOutput) Elem() RuleGroupTypeOutput {
 	}).(RuleGroupTypeOutput)
 }
 
+// The reference sets for the stateful rule group.
 func (o RuleGroupTypePtrOutput) ReferenceSets() RuleGroupReferenceSetsPtrOutput {
 	return o.ApplyT(func(v *RuleGroupType) *RuleGroupReferenceSets {
 		if v == nil {
@@ -1779,6 +1989,7 @@ func (o RuleGroupTypePtrOutput) ReferenceSets() RuleGroupReferenceSetsPtrOutput 
 	}).(RuleGroupReferenceSetsPtrOutput)
 }
 
+// Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
 func (o RuleGroupTypePtrOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v *RuleGroupType) *RuleGroupRuleVariables {
 		if v == nil {
@@ -1788,6 +1999,7 @@ func (o RuleGroupTypePtrOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput 
 	}).(RuleGroupRuleVariablesPtrOutput)
 }
 
+// The stateful rules or stateless rules for the rule group.
 func (o RuleGroupTypePtrOutput) RulesSource() RuleGroupRulesSourcePtrOutput {
 	return o.ApplyT(func(v *RuleGroupType) *RuleGroupRulesSource {
 		if v == nil {
@@ -1797,6 +2009,7 @@ func (o RuleGroupTypePtrOutput) RulesSource() RuleGroupRulesSourcePtrOutput {
 	}).(RuleGroupRulesSourcePtrOutput)
 }
 
+// Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
 func (o RuleGroupTypePtrOutput) StatefulRuleOptions() RuleGroupStatefulRuleOptionsPtrOutput {
 	return o.ApplyT(func(v *RuleGroupType) *RuleGroupStatefulRuleOptions {
 		if v == nil {
@@ -1807,6 +2020,9 @@ func (o RuleGroupTypePtrOutput) StatefulRuleOptions() RuleGroupStatefulRuleOptio
 }
 
 type RuleGroupActionDefinition struct {
+	// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+	//
+	// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
 	PublishMetricAction *RuleGroupPublishMetricAction `pulumi:"publishMetricAction"`
 }
 
@@ -1822,6 +2038,9 @@ type RuleGroupActionDefinitionInput interface {
 }
 
 type RuleGroupActionDefinitionArgs struct {
+	// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+	//
+	// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
 	PublishMetricAction RuleGroupPublishMetricActionPtrInput `pulumi:"publishMetricAction"`
 }
 
@@ -1851,11 +2070,24 @@ func (o RuleGroupActionDefinitionOutput) ToRuleGroupActionDefinitionOutputWithCo
 	return o
 }
 
+// Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+//
+// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
 func (o RuleGroupActionDefinitionOutput) PublishMetricAction() RuleGroupPublishMetricActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupActionDefinition) *RuleGroupPublishMetricAction { return v.PublishMetricAction }).(RuleGroupPublishMetricActionPtrOutput)
 }
 
 type RuleGroupAddress struct {
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 	AddressDefinition string `pulumi:"addressDefinition"`
 }
 
@@ -1871,6 +2103,16 @@ type RuleGroupAddressInput interface {
 }
 
 type RuleGroupAddressArgs struct {
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
 }
 
@@ -1925,6 +2167,16 @@ func (o RuleGroupAddressOutput) ToRuleGroupAddressOutputWithContext(ctx context.
 	return o
 }
 
+// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+//
+// Examples:
+//
+// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+//
+// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 func (o RuleGroupAddressOutput) AddressDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupAddress) string { return v.AddressDefinition }).(pulumi.StringOutput)
 }
@@ -1950,8 +2202,10 @@ func (o RuleGroupAddressArrayOutput) Index(i pulumi.IntInput) RuleGroupAddressOu
 }
 
 type RuleGroupCustomAction struct {
+	// The custom action associated with the action name.
 	ActionDefinition RuleGroupActionDefinition `pulumi:"actionDefinition"`
-	ActionName       string                    `pulumi:"actionName"`
+	// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+	ActionName string `pulumi:"actionName"`
 }
 
 // RuleGroupCustomActionInput is an input type that accepts RuleGroupCustomActionArgs and RuleGroupCustomActionOutput values.
@@ -1966,8 +2220,10 @@ type RuleGroupCustomActionInput interface {
 }
 
 type RuleGroupCustomActionArgs struct {
+	// The custom action associated with the action name.
 	ActionDefinition RuleGroupActionDefinitionInput `pulumi:"actionDefinition"`
-	ActionName       pulumi.StringInput             `pulumi:"actionName"`
+	// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+	ActionName pulumi.StringInput `pulumi:"actionName"`
 }
 
 func (RuleGroupCustomActionArgs) ElementType() reflect.Type {
@@ -2021,10 +2277,12 @@ func (o RuleGroupCustomActionOutput) ToRuleGroupCustomActionOutputWithContext(ct
 	return o
 }
 
+// The custom action associated with the action name.
 func (o RuleGroupCustomActionOutput) ActionDefinition() RuleGroupActionDefinitionOutput {
 	return o.ApplyT(func(v RuleGroupCustomAction) RuleGroupActionDefinition { return v.ActionDefinition }).(RuleGroupActionDefinitionOutput)
 }
 
+// The descriptive name of the custom action. You can't change the name of a custom action after you create it.
 func (o RuleGroupCustomActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupCustomAction) string { return v.ActionName }).(pulumi.StringOutput)
 }
@@ -2050,6 +2308,7 @@ func (o RuleGroupCustomActionArrayOutput) Index(i pulumi.IntInput) RuleGroupCust
 }
 
 type RuleGroupDimension struct {
+	// The value to use in the custom metric dimension.
 	Value string `pulumi:"value"`
 }
 
@@ -2065,6 +2324,7 @@ type RuleGroupDimensionInput interface {
 }
 
 type RuleGroupDimensionArgs struct {
+	// The value to use in the custom metric dimension.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2119,6 +2379,7 @@ func (o RuleGroupDimensionOutput) ToRuleGroupDimensionOutputWithContext(ctx cont
 	return o
 }
 
+// The value to use in the custom metric dimension.
 func (o RuleGroupDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2144,12 +2405,40 @@ func (o RuleGroupDimensionArrayOutput) Index(i pulumi.IntInput) RuleGroupDimensi
 }
 
 type RuleGroupHeader struct {
-	Destination     string                   `pulumi:"destination"`
-	DestinationPort string                   `pulumi:"destinationPort"`
-	Direction       RuleGroupHeaderDirection `pulumi:"direction"`
-	Protocol        RuleGroupHeaderProtocol  `pulumi:"protocol"`
-	Source          string                   `pulumi:"source"`
-	SourcePort      string                   `pulumi:"sourcePort"`
+	// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+	//
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+	Destination string `pulumi:"destination"`
+	// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+	DestinationPort string `pulumi:"destinationPort"`
+	// The direction of traffic flow to inspect. If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
+	Direction RuleGroupHeaderDirection `pulumi:"direction"`
+	// The protocol to inspect for. To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
+	Protocol RuleGroupHeaderProtocol `pulumi:"protocol"`
+	// The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+	//
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+	Source string `pulumi:"source"`
+	// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+	SourcePort string `pulumi:"sourcePort"`
 }
 
 // RuleGroupHeaderInput is an input type that accepts RuleGroupHeaderArgs and RuleGroupHeaderOutput values.
@@ -2164,12 +2453,40 @@ type RuleGroupHeaderInput interface {
 }
 
 type RuleGroupHeaderArgs struct {
-	Destination     pulumi.StringInput            `pulumi:"destination"`
-	DestinationPort pulumi.StringInput            `pulumi:"destinationPort"`
-	Direction       RuleGroupHeaderDirectionInput `pulumi:"direction"`
-	Protocol        RuleGroupHeaderProtocolInput  `pulumi:"protocol"`
-	Source          pulumi.StringInput            `pulumi:"source"`
-	SourcePort      pulumi.StringInput            `pulumi:"sourcePort"`
+	// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+	//
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+	DestinationPort pulumi.StringInput `pulumi:"destinationPort"`
+	// The direction of traffic flow to inspect. If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
+	Direction RuleGroupHeaderDirectionInput `pulumi:"direction"`
+	// The protocol to inspect for. To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
+	Protocol RuleGroupHeaderProtocolInput `pulumi:"protocol"`
+	// The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+	//
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+	Source pulumi.StringInput `pulumi:"source"`
+	// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+	SourcePort pulumi.StringInput `pulumi:"sourcePort"`
 }
 
 func (RuleGroupHeaderArgs) ElementType() reflect.Type {
@@ -2198,26 +2515,54 @@ func (o RuleGroupHeaderOutput) ToRuleGroupHeaderOutputWithContext(ctx context.Co
 	return o
 }
 
+// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+//
+// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+//
+// Examples:
+//
+// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+//
+// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 func (o RuleGroupHeaderOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupHeader) string { return v.Destination }).(pulumi.StringOutput)
 }
 
+// The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 func (o RuleGroupHeaderOutput) DestinationPort() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupHeader) string { return v.DestinationPort }).(pulumi.StringOutput)
 }
 
+// The direction of traffic flow to inspect. If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
 func (o RuleGroupHeaderOutput) Direction() RuleGroupHeaderDirectionOutput {
 	return o.ApplyT(func(v RuleGroupHeader) RuleGroupHeaderDirection { return v.Direction }).(RuleGroupHeaderDirectionOutput)
 }
 
+// The protocol to inspect for. To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
 func (o RuleGroupHeaderOutput) Protocol() RuleGroupHeaderProtocolOutput {
 	return o.ApplyT(func(v RuleGroupHeader) RuleGroupHeaderProtocol { return v.Protocol }).(RuleGroupHeaderProtocolOutput)
 }
 
+// The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+//
+// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+//
+// Examples:
+//
+// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+//
+// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 func (o RuleGroupHeaderOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupHeader) string { return v.Source }).(pulumi.StringOutput)
 }
 
+// The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
 func (o RuleGroupHeaderOutput) SourcePort() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupHeader) string { return v.SourcePort }).(pulumi.StringOutput)
 }
@@ -2411,12 +2756,22 @@ func (o RuleGroupIpSetReferenceMapOutput) MapIndex(k pulumi.StringInput) RuleGro
 }
 
 type RuleGroupMatchAttributes struct {
-	DestinationPorts []RuleGroupPortRange    `pulumi:"destinationPorts"`
-	Destinations     []RuleGroupAddress      `pulumi:"destinations"`
-	Protocols        []int                   `pulumi:"protocols"`
-	SourcePorts      []RuleGroupPortRange    `pulumi:"sourcePorts"`
-	Sources          []RuleGroupAddress      `pulumi:"sources"`
-	TcpFlags         []RuleGroupTcpFlagField `pulumi:"tcpFlags"`
+	// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	//
+	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	DestinationPorts []RuleGroupPortRange `pulumi:"destinationPorts"`
+	// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
+	Destinations []RuleGroupAddress `pulumi:"destinations"`
+	// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+	Protocols []int `pulumi:"protocols"`
+	// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	//
+	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	SourcePorts []RuleGroupPortRange `pulumi:"sourcePorts"`
+	// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
+	Sources []RuleGroupAddress `pulumi:"sources"`
+	// The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
+	TcpFlags []RuleGroupTcpFlagField `pulumi:"tcpFlags"`
 }
 
 // RuleGroupMatchAttributesInput is an input type that accepts RuleGroupMatchAttributesArgs and RuleGroupMatchAttributesOutput values.
@@ -2431,12 +2786,22 @@ type RuleGroupMatchAttributesInput interface {
 }
 
 type RuleGroupMatchAttributesArgs struct {
-	DestinationPorts RuleGroupPortRangeArrayInput    `pulumi:"destinationPorts"`
-	Destinations     RuleGroupAddressArrayInput      `pulumi:"destinations"`
-	Protocols        pulumi.IntArrayInput            `pulumi:"protocols"`
-	SourcePorts      RuleGroupPortRangeArrayInput    `pulumi:"sourcePorts"`
-	Sources          RuleGroupAddressArrayInput      `pulumi:"sources"`
-	TcpFlags         RuleGroupTcpFlagFieldArrayInput `pulumi:"tcpFlags"`
+	// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	//
+	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	DestinationPorts RuleGroupPortRangeArrayInput `pulumi:"destinationPorts"`
+	// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
+	Destinations RuleGroupAddressArrayInput `pulumi:"destinations"`
+	// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
+	// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+	//
+	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+	SourcePorts RuleGroupPortRangeArrayInput `pulumi:"sourcePorts"`
+	// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
+	Sources RuleGroupAddressArrayInput `pulumi:"sources"`
+	// The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
+	TcpFlags RuleGroupTcpFlagFieldArrayInput `pulumi:"tcpFlags"`
 }
 
 func (RuleGroupMatchAttributesArgs) ElementType() reflect.Type {
@@ -2465,33 +2830,45 @@ func (o RuleGroupMatchAttributesOutput) ToRuleGroupMatchAttributesOutputWithCont
 	return o
 }
 
+// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+//
+// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
 func (o RuleGroupMatchAttributesOutput) DestinationPorts() RuleGroupPortRangeArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupPortRange { return v.DestinationPorts }).(RuleGroupPortRangeArrayOutput)
 }
 
+// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
 func (o RuleGroupMatchAttributesOutput) Destinations() RuleGroupAddressArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Destinations }).(RuleGroupAddressArrayOutput)
 }
 
+// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
 func (o RuleGroupMatchAttributesOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []int { return v.Protocols }).(pulumi.IntArrayOutput)
 }
 
+// The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+//
+// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
 func (o RuleGroupMatchAttributesOutput) SourcePorts() RuleGroupPortRangeArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupPortRange { return v.SourcePorts }).(RuleGroupPortRangeArrayOutput)
 }
 
+// The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
 func (o RuleGroupMatchAttributesOutput) Sources() RuleGroupAddressArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Sources }).(RuleGroupAddressArrayOutput)
 }
 
+// The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
 func (o RuleGroupMatchAttributesOutput) TcpFlags() RuleGroupTcpFlagFieldArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupTcpFlagField { return v.TcpFlags }).(RuleGroupTcpFlagFieldArrayOutput)
 }
 
 type RuleGroupPortRange struct {
+	// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
 	FromPort int `pulumi:"fromPort"`
-	ToPort   int `pulumi:"toPort"`
+	// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+	ToPort int `pulumi:"toPort"`
 }
 
 // RuleGroupPortRangeInput is an input type that accepts RuleGroupPortRangeArgs and RuleGroupPortRangeOutput values.
@@ -2506,8 +2883,10 @@ type RuleGroupPortRangeInput interface {
 }
 
 type RuleGroupPortRangeArgs struct {
+	// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	ToPort   pulumi.IntInput `pulumi:"toPort"`
+	// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (RuleGroupPortRangeArgs) ElementType() reflect.Type {
@@ -2561,10 +2940,12 @@ func (o RuleGroupPortRangeOutput) ToRuleGroupPortRangeOutputWithContext(ctx cont
 	return o
 }
 
+// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
 func (o RuleGroupPortRangeOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupPortRange) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
 func (o RuleGroupPortRangeOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupPortRange) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -2817,6 +3198,7 @@ func (o RuleGroupPublishMetricActionPtrOutput) Dimensions() RuleGroupDimensionAr
 }
 
 type RuleGroupReferenceSets struct {
+	// The IP set references to use in the stateful rule group.
 	IpSetReferences map[string]RuleGroupIpSetReference `pulumi:"ipSetReferences"`
 }
 
@@ -2832,6 +3214,7 @@ type RuleGroupReferenceSetsInput interface {
 }
 
 type RuleGroupReferenceSetsArgs struct {
+	// The IP set references to use in the stateful rule group.
 	IpSetReferences RuleGroupIpSetReferenceMapInput `pulumi:"ipSetReferences"`
 }
 
@@ -2912,6 +3295,7 @@ func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsPtrOutputWithConte
 	}).(RuleGroupReferenceSetsPtrOutput)
 }
 
+// The IP set references to use in the stateful rule group.
 func (o RuleGroupReferenceSetsOutput) IpSetReferences() RuleGroupIpSetReferenceMapOutput {
 	return o.ApplyT(func(v RuleGroupReferenceSets) map[string]RuleGroupIpSetReference { return v.IpSetReferences }).(RuleGroupIpSetReferenceMapOutput)
 }
@@ -2940,6 +3324,7 @@ func (o RuleGroupReferenceSetsPtrOutput) Elem() RuleGroupReferenceSetsOutput {
 	}).(RuleGroupReferenceSetsOutput)
 }
 
+// The IP set references to use in the stateful rule group.
 func (o RuleGroupReferenceSetsPtrOutput) IpSetReferences() RuleGroupIpSetReferenceMapOutput {
 	return o.ApplyT(func(v *RuleGroupReferenceSets) map[string]RuleGroupIpSetReference {
 		if v == nil {
@@ -2950,7 +3335,21 @@ func (o RuleGroupReferenceSetsPtrOutput) IpSetReferences() RuleGroupIpSetReferen
 }
 
 type RuleGroupRuleDefinition struct {
-	Actions         []string                 `pulumi:"actions"`
+	// The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
+	//
+	// > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` .
+	//
+	// For every rule, you must specify exactly one of the following standard actions.
+	//
+	// - *aws:pass* - Discontinues all inspection of the packet and permits it to go to its intended destination.
+	// - *aws:drop* - Discontinues all inspection of the packet and blocks it from going to its intended destination.
+	// - *aws:forward_to_sfe* - Discontinues stateless inspection of the packet and forwards it to the stateful rule engine for inspection.
+	//
+	// Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this `Actions` setting.
+	//
+	// To provide more than one action in this setting, separate the settings with a comma. For example, if you have a publish metrics custom action that you've named `MyMetricsAction` , then you could specify the standard action `aws:pass` combined with the custom action using `["aws:pass", "MyMetricsAction"]` .
+	Actions []string `pulumi:"actions"`
+	// Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
 	MatchAttributes RuleGroupMatchAttributes `pulumi:"matchAttributes"`
 }
 
@@ -2966,7 +3365,21 @@ type RuleGroupRuleDefinitionInput interface {
 }
 
 type RuleGroupRuleDefinitionArgs struct {
-	Actions         pulumi.StringArrayInput       `pulumi:"actions"`
+	// The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
+	//
+	// > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` .
+	//
+	// For every rule, you must specify exactly one of the following standard actions.
+	//
+	// - *aws:pass* - Discontinues all inspection of the packet and permits it to go to its intended destination.
+	// - *aws:drop* - Discontinues all inspection of the packet and blocks it from going to its intended destination.
+	// - *aws:forward_to_sfe* - Discontinues stateless inspection of the packet and forwards it to the stateful rule engine for inspection.
+	//
+	// Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this `Actions` setting.
+	//
+	// To provide more than one action in this setting, separate the settings with a comma. For example, if you have a publish metrics custom action that you've named `MyMetricsAction` , then you could specify the standard action `aws:pass` combined with the custom action using `["aws:pass", "MyMetricsAction"]` .
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
 	MatchAttributes RuleGroupMatchAttributesInput `pulumi:"matchAttributes"`
 }
 
@@ -2996,16 +3409,32 @@ func (o RuleGroupRuleDefinitionOutput) ToRuleGroupRuleDefinitionOutputWithContex
 	return o
 }
 
+// The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
+//
+// > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` .
+//
+// For every rule, you must specify exactly one of the following standard actions.
+//
+// - *aws:pass* - Discontinues all inspection of the packet and permits it to go to its intended destination.
+// - *aws:drop* - Discontinues all inspection of the packet and blocks it from going to its intended destination.
+// - *aws:forward_to_sfe* - Discontinues stateless inspection of the packet and forwards it to the stateful rule engine for inspection.
+//
+// Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this `Actions` setting.
+//
+// To provide more than one action in this setting, separate the settings with a comma. For example, if you have a publish metrics custom action that you've named `MyMetricsAction` , then you could specify the standard action `aws:pass` combined with the custom action using `["aws:pass", "MyMetricsAction"]` .
 func (o RuleGroupRuleDefinitionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleDefinition) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
 func (o RuleGroupRuleDefinitionOutput) MatchAttributes() RuleGroupMatchAttributesOutput {
 	return o.ApplyT(func(v RuleGroupRuleDefinition) RuleGroupMatchAttributes { return v.MatchAttributes }).(RuleGroupMatchAttributesOutput)
 }
 
 type RuleGroupRuleOption struct {
-	Keyword  string   `pulumi:"keyword"`
+	// The Suricata rule option keywords. For Network Firewall , the keyword signature ID (sid) is required in the format `sid:112233` . The sid must be unique within the rule group. For information about Suricata rule option keywords, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
+	Keyword string `pulumi:"keyword"`
+	// The Suricata rule option settings. Settings have zero or more values, and the number of possible settings and required settings depends on the keyword. The format for Settings is `number` . For information about Suricata rule option settings, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
 	Settings []string `pulumi:"settings"`
 }
 
@@ -3021,7 +3450,9 @@ type RuleGroupRuleOptionInput interface {
 }
 
 type RuleGroupRuleOptionArgs struct {
-	Keyword  pulumi.StringInput      `pulumi:"keyword"`
+	// The Suricata rule option keywords. For Network Firewall , the keyword signature ID (sid) is required in the format `sid:112233` . The sid must be unique within the rule group. For information about Suricata rule option keywords, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
+	Keyword pulumi.StringInput `pulumi:"keyword"`
+	// The Suricata rule option settings. Settings have zero or more values, and the number of possible settings and required settings depends on the keyword. The format for Settings is `number` . For information about Suricata rule option settings, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
 	Settings pulumi.StringArrayInput `pulumi:"settings"`
 }
 
@@ -3076,10 +3507,12 @@ func (o RuleGroupRuleOptionOutput) ToRuleGroupRuleOptionOutputWithContext(ctx co
 	return o
 }
 
+// The Suricata rule option keywords. For Network Firewall , the keyword signature ID (sid) is required in the format `sid:112233` . The sid must be unique within the rule group. For information about Suricata rule option keywords, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
 func (o RuleGroupRuleOptionOutput) Keyword() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleOption) string { return v.Keyword }).(pulumi.StringOutput)
 }
 
+// The Suricata rule option settings. Settings have zero or more values, and the number of possible settings and required settings depends on the keyword. The format for Settings is `number` . For information about Suricata rule option settings, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
 func (o RuleGroupRuleOptionOutput) Settings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleOption) []string { return v.Settings }).(pulumi.StringArrayOutput)
 }
@@ -3105,7 +3538,9 @@ func (o RuleGroupRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOp
 }
 
 type RuleGroupRuleVariables struct {
-	IpSets   map[string]RuleGroupIpSet   `pulumi:"ipSets"`
+	// A list of IP addresses and address ranges, in CIDR notation.
+	IpSets map[string]RuleGroupIpSet `pulumi:"ipSets"`
+	// A list of port ranges.
 	PortSets map[string]RuleGroupPortSet `pulumi:"portSets"`
 }
 
@@ -3121,7 +3556,9 @@ type RuleGroupRuleVariablesInput interface {
 }
 
 type RuleGroupRuleVariablesArgs struct {
-	IpSets   RuleGroupIpSetMapInput   `pulumi:"ipSets"`
+	// A list of IP addresses and address ranges, in CIDR notation.
+	IpSets RuleGroupIpSetMapInput `pulumi:"ipSets"`
+	// A list of port ranges.
 	PortSets RuleGroupPortSetMapInput `pulumi:"portSets"`
 }
 
@@ -3202,10 +3639,12 @@ func (o RuleGroupRuleVariablesOutput) ToRuleGroupRuleVariablesPtrOutputWithConte
 	}).(RuleGroupRuleVariablesPtrOutput)
 }
 
+// A list of IP addresses and address ranges, in CIDR notation.
 func (o RuleGroupRuleVariablesOutput) IpSets() RuleGroupIpSetMapOutput {
 	return o.ApplyT(func(v RuleGroupRuleVariables) map[string]RuleGroupIpSet { return v.IpSets }).(RuleGroupIpSetMapOutput)
 }
 
+// A list of port ranges.
 func (o RuleGroupRuleVariablesOutput) PortSets() RuleGroupPortSetMapOutput {
 	return o.ApplyT(func(v RuleGroupRuleVariables) map[string]RuleGroupPortSet { return v.PortSets }).(RuleGroupPortSetMapOutput)
 }
@@ -3234,6 +3673,7 @@ func (o RuleGroupRuleVariablesPtrOutput) Elem() RuleGroupRuleVariablesOutput {
 	}).(RuleGroupRuleVariablesOutput)
 }
 
+// A list of IP addresses and address ranges, in CIDR notation.
 func (o RuleGroupRuleVariablesPtrOutput) IpSets() RuleGroupIpSetMapOutput {
 	return o.ApplyT(func(v *RuleGroupRuleVariables) map[string]RuleGroupIpSet {
 		if v == nil {
@@ -3243,6 +3683,7 @@ func (o RuleGroupRuleVariablesPtrOutput) IpSets() RuleGroupIpSetMapOutput {
 	}).(RuleGroupIpSetMapOutput)
 }
 
+// A list of port ranges.
 func (o RuleGroupRuleVariablesPtrOutput) PortSets() RuleGroupPortSetMapOutput {
 	return o.ApplyT(func(v *RuleGroupRuleVariables) map[string]RuleGroupPortSet {
 		if v == nil {
@@ -3253,9 +3694,17 @@ func (o RuleGroupRuleVariablesPtrOutput) PortSets() RuleGroupPortSetMapOutput {
 }
 
 type RuleGroupRulesSource struct {
-	RulesSourceList                *RuleGroupRulesSourceList                `pulumi:"rulesSourceList"`
-	RulesString                    *string                                  `pulumi:"rulesString"`
-	StatefulRules                  []RuleGroupStatefulRule                  `pulumi:"statefulRules"`
+	// Stateful inspection criteria for a domain list rule group.
+	RulesSourceList *RuleGroupRulesSourceList `pulumi:"rulesSourceList"`
+	// Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
+	//
+	// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+	//
+	// > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+	RulesString *string `pulumi:"rulesString"`
+	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+	StatefulRules []RuleGroupStatefulRule `pulumi:"statefulRules"`
+	// Stateless inspection criteria to be used in a stateless rule group.
 	StatelessRulesAndCustomActions *RuleGroupStatelessRulesAndCustomActions `pulumi:"statelessRulesAndCustomActions"`
 }
 
@@ -3271,9 +3720,17 @@ type RuleGroupRulesSourceInput interface {
 }
 
 type RuleGroupRulesSourceArgs struct {
-	RulesSourceList                RuleGroupRulesSourceListPtrInput                `pulumi:"rulesSourceList"`
-	RulesString                    pulumi.StringPtrInput                           `pulumi:"rulesString"`
-	StatefulRules                  RuleGroupStatefulRuleArrayInput                 `pulumi:"statefulRules"`
+	// Stateful inspection criteria for a domain list rule group.
+	RulesSourceList RuleGroupRulesSourceListPtrInput `pulumi:"rulesSourceList"`
+	// Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
+	//
+	// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+	//
+	// > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+	RulesString pulumi.StringPtrInput `pulumi:"rulesString"`
+	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+	StatefulRules RuleGroupStatefulRuleArrayInput `pulumi:"statefulRules"`
+	// Stateless inspection criteria to be used in a stateless rule group.
 	StatelessRulesAndCustomActions RuleGroupStatelessRulesAndCustomActionsPtrInput `pulumi:"statelessRulesAndCustomActions"`
 }
 
@@ -3354,18 +3811,26 @@ func (o RuleGroupRulesSourceOutput) ToRuleGroupRulesSourcePtrOutputWithContext(c
 	}).(RuleGroupRulesSourcePtrOutput)
 }
 
+// Stateful inspection criteria for a domain list rule group.
 func (o RuleGroupRulesSourceOutput) RulesSourceList() RuleGroupRulesSourceListPtrOutput {
 	return o.ApplyT(func(v RuleGroupRulesSource) *RuleGroupRulesSourceList { return v.RulesSourceList }).(RuleGroupRulesSourceListPtrOutput)
 }
 
+// Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
+//
+// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+//
+// > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
 func (o RuleGroupRulesSourceOutput) RulesString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupRulesSource) *string { return v.RulesString }).(pulumi.StringPtrOutput)
 }
 
+// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
 func (o RuleGroupRulesSourceOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
 	return o.ApplyT(func(v RuleGroupRulesSource) []RuleGroupStatefulRule { return v.StatefulRules }).(RuleGroupStatefulRuleArrayOutput)
 }
 
+// Stateless inspection criteria to be used in a stateless rule group.
 func (o RuleGroupRulesSourceOutput) StatelessRulesAndCustomActions() RuleGroupStatelessRulesAndCustomActionsPtrOutput {
 	return o.ApplyT(func(v RuleGroupRulesSource) *RuleGroupStatelessRulesAndCustomActions {
 		return v.StatelessRulesAndCustomActions
@@ -3396,6 +3861,7 @@ func (o RuleGroupRulesSourcePtrOutput) Elem() RuleGroupRulesSourceOutput {
 	}).(RuleGroupRulesSourceOutput)
 }
 
+// Stateful inspection criteria for a domain list rule group.
 func (o RuleGroupRulesSourcePtrOutput) RulesSourceList() RuleGroupRulesSourceListPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSource) *RuleGroupRulesSourceList {
 		if v == nil {
@@ -3405,6 +3871,11 @@ func (o RuleGroupRulesSourcePtrOutput) RulesSourceList() RuleGroupRulesSourceLis
 	}).(RuleGroupRulesSourceListPtrOutput)
 }
 
+// Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
+//
+// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+//
+// > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
 func (o RuleGroupRulesSourcePtrOutput) RulesString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSource) *string {
 		if v == nil {
@@ -3414,6 +3885,7 @@ func (o RuleGroupRulesSourcePtrOutput) RulesString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
 func (o RuleGroupRulesSourcePtrOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSource) []RuleGroupStatefulRule {
 		if v == nil {
@@ -3423,6 +3895,7 @@ func (o RuleGroupRulesSourcePtrOutput) StatefulRules() RuleGroupStatefulRuleArra
 	}).(RuleGroupStatefulRuleArrayOutput)
 }
 
+// Stateless inspection criteria to be used in a stateless rule group.
 func (o RuleGroupRulesSourcePtrOutput) StatelessRulesAndCustomActions() RuleGroupStatelessRulesAndCustomActionsPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSource) *RuleGroupStatelessRulesAndCustomActions {
 		if v == nil {
@@ -3433,9 +3906,15 @@ func (o RuleGroupRulesSourcePtrOutput) StatelessRulesAndCustomActions() RuleGrou
 }
 
 type RuleGroupRulesSourceList struct {
+	// Whether you want to allow or deny access to the domains in your target list.
 	GeneratedRulesType RuleGroupGeneratedRulesType `pulumi:"generatedRulesType"`
-	TargetTypes        []RuleGroupTargetType       `pulumi:"targetTypes"`
-	Targets            []string                    `pulumi:"targets"`
+	// The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
+	TargetTypes []RuleGroupTargetType `pulumi:"targetTypes"`
+	// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
+	//
+	// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
+	// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
+	Targets []string `pulumi:"targets"`
 }
 
 // RuleGroupRulesSourceListInput is an input type that accepts RuleGroupRulesSourceListArgs and RuleGroupRulesSourceListOutput values.
@@ -3450,9 +3929,15 @@ type RuleGroupRulesSourceListInput interface {
 }
 
 type RuleGroupRulesSourceListArgs struct {
+	// Whether you want to allow or deny access to the domains in your target list.
 	GeneratedRulesType RuleGroupGeneratedRulesTypeInput `pulumi:"generatedRulesType"`
-	TargetTypes        RuleGroupTargetTypeArrayInput    `pulumi:"targetTypes"`
-	Targets            pulumi.StringArrayInput          `pulumi:"targets"`
+	// The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
+	TargetTypes RuleGroupTargetTypeArrayInput `pulumi:"targetTypes"`
+	// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
+	//
+	// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
+	// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
+	Targets pulumi.StringArrayInput `pulumi:"targets"`
 }
 
 func (RuleGroupRulesSourceListArgs) ElementType() reflect.Type {
@@ -3532,14 +4017,20 @@ func (o RuleGroupRulesSourceListOutput) ToRuleGroupRulesSourceListPtrOutputWithC
 	}).(RuleGroupRulesSourceListPtrOutput)
 }
 
+// Whether you want to allow or deny access to the domains in your target list.
 func (o RuleGroupRulesSourceListOutput) GeneratedRulesType() RuleGroupGeneratedRulesTypeOutput {
 	return o.ApplyT(func(v RuleGroupRulesSourceList) RuleGroupGeneratedRulesType { return v.GeneratedRulesType }).(RuleGroupGeneratedRulesTypeOutput)
 }
 
+// The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
 func (o RuleGroupRulesSourceListOutput) TargetTypes() RuleGroupTargetTypeArrayOutput {
 	return o.ApplyT(func(v RuleGroupRulesSourceList) []RuleGroupTargetType { return v.TargetTypes }).(RuleGroupTargetTypeArrayOutput)
 }
 
+// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
+//
+// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
+// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
 func (o RuleGroupRulesSourceListOutput) Targets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRulesSourceList) []string { return v.Targets }).(pulumi.StringArrayOutput)
 }
@@ -3568,6 +4059,7 @@ func (o RuleGroupRulesSourceListPtrOutput) Elem() RuleGroupRulesSourceListOutput
 	}).(RuleGroupRulesSourceListOutput)
 }
 
+// Whether you want to allow or deny access to the domains in your target list.
 func (o RuleGroupRulesSourceListPtrOutput) GeneratedRulesType() RuleGroupGeneratedRulesTypePtrOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSourceList) *RuleGroupGeneratedRulesType {
 		if v == nil {
@@ -3577,6 +4069,7 @@ func (o RuleGroupRulesSourceListPtrOutput) GeneratedRulesType() RuleGroupGenerat
 	}).(RuleGroupGeneratedRulesTypePtrOutput)
 }
 
+// The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
 func (o RuleGroupRulesSourceListPtrOutput) TargetTypes() RuleGroupTargetTypeArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSourceList) []RuleGroupTargetType {
 		if v == nil {
@@ -3586,6 +4079,10 @@ func (o RuleGroupRulesSourceListPtrOutput) TargetTypes() RuleGroupTargetTypeArra
 	}).(RuleGroupTargetTypeArrayOutput)
 }
 
+// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
+//
+// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
+// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
 func (o RuleGroupRulesSourceListPtrOutput) Targets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRulesSourceList) []string {
 		if v == nil {
@@ -3596,9 +4093,24 @@ func (o RuleGroupRulesSourceListPtrOutput) Targets() pulumi.StringArrayOutput {
 }
 
 type RuleGroupStatefulRule struct {
-	Action      RuleGroupStatefulRuleAction `pulumi:"action"`
-	Header      RuleGroupHeader             `pulumi:"header"`
-	RuleOptions []RuleGroupRuleOption       `pulumi:"ruleOptions"`
+	// Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.
+	//
+	// The actions for a stateful rule are defined as follows:
+	//
+	// - *PASS* - Permits the packets to go to the intended destination.
+	// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	// - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
+	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	//
+	// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
+	// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	//
+	// `REJECT` isn't currently available for use with IMAP and FTP protocols.
+	Action RuleGroupStatefulRuleAction `pulumi:"action"`
+	// The stateful inspection criteria for this rule, used to inspect traffic flows.
+	Header RuleGroupHeader `pulumi:"header"`
+	// Additional settings for a stateful rule, provided as keywords and settings.
+	RuleOptions []RuleGroupRuleOption `pulumi:"ruleOptions"`
 }
 
 // RuleGroupStatefulRuleInput is an input type that accepts RuleGroupStatefulRuleArgs and RuleGroupStatefulRuleOutput values.
@@ -3613,9 +4125,24 @@ type RuleGroupStatefulRuleInput interface {
 }
 
 type RuleGroupStatefulRuleArgs struct {
-	Action      RuleGroupStatefulRuleActionInput `pulumi:"action"`
-	Header      RuleGroupHeaderInput             `pulumi:"header"`
-	RuleOptions RuleGroupRuleOptionArrayInput    `pulumi:"ruleOptions"`
+	// Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.
+	//
+	// The actions for a stateful rule are defined as follows:
+	//
+	// - *PASS* - Permits the packets to go to the intended destination.
+	// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	// - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
+	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	//
+	// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
+	// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+	//
+	// `REJECT` isn't currently available for use with IMAP and FTP protocols.
+	Action RuleGroupStatefulRuleActionInput `pulumi:"action"`
+	// The stateful inspection criteria for this rule, used to inspect traffic flows.
+	Header RuleGroupHeaderInput `pulumi:"header"`
+	// Additional settings for a stateful rule, provided as keywords and settings.
+	RuleOptions RuleGroupRuleOptionArrayInput `pulumi:"ruleOptions"`
 }
 
 func (RuleGroupStatefulRuleArgs) ElementType() reflect.Type {
@@ -3669,14 +4196,29 @@ func (o RuleGroupStatefulRuleOutput) ToRuleGroupStatefulRuleOutputWithContext(ct
 	return o
 }
 
+// Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.
+//
+// The actions for a stateful rule are defined as follows:
+//
+// - *PASS* - Permits the packets to go to the intended destination.
+// - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+// - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
+// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+//
+// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
+// - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+//
+// `REJECT` isn't currently available for use with IMAP and FTP protocols.
 func (o RuleGroupStatefulRuleOutput) Action() RuleGroupStatefulRuleActionOutput {
 	return o.ApplyT(func(v RuleGroupStatefulRule) RuleGroupStatefulRuleAction { return v.Action }).(RuleGroupStatefulRuleActionOutput)
 }
 
+// The stateful inspection criteria for this rule, used to inspect traffic flows.
 func (o RuleGroupStatefulRuleOutput) Header() RuleGroupHeaderOutput {
 	return o.ApplyT(func(v RuleGroupStatefulRule) RuleGroupHeader { return v.Header }).(RuleGroupHeaderOutput)
 }
 
+// Additional settings for a stateful rule, provided as keywords and settings.
 func (o RuleGroupStatefulRuleOutput) RuleOptions() RuleGroupRuleOptionArrayOutput {
 	return o.ApplyT(func(v RuleGroupStatefulRule) []RuleGroupRuleOption { return v.RuleOptions }).(RuleGroupRuleOptionArrayOutput)
 }
@@ -3702,6 +4244,7 @@ func (o RuleGroupStatefulRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupStat
 }
 
 type RuleGroupStatefulRuleOptions struct {
+	// Indicates how to manage the order of the rule evaluation for the rule group. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder *RuleGroupRuleOrder `pulumi:"ruleOrder"`
 }
 
@@ -3717,6 +4260,7 @@ type RuleGroupStatefulRuleOptionsInput interface {
 }
 
 type RuleGroupStatefulRuleOptionsArgs struct {
+	// Indicates how to manage the order of the rule evaluation for the rule group. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder RuleGroupRuleOrderPtrInput `pulumi:"ruleOrder"`
 }
 
@@ -3797,6 +4341,7 @@ func (o RuleGroupStatefulRuleOptionsOutput) ToRuleGroupStatefulRuleOptionsPtrOut
 	}).(RuleGroupStatefulRuleOptionsPtrOutput)
 }
 
+// Indicates how to manage the order of the rule evaluation for the rule group. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o RuleGroupStatefulRuleOptionsOutput) RuleOrder() RuleGroupRuleOrderPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatefulRuleOptions) *RuleGroupRuleOrder { return v.RuleOrder }).(RuleGroupRuleOrderPtrOutput)
 }
@@ -3825,6 +4370,7 @@ func (o RuleGroupStatefulRuleOptionsPtrOutput) Elem() RuleGroupStatefulRuleOptio
 	}).(RuleGroupStatefulRuleOptionsOutput)
 }
 
+// Indicates how to manage the order of the rule evaluation for the rule group. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o RuleGroupStatefulRuleOptionsPtrOutput) RuleOrder() RuleGroupRuleOrderPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatefulRuleOptions) *RuleGroupRuleOrder {
 		if v == nil {
@@ -3835,7 +4381,13 @@ func (o RuleGroupStatefulRuleOptionsPtrOutput) RuleOrder() RuleGroupRuleOrderPtr
 }
 
 type RuleGroupStatelessRule struct {
-	Priority       int                     `pulumi:"priority"`
+	// Indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a rule group starting with the lowest priority setting. You must ensure that the priority settings are unique for the rule group.
+	//
+	// Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
+	//
+	// You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
+	Priority int `pulumi:"priority"`
+	// Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
 	RuleDefinition RuleGroupRuleDefinition `pulumi:"ruleDefinition"`
 }
 
@@ -3851,7 +4403,13 @@ type RuleGroupStatelessRuleInput interface {
 }
 
 type RuleGroupStatelessRuleArgs struct {
-	Priority       pulumi.IntInput              `pulumi:"priority"`
+	// Indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a rule group starting with the lowest priority setting. You must ensure that the priority settings are unique for the rule group.
+	//
+	// Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
+	//
+	// You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
 	RuleDefinition RuleGroupRuleDefinitionInput `pulumi:"ruleDefinition"`
 }
 
@@ -3906,10 +4464,16 @@ func (o RuleGroupStatelessRuleOutput) ToRuleGroupStatelessRuleOutputWithContext(
 	return o
 }
 
+// Indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a rule group starting with the lowest priority setting. You must ensure that the priority settings are unique for the rule group.
+//
+// Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
+//
+// You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
 func (o RuleGroupStatelessRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupStatelessRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
 func (o RuleGroupStatelessRuleOutput) RuleDefinition() RuleGroupRuleDefinitionOutput {
 	return o.ApplyT(func(v RuleGroupStatelessRule) RuleGroupRuleDefinition { return v.RuleDefinition }).(RuleGroupRuleDefinitionOutput)
 }
@@ -3935,7 +4499,9 @@ func (o RuleGroupStatelessRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupSta
 }
 
 type RuleGroupStatelessRulesAndCustomActions struct {
-	CustomActions  []RuleGroupCustomAction  `pulumi:"customActions"`
+	// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+	CustomActions []RuleGroupCustomAction `pulumi:"customActions"`
+	// Defines the set of stateless rules for use in a stateless rule group.
 	StatelessRules []RuleGroupStatelessRule `pulumi:"statelessRules"`
 }
 
@@ -3951,7 +4517,9 @@ type RuleGroupStatelessRulesAndCustomActionsInput interface {
 }
 
 type RuleGroupStatelessRulesAndCustomActionsArgs struct {
-	CustomActions  RuleGroupCustomActionArrayInput  `pulumi:"customActions"`
+	// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+	CustomActions RuleGroupCustomActionArrayInput `pulumi:"customActions"`
+	// Defines the set of stateless rules for use in a stateless rule group.
 	StatelessRules RuleGroupStatelessRuleArrayInput `pulumi:"statelessRules"`
 }
 
@@ -4032,10 +4600,12 @@ func (o RuleGroupStatelessRulesAndCustomActionsOutput) ToRuleGroupStatelessRules
 	}).(RuleGroupStatelessRulesAndCustomActionsPtrOutput)
 }
 
+// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
 func (o RuleGroupStatelessRulesAndCustomActionsOutput) CustomActions() RuleGroupCustomActionArrayOutput {
 	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) []RuleGroupCustomAction { return v.CustomActions }).(RuleGroupCustomActionArrayOutput)
 }
 
+// Defines the set of stateless rules for use in a stateless rule group.
 func (o RuleGroupStatelessRulesAndCustomActionsOutput) StatelessRules() RuleGroupStatelessRuleArrayOutput {
 	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) []RuleGroupStatelessRule { return v.StatelessRules }).(RuleGroupStatelessRuleArrayOutput)
 }
@@ -4064,6 +4634,7 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) Elem() RuleGroupStatel
 	}).(RuleGroupStatelessRulesAndCustomActionsOutput)
 }
 
+// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
 func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) CustomActions() RuleGroupCustomActionArrayOutput {
 	return o.ApplyT(func(v *RuleGroupStatelessRulesAndCustomActions) []RuleGroupCustomAction {
 		if v == nil {
@@ -4073,6 +4644,7 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) CustomActions() RuleGr
 	}).(RuleGroupCustomActionArrayOutput)
 }
 
+// Defines the set of stateless rules for use in a stateless rule group.
 func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) StatelessRules() RuleGroupStatelessRuleArrayOutput {
 	return o.ApplyT(func(v *RuleGroupStatelessRulesAndCustomActions) []RuleGroupStatelessRule {
 		if v == nil {
@@ -4083,12 +4655,21 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) StatelessRules() RuleG
 }
 
 type RuleGroupTag struct {
-	Key   string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+	Key string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
 	Value string `pulumi:"value"`
 }
 
 type RuleGroupTcpFlagField struct {
+	// Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the `Masks` setting.
+	//
+	// For the flags that are specified in the masks setting, the following must be true for the packet to match:
+	//
+	// - The ones that are set in this flags setting must be set in the packet.
+	// - The ones that are not set in this flags setting must also not be set in the packet.
 	Flags []RuleGroupTcpFlag `pulumi:"flags"`
+	// The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.
 	Masks []RuleGroupTcpFlag `pulumi:"masks"`
 }
 
@@ -4104,7 +4685,14 @@ type RuleGroupTcpFlagFieldInput interface {
 }
 
 type RuleGroupTcpFlagFieldArgs struct {
+	// Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the `Masks` setting.
+	//
+	// For the flags that are specified in the masks setting, the following must be true for the packet to match:
+	//
+	// - The ones that are set in this flags setting must be set in the packet.
+	// - The ones that are not set in this flags setting must also not be set in the packet.
 	Flags RuleGroupTcpFlagArrayInput `pulumi:"flags"`
+	// The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.
 	Masks RuleGroupTcpFlagArrayInput `pulumi:"masks"`
 }
 
@@ -4159,10 +4747,17 @@ func (o RuleGroupTcpFlagFieldOutput) ToRuleGroupTcpFlagFieldOutputWithContext(ct
 	return o
 }
 
+// Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the `Masks` setting.
+//
+// For the flags that are specified in the masks setting, the following must be true for the packet to match:
+//
+// - The ones that are set in this flags setting must be set in the packet.
+// - The ones that are not set in this flags setting must also not be set in the packet.
 func (o RuleGroupTcpFlagFieldOutput) Flags() RuleGroupTcpFlagArrayOutput {
 	return o.ApplyT(func(v RuleGroupTcpFlagField) []RuleGroupTcpFlag { return v.Flags }).(RuleGroupTcpFlagArrayOutput)
 }
 
+// The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.
 func (o RuleGroupTcpFlagFieldOutput) Masks() RuleGroupTcpFlagArrayOutput {
 	return o.ApplyT(func(v RuleGroupTcpFlagField) []RuleGroupTcpFlag { return v.Masks }).(RuleGroupTcpFlagArrayOutput)
 }
@@ -4188,6 +4783,16 @@ func (o RuleGroupTcpFlagFieldArrayOutput) Index(i pulumi.IntInput) RuleGroupTcpF
 }
 
 type TlsInspectionConfigurationAddress struct {
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 	AddressDefinition string `pulumi:"addressDefinition"`
 }
 
@@ -4203,6 +4808,16 @@ type TlsInspectionConfigurationAddressInput interface {
 }
 
 type TlsInspectionConfigurationAddressArgs struct {
+	// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+	//
+	// Examples:
+	//
+	// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+	// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+	// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+	//
+	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
 }
 
@@ -4257,6 +4872,16 @@ func (o TlsInspectionConfigurationAddressOutput) ToTlsInspectionConfigurationAdd
 	return o
 }
 
+// Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+//
+// Examples:
+//
+// - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+// - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+// - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+//
+// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 func (o TlsInspectionConfigurationAddressOutput) AddressDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationAddress) string { return v.AddressDefinition }).(pulumi.StringOutput)
 }
@@ -4282,8 +4907,10 @@ func (o TlsInspectionConfigurationAddressArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TlsInspectionConfigurationPortRange struct {
+	// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
 	FromPort int `pulumi:"fromPort"`
-	ToPort   int `pulumi:"toPort"`
+	// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+	ToPort int `pulumi:"toPort"`
 }
 
 // TlsInspectionConfigurationPortRangeInput is an input type that accepts TlsInspectionConfigurationPortRangeArgs and TlsInspectionConfigurationPortRangeOutput values.
@@ -4298,8 +4925,10 @@ type TlsInspectionConfigurationPortRangeInput interface {
 }
 
 type TlsInspectionConfigurationPortRangeArgs struct {
+	// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	ToPort   pulumi.IntInput `pulumi:"toPort"`
+	// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (TlsInspectionConfigurationPortRangeArgs) ElementType() reflect.Type {
@@ -4353,10 +4982,12 @@ func (o TlsInspectionConfigurationPortRangeOutput) ToTlsInspectionConfigurationP
 	return o
 }
 
+// The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
 func (o TlsInspectionConfigurationPortRangeOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationPortRange) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
+// The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
 func (o TlsInspectionConfigurationPortRangeOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationPortRange) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -4382,6 +5013,7 @@ func (o TlsInspectionConfigurationPortRangeArrayOutput) Index(i pulumi.IntInput)
 }
 
 type TlsInspectionConfigurationServerCertificate struct {
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
@@ -4397,6 +5029,7 @@ type TlsInspectionConfigurationServerCertificateInput interface {
 }
 
 type TlsInspectionConfigurationServerCertificateArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 
@@ -4451,6 +5084,7 @@ func (o TlsInspectionConfigurationServerCertificateOutput) ToTlsInspectionConfig
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
 func (o TlsInspectionConfigurationServerCertificateOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificate) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
@@ -4476,10 +5110,23 @@ func (o TlsInspectionConfigurationServerCertificateArrayOutput) Index(i pulumi.I
 }
 
 type TlsInspectionConfigurationServerCertificateConfiguration struct {
-	CertificateAuthorityArn          *string                                                                                             `pulumi:"certificateAuthorityArn"`
+	// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+	//
+	// The following limitations apply:
+	//
+	// - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
+	// - You can't use certificates issued by AWS Private Certificate Authority .
+	//
+	// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
+	//
+	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
+	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 	CheckCertificateRevocationStatus *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties `pulumi:"checkCertificateRevocationStatus"`
-	Scopes                           []TlsInspectionConfigurationServerCertificateScope                                                  `pulumi:"scopes"`
-	ServerCertificates               []TlsInspectionConfigurationServerCertificate                                                       `pulumi:"serverCertificates"`
+	// A list of scopes.
+	Scopes []TlsInspectionConfigurationServerCertificateScope `pulumi:"scopes"`
+	// The list of server certificates to use for inbound SSL/TLS inspection.
+	ServerCertificates []TlsInspectionConfigurationServerCertificate `pulumi:"serverCertificates"`
 }
 
 // TlsInspectionConfigurationServerCertificateConfigurationInput is an input type that accepts TlsInspectionConfigurationServerCertificateConfigurationArgs and TlsInspectionConfigurationServerCertificateConfigurationOutput values.
@@ -4494,10 +5141,23 @@ type TlsInspectionConfigurationServerCertificateConfigurationInput interface {
 }
 
 type TlsInspectionConfigurationServerCertificateConfigurationArgs struct {
-	CertificateAuthorityArn          pulumi.StringPtrInput                                                                                      `pulumi:"certificateAuthorityArn"`
+	// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+	//
+	// The following limitations apply:
+	//
+	// - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
+	// - You can't use certificates issued by AWS Private Certificate Authority .
+	//
+	// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
+	//
+	// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
+	// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 	CheckCertificateRevocationStatus TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput `pulumi:"checkCertificateRevocationStatus"`
-	Scopes                           TlsInspectionConfigurationServerCertificateScopeArrayInput                                                 `pulumi:"scopes"`
-	ServerCertificates               TlsInspectionConfigurationServerCertificateArrayInput                                                      `pulumi:"serverCertificates"`
+	// A list of scopes.
+	Scopes TlsInspectionConfigurationServerCertificateScopeArrayInput `pulumi:"scopes"`
+	// The list of server certificates to use for inbound SSL/TLS inspection.
+	ServerCertificates TlsInspectionConfigurationServerCertificateArrayInput `pulumi:"serverCertificates"`
 }
 
 func (TlsInspectionConfigurationServerCertificateConfigurationArgs) ElementType() reflect.Type {
@@ -4551,24 +5211,37 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsIns
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+//
+// The following limitations apply:
+//
+// - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
+// - You can't use certificates issued by AWS Private Certificate Authority .
+//
+// For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
+//
+// For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) *string {
 		return v.CertificateAuthorityArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CheckCertificateRevocationStatus() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
 		return v.CheckCertificateRevocationStatus
 	}).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
 }
 
+// A list of scopes.
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) Scopes() TlsInspectionConfigurationServerCertificateScopeArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) []TlsInspectionConfigurationServerCertificateScope {
 		return v.Scopes
 	}).(TlsInspectionConfigurationServerCertificateScopeArrayOutput)
 }
 
+// The list of server certificates to use for inbound SSL/TLS inspection.
 func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ServerCertificates() TlsInspectionConfigurationServerCertificateArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) []TlsInspectionConfigurationServerCertificate {
 		return v.ServerCertificates
@@ -4595,6 +5268,7 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) Ind
 	}).(TlsInspectionConfigurationServerCertificateConfigurationOutput)
 }
 
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties struct {
 	RevokedStatusAction *TlsInspectionConfigurationRevokedStatusAction `pulumi:"revokedStatusAction"`
 	UnknownStatusAction *TlsInspectionConfigurationUnknownStatusAction `pulumi:"unknownStatusAction"`
@@ -4611,6 +5285,7 @@ type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRev
 	ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput
 }
 
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs struct {
 	RevokedStatusAction TlsInspectionConfigurationRevokedStatusActionPtrInput `pulumi:"revokedStatusAction"`
 	UnknownStatusAction TlsInspectionConfigurationUnknownStatusActionPtrInput `pulumi:"unknownStatusAction"`
@@ -4669,6 +5344,7 @@ func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
 }
 
+// When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
 type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ElementType() reflect.Type {
@@ -4748,11 +5424,23 @@ func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificate
 }
 
 type TlsInspectionConfigurationServerCertificateScope struct {
+	// The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+	//
+	// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
 	DestinationPorts []TlsInspectionConfigurationPortRange `pulumi:"destinationPorts"`
-	Destinations     []TlsInspectionConfigurationAddress   `pulumi:"destinations"`
-	Protocols        []int                                 `pulumi:"protocols"`
-	SourcePorts      []TlsInspectionConfigurationPortRange `pulumi:"sourcePorts"`
-	Sources          []TlsInspectionConfigurationAddress   `pulumi:"sources"`
+	// The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+	// matches with any destination address.
+	Destinations []TlsInspectionConfigurationAddress `pulumi:"destinations"`
+	// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
+	// (IANA). Network Firewall currently supports only TCP.
+	Protocols []int `pulumi:"protocols"`
+	// The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
+	//
+	// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
+	SourcePorts []TlsInspectionConfigurationPortRange `pulumi:"sourcePorts"`
+	// The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+	// matches with any source address.
+	Sources []TlsInspectionConfigurationAddress `pulumi:"sources"`
 }
 
 // TlsInspectionConfigurationServerCertificateScopeInput is an input type that accepts TlsInspectionConfigurationServerCertificateScopeArgs and TlsInspectionConfigurationServerCertificateScopeOutput values.
@@ -4767,11 +5455,23 @@ type TlsInspectionConfigurationServerCertificateScopeInput interface {
 }
 
 type TlsInspectionConfigurationServerCertificateScopeArgs struct {
+	// The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+	//
+	// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
 	DestinationPorts TlsInspectionConfigurationPortRangeArrayInput `pulumi:"destinationPorts"`
-	Destinations     TlsInspectionConfigurationAddressArrayInput   `pulumi:"destinations"`
-	Protocols        pulumi.IntArrayInput                          `pulumi:"protocols"`
-	SourcePorts      TlsInspectionConfigurationPortRangeArrayInput `pulumi:"sourcePorts"`
-	Sources          TlsInspectionConfigurationAddressArrayInput   `pulumi:"sources"`
+	// The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+	// matches with any destination address.
+	Destinations TlsInspectionConfigurationAddressArrayInput `pulumi:"destinations"`
+	// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
+	// (IANA). Network Firewall currently supports only TCP.
+	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
+	// The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
+	//
+	// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
+	SourcePorts TlsInspectionConfigurationPortRangeArrayInput `pulumi:"sourcePorts"`
+	// The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+	// matches with any source address.
+	Sources TlsInspectionConfigurationAddressArrayInput `pulumi:"sources"`
 }
 
 func (TlsInspectionConfigurationServerCertificateScopeArgs) ElementType() reflect.Type {
@@ -4825,28 +5525,40 @@ func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToTlsInspectionC
 	return o
 }
 
+// The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+//
+// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) DestinationPorts() TlsInspectionConfigurationPortRangeArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationPortRange {
 		return v.DestinationPorts
 	}).(TlsInspectionConfigurationPortRangeArrayOutput)
 }
 
+// The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+// matches with any destination address.
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) Destinations() TlsInspectionConfigurationAddressArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationAddress {
 		return v.Destinations
 	}).(TlsInspectionConfigurationAddressArrayOutput)
 }
 
+// The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
+// (IANA). Network Firewall currently supports only TCP.
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []int { return v.Protocols }).(pulumi.IntArrayOutput)
 }
 
+// The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
+//
+// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) SourcePorts() TlsInspectionConfigurationPortRangeArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationPortRange {
 		return v.SourcePorts
 	}).(TlsInspectionConfigurationPortRangeArrayOutput)
 }
 
+// The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+// matches with any source address.
 func (o TlsInspectionConfigurationServerCertificateScopeOutput) Sources() TlsInspectionConfigurationAddressArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationAddress {
 		return v.Sources
@@ -4874,11 +5586,14 @@ func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) Index(i pul
 }
 
 type TlsInspectionConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
+	Key string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
 	Value string `pulumi:"value"`
 }
 
 type TlsInspectionConfigurationTlsInspectionConfiguration struct {
+	// Lists the server certificate configurations that are associated with the TLS configuration.
 	ServerCertificateConfigurations []TlsInspectionConfigurationServerCertificateConfiguration `pulumi:"serverCertificateConfigurations"`
 }
 
@@ -4894,6 +5609,7 @@ type TlsInspectionConfigurationTlsInspectionConfigurationInput interface {
 }
 
 type TlsInspectionConfigurationTlsInspectionConfigurationArgs struct {
+	// Lists the server certificate configurations that are associated with the TLS configuration.
 	ServerCertificateConfigurations TlsInspectionConfigurationServerCertificateConfigurationArrayInput `pulumi:"serverCertificateConfigurations"`
 }
 
@@ -4923,6 +5639,7 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToTlsInspect
 	return o
 }
 
+// Lists the server certificate configurations that are associated with the TLS configuration.
 func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ServerCertificateConfigurations() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfiguration) []TlsInspectionConfigurationServerCertificateConfiguration {
 		return v.ServerCertificateConfigurations
@@ -4953,6 +5670,7 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) Elem() Tl
 	}).(TlsInspectionConfigurationTlsInspectionConfigurationOutput)
 }
 
+// Lists the server certificate configurations that are associated with the TLS configuration.
 func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ServerCertificateConfigurations() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
 	return o.ApplyT(func(v *TlsInspectionConfigurationTlsInspectionConfiguration) []TlsInspectionConfigurationServerCertificateConfiguration {
 		if v == nil {

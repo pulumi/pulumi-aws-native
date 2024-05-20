@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Events.Inputs
     {
         [Input("runCommandTargets", required: true)]
         private InputList<Inputs.RuleRunCommandTargetArgs>? _runCommandTargets;
+
+        /// <summary>
+        /// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
+        /// </summary>
         public InputList<Inputs.RuleRunCommandTargetArgs> RunCommandTargets
         {
             get => _runCommandTargets ?? (_runCommandTargets = new InputList<Inputs.RuleRunCommandTargetArgs>());

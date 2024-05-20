@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The identifier of the collection
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        /// </summary>
         public readonly Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas? StandbyReplicas;
 
         [OutputConstructor]

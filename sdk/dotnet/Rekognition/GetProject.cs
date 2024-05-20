@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class GetProjectArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the project to create.
+        /// </summary>
         [Input("projectName", required: true)]
         public string ProjectName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class GetProjectInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the project to create.
+        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Rekognition
     [OutputType]
     public sealed class GetProjectResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name of the project.
+        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

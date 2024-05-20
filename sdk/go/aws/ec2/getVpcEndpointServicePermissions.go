@@ -23,10 +23,12 @@ func LookupVpcEndpointServicePermissions(ctx *pulumi.Context, args *LookupVpcEnd
 }
 
 type LookupVpcEndpointServicePermissionsArgs struct {
+	// The ID of the service.
 	ServiceId string `pulumi:"serviceId"`
 }
 
 type LookupVpcEndpointServicePermissionsResult struct {
+	// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
 }
 
@@ -44,6 +46,7 @@ func LookupVpcEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupV
 }
 
 type LookupVpcEndpointServicePermissionsOutputArgs struct {
+	// The ID of the service.
 	ServiceId pulumi.StringInput `pulumi:"serviceId"`
 }
 
@@ -65,6 +68,7 @@ func (o LookupVpcEndpointServicePermissionsResultOutput) ToLookupVpcEndpointServ
 	return o
 }
 
+// The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
 func (o LookupVpcEndpointServicePermissionsResultOutput) AllowedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServicePermissionsResult) []string { return v.AllowedPrincipals }).(pulumi.StringArrayOutput)
 }

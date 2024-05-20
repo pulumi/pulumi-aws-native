@@ -31,9 +31,28 @@ class RuleGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
+        :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group.
+               
+               When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+               
+               AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
+        :param pulumi.Input['RuleGroupScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+               
+               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]] available_labels: Collection of Available Labels.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]] consumed_labels: Collection of Consumed Labels.
+        :param pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+               
+               For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+               
+               For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+        :param pulumi.Input[str] description: A description of the rule group that helps with identification.
+        :param pulumi.Input[str] name: The name of the rule group. You cannot change the name of a rule group after you create it.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: Collection of Rules.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+               
+               > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "scope", scope)
@@ -56,6 +75,13 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def capacity(self) -> pulumi.Input[int]:
+        """
+        The web ACL capacity units (WCUs) required for this rule group.
+
+        When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+
+        AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
+        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -65,6 +91,11 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Input['RuleGroupScope']:
+        """
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+
+        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -74,6 +105,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> pulumi.Input['RuleGroupVisibilityConfigArgs']:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
@@ -107,6 +141,13 @@ class RuleGroupArgs:
     @property
     @pulumi.getter(name="customResponseBodies")
     def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+        """
+        A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+
+        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+
+        For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+        """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
@@ -116,6 +157,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the rule group that helps with identification.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -125,6 +169,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule group. You cannot change the name of a rule group after you create it.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -146,6 +193,11 @@ class RuleGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+
+        > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,8 +227,27 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]] available_labels: Collection of Available Labels.
+        :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group.
+               
+               When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+               
+               AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]] consumed_labels: Collection of Consumed Labels.
+        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+               
+               For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+               
+               For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+        :param pulumi.Input[str] description: A description of the rule group that helps with identification.
+        :param pulumi.Input[str] name: The name of the rule group. You cannot change the name of a rule group after you create it.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: Collection of Rules.
+        :param pulumi.Input['RuleGroupScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+               
+               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+               
+               > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection.
         """
         ...
     @overload
@@ -282,6 +353,9 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the rule group.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -295,11 +369,21 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the rule group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
+        """
+        The web ACL capacity units (WCUs) required for this rule group.
+
+        When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
+
+        AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
+        """
         return pulumi.get(self, "capacity")
 
     @property
@@ -313,21 +397,41 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customResponseBodies")
     def custom_response_bodies(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.RuleGroupCustomResponseBody']]]:
+        """
+        A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+
+        For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+
+        For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
+        """
         return pulumi.get(self, "custom_response_bodies")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the rule group that helps with identification.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="labelNamespace")
     def label_namespace(self) -> pulumi.Output[str]:
+        """
+        The label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
+
+        The syntax for the label namespace prefix for a rule group is the following: `awswaf:<account ID>:rule group:<rule group name>:`
+
+        When a rule with a label matches a web request, AWS WAF adds the fully qualified label to the request. A fully qualified label is made up of the label namespace from the rule group or web ACL where the rule is defined and the label from the rule, separated by a colon.
+        """
         return pulumi.get(self, "label_namespace")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the rule group. You cannot change the name of a rule group after you create it.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -341,15 +445,28 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output['RuleGroupScope']:
+        """
+        Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+
+        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+
+        > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> pulumi.Output['outputs.RuleGroupVisibilityConfig']:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        """
         return pulumi.get(self, "visibility_config")
 

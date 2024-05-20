@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSliderControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of info icon label options.
+        /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.TemplateSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
+        /// <summary>
+        /// The options to configure the title visibility, name, and font size.
+        /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.TemplateLabelOptionsArgs>? TitleOptions { get; set; }
 

@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.GroundStation
     [AwsNativeResourceType("aws-native:groundstation:Config")]
     public partial class Config : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
+        /// </summary>
         [Output("configData")]
         public Output<Outputs.ConfigData> ConfigData { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the config object.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the config, such as `tracking` .
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -78,14 +96,24 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class ConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
+        /// </summary>
         [Input("configData", required: true)]
         public Input<Inputs.ConfigDataArgs> ConfigData { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the config object.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAxisLogarithmicScale
     {
+        /// <summary>
+        /// The base setup of a logarithmic axis scale.
+        /// </summary>
         public readonly double? Base;
 
         [OutputConstructor]

@@ -21,15 +21,27 @@ namespace Pulumi.AwsNative.IoT
         [Output("actionName")]
         public Output<string?> ActionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
+        /// </summary>
         [Output("actionParams")]
         public Output<Outputs.MitigationActionActionParams> ActionParams { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the mitigation action.
+        /// </summary>
         [Output("mitigationActionArn")]
         public Output<string> MitigationActionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the mitigation action.
+        /// </summary>
         [Output("mitigationActionId")]
         public Output<string> MitigationActionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The IAM role ARN used to apply this mitigation action.
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -94,9 +106,15 @@ namespace Pulumi.AwsNative.IoT
         [Input("actionName")]
         public Input<string>? ActionName { get; set; }
 
+        /// <summary>
+        /// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
+        /// </summary>
         [Input("actionParams", required: true)]
         public Input<Inputs.MitigationActionActionParamsArgs> ActionParams { get; set; } = null!;
 
+        /// <summary>
+        /// The IAM role ARN used to apply this mitigation action.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

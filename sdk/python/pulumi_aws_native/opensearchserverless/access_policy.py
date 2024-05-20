@@ -22,6 +22,7 @@ class AccessPolicyArgs:
         """
         The set of arguments for constructing a AccessPolicy resource.
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
+        :param pulumi.Input['AccessPolicyType'] type: The type of access policy. Currently the only option is `data` .
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
         """
@@ -47,6 +48,9 @@ class AccessPolicyArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AccessPolicyType']:
+        """
+        The type of access policy. Currently the only option is `data` .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -96,6 +100,7 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
+        :param pulumi.Input['AccessPolicyType'] type: The type of access policy. Currently the only option is `data` .
         """
         ...
     @overload
@@ -199,5 +204,8 @@ class AccessPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['AccessPolicyType']:
+        """
+        The type of access policy. Currently the only option is `data` .
+        """
         return pulumi.get(self, "type")
 

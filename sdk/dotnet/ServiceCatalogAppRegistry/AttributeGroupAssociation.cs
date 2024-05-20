@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) of the application that was augmented with attributes.
+        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("attributeGroup")]
         public Output<string> AttributeGroup { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+        /// </summary>
         [Output("attributeGroupArn")]
         public Output<string> AttributeGroupArn { get; private set; } = null!;
 

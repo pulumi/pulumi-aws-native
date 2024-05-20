@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionUlimit
     {
+        /// <summary>
+        /// The hard limit for the `ulimit` type.
+        /// </summary>
         public readonly int HardLimit;
+        /// <summary>
+        /// The `type` of the `ulimit` . Valid values are: `core` | `cpu` | `data` | `fsize` | `locks` | `memlock` | `msgqueue` | `nice` | `nofile` | `nproc` | `rss` | `rtprio` | `rttime` | `sigpending` | `stack` .
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The soft limit for the `ulimit` type.
+        /// </summary>
         public readonly int SoftLimit;
 
         [OutputConstructor]

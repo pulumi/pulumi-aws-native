@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.DataBrew
         [Output("sample")]
         public Output<Outputs.ProjectSample?> Sample { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata tags that have been applied to the project.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
@@ -192,6 +195,10 @@ namespace Pulumi.AwsNative.DataBrew
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// Metadata tags that have been applied to the project.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());

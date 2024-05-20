@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ce
 
     public sealed class GetAnomalySubscriptionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The `AnomalySubscription` Amazon Resource Name (ARN).
+        /// </summary>
         [Input("subscriptionArn", required: true)]
         public string SubscriptionArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ce
 
     public sealed class GetAnomalySubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The `AnomalySubscription` Amazon Resource Name (ARN).
+        /// </summary>
         [Input("subscriptionArn", required: true)]
         public Input<string> SubscriptionArn { get; set; } = null!;
 
@@ -67,6 +73,9 @@ namespace Pulumi.AwsNative.Ce
         /// A list of subscriber
         /// </summary>
         public readonly ImmutableArray<Outputs.AnomalySubscriptionSubscriber> Subscribers;
+        /// <summary>
+        /// The `AnomalySubscription` Amazon Resource Name (ARN).
+        /// </summary>
         public readonly string? SubscriptionArn;
         /// <summary>
         /// The name of the subscription.

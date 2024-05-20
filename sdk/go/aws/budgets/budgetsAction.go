@@ -17,16 +17,26 @@ import (
 type BudgetsAction struct {
 	pulumi.CustomResourceState
 
-	ActionId         pulumi.StringOutput                 `pulumi:"actionId"`
-	ActionThreshold  BudgetsActionActionThresholdOutput  `pulumi:"actionThreshold"`
-	ActionType       BudgetsActionActionTypeOutput       `pulumi:"actionType"`
-	ApprovalModel    BudgetsActionApprovalModelPtrOutput `pulumi:"approvalModel"`
-	BudgetName       pulumi.StringOutput                 `pulumi:"budgetName"`
-	Definition       BudgetsActionDefinitionOutput       `pulumi:"definition"`
-	ExecutionRoleArn pulumi.StringOutput                 `pulumi:"executionRoleArn"`
+	// A system-generated universally unique identifier (UUID) for the action.
+	ActionId pulumi.StringOutput `pulumi:"actionId"`
+	// The trigger threshold of the action.
+	ActionThreshold BudgetsActionActionThresholdOutput `pulumi:"actionThreshold"`
+	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+	ActionType BudgetsActionActionTypeOutput `pulumi:"actionType"`
+	// This specifies if the action needs manual or automatic approval.
+	ApprovalModel BudgetsActionApprovalModelPtrOutput `pulumi:"approvalModel"`
+	// A string that represents the budget name. ":" and "\" characters aren't allowed.
+	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
+	// Specifies all of the type-specific parameters.
+	Definition BudgetsActionDefinitionOutput `pulumi:"definition"`
+	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
+	// The type of a notification.
 	NotificationType BudgetsActionNotificationTypeOutput `pulumi:"notificationType"`
-	ResourceTags     aws.TagArrayOutput                  `pulumi:"resourceTags"`
-	Subscribers      BudgetsActionSubscriberArrayOutput  `pulumi:"subscribers"`
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+	ResourceTags aws.TagArrayOutput `pulumi:"resourceTags"`
+	// A list of subscribers.
+	Subscribers BudgetsActionSubscriberArrayOutput `pulumi:"subscribers"`
 }
 
 // NewBudgetsAction registers a new resource with the given unique name, arguments, and options.
@@ -95,28 +105,46 @@ func (BudgetsActionState) ElementType() reflect.Type {
 }
 
 type budgetsActionArgs struct {
-	ActionThreshold  BudgetsActionActionThreshold  `pulumi:"actionThreshold"`
-	ActionType       BudgetsActionActionType       `pulumi:"actionType"`
-	ApprovalModel    *BudgetsActionApprovalModel   `pulumi:"approvalModel"`
-	BudgetName       string                        `pulumi:"budgetName"`
-	Definition       BudgetsActionDefinition       `pulumi:"definition"`
-	ExecutionRoleArn string                        `pulumi:"executionRoleArn"`
+	// The trigger threshold of the action.
+	ActionThreshold BudgetsActionActionThreshold `pulumi:"actionThreshold"`
+	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+	ActionType BudgetsActionActionType `pulumi:"actionType"`
+	// This specifies if the action needs manual or automatic approval.
+	ApprovalModel *BudgetsActionApprovalModel `pulumi:"approvalModel"`
+	// A string that represents the budget name. ":" and "\" characters aren't allowed.
+	BudgetName string `pulumi:"budgetName"`
+	// Specifies all of the type-specific parameters.
+	Definition BudgetsActionDefinition `pulumi:"definition"`
+	// The role passed for action execution and reversion. Roles and actions must be in the same account.
+	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// The type of a notification.
 	NotificationType BudgetsActionNotificationType `pulumi:"notificationType"`
-	ResourceTags     []aws.Tag                     `pulumi:"resourceTags"`
-	Subscribers      []BudgetsActionSubscriber     `pulumi:"subscribers"`
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+	ResourceTags []aws.Tag `pulumi:"resourceTags"`
+	// A list of subscribers.
+	Subscribers []BudgetsActionSubscriber `pulumi:"subscribers"`
 }
 
 // The set of arguments for constructing a BudgetsAction resource.
 type BudgetsActionArgs struct {
-	ActionThreshold  BudgetsActionActionThresholdInput
-	ActionType       BudgetsActionActionTypeInput
-	ApprovalModel    BudgetsActionApprovalModelPtrInput
-	BudgetName       pulumi.StringInput
-	Definition       BudgetsActionDefinitionInput
+	// The trigger threshold of the action.
+	ActionThreshold BudgetsActionActionThresholdInput
+	// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+	ActionType BudgetsActionActionTypeInput
+	// This specifies if the action needs manual or automatic approval.
+	ApprovalModel BudgetsActionApprovalModelPtrInput
+	// A string that represents the budget name. ":" and "\" characters aren't allowed.
+	BudgetName pulumi.StringInput
+	// Specifies all of the type-specific parameters.
+	Definition BudgetsActionDefinitionInput
+	// The role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn pulumi.StringInput
+	// The type of a notification.
 	NotificationType BudgetsActionNotificationTypeInput
-	ResourceTags     aws.TagArrayInput
-	Subscribers      BudgetsActionSubscriberArrayInput
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
+	ResourceTags aws.TagArrayInput
+	// A list of subscribers.
+	Subscribers BudgetsActionSubscriberArrayInput
 }
 
 func (BudgetsActionArgs) ElementType() reflect.Type {
@@ -156,42 +184,52 @@ func (o BudgetsActionOutput) ToBudgetsActionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A system-generated universally unique identifier (UUID) for the action.
 func (o BudgetsActionOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.ActionId }).(pulumi.StringOutput)
 }
 
+// The trigger threshold of the action.
 func (o BudgetsActionOutput) ActionThreshold() BudgetsActionActionThresholdOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionActionThresholdOutput { return v.ActionThreshold }).(BudgetsActionActionThresholdOutput)
 }
 
+// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
 func (o BudgetsActionOutput) ActionType() BudgetsActionActionTypeOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionActionTypeOutput { return v.ActionType }).(BudgetsActionActionTypeOutput)
 }
 
+// This specifies if the action needs manual or automatic approval.
 func (o BudgetsActionOutput) ApprovalModel() BudgetsActionApprovalModelPtrOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionApprovalModelPtrOutput { return v.ApprovalModel }).(BudgetsActionApprovalModelPtrOutput)
 }
 
+// A string that represents the budget name. ":" and "\" characters aren't allowed.
 func (o BudgetsActionOutput) BudgetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.BudgetName }).(pulumi.StringOutput)
 }
 
+// Specifies all of the type-specific parameters.
 func (o BudgetsActionOutput) Definition() BudgetsActionDefinitionOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionDefinitionOutput { return v.Definition }).(BudgetsActionDefinitionOutput)
 }
 
+// The role passed for action execution and reversion. Roles and actions must be in the same account.
 func (o BudgetsActionOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
+// The type of a notification.
 func (o BudgetsActionOutput) NotificationType() BudgetsActionNotificationTypeOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionNotificationTypeOutput { return v.NotificationType }).(BudgetsActionNotificationTypeOutput)
 }
 
+// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 func (o BudgetsActionOutput) ResourceTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *BudgetsAction) aws.TagArrayOutput { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
+// A list of subscribers.
 func (o BudgetsActionOutput) Subscribers() BudgetsActionSubscriberArrayOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionSubscriberArrayOutput { return v.Subscribers }).(BudgetsActionSubscriberArrayOutput)
 }

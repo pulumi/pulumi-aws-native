@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     {
         [Input("customProperties")]
         private InputMap<string>? _customProperties;
+
+        /// <summary>
+        /// The custom properties that are specific to the connector when it's used as a destination in the flow.
+        /// </summary>
         public InputMap<string> CustomProperties
         {
             get => _customProperties ?? (_customProperties = new InputMap<string>());
             set => _customProperties = value;
         }
 
+        /// <summary>
+        /// The entity specified in the custom connector as a destination in the flow.
+        /// </summary>
         [Input("entityName", required: true)]
         public Input<string> EntityName { get; set; } = null!;
 
+        /// <summary>
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
@@ -38,6 +48,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
             set => _idFieldNames = value;
         }
 
+        /// <summary>
+        /// Specifies the type of write operation to be performed in the custom connector when it's used as destination.
+        /// </summary>
         [Input("writeOperationType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowWriteOperationType>? WriteOperationType { get; set; }
 

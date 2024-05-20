@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Rekognition.Inputs
     {
         [Input("labels", required: true)]
         private InputList<string>? _labels;
+
+        /// <summary>
+        /// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+        /// </summary>
         public InputList<string> Labels
         {
             get => _labels ?? (_labels = new InputList<string>());

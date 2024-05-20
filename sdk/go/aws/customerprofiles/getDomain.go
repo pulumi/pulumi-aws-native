@@ -38,8 +38,10 @@ type LookupDomainResult struct {
 	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
 	// The time of this integration got last updated at
-	LastUpdatedAt     *string                  `pulumi:"lastUpdatedAt"`
-	Matching          *DomainMatching          `pulumi:"matching"`
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The process of matching duplicate profiles.
+	Matching *DomainMatching `pulumi:"matching"`
+	// The process of matching duplicate profiles using Rule-Based matching.
 	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	Stats             *DomainStats             `pulumi:"stats"`
 	// The tags (keys and values) associated with the domain
@@ -107,10 +109,12 @@ func (o LookupDomainResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The process of matching duplicate profiles.
 func (o LookupDomainResultOutput) Matching() DomainMatchingPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainMatching { return v.Matching }).(DomainMatchingPtrOutput)
 }
 
+// The process of matching duplicate profiles using Rule-Based matching.
 func (o LookupDomainResultOutput) RuleBasedMatching() DomainRuleBasedMatchingPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainRuleBasedMatching { return v.RuleBasedMatching }).(DomainRuleBasedMatchingPtrOutput)
 }

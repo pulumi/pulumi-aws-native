@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.Deadline
     [AwsNativeResourceType("aws-native:deadline:LicenseEndpoint")]
     public partial class LicenseEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license endpoint.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The DNS name of the license server endpoint.
+        /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
+        /// <summary>
+        /// The license endpoint ID.
+        /// </summary>
         [Output("licenseEndpointId")]
         public Output<string> LicenseEndpointId { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
+        /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the license endpoint.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Deadline.LicenseEndpointStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The status message of the license endpoint.
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the VPC subnets that can connect to a license endpoint.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The VCP(virtual private cloud) ID associated with the license endpoint.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -92,6 +116,10 @@ namespace Pulumi.AwsNative.Deadline
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// The identifier of the Amazon EC2 security group that controls access to the license endpoint.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -100,12 +128,19 @@ namespace Pulumi.AwsNative.Deadline
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// Identifies the VPC subnets that can connect to a license endpoint.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// The VCP(virtual private cloud) ID associated with the license endpoint.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

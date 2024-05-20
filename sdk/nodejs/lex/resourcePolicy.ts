@@ -37,9 +37,21 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    /**
+     * The identifier of the resource policy.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+     */
     public readonly policy!: pulumi.Output<outputs.lex.ResourcePolicyPolicy>;
+    /**
+     * The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+     */
     public readonly resourceArn!: pulumi.Output<string>;
+    /**
+     * Specifies the current revision of a resource policy.
+     */
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
 
     /**
@@ -78,6 +90,12 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
+    /**
+     * A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+     */
     policy: pulumi.Input<inputs.lex.ResourcePolicyPolicyArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+     */
     resourceArn: pulumi.Input<string>;
 }

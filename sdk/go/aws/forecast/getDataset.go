@@ -24,20 +24,27 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
+	// The Amazon Resource Name (ARN) of the dataset.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupDatasetResult struct {
+	// The Amazon Resource Name (ARN) of the dataset.
 	Arn *string `pulumi:"arn"`
 	// Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
 	DataFrequency *string `pulumi:"dataFrequency"`
 	// The dataset type
 	DatasetType *DatasetType `pulumi:"datasetType"`
 	// The domain associated with the dataset
-	Domain           *DatasetDomain              `pulumi:"domain"`
+	Domain *DatasetDomain `pulumi:"domain"`
+	// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 	EncryptionConfig *EncryptionConfigProperties `pulumi:"encryptionConfig"`
-	Schema           *SchemaProperties           `pulumi:"schema"`
-	Tags             []aws.Tag                   `pulumi:"tags"`
+	// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+	Schema *SchemaProperties `pulumi:"schema"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetResultOutput {
@@ -54,6 +61,7 @@ func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts
 }
 
 type LookupDatasetOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the dataset.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -75,6 +83,7 @@ func (o LookupDatasetResultOutput) ToLookupDatasetResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the dataset.
 func (o LookupDatasetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -94,14 +103,19 @@ func (o LookupDatasetResultOutput) Domain() DatasetDomainPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetDomain { return v.Domain }).(DatasetDomainPtrOutput)
 }
 
+// A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
 func (o LookupDatasetResultOutput) EncryptionConfig() EncryptionConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *EncryptionConfigProperties { return v.EncryptionConfig }).(EncryptionConfigPropertiesPtrOutput)
 }
 
+// The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
 func (o LookupDatasetResultOutput) Schema() SchemaPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *SchemaProperties { return v.Schema }).(SchemaPropertiesPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupDatasetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

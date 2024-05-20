@@ -27,6 +27,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 		return func(t *testing.T) {
 			t.Helper()
 			ctx := cfSchemaContext{
+				reports: NewReports(),
 				pkg: &pschema.PackageSpec{
 					Types: map[string]pschema.ComplexTypeSpec{},
 				},

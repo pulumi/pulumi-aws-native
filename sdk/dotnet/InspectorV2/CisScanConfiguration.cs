@@ -27,15 +27,27 @@ namespace Pulumi.AwsNative.InspectorV2
         [Output("scanName")]
         public Output<string?> ScanName { get; private set; } = null!;
 
+        /// <summary>
+        /// The CIS scan configuration's schedule.
+        /// </summary>
         [Output("schedule")]
         public Output<Outputs.CisScanConfigurationSchedule?> Schedule { get; private set; } = null!;
 
+        /// <summary>
+        /// The CIS scan configuration's CIS Benchmark level.
+        /// </summary>
         [Output("securityLevel")]
         public Output<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel?> SecurityLevel { get; private set; } = null!;
 
+        /// <summary>
+        /// The CIS scan configuration's tags.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The CIS scan configuration's targets.
+        /// </summary>
         [Output("targets")]
         public Output<Outputs.CisScanConfigurationCisTargets?> Targets { get; private set; } = null!;
 
@@ -90,20 +102,33 @@ namespace Pulumi.AwsNative.InspectorV2
         [Input("scanName")]
         public Input<string>? ScanName { get; set; }
 
+        /// <summary>
+        /// The CIS scan configuration's schedule.
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.CisScanConfigurationScheduleArgs>? Schedule { get; set; }
 
+        /// <summary>
+        /// The CIS scan configuration's CIS Benchmark level.
+        /// </summary>
         [Input("securityLevel")]
         public Input<Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel>? SecurityLevel { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The CIS scan configuration's tags.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The CIS scan configuration's targets.
+        /// </summary>
         [Input("targets")]
         public Input<Inputs.CisScanConfigurationCisTargetsArgs>? Targets { get; set; }
 

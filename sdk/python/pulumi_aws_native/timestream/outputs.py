@@ -417,12 +417,16 @@ class ScheduledQueryErrorReportConfiguration(dict):
                  s3_configuration: 'outputs.ScheduledQueryS3Configuration'):
         """
         Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+        :param 'ScheduledQueryS3Configuration' s3_configuration: The S3 configuration for the error reports.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.ScheduledQueryS3Configuration':
+        """
+        The S3 configuration for the error reports.
+        """
         return pulumi.get(self, "s3_configuration")
 
 
@@ -584,6 +588,8 @@ class ScheduledQueryMultiMeasureMappings(dict):
                  target_multi_measure_name: Optional[str] = None):
         """
         Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        :param Sequence['ScheduledQueryMultiMeasureAttributeMapping'] multi_measure_attribute_mappings: Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
+        :param str target_multi_measure_name: The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
         """
         pulumi.set(__self__, "multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if target_multi_measure_name is not None:
@@ -592,11 +598,17 @@ class ScheduledQueryMultiMeasureMappings(dict):
     @property
     @pulumi.getter(name="multiMeasureAttributeMappings")
     def multi_measure_attribute_mappings(self) -> Sequence['outputs.ScheduledQueryMultiMeasureAttributeMapping']:
+        """
+        Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
+        """
         return pulumi.get(self, "multi_measure_attribute_mappings")
 
     @property
     @pulumi.getter(name="targetMultiMeasureName")
     def target_multi_measure_name(self) -> Optional[str]:
+        """
+        The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
+        """
         return pulumi.get(self, "target_multi_measure_name")
 
 
@@ -626,12 +638,16 @@ class ScheduledQueryNotificationConfiguration(dict):
                  sns_configuration: 'outputs.ScheduledQuerySnsConfiguration'):
         """
         Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
+        :param 'ScheduledQuerySnsConfiguration' sns_configuration: Details on SNS configuration.
         """
         pulumi.set(__self__, "sns_configuration", sns_configuration)
 
     @property
     @pulumi.getter(name="snsConfiguration")
     def sns_configuration(self) -> 'outputs.ScheduledQuerySnsConfiguration':
+        """
+        Details on SNS configuration.
+        """
         return pulumi.get(self, "sns_configuration")
 
 
@@ -667,6 +683,9 @@ class ScheduledQueryS3Configuration(dict):
                  object_key_prefix: Optional[str] = None):
         """
         Details on S3 location for error reports that result from running a query.
+        :param str bucket_name: Name of the S3 bucket under which error reports will be created.
+        :param 'ScheduledQueryEncryptionOption' encryption_option: Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
+        :param str object_key_prefix: Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if encryption_option is not None:
@@ -677,16 +696,25 @@ class ScheduledQueryS3Configuration(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
+        """
+        Name of the S3 bucket under which error reports will be created.
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> Optional['ScheduledQueryEncryptionOption']:
+        """
+        Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
+        """
         return pulumi.get(self, "encryption_option")
 
     @property
     @pulumi.getter(name="objectKeyPrefix")
     def object_key_prefix(self) -> Optional[str]:
+        """
+        Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
+        """
         return pulumi.get(self, "object_key_prefix")
 
 
@@ -716,12 +744,16 @@ class ScheduledQueryScheduleConfiguration(dict):
                  schedule_expression: str):
         """
         Configuration for when the scheduled query is executed.
+        :param str schedule_expression: An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
+        """
+        An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
+        """
         return pulumi.get(self, "schedule_expression")
 
 
@@ -751,12 +783,16 @@ class ScheduledQuerySnsConfiguration(dict):
                  topic_arn: str):
         """
         SNS configuration for notification upon scheduled query execution.
+        :param str topic_arn: SNS topic ARN that the scheduled query status notifications will be sent to.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> str:
+        """
+        SNS topic ARN that the scheduled query status notifications will be sent to.
+        """
         return pulumi.get(self, "topic_arn")
 
 
@@ -786,12 +822,16 @@ class ScheduledQueryTargetConfiguration(dict):
                  timestream_configuration: 'outputs.ScheduledQueryTimestreamConfiguration'):
         """
         Configuration of target store where scheduled query results are written to.
+        :param 'ScheduledQueryTimestreamConfiguration' timestream_configuration: Configuration needed to write data into the Timestream database and table.
         """
         pulumi.set(__self__, "timestream_configuration", timestream_configuration)
 
     @property
     @pulumi.getter(name="timestreamConfiguration")
     def timestream_configuration(self) -> 'outputs.ScheduledQueryTimestreamConfiguration':
+        """
+        Configuration needed to write data into the Timestream database and table.
+        """
         return pulumi.get(self, "timestream_configuration")
 
 
@@ -839,6 +879,13 @@ class ScheduledQueryTimestreamConfiguration(dict):
                  multi_measure_mappings: Optional['outputs.ScheduledQueryMultiMeasureMappings'] = None):
         """
         Configuration needed to write data into the Timestream database and table.
+        :param str database_name: Name of Timestream database to which the query result will be written.
+        :param Sequence['ScheduledQueryDimensionMapping'] dimension_mappings: This is to allow mapping column(s) from the query result to the dimension in the destination table.
+        :param str table_name: Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+        :param str time_column: Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+        :param str measure_name_column: Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
+        :param Sequence['ScheduledQueryMixedMeasureMapping'] mixed_measure_mappings: Specifies how to map measures to multi-measure records.
+        :param 'ScheduledQueryMultiMeasureMappings' multi_measure_mappings: Multi-measure mappings.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimension_mappings", dimension_mappings)
@@ -854,36 +901,57 @@ class ScheduledQueryTimestreamConfiguration(dict):
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        Name of Timestream database to which the query result will be written.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="dimensionMappings")
     def dimension_mappings(self) -> Sequence['outputs.ScheduledQueryDimensionMapping']:
+        """
+        This is to allow mapping column(s) from the query result to the dimension in the destination table.
+        """
         return pulumi.get(self, "dimension_mappings")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="timeColumn")
     def time_column(self) -> str:
+        """
+        Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+        """
         return pulumi.get(self, "time_column")
 
     @property
     @pulumi.getter(name="measureNameColumn")
     def measure_name_column(self) -> Optional[str]:
+        """
+        Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
+        """
         return pulumi.get(self, "measure_name_column")
 
     @property
     @pulumi.getter(name="mixedMeasureMappings")
     def mixed_measure_mappings(self) -> Optional[Sequence['outputs.ScheduledQueryMixedMeasureMapping']]:
+        """
+        Specifies how to map measures to multi-measure records.
+        """
         return pulumi.get(self, "mixed_measure_mappings")
 
     @property
     @pulumi.getter(name="multiMeasureMappings")
     def multi_measure_mappings(self) -> Optional['outputs.ScheduledQueryMultiMeasureMappings']:
+        """
+        Multi-measure mappings.
+        """
         return pulumi.get(self, "multi_measure_mappings")
 
 
@@ -913,6 +981,7 @@ class SchemaProperties(dict):
                  composite_partition_key: Optional[Sequence['outputs.TablePartitionKey']] = None):
         """
         A Schema specifies the expected data model of the table.
+        :param Sequence['TablePartitionKey'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
         """
         if composite_partition_key is not None:
             pulumi.set(__self__, "composite_partition_key", composite_partition_key)
@@ -920,6 +989,9 @@ class SchemaProperties(dict):
     @property
     @pulumi.getter(name="compositePartitionKey")
     def composite_partition_key(self) -> Optional[Sequence['outputs.TablePartitionKey']]:
+        """
+        A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
+        """
         return pulumi.get(self, "composite_partition_key")
 
 

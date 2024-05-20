@@ -18,6 +18,10 @@ class AliasArgs:
                  key_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alias resource.
+        :param pulumi.Input[str] alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+               
+               > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        :param pulumi.Input[str] key_arn: The `KeyARN` of the key associated with the alias.
         """
         if alias_name is not None:
             pulumi.set(__self__, "alias_name", alias_name)
@@ -27,6 +31,11 @@ class AliasArgs:
     @property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+
+        > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
@@ -36,6 +45,9 @@ class AliasArgs:
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The `KeyARN` of the key associated with the alias.
+        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -56,6 +68,10 @@ class Alias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+               
+               > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        :param pulumi.Input[str] key_arn: The `KeyARN` of the key associated with the alias.
         """
         ...
     @overload
@@ -125,10 +141,18 @@ class Alias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> pulumi.Output[str]:
+        """
+        A friendly name that you can use to refer to a key. The value must begin with `alias/` .
+
+        > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
+        """
         return pulumi.get(self, "alias_name")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The `KeyARN` of the key associated with the alias.
+        """
         return pulumi.get(self, "key_arn")
 

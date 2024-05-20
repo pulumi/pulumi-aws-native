@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetLateDataRule
     {
+        /// <summary>
+        /// The information needed to configure the late data rule.
+        /// </summary>
         public readonly Outputs.DatasetLateDataRuleConfiguration RuleConfiguration;
+        /// <summary>
+        /// The name of the late data rule.
+        /// </summary>
         public readonly string? RuleName;
 
         [OutputConstructor]

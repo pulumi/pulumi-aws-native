@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsAccessScopeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Network Access Scope.
+        /// </summary>
         [Input("networkInsightsAccessScopeId", required: true)]
         public string NetworkInsightsAccessScopeId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetNetworkInsightsAccessScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the Network Access Scope.
+        /// </summary>
         [Input("networkInsightsAccessScopeId", required: true)]
         public Input<string> NetworkInsightsAccessScopeId { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetNetworkInsightsAccessScopeResult
     {
+        /// <summary>
+        /// The creation date.
+        /// </summary>
         public readonly string? CreatedDate;
+        /// <summary>
+        /// The ARN of the Network Access Scope.
+        /// </summary>
         public readonly string? NetworkInsightsAccessScopeArn;
+        /// <summary>
+        /// The ID of the Network Access Scope.
+        /// </summary>
         public readonly string? NetworkInsightsAccessScopeId;
+        /// <summary>
+        /// The tags.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The last updated date.
+        /// </summary>
         public readonly string? UpdatedDate;
 
         [OutputConstructor]

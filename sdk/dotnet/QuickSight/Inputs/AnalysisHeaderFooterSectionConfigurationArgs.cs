@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisHeaderFooterSectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The layout configuration of the header or footer section.
+        /// </summary>
         [Input("layout", required: true)]
         public Input<Inputs.AnalysisSectionLayoutConfigurationArgs> Layout { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the header or footer section.
+        /// </summary>
         [Input("sectionId", required: true)]
         public Input<string> SectionId { get; set; } = null!;
 
+        /// <summary>
+        /// The style options of a header or footer section.
+        /// </summary>
         [Input("style")]
         public Input<Inputs.AnalysisSectionStyleArgs>? Style { get; set; }
 

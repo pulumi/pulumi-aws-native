@@ -45,11 +45,17 @@ export class ConfigRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigRule.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
      */
     public readonly compliance!: pulumi.Output<outputs.configuration.ComplianceProperties | undefined>;
+    /**
+     * The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
+     */
     public /*out*/ readonly configRuleId!: pulumi.Output<string>;
     /**
      * A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).

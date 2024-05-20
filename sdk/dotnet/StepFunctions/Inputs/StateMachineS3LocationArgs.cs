@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
 
     public sealed class StateMachineS3LocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the state machine definition file (Amazon S3 object name).
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// For versioning-enabled buckets, a specific version of the state machine definition.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

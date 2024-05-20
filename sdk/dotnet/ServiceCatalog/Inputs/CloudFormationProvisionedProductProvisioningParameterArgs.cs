@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 
     public sealed class CloudFormationProvisionedProductProvisioningParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameter key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The parameter value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

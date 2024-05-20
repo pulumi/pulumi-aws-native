@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class ThemeTileLayoutStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The gutter settings that apply between tiles.
+        /// </summary>
         [Input("gutter")]
         public Input<Inputs.ThemeGutterStyleArgs>? Gutter { get; set; }
 
+        /// <summary>
+        /// The margin settings that apply around the outside edge of sheets.
+        /// </summary>
         [Input("margin")]
         public Input<Inputs.ThemeMarginStyleArgs>? Margin { get; set; }
 

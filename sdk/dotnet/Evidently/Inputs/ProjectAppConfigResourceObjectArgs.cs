@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Evidently.Inputs
 
     public sealed class ProjectAppConfigResourceObjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AWS AppConfig application to use for client-side evaluation.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS AppConfig environment to use for client-side evaluation.
+        /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 

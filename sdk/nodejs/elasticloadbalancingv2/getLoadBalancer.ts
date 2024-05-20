@@ -19,11 +19,20 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetLoadBalancerArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
     loadBalancerArn: string;
 }
 
 export interface GetLoadBalancerResult {
+    /**
+     * The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
+     */
     readonly canonicalHostedZoneId?: string;
+    /**
+     * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
+     */
     readonly dnsName?: string;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
@@ -33,12 +42,21 @@ export interface GetLoadBalancerResult {
      * The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
      */
     readonly ipAddressType?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
     readonly loadBalancerArn?: string;
     /**
      * The load balancer attributes.
      */
     readonly loadBalancerAttributes?: outputs.elasticloadbalancingv2.LoadBalancerAttribute[];
+    /**
+     * The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
+     */
     readonly loadBalancerFullName?: string;
+    /**
+     * The name of the load balancer. For example, `my-load-balancer` .
+     */
     readonly loadBalancerName?: string;
     /**
      * [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
@@ -75,5 +93,8 @@ export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pu
 }
 
 export interface GetLoadBalancerOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the load balancer.
+     */
     loadBalancerArn: pulumi.Input<string>;
 }

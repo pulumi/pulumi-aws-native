@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetLaunchTemplateConfig
     {
+        /// <summary>
+        /// The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
+        /// </summary>
         public readonly Outputs.SpotFleetFleetLaunchTemplateSpecification? LaunchTemplateSpecification;
+        /// <summary>
+        /// Any parameters that you specify override the same parameters in the launch template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetLaunchTemplateOverrides> Overrides;
 
         [OutputConstructor]

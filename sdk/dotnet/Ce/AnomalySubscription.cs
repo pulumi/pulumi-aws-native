@@ -221,6 +221,9 @@ namespace Pulumi.AwsNative.Ce
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.AnomalySubscriptionSubscriber>> Subscribers { get; private set; } = null!;
 
+        /// <summary>
+        /// The `AnomalySubscription` Amazon Resource Name (ARN).
+        /// </summary>
         [Output("subscriptionArn")]
         public Output<string> SubscriptionArn { get; private set; } = null!;
 

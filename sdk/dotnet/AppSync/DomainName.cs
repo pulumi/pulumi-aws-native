@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.AppSync
     [AwsNativeResourceType("aws-native:appsync:DomainName")]
     public partial class DomainName : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The domain name provided by AWS AppSync .
+        /// </summary>
         [Output("appSyncDomainName")]
         public Output<string> AppSyncDomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The decription for your domain name.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainNameValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of your Amazon Route 53 hosted zone.
+        /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
 
@@ -80,12 +95,21 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate. This will be an AWS Certificate Manager certificate.
+        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
+        /// <summary>
+        /// The decription for your domain name.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainNameValue { get; set; } = null!;
 

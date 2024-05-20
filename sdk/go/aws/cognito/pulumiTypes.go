@@ -14,9 +14,16 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdentityPoolCognitoIdentityProvider struct {
-	ClientId             string `pulumi:"clientId"`
-	ProviderName         string `pulumi:"providerName"`
-	ServerSideTokenCheck *bool  `pulumi:"serverSideTokenCheck"`
+	// The client ID for the Amazon Cognito user pool.
+	ClientId string `pulumi:"clientId"`
+	// The provider name for an Amazon Cognito user pool. For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
+	ProviderName string `pulumi:"providerName"`
+	// TRUE if server-side token validation is enabled for the identity provider’s token.
+	//
+	// After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+	//
+	// If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
+	ServerSideTokenCheck *bool `pulumi:"serverSideTokenCheck"`
 }
 
 // IdentityPoolCognitoIdentityProviderInput is an input type that accepts IdentityPoolCognitoIdentityProviderArgs and IdentityPoolCognitoIdentityProviderOutput values.
@@ -31,8 +38,15 @@ type IdentityPoolCognitoIdentityProviderInput interface {
 }
 
 type IdentityPoolCognitoIdentityProviderArgs struct {
-	ClientId             pulumi.StringInput  `pulumi:"clientId"`
-	ProviderName         pulumi.StringInput  `pulumi:"providerName"`
+	// The client ID for the Amazon Cognito user pool.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The provider name for an Amazon Cognito user pool. For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// TRUE if server-side token validation is enabled for the identity provider’s token.
+	//
+	// After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+	//
+	// If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
 	ServerSideTokenCheck pulumi.BoolPtrInput `pulumi:"serverSideTokenCheck"`
 }
 
@@ -87,14 +101,21 @@ func (o IdentityPoolCognitoIdentityProviderOutput) ToIdentityPoolCognitoIdentity
 	return o
 }
 
+// The client ID for the Amazon Cognito user pool.
 func (o IdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The provider name for an Amazon Cognito user pool. For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .
 func (o IdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) string { return v.ProviderName }).(pulumi.StringOutput)
 }
 
+// TRUE if server-side token validation is enabled for the identity provider’s token.
+//
+// After you set the `ServerSideTokenCheck` to TRUE for an identity pool, that identity pool checks with the integrated user pools to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+//
+// If the user is signed out or deleted, the identity pool returns a 400 Not Authorized error.
 func (o IdentityPoolCognitoIdentityProviderOutput) ServerSideTokenCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) *bool { return v.ServerSideTokenCheck }).(pulumi.BoolPtrOutput)
 }
@@ -120,8 +141,11 @@ func (o IdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInput)
 }
 
 type IdentityPoolCognitoStreams struct {
-	RoleArn         *string `pulumi:"roleArn"`
-	StreamName      *string `pulumi:"streamName"`
+	// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
+	RoleArn *string `pulumi:"roleArn"`
+	// The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
+	StreamName *string `pulumi:"streamName"`
+	// Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
 	StreamingStatus *string `pulumi:"streamingStatus"`
 }
 
@@ -137,8 +161,11 @@ type IdentityPoolCognitoStreamsInput interface {
 }
 
 type IdentityPoolCognitoStreamsArgs struct {
-	RoleArn         pulumi.StringPtrInput `pulumi:"roleArn"`
-	StreamName      pulumi.StringPtrInput `pulumi:"streamName"`
+	// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
+	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
+	// Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
 	StreamingStatus pulumi.StringPtrInput `pulumi:"streamingStatus"`
 }
 
@@ -219,14 +246,17 @@ func (o IdentityPoolCognitoStreamsOutput) ToIdentityPoolCognitoStreamsPtrOutputW
 	}).(IdentityPoolCognitoStreamsPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
 func (o IdentityPoolCognitoStreamsOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPoolCognitoStreams) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
 func (o IdentityPoolCognitoStreamsOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPoolCognitoStreams) *string { return v.StreamName }).(pulumi.StringPtrOutput)
 }
 
+// Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
 func (o IdentityPoolCognitoStreamsOutput) StreamingStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPoolCognitoStreams) *string { return v.StreamingStatus }).(pulumi.StringPtrOutput)
 }
@@ -255,6 +285,7 @@ func (o IdentityPoolCognitoStreamsPtrOutput) Elem() IdentityPoolCognitoStreamsOu
 	}).(IdentityPoolCognitoStreamsOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke `PutRecord` on your Amazon Cognito stream.
 func (o IdentityPoolCognitoStreamsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolCognitoStreams) *string {
 		if v == nil {
@@ -264,6 +295,7 @@ func (o IdentityPoolCognitoStreamsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Amazon Cognito stream to receive updates. This stream must be in the developer's account and in the same Region as the identity pool.
 func (o IdentityPoolCognitoStreamsPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolCognitoStreams) *string {
 		if v == nil {
@@ -273,6 +305,7 @@ func (o IdentityPoolCognitoStreamsPtrOutput) StreamName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Status of the Amazon Cognito streams. Valid values are: `ENABLED` or `DISABLED` .
 func (o IdentityPoolCognitoStreamsPtrOutput) StreamingStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolCognitoStreams) *string {
 		if v == nil {
@@ -283,8 +316,10 @@ func (o IdentityPoolCognitoStreamsPtrOutput) StreamingStatus() pulumi.StringPtrO
 }
 
 type IdentityPoolPushSync struct {
+	// The ARNs of the Amazon SNS platform applications that could be used by clients.
 	ApplicationArns []string `pulumi:"applicationArns"`
-	RoleArn         *string  `pulumi:"roleArn"`
+	// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // IdentityPoolPushSyncInput is an input type that accepts IdentityPoolPushSyncArgs and IdentityPoolPushSyncOutput values.
@@ -299,8 +334,10 @@ type IdentityPoolPushSyncInput interface {
 }
 
 type IdentityPoolPushSyncArgs struct {
+	// The ARNs of the Amazon SNS platform applications that could be used by clients.
 	ApplicationArns pulumi.StringArrayInput `pulumi:"applicationArns"`
-	RoleArn         pulumi.StringPtrInput   `pulumi:"roleArn"`
+	// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (IdentityPoolPushSyncArgs) ElementType() reflect.Type {
@@ -380,10 +417,12 @@ func (o IdentityPoolPushSyncOutput) ToIdentityPoolPushSyncPtrOutputWithContext(c
 	}).(IdentityPoolPushSyncPtrOutput)
 }
 
+// The ARNs of the Amazon SNS platform applications that could be used by clients.
 func (o IdentityPoolPushSyncOutput) ApplicationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentityPoolPushSync) []string { return v.ApplicationArns }).(pulumi.StringArrayOutput)
 }
 
+// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
 func (o IdentityPoolPushSyncOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPoolPushSync) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -412,6 +451,7 @@ func (o IdentityPoolPushSyncPtrOutput) Elem() IdentityPoolPushSyncOutput {
 	}).(IdentityPoolPushSyncOutput)
 }
 
+// The ARNs of the Amazon SNS platform applications that could be used by clients.
 func (o IdentityPoolPushSyncPtrOutput) ApplicationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentityPoolPushSync) []string {
 		if v == nil {
@@ -421,6 +461,7 @@ func (o IdentityPoolPushSyncPtrOutput) ApplicationArns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// An IAM role configured to allow Amazon Cognito to call Amazon SNS on behalf of the developer.
 func (o IdentityPoolPushSyncPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolPushSync) *string {
 		if v == nil {
@@ -1033,6 +1074,7 @@ func (o LogDeliveryConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntI
 }
 
 type UserPoolAccountRecoverySetting struct {
+	// The list of `RecoveryOptionTypes` .
 	RecoveryMechanisms []UserPoolRecoveryOption `pulumi:"recoveryMechanisms"`
 }
 
@@ -1048,6 +1090,7 @@ type UserPoolAccountRecoverySettingInput interface {
 }
 
 type UserPoolAccountRecoverySettingArgs struct {
+	// The list of `RecoveryOptionTypes` .
 	RecoveryMechanisms UserPoolRecoveryOptionArrayInput `pulumi:"recoveryMechanisms"`
 }
 
@@ -1128,6 +1171,7 @@ func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPt
 	}).(UserPoolAccountRecoverySettingPtrOutput)
 }
 
+// The list of `RecoveryOptionTypes` .
 func (o UserPoolAccountRecoverySettingOutput) RecoveryMechanisms() UserPoolRecoveryOptionArrayOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySetting) []UserPoolRecoveryOption { return v.RecoveryMechanisms }).(UserPoolRecoveryOptionArrayOutput)
 }
@@ -1156,6 +1200,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) Elem() UserPoolAccountRecoveryS
 	}).(UserPoolAccountRecoverySettingOutput)
 }
 
+// The list of `RecoveryOptionTypes` .
 func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRecoveryOptionArrayOutput {
 	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) []UserPoolRecoveryOption {
 		if v == nil {
@@ -1166,6 +1211,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRe
 }
 
 type UserPoolAddOns struct {
+	// The operating mode of advanced security features in your user pool.
 	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
 }
 
@@ -1181,6 +1227,7 @@ type UserPoolAddOnsInput interface {
 }
 
 type UserPoolAddOnsArgs struct {
+	// The operating mode of advanced security features in your user pool.
 	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
 }
 
@@ -1261,6 +1308,7 @@ func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.C
 	}).(UserPoolAddOnsPtrOutput)
 }
 
+// The operating mode of advanced security features in your user pool.
 func (o UserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
 }
@@ -1289,6 +1337,7 @@ func (o UserPoolAddOnsPtrOutput) Elem() UserPoolAddOnsOutput {
 	}).(UserPoolAddOnsOutput)
 }
 
+// The operating mode of advanced security features in your user pool.
 func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAddOns) *string {
 		if v == nil {
@@ -1299,9 +1348,16 @@ func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 }
 
 type UserPoolAdminCreateUserConfig struct {
-	AllowAdminCreateUserOnly  *bool                          `pulumi:"allowAdminCreateUserOnly"`
-	InviteMessageTemplate     *UserPoolInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
-	UnusedAccountValidityDays *int                           `pulumi:"unusedAccountValidityDays"`
+	// Set to `True` if only the administrator is allowed to create user profiles. Set to `False` if users can sign themselves up via an app.
+	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
+	// The message template to be used for the welcome message to new users.
+	//
+	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
+	InviteMessageTemplate *UserPoolInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
+	// The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
+	//
+	// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
+	UnusedAccountValidityDays *int `pulumi:"unusedAccountValidityDays"`
 }
 
 // UserPoolAdminCreateUserConfigInput is an input type that accepts UserPoolAdminCreateUserConfigArgs and UserPoolAdminCreateUserConfigOutput values.
@@ -1316,9 +1372,16 @@ type UserPoolAdminCreateUserConfigInput interface {
 }
 
 type UserPoolAdminCreateUserConfigArgs struct {
-	AllowAdminCreateUserOnly  pulumi.BoolPtrInput                   `pulumi:"allowAdminCreateUserOnly"`
-	InviteMessageTemplate     UserPoolInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
-	UnusedAccountValidityDays pulumi.IntPtrInput                    `pulumi:"unusedAccountValidityDays"`
+	// Set to `True` if only the administrator is allowed to create user profiles. Set to `False` if users can sign themselves up via an app.
+	AllowAdminCreateUserOnly pulumi.BoolPtrInput `pulumi:"allowAdminCreateUserOnly"`
+	// The message template to be used for the welcome message to new users.
+	//
+	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
+	InviteMessageTemplate UserPoolInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
+	// The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
+	//
+	// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
+	UnusedAccountValidityDays pulumi.IntPtrInput `pulumi:"unusedAccountValidityDays"`
 }
 
 func (UserPoolAdminCreateUserConfigArgs) ElementType() reflect.Type {
@@ -1398,14 +1461,21 @@ func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigPtrO
 	}).(UserPoolAdminCreateUserConfigPtrOutput)
 }
 
+// Set to `True` if only the administrator is allowed to create user profiles. Set to `False` if users can sign themselves up via an app.
 func (o UserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *bool { return v.AllowAdminCreateUserOnly }).(pulumi.BoolPtrOutput)
 }
 
+// The message template to be used for the welcome message to new users.
+//
+// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolInviteMessageTemplatePtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *UserPoolInviteMessageTemplate { return v.InviteMessageTemplate }).(UserPoolInviteMessageTemplatePtrOutput)
 }
 
+// The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
+//
+// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
 func (o UserPoolAdminCreateUserConfigOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *int { return v.UnusedAccountValidityDays }).(pulumi.IntPtrOutput)
 }
@@ -1434,6 +1504,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) Elem() UserPoolAdminCreateUserCo
 	}).(UserPoolAdminCreateUserConfigOutput)
 }
 
+// Set to `True` if only the administrator is allowed to create user profiles. Set to `False` if users can sign themselves up via an app.
 func (o UserPoolAdminCreateUserConfigPtrOutput) AllowAdminCreateUserOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *bool {
 		if v == nil {
@@ -1443,6 +1514,9 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) AllowAdminCreateUserOnly() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The message template to be used for the welcome message to new users.
+//
+// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPoolInviteMessageTemplatePtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *UserPoolInviteMessageTemplate {
 		if v == nil {
@@ -1452,6 +1526,9 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 	}).(UserPoolInviteMessageTemplatePtrOutput)
 }
 
+// The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
+//
+// > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
 func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *int {
 		if v == nil {
@@ -1462,11 +1539,16 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulu
 }
 
 type UserPoolClientAnalyticsConfiguration struct {
+	// The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
 	ApplicationArn *string `pulumi:"applicationArn"`
-	ApplicationId  *string `pulumi:"applicationId"`
-	ExternalId     *string `pulumi:"externalId"`
-	RoleArn        *string `pulumi:"roleArn"`
-	UserDataShared *bool   `pulumi:"userDataShared"`
+	// The application ID for an Amazon Pinpoint application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The external ID.
+	ExternalId *string `pulumi:"externalId"`
+	// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+	RoleArn *string `pulumi:"roleArn"`
+	// If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
+	UserDataShared *bool `pulumi:"userDataShared"`
 }
 
 // UserPoolClientAnalyticsConfigurationInput is an input type that accepts UserPoolClientAnalyticsConfigurationArgs and UserPoolClientAnalyticsConfigurationOutput values.
@@ -1481,11 +1563,16 @@ type UserPoolClientAnalyticsConfigurationInput interface {
 }
 
 type UserPoolClientAnalyticsConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
 	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
-	ApplicationId  pulumi.StringPtrInput `pulumi:"applicationId"`
-	ExternalId     pulumi.StringPtrInput `pulumi:"externalId"`
-	RoleArn        pulumi.StringPtrInput `pulumi:"roleArn"`
-	UserDataShared pulumi.BoolPtrInput   `pulumi:"userDataShared"`
+	// The application ID for an Amazon Pinpoint application.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// The external ID.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
+	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
 }
 
 func (UserPoolClientAnalyticsConfigurationArgs) ElementType() reflect.Type {
@@ -1565,22 +1652,27 @@ func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsCon
 	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
 func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The application ID for an Amazon Pinpoint application.
 func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// The external ID.
 func (o UserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
 func (o UserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
 func (o UserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *bool { return v.UserDataShared }).(pulumi.BoolPtrOutput)
 }
@@ -1609,6 +1701,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) Elem() UserPoolClientAnal
 	}).(UserPoolClientAnalyticsConfigurationOutput)
 }
 
+// The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1618,6 +1711,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The application ID for an Amazon Pinpoint application.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1627,6 +1721,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The external ID.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1636,6 +1731,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -1645,6 +1741,7 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) *bool {
 		if v == nil {
@@ -1655,8 +1752,11 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.B
 }
 
 type UserPoolClientTokenValidityUnits struct {
-	AccessToken  *string `pulumi:"accessToken"`
-	IdToken      *string `pulumi:"idToken"`
+	// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
+	AccessToken *string `pulumi:"accessToken"`
+	// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
+	IdToken *string `pulumi:"idToken"`
+	// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -1672,8 +1772,11 @@ type UserPoolClientTokenValidityUnitsInput interface {
 }
 
 type UserPoolClientTokenValidityUnitsArgs struct {
-	AccessToken  pulumi.StringPtrInput `pulumi:"accessToken"`
-	IdToken      pulumi.StringPtrInput `pulumi:"idToken"`
+	// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
+	IdToken pulumi.StringPtrInput `pulumi:"idToken"`
+	// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -1754,14 +1857,17 @@ func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUni
 	}).(UserPoolClientTokenValidityUnitsPtrOutput)
 }
 
+// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
 func (o UserPoolClientTokenValidityUnitsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
+// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
 func (o UserPoolClientTokenValidityUnitsOutput) IdToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.IdToken }).(pulumi.StringPtrOutput)
 }
 
+// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
 func (o UserPoolClientTokenValidityUnitsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
@@ -1790,6 +1896,7 @@ func (o UserPoolClientTokenValidityUnitsPtrOutput) Elem() UserPoolClientTokenVal
 	}).(UserPoolClientTokenValidityUnitsOutput)
 }
 
+// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
 func (o UserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
 		if v == nil {
@@ -1799,6 +1906,7 @@ func (o UserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
 func (o UserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
 		if v == nil {
@@ -1808,6 +1916,7 @@ func (o UserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
 func (o UserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) *string {
 		if v == nil {
@@ -1818,7 +1927,9 @@ func (o UserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.StringP
 }
 
 type UserPoolCustomEmailSender struct {
-	LambdaArn     *string `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
+	LambdaArn *string `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
 	LambdaVersion *string `pulumi:"lambdaVersion"`
 }
 
@@ -1834,7 +1945,9 @@ type UserPoolCustomEmailSenderInput interface {
 }
 
 type UserPoolCustomEmailSenderArgs struct {
-	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
+	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
 	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
 }
 
@@ -1915,10 +2028,12 @@ func (o UserPoolCustomEmailSenderOutput) ToUserPoolCustomEmailSenderPtrOutputWit
 	}).(UserPoolCustomEmailSenderPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolCustomEmailSenderOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolCustomEmailSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
 
+// The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
 func (o UserPoolCustomEmailSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolCustomEmailSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
 }
@@ -1947,6 +2062,7 @@ func (o UserPoolCustomEmailSenderPtrOutput) Elem() UserPoolCustomEmailSenderOutp
 	}).(UserPoolCustomEmailSenderOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolCustomEmailSender) *string {
 		if v == nil {
@@ -1956,6 +2072,7 @@ func (o UserPoolCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
 func (o UserPoolCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolCustomEmailSender) *string {
 		if v == nil {
@@ -1966,7 +2083,9 @@ func (o UserPoolCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutp
 }
 
 type UserPoolCustomSmsSender struct {
-	LambdaArn     *string `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	LambdaArn *string `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
 	LambdaVersion *string `pulumi:"lambdaVersion"`
 }
 
@@ -1982,7 +2101,9 @@ type UserPoolCustomSmsSenderInput interface {
 }
 
 type UserPoolCustomSmsSenderArgs struct {
-	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
 	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
 }
 
@@ -2063,10 +2184,12 @@ func (o UserPoolCustomSmsSenderOutput) ToUserPoolCustomSmsSenderPtrOutputWithCon
 	}).(UserPoolCustomSmsSenderPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolCustomSmsSenderOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolCustomSmsSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
 
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
 func (o UserPoolCustomSmsSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolCustomSmsSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
 }
@@ -2095,6 +2218,7 @@ func (o UserPoolCustomSmsSenderPtrOutput) Elem() UserPoolCustomSmsSenderOutput {
 	}).(UserPoolCustomSmsSenderOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolCustomSmsSender) *string {
 		if v == nil {
@@ -2104,6 +2228,7 @@ func (o UserPoolCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
 func (o UserPoolCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolCustomSmsSender) *string {
 		if v == nil {
@@ -2114,7 +2239,13 @@ func (o UserPoolCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput
 }
 
 type UserPoolDeviceConfiguration struct {
-	ChallengeRequiredOnNewDevice     *bool `pulumi:"challengeRequiredOnNewDevice"`
+	// When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
+	//
+	// > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
+	ChallengeRequiredOnNewDevice *bool `pulumi:"challengeRequiredOnNewDevice"`
+	// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+	//
+	// When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 	DeviceOnlyRememberedOnUserPrompt *bool `pulumi:"deviceOnlyRememberedOnUserPrompt"`
 }
 
@@ -2130,7 +2261,13 @@ type UserPoolDeviceConfigurationInput interface {
 }
 
 type UserPoolDeviceConfigurationArgs struct {
-	ChallengeRequiredOnNewDevice     pulumi.BoolPtrInput `pulumi:"challengeRequiredOnNewDevice"`
+	// When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
+	//
+	// > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
+	ChallengeRequiredOnNewDevice pulumi.BoolPtrInput `pulumi:"challengeRequiredOnNewDevice"`
+	// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+	//
+	// When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 	DeviceOnlyRememberedOnUserPrompt pulumi.BoolPtrInput `pulumi:"deviceOnlyRememberedOnUserPrompt"`
 }
 
@@ -2211,10 +2348,16 @@ func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationPtrOutpu
 	}).(UserPoolDeviceConfigurationPtrOutput)
 }
 
+// When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
+//
+// > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
 func (o UserPoolDeviceConfigurationOutput) ChallengeRequiredOnNewDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolDeviceConfiguration) *bool { return v.ChallengeRequiredOnNewDevice }).(pulumi.BoolPtrOutput)
 }
 
+// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+//
+// When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 func (o UserPoolDeviceConfigurationOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolDeviceConfiguration) *bool { return v.DeviceOnlyRememberedOnUserPrompt }).(pulumi.BoolPtrOutput)
 }
@@ -2243,6 +2386,9 @@ func (o UserPoolDeviceConfigurationPtrOutput) Elem() UserPoolDeviceConfiguration
 	}).(UserPoolDeviceConfigurationOutput)
 }
 
+// When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
+//
+// > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
 func (o UserPoolDeviceConfigurationPtrOutput) ChallengeRequiredOnNewDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolDeviceConfiguration) *bool {
 		if v == nil {
@@ -2252,6 +2398,9 @@ func (o UserPoolDeviceConfigurationPtrOutput) ChallengeRequiredOnNewDevice() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+//
+// When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolDeviceConfiguration) *bool {
 		if v == nil {
@@ -2262,6 +2411,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 }
 
 type UserPoolDomainCustomDomainConfigType struct {
+	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`
 }
 
@@ -2277,6 +2427,7 @@ type UserPoolDomainCustomDomainConfigTypeInput interface {
 }
 
 type UserPoolDomainCustomDomainConfigTypeArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 }
 
@@ -2357,6 +2508,7 @@ func (o UserPoolDomainCustomDomainConfigTypeOutput) ToUserPoolDomainCustomDomain
 	}).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 func (o UserPoolDomainCustomDomainConfigTypeOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolDomainCustomDomainConfigType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -2385,6 +2537,7 @@ func (o UserPoolDomainCustomDomainConfigTypePtrOutput) Elem() UserPoolDomainCust
 	}).(UserPoolDomainCustomDomainConfigTypeOutput)
 }
 
+// The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 func (o UserPoolDomainCustomDomainConfigTypePtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolDomainCustomDomainConfigType) *string {
 		if v == nil {
@@ -2395,11 +2548,35 @@ func (o UserPoolDomainCustomDomainConfigTypePtrOutput) CertificateArn() pulumi.S
 }
 
 type UserPoolEmailConfiguration struct {
-	ConfigurationSet    *string `pulumi:"configurationSet"`
+	// The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+	//
+	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
+	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
+	ConfigurationSet *string `pulumi:"configurationSet"`
+	// Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
+	//
+	// - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+	//
+	// To look up the email delivery limit for the default option, see [Limits](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
+	//
+	// The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
+	// - **DEVELOPER** - When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account .
+	//
+	// If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
+	//
+	// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
 	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
-	From                *string `pulumi:"from"`
+	// Identifies either the sender's email address or the sender's name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
+	From *string `pulumi:"from"`
+	// The destination to which the receiver of the email should reply.
 	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
-	SourceArn           *string `pulumi:"sourceArn"`
+	// The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
+	//
+	// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
+	// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
+	//
+	// The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
+	SourceArn *string `pulumi:"sourceArn"`
 }
 
 // UserPoolEmailConfigurationInput is an input type that accepts UserPoolEmailConfigurationArgs and UserPoolEmailConfigurationOutput values.
@@ -2414,11 +2591,35 @@ type UserPoolEmailConfigurationInput interface {
 }
 
 type UserPoolEmailConfigurationArgs struct {
-	ConfigurationSet    pulumi.StringPtrInput `pulumi:"configurationSet"`
+	// The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+	//
+	// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
+	// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
+	ConfigurationSet pulumi.StringPtrInput `pulumi:"configurationSet"`
+	// Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
+	//
+	// - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+	//
+	// To look up the email delivery limit for the default option, see [Limits](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
+	//
+	// The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
+	// - **DEVELOPER** - When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account .
+	//
+	// If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
+	//
+	// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
 	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
-	From                pulumi.StringPtrInput `pulumi:"from"`
+	// Identifies either the sender's email address or the sender's name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The destination to which the receiver of the email should reply.
 	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
-	SourceArn           pulumi.StringPtrInput `pulumi:"sourceArn"`
+	// The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
+	//
+	// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
+	// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
+	//
+	// The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
+	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
 }
 
 func (UserPoolEmailConfigurationArgs) ElementType() reflect.Type {
@@ -2498,22 +2699,46 @@ func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationPtrOutputW
 	}).(UserPoolEmailConfigurationPtrOutput)
 }
 
+// The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+//
+// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
+// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
 func (o UserPoolEmailConfigurationOutput) ConfigurationSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ConfigurationSet }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
+//
+// - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+//
+// To look up the email delivery limit for the default option, see [Limits](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
+//
+// The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
+// - **DEVELOPER** - When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account .
+//
+// If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
+//
+// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
 func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
 }
 
+// Identifies either the sender's email address or the sender's name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
 func (o UserPoolEmailConfigurationOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.From }).(pulumi.StringPtrOutput)
 }
 
+// The destination to which the receiver of the email should reply.
 func (o UserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ReplyToEmailAddress }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
+//
+// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
+// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
+//
+// The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
 func (o UserPoolEmailConfigurationOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
@@ -2542,6 +2767,10 @@ func (o UserPoolEmailConfigurationPtrOutput) Elem() UserPoolEmailConfigurationOu
 	}).(UserPoolEmailConfigurationOutput)
 }
 
+// The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+//
+// - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
+// - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
 func (o UserPoolEmailConfigurationPtrOutput) ConfigurationSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -2551,6 +2780,18 @@ func (o UserPoolEmailConfigurationPtrOutput) ConfigurationSet() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
+//
+// - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
+//
+// To look up the email delivery limit for the default option, see [Limits](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) in the *Amazon Cognito Developer Guide* .
+//
+// The default FROM address is `no-reply@verificationemail.com` . To customize the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified email address for the `SourceArn` parameter.
+// - **DEVELOPER** - When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account .
+//
+// If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
+//
+// Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
 func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -2560,6 +2801,7 @@ func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifies either the sender's email address or the sender's name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
 func (o UserPoolEmailConfigurationPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -2569,6 +2811,7 @@ func (o UserPoolEmailConfigurationPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The destination to which the receiver of the email should reply.
 func (o UserPoolEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -2578,6 +2821,12 @@ func (o UserPoolEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
+//
+// - If you specify `COGNITO_DEFAULT` , Amazon Cognito uses this address as the custom FROM address when it emails your users using its built-in email account.
+// - If you specify `DEVELOPER` , Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.
+//
+// The Region value of the `SourceArn` parameter must indicate a supported AWS Region of your user pool. Typically, the Region in the `SourceArn` and the user pool Region are the same. For more information, see [Amazon SES email configuration regions](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping) in the [Amazon Cognito Developer Guide](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) .
 func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -2588,9 +2837,12 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 }
 
 type UserPoolInviteMessageTemplate struct {
+	// The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 	EmailMessage *string `pulumi:"emailMessage"`
+	// The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 	EmailSubject *string `pulumi:"emailSubject"`
-	SmsMessage   *string `pulumi:"smsMessage"`
+	// The message template for SMS messages.
+	SmsMessage *string `pulumi:"smsMessage"`
 }
 
 // UserPoolInviteMessageTemplateInput is an input type that accepts UserPoolInviteMessageTemplateArgs and UserPoolInviteMessageTemplateOutput values.
@@ -2605,9 +2857,12 @@ type UserPoolInviteMessageTemplateInput interface {
 }
 
 type UserPoolInviteMessageTemplateArgs struct {
+	// The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 	EmailMessage pulumi.StringPtrInput `pulumi:"emailMessage"`
+	// The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
-	SmsMessage   pulumi.StringPtrInput `pulumi:"smsMessage"`
+	// The message template for SMS messages.
+	SmsMessage pulumi.StringPtrInput `pulumi:"smsMessage"`
 }
 
 func (UserPoolInviteMessageTemplateArgs) ElementType() reflect.Type {
@@ -2687,14 +2942,17 @@ func (o UserPoolInviteMessageTemplateOutput) ToUserPoolInviteMessageTemplatePtrO
 	}).(UserPoolInviteMessageTemplatePtrOutput)
 }
 
+// The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 func (o UserPoolInviteMessageTemplateOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolInviteMessageTemplate) *string { return v.EmailMessage }).(pulumi.StringPtrOutput)
 }
 
+// The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 func (o UserPoolInviteMessageTemplateOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolInviteMessageTemplate) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
+// The message template for SMS messages.
 func (o UserPoolInviteMessageTemplateOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolInviteMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
@@ -2723,6 +2981,7 @@ func (o UserPoolInviteMessageTemplatePtrOutput) Elem() UserPoolInviteMessageTemp
 	}).(UserPoolInviteMessageTemplateOutput)
 }
 
+// The message template for email messages. EmailMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 func (o UserPoolInviteMessageTemplatePtrOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolInviteMessageTemplate) *string {
 		if v == nil {
@@ -2732,6 +2991,7 @@ func (o UserPoolInviteMessageTemplatePtrOutput) EmailMessage() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The subject line for email messages. EmailSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.
 func (o UserPoolInviteMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolInviteMessageTemplate) *string {
 		if v == nil {
@@ -2741,6 +3001,7 @@ func (o UserPoolInviteMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The message template for SMS messages.
 func (o UserPoolInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolInviteMessageTemplate) *string {
 		if v == nil {
@@ -2751,20 +3012,38 @@ func (o UserPoolInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOut
 }
 
 type UserPoolLambdaConfig struct {
-	CreateAuthChallenge         *string                           `pulumi:"createAuthChallenge"`
-	CustomEmailSender           *UserPoolCustomEmailSender        `pulumi:"customEmailSender"`
-	CustomMessage               *string                           `pulumi:"customMessage"`
-	CustomSmsSender             *UserPoolCustomSmsSender          `pulumi:"customSmsSender"`
-	DefineAuthChallenge         *string                           `pulumi:"defineAuthChallenge"`
-	KmsKeyId                    *string                           `pulumi:"kmsKeyId"`
-	PostAuthentication          *string                           `pulumi:"postAuthentication"`
-	PostConfirmation            *string                           `pulumi:"postConfirmation"`
-	PreAuthentication           *string                           `pulumi:"preAuthentication"`
-	PreSignUp                   *string                           `pulumi:"preSignUp"`
-	PreTokenGeneration          *string                           `pulumi:"preTokenGeneration"`
-	PreTokenGenerationConfig    *UserPoolPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
-	UserMigration               *string                           `pulumi:"userMigration"`
-	VerifyAuthChallengeResponse *string                           `pulumi:"verifyAuthChallengeResponse"`
+	// Creates an authentication challenge.
+	CreateAuthChallenge *string `pulumi:"createAuthChallenge"`
+	// A custom email sender AWS Lambda trigger.
+	CustomEmailSender *UserPoolCustomEmailSender `pulumi:"customEmailSender"`
+	// A custom Message AWS Lambda trigger.
+	CustomMessage *string `pulumi:"customMessage"`
+	// A custom SMS sender AWS Lambda trigger.
+	CustomSmsSender *UserPoolCustomSmsSender `pulumi:"customSmsSender"`
+	// Defines the authentication challenge.
+	DefineAuthChallenge *string `pulumi:"defineAuthChallenge"`
+	// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// A post-authentication AWS Lambda trigger.
+	PostAuthentication *string `pulumi:"postAuthentication"`
+	// A post-confirmation AWS Lambda trigger.
+	PostConfirmation *string `pulumi:"postConfirmation"`
+	// A pre-authentication AWS Lambda trigger.
+	PreAuthentication *string `pulumi:"preAuthentication"`
+	// A pre-registration AWS Lambda trigger.
+	PreSignUp *string `pulumi:"preSignUp"`
+	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+	//
+	// Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
+	//
+	// You can set ``
+	PreTokenGeneration *string `pulumi:"preTokenGeneration"`
+	// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
+	PreTokenGenerationConfig *UserPoolPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
+	// The user migration Lambda config type.
+	UserMigration *string `pulumi:"userMigration"`
+	// Verifies the authentication challenge response.
+	VerifyAuthChallengeResponse *string `pulumi:"verifyAuthChallengeResponse"`
 }
 
 // UserPoolLambdaConfigInput is an input type that accepts UserPoolLambdaConfigArgs and UserPoolLambdaConfigOutput values.
@@ -2779,20 +3058,38 @@ type UserPoolLambdaConfigInput interface {
 }
 
 type UserPoolLambdaConfigArgs struct {
-	CreateAuthChallenge         pulumi.StringPtrInput                    `pulumi:"createAuthChallenge"`
-	CustomEmailSender           UserPoolCustomEmailSenderPtrInput        `pulumi:"customEmailSender"`
-	CustomMessage               pulumi.StringPtrInput                    `pulumi:"customMessage"`
-	CustomSmsSender             UserPoolCustomSmsSenderPtrInput          `pulumi:"customSmsSender"`
-	DefineAuthChallenge         pulumi.StringPtrInput                    `pulumi:"defineAuthChallenge"`
-	KmsKeyId                    pulumi.StringPtrInput                    `pulumi:"kmsKeyId"`
-	PostAuthentication          pulumi.StringPtrInput                    `pulumi:"postAuthentication"`
-	PostConfirmation            pulumi.StringPtrInput                    `pulumi:"postConfirmation"`
-	PreAuthentication           pulumi.StringPtrInput                    `pulumi:"preAuthentication"`
-	PreSignUp                   pulumi.StringPtrInput                    `pulumi:"preSignUp"`
-	PreTokenGeneration          pulumi.StringPtrInput                    `pulumi:"preTokenGeneration"`
-	PreTokenGenerationConfig    UserPoolPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
-	UserMigration               pulumi.StringPtrInput                    `pulumi:"userMigration"`
-	VerifyAuthChallengeResponse pulumi.StringPtrInput                    `pulumi:"verifyAuthChallengeResponse"`
+	// Creates an authentication challenge.
+	CreateAuthChallenge pulumi.StringPtrInput `pulumi:"createAuthChallenge"`
+	// A custom email sender AWS Lambda trigger.
+	CustomEmailSender UserPoolCustomEmailSenderPtrInput `pulumi:"customEmailSender"`
+	// A custom Message AWS Lambda trigger.
+	CustomMessage pulumi.StringPtrInput `pulumi:"customMessage"`
+	// A custom SMS sender AWS Lambda trigger.
+	CustomSmsSender UserPoolCustomSmsSenderPtrInput `pulumi:"customSmsSender"`
+	// Defines the authentication challenge.
+	DefineAuthChallenge pulumi.StringPtrInput `pulumi:"defineAuthChallenge"`
+	// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// A post-authentication AWS Lambda trigger.
+	PostAuthentication pulumi.StringPtrInput `pulumi:"postAuthentication"`
+	// A post-confirmation AWS Lambda trigger.
+	PostConfirmation pulumi.StringPtrInput `pulumi:"postConfirmation"`
+	// A pre-authentication AWS Lambda trigger.
+	PreAuthentication pulumi.StringPtrInput `pulumi:"preAuthentication"`
+	// A pre-registration AWS Lambda trigger.
+	PreSignUp pulumi.StringPtrInput `pulumi:"preSignUp"`
+	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+	//
+	// Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
+	//
+	// You can set ``
+	PreTokenGeneration pulumi.StringPtrInput `pulumi:"preTokenGeneration"`
+	// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
+	PreTokenGenerationConfig UserPoolPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
+	// The user migration Lambda config type.
+	UserMigration pulumi.StringPtrInput `pulumi:"userMigration"`
+	// Verifies the authentication challenge response.
+	VerifyAuthChallengeResponse pulumi.StringPtrInput `pulumi:"verifyAuthChallengeResponse"`
 }
 
 func (UserPoolLambdaConfigArgs) ElementType() reflect.Type {
@@ -2872,58 +3169,76 @@ func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigPtrOutputWithContext(c
 	}).(UserPoolLambdaConfigPtrOutput)
 }
 
+// Creates an authentication challenge.
 func (o UserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CreateAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
+// A custom email sender AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) CustomEmailSender() UserPoolCustomEmailSenderPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomEmailSender { return v.CustomEmailSender }).(UserPoolCustomEmailSenderPtrOutput)
 }
 
+// A custom Message AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
 }
 
+// A custom SMS sender AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) CustomSmsSender() UserPoolCustomSmsSenderPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomSmsSender { return v.CustomSmsSender }).(UserPoolCustomSmsSenderPtrOutput)
 }
 
+// Defines the authentication challenge.
 func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
 func (o UserPoolLambdaConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// A post-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PostAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PostAuthentication }).(pulumi.StringPtrOutput)
 }
 
+// A post-confirmation AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PostConfirmation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PostConfirmation }).(pulumi.StringPtrOutput)
 }
 
+// A pre-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PreAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreAuthentication }).(pulumi.StringPtrOutput)
 }
 
+// A pre-registration AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) PreSignUp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreSignUp }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+//
+// Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
+//
+// You can set “
 func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
 }
 
+// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
 func (o UserPoolLambdaConfigOutput) PreTokenGenerationConfig() UserPoolPreTokenGenerationConfigPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolPreTokenGenerationConfig { return v.PreTokenGenerationConfig }).(UserPoolPreTokenGenerationConfigPtrOutput)
 }
 
+// The user migration Lambda config type.
 func (o UserPoolLambdaConfigOutput) UserMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.UserMigration }).(pulumi.StringPtrOutput)
 }
 
+// Verifies the authentication challenge response.
 func (o UserPoolLambdaConfigOutput) VerifyAuthChallengeResponse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.VerifyAuthChallengeResponse }).(pulumi.StringPtrOutput)
 }
@@ -2952,6 +3267,7 @@ func (o UserPoolLambdaConfigPtrOutput) Elem() UserPoolLambdaConfigOutput {
 	}).(UserPoolLambdaConfigOutput)
 }
 
+// Creates an authentication challenge.
 func (o UserPoolLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -2961,6 +3277,7 @@ func (o UserPoolLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A custom email sender AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) CustomEmailSender() UserPoolCustomEmailSenderPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomEmailSender {
 		if v == nil {
@@ -2970,6 +3287,7 @@ func (o UserPoolLambdaConfigPtrOutput) CustomEmailSender() UserPoolCustomEmailSe
 	}).(UserPoolCustomEmailSenderPtrOutput)
 }
 
+// A custom Message AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -2979,6 +3297,7 @@ func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A custom SMS sender AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) CustomSmsSender() UserPoolCustomSmsSenderPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomSmsSender {
 		if v == nil {
@@ -2988,6 +3307,7 @@ func (o UserPoolLambdaConfigPtrOutput) CustomSmsSender() UserPoolCustomSmsSender
 	}).(UserPoolCustomSmsSenderPtrOutput)
 }
 
+// Defines the authentication challenge.
 func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -2997,6 +3317,7 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
 func (o UserPoolLambdaConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3006,6 +3327,7 @@ func (o UserPoolLambdaConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A post-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PostAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3015,6 +3337,7 @@ func (o UserPoolLambdaConfigPtrOutput) PostAuthentication() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// A post-confirmation AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PostConfirmation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3024,6 +3347,7 @@ func (o UserPoolLambdaConfigPtrOutput) PostConfirmation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A pre-authentication AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PreAuthentication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3033,6 +3357,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreAuthentication() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A pre-registration AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) PreSignUp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3042,6 +3367,11 @@ func (o UserPoolLambdaConfigPtrOutput) PreSignUp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+//
+// Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
+//
+// You can set “
 func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3051,6 +3381,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
 func (o UserPoolLambdaConfigPtrOutput) PreTokenGenerationConfig() UserPoolPreTokenGenerationConfigPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolPreTokenGenerationConfig {
 		if v == nil {
@@ -3060,6 +3391,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreTokenGenerationConfig() UserPoolPreTok
 	}).(UserPoolPreTokenGenerationConfigPtrOutput)
 }
 
+// The user migration Lambda config type.
 func (o UserPoolLambdaConfigPtrOutput) UserMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3069,6 +3401,7 @@ func (o UserPoolLambdaConfigPtrOutput) UserMigration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Verifies the authentication challenge response.
 func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -3079,7 +3412,9 @@ func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.Stri
 }
 
 type UserPoolNumberAttributeConstraints struct {
+	// The maximum length of a number attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 	MaxValue *string `pulumi:"maxValue"`
+	// The minimum value of an attribute that is of the number data type.
 	MinValue *string `pulumi:"minValue"`
 }
 
@@ -3095,7 +3430,9 @@ type UserPoolNumberAttributeConstraintsInput interface {
 }
 
 type UserPoolNumberAttributeConstraintsArgs struct {
+	// The maximum length of a number attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 	MaxValue pulumi.StringPtrInput `pulumi:"maxValue"`
+	// The minimum value of an attribute that is of the number data type.
 	MinValue pulumi.StringPtrInput `pulumi:"minValue"`
 }
 
@@ -3176,10 +3513,12 @@ func (o UserPoolNumberAttributeConstraintsOutput) ToUserPoolNumberAttributeConst
 	}).(UserPoolNumberAttributeConstraintsPtrOutput)
 }
 
+// The maximum length of a number attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 func (o UserPoolNumberAttributeConstraintsOutput) MaxValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolNumberAttributeConstraints) *string { return v.MaxValue }).(pulumi.StringPtrOutput)
 }
 
+// The minimum value of an attribute that is of the number data type.
 func (o UserPoolNumberAttributeConstraintsOutput) MinValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolNumberAttributeConstraints) *string { return v.MinValue }).(pulumi.StringPtrOutput)
 }
@@ -3208,6 +3547,7 @@ func (o UserPoolNumberAttributeConstraintsPtrOutput) Elem() UserPoolNumberAttrib
 	}).(UserPoolNumberAttributeConstraintsOutput)
 }
 
+// The maximum length of a number attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 func (o UserPoolNumberAttributeConstraintsPtrOutput) MaxValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolNumberAttributeConstraints) *string {
 		if v == nil {
@@ -3217,6 +3557,7 @@ func (o UserPoolNumberAttributeConstraintsPtrOutput) MaxValue() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum value of an attribute that is of the number data type.
 func (o UserPoolNumberAttributeConstraintsPtrOutput) MinValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolNumberAttributeConstraints) *string {
 		if v == nil {
@@ -3227,12 +3568,20 @@ func (o UserPoolNumberAttributeConstraintsPtrOutput) MinValue() pulumi.StringPtr
 }
 
 type UserPoolPasswordPolicy struct {
-	MinimumLength                 *int  `pulumi:"minimumLength"`
-	RequireLowercase              *bool `pulumi:"requireLowercase"`
-	RequireNumbers                *bool `pulumi:"requireNumbers"`
-	RequireSymbols                *bool `pulumi:"requireSymbols"`
-	RequireUppercase              *bool `pulumi:"requireUppercase"`
-	TemporaryPasswordValidityDays *int  `pulumi:"temporaryPasswordValidityDays"`
+	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
+	MinimumLength *int `pulumi:"minimumLength"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+	RequireLowercase *bool `pulumi:"requireLowercase"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+	RequireNumbers *bool `pulumi:"requireNumbers"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+	RequireSymbols *bool `pulumi:"requireSymbols"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+	RequireUppercase *bool `pulumi:"requireUppercase"`
+	// The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
+	//
+	// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
+	TemporaryPasswordValidityDays *int `pulumi:"temporaryPasswordValidityDays"`
 }
 
 // UserPoolPasswordPolicyInput is an input type that accepts UserPoolPasswordPolicyArgs and UserPoolPasswordPolicyOutput values.
@@ -3247,12 +3596,20 @@ type UserPoolPasswordPolicyInput interface {
 }
 
 type UserPoolPasswordPolicyArgs struct {
-	MinimumLength                 pulumi.IntPtrInput  `pulumi:"minimumLength"`
-	RequireLowercase              pulumi.BoolPtrInput `pulumi:"requireLowercase"`
-	RequireNumbers                pulumi.BoolPtrInput `pulumi:"requireNumbers"`
-	RequireSymbols                pulumi.BoolPtrInput `pulumi:"requireSymbols"`
-	RequireUppercase              pulumi.BoolPtrInput `pulumi:"requireUppercase"`
-	TemporaryPasswordValidityDays pulumi.IntPtrInput  `pulumi:"temporaryPasswordValidityDays"`
+	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
+	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+	RequireNumbers pulumi.BoolPtrInput `pulumi:"requireNumbers"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+	RequireSymbols pulumi.BoolPtrInput `pulumi:"requireSymbols"`
+	// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+	RequireUppercase pulumi.BoolPtrInput `pulumi:"requireUppercase"`
+	// The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
+	//
+	// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
+	TemporaryPasswordValidityDays pulumi.IntPtrInput `pulumi:"temporaryPasswordValidityDays"`
 }
 
 func (UserPoolPasswordPolicyArgs) ElementType() reflect.Type {
@@ -3332,26 +3689,34 @@ func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyPtrOutputWithConte
 	}).(UserPoolPasswordPolicyPtrOutput)
 }
 
+// The minimum length of the password in the policy that you have set. This value can't be less than 6.
 func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.MinimumLength }).(pulumi.IntPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 func (o UserPoolPasswordPolicyOutput) RequireLowercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *bool { return v.RequireLowercase }).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
 func (o UserPoolPasswordPolicyOutput) RequireNumbers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *bool { return v.RequireNumbers }).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
 func (o UserPoolPasswordPolicyOutput) RequireSymbols() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *bool { return v.RequireSymbols }).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
 func (o UserPoolPasswordPolicyOutput) RequireUppercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *bool { return v.RequireUppercase }).(pulumi.BoolPtrOutput)
 }
 
+// The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
+//
+// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
 func (o UserPoolPasswordPolicyOutput) TemporaryPasswordValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.TemporaryPasswordValidityDays }).(pulumi.IntPtrOutput)
 }
@@ -3380,6 +3745,7 @@ func (o UserPoolPasswordPolicyPtrOutput) Elem() UserPoolPasswordPolicyOutput {
 	}).(UserPoolPasswordPolicyOutput)
 }
 
+// The minimum length of the password in the policy that you have set. This value can't be less than 6.
 func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
 		if v == nil {
@@ -3389,6 +3755,7 @@ func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 func (o UserPoolPasswordPolicyPtrOutput) RequireLowercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *bool {
 		if v == nil {
@@ -3398,6 +3765,7 @@ func (o UserPoolPasswordPolicyPtrOutput) RequireLowercase() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
 func (o UserPoolPasswordPolicyPtrOutput) RequireNumbers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *bool {
 		if v == nil {
@@ -3407,6 +3775,7 @@ func (o UserPoolPasswordPolicyPtrOutput) RequireNumbers() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
 func (o UserPoolPasswordPolicyPtrOutput) RequireSymbols() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *bool {
 		if v == nil {
@@ -3416,6 +3785,7 @@ func (o UserPoolPasswordPolicyPtrOutput) RequireSymbols() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
 func (o UserPoolPasswordPolicyPtrOutput) RequireUppercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *bool {
 		if v == nil {
@@ -3425,6 +3795,9 @@ func (o UserPoolPasswordPolicyPtrOutput) RequireUppercase() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
+//
+// > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
 func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
 		if v == nil {
@@ -3435,6 +3808,7 @@ func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.
 }
 
 type UserPoolPolicies struct {
+	// The password policy.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 }
 
@@ -3450,6 +3824,7 @@ type UserPoolPoliciesInput interface {
 }
 
 type UserPoolPoliciesArgs struct {
+	// The password policy.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput `pulumi:"passwordPolicy"`
 }
 
@@ -3530,6 +3905,7 @@ func (o UserPoolPoliciesOutput) ToUserPoolPoliciesPtrOutputWithContext(ctx conte
 	}).(UserPoolPoliciesPtrOutput)
 }
 
+// The password policy.
 func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput {
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolPasswordPolicy { return v.PasswordPolicy }).(UserPoolPasswordPolicyPtrOutput)
 }
@@ -3558,6 +3934,7 @@ func (o UserPoolPoliciesPtrOutput) Elem() UserPoolPoliciesOutput {
 	}).(UserPoolPoliciesOutput)
 }
 
+// The password policy.
 func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput {
 	return o.ApplyT(func(v *UserPoolPolicies) *UserPoolPasswordPolicy {
 		if v == nil {
@@ -3568,7 +3945,11 @@ func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOut
 }
 
 type UserPoolPreTokenGenerationConfig struct {
-	LambdaArn     *string `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+	//
+	// This parameter and the `PreTokenGeneration` property of `LambdaConfig` have the same value. For new instances of pre token generation triggers, set `LambdaArn` .
+	LambdaArn *string `pulumi:"lambdaArn"`
+	// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
 	LambdaVersion *string `pulumi:"lambdaVersion"`
 }
 
@@ -3584,7 +3965,11 @@ type UserPoolPreTokenGenerationConfigInput interface {
 }
 
 type UserPoolPreTokenGenerationConfigArgs struct {
-	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+	//
+	// This parameter and the `PreTokenGeneration` property of `LambdaConfig` have the same value. For new instances of pre token generation triggers, set `LambdaArn` .
+	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
 	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
 }
 
@@ -3665,10 +4050,14 @@ func (o UserPoolPreTokenGenerationConfigOutput) ToUserPoolPreTokenGenerationConf
 	}).(UserPoolPreTokenGenerationConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+//
+// This parameter and the `PreTokenGeneration` property of `LambdaConfig` have the same value. For new instances of pre token generation triggers, set `LambdaArn` .
 func (o UserPoolPreTokenGenerationConfigOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolPreTokenGenerationConfig) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
 
+// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
 func (o UserPoolPreTokenGenerationConfigOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolPreTokenGenerationConfig) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
 }
@@ -3697,6 +4086,9 @@ func (o UserPoolPreTokenGenerationConfigPtrOutput) Elem() UserPoolPreTokenGenera
 	}).(UserPoolPreTokenGenerationConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+//
+// This parameter and the `PreTokenGeneration` property of `LambdaConfig` have the same value. For new instances of pre token generation triggers, set `LambdaArn` .
 func (o UserPoolPreTokenGenerationConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolPreTokenGenerationConfig) *string {
 		if v == nil {
@@ -3706,6 +4098,7 @@ func (o UserPoolPreTokenGenerationConfigPtrOutput) LambdaArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
 func (o UserPoolPreTokenGenerationConfigPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolPreTokenGenerationConfig) *string {
 		if v == nil {
@@ -3716,8 +4109,10 @@ func (o UserPoolPreTokenGenerationConfigPtrOutput) LambdaVersion() pulumi.String
 }
 
 type UserPoolRecoveryOption struct {
-	Name     *string `pulumi:"name"`
-	Priority *int    `pulumi:"priority"`
+	// Specifies the recovery method for a user.
+	Name *string `pulumi:"name"`
+	// A positive integer specifying priority of a method with 1 being the highest priority.
+	Priority *int `pulumi:"priority"`
 }
 
 // UserPoolRecoveryOptionInput is an input type that accepts UserPoolRecoveryOptionArgs and UserPoolRecoveryOptionOutput values.
@@ -3732,8 +4127,10 @@ type UserPoolRecoveryOptionInput interface {
 }
 
 type UserPoolRecoveryOptionArgs struct {
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	// Specifies the recovery method for a user.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A positive integer specifying priority of a method with 1 being the highest priority.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 }
 
 func (UserPoolRecoveryOptionArgs) ElementType() reflect.Type {
@@ -3787,10 +4184,12 @@ func (o UserPoolRecoveryOptionOutput) ToUserPoolRecoveryOptionOutputWithContext(
 	return o
 }
 
+// Specifies the recovery method for a user.
 func (o UserPoolRecoveryOptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRecoveryOption) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A positive integer specifying priority of a method with 1 being the highest priority.
 func (o UserPoolRecoveryOptionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolRecoveryOption) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
@@ -3816,8 +4215,10 @@ func (o UserPoolRecoveryOptionArrayOutput) Index(i pulumi.IntInput) UserPoolReco
 }
 
 type UserPoolResourceServerResourceServerScopeType struct {
+	// A description of the scope.
 	ScopeDescription string `pulumi:"scopeDescription"`
-	ScopeName        string `pulumi:"scopeName"`
+	// The name of the scope.
+	ScopeName string `pulumi:"scopeName"`
 }
 
 // UserPoolResourceServerResourceServerScopeTypeInput is an input type that accepts UserPoolResourceServerResourceServerScopeTypeArgs and UserPoolResourceServerResourceServerScopeTypeOutput values.
@@ -3832,8 +4233,10 @@ type UserPoolResourceServerResourceServerScopeTypeInput interface {
 }
 
 type UserPoolResourceServerResourceServerScopeTypeArgs struct {
+	// A description of the scope.
 	ScopeDescription pulumi.StringInput `pulumi:"scopeDescription"`
-	ScopeName        pulumi.StringInput `pulumi:"scopeName"`
+	// The name of the scope.
+	ScopeName pulumi.StringInput `pulumi:"scopeName"`
 }
 
 func (UserPoolResourceServerResourceServerScopeTypeArgs) ElementType() reflect.Type {
@@ -3887,10 +4290,12 @@ func (o UserPoolResourceServerResourceServerScopeTypeOutput) ToUserPoolResourceS
 	return o
 }
 
+// A description of the scope.
 func (o UserPoolResourceServerResourceServerScopeTypeOutput) ScopeDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolResourceServerResourceServerScopeType) string { return v.ScopeDescription }).(pulumi.StringOutput)
 }
 
+// The name of the scope.
 func (o UserPoolResourceServerResourceServerScopeTypeOutput) ScopeName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolResourceServerResourceServerScopeType) string { return v.ScopeName }).(pulumi.StringOutput)
 }
@@ -3916,8 +4321,15 @@ func (o UserPoolResourceServerResourceServerScopeTypeArrayOutput) Index(i pulumi
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionType struct {
+	// The action to take in response to the account takeover action. Valid values are as follows:
+	//
+	// - `BLOCK` Choosing this action will block the request.
+	// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
+	// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
+	// - `NO_ACTION` Allow the user to sign in.
 	EventAction string `pulumi:"eventAction"`
-	Notify      bool   `pulumi:"notify"`
+	// Flag specifying whether to send a notification.
+	Notify bool `pulumi:"notify"`
 }
 
 // UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeInput is an input type that accepts UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs and UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput values.
@@ -3932,8 +4344,15 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeInput interface
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs struct {
+	// The action to take in response to the account takeover action. Valid values are as follows:
+	//
+	// - `BLOCK` Choosing this action will block the request.
+	// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
+	// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
+	// - `NO_ACTION` Allow the user to sign in.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	Notify      pulumi.BoolInput   `pulumi:"notify"`
+	// Flag specifying whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
 }
 
 func (UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs) ElementType() reflect.Type {
@@ -4013,10 +4432,17 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) ToUs
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
+// The action to take in response to the account takeover action. Valid values are as follows:
+//
+// - `BLOCK` Choosing this action will block the request.
+// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
+// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
+// - `NO_ACTION` Allow the user to sign in.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionType) string { return v.EventAction }).(pulumi.StringOutput)
 }
 
+// Flag specifying whether to send a notification.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionType) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -4045,6 +4471,12 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) E
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput)
 }
 
+// The action to take in response to the account takeover action. Valid values are as follows:
+//
+// - `BLOCK` Choosing this action will block the request.
+// - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
+// - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
+// - `NO_ACTION` Allow the user to sign in.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType) *string {
 		if v == nil {
@@ -4054,6 +4486,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) E
 	}).(pulumi.StringPtrOutput)
 }
 
+// Flag specifying whether to send a notification.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType) *bool {
 		if v == nil {
@@ -4064,8 +4497,11 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) N
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType struct {
-	HighAction   *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"highAction"`
-	LowAction    *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"lowAction"`
+	// Action to take for a high risk.
+	HighAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"highAction"`
+	// Action to take for a low risk.
+	LowAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"lowAction"`
+	// Action to take for a medium risk.
 	MediumAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"mediumAction"`
 }
 
@@ -4081,8 +4517,11 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput interfac
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs struct {
-	HighAction   UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"highAction"`
-	LowAction    UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"lowAction"`
+	// Action to take for a high risk.
+	HighAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"highAction"`
+	// Action to take for a low risk.
+	LowAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"lowAction"`
+	// Action to take for a medium risk.
 	MediumAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"mediumAction"`
 }
 
@@ -4163,18 +4602,21 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) ToU
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
+// Action to take for a high risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.HighAction
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
+// Action to take for a low risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) LowAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.LowAction
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
+// Action to take for a medium risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) MediumAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.MediumAction
@@ -4205,6 +4647,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
+// Action to take for a high risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -4214,6 +4657,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
+// Action to take for a low risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) LowAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -4223,6 +4667,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
+// Action to take for a medium risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) MediumAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -4233,8 +4678,10 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType struct {
-	Actions             UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType `pulumi:"actions"`
-	NotifyConfiguration *UserPoolRiskConfigurationAttachmentNotifyConfigurationType   `pulumi:"notifyConfiguration"`
+	// Account takeover risk configuration actions.
+	Actions UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType `pulumi:"actions"`
+	// The notify configuration used to construct email notifications.
+	NotifyConfiguration *UserPoolRiskConfigurationAttachmentNotifyConfigurationType `pulumi:"notifyConfiguration"`
 }
 
 // UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeInput is an input type that accepts UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs and UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput values.
@@ -4249,7 +4696,9 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeInpu
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs struct {
-	Actions             UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput `pulumi:"actions"`
+	// Account takeover risk configuration actions.
+	Actions UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput `pulumi:"actions"`
+	// The notify configuration used to construct email notifications.
 	NotifyConfiguration UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrInput `pulumi:"notifyConfiguration"`
 }
 
@@ -4330,12 +4779,14 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeO
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
+// Account takeover risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		return v.Actions
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
+// The notify configuration used to construct email notifications.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) NotifyConfiguration() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		return v.NotifyConfiguration
@@ -4366,6 +4817,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput)
 }
 
+// Account takeover risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		if v == nil {
@@ -4375,6 +4827,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
+// The notify configuration used to construct email notifications.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) NotifyConfiguration() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		if v == nil {
@@ -4385,6 +4838,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 }
 
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType struct {
+	// The event action.
 	EventAction string `pulumi:"eventAction"`
 }
 
@@ -4400,6 +4854,7 @@ type UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeInput i
 }
 
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs struct {
+	// The event action.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
 }
 
@@ -4480,6 +4935,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutp
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput)
 }
 
+// The event action.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType) string {
 		return v.EventAction
@@ -4510,6 +4966,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrO
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput)
 }
 
+// The event action.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType) *string {
 		if v == nil {
@@ -4520,8 +4977,10 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrO
 }
 
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType struct {
-	Actions     UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType `pulumi:"actions"`
-	EventFilter []string                                                             `pulumi:"eventFilter"`
+	// The compromised credentials risk configuration actions.
+	Actions UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType `pulumi:"actions"`
+	// Perform the action for these events. The default is to perform all events if no event filter is specified.
+	EventFilter []string `pulumi:"eventFilter"`
 }
 
 // UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeInput is an input type that accepts UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs and UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput values.
@@ -4536,8 +4995,10 @@ type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationT
 }
 
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs struct {
-	Actions     UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeInput `pulumi:"actions"`
-	EventFilter pulumi.StringArrayInput                                                   `pulumi:"eventFilter"`
+	// The compromised credentials risk configuration actions.
+	Actions UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeInput `pulumi:"actions"`
+	// Perform the action for these events. The default is to perform all events if no event filter is specified.
+	EventFilter pulumi.StringArrayInput `pulumi:"eventFilter"`
 }
 
 func (UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs) ElementType() reflect.Type {
@@ -4617,12 +5078,14 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
 }
 
+// The compromised credentials risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType {
 		return v.Actions
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput)
 }
 
+// Perform the action for these events. The default is to perform all events if no event filter is specified.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput) EventFilter() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) []string {
 		return v.EventFilter
@@ -4653,6 +5116,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput)
 }
 
+// The compromised credentials risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput) Actions() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) *UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType {
 		if v == nil {
@@ -4662,6 +5126,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput)
 }
 
+// Perform the action for these events. The default is to perform all events if no event filter is specified.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput) EventFilter() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) []string {
 		if v == nil {
@@ -4672,12 +5137,18 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 }
 
 type UserPoolRiskConfigurationAttachmentNotifyConfigurationType struct {
-	BlockEmail    *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"blockEmail"`
-	From          *string                                             `pulumi:"from"`
-	MfaEmail      *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"mfaEmail"`
+	// Email template used when a detected risk event is blocked.
+	BlockEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"blockEmail"`
+	// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+	From *string `pulumi:"from"`
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
+	MfaEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"mfaEmail"`
+	// The email template used when a detected risk event is allowed.
 	NoActionEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"noActionEmail"`
-	ReplyTo       *string                                             `pulumi:"replyTo"`
-	SourceArn     string                                              `pulumi:"sourceArn"`
+	// The destination to which the receiver of an email should reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
+	SourceArn string `pulumi:"sourceArn"`
 }
 
 // UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeInput is an input type that accepts UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs and UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput values.
@@ -4692,12 +5163,18 @@ type UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeInput interface {
 }
 
 type UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs struct {
-	BlockEmail    UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"blockEmail"`
-	From          pulumi.StringPtrInput                                      `pulumi:"from"`
-	MfaEmail      UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"mfaEmail"`
+	// Email template used when a detected risk event is blocked.
+	BlockEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"blockEmail"`
+	// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
+	MfaEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"mfaEmail"`
+	// The email template used when a detected risk event is allowed.
 	NoActionEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"noActionEmail"`
-	ReplyTo       pulumi.StringPtrInput                                      `pulumi:"replyTo"`
-	SourceArn     pulumi.StringInput                                         `pulumi:"sourceArn"`
+	// The destination to which the receiver of an email should reply to.
+	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
+	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
 }
 
 func (UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs) ElementType() reflect.Type {
@@ -4777,32 +5254,38 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ToUser
 	}).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput)
 }
 
+// Email template used when a detected risk event is blocked.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) BlockEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return v.BlockEmail
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string { return v.From }).(pulumi.StringPtrOutput)
 }
 
+// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) MfaEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return v.MfaEmail
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The email template used when a detected risk event is allowed.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) NoActionEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return v.NoActionEmail
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The destination to which the receiver of an email should reply to.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) string { return v.SourceArn }).(pulumi.StringOutput)
 }
@@ -4831,6 +5314,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Ele
 	}).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput)
 }
 
+// Email template used when a detected risk event is blocked.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) BlockEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		if v == nil {
@@ -4840,6 +5324,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Blo
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string {
 		if v == nil {
@@ -4849,6 +5334,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Fro
 	}).(pulumi.StringPtrOutput)
 }
 
+// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) MfaEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		if v == nil {
@@ -4858,6 +5344,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Mfa
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The email template used when a detected risk event is allowed.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) NoActionEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		if v == nil {
@@ -4867,6 +5354,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) NoA
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The destination to which the receiver of an email should reply to.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string {
 		if v == nil {
@@ -4876,6 +5364,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Rep
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string {
 		if v == nil {
@@ -4886,8 +5375,11 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Sou
 }
 
 type UserPoolRiskConfigurationAttachmentNotifyEmailType struct {
+	// The email HTML body.
 	HtmlBody *string `pulumi:"htmlBody"`
-	Subject  string  `pulumi:"subject"`
+	// The email subject.
+	Subject string `pulumi:"subject"`
+	// The email text body.
 	TextBody *string `pulumi:"textBody"`
 }
 
@@ -4903,8 +5395,11 @@ type UserPoolRiskConfigurationAttachmentNotifyEmailTypeInput interface {
 }
 
 type UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs struct {
+	// The email HTML body.
 	HtmlBody pulumi.StringPtrInput `pulumi:"htmlBody"`
-	Subject  pulumi.StringInput    `pulumi:"subject"`
+	// The email subject.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The email text body.
 	TextBody pulumi.StringPtrInput `pulumi:"textBody"`
 }
 
@@ -4985,14 +5480,17 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) ToUserPoolRisk
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
+// The email HTML body.
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) HtmlBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyEmailType) *string { return v.HtmlBody }).(pulumi.StringPtrOutput)
 }
 
+// The email subject.
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyEmailType) string { return v.Subject }).(pulumi.StringOutput)
 }
 
+// The email text body.
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyEmailType) *string { return v.TextBody }).(pulumi.StringPtrOutput)
 }
@@ -5021,6 +5519,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) Elem() User
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput)
 }
 
+// The email HTML body.
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) HtmlBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyEmailType) *string {
 		if v == nil {
@@ -5030,6 +5529,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) HtmlBody() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email subject.
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyEmailType) *string {
 		if v == nil {
@@ -5039,6 +5539,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) Subject() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email text body.
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyEmailType) *string {
 		if v == nil {
@@ -5049,7 +5550,9 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) TextBody() 
 }
 
 type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType struct {
+	// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
 	BlockedIpRangeList []string `pulumi:"blockedIpRangeList"`
+	// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
 	SkippedIpRangeList []string `pulumi:"skippedIpRangeList"`
 }
 
@@ -5065,7 +5568,9 @@ type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeInput inte
 }
 
 type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs struct {
+	// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
 	BlockedIpRangeList pulumi.StringArrayInput `pulumi:"blockedIpRangeList"`
+	// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
 	SkippedIpRangeList pulumi.StringArrayInput `pulumi:"skippedIpRangeList"`
 }
 
@@ -5146,12 +5651,14 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput)
 	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput)
 }
 
+// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) BlockedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
 		return v.BlockedIpRangeList
 	}).(pulumi.StringArrayOutput)
 }
 
+// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) SkippedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
 		return v.SkippedIpRangeList
@@ -5182,6 +5689,7 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutp
 	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput)
 }
 
+// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) BlockedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
 		if v == nil {
@@ -5191,6 +5699,7 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) SkippedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
 		if v == nil {
@@ -5201,12 +5710,23 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutp
 }
 
 type UserPoolSchemaAttribute struct {
-	AttributeDataType          *string                             `pulumi:"attributeDataType"`
-	DeveloperOnlyAttribute     *bool                               `pulumi:"developerOnlyAttribute"`
-	Mutable                    *bool                               `pulumi:"mutable"`
-	Name                       *string                             `pulumi:"name"`
+	// The data format of the values for your attribute. When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
+	AttributeDataType *string `pulumi:"attributeDataType"`
+	// > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` .
+	//
+	// Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
+	DeveloperOnlyAttribute *bool `pulumi:"developerOnlyAttribute"`
+	// Specifies whether the value of the attribute can be changed.
+	//
+	// Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
+	Mutable *bool `pulumi:"mutable"`
+	// The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
+	Name *string `pulumi:"name"`
+	// Specifies the constraints for an attribute of the number type.
 	NumberAttributeConstraints *UserPoolNumberAttributeConstraints `pulumi:"numberAttributeConstraints"`
-	Required                   *bool                               `pulumi:"required"`
+	// Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
+	Required *bool `pulumi:"required"`
+	// Specifies the constraints for an attribute of the string type.
 	StringAttributeConstraints *UserPoolStringAttributeConstraints `pulumi:"stringAttributeConstraints"`
 }
 
@@ -5222,12 +5742,23 @@ type UserPoolSchemaAttributeInput interface {
 }
 
 type UserPoolSchemaAttributeArgs struct {
-	AttributeDataType          pulumi.StringPtrInput                      `pulumi:"attributeDataType"`
-	DeveloperOnlyAttribute     pulumi.BoolPtrInput                        `pulumi:"developerOnlyAttribute"`
-	Mutable                    pulumi.BoolPtrInput                        `pulumi:"mutable"`
-	Name                       pulumi.StringPtrInput                      `pulumi:"name"`
+	// The data format of the values for your attribute. When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
+	AttributeDataType pulumi.StringPtrInput `pulumi:"attributeDataType"`
+	// > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` .
+	//
+	// Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
+	DeveloperOnlyAttribute pulumi.BoolPtrInput `pulumi:"developerOnlyAttribute"`
+	// Specifies whether the value of the attribute can be changed.
+	//
+	// Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
+	Mutable pulumi.BoolPtrInput `pulumi:"mutable"`
+	// The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the constraints for an attribute of the number type.
 	NumberAttributeConstraints UserPoolNumberAttributeConstraintsPtrInput `pulumi:"numberAttributeConstraints"`
-	Required                   pulumi.BoolPtrInput                        `pulumi:"required"`
+	// Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Specifies the constraints for an attribute of the string type.
 	StringAttributeConstraints UserPoolStringAttributeConstraintsPtrInput `pulumi:"stringAttributeConstraints"`
 }
 
@@ -5282,32 +5813,43 @@ func (o UserPoolSchemaAttributeOutput) ToUserPoolSchemaAttributeOutputWithContex
 	return o
 }
 
+// The data format of the values for your attribute. When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
 func (o UserPoolSchemaAttributeOutput) AttributeDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *string { return v.AttributeDataType }).(pulumi.StringPtrOutput)
 }
 
+// > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` .
+//
+// Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
 func (o UserPoolSchemaAttributeOutput) DeveloperOnlyAttribute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *bool { return v.DeveloperOnlyAttribute }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the value of the attribute can be changed.
+//
+// Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
 func (o UserPoolSchemaAttributeOutput) Mutable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *bool { return v.Mutable }).(pulumi.BoolPtrOutput)
 }
 
+// The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
 func (o UserPoolSchemaAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the constraints for an attribute of the number type.
 func (o UserPoolSchemaAttributeOutput) NumberAttributeConstraints() UserPoolNumberAttributeConstraintsPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *UserPoolNumberAttributeConstraints {
 		return v.NumberAttributeConstraints
 	}).(UserPoolNumberAttributeConstraintsPtrOutput)
 }
 
+// Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
 func (o UserPoolSchemaAttributeOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the constraints for an attribute of the string type.
 func (o UserPoolSchemaAttributeOutput) StringAttributeConstraints() UserPoolStringAttributeConstraintsPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *UserPoolStringAttributeConstraints {
 		return v.StringAttributeConstraints
@@ -5335,9 +5877,14 @@ func (o UserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) UserPoolSch
 }
 
 type UserPoolSmsConfiguration struct {
-	ExternalId   *string `pulumi:"externalId"`
+	// The external ID is a value. We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
+	ExternalId *string `pulumi:"externalId"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 	SnsCallerArn *string `pulumi:"snsCallerArn"`
-	SnsRegion    *string `pulumi:"snsRegion"`
+	// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
+	//
+	// Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+	SnsRegion *string `pulumi:"snsRegion"`
 }
 
 // UserPoolSmsConfigurationInput is an input type that accepts UserPoolSmsConfigurationArgs and UserPoolSmsConfigurationOutput values.
@@ -5352,9 +5899,14 @@ type UserPoolSmsConfigurationInput interface {
 }
 
 type UserPoolSmsConfigurationArgs struct {
-	ExternalId   pulumi.StringPtrInput `pulumi:"externalId"`
+	// The external ID is a value. We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 	SnsCallerArn pulumi.StringPtrInput `pulumi:"snsCallerArn"`
-	SnsRegion    pulumi.StringPtrInput `pulumi:"snsRegion"`
+	// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
+	//
+	// Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+	SnsRegion pulumi.StringPtrInput `pulumi:"snsRegion"`
 }
 
 func (UserPoolSmsConfigurationArgs) ElementType() reflect.Type {
@@ -5434,14 +5986,19 @@ func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationPtrOutputWithC
 	}).(UserPoolSmsConfigurationPtrOutput)
 }
 
+// The external ID is a value. We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
 func (o UserPoolSmsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 func (o UserPoolSmsConfigurationOutput) SnsCallerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) *string { return v.SnsCallerArn }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
+//
+// Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 func (o UserPoolSmsConfigurationOutput) SnsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) *string { return v.SnsRegion }).(pulumi.StringPtrOutput)
 }
@@ -5470,6 +6027,7 @@ func (o UserPoolSmsConfigurationPtrOutput) Elem() UserPoolSmsConfigurationOutput
 	}).(UserPoolSmsConfigurationOutput)
 }
 
+// The external ID is a value. We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
 func (o UserPoolSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
 		if v == nil {
@@ -5479,6 +6037,7 @@ func (o UserPoolSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
 		if v == nil {
@@ -5488,6 +6047,9 @@ func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
+//
+// Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 func (o UserPoolSmsConfigurationPtrOutput) SnsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolSmsConfiguration) *string {
 		if v == nil {
@@ -5498,7 +6060,9 @@ func (o UserPoolSmsConfigurationPtrOutput) SnsRegion() pulumi.StringPtrOutput {
 }
 
 type UserPoolStringAttributeConstraints struct {
+	// The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 	MaxLength *string `pulumi:"maxLength"`
+	// The minimum length.
 	MinLength *string `pulumi:"minLength"`
 }
 
@@ -5514,7 +6078,9 @@ type UserPoolStringAttributeConstraintsInput interface {
 }
 
 type UserPoolStringAttributeConstraintsArgs struct {
+	// The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 	MaxLength pulumi.StringPtrInput `pulumi:"maxLength"`
+	// The minimum length.
 	MinLength pulumi.StringPtrInput `pulumi:"minLength"`
 }
 
@@ -5595,10 +6161,12 @@ func (o UserPoolStringAttributeConstraintsOutput) ToUserPoolStringAttributeConst
 	}).(UserPoolStringAttributeConstraintsPtrOutput)
 }
 
+// The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 func (o UserPoolStringAttributeConstraintsOutput) MaxLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolStringAttributeConstraints) *string { return v.MaxLength }).(pulumi.StringPtrOutput)
 }
 
+// The minimum length.
 func (o UserPoolStringAttributeConstraintsOutput) MinLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolStringAttributeConstraints) *string { return v.MinLength }).(pulumi.StringPtrOutput)
 }
@@ -5627,6 +6195,7 @@ func (o UserPoolStringAttributeConstraintsPtrOutput) Elem() UserPoolStringAttrib
 	}).(UserPoolStringAttributeConstraintsOutput)
 }
 
+// The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
 func (o UserPoolStringAttributeConstraintsPtrOutput) MaxLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolStringAttributeConstraints) *string {
 		if v == nil {
@@ -5636,6 +6205,7 @@ func (o UserPoolStringAttributeConstraintsPtrOutput) MaxLength() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum length.
 func (o UserPoolStringAttributeConstraintsPtrOutput) MinLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolStringAttributeConstraints) *string {
 		if v == nil {
@@ -5646,7 +6216,9 @@ func (o UserPoolStringAttributeConstraintsPtrOutput) MinLength() pulumi.StringPt
 }
 
 type UserPoolUserAttributeType struct {
-	Name  *string `pulumi:"name"`
+	// The name of the attribute.
+	Name *string `pulumi:"name"`
+	// The value of the attribute.
 	Value *string `pulumi:"value"`
 }
 
@@ -5662,7 +6234,9 @@ type UserPoolUserAttributeTypeInput interface {
 }
 
 type UserPoolUserAttributeTypeArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the attribute.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -5717,10 +6291,12 @@ func (o UserPoolUserAttributeTypeOutput) ToUserPoolUserAttributeTypeOutputWithCo
 	return o
 }
 
+// The name of the attribute.
 func (o UserPoolUserAttributeTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolUserAttributeType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value of the attribute.
 func (o UserPoolUserAttributeTypeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolUserAttributeType) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5746,6 +6322,11 @@ func (o UserPoolUserAttributeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolU
 }
 
 type UserPoolUserAttributeUpdateSettings struct {
+	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
+	//
+	// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+	//
+	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 	AttributesRequireVerificationBeforeUpdate []string `pulumi:"attributesRequireVerificationBeforeUpdate"`
 }
 
@@ -5761,6 +6342,11 @@ type UserPoolUserAttributeUpdateSettingsInput interface {
 }
 
 type UserPoolUserAttributeUpdateSettingsArgs struct {
+	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
+	//
+	// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+	//
+	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 	AttributesRequireVerificationBeforeUpdate pulumi.StringArrayInput `pulumi:"attributesRequireVerificationBeforeUpdate"`
 }
 
@@ -5841,6 +6427,11 @@ func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdate
 	}).(UserPoolUserAttributeUpdateSettingsPtrOutput)
 }
 
+// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
+//
+// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+//
+// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 func (o UserPoolUserAttributeUpdateSettingsOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolUserAttributeUpdateSettings) []string {
 		return v.AttributesRequireVerificationBeforeUpdate
@@ -5871,6 +6462,11 @@ func (o UserPoolUserAttributeUpdateSettingsPtrOutput) Elem() UserPoolUserAttribu
 	}).(UserPoolUserAttributeUpdateSettingsOutput)
 }
 
+// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
+//
+// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+//
+// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 func (o UserPoolUserAttributeUpdateSettingsPtrOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolUserAttributeUpdateSettings) []string {
 		if v == nil {
@@ -5881,6 +6477,12 @@ func (o UserPoolUserAttributeUpdateSettingsPtrOutput) AttributesRequireVerificat
 }
 
 type UserPoolUsernameConfiguration struct {
+	// Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs. For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
+	//
+	// Valid values include:
+	//
+	// - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+	// - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
 	CaseSensitive *bool `pulumi:"caseSensitive"`
 }
 
@@ -5896,6 +6498,12 @@ type UserPoolUsernameConfigurationInput interface {
 }
 
 type UserPoolUsernameConfigurationArgs struct {
+	// Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs. For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
+	//
+	// Valid values include:
+	//
+	// - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+	// - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
 	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
 }
 
@@ -5976,6 +6584,12 @@ func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrO
 	}).(UserPoolUsernameConfigurationPtrOutput)
 }
 
+// Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs. For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
+//
+// Valid values include:
+//
+// - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+// - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
 func (o UserPoolUsernameConfigurationOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolUsernameConfiguration) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
@@ -6004,6 +6618,12 @@ func (o UserPoolUsernameConfigurationPtrOutput) Elem() UserPoolUsernameConfigura
 	}).(UserPoolUsernameConfigurationOutput)
 }
 
+// Specifies whether user name case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs. For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, users can sign in as the same user when they enter a different capitalization of their user name.
+//
+// Valid values include:
+//
+// - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+// - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
 func (o UserPoolUsernameConfigurationPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolUsernameConfiguration) *bool {
 		if v == nil {
@@ -6014,12 +6634,18 @@ func (o UserPoolUsernameConfigurationPtrOutput) CaseSensitive() pulumi.BoolPtrOu
 }
 
 type UserPoolVerificationMessageTemplate struct {
+	// The default email option.
 	DefaultEmailOption *string `pulumi:"defaultEmailOption"`
-	EmailMessage       *string `pulumi:"emailMessage"`
+	// The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+	EmailMessage *string `pulumi:"emailMessage"`
+	// The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 	EmailMessageByLink *string `pulumi:"emailMessageByLink"`
-	EmailSubject       *string `pulumi:"emailSubject"`
+	// The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+	EmailSubject *string `pulumi:"emailSubject"`
+	// The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 	EmailSubjectByLink *string `pulumi:"emailSubjectByLink"`
-	SmsMessage         *string `pulumi:"smsMessage"`
+	// The template for SMS messages that Amazon Cognito sends to your users.
+	SmsMessage *string `pulumi:"smsMessage"`
 }
 
 // UserPoolVerificationMessageTemplateInput is an input type that accepts UserPoolVerificationMessageTemplateArgs and UserPoolVerificationMessageTemplateOutput values.
@@ -6034,12 +6660,18 @@ type UserPoolVerificationMessageTemplateInput interface {
 }
 
 type UserPoolVerificationMessageTemplateArgs struct {
+	// The default email option.
 	DefaultEmailOption pulumi.StringPtrInput `pulumi:"defaultEmailOption"`
-	EmailMessage       pulumi.StringPtrInput `pulumi:"emailMessage"`
+	// The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+	EmailMessage pulumi.StringPtrInput `pulumi:"emailMessage"`
+	// The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 	EmailMessageByLink pulumi.StringPtrInput `pulumi:"emailMessageByLink"`
-	EmailSubject       pulumi.StringPtrInput `pulumi:"emailSubject"`
+	// The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
+	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+	// The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 	EmailSubjectByLink pulumi.StringPtrInput `pulumi:"emailSubjectByLink"`
-	SmsMessage         pulumi.StringPtrInput `pulumi:"smsMessage"`
+	// The template for SMS messages that Amazon Cognito sends to your users.
+	SmsMessage pulumi.StringPtrInput `pulumi:"smsMessage"`
 }
 
 func (UserPoolVerificationMessageTemplateArgs) ElementType() reflect.Type {
@@ -6119,26 +6751,32 @@ func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessage
 	}).(UserPoolVerificationMessageTemplatePtrOutput)
 }
 
+// The default email option.
 func (o UserPoolVerificationMessageTemplateOutput) DefaultEmailOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.DefaultEmailOption }).(pulumi.StringPtrOutput)
 }
 
+// The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplateOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailMessage }).(pulumi.StringPtrOutput)
 }
 
+// The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplateOutput) EmailMessageByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailMessageByLink }).(pulumi.StringPtrOutput)
 }
 
+// The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplateOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
+// The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplateOutput) EmailSubjectByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.EmailSubjectByLink }).(pulumi.StringPtrOutput)
 }
 
+// The template for SMS messages that Amazon Cognito sends to your users.
 func (o UserPoolVerificationMessageTemplateOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
@@ -6167,6 +6805,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) Elem() UserPoolVerificatio
 	}).(UserPoolVerificationMessageTemplateOutput)
 }
 
+// The default email option.
 func (o UserPoolVerificationMessageTemplatePtrOutput) DefaultEmailOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -6176,6 +6815,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) DefaultEmailOption() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -6185,6 +6825,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessage() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessageByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -6194,6 +6835,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailMessageByLink() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -6203,6 +6845,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubject() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The subject line for the email message template for sending a confirmation link to the user. You can set an `EmailSubjectByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
 func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubjectByLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {
@@ -6212,6 +6855,7 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) EmailSubjectByLink() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The template for SMS messages that Amazon Cognito sends to your users.
 func (o UserPoolVerificationMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) *string {
 		if v == nil {

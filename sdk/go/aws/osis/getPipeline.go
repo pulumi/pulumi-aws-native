@@ -29,10 +29,13 @@ type LookupPipelineArgs struct {
 }
 
 type LookupPipelineResult struct {
-	BufferOptions           *PipelineBufferOptions           `pulumi:"bufferOptions"`
+	// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+	BufferOptions *PipelineBufferOptions `pulumi:"bufferOptions"`
+	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
 	// A list of endpoints that can be used for ingesting data into a pipeline
-	IngestEndpointUrls   []string                      `pulumi:"ingestEndpointUrls"`
+	IngestEndpointUrls []string `pulumi:"ingestEndpointUrls"`
+	// Key-value pairs that represent log publishing settings.
 	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits *int `pulumi:"maxUnits"`
@@ -84,10 +87,12 @@ func (o LookupPipelineResultOutput) ToLookupPipelineResultOutputWithContext(ctx 
 	return o
 }
 
+// Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
 func (o LookupPipelineResultOutput) BufferOptions() PipelineBufferOptionsPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *PipelineBufferOptions { return v.BufferOptions }).(PipelineBufferOptionsPtrOutput)
 }
 
+// Options to control how OpenSearch encrypts buffer data.
 func (o LookupPipelineResultOutput) EncryptionAtRestOptions() PipelineEncryptionAtRestOptionsPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *PipelineEncryptionAtRestOptions { return v.EncryptionAtRestOptions }).(PipelineEncryptionAtRestOptionsPtrOutput)
 }
@@ -97,6 +102,7 @@ func (o LookupPipelineResultOutput) IngestEndpointUrls() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupPipelineResult) []string { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
 
+// Key-value pairs that represent log publishing settings.
 func (o LookupPipelineResultOutput) LogPublishingOptions() PipelineLogPublishingOptionsPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *PipelineLogPublishingOptions { return v.LogPublishingOptions }).(PipelineLogPublishingOptionsPtrOutput)
 }

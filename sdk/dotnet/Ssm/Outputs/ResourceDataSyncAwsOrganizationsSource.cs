@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ssm.Outputs
     [OutputType]
     public sealed class ResourceDataSyncAwsOrganizationsSource
     {
+        /// <summary>
+        /// If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
+        /// </summary>
         public readonly string OrganizationSourceType;
+        /// <summary>
+        /// The AWS Organizations organization units included in the sync.
+        /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnits;
 
         [OutputConstructor]

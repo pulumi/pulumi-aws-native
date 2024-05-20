@@ -16,6 +16,11 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupChallengeAction
     {
+        /// <summary>
+        /// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
+        /// 
+        /// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+        /// </summary>
         public readonly Outputs.RuleGroupCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

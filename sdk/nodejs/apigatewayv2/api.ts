@@ -37,7 +37,13 @@ export class Api extends pulumi.CustomResource {
         return obj['__pulumiType'] === Api.__pulumiType;
     }
 
+    /**
+     * The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
+     */
     public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
+    /**
+     * The API identifier.
+     */
     public /*out*/ readonly apiId!: pulumi.Output<string>;
     /**
      * An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).

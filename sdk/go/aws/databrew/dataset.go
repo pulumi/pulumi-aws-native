@@ -73,8 +73,9 @@ type Dataset struct {
 	// Dataset name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// PathOptions
-	PathOptions DatasetPathOptionsPtrOutput  `pulumi:"pathOptions"`
-	Tags        aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	PathOptions DatasetPathOptionsPtrOutput `pulumi:"pathOptions"`
+	// Metadata tags that have been applied to the dataset.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -135,7 +136,8 @@ type datasetArgs struct {
 	Name *string `pulumi:"name"`
 	// PathOptions
 	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
-	Tags        []aws.CreateOnlyTag `pulumi:"tags"`
+	// Metadata tags that have been applied to the dataset.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
@@ -150,7 +152,8 @@ type DatasetArgs struct {
 	Name pulumi.StringPtrInput
 	// PathOptions
 	PathOptions DatasetPathOptionsPtrInput
-	Tags        aws.CreateOnlyTagArrayInput
+	// Metadata tags that have been applied to the dataset.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -215,6 +218,7 @@ func (o DatasetOutput) PathOptions() DatasetPathOptionsPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetPathOptionsPtrOutput { return v.PathOptions }).(DatasetPathOptionsPtrOutput)
 }
 
+// Metadata tags that have been applied to the dataset.
 func (o DatasetOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Dataset) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

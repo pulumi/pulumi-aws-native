@@ -13,8 +13,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFieldBasedTooltip
     {
+        /// <summary>
+        /// The visibility of `Show aggregations` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AggregationVisibility;
+        /// <summary>
+        /// The fields configuration in the tooltip.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateTooltipItem> TooltipFields;
+        /// <summary>
+        /// The type for the &gt;tooltip title. Choose one of the following options:
+        /// 
+        /// - `NONE` : Doesn't use the primary value as the title.
+        /// - `PRIMARY_VALUE` : Uses primary value as the title.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTooltipTitleType? TooltipTitleType;
 
         [OutputConstructor]

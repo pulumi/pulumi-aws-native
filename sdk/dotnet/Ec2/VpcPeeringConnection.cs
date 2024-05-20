@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:VpcPeeringConnection")]
     public partial class VpcPeeringConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the peering connection.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("peerVpcId")]
         public Output<string> PeerVpcId { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -130,6 +136,10 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

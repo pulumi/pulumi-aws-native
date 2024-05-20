@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
     public sealed class ObjectTypeFieldMapArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the field.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Represents a field in a ProfileObjectType.
+        /// </summary>
         [Input("objectTypeField")]
         public Input<Inputs.ObjectTypeFieldArgs>? ObjectTypeField { get; set; }
 

@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.Acmpca
         [Output("apiPassthrough")]
         public Output<Outputs.CertificateApiPassthrough?> ApiPassthrough { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the issued certificate.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The issued Base64 PEM-encoded certificate.
+        /// </summary>
         [Output("certificate")]
         public Output<string> CertificateValue { get; private set; } = null!;
 

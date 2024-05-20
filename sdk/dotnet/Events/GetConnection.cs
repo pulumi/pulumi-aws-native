@@ -61,6 +61,11 @@ namespace Pulumi.AwsNative.Events
         /// The arn of the connection resource.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The type of authorization to use for the connection.
+        /// 
+        /// &gt; OAUTH tokens are refreshed when a 401 or 407 response is returned.
+        /// </summary>
         public readonly Pulumi.AwsNative.Events.ConnectionAuthorizationType? AuthorizationType;
         /// <summary>
         /// Description of the connection.

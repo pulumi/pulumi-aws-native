@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateTotalAggregationOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The field id that's associated with the total aggregation option.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The total aggregation function that you want to set for a specified field id.
+        /// </summary>
         [Input("totalAggregationFunction", required: true)]
         public Input<Inputs.TemplateTotalAggregationFunctionArgs> TotalAggregationFunction { get; set; } = null!;
 

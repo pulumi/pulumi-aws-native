@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatastorePartition
     {
+        /// <summary>
+        /// A partition dimension defined by an attribute.
+        /// </summary>
         public readonly Outputs.Partition? Partition;
+        /// <summary>
+        /// A partition dimension defined by a timestamp attribute.
+        /// </summary>
         public readonly Outputs.DatastoreTimestampPartition? TimestampPartition;
 
         [OutputConstructor]

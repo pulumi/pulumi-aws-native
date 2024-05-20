@@ -20,7 +20,13 @@ export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetDashboardArgs {
+    /**
+     * The ID of the AWS account where you want to create the dashboard.
+     */
     awsAccountId: string;
+    /**
+     * The ID for the dashboard, also added to the IAM policy.
+     */
     dashboardId: string;
 }
 
@@ -41,9 +47,23 @@ export interface GetDashboardResult {
      * <p>The last time that this dashboard was updated.</p>
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
+     */
     readonly linkEntities?: string[];
+    /**
+     * The display name of the dashboard.
+     */
     readonly name?: string;
+    /**
+     * A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+     *
+     * To specify no permissions, omit the permissions list.
+     */
     readonly permissions?: outputs.quicksight.DashboardResourcePermission[];
+    /**
+     * Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
+     */
     readonly tags?: outputs.Tag[];
     readonly version?: outputs.quicksight.DashboardVersion;
 }
@@ -55,6 +75,12 @@ export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.I
 }
 
 export interface GetDashboardOutputArgs {
+    /**
+     * The ID of the AWS account where you want to create the dashboard.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The ID for the dashboard, also added to the IAM policy.
+     */
     dashboardId: pulumi.Input<string>;
 }

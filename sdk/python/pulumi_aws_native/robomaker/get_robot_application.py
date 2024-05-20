@@ -40,6 +40,9 @@ class GetRobotApplicationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the robot application.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -61,11 +64,17 @@ class GetRobotApplicationResult:
     @property
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> Optional['outputs.RobotApplicationRobotSoftwareSuite']:
+        """
+        The robot software suite used by the robot application.
+        """
         return pulumi.get(self, "robot_software_suite")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map that contains tag keys and tag values that are attached to the robot application.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -86,6 +95,9 @@ def get_robot_application(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRobotApplicationResult:
     """
     This schema is for testing purpose only.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the robot application.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -105,5 +117,8 @@ def get_robot_application_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotApplicationResult]:
     """
     This schema is for testing purpose only.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the robot application.
     """
     ...

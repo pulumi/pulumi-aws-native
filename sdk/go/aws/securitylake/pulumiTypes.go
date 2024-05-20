@@ -155,6 +155,7 @@ func (o DataLakeEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOut
 
 // Provides data expiration details of Amazon Security Lake object.
 type DataLakeExpiration struct {
+	// The number of days before data expires in the Amazon Security Lake object.
 	Days *int `pulumi:"days"`
 }
 
@@ -171,6 +172,7 @@ type DataLakeExpirationInput interface {
 
 // Provides data expiration details of Amazon Security Lake object.
 type DataLakeExpirationArgs struct {
+	// The number of days before data expires in the Amazon Security Lake object.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -252,6 +254,7 @@ func (o DataLakeExpirationOutput) ToDataLakeExpirationPtrOutputWithContext(ctx c
 	}).(DataLakeExpirationPtrOutput)
 }
 
+// The number of days before data expires in the Amazon Security Lake object.
 func (o DataLakeExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataLakeExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -280,6 +283,7 @@ func (o DataLakeExpirationPtrOutput) Elem() DataLakeExpirationOutput {
 	}).(DataLakeExpirationOutput)
 }
 
+// The number of days before data expires in the Amazon Security Lake object.
 func (o DataLakeExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataLakeExpiration) *int {
 		if v == nil {
@@ -291,6 +295,7 @@ func (o DataLakeExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 
 // Provides lifecycle details of Amazon Security Lake object.
 type DataLakeLifecycleConfiguration struct {
+	// Provides data expiration details of the Amazon Security Lake object.
 	Expiration *DataLakeExpiration `pulumi:"expiration"`
 	// Provides data storage transition details of Amazon Security Lake object.
 	Transitions []DataLakeTransitions `pulumi:"transitions"`
@@ -309,6 +314,7 @@ type DataLakeLifecycleConfigurationInput interface {
 
 // Provides lifecycle details of Amazon Security Lake object.
 type DataLakeLifecycleConfigurationArgs struct {
+	// Provides data expiration details of the Amazon Security Lake object.
 	Expiration DataLakeExpirationPtrInput `pulumi:"expiration"`
 	// Provides data storage transition details of Amazon Security Lake object.
 	Transitions DataLakeTransitionsArrayInput `pulumi:"transitions"`
@@ -392,6 +398,7 @@ func (o DataLakeLifecycleConfigurationOutput) ToDataLakeLifecycleConfigurationPt
 	}).(DataLakeLifecycleConfigurationPtrOutput)
 }
 
+// Provides data expiration details of the Amazon Security Lake object.
 func (o DataLakeLifecycleConfigurationOutput) Expiration() DataLakeExpirationPtrOutput {
 	return o.ApplyT(func(v DataLakeLifecycleConfiguration) *DataLakeExpiration { return v.Expiration }).(DataLakeExpirationPtrOutput)
 }
@@ -425,6 +432,7 @@ func (o DataLakeLifecycleConfigurationPtrOutput) Elem() DataLakeLifecycleConfigu
 	}).(DataLakeLifecycleConfigurationOutput)
 }
 
+// Provides data expiration details of the Amazon Security Lake object.
 func (o DataLakeLifecycleConfigurationPtrOutput) Expiration() DataLakeExpirationPtrOutput {
 	return o.ApplyT(func(v *DataLakeLifecycleConfiguration) *DataLakeExpiration {
 		if v == nil {
@@ -446,6 +454,9 @@ func (o DataLakeLifecycleConfigurationPtrOutput) Transitions() DataLakeTransitio
 
 // Provides replication details of Amazon Security Lake object.
 type DataLakeReplicationConfiguration struct {
+	// Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
+	//
+	// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
 	Regions []string `pulumi:"regions"`
 	// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
 	RoleArn *string `pulumi:"roleArn"`
@@ -464,6 +475,9 @@ type DataLakeReplicationConfigurationInput interface {
 
 // Provides replication details of Amazon Security Lake object.
 type DataLakeReplicationConfigurationArgs struct {
+	// Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
+	//
+	// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -547,6 +561,9 @@ func (o DataLakeReplicationConfigurationOutput) ToDataLakeReplicationConfigurati
 	}).(DataLakeReplicationConfigurationPtrOutput)
 }
 
+// Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
+//
+// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
 func (o DataLakeReplicationConfigurationOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataLakeReplicationConfiguration) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -580,6 +597,9 @@ func (o DataLakeReplicationConfigurationPtrOutput) Elem() DataLakeReplicationCon
 	}).(DataLakeReplicationConfigurationOutput)
 }
 
+// Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
+//
+// Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
 func (o DataLakeReplicationConfigurationPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeReplicationConfiguration) []string {
 		if v == nil {

@@ -19,10 +19,16 @@ export function getCustomerGateway(args: GetCustomerGatewayArgs, opts?: pulumi.I
 }
 
 export interface GetCustomerGatewayArgs {
+    /**
+     * The ID of the customer gateway.
+     */
     customerGatewayId: string;
 }
 
 export interface GetCustomerGatewayResult {
+    /**
+     * The ID of the customer gateway.
+     */
     readonly customerGatewayId?: string;
     /**
      * One or more tags for the customer gateway.
@@ -37,5 +43,8 @@ export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opt
 }
 
 export interface GetCustomerGatewayOutputArgs {
+    /**
+     * The ID of the customer gateway.
+     */
     customerGatewayId: pulumi.Input<string>;
 }

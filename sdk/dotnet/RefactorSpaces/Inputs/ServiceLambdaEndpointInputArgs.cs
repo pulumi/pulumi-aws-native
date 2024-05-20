@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.RefactorSpaces.Inputs
 
     public sealed class ServiceLambdaEndpointInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Lambda function or alias.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 

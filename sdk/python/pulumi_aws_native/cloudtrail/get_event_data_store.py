@@ -199,6 +199,9 @@ class GetEventDataStoreResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags.
+        """
         return pulumi.get(self, "tags")
 
     @property

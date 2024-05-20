@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class FleetAmountCapability
     {
+        /// <summary>
+        /// The maximum amount of the fleet worker capability.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The minimum amount of fleet worker capability.
+        /// </summary>
         public readonly double Min;
+        /// <summary>
+        /// The name of the fleet capability.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

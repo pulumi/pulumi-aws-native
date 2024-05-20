@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetColumnGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Geospatial column group that denotes a hierarchy.
+        /// </summary>
         [Input("geoSpatialColumnGroup")]
         public Input<Inputs.DataSetGeoSpatialColumnGroupArgs>? GeoSpatialColumnGroup { get; set; }
 

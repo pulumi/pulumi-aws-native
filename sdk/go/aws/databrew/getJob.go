@@ -28,8 +28,10 @@ type LookupJobArgs struct {
 }
 
 type LookupJobResult struct {
+	// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
 	DataCatalogOutputs []JobDataCatalogOutput `pulumi:"dataCatalogOutputs"`
-	DatabaseOutputs    []JobDatabaseOutput    `pulumi:"databaseOutputs"`
+	// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+	DatabaseOutputs []JobDatabaseOutput `pulumi:"databaseOutputs"`
 	// Dataset name
 	DatasetName *string `pulumi:"datasetName"`
 	// Encryption Key Arn
@@ -46,12 +48,14 @@ type LookupJobResult struct {
 	MaxRetries *int `pulumi:"maxRetries"`
 	// Output location
 	OutputLocation *JobOutputLocation `pulumi:"outputLocation"`
-	Outputs        []JobOutputType    `pulumi:"outputs"`
+	// One or more artifacts that represent output from running the job.
+	Outputs []JobOutputType `pulumi:"outputs"`
 	// Profile Job configuration
 	ProfileConfiguration *JobProfileConfiguration `pulumi:"profileConfiguration"`
 	// Project name
-	ProjectName *string    `pulumi:"projectName"`
-	Recipe      *JobRecipe `pulumi:"recipe"`
+	ProjectName *string `pulumi:"projectName"`
+	// A series of data transformation steps that the job runs.
+	Recipe *JobRecipe `pulumi:"recipe"`
 	// Role arn
 	RoleArn *string `pulumi:"roleArn"`
 	// Timeout
@@ -96,10 +100,12 @@ func (o LookupJobResultOutput) ToLookupJobResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
 func (o LookupJobResultOutput) DataCatalogOutputs() JobDataCatalogOutputArrayOutput {
 	return o.ApplyT(func(v LookupJobResult) []JobDataCatalogOutput { return v.DataCatalogOutputs }).(JobDataCatalogOutputArrayOutput)
 }
 
+// Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
 func (o LookupJobResultOutput) DatabaseOutputs() JobDatabaseOutputArrayOutput {
 	return o.ApplyT(func(v LookupJobResult) []JobDatabaseOutput { return v.DatabaseOutputs }).(JobDatabaseOutputArrayOutput)
 }
@@ -144,6 +150,7 @@ func (o LookupJobResultOutput) OutputLocation() JobOutputLocationPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *JobOutputLocation { return v.OutputLocation }).(JobOutputLocationPtrOutput)
 }
 
+// One or more artifacts that represent output from running the job.
 func (o LookupJobResultOutput) Outputs() JobOutputTypeArrayOutput {
 	return o.ApplyT(func(v LookupJobResult) []JobOutputType { return v.Outputs }).(JobOutputTypeArrayOutput)
 }
@@ -158,6 +165,7 @@ func (o LookupJobResultOutput) ProjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
 }
 
+// A series of data transformation steps that the job runs.
 func (o LookupJobResultOutput) Recipe() JobRecipePtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *JobRecipe { return v.Recipe }).(JobRecipePtrOutput)
 }

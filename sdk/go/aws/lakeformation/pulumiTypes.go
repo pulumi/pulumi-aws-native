@@ -2399,8 +2399,10 @@ func (o TagAssociationCatalogResourcePtrOutput) Elem() TagAssociationCatalogReso
 }
 
 type TagAssociationDatabaseResource struct {
+	// The identifier for the Data Catalog . By default, it should be the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	Name      string `pulumi:"name"`
+	// The name of the database resource. Unique to the Data Catalog.
+	Name string `pulumi:"name"`
 }
 
 // TagAssociationDatabaseResourceInput is an input type that accepts TagAssociationDatabaseResourceArgs and TagAssociationDatabaseResourceOutput values.
@@ -2415,8 +2417,10 @@ type TagAssociationDatabaseResourceInput interface {
 }
 
 type TagAssociationDatabaseResourceArgs struct {
+	// The identifier for the Data Catalog . By default, it should be the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the database resource. Unique to the Data Catalog.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (TagAssociationDatabaseResourceArgs) ElementType() reflect.Type {
@@ -2496,10 +2500,12 @@ func (o TagAssociationDatabaseResourceOutput) ToTagAssociationDatabaseResourcePt
 	}).(TagAssociationDatabaseResourcePtrOutput)
 }
 
+// The identifier for the Data Catalog . By default, it should be the account ID of the caller.
 func (o TagAssociationDatabaseResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationDatabaseResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The name of the database resource. Unique to the Data Catalog.
 func (o TagAssociationDatabaseResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationDatabaseResource) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2528,6 +2534,7 @@ func (o TagAssociationDatabaseResourcePtrOutput) Elem() TagAssociationDatabaseRe
 	}).(TagAssociationDatabaseResourceOutput)
 }
 
+// The identifier for the Data Catalog . By default, it should be the account ID of the caller.
 func (o TagAssociationDatabaseResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationDatabaseResource) *string {
 		if v == nil {
@@ -2537,6 +2544,7 @@ func (o TagAssociationDatabaseResourcePtrOutput) CatalogId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database resource. Unique to the Data Catalog.
 func (o TagAssociationDatabaseResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationDatabaseResource) *string {
 		if v == nil {
@@ -2653,9 +2661,13 @@ func (o TagAssociationLfTagPairArrayOutput) Index(i pulumi.IntInput) TagAssociat
 }
 
 type TagAssociationResource struct {
-	Catalog          *TagAssociationCatalogResource          `pulumi:"catalog"`
-	Database         *TagAssociationDatabaseResource         `pulumi:"database"`
-	Table            *TagAssociationTableResource            `pulumi:"table"`
+	// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+	Catalog *TagAssociationCatalogResource `pulumi:"catalog"`
+	// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+	Database *TagAssociationDatabaseResource `pulumi:"database"`
+	// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Table *TagAssociationTableResource `pulumi:"table"`
+	// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns *TagAssociationTableWithColumnsResource `pulumi:"tableWithColumns"`
 }
 
@@ -2671,9 +2683,13 @@ type TagAssociationResourceInput interface {
 }
 
 type TagAssociationResourceArgs struct {
-	Catalog          TagAssociationCatalogResourcePtrInput          `pulumi:"catalog"`
-	Database         TagAssociationDatabaseResourcePtrInput         `pulumi:"database"`
-	Table            TagAssociationTableResourcePtrInput            `pulumi:"table"`
+	// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+	Catalog TagAssociationCatalogResourcePtrInput `pulumi:"catalog"`
+	// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+	Database TagAssociationDatabaseResourcePtrInput `pulumi:"database"`
+	// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Table TagAssociationTableResourcePtrInput `pulumi:"table"`
+	// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns TagAssociationTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
 }
 
@@ -2703,26 +2719,36 @@ func (o TagAssociationResourceOutput) ToTagAssociationResourceOutputWithContext(
 	return o
 }
 
+// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
 func (o TagAssociationResourceOutput) Catalog() TagAssociationCatalogResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationCatalogResource { return v.Catalog }).(TagAssociationCatalogResourcePtrOutput)
 }
 
+// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
 func (o TagAssociationResourceOutput) Database() TagAssociationDatabaseResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationDatabaseResource { return v.Database }).(TagAssociationDatabaseResourcePtrOutput)
 }
 
+// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o TagAssociationResourceOutput) Table() TagAssociationTableResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationTableResource { return v.Table }).(TagAssociationTableResourcePtrOutput)
 }
 
+// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 func (o TagAssociationResourceOutput) TableWithColumns() TagAssociationTableWithColumnsResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationTableWithColumnsResource { return v.TableWithColumns }).(TagAssociationTableWithColumnsResourcePtrOutput)
 }
 
 type TagAssociationTableResource struct {
-	CatalogId     string                       `pulumi:"catalogId"`
-	DatabaseName  string                       `pulumi:"databaseName"`
-	Name          *string                      `pulumi:"name"`
+	// The identifier for the Data Catalog . By default, it is the account ID of the caller.
+	CatalogId string `pulumi:"catalogId"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the table.
+	Name *string `pulumi:"name"`
+	// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+	//
+	// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
 	TableWildcard *TagAssociationTableWildcard `pulumi:"tableWildcard"`
 }
 
@@ -2738,9 +2764,15 @@ type TagAssociationTableResourceInput interface {
 }
 
 type TagAssociationTableResourceArgs struct {
-	CatalogId     pulumi.StringInput                  `pulumi:"catalogId"`
-	DatabaseName  pulumi.StringInput                  `pulumi:"databaseName"`
-	Name          pulumi.StringPtrInput               `pulumi:"name"`
+	// The identifier for the Data Catalog . By default, it is the account ID of the caller.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the table.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+	//
+	// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
 	TableWildcard TagAssociationTableWildcardPtrInput `pulumi:"tableWildcard"`
 }
 
@@ -2821,18 +2853,24 @@ func (o TagAssociationTableResourceOutput) ToTagAssociationTableResourcePtrOutpu
 	}).(TagAssociationTableResourcePtrOutput)
 }
 
+// The identifier for the Data Catalog . By default, it is the account ID of the caller.
 func (o TagAssociationTableResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationTableResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o TagAssociationTableResourceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationTableResource) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the table.
 func (o TagAssociationTableResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TagAssociationTableResource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+//
+// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
 func (o TagAssociationTableResourceOutput) TableWildcard() TagAssociationTableWildcardPtrOutput {
 	return o.ApplyT(func(v TagAssociationTableResource) *TagAssociationTableWildcard { return v.TableWildcard }).(TagAssociationTableWildcardPtrOutput)
 }
@@ -2861,6 +2899,7 @@ func (o TagAssociationTableResourcePtrOutput) Elem() TagAssociationTableResource
 	}).(TagAssociationTableResourceOutput)
 }
 
+// The identifier for the Data Catalog . By default, it is the account ID of the caller.
 func (o TagAssociationTableResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableResource) *string {
 		if v == nil {
@@ -2870,6 +2909,7 @@ func (o TagAssociationTableResourcePtrOutput) CatalogId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o TagAssociationTableResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableResource) *string {
 		if v == nil {
@@ -2879,6 +2919,7 @@ func (o TagAssociationTableResourcePtrOutput) DatabaseName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table.
 func (o TagAssociationTableResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableResource) *string {
 		if v == nil {
@@ -2888,6 +2929,9 @@ func (o TagAssociationTableResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+//
+// At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
 func (o TagAssociationTableResourcePtrOutput) TableWildcard() TagAssociationTableWildcardPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableResource) *TagAssociationTableWildcard {
 		if v == nil {
@@ -3016,10 +3060,16 @@ func (o TagAssociationTableWildcardPtrOutput) Elem() TagAssociationTableWildcard
 }
 
 type TagAssociationTableWithColumnsResource struct {
-	CatalogId    string   `pulumi:"catalogId"`
-	ColumnNames  []string `pulumi:"columnNames"`
-	DatabaseName string   `pulumi:"databaseName"`
-	Name         string   `pulumi:"name"`
+	// A wildcard object representing every table under a database.
+	//
+	// At least one of TableResource$Name or TableResource$TableWildcard is required.
+	CatalogId string `pulumi:"catalogId"`
+	// The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+	ColumnNames []string `pulumi:"columnNames"`
+	// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Name string `pulumi:"name"`
 }
 
 // TagAssociationTableWithColumnsResourceInput is an input type that accepts TagAssociationTableWithColumnsResourceArgs and TagAssociationTableWithColumnsResourceOutput values.
@@ -3034,10 +3084,16 @@ type TagAssociationTableWithColumnsResourceInput interface {
 }
 
 type TagAssociationTableWithColumnsResourceArgs struct {
-	CatalogId    pulumi.StringInput      `pulumi:"catalogId"`
-	ColumnNames  pulumi.StringArrayInput `pulumi:"columnNames"`
-	DatabaseName pulumi.StringInput      `pulumi:"databaseName"`
-	Name         pulumi.StringInput      `pulumi:"name"`
+	// A wildcard object representing every table under a database.
+	//
+	// At least one of TableResource$Name or TableResource$TableWildcard is required.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (TagAssociationTableWithColumnsResourceArgs) ElementType() reflect.Type {
@@ -3117,18 +3173,24 @@ func (o TagAssociationTableWithColumnsResourceOutput) ToTagAssociationTableWithC
 	}).(TagAssociationTableWithColumnsResourcePtrOutput)
 }
 
+// A wildcard object representing every table under a database.
+//
+// At least one of TableResource$Name or TableResource$TableWildcard is required.
 func (o TagAssociationTableWithColumnsResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
 func (o TagAssociationTableWithColumnsResourceOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o TagAssociationTableWithColumnsResourceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o TagAssociationTableWithColumnsResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationTableWithColumnsResource) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3157,6 +3219,9 @@ func (o TagAssociationTableWithColumnsResourcePtrOutput) Elem() TagAssociationTa
 	}).(TagAssociationTableWithColumnsResourceOutput)
 }
 
+// A wildcard object representing every table under a database.
+//
+// At least one of TableResource$Name or TableResource$TableWildcard is required.
 func (o TagAssociationTableWithColumnsResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) *string {
 		if v == nil {
@@ -3166,6 +3231,7 @@ func (o TagAssociationTableWithColumnsResourcePtrOutput) CatalogId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
 func (o TagAssociationTableWithColumnsResourcePtrOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) []string {
 		if v == nil {
@@ -3175,6 +3241,7 @@ func (o TagAssociationTableWithColumnsResourcePtrOutput) ColumnNames() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
+// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o TagAssociationTableWithColumnsResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) *string {
 		if v == nil {
@@ -3184,6 +3251,7 @@ func (o TagAssociationTableWithColumnsResourcePtrOutput) DatabaseName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o TagAssociationTableWithColumnsResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TagAssociationTableWithColumnsResource) *string {
 		if v == nil {

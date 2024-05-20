@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelPackageDriftCheckModelDataQualityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The drift check model data quality constraints.
+        /// </summary>
         [Input("constraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Constraints { get; set; }
 
+        /// <summary>
+        /// The drift check model data quality statistics.
+        /// </summary>
         [Input("statistics")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Statistics { get; set; }
 

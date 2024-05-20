@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the resource policy.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Lex
 
     public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the resource policy.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.Lex
     [OutputType]
     public sealed class GetResourcePolicyResult
     {
+        /// <summary>
+        /// The identifier of the resource policy.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        /// </summary>
         public readonly Outputs.ResourcePolicyPolicy? Policy;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+        /// </summary>
         public readonly string? ResourceArn;
+        /// <summary>
+        /// Specifies the current revision of a resource policy.
+        /// </summary>
         public readonly string? RevisionId;
 
         [OutputConstructor]

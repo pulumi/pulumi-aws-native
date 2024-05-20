@@ -37,10 +37,25 @@ export class KeyValueStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyValueStore.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the key value store.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The unique Id for the key value store.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A comment for the key value store.
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
+    /**
+     * The import source for the key value store.
+     */
     public readonly importSource!: pulumi.Output<outputs.cloudfront.KeyValueStoreImportSource | undefined>;
+    /**
+     * The name of the key value store.
+     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
 
@@ -80,7 +95,16 @@ export class KeyValueStore extends pulumi.CustomResource {
  * The set of arguments for constructing a KeyValueStore resource.
  */
 export interface KeyValueStoreArgs {
+    /**
+     * A comment for the key value store.
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * The import source for the key value store.
+     */
     importSource?: pulumi.Input<inputs.cloudfront.KeyValueStoreImportSourceArgs>;
+    /**
+     * The name of the key value store.
+     */
     name?: pulumi.Input<string>;
 }

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainIdpArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique entity ID of the application in the SAML identity provider.
+        /// </summary>
         [Input("entityId", required: true)]
         public Input<string> EntityId { get; set; } = null!;
 
+        /// <summary>
+        /// The metadata of the SAML application, in XML format.
+        /// </summary>
         [Input("metadataContent", required: true)]
         public Input<string> MetadataContent { get; set; } = null!;
 

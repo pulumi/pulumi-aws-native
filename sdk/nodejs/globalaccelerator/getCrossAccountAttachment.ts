@@ -42,6 +42,11 @@ export interface GetCrossAccountAttachmentResult {
      * Resources shared using the attachment.
      */
     readonly resources?: outputs.globalaccelerator.CrossAccountAttachmentResource[];
+    /**
+     * Add tags for a cross-account attachment.
+     *
+     * For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

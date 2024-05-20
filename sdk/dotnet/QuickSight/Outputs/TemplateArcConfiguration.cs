@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateArcConfiguration
     {
+        /// <summary>
+        /// The option that determines the arc angle of a `GaugeChartVisual` .
+        /// </summary>
         public readonly double? ArcAngle;
+        /// <summary>
+        /// The options that determine the arc thickness of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateArcThicknessOptions? ArcThickness;
 
         [OutputConstructor]

@@ -27,6 +27,14 @@ class FhirDatastoreArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FhirDatastore resource.
+        :param pulumi.Input['FhirDatastoreDatastoreTypeVersion'] datastore_type_version: The FHIR version of the data store. The only supported version is R4.
+        :param pulumi.Input[str] datastore_name: The user generated name for the data store.
+        :param pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs'] identity_provider_configuration: The identity provider configuration that you gave when the data store was created.
+        :param pulumi.Input['FhirDatastorePreloadDataConfigArgs'] preload_data_config: The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        :param pulumi.Input['FhirDatastoreSseConfigurationArgs'] sse_configuration: The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "datastore_type_version", datastore_type_version)
         if datastore_name is not None:
@@ -43,6 +51,9 @@ class FhirDatastoreArgs:
     @property
     @pulumi.getter(name="datastoreTypeVersion")
     def datastore_type_version(self) -> pulumi.Input['FhirDatastoreDatastoreTypeVersion']:
+        """
+        The FHIR version of the data store. The only supported version is R4.
+        """
         return pulumi.get(self, "datastore_type_version")
 
     @datastore_type_version.setter
@@ -52,6 +63,9 @@ class FhirDatastoreArgs:
     @property
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user generated name for the data store.
+        """
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
@@ -61,6 +75,9 @@ class FhirDatastoreArgs:
     @property
     @pulumi.getter(name="identityProviderConfiguration")
     def identity_provider_configuration(self) -> Optional[pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs']]:
+        """
+        The identity provider configuration that you gave when the data store was created.
+        """
         return pulumi.get(self, "identity_provider_configuration")
 
     @identity_provider_configuration.setter
@@ -70,6 +87,9 @@ class FhirDatastoreArgs:
     @property
     @pulumi.getter(name="preloadDataConfig")
     def preload_data_config(self) -> Optional[pulumi.Input['FhirDatastorePreloadDataConfigArgs']]:
+        """
+        The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        """
         return pulumi.get(self, "preload_data_config")
 
     @preload_data_config.setter
@@ -79,6 +99,9 @@ class FhirDatastoreArgs:
     @property
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> Optional[pulumi.Input['FhirDatastoreSseConfigurationArgs']]:
+        """
+        The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        """
         return pulumi.get(self, "sse_configuration")
 
     @sse_configuration.setter
@@ -88,6 +111,11 @@ class FhirDatastoreArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -112,6 +140,14 @@ class FhirDatastore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] datastore_name: The user generated name for the data store.
+        :param pulumi.Input['FhirDatastoreDatastoreTypeVersion'] datastore_type_version: The FHIR version of the data store. The only supported version is R4.
+        :param pulumi.Input[pulumi.InputType['FhirDatastoreIdentityProviderConfigurationArgs']] identity_provider_configuration: The identity provider configuration that you gave when the data store was created.
+        :param pulumi.Input[pulumi.InputType['FhirDatastorePreloadDataConfigArgs']] preload_data_config: The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        :param pulumi.Input[pulumi.InputType['FhirDatastoreSseConfigurationArgs']] sse_configuration: The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -210,50 +246,82 @@ class FhirDatastore(pulumi.CustomResource):
     @property
     @pulumi.getter(name="datastoreArn")
     def datastore_arn(self) -> pulumi.Output[str]:
+        """
+        The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
+        """
         return pulumi.get(self, "datastore_arn")
 
     @property
     @pulumi.getter(name="datastoreEndpoint")
     def datastore_endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint for the created Data Store.
+        """
         return pulumi.get(self, "datastore_endpoint")
 
     @property
     @pulumi.getter(name="datastoreId")
     def datastore_id(self) -> pulumi.Output[str]:
+        """
+        The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
+        """
         return pulumi.get(self, "datastore_id")
 
     @property
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user generated name for the data store.
+        """
         return pulumi.get(self, "datastore_name")
 
     @property
     @pulumi.getter(name="datastoreStatus")
     def datastore_status(self) -> pulumi.Output['FhirDatastoreDatastoreStatus']:
+        """
+        The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
+        """
         return pulumi.get(self, "datastore_status")
 
     @property
     @pulumi.getter(name="datastoreTypeVersion")
     def datastore_type_version(self) -> pulumi.Output['FhirDatastoreDatastoreTypeVersion']:
+        """
+        The FHIR version of the data store. The only supported version is R4.
+        """
         return pulumi.get(self, "datastore_type_version")
 
     @property
     @pulumi.getter(name="identityProviderConfiguration")
     def identity_provider_configuration(self) -> pulumi.Output[Optional['outputs.FhirDatastoreIdentityProviderConfiguration']]:
+        """
+        The identity provider configuration that you gave when the data store was created.
+        """
         return pulumi.get(self, "identity_provider_configuration")
 
     @property
     @pulumi.getter(name="preloadDataConfig")
     def preload_data_config(self) -> pulumi.Output[Optional['outputs.FhirDatastorePreloadDataConfig']]:
+        """
+        The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        """
         return pulumi.get(self, "preload_data_config")
 
     @property
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> pulumi.Output[Optional['outputs.FhirDatastoreSseConfiguration']]:
+        """
+        The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        """
         return pulumi.get(self, "sse_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        """
         return pulumi.get(self, "tags")
 

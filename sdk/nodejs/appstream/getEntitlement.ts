@@ -20,15 +20,36 @@ export function getEntitlement(args: GetEntitlementArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetEntitlementArgs {
+    /**
+     * The name of the entitlement.
+     */
     name: string;
+    /**
+     * The name of the stack.
+     */
     stackName: string;
 }
 
 export interface GetEntitlementResult {
+    /**
+     * Specifies whether to entitle all apps or only selected apps.
+     */
     readonly appVisibility?: string;
+    /**
+     * The attributes of the entitlement.
+     */
     readonly attributes?: outputs.appstream.EntitlementAttribute[];
+    /**
+     * The time when the entitlement was created.
+     */
     readonly createdTime?: string;
+    /**
+     * The description of the entitlement.
+     */
     readonly description?: string;
+    /**
+     * The time when the entitlement was last modified.
+     */
     readonly lastModifiedTime?: string;
 }
 /**
@@ -39,6 +60,12 @@ export function getEntitlementOutput(args: GetEntitlementOutputArgs, opts?: pulu
 }
 
 export interface GetEntitlementOutputArgs {
+    /**
+     * The name of the entitlement.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The name of the stack.
+     */
     stackName: pulumi.Input<string>;
 }

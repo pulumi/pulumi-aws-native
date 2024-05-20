@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateArcAxisConfiguration
     {
+        /// <summary>
+        /// The arc axis range of a `GaugeChartVisual` .
+        /// </summary>
         public readonly Outputs.TemplateArcAxisDisplayRange? Range;
+        /// <summary>
+        /// The reserved range of the arc axis.
+        /// </summary>
         public readonly double? ReserveRange;
 
         [OutputConstructor]

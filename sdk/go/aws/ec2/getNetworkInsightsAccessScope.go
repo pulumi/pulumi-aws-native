@@ -24,15 +24,21 @@ func LookupNetworkInsightsAccessScope(ctx *pulumi.Context, args *LookupNetworkIn
 }
 
 type LookupNetworkInsightsAccessScopeArgs struct {
+	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId string `pulumi:"networkInsightsAccessScopeId"`
 }
 
 type LookupNetworkInsightsAccessScopeResult struct {
-	CreatedDate                   *string   `pulumi:"createdDate"`
-	NetworkInsightsAccessScopeArn *string   `pulumi:"networkInsightsAccessScopeArn"`
-	NetworkInsightsAccessScopeId  *string   `pulumi:"networkInsightsAccessScopeId"`
-	Tags                          []aws.Tag `pulumi:"tags"`
-	UpdatedDate                   *string   `pulumi:"updatedDate"`
+	// The creation date.
+	CreatedDate *string `pulumi:"createdDate"`
+	// The ARN of the Network Access Scope.
+	NetworkInsightsAccessScopeArn *string `pulumi:"networkInsightsAccessScopeArn"`
+	// The ID of the Network Access Scope.
+	NetworkInsightsAccessScopeId *string `pulumi:"networkInsightsAccessScopeId"`
+	// The tags.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The last updated date.
+	UpdatedDate *string `pulumi:"updatedDate"`
 }
 
 func LookupNetworkInsightsAccessScopeOutput(ctx *pulumi.Context, args LookupNetworkInsightsAccessScopeOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAccessScopeResultOutput {
@@ -49,6 +55,7 @@ func LookupNetworkInsightsAccessScopeOutput(ctx *pulumi.Context, args LookupNetw
 }
 
 type LookupNetworkInsightsAccessScopeOutputArgs struct {
+	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId pulumi.StringInput `pulumi:"networkInsightsAccessScopeId"`
 }
 
@@ -70,22 +77,27 @@ func (o LookupNetworkInsightsAccessScopeResultOutput) ToLookupNetworkInsightsAcc
 	return o
 }
 
+// The creation date.
 func (o LookupNetworkInsightsAccessScopeResultOutput) CreatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Network Access Scope.
 func (o LookupNetworkInsightsAccessScopeResultOutput) NetworkInsightsAccessScopeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) *string { return v.NetworkInsightsAccessScopeArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Network Access Scope.
 func (o LookupNetworkInsightsAccessScopeResultOutput) NetworkInsightsAccessScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) *string { return v.NetworkInsightsAccessScopeId }).(pulumi.StringPtrOutput)
 }
 
+// The tags.
 func (o LookupNetworkInsightsAccessScopeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The last updated date.
 func (o LookupNetworkInsightsAccessScopeResultOutput) UpdatedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) *string { return v.UpdatedDate }).(pulumi.StringPtrOutput)
 }

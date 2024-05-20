@@ -19,11 +19,20 @@ export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi
 }
 
 export interface GetSchedulingPolicyArgs {
+    /**
+     * Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+     */
     arn: string;
 }
 
 export interface GetSchedulingPolicyResult {
+    /**
+     * Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+     */
     readonly arn?: string;
+    /**
+     * The fair share policy of the scheduling policy.
+     */
     readonly fairsharePolicy?: outputs.batch.SchedulingPolicyFairsharePolicy;
 }
 /**
@@ -34,5 +43,8 @@ export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, o
 }
 
 export interface GetSchedulingPolicyOutputArgs {
+    /**
+     * Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
+     */
     arn: pulumi.Input<string>;
 }

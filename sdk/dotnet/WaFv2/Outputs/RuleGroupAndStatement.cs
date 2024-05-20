@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class RuleGroupAndStatement
     {
+        /// <summary>
+        /// The statements to combine with AND logic. You can use any statements that can be nested.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupStatement> Statements;
 
         [OutputConstructor]

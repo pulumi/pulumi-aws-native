@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
 
     public sealed class DetectorEntityTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The entity type ARN.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -27,6 +30,11 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
+        /// 
+        /// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
+        /// </summary>
         [Input("inline")]
         public Input<bool>? Inline { get; set; }
 
@@ -36,6 +44,9 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
+        /// <summary>
+        /// The entity type name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

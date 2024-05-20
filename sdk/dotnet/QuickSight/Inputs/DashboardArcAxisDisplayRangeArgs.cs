@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardArcAxisDisplayRangeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum value of the arc axis range.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum value of the arc axis range.
+        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

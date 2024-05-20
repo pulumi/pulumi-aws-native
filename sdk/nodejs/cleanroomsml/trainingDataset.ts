@@ -37,15 +37,35 @@ export class TrainingDataset extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrainingDataset.__pulumiType;
     }
 
+    /**
+     * The description of the training dataset.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the training dataset.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+     *
+     * Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The status of the training dataset.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.cleanroomsml.TrainingDatasetStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
+     */
     public readonly trainingData!: pulumi.Output<outputs.cleanroomsml.TrainingDatasetDataset[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the training dataset.
+     */
     public /*out*/ readonly trainingDatasetArn!: pulumi.Output<string>;
 
     /**
@@ -92,12 +112,26 @@ export class TrainingDataset extends pulumi.CustomResource {
  * The set of arguments for constructing a TrainingDataset resource.
  */
 export interface TrainingDatasetArgs {
+    /**
+     * The description of the training dataset.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the training dataset.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+     *
+     * Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+     */
     roleArn: pulumi.Input<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
+     */
     trainingData: pulumi.Input<pulumi.Input<inputs.cleanroomsml.TrainingDatasetDatasetArgs>[]>;
 }

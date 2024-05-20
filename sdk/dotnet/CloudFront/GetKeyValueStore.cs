@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetKeyValueStoreArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the key value store.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetKeyValueStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the key value store.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetKeyValueStoreResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the key value store.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A comment for the key value store.
+        /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// The unique Id for the key value store.
+        /// </summary>
         public readonly string? Id;
         public readonly string? Status;
 

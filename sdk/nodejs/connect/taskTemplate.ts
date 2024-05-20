@@ -41,6 +41,9 @@ export class TaskTemplate extends pulumi.CustomResource {
      * The identifier (arn) of the task template.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+     */
     public readonly clientToken!: pulumi.Output<string | undefined>;
     /**
      * The constraints for the task template
@@ -50,6 +53,9 @@ export class TaskTemplate extends pulumi.CustomResource {
      * The identifier of the contact flow.
      */
     public readonly contactFlowArn!: pulumi.Output<string | undefined>;
+    /**
+     * The default values for fields when a task is created by referencing this template.
+     */
     public readonly defaults!: pulumi.Output<outputs.connect.TaskTemplateDefaultFieldValue[] | undefined>;
     /**
      * The description of the task template.
@@ -67,6 +73,9 @@ export class TaskTemplate extends pulumi.CustomResource {
      * The name of the task template.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the task template.
+     */
     public readonly status!: pulumi.Output<enums.connect.TaskTemplateStatus | undefined>;
     /**
      * One or more tags.
@@ -120,6 +129,9 @@ export class TaskTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a TaskTemplate resource.
  */
 export interface TaskTemplateArgs {
+    /**
+     * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+     */
     clientToken?: pulumi.Input<string>;
     /**
      * The constraints for the task template
@@ -129,6 +141,9 @@ export interface TaskTemplateArgs {
      * The identifier of the contact flow.
      */
     contactFlowArn?: pulumi.Input<string>;
+    /**
+     * The default values for fields when a task is created by referencing this template.
+     */
     defaults?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateDefaultFieldValueArgs>[]>;
     /**
      * The description of the task template.
@@ -146,6 +161,9 @@ export interface TaskTemplateArgs {
      * The name of the task template.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The status of the task template.
+     */
     status?: pulumi.Input<enums.connect.TaskTemplateStatus>;
     /**
      * One or more tags.

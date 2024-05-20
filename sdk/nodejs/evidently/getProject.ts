@@ -19,13 +19,34 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetProjectArgs {
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     arn: string;
 }
 
 export interface GetProjectResult {
+    /**
+     * Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+     *
+     * This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+     *
+     * To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
+     */
     readonly appConfigResource?: outputs.evidently.ProjectAppConfigResourceObject;
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     readonly arn?: string;
+    /**
+     * A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+     *
+     * You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
+     */
     readonly dataDelivery?: outputs.evidently.ProjectDataDeliveryObject;
+    /**
+     * An optional description of the project.
+     */
     readonly description?: string;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -40,5 +61,8 @@ export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetProjectOutputArgs {
+    /**
+     * The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
+     */
     arn: pulumi.Input<string>;
 }

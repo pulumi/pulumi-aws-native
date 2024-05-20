@@ -34,8 +34,17 @@ export class QueueFleetAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueueFleetAssociation.__pulumiType;
     }
 
+    /**
+     * The identifier of the farm that contains the queue and the fleet.
+     */
     public readonly farmId!: pulumi.Output<string>;
+    /**
+     * The fleet ID.
+     */
     public readonly fleetId!: pulumi.Output<string>;
+    /**
+     * The queue ID.
+     */
     public readonly queueId!: pulumi.Output<string>;
 
     /**
@@ -77,7 +86,16 @@ export class QueueFleetAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a QueueFleetAssociation resource.
  */
 export interface QueueFleetAssociationArgs {
+    /**
+     * The identifier of the farm that contains the queue and the fleet.
+     */
     farmId: pulumi.Input<string>;
+    /**
+     * The fleet ID.
+     */
     fleetId: pulumi.Input<string>;
+    /**
+     * The queue ID.
+     */
     queueId: pulumi.Input<string>;
 }

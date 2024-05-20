@@ -13,9 +13,27 @@ namespace Pulumi.AwsNative.Amplify.Outputs
     [OutputType]
     public sealed class AppCustomRule
     {
+        /// <summary>
+        /// The condition for a URL rewrite or redirect rule, such as a country code.
+        /// </summary>
         public readonly string? Condition;
+        /// <summary>
+        /// The source pattern for a URL rewrite or redirect rule.
+        /// </summary>
         public readonly string Source;
+        /// <summary>
+        /// The status code for a URL rewrite or redirect rule.
+        /// 
+        /// - **200** - Represents a 200 rewrite rule.
+        /// - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
+        /// - **302** - Represents a 302 temporary redirect rule.
+        /// - **404** - Represents a 404 redirect rule.
+        /// - **404-200** - Represents a 404 rewrite rule.
+        /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// The target pattern for a URL rewrite or redirect rule.
+        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

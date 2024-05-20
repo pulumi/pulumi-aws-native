@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LinkConfiguration struct {
+	// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 	LogGroupConfiguration *LinkFilter `pulumi:"logGroupConfiguration"`
-	MetricConfiguration   *LinkFilter `pulumi:"metricConfiguration"`
+	// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
+	MetricConfiguration *LinkFilter `pulumi:"metricConfiguration"`
 }
 
 // LinkConfigurationInput is an input type that accepts LinkConfigurationArgs and LinkConfigurationOutput values.
@@ -30,8 +32,10 @@ type LinkConfigurationInput interface {
 }
 
 type LinkConfigurationArgs struct {
+	// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 	LogGroupConfiguration LinkFilterPtrInput `pulumi:"logGroupConfiguration"`
-	MetricConfiguration   LinkFilterPtrInput `pulumi:"metricConfiguration"`
+	// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
+	MetricConfiguration LinkFilterPtrInput `pulumi:"metricConfiguration"`
 }
 
 func (LinkConfigurationArgs) ElementType() reflect.Type {
@@ -111,10 +115,12 @@ func (o LinkConfigurationOutput) ToLinkConfigurationPtrOutputWithContext(ctx con
 	}).(LinkConfigurationPtrOutput)
 }
 
+// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 func (o LinkConfigurationOutput) LogGroupConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v LinkConfiguration) *LinkFilter { return v.LogGroupConfiguration }).(LinkFilterPtrOutput)
 }
 
+// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
 func (o LinkConfigurationOutput) MetricConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v LinkConfiguration) *LinkFilter { return v.MetricConfiguration }).(LinkFilterPtrOutput)
 }
@@ -143,6 +149,7 @@ func (o LinkConfigurationPtrOutput) Elem() LinkConfigurationOutput {
 	}).(LinkConfigurationOutput)
 }
 
+// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 func (o LinkConfigurationPtrOutput) LogGroupConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v *LinkConfiguration) *LinkFilter {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o LinkConfigurationPtrOutput) LogGroupConfiguration() LinkFilterPtrOutput 
 	}).(LinkFilterPtrOutput)
 }
 
+// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
 func (o LinkConfigurationPtrOutput) MetricConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v *LinkConfiguration) *LinkFilter {
 		if v == nil {
@@ -162,6 +170,30 @@ func (o LinkConfigurationPtrOutput) MetricConfiguration() LinkFilterPtrOutput {
 }
 
 type LinkFilter struct {
+	// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
+	//
+	// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+	//
+	// Use single quotation marks (') around log group names and metric namespaces.
+	//
+	// The matching of log group names and metric namespaces is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are `AND` and `OR` .
+	//
+	// - `=` and `!=`
+	// - `AND`
+	// - `OR`
+	// - `LIKE` and `NOT LIKE` . These can be used only as prefix searches. Include a `%` at the end of the string that you want to search for and include.
+	// - `IN` and `NOT IN` , using parentheses `( )`
+	//
+	// Examples:
+	//
+	// - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
+	// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+	// - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
+	// - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
+	// - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
+	// - `LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'` includes all log groups that have names that start with `aws/lambda/` or `AWSLogs` .
+	//
+	// > If you are updating a link that uses filters, you can specify `*` as the only value for the `filter` parameter to delete the filter and share all log groups with the monitoring account.
 	Filter string `pulumi:"filter"`
 }
 
@@ -177,6 +209,30 @@ type LinkFilterInput interface {
 }
 
 type LinkFilterArgs struct {
+	// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
+	//
+	// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+	//
+	// Use single quotation marks (') around log group names and metric namespaces.
+	//
+	// The matching of log group names and metric namespaces is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are `AND` and `OR` .
+	//
+	// - `=` and `!=`
+	// - `AND`
+	// - `OR`
+	// - `LIKE` and `NOT LIKE` . These can be used only as prefix searches. Include a `%` at the end of the string that you want to search for and include.
+	// - `IN` and `NOT IN` , using parentheses `( )`
+	//
+	// Examples:
+	//
+	// - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
+	// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+	// - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
+	// - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
+	// - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
+	// - `LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'` includes all log groups that have names that start with `aws/lambda/` or `AWSLogs` .
+	//
+	// > If you are updating a link that uses filters, you can specify `*` as the only value for the `filter` parameter to delete the filter and share all log groups with the monitoring account.
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 
@@ -257,6 +313,30 @@ func (o LinkFilterOutput) ToLinkFilterPtrOutputWithContext(ctx context.Context) 
 	}).(LinkFilterPtrOutput)
 }
 
+// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
+//
+// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+//
+// Use single quotation marks (') around log group names and metric namespaces.
+//
+// The matching of log group names and metric namespaces is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are `AND` and `OR` .
+//
+// - `=` and `!=`
+// - `AND`
+// - `OR`
+// - `LIKE` and `NOT LIKE` . These can be used only as prefix searches. Include a `%` at the end of the string that you want to search for and include.
+// - `IN` and `NOT IN` , using parentheses `( )`
+//
+// Examples:
+//
+// - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
+// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+// - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
+// - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
+// - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
+// - `LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'` includes all log groups that have names that start with `aws/lambda/` or `AWSLogs` .
+//
+// > If you are updating a link that uses filters, you can specify `*` as the only value for the `filter` parameter to delete the filter and share all log groups with the monitoring account.
 func (o LinkFilterOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -285,6 +365,30 @@ func (o LinkFilterPtrOutput) Elem() LinkFilterOutput {
 	}).(LinkFilterOutput)
 }
 
+// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
+//
+// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+//
+// Use single quotation marks (') around log group names and metric namespaces.
+//
+// The matching of log group names and metric namespaces is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are `AND` and `OR` .
+//
+// - `=` and `!=`
+// - `AND`
+// - `OR`
+// - `LIKE` and `NOT LIKE` . These can be used only as prefix searches. Include a `%` at the end of the string that you want to search for and include.
+// - `IN` and `NOT IN` , using parentheses `( )`
+//
+// Examples:
+//
+// - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
+// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+// - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
+// - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
+// - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
+// - `LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'` includes all log groups that have names that start with `aws/lambda/` or `AWSLogs` .
+//
+// > If you are updating a link that uses filters, you can specify `*` as the only value for the `filter` parameter to delete the filter and share all log groups with the monitoring account.
 func (o LinkFilterPtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkFilter) *string {
 		if v == nil {

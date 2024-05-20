@@ -15,6 +15,7 @@ import (
 type LogAnomalyDetectionIntegration struct {
 	pulumi.CustomResourceState
 
+	// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 }
 
@@ -101,6 +102,7 @@ func (o LogAnomalyDetectionIntegrationOutput) ToLogAnomalyDetectionIntegrationOu
 	return o
 }
 
+// The account ID associated with the integration of DevOps Guru with CloudWatch log groups for log anomaly detection.
 func (o LogAnomalyDetectionIntegrationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnomalyDetectionIntegration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

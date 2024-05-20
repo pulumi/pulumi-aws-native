@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class MitigationActionReplaceDefaultPolicyVersionParamsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the template to be applied. The only supported value is `BLANK_POLICY` .
+        /// </summary>
         [Input("templateName", required: true)]
         public Input<Pulumi.AwsNative.IoT.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName> TemplateName { get; set; } = null!;
 

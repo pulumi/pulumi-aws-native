@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class DatasetFormatOptions
     {
+        /// <summary>
+        /// Options that define how CSV input is to be interpreted by DataBrew.
+        /// </summary>
         public readonly Outputs.DatasetCsvOptions? Csv;
+        /// <summary>
+        /// Options that define how Excel input is to be interpreted by DataBrew.
+        /// </summary>
         public readonly Outputs.DatasetExcelOptions? Excel;
+        /// <summary>
+        /// Options that define how JSON input is to be interpreted by DataBrew.
+        /// </summary>
         public readonly Outputs.DatasetJsonOptions? Json;
 
         [OutputConstructor]

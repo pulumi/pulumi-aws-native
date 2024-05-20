@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.LicenseManager.Inputs
 
     public sealed class LicenseProvisionalConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum time for the provisional configuration, in minutes.
+        /// </summary>
         [Input("maxTimeToLiveInMinutes", required: true)]
         public Input<int> MaxTimeToLiveInMinutes { get; set; } = null!;
 

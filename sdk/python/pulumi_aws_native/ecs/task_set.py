@@ -37,9 +37,22 @@ class TaskSetArgs:
         :param pulumi.Input[str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the task set.
         :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+               
+               The following basic restrictions apply to tags:
+               
+               - Maximum number of tags per resource - 50
+               - For each resource, each tag key must be unique, and each tag key can have only one value.
+               - Maximum key length - 128 Unicode characters in UTF-8
+               - Maximum value length - 256 Unicode characters in UTF-8
+               - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+               - Tag keys and values are case-sensitive.
+               - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         """
         pulumi.set(__self__, "cluster", cluster)
         pulumi.set(__self__, "service", service)
@@ -124,6 +137,9 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
+        """
+        A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -133,6 +149,9 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
+        """
+        The network configuration for the task set.
+        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -178,6 +197,19 @@ class TaskSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+
+        The following basic restrictions apply to tags:
+
+        - Maximum number of tags per resource - 50
+        - For each resource, each tag key must be unique, and each tag key can have only one value.
+        - Maximum key length - 128 Unicode characters in UTF-8
+        - Maximum value length - 256 Unicode characters in UTF-8
+        - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        - Tag keys and values are case-sensitive.
+        - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -210,10 +242,23 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: The network configuration for the task set.
         :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+               
+               The following basic restrictions apply to tags:
+               
+               - Maximum number of tags per resource - 50
+               - For each resource, each tag key must be unique, and each tag key can have only one value.
+               - Maximum key length - 128 Unicode characters in UTF-8
+               - Maximum value length - 256 Unicode characters in UTF-8
+               - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+               - Tag keys and values are case-sensitive.
+               - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         :param pulumi.Input[str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         """
         ...
@@ -351,11 +396,17 @@ class TaskSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetLoadBalancer']]]:
+        """
+        A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+        """
         return pulumi.get(self, "load_balancers")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.TaskSetNetworkConfiguration']]:
+        """
+        The network configuration for the task set.
+        """
         return pulumi.get(self, "network_configuration")
 
     @property
@@ -393,6 +444,19 @@ class TaskSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+
+        The following basic restrictions apply to tags:
+
+        - Maximum number of tags per resource - 50
+        - For each resource, each tag key must be unique, and each tag key can have only one value.
+        - Maximum key length - 128 Unicode characters in UTF-8
+        - Maximum value length - 256 Unicode characters in UTF-8
+        - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+        - Tag keys and values are case-sensitive.
+        - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        """
         return pulumi.get(self, "tags")
 
     @property

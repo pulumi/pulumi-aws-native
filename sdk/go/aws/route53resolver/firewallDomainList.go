@@ -27,8 +27,9 @@ type FirewallDomainList struct {
 	// Count
 	DomainCount pulumi.IntOutput `pulumi:"domainCount"`
 	// S3 URL to import domains from.
-	DomainFileUrl pulumi.StringPtrOutput   `pulumi:"domainFileUrl"`
-	Domains       pulumi.StringArrayOutput `pulumi:"domains"`
+	DomainFileUrl pulumi.StringPtrOutput `pulumi:"domainFileUrl"`
+	// A list of the domain lists that you have defined.
+	Domains pulumi.StringArrayOutput `pulumi:"domains"`
 	// ServicePrincipal
 	ManagedOwnerName pulumi.StringOutput `pulumi:"managedOwnerName"`
 	// Rfc3339TimeString
@@ -88,8 +89,9 @@ func (FirewallDomainListState) ElementType() reflect.Type {
 
 type firewallDomainListArgs struct {
 	// S3 URL to import domains from.
-	DomainFileUrl *string  `pulumi:"domainFileUrl"`
-	Domains       []string `pulumi:"domains"`
+	DomainFileUrl *string `pulumi:"domainFileUrl"`
+	// A list of the domain lists that you have defined.
+	Domains []string `pulumi:"domains"`
 	// FirewallDomainListName
 	Name *string `pulumi:"name"`
 	// Tags
@@ -100,7 +102,8 @@ type firewallDomainListArgs struct {
 type FirewallDomainListArgs struct {
 	// S3 URL to import domains from.
 	DomainFileUrl pulumi.StringPtrInput
-	Domains       pulumi.StringArrayInput
+	// A list of the domain lists that you have defined.
+	Domains pulumi.StringArrayInput
 	// FirewallDomainListName
 	Name pulumi.StringPtrInput
 	// Tags
@@ -174,6 +177,7 @@ func (o FirewallDomainListOutput) DomainFileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringPtrOutput { return v.DomainFileUrl }).(pulumi.StringPtrOutput)
 }
 
+// A list of the domain lists that you have defined.
 func (o FirewallDomainListOutput) Domains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringArrayOutput { return v.Domains }).(pulumi.StringArrayOutput)
 }

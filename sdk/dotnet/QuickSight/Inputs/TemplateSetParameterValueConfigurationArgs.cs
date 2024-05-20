@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSetParameterValueConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination parameter name of the `SetParameterValueConfiguration` .
+        /// </summary>
         [Input("destinationParameterName", required: true)]
         public Input<string> DestinationParameterName { get; set; } = null!;
 

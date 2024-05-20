@@ -16,10 +16,14 @@ import (
 type AuthPolicy struct {
 	pulumi.CustomResourceState
 
+	// The auth policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
-	Policy             pulumi.AnyOutput          `pulumi:"policy"`
-	ResourceIdentifier pulumi.StringOutput       `pulumi:"resourceIdentifier"`
-	State              AuthPolicyStateEnumOutput `pulumi:"state"`
+	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
+	// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
+	State AuthPolicyStateEnumOutput `pulumi:"state"`
 }
 
 // NewAuthPolicy registers a new resource with the given unique name, arguments, and options.
@@ -72,15 +76,21 @@ func (AuthPolicyState) ElementType() reflect.Type {
 }
 
 type authPolicyArgs struct {
+	// The auth policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
-	Policy             interface{} `pulumi:"policy"`
-	ResourceIdentifier string      `pulumi:"resourceIdentifier"`
+	Policy interface{} `pulumi:"policy"`
+	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 }
 
 // The set of arguments for constructing a AuthPolicy resource.
 type AuthPolicyArgs struct {
+	// The auth policy.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
-	Policy             pulumi.Input
+	Policy pulumi.Input
+	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput
 }
 
@@ -121,15 +131,19 @@ func (o AuthPolicyOutput) ToAuthPolicyOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+// The auth policy.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
 func (o AuthPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 func (o AuthPolicyOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }
 
+// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
 func (o AuthPolicyOutput) State() AuthPolicyStateEnumOutput {
 	return o.ApplyT(func(v *AuthPolicy) AuthPolicyStateEnumOutput { return v.State }).(AuthPolicyStateEnumOutput)
 }

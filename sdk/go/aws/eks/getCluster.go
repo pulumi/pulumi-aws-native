@@ -29,6 +29,7 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
+	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 	Arn *string `pulumi:"arn"`
@@ -41,11 +42,13 @@ type LookupClusterResult struct {
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint *string `pulumi:"endpoint"`
 	// The unique ID given to your cluster.
-	Id      *string  `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// The logging configuration for your cluster.
 	Logging *Logging `pulumi:"logging"`
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
-	OpenIdConnectIssuerUrl *string                    `pulumi:"openIdConnectIssuerUrl"`
-	ResourcesVpcConfig     *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
+	OpenIdConnectIssuerUrl *string `pulumi:"openIdConnectIssuerUrl"`
+	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
+	ResourcesVpcConfig *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
@@ -88,6 +91,7 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// The access configuration for the cluster.
 func (o LookupClusterResultOutput) AccessConfig() ClusterAccessConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterAccessConfig { return v.AccessConfig }).(ClusterAccessConfigPtrOutput)
 }
@@ -122,6 +126,7 @@ func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The logging configuration for your cluster.
 func (o LookupClusterResultOutput) Logging() LoggingPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *Logging { return v.Logging }).(LoggingPtrOutput)
 }
@@ -131,6 +136,7 @@ func (o LookupClusterResultOutput) OpenIdConnectIssuerUrl() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.OpenIdConnectIssuerUrl }).(pulumi.StringPtrOutput)
 }
 
+// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 func (o LookupClusterResultOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterResourcesVpcConfig { return v.ResourcesVpcConfig }).(ClusterResourcesVpcConfigPtrOutput)
 }

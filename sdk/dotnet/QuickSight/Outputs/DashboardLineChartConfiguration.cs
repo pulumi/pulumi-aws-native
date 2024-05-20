@@ -13,24 +13,81 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLineChartConfiguration
     {
+        /// <summary>
+        /// The default configuration of a line chart's contribution analysis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardContributionAnalysisDefault> ContributionAnalysisDefaults;
+        /// <summary>
+        /// The data label configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
+        /// <summary>
+        /// The options that determine the default presentation of all line series in `LineChartVisual` .
+        /// </summary>
         public readonly Outputs.DashboardLineChartDefaultSeriesSettings? DefaultSeriesSettings;
+        /// <summary>
+        /// The field well configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineChartFieldWells? FieldWells;
+        /// <summary>
+        /// The forecast configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardForecastConfiguration> ForecastConfigurations;
+        /// <summary>
+        /// The legend configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineSeriesAxisDisplayOptions? PrimaryYAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the y-axis label.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
+        /// <summary>
+        /// The reference lines configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardReferenceLine> ReferenceLines;
+        /// <summary>
+        /// The series axis configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineSeriesAxisDisplayOptions? SecondaryYAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the secondary y-axis label.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        /// <summary>
+        /// The series item configuration of a line chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSeriesItem> Series;
+        /// <summary>
+        /// The small multiples setup for the visual.
+        /// </summary>
         public readonly Outputs.DashboardSmallMultiplesOptions? SmallMultiplesOptions;
+        /// <summary>
+        /// The sort configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardLineChartSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The tooltip configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
+        /// <summary>
+        /// Determines the type of the line chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardLineChartType? Type;
+        /// <summary>
+        /// The visual palette configuration of a line chart.
+        /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis.
+        /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? XAxisDisplayOptions;
+        /// <summary>
+        /// The options that determine the presentation of the x-axis label.
+        /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? XAxisLabelOptions;
 
         [OutputConstructor]

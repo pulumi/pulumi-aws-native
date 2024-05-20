@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLayoutConfiguration
     {
+        /// <summary>
+        /// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
+        /// </summary>
         public readonly Outputs.DashboardFreeFormLayoutConfiguration? FreeFormLayout;
+        /// <summary>
+        /// A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutConfiguration? GridLayout;
+        /// <summary>
+        /// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
+        /// </summary>
         public readonly Outputs.DashboardSectionBasedLayoutConfiguration? SectionBasedLayout;
 
         [OutputConstructor]

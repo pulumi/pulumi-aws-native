@@ -37,11 +37,35 @@ export class Link extends pulumi.CustomResource {
         return obj['__pulumiType'] === Link.__pulumiType;
     }
 
+    /**
+     * The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The friendly human-readable name used to identify this source account when it is viewed from the monitoring account. For example, `my-account1` .
+     */
     public /*out*/ readonly label!: pulumi.Output<string>;
+    /**
+     * Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+     *
+     * You can include the following variables in your template:
+     *
+     * - `$AccountName` is the name of the account
+     * - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+     * - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+     */
     public readonly labelTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+     */
     public readonly linkConfiguration!: pulumi.Output<outputs.oam.LinkConfiguration | undefined>;
+    /**
+     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+     */
     public readonly resourceTypes!: pulumi.Output<enums.oam.LinkResourceType[]>;
+    /**
+     * The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+     */
     public readonly sinkIdentifier!: pulumi.Output<string>;
     /**
      * Tags to apply to the link
@@ -92,9 +116,27 @@ export class Link extends pulumi.CustomResource {
  * The set of arguments for constructing a Link resource.
  */
 export interface LinkArgs {
+    /**
+     * Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+     *
+     * You can include the following variables in your template:
+     *
+     * - `$AccountName` is the name of the account
+     * - `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`
+     * - `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`
+     */
     labelTemplate?: pulumi.Input<string>;
+    /**
+     * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+     */
     linkConfiguration?: pulumi.Input<inputs.oam.LinkConfigurationArgs>;
+    /**
+     * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
+     */
     resourceTypes: pulumi.Input<pulumi.Input<enums.oam.LinkResourceType>[]>;
+    /**
+     * The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+     */
     sinkIdentifier: pulumi.Input<string>;
     /**
      * Tags to apply to the link

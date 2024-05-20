@@ -26,7 +26,8 @@ type Pipeline struct {
 	ParameterObjects PipelineParameterObjectArrayOutput `pulumi:"parameterObjects"`
 	// The parameter values used with the pipeline.
 	ParameterValues PipelineParameterValueArrayOutput `pulumi:"parameterValues"`
-	PipelineId      pulumi.StringOutput               `pulumi:"pipelineId"`
+	// The ID of the pipeline.
+	PipelineId pulumi.StringOutput `pulumi:"pipelineId"`
 	// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
 	PipelineObjects PipelineObjectArrayOutput `pulumi:"pipelineObjects"`
 	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
@@ -174,6 +175,7 @@ func (o PipelineOutput) ParameterValues() PipelineParameterValueArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineParameterValueArrayOutput { return v.ParameterValues }).(PipelineParameterValueArrayOutput)
 }
 
+// The ID of the pipeline.
 func (o PipelineOutput) PipelineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineId }).(pulumi.StringOutput)
 }

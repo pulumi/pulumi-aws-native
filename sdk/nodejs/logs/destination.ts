@@ -34,6 +34,9 @@ export class Destination extends pulumi.CustomResource {
         return obj['__pulumiType'] === Destination.__pulumiType;
     }
 
+    /**
+     * The ARN of the CloudWatch Logs destination, such as `arn:aws:logs:us-west-1:123456789012:destination:MyDestination` .
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the destination resource

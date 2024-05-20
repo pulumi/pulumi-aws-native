@@ -19,15 +19,40 @@ export function getDevicePool(args: GetDevicePoolArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetDevicePoolArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: string;
 }
 
 export interface GetDevicePoolResult {
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     readonly arn?: string;
+    /**
+     * The device pool's description.
+     */
     readonly description?: string;
+    /**
+     * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+     *
+     * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+     */
     readonly maxDevices?: number;
+    /**
+     * The device pool's name.
+     */
     readonly name?: string;
+    /**
+     * The device pool's rules.
+     */
     readonly rules?: outputs.devicefarm.DevicePoolRule[];
+    /**
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +63,8 @@ export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi
 }
 
 export interface GetDevicePoolOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the device pool. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
+     */
     arn: pulumi.Input<string>;
 }

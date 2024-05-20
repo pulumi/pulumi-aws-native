@@ -46,7 +46,8 @@ type Service struct {
 	LaunchType ServiceLaunchTypePtrOutput `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
-	Name          pulumi.StringOutput            `pulumi:"name"`
+	// The name of the Amazon ECS service, such as `sample-webapp` .
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
 	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
@@ -68,7 +69,8 @@ type Service struct {
 	//   +   ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
 	//         Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
 	SchedulingStrategy ServiceSchedulingStrategyPtrOutput `pulumi:"schedulingStrategy"`
-	ServiceArn         pulumi.StringOutput                `pulumi:"serviceArn"`
+	// Not currently supported in AWS CloudFormation .
+	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
 	//  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 	ServiceConnectConfiguration ServiceConnectConfigurationPtrOutput `pulumi:"serviceConnectConfiguration"`
@@ -395,6 +397,7 @@ func (o ServiceOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceLoadBalancerArrayOutput { return v.LoadBalancers }).(ServiceLoadBalancerArrayOutput)
 }
 
+// The name of the Amazon ECS service, such as `sample-webapp` .
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -444,6 +447,7 @@ func (o ServiceOutput) SchedulingStrategy() ServiceSchedulingStrategyPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceSchedulingStrategyPtrOutput { return v.SchedulingStrategy }).(ServiceSchedulingStrategyPtrOutput)
 }
 
+// Not currently supported in AWS CloudFormation .
 func (o ServiceOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }

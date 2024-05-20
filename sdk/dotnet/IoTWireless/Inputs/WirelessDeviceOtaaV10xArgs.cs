@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
     public sealed class WirelessDeviceOtaaV10xArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.
+        /// </summary>
         [Input("appEui", required: true)]
         public Input<string> AppEui { get; set; } = null!;
 
+        /// <summary>
+        /// The AppKey value.
+        /// </summary>
         [Input("appKey", required: true)]
         public Input<string> AppKey { get; set; } = null!;
 

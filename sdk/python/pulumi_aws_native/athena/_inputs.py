@@ -29,12 +29,16 @@ class CapacityReservationCapacityAssignmentConfigurationArgs:
                  capacity_assignments: pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]]):
         """
         Assignment configuration to assign workgroups to a reservation
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]] capacity_assignments: The list of assignments that make up the capacity assignment configuration.
         """
         pulumi.set(__self__, "capacity_assignments", capacity_assignments)
 
     @property
     @pulumi.getter(name="capacityAssignments")
     def capacity_assignments(self) -> pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]]:
+        """
+        The list of assignments that make up the capacity assignment configuration.
+        """
         return pulumi.get(self, "capacity_assignments")
 
     @capacity_assignments.setter
@@ -64,12 +68,16 @@ class WorkGroupAclConfigurationArgs:
                  s3_acl_option: pulumi.Input['WorkGroupS3AclOption']):
         """
         Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
+        :param pulumi.Input['WorkGroupS3AclOption'] s3_acl_option: The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . If a query runs in a workgroup and the workgroup overrides client-side settings, then the Amazon S3 canned ACL specified in the workgroup's settings is used for all queries that run in the workgroup. For more information about Amazon S3 canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
         """
         pulumi.set(__self__, "s3_acl_option", s3_acl_option)
 
     @property
     @pulumi.getter(name="s3AclOption")
     def s3_acl_option(self) -> pulumi.Input['WorkGroupS3AclOption']:
+        """
+        The Amazon S3 canned ACL that Athena should specify when storing query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . If a query runs in a workgroup and the workgroup overrides client-side settings, then the Amazon S3 canned ACL specified in the workgroup's settings is used for all queries that run in the workgroup. For more information about Amazon S3 canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) in the *Amazon S3 User Guide* .
+        """
         return pulumi.get(self, "s3_acl_option")
 
     @s3_acl_option.setter
@@ -229,6 +237,19 @@ class WorkGroupConfigurationArgs:
                  publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkGroupResultConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] additional_configuration: Specifies a user defined JSON string that is passed to the session engine.
+        :param pulumi.Input[int] bytes_scanned_cutoff_per_query: The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. No default is defined.
+               
+               > This property currently supports integer types. Support for long values is planned.
+        :param pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgs'] customer_content_encryption_configuration: Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
+        :param pulumi.Input[bool] enforce_work_group_configuration: If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        :param pulumi.Input['WorkGroupEngineVersionArgs'] engine_version: The engine version that all queries running on the workgroup use.
+        :param pulumi.Input[str] execution_role: Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
+        :param pulumi.Input[bool] publish_cloud_watch_metrics_enabled: Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+        :param pulumi.Input[bool] requester_pays_enabled: If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
+        :param pulumi.Input['WorkGroupResultConfigurationArgs'] result_configuration: Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+        """
         if additional_configuration is not None:
             pulumi.set(__self__, "additional_configuration", additional_configuration)
         if bytes_scanned_cutoff_per_query is not None:
@@ -251,6 +272,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="additionalConfiguration")
     def additional_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a user defined JSON string that is passed to the session engine.
+        """
         return pulumi.get(self, "additional_configuration")
 
     @additional_configuration.setter
@@ -260,6 +284,11 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="bytesScannedCutoffPerQuery")
     def bytes_scanned_cutoff_per_query(self) -> Optional[pulumi.Input[int]]:
+        """
+        The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. No default is defined.
+
+        > This property currently supports integer types. Support for long values is planned.
+        """
         return pulumi.get(self, "bytes_scanned_cutoff_per_query")
 
     @bytes_scanned_cutoff_per_query.setter
@@ -269,6 +298,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="customerContentEncryptionConfiguration")
     def customer_content_encryption_configuration(self) -> Optional[pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgs']]:
+        """
+        Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
+        """
         return pulumi.get(self, "customer_content_encryption_configuration")
 
     @customer_content_encryption_configuration.setter
@@ -278,6 +310,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="enforceWorkGroupConfiguration")
     def enforce_work_group_configuration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "enforce_work_group_configuration")
 
     @enforce_work_group_configuration.setter
@@ -287,6 +322,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input['WorkGroupEngineVersionArgs']]:
+        """
+        The engine version that all queries running on the workgroup use.
+        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -296,6 +334,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
+        """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
@@ -305,6 +346,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
     def publish_cloud_watch_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+        """
         return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
 
     @publish_cloud_watch_metrics_enabled.setter
@@ -314,6 +358,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="requesterPaysEnabled")
     def requester_pays_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
+        """
         return pulumi.get(self, "requester_pays_enabled")
 
     @requester_pays_enabled.setter
@@ -323,6 +370,9 @@ class WorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="resultConfiguration")
     def result_configuration(self) -> Optional[pulumi.Input['WorkGroupResultConfigurationArgs']]:
+        """
+        Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+        """
         return pulumi.get(self, "result_configuration")
 
     @result_configuration.setter
@@ -336,12 +386,16 @@ class WorkGroupCustomerContentEncryptionConfigurationArgs:
                  kms_key: pulumi.Input[str]):
         """
         Indicates the KMS key for encrypting notebook content.
+        :param pulumi.Input[str] kms_key: The customer managed KMS key that is used to encrypt the user's data stores in Athena.
         """
         pulumi.set(__self__, "kms_key", kms_key)
 
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[str]:
+        """
+        The customer managed KMS key that is used to encrypt the user's data stores in Athena.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -356,6 +410,10 @@ class WorkGroupEncryptionConfigurationArgs:
                  kms_key: Optional[pulumi.Input[str]] = None):
         """
         If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
+        :param pulumi.Input['WorkGroupEncryptionOption'] encryption_option: Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE_S3` ), server-side encryption with KMS-managed keys ( `SSE_KMS` ), or client-side encryption with KMS-managed keys ( `CSE_KMS` ) is used.
+               
+               If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+        :param pulumi.Input[str] kms_key: For `SSE_KMS` and `CSE_KMS` , this is the KMS key ARN or ID.
         """
         pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key is not None:
@@ -364,6 +422,11 @@ class WorkGroupEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> pulumi.Input['WorkGroupEncryptionOption']:
+        """
+        Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE_S3` ), server-side encryption with KMS-managed keys ( `SSE_KMS` ), or client-side encryption with KMS-managed keys ( `CSE_KMS` ) is used.
+
+        If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+        """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
@@ -373,6 +436,9 @@ class WorkGroupEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        For `SSE_KMS` and `CSE_KMS` , this is the KMS key ARN or ID.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -387,6 +453,8 @@ class WorkGroupEngineVersionArgs:
                  selected_engine_version: Optional[pulumi.Input[str]] = None):
         """
         The Athena engine version for running queries.
+        :param pulumi.Input[str] effective_engine_version: Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
+        :param pulumi.Input[str] selected_engine_version: The engine version requested by the user. Possible values are determined by the output of `ListEngineVersions` , including AUTO. The default is AUTO.
         """
         if effective_engine_version is not None:
             pulumi.set(__self__, "effective_engine_version", effective_engine_version)
@@ -396,6 +464,9 @@ class WorkGroupEngineVersionArgs:
     @property
     @pulumi.getter(name="effectiveEngineVersion")
     def effective_engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
+        """
         return pulumi.get(self, "effective_engine_version")
 
     @effective_engine_version.setter
@@ -405,6 +476,9 @@ class WorkGroupEngineVersionArgs:
     @property
     @pulumi.getter(name="selectedEngineVersion")
     def selected_engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine version requested by the user. Possible values are determined by the output of `ListEngineVersions` , including AUTO. The default is AUTO.
+        """
         return pulumi.get(self, "selected_engine_version")
 
     @selected_engine_version.setter
@@ -425,6 +499,16 @@ class WorkGroupResultConfigurationUpdatesArgs:
                  remove_output_location: Optional[pulumi.Input[bool]] = None):
         """
         The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
+        :param pulumi.Input['WorkGroupAclConfigurationArgs'] acl_configuration: The ACL configuration for the query results.
+        :param pulumi.Input['WorkGroupEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the query results.
+        :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration$OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` AWS account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
+               
+               If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `WorkGroupConfiguration$EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        :param pulumi.Input[str] output_location: The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . For more information, see [Query Results](https://docs.aws.amazon.com/athena/latest/ug/querying.html) If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See `EnforceWorkGroupConfiguration` .
+        :param pulumi.Input[bool] remove_acl_configuration: If set to `true` , indicates that the previously-specified ACL configuration for queries in this workgroup should be ignored and set to null. If set to `false` or not set, and a value is present in the `AclConfiguration` of `ResultConfigurationUpdates` , the `AclConfiguration` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        :param pulumi.Input[bool] remove_encryption_configuration: If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        :param pulumi.Input[bool] remove_expected_bucket_owner: If set to "true", removes the AWS account ID previously specified for `ResultConfiguration$ExpectedBucketOwner` . If set to "false" or not set, and a value is present in the `ExpectedBucketOwner` in `ResultConfigurationUpdates` (the client-side setting), the `ExpectedBucketOwner` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        :param pulumi.Input[bool] remove_output_location: If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -446,6 +530,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['WorkGroupAclConfigurationArgs']]:
+        """
+        The ACL configuration for the query results.
+        """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
@@ -455,6 +542,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the query results.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -464,6 +554,11 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration$OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` AWS account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
+
+        If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `WorkGroupConfiguration$EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -473,6 +568,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . For more information, see [Query Results](https://docs.aws.amazon.com/athena/latest/ug/querying.html) If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See `EnforceWorkGroupConfiguration` .
+        """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
@@ -482,6 +580,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeAclConfiguration")
     def remove_acl_configuration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `true` , indicates that the previously-specified ACL configuration for queries in this workgroup should be ignored and set to null. If set to `false` or not set, and a value is present in the `AclConfiguration` of `ResultConfigurationUpdates` , the `AclConfiguration` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "remove_acl_configuration")
 
     @remove_acl_configuration.setter
@@ -491,6 +592,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeEncryptionConfiguration")
     def remove_encryption_configuration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "remove_encryption_configuration")
 
     @remove_encryption_configuration.setter
@@ -500,6 +604,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeExpectedBucketOwner")
     def remove_expected_bucket_owner(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to "true", removes the AWS account ID previously specified for `ResultConfiguration$ExpectedBucketOwner` . If set to "false" or not set, and a value is present in the `ExpectedBucketOwner` in `ResultConfigurationUpdates` (the client-side setting), the `ExpectedBucketOwner` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "remove_expected_bucket_owner")
 
     @remove_expected_bucket_owner.setter
@@ -509,6 +616,9 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeOutputLocation")
     def remove_output_location(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "remove_output_location")
 
     @remove_output_location.setter
@@ -525,6 +635,13 @@ class WorkGroupResultConfigurationArgs:
                  output_location: Optional[pulumi.Input[str]] = None):
         """
         The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
+
+        :param pulumi.Input['WorkGroupAclConfigurationArgs'] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . This is a client-side setting. If workgroup settings override client-side settings, then the query uses the ACL configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
+        :param pulumi.Input['WorkGroupEncryptionConfigurationArgs'] encryption_configuration: If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        :param pulumi.Input[str] expected_bucket_owner: The account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration:OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
+               
+               This is a client-side setting. If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
+        :param pulumi.Input[str] output_location: The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -538,6 +655,9 @@ class WorkGroupResultConfigurationArgs:
     @property
     @pulumi.getter(name="aclConfiguration")
     def acl_configuration(self) -> Optional[pulumi.Input['WorkGroupAclConfigurationArgs']]:
+        """
+        Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . This is a client-side setting. If workgroup settings override client-side settings, then the query uses the ACL configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
+        """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
@@ -547,6 +667,9 @@ class WorkGroupResultConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']]:
+        """
+        If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -556,6 +679,11 @@ class WorkGroupResultConfigurationArgs:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration:OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
+
+        This is a client-side setting. If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -565,6 +693,9 @@ class WorkGroupResultConfigurationArgs:
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
+        """
         return pulumi.get(self, "output_location")
 
     @output_location.setter

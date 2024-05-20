@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
         /// </summary>
         public readonly int DelayInSeconds;
+        /// <summary>
+        /// 1 - 5 message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroups;
 
         [OutputConstructor]

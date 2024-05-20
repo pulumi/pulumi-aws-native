@@ -57,7 +57,13 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetPipelineResult
     {
+        /// <summary>
+        /// The parallelism configuration applied to the pipeline.
+        /// </summary>
         public readonly Outputs.ParallelismConfigurationProperties? ParallelismConfiguration;
+        /// <summary>
+        /// The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        /// </summary>
         public readonly Union<Outputs.PipelineDefinition0Properties, Outputs.PipelineDefinition1Properties>? PipelineDefinition;
         /// <summary>
         /// The description of the Pipeline.
@@ -71,6 +77,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// Role Arn
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The tags of the pipeline.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

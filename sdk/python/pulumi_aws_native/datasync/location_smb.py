@@ -32,6 +32,7 @@ class LocationSmbArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
+        :param pulumi.Input['LocationSmbMountOptionsArgs'] mount_options: Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
@@ -91,6 +92,9 @@ class LocationSmbArgs:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['LocationSmbMountOptionsArgs']]:
+        """
+        Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -167,6 +171,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
+        :param pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']] mount_options: Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
@@ -299,6 +304,9 @@ class LocationSmb(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Output[Optional['outputs.LocationSmbMountOptions']]:
+        """
+        Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
+        """
         return pulumi.get(self, "mount_options")
 
     @property

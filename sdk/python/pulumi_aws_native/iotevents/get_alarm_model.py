@@ -47,11 +47,17 @@ class GetAlarmModelResult:
     @property
     @pulumi.getter(name="alarmCapabilities")
     def alarm_capabilities(self) -> Optional['outputs.AlarmModelAlarmCapabilities']:
+        """
+        Contains the configuration information of alarm state changes.
+        """
         return pulumi.get(self, "alarm_capabilities")
 
     @property
     @pulumi.getter(name="alarmEventActions")
     def alarm_event_actions(self) -> Optional['outputs.AlarmModelAlarmEventActions']:
+        """
+        Contains information about one or more alarm actions.
+        """
         return pulumi.get(self, "alarm_event_actions")
 
     @property
@@ -65,6 +71,9 @@ class GetAlarmModelResult:
     @property
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> Optional['outputs.AlarmModelAlarmRule']:
+        """
+        Defines when your alarm is invoked.
+        """
         return pulumi.get(self, "alarm_rule")
 
     @property

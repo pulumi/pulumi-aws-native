@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         ///          &lt;p&gt;Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.&lt;/p&gt;
         /// </summary>
         public readonly int? ProgramDateTimeIntervalSeconds;
+        /// <summary>
+        /// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
+        /// </summary>
         public readonly Outputs.OriginEndpointScteHls? ScteHls;
         /// <summary>
         /// &lt;p&gt;The egress domain URL for stream delivery from MediaPackage.&lt;/p&gt;

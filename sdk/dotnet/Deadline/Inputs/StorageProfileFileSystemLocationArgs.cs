@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class StorageProfileFileSystemLocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The location name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The file path.
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// The type of file.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Deadline.StorageProfileFileSystemLocationType> Type { get; set; } = null!;
 

@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetOriginEndpointPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the origin endpoint policy.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public string ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The channel name associated with the origin endpoint policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public string ChannelName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the origin endpoint associated with the origin endpoint policy.
+        /// </summary>
         [Input("originEndpointName", required: true)]
         public string OriginEndpointName { get; set; } = null!;
 
@@ -44,12 +53,21 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetOriginEndpointPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel group associated with the origin endpoint policy.
+        /// </summary>
         [Input("channelGroupName", required: true)]
         public Input<string> ChannelGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The channel name associated with the origin endpoint policy.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the origin endpoint associated with the origin endpoint policy.
+        /// </summary>
         [Input("originEndpointName", required: true)]
         public Input<string> OriginEndpointName { get; set; } = null!;
 
@@ -64,6 +82,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
     public sealed class GetOriginEndpointPolicyResult
     {
         /// <summary>
+        /// The policy associated with the origin endpoint.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;

@@ -60,9 +60,17 @@ namespace Pulumi.AwsNative.XRay.Inputs
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+        /// 
+        /// &gt; Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.
+        /// </summary>
         [Input("ruleArn")]
         public Input<string>? RuleArn { get; set; }
 
+        /// <summary>
+        /// The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 

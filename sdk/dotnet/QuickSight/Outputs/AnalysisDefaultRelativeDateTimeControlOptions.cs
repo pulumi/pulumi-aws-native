@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultRelativeDateTimeControlOptions
     {
+        /// <summary>
+        /// The display options of a control.
+        /// </summary>
         public readonly Outputs.AnalysisRelativeDateTimeControlDisplayOptions? DisplayOptions;
 
         [OutputConstructor]

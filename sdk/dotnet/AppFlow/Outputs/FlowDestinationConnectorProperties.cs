@@ -16,16 +16,49 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationConnectorProperties
     {
+        /// <summary>
+        /// The properties that are required to query the custom Connector.
+        /// </summary>
         public readonly Outputs.FlowCustomConnectorDestinationProperties? CustomConnector;
+        /// <summary>
+        /// The properties required to query Amazon EventBridge.
+        /// </summary>
         public readonly Outputs.FlowEventBridgeDestinationProperties? EventBridge;
+        /// <summary>
+        /// The properties required to query Amazon Lookout for Metrics.
+        /// </summary>
         public readonly Outputs.FlowLookoutMetricsDestinationProperties? LookoutMetrics;
+        /// <summary>
+        /// The properties required to query Marketo.
+        /// </summary>
         public readonly Outputs.FlowMarketoDestinationProperties? Marketo;
+        /// <summary>
+        /// The properties required to query Amazon Redshift.
+        /// </summary>
         public readonly Outputs.FlowRedshiftDestinationProperties? Redshift;
+        /// <summary>
+        /// The properties required to query Amazon S3.
+        /// </summary>
         public readonly Outputs.FlowS3DestinationProperties? S3;
+        /// <summary>
+        /// The properties required to query Salesforce.
+        /// </summary>
         public readonly Outputs.FlowSalesforceDestinationProperties? Salesforce;
+        /// <summary>
+        /// The properties required to query SAPOData.
+        /// </summary>
         public readonly Outputs.FlowSapoDataDestinationProperties? SapoData;
+        /// <summary>
+        /// The properties required to query Snowflake.
+        /// </summary>
         public readonly Outputs.FlowSnowflakeDestinationProperties? Snowflake;
+        /// <summary>
+        /// The properties required to query Upsolver.
+        /// </summary>
         public readonly Outputs.FlowUpsolverDestinationProperties? Upsolver;
+        /// <summary>
+        /// The properties required to query Zendesk.
+        /// </summary>
         public readonly Outputs.FlowZendeskDestinationProperties? Zendesk;
 
         [OutputConstructor]

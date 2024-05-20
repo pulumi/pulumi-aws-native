@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ZonalAutoshiftConfigurationControlCondition struct {
-	AlarmIdentifier string                                          `pulumi:"alarmIdentifier"`
-	Type            ZonalAutoshiftConfigurationControlConditionType `pulumi:"type"`
+	// The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+	AlarmIdentifier string `pulumi:"alarmIdentifier"`
+	// The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+	Type ZonalAutoshiftConfigurationControlConditionType `pulumi:"type"`
 }
 
 // ZonalAutoshiftConfigurationControlConditionInput is an input type that accepts ZonalAutoshiftConfigurationControlConditionArgs and ZonalAutoshiftConfigurationControlConditionOutput values.
@@ -30,8 +32,10 @@ type ZonalAutoshiftConfigurationControlConditionInput interface {
 }
 
 type ZonalAutoshiftConfigurationControlConditionArgs struct {
-	AlarmIdentifier pulumi.StringInput                                   `pulumi:"alarmIdentifier"`
-	Type            ZonalAutoshiftConfigurationControlConditionTypeInput `pulumi:"type"`
+	// The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+	AlarmIdentifier pulumi.StringInput `pulumi:"alarmIdentifier"`
+	// The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+	Type ZonalAutoshiftConfigurationControlConditionTypeInput `pulumi:"type"`
 }
 
 func (ZonalAutoshiftConfigurationControlConditionArgs) ElementType() reflect.Type {
@@ -85,10 +89,12 @@ func (o ZonalAutoshiftConfigurationControlConditionOutput) ToZonalAutoshiftConfi
 	return o
 }
 
+// The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
 func (o ZonalAutoshiftConfigurationControlConditionOutput) AlarmIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationControlCondition) string { return v.AlarmIdentifier }).(pulumi.StringOutput)
 }
 
+// The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
 func (o ZonalAutoshiftConfigurationControlConditionOutput) Type() ZonalAutoshiftConfigurationControlConditionTypeOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationControlCondition) ZonalAutoshiftConfigurationControlConditionType {
 		return v.Type
@@ -116,10 +122,18 @@ func (o ZonalAutoshiftConfigurationControlConditionArrayOutput) Index(i pulumi.I
 }
 
 type ZonalAutoshiftConfigurationPracticeRunConfiguration struct {
-	BlockedDates   []string                                      `pulumi:"blockedDates"`
-	BlockedWindows []string                                      `pulumi:"blockedWindows"`
+	// An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+	//
+	// Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+	BlockedDates []string `pulumi:"blockedDates"`
+	// An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+	//
+	// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+	BlockedWindows []string `pulumi:"blockedWindows"`
+	// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
 	BlockingAlarms []ZonalAutoshiftConfigurationControlCondition `pulumi:"blockingAlarms"`
-	OutcomeAlarms  []ZonalAutoshiftConfigurationControlCondition `pulumi:"outcomeAlarms"`
+	// The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+	OutcomeAlarms []ZonalAutoshiftConfigurationControlCondition `pulumi:"outcomeAlarms"`
 }
 
 // ZonalAutoshiftConfigurationPracticeRunConfigurationInput is an input type that accepts ZonalAutoshiftConfigurationPracticeRunConfigurationArgs and ZonalAutoshiftConfigurationPracticeRunConfigurationOutput values.
@@ -134,10 +148,18 @@ type ZonalAutoshiftConfigurationPracticeRunConfigurationInput interface {
 }
 
 type ZonalAutoshiftConfigurationPracticeRunConfigurationArgs struct {
-	BlockedDates   pulumi.StringArrayInput                               `pulumi:"blockedDates"`
-	BlockedWindows pulumi.StringArrayInput                               `pulumi:"blockedWindows"`
+	// An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+	//
+	// Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+	BlockedDates pulumi.StringArrayInput `pulumi:"blockedDates"`
+	// An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+	//
+	// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+	BlockedWindows pulumi.StringArrayInput `pulumi:"blockedWindows"`
+	// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
 	BlockingAlarms ZonalAutoshiftConfigurationControlConditionArrayInput `pulumi:"blockingAlarms"`
-	OutcomeAlarms  ZonalAutoshiftConfigurationControlConditionArrayInput `pulumi:"outcomeAlarms"`
+	// The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+	OutcomeAlarms ZonalAutoshiftConfigurationControlConditionArrayInput `pulumi:"outcomeAlarms"`
 }
 
 func (ZonalAutoshiftConfigurationPracticeRunConfigurationArgs) ElementType() reflect.Type {
@@ -217,20 +239,28 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) ToZonalAutosh
 	}).(ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput)
 }
 
+// An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+//
+// Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) BlockedDates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationPracticeRunConfiguration) []string { return v.BlockedDates }).(pulumi.StringArrayOutput)
 }
 
+// An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+//
+// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) BlockedWindows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationPracticeRunConfiguration) []string { return v.BlockedWindows }).(pulumi.StringArrayOutput)
 }
 
+// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) BlockingAlarms() ZonalAutoshiftConfigurationControlConditionArrayOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationPracticeRunConfiguration) []ZonalAutoshiftConfigurationControlCondition {
 		return v.BlockingAlarms
 	}).(ZonalAutoshiftConfigurationControlConditionArrayOutput)
 }
 
+// The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationOutput) OutcomeAlarms() ZonalAutoshiftConfigurationControlConditionArrayOutput {
 	return o.ApplyT(func(v ZonalAutoshiftConfigurationPracticeRunConfiguration) []ZonalAutoshiftConfigurationControlCondition {
 		return v.OutcomeAlarms
@@ -261,6 +291,9 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) Elem() Zon
 	}).(ZonalAutoshiftConfigurationPracticeRunConfigurationOutput)
 }
 
+// An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+//
+// Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockedDates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationPracticeRunConfiguration) []string {
 		if v == nil {
@@ -270,6 +303,9 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockedDat
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+//
+// Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockedWindows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationPracticeRunConfiguration) []string {
 		if v == nil {
@@ -279,6 +315,7 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockedWin
 	}).(pulumi.StringArrayOutput)
 }
 
+// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockingAlarms() ZonalAutoshiftConfigurationControlConditionArrayOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationPracticeRunConfiguration) []ZonalAutoshiftConfigurationControlCondition {
 		if v == nil {
@@ -288,6 +325,7 @@ func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) BlockingAl
 	}).(ZonalAutoshiftConfigurationControlConditionArrayOutput)
 }
 
+// The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
 func (o ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput) OutcomeAlarms() ZonalAutoshiftConfigurationControlConditionArrayOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfigurationPracticeRunConfiguration) []ZonalAutoshiftConfigurationControlCondition {
 		if v == nil {

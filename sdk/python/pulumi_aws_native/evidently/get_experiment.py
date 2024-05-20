@@ -59,31 +59,49 @@ class GetExperimentResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        An optional description of the experiment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="metricGoals")
     def metric_goals(self) -> Optional[Sequence['outputs.ExperimentMetricGoalObject']]:
+        """
+        An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
+        """
         return pulumi.get(self, "metric_goals")
 
     @property
     @pulumi.getter(name="onlineAbConfig")
     def online_ab_config(self) -> Optional['outputs.ExperimentOnlineAbConfigObject']:
+        """
+        A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        """
         return pulumi.get(self, "online_ab_config")
 
     @property
     @pulumi.getter(name="randomizationSalt")
     def randomization_salt(self) -> Optional[str]:
+        """
+        When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
+        """
         return pulumi.get(self, "randomization_salt")
 
     @property
     @pulumi.getter(name="removeSegment")
     def remove_segment(self) -> Optional[bool]:
+        """
+        Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
+        """
         return pulumi.get(self, "remove_segment")
 
     @property
@@ -97,11 +115,21 @@ class GetExperimentResult:
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[int]:
+        """
+        The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
+
+        This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
+        """
         return pulumi.get(self, "sampling_rate")
 
     @property
     @pulumi.getter
     def segment(self) -> Optional[str]:
+        """
+        Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
+
+        For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        """
         return pulumi.get(self, "segment")
 
     @property
@@ -115,6 +143,9 @@ class GetExperimentResult:
     @property
     @pulumi.getter
     def treatments(self) -> Optional[Sequence['outputs.ExperimentTreatmentObject']]:
+        """
+        An array of structures that describe the configuration of each feature variation used in the experiment.
+        """
         return pulumi.get(self, "treatments")
 
 
@@ -141,6 +172,9 @@ def get_experiment(arn: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Resource Type definition for AWS::Evidently::Experiment.
+
+
+    :param str arn: The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -166,5 +200,8 @@ def get_experiment_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Resource Type definition for AWS::Evidently::Experiment.
+
+
+    :param str arn: The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
     """
     ...

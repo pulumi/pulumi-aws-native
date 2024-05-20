@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWaterfallChartOptions
     {
+        /// <summary>
+        /// This option determines the total bar label of a waterfall visual.
+        /// </summary>
         public readonly string? TotalBarLabel;
 
         [OutputConstructor]

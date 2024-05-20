@@ -60,11 +60,19 @@ class GetHostedZoneResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> Optional[Sequence[str]]:
+        """
+        Returns the set of name servers for the specific hosted zone. For example: `ns1.example.com` .
+
+        This attribute is not supported for private hosted zones.
+        """
         return pulumi.get(self, "name_servers")
 
     @property
@@ -125,6 +133,9 @@ def get_hosted_zone(id: Optional[str] = None,
       +   ``aws-us-gov`` - govcloud-us-region
 
      For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+
+
+    :param str id: The ID that Amazon Route 53 assigned to the hosted zone when you created it.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -160,5 +171,8 @@ def get_hosted_zone_output(id: Optional[pulumi.Input[str]] = None,
       +   ``aws-us-gov`` - govcloud-us-region
 
      For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+
+
+    :param str id: The ID that Amazon Route 53 assigned to the hosted zone when you created it.
     """
     ...

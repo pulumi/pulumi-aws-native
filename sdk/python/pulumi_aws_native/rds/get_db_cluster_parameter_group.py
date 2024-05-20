@@ -60,6 +60,17 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbClusterParameterGroupResult:
     """
     The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+
+
+    :param str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
+           
+           Constraints:
+           
+           - Must not match the name of an existing DB cluster parameter group.
+           
+           If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+           
+           > This value is stored as a lowercase string.
     """
     __args__ = dict()
     __args__['dbClusterParameterGroupName'] = db_cluster_parameter_group_name
@@ -76,5 +87,16 @@ def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
     The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
+
+
+    :param str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
+           
+           Constraints:
+           
+           - Must not match the name of an existing DB cluster parameter group.
+           
+           If you don't specify a value for `DBClusterParameterGroupName` property, a name is automatically created for the DB cluster parameter group.
+           
+           > This value is stored as a lowercase string.
     """
     ...

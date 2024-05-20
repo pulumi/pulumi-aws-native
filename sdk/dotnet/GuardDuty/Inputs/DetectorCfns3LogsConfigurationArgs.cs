@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
 
     public sealed class DetectorCfns3LogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of S3 data event logs as a data source.
+        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 

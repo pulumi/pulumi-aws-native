@@ -29,6 +29,14 @@ class ApplicationInstanceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationInstance resource.
+        :param pulumi.Input[str] default_runtime_context_device: The device's ID.
+        :param pulumi.Input['ApplicationInstanceManifestPayloadArgs'] manifest_payload: The application's manifest document.
+        :param pulumi.Input[str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
+        :param pulumi.Input[str] description: A description for the application instance.
+        :param pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs'] manifest_overrides_payload: Setting overrides for the application manifest.
+        :param pulumi.Input[str] name: A name for the application instance.
+        :param pulumi.Input[str] runtime_role_arn: The ARN of a runtime role for the application instance.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the application instance.
         """
         pulumi.set(__self__, "default_runtime_context_device", default_runtime_context_device)
         pulumi.set(__self__, "manifest_payload", manifest_payload)
@@ -48,6 +56,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter(name="defaultRuntimeContextDevice")
     def default_runtime_context_device(self) -> pulumi.Input[str]:
+        """
+        The device's ID.
+        """
         return pulumi.get(self, "default_runtime_context_device")
 
     @default_runtime_context_device.setter
@@ -57,6 +68,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter(name="manifestPayload")
     def manifest_payload(self) -> pulumi.Input['ApplicationInstanceManifestPayloadArgs']:
+        """
+        The application's manifest document.
+        """
         return pulumi.get(self, "manifest_payload")
 
     @manifest_payload.setter
@@ -66,6 +80,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter(name="applicationInstanceIdToReplace")
     def application_instance_id_to_replace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an application instance to replace with the new instance.
+        """
         return pulumi.get(self, "application_instance_id_to_replace")
 
     @application_instance_id_to_replace.setter
@@ -75,6 +92,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the application instance.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,6 +104,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter(name="manifestOverridesPayload")
     def manifest_overrides_payload(self) -> Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']]:
+        """
+        Setting overrides for the application manifest.
+        """
         return pulumi.get(self, "manifest_overrides_payload")
 
     @manifest_overrides_payload.setter
@@ -93,6 +116,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the application instance.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,6 +128,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter(name="runtimeRoleArn")
     def runtime_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a runtime role for the application instance.
+        """
         return pulumi.get(self, "runtime_role_arn")
 
     @runtime_role_arn.setter
@@ -111,6 +140,9 @@ class ApplicationInstanceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Tags for the application instance.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,6 +169,14 @@ class ApplicationInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
+        :param pulumi.Input[str] default_runtime_context_device: The device's ID.
+        :param pulumi.Input[str] description: A description for the application instance.
+        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']] manifest_overrides_payload: Setting overrides for the application manifest.
+        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']] manifest_payload: The application's manifest document.
+        :param pulumi.Input[str] name: A name for the application instance.
+        :param pulumi.Input[str] runtime_role_arn: The ARN of a runtime role for the application instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the application instance.
         """
         ...
     @overload
@@ -244,80 +284,128 @@ class ApplicationInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationInstanceId")
     def application_instance_id(self) -> pulumi.Output[str]:
+        """
+        The application instance's ID.
+        """
         return pulumi.get(self, "application_instance_id")
 
     @property
     @pulumi.getter(name="applicationInstanceIdToReplace")
     def application_instance_id_to_replace(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an application instance to replace with the new instance.
+        """
         return pulumi.get(self, "application_instance_id_to_replace")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The application instance's ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[int]:
+        """
+        The application instance's created time.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="defaultRuntimeContextDevice")
     def default_runtime_context_device(self) -> pulumi.Output[str]:
+        """
+        The device's ID.
+        """
         return pulumi.get(self, "default_runtime_context_device")
 
     @property
     @pulumi.getter(name="defaultRuntimeContextDeviceName")
     def default_runtime_context_device_name(self) -> pulumi.Output[str]:
+        """
+        The application instance's default runtime context device name.
+        """
         return pulumi.get(self, "default_runtime_context_device_name")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the application instance.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="healthStatus")
     def health_status(self) -> pulumi.Output['ApplicationInstanceHealthStatus']:
+        """
+        The application instance's health status.
+        """
         return pulumi.get(self, "health_status")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[int]:
+        """
+        The application instance's last updated time.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter(name="manifestOverridesPayload")
     def manifest_overrides_payload(self) -> pulumi.Output[Optional['outputs.ApplicationInstanceManifestOverridesPayload']]:
+        """
+        Setting overrides for the application manifest.
+        """
         return pulumi.get(self, "manifest_overrides_payload")
 
     @property
     @pulumi.getter(name="manifestPayload")
     def manifest_payload(self) -> pulumi.Output['outputs.ApplicationInstanceManifestPayload']:
+        """
+        The application's manifest document.
+        """
         return pulumi.get(self, "manifest_payload")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the application instance.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="runtimeRoleArn")
     def runtime_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of a runtime role for the application instance.
+        """
         return pulumi.get(self, "runtime_role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['ApplicationInstanceStatus']:
+        """
+        The application instance's status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusDescription")
     def status_description(self) -> pulumi.Output[str]:
+        """
+        The application instance's status description.
+        """
         return pulumi.get(self, "status_description")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Tags for the application instance.
+        """
         return pulumi.get(self, "tags")
 

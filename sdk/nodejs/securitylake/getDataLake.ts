@@ -30,13 +30,25 @@ export interface GetDataLakeResult {
      * The Amazon Resource Name (ARN) created by you to provide to the subscriber.
      */
     readonly arn?: string;
+    /**
+     * Provides encryption details of the Amazon Security Lake object.
+     */
     readonly encryptionConfiguration?: outputs.securitylake.DataLakeEncryptionConfiguration;
+    /**
+     * You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide.
+     */
     readonly lifecycleConfiguration?: outputs.securitylake.DataLakeLifecycleConfiguration;
+    /**
+     * Provides replication details of Amazon Security Lake object.
+     */
     readonly replicationConfiguration?: outputs.securitylake.DataLakeReplicationConfiguration;
     /**
      * The ARN for the Amazon Security Lake Amazon S3 bucket.
      */
     readonly s3BucketArn?: string;
+    /**
+     * An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

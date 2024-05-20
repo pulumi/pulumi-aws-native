@@ -17,13 +17,20 @@ import (
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
-	Enabled              pulumi.BoolPtrOutput                      `pulumi:"enabled"`
-	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	// Indicates whether the trust anchor is enabled.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The name of the trust anchor.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of notification settings to be associated to the trust anchor.
 	NotificationSettings TrustAnchorNotificationSettingArrayOutput `pulumi:"notificationSettings"`
-	Source               TrustAnchorSourceOutput                   `pulumi:"source"`
-	Tags                 aws.TagArrayOutput                        `pulumi:"tags"`
-	TrustAnchorArn       pulumi.StringOutput                       `pulumi:"trustAnchorArn"`
-	TrustAnchorId        pulumi.StringOutput                       `pulumi:"trustAnchorId"`
+	// The trust anchor type and its related certificate data.
+	Source TrustAnchorSourceOutput `pulumi:"source"`
+	// The tags to attach to the trust anchor.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ARN of the trust anchor.
+	TrustAnchorArn pulumi.StringOutput `pulumi:"trustAnchorArn"`
+	// The unique identifier of the trust anchor.
+	TrustAnchorId pulumi.StringOutput `pulumi:"trustAnchorId"`
 }
 
 // NewTrustAnchor registers a new resource with the given unique name, arguments, and options.
@@ -69,20 +76,30 @@ func (TrustAnchorState) ElementType() reflect.Type {
 }
 
 type trustAnchorArgs struct {
-	Enabled              *bool                            `pulumi:"enabled"`
-	Name                 *string                          `pulumi:"name"`
+	// Indicates whether the trust anchor is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the trust anchor.
+	Name *string `pulumi:"name"`
+	// A list of notification settings to be associated to the trust anchor.
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
-	Source               TrustAnchorSource                `pulumi:"source"`
-	Tags                 []aws.Tag                        `pulumi:"tags"`
+	// The trust anchor type and its related certificate data.
+	Source TrustAnchorSource `pulumi:"source"`
+	// The tags to attach to the trust anchor.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
 type TrustAnchorArgs struct {
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
+	// Indicates whether the trust anchor is enabled.
+	Enabled pulumi.BoolPtrInput
+	// The name of the trust anchor.
+	Name pulumi.StringPtrInput
+	// A list of notification settings to be associated to the trust anchor.
 	NotificationSettings TrustAnchorNotificationSettingArrayInput
-	Source               TrustAnchorSourceInput
-	Tags                 aws.TagArrayInput
+	// The trust anchor type and its related certificate data.
+	Source TrustAnchorSourceInput
+	// The tags to attach to the trust anchor.
+	Tags aws.TagArrayInput
 }
 
 func (TrustAnchorArgs) ElementType() reflect.Type {
@@ -122,30 +139,37 @@ func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// Indicates whether the trust anchor is enabled.
 func (o TrustAnchorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the trust anchor.
 func (o TrustAnchorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of notification settings to be associated to the trust anchor.
 func (o TrustAnchorOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorNotificationSettingArrayOutput { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
+// The trust anchor type and its related certificate data.
 func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourceOutput { return v.Source }).(TrustAnchorSourceOutput)
 }
 
+// The tags to attach to the trust anchor.
 func (o TrustAnchorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrustAnchor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the trust anchor.
 func (o TrustAnchorOutput) TrustAnchorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.TrustAnchorArn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the trust anchor.
 func (o TrustAnchorOutput) TrustAnchorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.TrustAnchorId }).(pulumi.StringOutput)
 }

@@ -30,6 +30,16 @@ class CollaborationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
+        :param pulumi.Input[str] creator_display_name: A display name of the collaboration creator.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
+               
+               *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: A list of initial members, not including the creator. This list is immutable.
+        :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
+        :param pulumi.Input['CollaborationPaymentConfigurationArgs'] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
+        :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         pulumi.set(__self__, "creator_display_name", creator_display_name)
@@ -49,6 +59,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter(name="creatorDisplayName")
     def creator_display_name(self) -> pulumi.Input[str]:
+        """
+        A display name of the collaboration creator.
+        """
         return pulumi.get(self, "creator_display_name")
 
     @creator_display_name.setter
@@ -58,6 +71,11 @@ class CollaborationArgs:
     @property
     @pulumi.getter(name="creatorMemberAbilities")
     def creator_member_abilities(self) -> pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]:
+        """
+        The abilities granted to the collaboration creator.
+
+        *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        """
         return pulumi.get(self, "creator_member_abilities")
 
     @creator_member_abilities.setter
@@ -67,6 +85,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        A description of the collaboration provided by the collaboration owner.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -76,6 +97,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]:
+        """
+        A list of initial members, not including the creator. This list is immutable.
+        """
         return pulumi.get(self, "members")
 
     @members.setter
@@ -85,6 +109,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Input['CollaborationQueryLogStatus']:
+        """
+        An indicator as to whether query logging has been enabled or disabled for the collaboration.
+        """
         return pulumi.get(self, "query_log_status")
 
     @query_log_status.setter
@@ -94,6 +121,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter(name="creatorPaymentConfiguration")
     def creator_payment_configuration(self) -> Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]:
+        """
+        An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        """
         return pulumi.get(self, "creator_payment_configuration")
 
     @creator_payment_configuration.setter
@@ -103,6 +133,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter(name="dataEncryptionMetadata")
     def data_encryption_metadata(self) -> Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']]:
+        """
+        The settings for client-side encryption for cryptographic computing.
+        """
         return pulumi.get(self, "data_encryption_metadata")
 
     @data_encryption_metadata.setter
@@ -112,6 +145,9 @@ class CollaborationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -151,6 +187,16 @@ class Collaboration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] creator_display_name: A display name of the collaboration creator.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
+               
+               *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        :param pulumi.Input[pulumi.InputType['CollaborationPaymentConfigurationArgs']] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        :param pulumi.Input[pulumi.InputType['CollaborationDataEncryptionMetadataArgs']] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
+        :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollaborationMemberSpecificationArgs']]]] members: A list of initial members, not including the creator. This list is immutable.
+        :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
@@ -256,51 +302,87 @@ class Collaboration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Returns the Amazon Resource Name (ARN) of the specified collaboration.
+
+        Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Output[str]:
+        """
+        Returns the unique identifier of the specified collaboration.
+
+        Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
     @pulumi.getter(name="creatorDisplayName")
     def creator_display_name(self) -> pulumi.Output[str]:
+        """
+        A display name of the collaboration creator.
+        """
         return pulumi.get(self, "creator_display_name")
 
     @property
     @pulumi.getter(name="creatorMemberAbilities")
     def creator_member_abilities(self) -> pulumi.Output[Sequence['CollaborationMemberAbility']]:
+        """
+        The abilities granted to the collaboration creator.
+
+        *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        """
         return pulumi.get(self, "creator_member_abilities")
 
     @property
     @pulumi.getter(name="creatorPaymentConfiguration")
     def creator_payment_configuration(self) -> pulumi.Output[Optional['outputs.CollaborationPaymentConfiguration']]:
+        """
+        An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        """
         return pulumi.get(self, "creator_payment_configuration")
 
     @property
     @pulumi.getter(name="dataEncryptionMetadata")
     def data_encryption_metadata(self) -> pulumi.Output[Optional['outputs.CollaborationDataEncryptionMetadata']]:
+        """
+        The settings for client-side encryption for cryptographic computing.
+        """
         return pulumi.get(self, "data_encryption_metadata")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A description of the collaboration provided by the collaboration owner.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.CollaborationMemberSpecification']]:
+        """
+        A list of initial members, not including the creator. This list is immutable.
+        """
         return pulumi.get(self, "members")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Output['CollaborationQueryLogStatus']:
+        """
+        An indicator as to whether query logging has been enabled or disabled for the collaboration.
+        """
         return pulumi.get(self, "query_log_status")
 
     @property

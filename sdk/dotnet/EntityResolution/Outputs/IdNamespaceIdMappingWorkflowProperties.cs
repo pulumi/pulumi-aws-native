@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class IdNamespaceIdMappingWorkflowProperties
     {
+        /// <summary>
+        /// The type of ID mapping.
+        /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.IdNamespaceIdMappingWorkflowPropertiesIdMappingType IdMappingType;
+        /// <summary>
+        /// An object which defines any additional configurations required by the provider service.
+        /// </summary>
         public readonly Outputs.IdNamespaceNamespaceProviderProperties? ProviderProperties;
 
         [OutputConstructor]

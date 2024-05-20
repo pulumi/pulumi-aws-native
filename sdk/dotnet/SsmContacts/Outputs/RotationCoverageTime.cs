@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SsmContacts.Outputs
     [OutputType]
     public sealed class RotationCoverageTime
     {
+        /// <summary>
+        /// Information about when an on-call rotation shift ends.
+        /// </summary>
         public readonly string EndTime;
+        /// <summary>
+        /// Information about when an on-call rotation shift begins.
+        /// </summary>
         public readonly string StartTime;
 
         [OutputConstructor]

@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     [OutputType]
     public sealed class AssetModelPropertyType
     {
+        /// <summary>
+        /// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
+        /// </summary>
         public readonly Outputs.AssetModelAttribute? Attribute;
+        /// <summary>
+        /// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+        /// </summary>
         public readonly Outputs.AssetModelMetric? Metric;
+        /// <summary>
+        /// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
+        /// </summary>
         public readonly Outputs.AssetModelTransform? Transform;
+        /// <summary>
+        /// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+        /// </summary>
         public readonly Pulumi.AwsNative.IoTSiteWise.AssetModelTypeName TypeName;
 
         [OutputConstructor]

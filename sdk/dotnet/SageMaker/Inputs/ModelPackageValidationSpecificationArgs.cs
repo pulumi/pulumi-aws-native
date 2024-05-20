@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         [Input("validationProfiles", required: true)]
         private InputList<Inputs.ModelPackageValidationProfileArgs>? _validationProfiles;
+
+        /// <summary>
+        /// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
+        /// </summary>
         public InputList<Inputs.ModelPackageValidationProfileArgs> ValidationProfiles
         {
             get => _validationProfiles ?? (_validationProfiles = new InputList<Inputs.ModelPackageValidationProfileArgs>());

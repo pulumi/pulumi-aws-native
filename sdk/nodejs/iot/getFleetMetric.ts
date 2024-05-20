@@ -30,6 +30,9 @@ export interface GetFleetMetricResult {
      * The aggregation field to perform aggregation and metric emission
      */
     readonly aggregationField?: string;
+    /**
+     * The type of the aggregation query.
+     */
     readonly aggregationType?: outputs.iot.FleetMetricAggregationType;
     /**
      * The creation date of a fleet metric

@@ -21,6 +21,9 @@ export interface GetRouteArgs {
      * The API identifier.
      */
     apiId: string;
+    /**
+     * The route ID.
+     */
     routeId: string;
 }
 
@@ -51,6 +54,9 @@ export interface GetRouteResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
     readonly requestModels?: any;
+    /**
+     * The route ID.
+     */
     readonly routeId?: string;
     /**
      * The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
@@ -77,5 +83,8 @@ export interface GetRouteOutputArgs {
      * The API identifier.
      */
     apiId: pulumi.Input<string>;
+    /**
+     * The route ID.
+     */
     routeId: pulumi.Input<string>;
 }

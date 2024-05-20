@@ -40,11 +40,23 @@ class GetSpaceResult:
     @property
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> Optional[str]:
+        """
+        The name of the space that appears in the Studio UI.
+        """
         return pulumi.get(self, "space_display_name")
 
     @property
     @pulumi.getter
     def url(self) -> Optional[str]:
+        """
+        Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+
+        The following application types are supported:
+
+        - Studio Classic: `&redirect=JupyterServer`
+        - JupyterLab: `&redirect=JupyterLab`
+        - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&redirect=CodeEditor`
+        """
         return pulumi.get(self, "url")
 
 

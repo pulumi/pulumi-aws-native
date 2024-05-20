@@ -17,15 +17,29 @@ import (
 type Feature struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                `pulumi:"arn"`
-	DefaultVariation   pulumi.StringPtrOutput             `pulumi:"defaultVariation"`
-	Description        pulumi.StringPtrOutput             `pulumi:"description"`
-	EntityOverrides    FeatureEntityOverrideArrayOutput   `pulumi:"entityOverrides"`
+	// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+	//
+	// This variation must also be listed in the `Variations` structure.
+	//
+	// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+	DefaultVariation pulumi.StringPtrOutput `pulumi:"defaultVariation"`
+	// An optional description of the feature.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+	EntityOverrides FeatureEntityOverrideArrayOutput `pulumi:"entityOverrides"`
+	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy FeatureEvaluationStrategyPtrOutput `pulumi:"evaluationStrategy"`
-	Name               pulumi.StringOutput                `pulumi:"name"`
-	Project            pulumi.StringOutput                `pulumi:"project"`
+	// The name for the feature. It can include up to 127 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The name or ARN of the project that is to contain the new feature.
+	Project pulumi.StringOutput `pulumi:"project"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayOutput                `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations FeatureVariationObjectArrayOutput `pulumi:"variations"`
 }
 
@@ -80,27 +94,53 @@ func (FeatureState) ElementType() reflect.Type {
 }
 
 type featureArgs struct {
-	DefaultVariation   *string                    `pulumi:"defaultVariation"`
-	Description        *string                    `pulumi:"description"`
-	EntityOverrides    []FeatureEntityOverride    `pulumi:"entityOverrides"`
+	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+	//
+	// This variation must also be listed in the `Variations` structure.
+	//
+	// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+	DefaultVariation *string `pulumi:"defaultVariation"`
+	// An optional description of the feature.
+	Description *string `pulumi:"description"`
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+	EntityOverrides []FeatureEntityOverride `pulumi:"entityOverrides"`
+	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy *FeatureEvaluationStrategy `pulumi:"evaluationStrategy"`
-	Name               *string                    `pulumi:"name"`
-	Project            string                     `pulumi:"project"`
+	// The name for the feature. It can include up to 127 characters.
+	Name *string `pulumi:"name"`
+	// The name or ARN of the project that is to contain the new feature.
+	Project string `pulumi:"project"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag                `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations []FeatureVariationObject `pulumi:"variations"`
 }
 
 // The set of arguments for constructing a Feature resource.
 type FeatureArgs struct {
-	DefaultVariation   pulumi.StringPtrInput
-	Description        pulumi.StringPtrInput
-	EntityOverrides    FeatureEntityOverrideArrayInput
+	// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+	//
+	// This variation must also be listed in the `Variations` structure.
+	//
+	// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
+	DefaultVariation pulumi.StringPtrInput
+	// An optional description of the feature.
+	Description pulumi.StringPtrInput
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+	EntityOverrides FeatureEntityOverrideArrayInput
+	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy FeatureEvaluationStrategyPtrInput
-	Name               pulumi.StringPtrInput
-	Project            pulumi.StringInput
+	// The name for the feature. It can include up to 127 characters.
+	Name pulumi.StringPtrInput
+	// The name or ARN of the project that is to contain the new feature.
+	Project pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags       aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations FeatureVariationObjectArrayInput
 }
 
@@ -141,30 +181,41 @@ func (o FeatureOutput) ToFeatureOutputWithContext(ctx context.Context) FeatureOu
 	return o
 }
 
+// The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
 func (o FeatureOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.
+//
+// This variation must also be listed in the `Variations` structure.
+//
+// If you omit `DefaultVariation` , the first variation listed in the `Variations` structure is used as the default variation.
 func (o FeatureOutput) DefaultVariation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.DefaultVariation }).(pulumi.StringPtrOutput)
 }
 
+// An optional description of the feature.
 func (o FeatureOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 func (o FeatureOutput) EntityOverrides() FeatureEntityOverrideArrayOutput {
 	return o.ApplyT(func(v *Feature) FeatureEntityOverrideArrayOutput { return v.EntityOverrides }).(FeatureEntityOverrideArrayOutput)
 }
 
+// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 func (o FeatureOutput) EvaluationStrategy() FeatureEvaluationStrategyPtrOutput {
 	return o.ApplyT(func(v *Feature) FeatureEvaluationStrategyPtrOutput { return v.EvaluationStrategy }).(FeatureEvaluationStrategyPtrOutput)
 }
 
+// The name for the feature. It can include up to 127 characters.
 func (o FeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name or ARN of the project that is to contain the new feature.
 func (o FeatureOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
@@ -174,6 +225,9 @@ func (o FeatureOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Feature) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// An array of structures that contain the configuration of the feature's different variations.
+//
+// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 func (o FeatureOutput) Variations() FeatureVariationObjectArrayOutput {
 	return o.ApplyT(func(v *Feature) FeatureVariationObjectArrayOutput { return v.Variations }).(FeatureVariationObjectArrayOutput)
 }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetContentVersionValue
     {
+        /// <summary>
+        /// The name of the dataset whose latest contents are used as input to the notebook or application.
+        /// </summary>
         public readonly string DatasetName;
 
         [OutputConstructor]

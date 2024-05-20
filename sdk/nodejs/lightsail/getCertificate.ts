@@ -26,6 +26,9 @@ export interface GetCertificateArgs {
 }
 
 export interface GetCertificateResult {
+    /**
+     * The Amazon Resource Name (ARN) of the certificate.
+     */
     readonly certificateArn?: string;
     /**
      * The validation status of the certificate.

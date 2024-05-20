@@ -33,16 +33,25 @@ class GetCloudFrontOriginAccessIdentityResult:
     @property
     @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
     def cloud_front_origin_access_identity_config(self) -> Optional['outputs.CloudFrontOriginAccessIdentityConfig']:
+        """
+        The current configuration information for the identity.
+        """
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="s3CanonicalUserId")
     def s3_canonical_user_id(self) -> Optional[str]:
+        """
+        The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3. For example: `b970b42360b81c8ddbd79d2f5df0069ba9033c8a79655752abe380cd6d63ba8bcf23384d568fcf89fc49700b5e11a0fd` .
+        """
         return pulumi.get(self, "s3_canonical_user_id")
 
 
@@ -61,6 +70,9 @@ def get_cloud_front_origin_access_identity(id: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudFrontOriginAccessIdentityResult:
     """
     Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
+
+
+    :param str id: The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
     """
     __args__ = dict()
     __args__['id'] = id
@@ -78,5 +90,8 @@ def get_cloud_front_origin_access_identity_output(id: Optional[pulumi.Input[str]
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFrontOriginAccessIdentityResult]:
     """
     Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
+
+
+    :param str id: The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
     """
     ...

@@ -13,11 +13,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateBarChartSortConfiguration
     {
+        /// <summary>
+        /// The limit on the number of categories displayed in a bar chart.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? CategoryItemsLimit;
+        /// <summary>
+        /// The sort configuration of category fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
+        /// <summary>
+        /// The limit on the number of values displayed in a bar chart.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? ColorItemsLimit;
+        /// <summary>
+        /// The sort configuration of color fields in a bar chart.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> ColorSort;
+        /// <summary>
+        /// The limit on the number of small multiples panels that are displayed.
+        /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? SmallMultiplesLimitConfiguration;
+        /// <summary>
+        /// The sort configuration of the small multiples field.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> SmallMultiplesSort;
 
         [OutputConstructor]

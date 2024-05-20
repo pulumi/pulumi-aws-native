@@ -37,6 +37,7 @@ class ScheduleAwsVpcConfigurationArgs:
         """
         This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+        :param pulumi.Input['ScheduleAssignPublicIp'] assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -60,6 +61,9 @@ class ScheduleAwsVpcConfigurationArgs:
     @property
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[pulumi.Input['ScheduleAssignPublicIp']]:
+        """
+        Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
+        """
         return pulumi.get(self, "assign_public_ip")
 
     @assign_public_ip.setter
@@ -182,9 +186,12 @@ class ScheduleEcsParametersArgs:
         :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
         :param pulumi.Input[bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
+        :param pulumi.Input['ScheduleLaunchType'] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
+        :param pulumi.Input['ScheduleNetworkConfigurationArgs'] network_configuration: This structure specifies the network configuration for an ECS task.
         :param pulumi.Input[Sequence[pulumi.Input['SchedulePlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
         :param pulumi.Input[Sequence[pulumi.Input['SchedulePlacementStrategyArgs']]] placement_strategy: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0.
+        :param pulumi.Input['SchedulePropagateTags'] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the Amazon ECS [`TagResource`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
         :param pulumi.Input[str] reference_id: The reference ID to use for the task.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] tags: The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
         :param pulumi.Input[float] task_count: The number of tasks to create based on TaskDefinition. The default is 1.
@@ -280,6 +287,9 @@ class ScheduleEcsParametersArgs:
     @property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input['ScheduleLaunchType']]:
+        """
+        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
+        """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
@@ -289,6 +299,9 @@ class ScheduleEcsParametersArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ScheduleNetworkConfigurationArgs']]:
+        """
+        This structure specifies the network configuration for an ECS task.
+        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -334,6 +347,9 @@ class ScheduleEcsParametersArgs:
     @property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input['SchedulePropagateTags']]:
+        """
+        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the Amazon ECS [`TagResource`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -422,6 +438,9 @@ class ScheduleFlexibleTimeWindowArgs:
                  maximum_window_in_minutes: Optional[pulumi.Input[float]] = None):
         """
         Flexible time window allows configuration of a window within which a schedule can be invoked
+        :param pulumi.Input['ScheduleFlexibleTimeWindowMode'] mode: Determines whether the schedule is invoked within a flexible time window. You must use quotation marks when you specify this value in your JSON or YAML template.
+               
+               *Allowed Values* : `"OFF"` | `"FLEXIBLE"`
         :param pulumi.Input[float] maximum_window_in_minutes: The maximum time window during which a schedule can be invoked.
         """
         pulumi.set(__self__, "mode", mode)
@@ -431,6 +450,11 @@ class ScheduleFlexibleTimeWindowArgs:
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Input['ScheduleFlexibleTimeWindowMode']:
+        """
+        Determines whether the schedule is invoked within a flexible time window. You must use quotation marks when you specify this value in your JSON or YAML template.
+
+        *Allowed Values* : `"OFF"` | `"FLEXIBLE"`
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -479,6 +503,7 @@ class ScheduleNetworkConfigurationArgs:
                  awsvpc_configuration: Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']] = None):
         """
         This structure specifies the network configuration for an ECS task.
+        :param pulumi.Input['ScheduleAwsVpcConfigurationArgs'] awsvpc_configuration: Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
         """
         if awsvpc_configuration is not None:
             pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
@@ -486,6 +511,9 @@ class ScheduleNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="awsvpcConfiguration")
     def awsvpc_configuration(self) -> Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']]:
+        """
+        Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+        """
         return pulumi.get(self, "awsvpc_configuration")
 
     @awsvpc_configuration.setter
@@ -501,6 +529,7 @@ class SchedulePlacementConstraintArgs:
         """
         An object representing a constraint on task placement.
         :param pulumi.Input[str] expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. To learn more, see Cluster Query Language in the Amazon Elastic Container Service Developer Guide.
+        :param pulumi.Input['SchedulePlacementConstraintType'] type: The type of constraint. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
         """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -522,6 +551,9 @@ class SchedulePlacementConstraintArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['SchedulePlacementConstraintType']]:
+        """
+        The type of constraint. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -537,6 +569,7 @@ class SchedulePlacementStrategyArgs:
         """
         The task placement strategy for a task or service.
         :param pulumi.Input[str] field: The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
+        :param pulumi.Input['SchedulePlacementStrategyType'] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
         """
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -558,6 +591,9 @@ class SchedulePlacementStrategyArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['SchedulePlacementStrategyType']]:
+        """
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -708,7 +744,14 @@ class ScheduleTargetArgs:
         The schedule target.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the schedule is triggered.
+        :param pulumi.Input['ScheduleDeadLetterConfigArgs'] dead_letter_config: An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.
+        :param pulumi.Input['ScheduleEcsParametersArgs'] ecs_parameters: The templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation.
+        :param pulumi.Input['ScheduleEventBridgeParametersArgs'] event_bridge_parameters: The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
         :param pulumi.Input[str] input: The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
+        :param pulumi.Input['ScheduleKinesisParametersArgs'] kinesis_parameters: The templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation.
+        :param pulumi.Input['ScheduleRetryPolicyArgs'] retry_policy: A `RetryPolicy` object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler will try to deliver the event to a target.
+        :param pulumi.Input['ScheduleSageMakerPipelineParametersArgs'] sage_maker_pipeline_parameters: The templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation.
+        :param pulumi.Input['ScheduleSqsParametersArgs'] sqs_parameters: The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled. For more information, see [Using the Amazon SQS message deduplication ID](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html) in the *Amazon SQS Developer Guide* .
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -756,6 +799,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['ScheduleDeadLetterConfigArgs']]:
+        """
+        An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.
+        """
         return pulumi.get(self, "dead_letter_config")
 
     @dead_letter_config.setter
@@ -765,6 +811,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="ecsParameters")
     def ecs_parameters(self) -> Optional[pulumi.Input['ScheduleEcsParametersArgs']]:
+        """
+        The templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation.
+        """
         return pulumi.get(self, "ecs_parameters")
 
     @ecs_parameters.setter
@@ -774,6 +823,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="eventBridgeParameters")
     def event_bridge_parameters(self) -> Optional[pulumi.Input['ScheduleEventBridgeParametersArgs']]:
+        """
+        The templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation.
+        """
         return pulumi.get(self, "event_bridge_parameters")
 
     @event_bridge_parameters.setter
@@ -795,6 +847,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="kinesisParameters")
     def kinesis_parameters(self) -> Optional[pulumi.Input['ScheduleKinesisParametersArgs']]:
+        """
+        The templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation.
+        """
         return pulumi.get(self, "kinesis_parameters")
 
     @kinesis_parameters.setter
@@ -804,6 +859,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional[pulumi.Input['ScheduleRetryPolicyArgs']]:
+        """
+        A `RetryPolicy` object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler will try to deliver the event to a target.
+        """
         return pulumi.get(self, "retry_policy")
 
     @retry_policy.setter
@@ -813,6 +871,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="sageMakerPipelineParameters")
     def sage_maker_pipeline_parameters(self) -> Optional[pulumi.Input['ScheduleSageMakerPipelineParametersArgs']]:
+        """
+        The templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation.
+        """
         return pulumi.get(self, "sage_maker_pipeline_parameters")
 
     @sage_maker_pipeline_parameters.setter
@@ -822,6 +883,9 @@ class ScheduleTargetArgs:
     @property
     @pulumi.getter(name="sqsParameters")
     def sqs_parameters(self) -> Optional[pulumi.Input['ScheduleSqsParametersArgs']]:
+        """
+        The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled. For more information, see [Using the Amazon SQS message deduplication ID](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html) in the *Amazon SQS Developer Guide* .
+        """
         return pulumi.get(self, "sqs_parameters")
 
     @sqs_parameters.setter

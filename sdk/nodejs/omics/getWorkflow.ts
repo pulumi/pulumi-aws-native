@@ -19,17 +19,44 @@ export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetWorkflowArgs {
+    /**
+     * The workflow's ID.
+     */
     id: string;
 }
 
 export interface GetWorkflowResult {
+    /**
+     * The ARN for the workflow.
+     */
     readonly arn?: string;
+    /**
+     * When the workflow was created.
+     */
     readonly creationTime?: string;
+    /**
+     * The parameter's description.
+     */
     readonly description?: string;
+    /**
+     * The workflow's ID.
+     */
     readonly id?: string;
+    /**
+     * The workflow's name.
+     */
     readonly name?: string;
+    /**
+     * The workflow's status.
+     */
     readonly status?: enums.omics.WorkflowStatus;
+    /**
+     * Tags for the workflow.
+     */
     readonly tags?: {[key: string]: string};
+    /**
+     * The workflow's type.
+     */
     readonly type?: enums.omics.WorkflowType;
 }
 /**
@@ -40,5 +67,8 @@ export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetWorkflowOutputArgs {
+    /**
+     * The workflow's ID.
+     */
     id: pulumi.Input<string>;
 }

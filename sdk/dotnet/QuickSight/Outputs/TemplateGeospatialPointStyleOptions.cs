@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGeospatialPointStyleOptions
     {
+        /// <summary>
+        /// The cluster marker configuration of the geospatial point style.
+        /// </summary>
         public readonly Outputs.TemplateClusterMarkerConfiguration? ClusterMarkerConfiguration;
+        /// <summary>
+        /// The heatmap configuration of the geospatial point style.
+        /// </summary>
         public readonly Outputs.TemplateGeospatialHeatmapConfiguration? HeatmapConfiguration;
+        /// <summary>
+        /// The selected point styles (point, cluster) of the geospatial map.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateGeospatialSelectedPointStyle? SelectedPointStyle;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleNoteUpdate
     {
+        /// <summary>
+        /// The updated note text.
+        /// </summary>
         public readonly string Text;
+        /// <summary>
+        /// The principal that updated the note.
+        /// </summary>
         public readonly string UpdatedBy;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     {
         [Input("includedStatistics")]
         private InputList<string>? _includedStatistics;
+
+        /// <summary>
+        /// List of included evaluations. When the list is undefined, all supported evaluations will be included.
+        /// </summary>
         public InputList<string> IncludedStatistics
         {
             get => _includedStatistics ?? (_includedStatistics = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
         [Input("overrides")]
         private InputList<Inputs.JobStatisticOverrideArgs>? _overrides;
+
+        /// <summary>
+        /// List of overrides for evaluations.
+        /// </summary>
         public InputList<Inputs.JobStatisticOverrideArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.JobStatisticOverrideArgs>());

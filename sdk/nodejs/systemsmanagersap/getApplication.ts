@@ -26,7 +26,13 @@ export interface GetApplicationArgs {
 }
 
 export interface GetApplicationResult {
+    /**
+     * The ID of the application.
+     */
     readonly applicationId?: string;
+    /**
+     * The type of the application.
+     */
     readonly applicationType?: enums.systemsmanagersap.ApplicationType;
     /**
      * The ARN of the Helix application

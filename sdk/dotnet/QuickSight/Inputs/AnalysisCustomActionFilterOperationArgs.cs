@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCustomActionFilterOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that chooses the fields to be filtered.
+        /// </summary>
         [Input("selectedFieldsConfiguration", required: true)]
         public Input<Inputs.AnalysisFilterOperationSelectedFieldsConfigurationArgs> SelectedFieldsConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration that chooses the target visuals to be filtered.
+        /// </summary>
         [Input("targetVisualsConfiguration", required: true)]
         public Input<Inputs.AnalysisFilterOperationTargetVisualsConfigurationArgs> TargetVisualsConfiguration { get; set; } = null!;
 

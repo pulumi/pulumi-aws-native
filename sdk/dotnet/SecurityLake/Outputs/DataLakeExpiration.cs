@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SecurityLake.Outputs
     [OutputType]
     public sealed class DataLakeExpiration
     {
+        /// <summary>
+        /// The number of days before data expires in the Amazon Security Lake object.
+        /// </summary>
         public readonly int? Days;
 
         [OutputConstructor]

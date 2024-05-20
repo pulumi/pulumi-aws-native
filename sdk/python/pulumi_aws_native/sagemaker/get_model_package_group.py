@@ -48,12 +48,17 @@ class GetModelPackageGroupResult:
     @property
     @pulumi.getter(name="modelPackageGroupArn")
     def model_package_group_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the model group.
+        """
         return pulumi.get(self, "model_package_group_arn")
 
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
     def model_package_group_policy(self) -> Optional[Any]:
         """
+        A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "model_package_group_policy")
@@ -92,6 +97,9 @@ def get_model_package_group(model_package_group_arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelPackageGroupResult:
     """
     Resource Type definition for AWS::SageMaker::ModelPackageGroup
+
+
+    :param str model_package_group_arn: The Amazon Resource Name (ARN) of the model group.
     """
     __args__ = dict()
     __args__['modelPackageGroupArn'] = model_package_group_arn
@@ -111,5 +119,8 @@ def get_model_package_group_output(model_package_group_arn: Optional[pulumi.Inpu
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelPackageGroupResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelPackageGroup
+
+
+    :param str model_package_group_arn: The Amazon Resource Name (ARN) of the model group.
     """
     ...

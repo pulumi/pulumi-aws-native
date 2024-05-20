@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelCardTrainingHyperParameter
     {
+        /// <summary>
+        /// The name of the hyper parameter.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value specified for the hyper parameter.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

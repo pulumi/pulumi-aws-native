@@ -37,11 +37,31 @@ export class BrowserSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === BrowserSettings.__pulumiType;
     }
 
+    /**
+     * Additional encryption context of the browser settings.
+     */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A list of web portal ARNs that the browser settings resource is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+     */
     public readonly browserPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the browser settings.
+     */
     public /*out*/ readonly browserSettingsArn!: pulumi.Output<string>;
+    /**
+     * The custom managed key of the browser settings.
+     *
+     * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+     */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -80,8 +100,22 @@ export class BrowserSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a BrowserSettings resource.
  */
 export interface BrowserSettingsArgs {
+    /**
+     * Additional encryption context of the browser settings.
+     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.
+     */
     browserPolicy?: pulumi.Input<string>;
+    /**
+     * The custom managed key of the browser settings.
+     *
+     * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
+     */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

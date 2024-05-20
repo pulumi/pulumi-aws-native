@@ -17,10 +17,12 @@ type ResourceAssociation struct {
 	pulumi.CustomResourceState
 
 	// The name or the Id of the Application.
-	Application    pulumi.StringOutput `pulumi:"application"`
+	Application pulumi.StringOutput `pulumi:"application"`
+	// The Amazon resource name (ARN) that specifies the application.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// The name or the Id of the Resource.
-	Resource    pulumi.StringOutput `pulumi:"resource"`
+	Resource pulumi.StringOutput `pulumi:"resource"`
+	// The Amazon resource name (ARN) that specifies the resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The type of the CFN Resource for now it's enum CFN_STACK.
 	ResourceType ResourceAssociationResourceTypeOutput `pulumi:"resourceType"`
@@ -141,6 +143,7 @@ func (o ResourceAssociationOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
+// The Amazon resource name (ARN) that specifies the application.
 func (o ResourceAssociationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
@@ -150,6 +153,7 @@ func (o ResourceAssociationOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.Resource }).(pulumi.StringOutput)
 }
 
+// The Amazon resource name (ARN) that specifies the resource.
 func (o ResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

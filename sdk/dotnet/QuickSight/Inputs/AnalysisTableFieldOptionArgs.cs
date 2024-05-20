@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisTableFieldOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The custom label for a table field.
+        /// </summary>
         [Input("customLabel")]
         public Input<string>? CustomLabel { get; set; }
 
+        /// <summary>
+        /// The field ID for a table field.
+        /// </summary>
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
+        /// <summary>
+        /// The URL configuration for a table field.
+        /// </summary>
         [Input("urlStyling")]
         public Input<Inputs.AnalysisTableFieldUrlConfigurationArgs>? UrlStyling { get; set; }
 
+        /// <summary>
+        /// The visibility of a table field.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

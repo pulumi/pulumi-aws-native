@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetLaunchTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the launch template.
+        /// </summary>
         [Input("launchTemplateId", required: true)]
         public string LaunchTemplateId { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetLaunchTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the launch template.
+        /// </summary>
         [Input("launchTemplateId", required: true)]
         public Input<string> LaunchTemplateId { get; set; } = null!;
 
@@ -63,8 +69,19 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetLaunchTemplateResult
     {
+        /// <summary>
+        /// The default version of the launch template, such as 2.
+        /// 
+        /// The default version of a launch template cannot be specified in AWS CloudFormation . The default version can be set in the Amazon EC2 console or by using the `modify-launch-template` AWS CLI command.
+        /// </summary>
         public readonly string? DefaultVersionNumber;
+        /// <summary>
+        /// The latest version of the launch template, such as `5` .
+        /// </summary>
         public readonly string? LatestVersionNumber;
+        /// <summary>
+        /// The ID of the launch template.
+        /// </summary>
         public readonly string? LaunchTemplateId;
 
         [OutputConstructor]

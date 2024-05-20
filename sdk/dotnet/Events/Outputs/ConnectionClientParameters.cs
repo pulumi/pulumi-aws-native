@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionClientParameters
     {
+        /// <summary>
+        /// The client ID to use for OAuth authorization.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The client secret assciated with the client ID to use for OAuth authorization.
+        /// </summary>
         public readonly string ClientSecret;
 
         [OutputConstructor]

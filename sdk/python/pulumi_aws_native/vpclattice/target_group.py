@@ -26,6 +26,13 @@ class TargetGroupArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
+        :param pulumi.Input['TargetGroupType'] type: The type of target group.
+        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
+        :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the target group.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]] targets: Describes a target.
         """
         pulumi.set(__self__, "type", type)
         if config is not None:
@@ -40,6 +47,9 @@ class TargetGroupArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['TargetGroupType']:
+        """
+        The type of target group.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -49,6 +59,9 @@ class TargetGroupArgs:
     @property
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input['TargetGroupConfigArgs']]:
+        """
+        The target group configuration.
+        """
         return pulumi.get(self, "config")
 
     @config.setter
@@ -58,6 +71,11 @@ class TargetGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,6 +85,9 @@ class TargetGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the target group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -76,6 +97,9 @@ class TargetGroupArgs:
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]]]:
+        """
+        Describes a target.
+        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -99,6 +123,13 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']] config: The target group configuration.
+        :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+               
+               If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the target group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetArgs']]]] targets: Describes a target.
+        :param pulumi.Input['TargetGroupType'] type: The type of target group.
         """
         ...
     @overload
@@ -189,50 +220,82 @@ class TargetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the target group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the target group.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional['outputs.TargetGroupConfig']]:
+        """
+        The target group configuration.
+        """
         return pulumi.get(self, "config")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time that the target group was created, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[str]:
+        """
+        The date and time that the target group was last updated, specified in ISO-8601 format.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+
+        If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['TargetGroupStatus']:
+        """
+        The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the target group.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupTarget']]]:
+        """
+        Describes a target.
+        """
         return pulumi.get(self, "targets")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['TargetGroupType']:
+        """
+        The type of target group.
+        """
         return pulumi.get(self, "type")
 

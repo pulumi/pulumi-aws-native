@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetAuthorizerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The authorizer name.
+        /// </summary>
         [Input("authorizerName", required: true)]
         public string AuthorizerName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetAuthorizerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The authorizer name.
+        /// </summary>
         [Input("authorizerName", required: true)]
         public Input<string> AuthorizerName { get; set; } = null!;
 
@@ -51,12 +57,41 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetAuthorizerResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the authorizer.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The authorizer's Lambda function ARN.
+        /// </summary>
         public readonly string? AuthorizerFunctionArn;
+        /// <summary>
+        /// When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
+        /// </summary>
         public readonly bool? EnableCachingForHttp;
+        /// <summary>
+        /// The status of the authorizer.
+        /// 
+        /// Valid values: `ACTIVE` | `INACTIVE`
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.AuthorizerStatus? Status;
+        /// <summary>
+        /// Metadata which can be used to manage the custom authorizer.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The key used to extract the token from the HTTP headers.
+        /// </summary>
         public readonly string? TokenKeyName;
+        /// <summary>
+        /// The public keys used to validate the token signature returned by your custom authentication service.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? TokenSigningPublicKeys;
 
         [OutputConstructor]

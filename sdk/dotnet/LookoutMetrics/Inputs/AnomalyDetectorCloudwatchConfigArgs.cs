@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorCloudwatchConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

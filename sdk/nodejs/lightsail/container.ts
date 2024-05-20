@@ -37,6 +37,9 @@ export class Container extends pulumi.CustomResource {
         return obj['__pulumiType'] === Container.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the container.
+     */
     public /*out*/ readonly containerArn!: pulumi.Output<string>;
     /**
      * Describes a container deployment configuration of an Amazon Lightsail container service.

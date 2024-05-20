@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.BackupGateway
 
     public sealed class GetHypervisorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+        /// </summary>
         [Input("hypervisorArn", required: true)]
         public string HypervisorArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.BackupGateway
 
     public sealed class GetHypervisorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+        /// </summary>
         [Input("hypervisorArn", required: true)]
         public Input<string> HypervisorArn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.BackupGateway
     [OutputType]
     public sealed class GetHypervisorResult
     {
+        /// <summary>
+        /// The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+        /// </summary>
         public readonly string? HypervisorArn;
 
         [OutputConstructor]

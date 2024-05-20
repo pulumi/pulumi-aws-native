@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type SigningProfileSignatureValidityPeriod struct {
-	Type  *SigningProfileSignatureValidityPeriodType `pulumi:"type"`
-	Value *int                                       `pulumi:"value"`
+	// The time unit for signature validity: DAYS | MONTHS | YEARS.
+	Type *SigningProfileSignatureValidityPeriodType `pulumi:"type"`
+	// The numerical value of the time unit for signature validity.
+	Value *int `pulumi:"value"`
 }
 
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
@@ -30,8 +32,10 @@ type SigningProfileSignatureValidityPeriodInput interface {
 }
 
 type SigningProfileSignatureValidityPeriodArgs struct {
-	Type  SigningProfileSignatureValidityPeriodTypePtrInput `pulumi:"type"`
-	Value pulumi.IntPtrInput                                `pulumi:"value"`
+	// The time unit for signature validity: DAYS | MONTHS | YEARS.
+	Type SigningProfileSignatureValidityPeriodTypePtrInput `pulumi:"type"`
+	// The numerical value of the time unit for signature validity.
+	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
 func (SigningProfileSignatureValidityPeriodArgs) ElementType() reflect.Type {
@@ -111,12 +115,14 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
+// The time unit for signature validity: DAYS | MONTHS | YEARS.
 func (o SigningProfileSignatureValidityPeriodOutput) Type() SigningProfileSignatureValidityPeriodTypePtrOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *SigningProfileSignatureValidityPeriodType {
 		return v.Type
 	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
+// The numerical value of the time unit for signature validity.
 func (o SigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -145,6 +151,7 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSig
 	}).(SigningProfileSignatureValidityPeriodOutput)
 }
 
+// The time unit for signature validity: DAYS | MONTHS | YEARS.
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() SigningProfileSignatureValidityPeriodTypePtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *SigningProfileSignatureValidityPeriodType {
 		if v == nil {
@@ -154,6 +161,7 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() SigningProfileSig
 	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
+// The numerical value of the time unit for signature validity.
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *int {
 		if v == nil {

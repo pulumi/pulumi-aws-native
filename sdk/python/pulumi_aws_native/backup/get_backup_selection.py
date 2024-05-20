@@ -29,11 +29,17 @@ class GetBackupSelectionResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        Uniquely identifies the backup selection.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="selectionId")
     def selection_id(self) -> Optional[str]:
+        """
+        Uniquely identifies a request to assign a set of resources to a backup plan.
+        """
         return pulumi.get(self, "selection_id")
 
 
@@ -51,6 +57,9 @@ def get_backup_selection(id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupSelectionResult:
     """
     Resource Type definition for AWS::Backup::BackupSelection
+
+
+    :param str id: Uniquely identifies the backup selection.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -67,5 +76,8 @@ def get_backup_selection_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupSelectionResult]:
     """
     Resource Type definition for AWS::Backup::BackupSelection
+
+
+    :param str id: Uniquely identifies the backup selection.
     """
     ...

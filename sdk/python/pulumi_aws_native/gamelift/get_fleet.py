@@ -107,6 +107,11 @@ class GetFleetResult:
     @property
     @pulumi.getter
     def locations(self) -> Optional[Sequence['outputs.FleetLocationConfiguration']]:
+        """
+        A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
+
+        When using this parameter, Amazon GameLift requires you to include your home location in the request.
+        """
         return pulumi.get(self, "locations")
 
     @property

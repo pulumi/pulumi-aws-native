@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     {
         [Input("credentialsMap")]
         private InputMap<string>? _credentialsMap;
+
+        /// <summary>
+        /// A map that holds custom authentication credentials.
+        /// </summary>
         public InputMap<string> CredentialsMap
         {
             get => _credentialsMap ?? (_credentialsMap = new InputMap<string>());
             set => _credentialsMap = value;
         }
 
+        /// <summary>
+        /// The custom authentication type that the connector uses.
+        /// </summary>
         [Input("customAuthenticationType", required: true)]
         public Input<string> CustomAuthenticationType { get; set; } = null!;
 

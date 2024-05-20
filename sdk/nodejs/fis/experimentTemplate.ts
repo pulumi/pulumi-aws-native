@@ -105,14 +105,41 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExperimentTemplate.__pulumiType;
     }
 
+    /**
+     * The actions for the experiment.
+     */
     public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateAction} | undefined>;
+    /**
+     * The ID of the experiment template.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The description for the experiment template.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The experiment options for an experiment template.
+     */
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
+    /**
+     * The configuration for experiment logging.
+     */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The stop conditions for the experiment.
+     */
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
+    /**
+     * The tags for the experiment template.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The targets for the experiment.
+     */
     public readonly targets!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateTarget}>;
 
     /**
@@ -172,12 +199,36 @@ export class ExperimentTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a ExperimentTemplate resource.
  */
 export interface ExperimentTemplateArgs {
+    /**
+     * The actions for the experiment.
+     */
     actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateActionArgs>}>;
+    /**
+     * The description for the experiment template.
+     */
     description: pulumi.Input<string>;
+    /**
+     * The experiment options for an experiment template.
+     */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
+    /**
+     * The configuration for experiment logging.
+     */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of an IAM role.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The stop conditions for the experiment.
+     */
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopConditionArgs>[]>;
+    /**
+     * The tags for the experiment template.
+     */
     tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The targets for the experiment.
+     */
     targets: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateTargetArgs>}>;
 }

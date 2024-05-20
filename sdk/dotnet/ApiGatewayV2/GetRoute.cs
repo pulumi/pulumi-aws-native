@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Input("routeId", required: true)]
         public string RouteId { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;
 
@@ -89,6 +95,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? RequestModels;
+        /// <summary>
+        /// The route ID.
+        /// </summary>
         public readonly string? RouteId;
         /// <summary>
         /// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.

@@ -16,16 +16,49 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPublishOptions
     {
+        /// <summary>
+        /// Ad hoc (one-time) filtering option.
+        /// </summary>
         public readonly Outputs.DashboardAdHocFilteringOption? AdHocFilteringOption;
+        /// <summary>
+        /// The drill-down options of data points in a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardDataPointDrillUpDownOption? DataPointDrillUpDownOption;
+        /// <summary>
+        /// The data point menu label options of a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardDataPointMenuLabelOption? DataPointMenuLabelOption;
+        /// <summary>
+        /// The data point tool tip options of a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
+        /// <summary>
+        /// Export to .csv option.
+        /// </summary>
         public readonly Outputs.DashboardExportToCsvOption? ExportToCsvOption;
+        /// <summary>
+        /// Determines if hidden fields are exported with a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption;
+        /// <summary>
+        /// Sheet controls option.
+        /// </summary>
         public readonly Outputs.DashboardSheetControlsOption? SheetControlsOption;
+        /// <summary>
+        /// The sheet layout maximization options of a dashbaord.
+        /// </summary>
         public readonly Outputs.DashboardSheetLayoutElementMaximizationOption? SheetLayoutElementMaximizationOption;
+        /// <summary>
+        /// The axis sort options of a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardVisualAxisSortOption? VisualAxisSortOption;
+        /// <summary>
+        /// The menu options of a visual in a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardVisualMenuOption? VisualMenuOption;
+        /// <summary>
+        /// The visual publish options of a visual in a dashboard.
+        /// </summary>
         public readonly Outputs.DashboardVisualPublishOptions? VisualPublishOptions;
 
         [OutputConstructor]

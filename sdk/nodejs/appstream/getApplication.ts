@@ -19,18 +19,48 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetApplicationArgs {
+    /**
+     * The ARN of the application.
+     */
     arn: string;
 }
 
 export interface GetApplicationResult {
+    /**
+     * The app block ARN with which the application should be associated.
+     */
     readonly appBlockArn?: string;
+    /**
+     * The ARN of the application.
+     */
     readonly arn?: string;
+    /**
+     * The time when the application was created.
+     */
     readonly createdTime?: string;
+    /**
+     * The description of the application.
+     */
     readonly description?: string;
+    /**
+     * The display name of the application. This name is visible to users in the application catalog.
+     */
     readonly displayName?: string;
+    /**
+     * The icon S3 location of the application.
+     */
     readonly iconS3Location?: outputs.appstream.ApplicationS3Location;
+    /**
+     * The launch parameters of the application.
+     */
     readonly launchParameters?: string;
+    /**
+     * The launch path of the application.
+     */
     readonly launchPath?: string;
+    /**
+     * The working directory of the application.
+     */
     readonly workingDirectory?: string;
 }
 /**
@@ -41,5 +71,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
+    /**
+     * The ARN of the application.
+     */
     arn: pulumi.Input<string>;
 }

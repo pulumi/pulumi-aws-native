@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Connect
         /// The identifier (arn) of the task template.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+        /// </summary>
         public readonly string? ClientToken;
         /// <summary>
         /// The constraints for the task template
@@ -70,6 +73,9 @@ namespace Pulumi.AwsNative.Connect
         /// The identifier of the contact flow.
         /// </summary>
         public readonly string? ContactFlowArn;
+        /// <summary>
+        /// The default values for fields when a task is created by referencing this template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TaskTemplateDefaultFieldValue> Defaults;
         /// <summary>
         /// The description of the task template.
@@ -87,6 +93,9 @@ namespace Pulumi.AwsNative.Connect
         /// The name of the task template.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The status of the task template.
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.TaskTemplateStatus? Status;
         /// <summary>
         /// One or more tags.

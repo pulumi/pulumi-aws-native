@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
+        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.RecordingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("recordingReconnectWindowSeconds")]
         public Output<int?> RecordingReconnectWindowSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
+        /// </summary>
         [Output("renditionConfiguration")]
         public Output<Outputs.RecordingConfigurationRenditionConfiguration?> RenditionConfiguration { get; private set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Ivs
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
+        /// </summary>
         [Output("thumbnailConfiguration")]
         public Output<Outputs.RecordingConfigurationThumbnailConfiguration?> ThumbnailConfiguration { get; private set; } = null!;
 
@@ -107,6 +116,9 @@ namespace Pulumi.AwsNative.Ivs
 
     public sealed class RecordingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
+        /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.RecordingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 
@@ -122,6 +134,9 @@ namespace Pulumi.AwsNative.Ivs
         [Input("recordingReconnectWindowSeconds")]
         public Input<int>? RecordingReconnectWindowSeconds { get; set; }
 
+        /// <summary>
+        /// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
+        /// </summary>
         [Input("renditionConfiguration")]
         public Input<Inputs.RecordingConfigurationRenditionConfigurationArgs>? RenditionConfiguration { get; set; }
 
@@ -137,6 +152,9 @@ namespace Pulumi.AwsNative.Ivs
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
+        /// </summary>
         [Input("thumbnailConfiguration")]
         public Input<Inputs.RecordingConfigurationThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }
 

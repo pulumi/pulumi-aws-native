@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateWhatIfRangeScenario
     {
+        /// <summary>
+        /// The end date in the date range that you need the forecast results for.
+        /// </summary>
         public readonly string EndDate;
+        /// <summary>
+        /// The start date in the date range that you need the forecast results for.
+        /// </summary>
         public readonly string StartDate;
+        /// <summary>
+        /// The target value that you want to meet for the provided date range.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     {
         [Input("definition")]
         private InputList<string>? _definition;
+
+        /// <summary>
+        /// The list of IP addresses and address ranges, in CIDR notation.
+        /// </summary>
         public InputList<string> Definition
         {
             get => _definition ?? (_definition = new InputList<string>());

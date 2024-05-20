@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. &lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetTransformOperation> DataTransforms;
+        /// <summary>
+        /// Source of this logical table.
+        /// </summary>
         public readonly Outputs.DataSetLogicalTableSource Source;
 
         [OutputConstructor]

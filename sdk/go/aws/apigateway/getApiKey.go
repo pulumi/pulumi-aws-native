@@ -24,10 +24,12 @@ func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.In
 }
 
 type LookupApiKeyArgs struct {
+	// The ID for the API key. For example: `abc123` .
 	ApiKeyId string `pulumi:"apiKeyId"`
 }
 
 type LookupApiKeyResult struct {
+	// The ID for the API key. For example: `abc123` .
 	ApiKeyId *string `pulumi:"apiKeyId"`
 	// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId *string `pulumi:"customerId"`
@@ -55,6 +57,7 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 }
 
 type LookupApiKeyOutputArgs struct {
+	// The ID for the API key. For example: `abc123` .
 	ApiKeyId pulumi.StringInput `pulumi:"apiKeyId"`
 }
 
@@ -76,6 +79,7 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx cont
 	return o
 }
 
+// The ID for the API key. For example: `abc123` .
 func (o LookupApiKeyResultOutput) ApiKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.ApiKeyId }).(pulumi.StringPtrOutput)
 }

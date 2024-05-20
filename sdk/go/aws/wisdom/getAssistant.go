@@ -23,12 +23,15 @@ func LookupAssistant(ctx *pulumi.Context, args *LookupAssistantArgs, opts ...pul
 }
 
 type LookupAssistantArgs struct {
+	// The ID of the Wisdom assistant.
 	AssistantId string `pulumi:"assistantId"`
 }
 
 type LookupAssistantResult struct {
+	// The Amazon Resource Name (ARN) of the assistant.
 	AssistantArn *string `pulumi:"assistantArn"`
-	AssistantId  *string `pulumi:"assistantId"`
+	// The ID of the Wisdom assistant.
+	AssistantId *string `pulumi:"assistantId"`
 }
 
 func LookupAssistantOutput(ctx *pulumi.Context, args LookupAssistantOutputArgs, opts ...pulumi.InvokeOption) LookupAssistantResultOutput {
@@ -45,6 +48,7 @@ func LookupAssistantOutput(ctx *pulumi.Context, args LookupAssistantOutputArgs, 
 }
 
 type LookupAssistantOutputArgs struct {
+	// The ID of the Wisdom assistant.
 	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupAssistantResultOutput) ToLookupAssistantResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the assistant.
 func (o LookupAssistantResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssistantResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Wisdom assistant.
 func (o LookupAssistantResultOutput) AssistantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssistantResult) *string { return v.AssistantId }).(pulumi.StringPtrOutput)
 }

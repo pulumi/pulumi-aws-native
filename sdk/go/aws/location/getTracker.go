@@ -24,23 +24,48 @@ func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.
 }
 
 type LookupTrackerArgs struct {
+	// The name for the tracker resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique tracker resource name.
+	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName string `pulumi:"trackerName"`
 }
 
 type LookupTrackerResult struct {
-	Arn                           *string                   `pulumi:"arn"`
-	CreateTime                    *string                   `pulumi:"createTime"`
-	Description                   *string                   `pulumi:"description"`
-	EventBridgeEnabled            *bool                     `pulumi:"eventBridgeEnabled"`
-	KmsKeyEnableGeospatialQueries *bool                     `pulumi:"kmsKeyEnableGeospatialQueries"`
-	PositionFiltering             *TrackerPositionFiltering `pulumi:"positionFiltering"`
-	PricingPlan                   *TrackerPricingPlan       `pulumi:"pricingPlan"`
+	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+	Arn *string `pulumi:"arn"`
+	// The timestamp for when the tracker resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	CreateTime *string `pulumi:"createTime"`
+	// An optional description for the tracker resource.
+	Description                   *string `pulumi:"description"`
+	EventBridgeEnabled            *bool   `pulumi:"eventBridgeEnabled"`
+	KmsKeyEnableGeospatialQueries *bool   `pulumi:"kmsKeyEnableGeospatialQueries"`
+	// Specifies the position filtering for the tracker resource.
+	//
+	// Valid values:
+	//
+	// - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+	// - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+	// - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+	//
+	// This field is optional. If not specified, the default value is `TimeBased` .
+	PositionFiltering *TrackerPositionFiltering `pulumi:"positionFiltering"`
+	PricingPlan       *TrackerPricingPlan       `pulumi:"pricingPlan"`
 	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
-	Tags       []aws.Tag `pulumi:"tags"`
-	TrackerArn *string   `pulumi:"trackerArn"`
-	UpdateTime *string   `pulumi:"updateTime"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Synonym for `Arn` . The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+	//
+	// - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
+	TrackerArn *string `pulumi:"trackerArn"`
+	// The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
@@ -57,6 +82,13 @@ func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts
 }
 
 type LookupTrackerOutputArgs struct {
+	// The name for the tracker resource.
+	//
+	// Requirements:
+	//
+	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
+	// - Must be a unique tracker resource name.
+	// - No spaces allowed. For example, `ExampleTracker` .
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 
@@ -78,14 +110,19 @@ func (o LookupTrackerResultOutput) ToLookupTrackerResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
 func (o LookupTrackerResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp for when the tracker resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupTrackerResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+// An optional description for the tracker resource.
 func (o LookupTrackerResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -98,6 +135,15 @@ func (o LookupTrackerResultOutput) KmsKeyEnableGeospatialQueries() pulumi.BoolPt
 	return o.ApplyT(func(v LookupTrackerResult) *bool { return v.KmsKeyEnableGeospatialQueries }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the position filtering for the tracker resource.
+//
+// Valid values:
+//
+// - `TimeBased` - Location updates are evaluated against linked geofence collections, but not every location update is stored. If your update frequency is more often than 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+// - `DistanceBased` - If the device has moved less than 30 m (98.4 ft), location updates are ignored. Location updates within this area are neither evaluated against linked geofence collections, nor stored. This helps control costs by reducing the number of geofence evaluations and historical device positions to paginate through. Distance-based filtering can also reduce the effects of GPS noise when displaying device trajectories on a map.
+// - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
+//
+// This field is optional. If not specified, the default value is `TimeBased` .
 func (o LookupTrackerResultOutput) PositionFiltering() TrackerPositionFilteringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *TrackerPositionFiltering { return v.PositionFiltering }).(TrackerPositionFilteringPtrOutput)
 }
@@ -116,10 +162,14 @@ func (o LookupTrackerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrackerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Synonym for `Arn` . The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS .
+//
+// - Format example: `arn:aws:geo:region:account-id:tracker/ExampleTracker`
 func (o LookupTrackerResultOutput) TrackerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.TrackerArn }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp for when the tracker resource was last updated in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 func (o LookupTrackerResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

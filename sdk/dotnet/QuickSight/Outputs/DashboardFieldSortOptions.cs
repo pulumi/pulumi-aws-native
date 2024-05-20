@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFieldSortOptions
     {
+        /// <summary>
+        /// The sort configuration for a column that is not used in a field well.
+        /// </summary>
         public readonly Outputs.DashboardColumnSort? ColumnSort;
+        /// <summary>
+        /// The sort configuration for a field in a field well.
+        /// </summary>
         public readonly Outputs.DashboardFieldSort? FieldSort;
 
         [OutputConstructor]

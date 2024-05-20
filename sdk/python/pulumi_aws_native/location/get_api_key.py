@@ -49,31 +49,49 @@ class GetApiKeyResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the resource. Used when you need to specify a resource across all AWS .
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[str]:
+        """
+        The timestamp for when the API key resource was created in ISO 8601 format: YYYY-MM-DDThh:mm:ss.sssZ.
+        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Updates the description for the API key resource.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="expireTime")
     def expire_time(self) -> Optional[str]:
+        """
+        The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
+        """
         return pulumi.get(self, "expire_time")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
+        """
         return pulumi.get(self, "key_arn")
 
     @property
     @pulumi.getter
     def restrictions(self) -> Optional['outputs.ApiKeyRestrictions']:
+        """
+        The API key restrictions for the API key resource.
+        """
         return pulumi.get(self, "restrictions")
 
     @property
@@ -87,6 +105,9 @@ class GetApiKeyResult:
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
+        """
+        The timestamp for when the API key resource was last updated in ISO 8601 format: `YYYY-MM-DDThh:mm:ss.sssZ` .
+        """
         return pulumi.get(self, "update_time")
 
 
@@ -110,6 +131,15 @@ def get_api_key(key_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiKeyResult:
     """
     Definition of AWS::Location::APIKey Resource Type
+
+
+    :param str key_name: A custom name for the API key resource.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique API key name.
+           - No spaces allowed. For example, `ExampleAPIKey` .
     """
     __args__ = dict()
     __args__['keyName'] = key_name
@@ -132,5 +162,14 @@ def get_api_key_output(key_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Definition of AWS::Location::APIKey Resource Type
+
+
+    :param str key_name: A custom name for the API key resource.
+           
+           Requirements:
+           
+           - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
+           - Must be a unique API key name.
+           - No spaces allowed. For example, `ExampleAPIKey` .
     """
     ...

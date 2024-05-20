@@ -28,6 +28,9 @@ export interface GetRepositoryArgs {
 }
 
 export interface GetRepositoryResult {
+    /**
+     * Returns the Amazon Resource Name (ARN) for the specified `AWS::ECR::Repository` resource. For example, `arn:aws:ecr: *eu-west-1* : *123456789012* :repository/ *test-repository*` .
+     */
     readonly arn?: string;
     /**
      * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
@@ -47,6 +50,9 @@ export interface GetRepositoryResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */
     readonly repositoryPolicyText?: any;
+    /**
+     * Returns the URI for the specified `AWS::ECR::Repository` resource. For example, `*123456789012* .dkr.ecr. *us-west-2* .amazonaws.com/repository` .
+     */
     readonly repositoryUri?: string;
     /**
      * An array of key-value pairs to apply to this resource.

@@ -53,6 +53,9 @@ export class KnowledgeBase extends pulumi.CustomResource {
      * The ARN of the knowledge base.
      */
     public /*out*/ readonly knowledgeBaseArn!: pulumi.Output<string>;
+    /**
+     * Contains details about the embeddings configuration of the knowledge base.
+     */
     public readonly knowledgeBaseConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseConfiguration>;
     /**
      * The unique identifier of the knowledge base.
@@ -66,8 +69,20 @@ export class KnowledgeBase extends pulumi.CustomResource {
      * The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The status of the knowledge base.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.KnowledgeBaseStatus>;
+    /**
+     * Contains details about the storage configuration of the knowledge base.
+     */
     public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseStorageConfiguration>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The time at which the knowledge base was last updated.
@@ -135,6 +150,9 @@ export interface KnowledgeBaseArgs {
      * Description of the Resource.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Contains details about the embeddings configuration of the knowledge base.
+     */
     knowledgeBaseConfiguration: pulumi.Input<inputs.bedrock.KnowledgeBaseConfigurationArgs>;
     /**
      * The name of the knowledge base.
@@ -144,6 +162,15 @@ export interface KnowledgeBaseArgs {
      * The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * Contains details about the storage configuration of the knowledge base.
+     */
     storageConfiguration: pulumi.Input<inputs.bedrock.KnowledgeBaseStorageConfigurationArgs>;
+    /**
+     * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
+     *
+     * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
+     * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

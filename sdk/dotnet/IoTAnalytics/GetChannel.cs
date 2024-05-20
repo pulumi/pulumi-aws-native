@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName", required: true)]
         public string ChannelName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
 
     public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the channel.
+        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
@@ -51,9 +57,20 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [OutputType]
     public sealed class GetChannelResult
     {
+        /// <summary>
+        /// Where channel data is stored.
+        /// </summary>
         public readonly Outputs.ChannelStorage? ChannelStorage;
         public readonly string? Id;
+        /// <summary>
+        /// How long, in days, message data is kept for the channel.
+        /// </summary>
         public readonly Outputs.ChannelRetentionPeriod? RetentionPeriod;
+        /// <summary>
+        /// Metadata which can be used to manage the channel.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetSimulationApplicationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the simulation application.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class GetSimulationApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the simulation application.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.RoboMaker
     [OutputType]
     public sealed class GetSimulationApplicationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the simulation application.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The current revision id.
@@ -68,6 +77,9 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The simulation software suite used by the simulation application.
         /// </summary>
         public readonly Outputs.SimulationApplicationSimulationSoftwareSuite? SimulationSoftwareSuite;
+        /// <summary>
+        /// A map that contains tag keys and tag values that are attached to the simulation application.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

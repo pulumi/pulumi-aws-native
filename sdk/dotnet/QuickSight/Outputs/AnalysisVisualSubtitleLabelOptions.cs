@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisVisualSubtitleLabelOptions
     {
+        /// <summary>
+        /// The long text format of the subtitle label, such as plain text or rich text.
+        /// </summary>
         public readonly Outputs.AnalysisLongFormatText? FormatText;
+        /// <summary>
+        /// The visibility of the subtitle label.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

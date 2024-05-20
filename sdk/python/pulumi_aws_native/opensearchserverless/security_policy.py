@@ -22,6 +22,7 @@ class SecurityPolicyArgs:
         """
         The set of arguments for constructing a SecurityPolicy resource.
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
+        :param pulumi.Input['SecurityPolicyType'] type: The type of security policy. Can be either `encryption` or `network` .
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
         """
@@ -47,6 +48,9 @@ class SecurityPolicyArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['SecurityPolicyType']:
+        """
+        The type of security policy. Can be either `encryption` or `network` .
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -150,6 +154,7 @@ class SecurityPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the policy
         :param pulumi.Input[str] name: The name of the policy
         :param pulumi.Input[str] policy: The JSON policy document that is the content for the policy
+        :param pulumi.Input['SecurityPolicyType'] type: The type of security policy. Can be either `encryption` or `network` .
         """
         ...
     @overload
@@ -307,5 +312,8 @@ class SecurityPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['SecurityPolicyType']:
+        """
+        The type of security policy. Can be either `encryption` or `network` .
+        """
         return pulumi.get(self, "type")
 

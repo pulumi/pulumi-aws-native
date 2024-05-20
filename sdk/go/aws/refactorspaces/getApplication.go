@@ -24,21 +24,31 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
 }
 
 type LookupApplicationResult struct {
-	ApiGatewayId          *string `pulumi:"apiGatewayId"`
+	// The resource ID of the API Gateway for the proxy.
+	ApiGatewayId *string `pulumi:"apiGatewayId"`
+	// The unique identifier of the application.
 	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
-	Arn                   *string `pulumi:"arn"`
-	NlbArn                *string `pulumi:"nlbArn"`
-	NlbName               *string `pulumi:"nlbName"`
-	ProxyUrl              *string `pulumi:"proxyUrl"`
-	StageName             *string `pulumi:"stageName"`
+	// The Amazon Resource Name (ARN) of the application.
+	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Network Load Balancer .
+	NlbArn *string `pulumi:"nlbArn"`
+	// The name of the Network Load Balancer configured by the API Gateway proxy.
+	NlbName *string `pulumi:"nlbName"`
+	// The endpoint URL of the Amazon API Gateway proxy.
+	ProxyUrl *string `pulumi:"proxyUrl"`
+	// The name of the API Gateway stage. The name defaults to `prod` .
+	StageName *string `pulumi:"stageName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-	Tags      []aws.Tag `pulumi:"tags"`
-	VpcLinkId *string   `pulumi:"vpcLinkId"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The `VpcLink` ID of the API Gateway proxy.
+	VpcLinkId *string `pulumi:"vpcLinkId"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -55,7 +65,9 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
+	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringInput `pulumi:"applicationIdentifier"`
+	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput `pulumi:"environmentIdentifier"`
 }
 
@@ -77,30 +89,37 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
+// The resource ID of the API Gateway for the proxy.
 func (o LookupApplicationResultOutput) ApiGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApiGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the application.
 func (o LookupApplicationResultOutput) ApplicationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the application.
 func (o LookupApplicationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Network Load Balancer .
 func (o LookupApplicationResultOutput) NlbArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.NlbArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Network Load Balancer configured by the API Gateway proxy.
 func (o LookupApplicationResultOutput) NlbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.NlbName }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint URL of the Amazon API Gateway proxy.
 func (o LookupApplicationResultOutput) ProxyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ProxyUrl }).(pulumi.StringPtrOutput)
 }
 
+// The name of the API Gateway stage. The name defaults to `prod` .
 func (o LookupApplicationResultOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.StageName }).(pulumi.StringPtrOutput)
 }
@@ -110,6 +129,7 @@ func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The `VpcLink` ID of the API Gateway proxy.
 func (o LookupApplicationResultOutput) VpcLinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.VpcLinkId }).(pulumi.StringPtrOutput)
 }

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamOutputFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
+        /// </summary>
         [Input("serializer")]
         public Input<Inputs.DeliveryStreamSerializerArgs>? Serializer { get; set; }
 

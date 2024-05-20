@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSplunkBufferingHintsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        /// </summary>
         [Input("sizeInMbs")]
         public Input<int>? SizeInMbs { get; set; }
 

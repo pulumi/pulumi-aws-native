@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetUserAccessLoggingSettingsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the user access logging settings.
+        /// </summary>
         [Input("userAccessLoggingSettingsArn", required: true)]
         public string UserAccessLoggingSettingsArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetUserAccessLoggingSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the user access logging settings.
+        /// </summary>
         [Input("userAccessLoggingSettingsArn", required: true)]
         public Input<string> UserAccessLoggingSettingsArn { get; set; } = null!;
 
@@ -51,12 +57,21 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetUserAccessLoggingSettingsResult
     {
+        /// <summary>
+        /// A list of web portal ARNs that this user access logging settings is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
         /// <summary>
         /// Kinesis stream ARN to which log events are published.
         /// </summary>
         public readonly string? KinesisStreamArn;
+        /// <summary>
+        /// The tags to add to the user access logging settings resource. A tag is a key-value pair.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ARN of the user access logging settings.
+        /// </summary>
         public readonly string? UserAccessLoggingSettingsArn;
 
         [OutputConstructor]

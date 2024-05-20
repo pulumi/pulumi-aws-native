@@ -26,12 +26,21 @@ export interface GetPipelineArgs {
 }
 
 export interface GetPipelineResult {
+    /**
+     * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions` . For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering) .
+     */
     readonly bufferOptions?: outputs.osis.PipelineBufferOptions;
+    /**
+     * Options to control how OpenSearch encrypts buffer data.
+     */
     readonly encryptionAtRestOptions?: outputs.osis.PipelineEncryptionAtRestOptions;
     /**
      * A list of endpoints that can be used for ingesting data into a pipeline
      */
     readonly ingestEndpointUrls?: string[];
+    /**
+     * Key-value pairs that represent log publishing settings.
+     */
     readonly logPublishingOptions?: outputs.osis.PipelineLogPublishingOptions;
     /**
      * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).

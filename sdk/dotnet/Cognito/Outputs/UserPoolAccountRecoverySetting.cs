@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAccountRecoverySetting
     {
+        /// <summary>
+        /// The list of `RecoveryOptionTypes` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserPoolRecoveryOption> RecoveryMechanisms;
 
         [OutputConstructor]

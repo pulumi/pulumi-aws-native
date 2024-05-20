@@ -95,7 +95,13 @@ export class Solution extends pulumi.CustomResource {
      * The ARN of the recipe to use for model training. Only specified when performAutoML is false.
      */
     public readonly recipeArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the solution.
+     */
     public /*out*/ readonly solutionArn!: pulumi.Output<string>;
+    /**
+     * Describes the configuration properties for the solution.
+     */
     public readonly solutionConfig!: pulumi.Output<outputs.personalize.SolutionConfig | undefined>;
 
     /**
@@ -165,5 +171,8 @@ export interface SolutionArgs {
      * The ARN of the recipe to use for model training. Only specified when performAutoML is false.
      */
     recipeArn?: pulumi.Input<string>;
+    /**
+     * Describes the configuration properties for the solution.
+     */
     solutionConfig?: pulumi.Input<inputs.personalize.SolutionConfigArgs>;
 }

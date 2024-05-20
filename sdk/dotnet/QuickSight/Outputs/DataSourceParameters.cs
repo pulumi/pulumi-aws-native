@@ -18,25 +18,85 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceParameters
     {
+        /// <summary>
+        /// The parameters for OpenSearch.
+        /// </summary>
         public readonly Outputs.DataSourceAmazonElasticsearchParameters? AmazonElasticsearchParameters;
+        /// <summary>
+        /// The parameters for OpenSearch.
+        /// </summary>
         public readonly Outputs.DataSourceAmazonOpenSearchParameters? AmazonOpenSearchParameters;
+        /// <summary>
+        /// The parameters for Amazon Athena.
+        /// </summary>
         public readonly Outputs.DataSourceAthenaParameters? AthenaParameters;
+        /// <summary>
+        /// The parameters for Amazon Aurora MySQL.
+        /// </summary>
         public readonly Outputs.DataSourceAuroraParameters? AuroraParameters;
+        /// <summary>
+        /// The parameters for Amazon Aurora.
+        /// </summary>
         public readonly Outputs.DataSourceAuroraPostgreSqlParameters? AuroraPostgreSqlParameters;
+        /// <summary>
+        /// The required parameters that are needed to connect to a Databricks data source.
+        /// </summary>
         public readonly Outputs.DataSourceDatabricksParameters? DatabricksParameters;
+        /// <summary>
+        /// The parameters for MariaDB.
+        /// </summary>
         public readonly Outputs.DataSourceMariaDbParameters? MariaDbParameters;
+        /// <summary>
+        /// The parameters for MySQL.
+        /// </summary>
         public readonly Outputs.DataSourceMySqlParameters? MySqlParameters;
+        /// <summary>
+        /// Oracle parameters.
+        /// </summary>
         public readonly Outputs.DataSourceOracleParameters? OracleParameters;
+        /// <summary>
+        /// The parameters for PostgreSQL.
+        /// </summary>
         public readonly Outputs.DataSourcePostgreSqlParameters? PostgreSqlParameters;
+        /// <summary>
+        /// The parameters for Presto.
+        /// </summary>
         public readonly Outputs.DataSourcePrestoParameters? PrestoParameters;
+        /// <summary>
+        /// The parameters for Amazon RDS.
+        /// </summary>
         public readonly Outputs.DataSourceRdsParameters? RdsParameters;
+        /// <summary>
+        /// The parameters for Amazon Redshift.
+        /// </summary>
         public readonly Outputs.DataSourceRedshiftParameters? RedshiftParameters;
+        /// <summary>
+        /// The parameters for S3.
+        /// </summary>
         public readonly Outputs.DataSourceS3Parameters? S3Parameters;
+        /// <summary>
+        /// The parameters for Snowflake.
+        /// </summary>
         public readonly Outputs.DataSourceSnowflakeParameters? SnowflakeParameters;
+        /// <summary>
+        /// The parameters for Spark.
+        /// </summary>
         public readonly Outputs.DataSourceSparkParameters? SparkParameters;
+        /// <summary>
+        /// The parameters for SQL Server.
+        /// </summary>
         public readonly Outputs.DataSourceSqlServerParameters? SqlServerParameters;
+        /// <summary>
+        /// The parameters that are required to connect to a Starburst data source.
+        /// </summary>
         public readonly Outputs.DataSourceStarburstParameters? StarburstParameters;
+        /// <summary>
+        /// The parameters for Teradata.
+        /// </summary>
         public readonly Outputs.DataSourceTeradataParameters? TeradataParameters;
+        /// <summary>
+        /// The parameters that are required to connect to a Trino data source.
+        /// </summary>
         public readonly Outputs.DataSourceTrinoParameters? TrinoParameters;
 
         [OutputConstructor]

@@ -37,18 +37,57 @@ export class UserSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserSettings.__pulumiType;
     }
 
+    /**
+     * The additional encryption context of the user settings.
+     */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A list of web portal ARNs that this user settings resource is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+     */
     public readonly cookieSynchronizationConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
+    /**
+     * Specifies whether the user can copy text from the streaming session to the local device.
+     */
     public readonly copyAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The customer managed key used to encrypt sensitive information in the user settings.
+     */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The amount of time that a streaming session remains active after users disconnect.
+     */
     public readonly disconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies whether the user can download files from the streaming session to the local device.
+     */
     public readonly downloadAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+     */
     public readonly idleDisconnectTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies whether the user can paste text from the local device to the streaming session.
+     */
     public readonly pasteAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * Specifies whether the user can print to the local device.
+     */
     public readonly printAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The tags to add to the user settings resource. A tag is a key-value pair.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Specifies whether the user can upload files from the local device to the streaming session.
+     */
     public readonly uploadAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The ARN of the user settings.
+     */
     public /*out*/ readonly userSettingsArn!: pulumi.Output<string>;
 
     /**
@@ -116,15 +155,48 @@ export class UserSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a UserSettings resource.
  */
 export interface UserSettingsArgs {
+    /**
+     * The additional encryption context of the user settings.
+     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+     */
     cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfigurationArgs>;
+    /**
+     * Specifies whether the user can copy text from the streaming session to the local device.
+     */
     copyAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The customer managed key used to encrypt sensitive information in the user settings.
+     */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * The amount of time that a streaming session remains active after users disconnect.
+     */
     disconnectTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * Specifies whether the user can download files from the streaming session to the local device.
+     */
     downloadAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
+     */
     idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * Specifies whether the user can paste text from the local device to the streaming session.
+     */
     pasteAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * Specifies whether the user can print to the local device.
+     */
     printAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * The tags to add to the user settings resource. A tag is a key-value pair.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Specifies whether the user can upload files from the local device to the streaming session.
+     */
     uploadAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
 }

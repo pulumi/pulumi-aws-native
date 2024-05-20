@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateKpiComparisonValueConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The conditional formatting of the comparison value's icon.
+        /// </summary>
         [Input("icon")]
         public Input<Inputs.TemplateConditionalFormattingIconArgs>? Icon { get; set; }
 
+        /// <summary>
+        /// The conditional formatting of the comparison value's text color.
+        /// </summary>
         [Input("textColor")]
         public Input<Inputs.TemplateConditionalFormattingColorArgs>? TextColor { get; set; }
 

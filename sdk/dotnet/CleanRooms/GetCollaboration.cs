@@ -27,6 +27,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetCollaborationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified collaboration.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Input("collaborationIdentifier", required: true)]
         public string CollaborationIdentifier { get; set; } = null!;
 
@@ -38,6 +43,11 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetCollaborationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the unique identifier of the specified collaboration.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         [Input("collaborationIdentifier", required: true)]
         public Input<string> CollaborationIdentifier { get; set; } = null!;
 
@@ -51,9 +61,25 @@ namespace Pulumi.AwsNative.CleanRooms
     [OutputType]
     public sealed class GetCollaborationResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the specified collaboration.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Returns the unique identifier of the specified collaboration.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? CollaborationIdentifier;
+        /// <summary>
+        /// A description of the collaboration provided by the collaboration owner.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A human-readable identifier provided by the collaboration owner. Display names are not unique.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

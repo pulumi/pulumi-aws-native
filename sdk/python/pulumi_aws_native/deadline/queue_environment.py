@@ -22,6 +22,11 @@ class QueueEnvironmentArgs:
                  template_type: pulumi.Input['QueueEnvironmentEnvironmentTemplateType']):
         """
         The set of arguments for constructing a QueueEnvironment resource.
+        :param pulumi.Input[str] farm_id: The identifier assigned to the farm that contains the queue.
+        :param pulumi.Input[int] priority: The queue environment's priority.
+        :param pulumi.Input[str] queue_id: The unique identifier of the queue that contains the environment.
+        :param pulumi.Input[str] template: A JSON or YAML template the describes the processing environment for the queue.
+        :param pulumi.Input['QueueEnvironmentEnvironmentTemplateType'] template_type: Specifies whether the template for the queue environment is JSON or YAML.
         """
         pulumi.set(__self__, "farm_id", farm_id)
         pulumi.set(__self__, "priority", priority)
@@ -32,6 +37,9 @@ class QueueEnvironmentArgs:
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Input[str]:
+        """
+        The identifier assigned to the farm that contains the queue.
+        """
         return pulumi.get(self, "farm_id")
 
     @farm_id.setter
@@ -41,6 +49,9 @@ class QueueEnvironmentArgs:
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
+        """
+        The queue environment's priority.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -50,6 +61,9 @@ class QueueEnvironmentArgs:
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the queue that contains the environment.
+        """
         return pulumi.get(self, "queue_id")
 
     @queue_id.setter
@@ -59,6 +73,9 @@ class QueueEnvironmentArgs:
     @property
     @pulumi.getter
     def template(self) -> pulumi.Input[str]:
+        """
+        A JSON or YAML template the describes the processing environment for the queue.
+        """
         return pulumi.get(self, "template")
 
     @template.setter
@@ -68,6 +85,9 @@ class QueueEnvironmentArgs:
     @property
     @pulumi.getter(name="templateType")
     def template_type(self) -> pulumi.Input['QueueEnvironmentEnvironmentTemplateType']:
+        """
+        Specifies whether the template for the queue environment is JSON or YAML.
+        """
         return pulumi.get(self, "template_type")
 
     @template_type.setter
@@ -91,6 +111,11 @@ class QueueEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] farm_id: The identifier assigned to the farm that contains the queue.
+        :param pulumi.Input[int] priority: The queue environment's priority.
+        :param pulumi.Input[str] queue_id: The unique identifier of the queue that contains the environment.
+        :param pulumi.Input[str] template: A JSON or YAML template the describes the processing environment for the queue.
+        :param pulumi.Input['QueueEnvironmentEnvironmentTemplateType'] template_type: Specifies whether the template for the queue environment is JSON or YAML.
         """
         ...
     @overload
@@ -183,35 +208,56 @@ class QueueEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="farmId")
     def farm_id(self) -> pulumi.Output[str]:
+        """
+        The identifier assigned to the farm that contains the queue.
+        """
         return pulumi.get(self, "farm_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the queue environment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
+        """
+        The queue environment's priority.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="queueEnvironmentId")
     def queue_environment_id(self) -> pulumi.Output[str]:
+        """
+        The queue environment ID.
+        """
         return pulumi.get(self, "queue_environment_id")
 
     @property
     @pulumi.getter(name="queueId")
     def queue_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the queue that contains the environment.
+        """
         return pulumi.get(self, "queue_id")
 
     @property
     @pulumi.getter
     def template(self) -> pulumi.Output[str]:
+        """
+        A JSON or YAML template the describes the processing environment for the queue.
+        """
         return pulumi.get(self, "template")
 
     @property
     @pulumi.getter(name="templateType")
     def template_type(self) -> pulumi.Output['QueueEnvironmentEnvironmentTemplateType']:
+        """
+        Specifies whether the template for the queue environment is JSON or YAML.
+        """
         return pulumi.get(self, "template_type")
 

@@ -16,9 +16,13 @@ import (
 type BillingGroup struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput                       `pulumi:"arn"`
-	AwsId                  pulumi.StringOutput                       `pulumi:"awsId"`
-	BillingGroupName       pulumi.StringPtrOutput                    `pulumi:"billingGroupName"`
+	// The ARN of the billing group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the billing group.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The name of the billing group.
+	BillingGroupName pulumi.StringPtrOutput `pulumi:"billingGroupName"`
+	// The properties of the billing group.
 	BillingGroupProperties BillingGroupPropertiesPropertiesPtrOutput `pulumi:"billingGroupProperties"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -68,7 +72,9 @@ func (BillingGroupState) ElementType() reflect.Type {
 }
 
 type billingGroupArgs struct {
-	BillingGroupName       *string                           `pulumi:"billingGroupName"`
+	// The name of the billing group.
+	BillingGroupName *string `pulumi:"billingGroupName"`
+	// The properties of the billing group.
 	BillingGroupProperties *BillingGroupPropertiesProperties `pulumi:"billingGroupProperties"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -76,7 +82,9 @@ type billingGroupArgs struct {
 
 // The set of arguments for constructing a BillingGroup resource.
 type BillingGroupArgs struct {
-	BillingGroupName       pulumi.StringPtrInput
+	// The name of the billing group.
+	BillingGroupName pulumi.StringPtrInput
+	// The properties of the billing group.
 	BillingGroupProperties BillingGroupPropertiesPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -119,18 +127,22 @@ func (o BillingGroupOutput) ToBillingGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The ARN of the billing group.
 func (o BillingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the billing group.
 func (o BillingGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The name of the billing group.
 func (o BillingGroupOutput) BillingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringPtrOutput { return v.BillingGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The properties of the billing group.
 func (o BillingGroupOutput) BillingGroupProperties() BillingGroupPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v *BillingGroup) BillingGroupPropertiesPropertiesPtrOutput { return v.BillingGroupProperties }).(BillingGroupPropertiesPropertiesPtrOutput)
 }

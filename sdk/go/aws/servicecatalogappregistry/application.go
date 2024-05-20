@@ -21,12 +21,15 @@ type Application struct {
 	ApplicationTagKey pulumi.StringOutput `pulumi:"applicationTagKey"`
 	// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
 	ApplicationTagValue pulumi.StringOutput `pulumi:"applicationTagValue"`
-	Arn                 pulumi.StringOutput `pulumi:"arn"`
-	AwsId               pulumi.StringOutput `pulumi:"awsId"`
+	// The Amazon resource name (ARN) that specifies the application across services.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The identifier of the application.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value pairs you can use to associate with the application.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -73,7 +76,8 @@ type applicationArgs struct {
 	// The description of the application.
 	Description *string `pulumi:"description"`
 	// The name of the application.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value pairs you can use to associate with the application.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -83,6 +87,7 @@ type ApplicationArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
+	// Key-value pairs you can use to associate with the application.
 	Tags pulumi.StringMapInput
 }
 
@@ -138,10 +143,12 @@ func (o ApplicationOutput) ApplicationTagValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationTagValue }).(pulumi.StringOutput)
 }
 
+// The Amazon resource name (ARN) that specifies the application across services.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The identifier of the application.
 func (o ApplicationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -156,6 +163,7 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Key-value pairs you can use to associate with the application.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

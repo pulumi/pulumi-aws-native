@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorCfnScanEc2InstanceWithFindingsConfiguration
     {
+        /// <summary>
+        /// Describes the configuration for scanning EBS volumes as data source.
+        /// </summary>
         public readonly bool? EbsVolumes;
 
         [OutputConstructor]

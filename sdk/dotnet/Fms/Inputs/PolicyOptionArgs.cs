@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Fms.Inputs
     /// </summary>
     public sealed class PolicyOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a Firewall Manager network ACL policy.
+        /// </summary>
         [Input("networkAclCommonPolicy")]
         public Input<Inputs.PolicyNetworkAclCommonPolicyArgs>? NetworkAclCommonPolicy { get; set; }
 
+        /// <summary>
+        /// Defines the deployment model to use for the firewall policy.
+        /// </summary>
         [Input("networkFirewallPolicy")]
         public Input<Inputs.PolicyNetworkFirewallPolicyArgs>? NetworkFirewallPolicy { get; set; }
 
+        /// <summary>
+        /// Defines the policy options for a third-party firewall policy.
+        /// </summary>
         [Input("thirdPartyFirewallPolicy")]
         public Input<Inputs.PolicyThirdPartyFirewallPolicyArgs>? ThirdPartyFirewallPolicy { get; set; }
 

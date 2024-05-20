@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class GetCollectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID for the collection that you are creating.
+        /// </summary>
         [Input("collectionId", required: true)]
         public string CollectionId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Rekognition
 
     public sealed class GetCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID for the collection that you are creating.
+        /// </summary>
         [Input("collectionId", required: true)]
         public Input<string> CollectionId { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.Rekognition
     [OutputType]
     public sealed class GetCollectionResult
     {
+        /// <summary>
+        /// Returns the Amazon Resource Name of the collection.
+        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

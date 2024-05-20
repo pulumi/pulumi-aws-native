@@ -16,6 +16,7 @@ import (
 type SubnetNetworkAclAssociation struct {
 	pulumi.CustomResourceState
 
+	// Returns the value of this object's AssociationId property.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The ID of the network ACL
 	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
@@ -125,6 +126,7 @@ func (o SubnetNetworkAclAssociationOutput) ToSubnetNetworkAclAssociationOutputWi
 	return o
 }
 
+// Returns the value of this object's AssociationId property.
 func (o SubnetNetworkAclAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetNetworkAclAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }

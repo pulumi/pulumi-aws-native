@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The External ID of the asset
         /// </summary>
         public readonly string? AssetExternalId;
+        /// <summary>
+        /// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AssetHierarchy> AssetHierarchies;
         /// <summary>
         /// The ID of the asset
@@ -82,6 +85,11 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// A unique, friendly name for the asset.
         /// </summary>
         public readonly string? AssetName;
+        /// <summary>
+        /// The list of asset properties for the asset.
+        /// 
+        /// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AssetProperty> AssetProperties;
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset.

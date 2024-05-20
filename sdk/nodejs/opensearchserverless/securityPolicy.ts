@@ -107,6 +107,9 @@ export class SecurityPolicy extends pulumi.CustomResource {
      * The JSON policy document that is the content for the policy
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The type of security policy. Can be either `encryption` or `network` .
+     */
     public readonly type!: pulumi.Output<enums.opensearchserverless.SecurityPolicyType>;
 
     /**
@@ -159,5 +162,8 @@ export interface SecurityPolicyArgs {
      * The JSON policy document that is the content for the policy
      */
     policy: pulumi.Input<string>;
+    /**
+     * The type of security policy. Can be either `encryption` or `network` .
+     */
     type: pulumi.Input<enums.opensearchserverless.SecurityPolicyType>;
 }

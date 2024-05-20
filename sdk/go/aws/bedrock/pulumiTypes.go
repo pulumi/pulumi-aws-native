@@ -15,14 +15,21 @@ var _ = internal.GetEnvOrDefault
 
 // Contains the information of an Agent Action Group
 type AgentActionGroup struct {
+	// The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
 	ActionGroupExecutor interface{} `pulumi:"actionGroupExecutor"`
 	// Name of the action group
-	ActionGroupName  string                 `pulumi:"actionGroupName"`
+	ActionGroupName string `pulumi:"actionGroupName"`
+	// Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 	ActionGroupState *AgentActionGroupState `pulumi:"actionGroupState"`
-	ApiSchema        interface{}            `pulumi:"apiSchema"`
+	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+	ApiSchema interface{} `pulumi:"apiSchema"`
 	// Description of action group
-	Description                *string                    `pulumi:"description"`
-	FunctionSchema             *AgentFunctionSchema       `pulumi:"functionSchema"`
+	Description *string `pulumi:"description"`
+	// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+	FunctionSchema *AgentFunctionSchema `pulumi:"functionSchema"`
+	// If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+	//
+	// During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
 	ParentActionGroupSignature *AgentActionGroupSignature `pulumi:"parentActionGroupSignature"`
 	// Specifies whether to allow deleting action group while it is in use.
 	SkipResourceInUseCheckOnDelete *bool `pulumi:"skipResourceInUseCheckOnDelete"`
@@ -41,14 +48,21 @@ type AgentActionGroupInput interface {
 
 // Contains the information of an Agent Action Group
 type AgentActionGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
 	ActionGroupExecutor pulumi.Input `pulumi:"actionGroupExecutor"`
 	// Name of the action group
-	ActionGroupName  pulumi.StringInput            `pulumi:"actionGroupName"`
+	ActionGroupName pulumi.StringInput `pulumi:"actionGroupName"`
+	// Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 	ActionGroupState AgentActionGroupStatePtrInput `pulumi:"actionGroupState"`
-	ApiSchema        pulumi.Input                  `pulumi:"apiSchema"`
+	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+	ApiSchema pulumi.Input `pulumi:"apiSchema"`
 	// Description of action group
-	Description                pulumi.StringPtrInput             `pulumi:"description"`
-	FunctionSchema             AgentFunctionSchemaPtrInput       `pulumi:"functionSchema"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+	FunctionSchema AgentFunctionSchemaPtrInput `pulumi:"functionSchema"`
+	// If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+	//
+	// During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
 	ParentActionGroupSignature AgentActionGroupSignaturePtrInput `pulumi:"parentActionGroupSignature"`
 	// Specifies whether to allow deleting action group while it is in use.
 	SkipResourceInUseCheckOnDelete pulumi.BoolPtrInput `pulumi:"skipResourceInUseCheckOnDelete"`
@@ -106,6 +120,7 @@ func (o AgentActionGroupOutput) ToAgentActionGroupOutputWithContext(ctx context.
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
 func (o AgentActionGroupOutput) ActionGroupExecutor() pulumi.AnyOutput {
 	return o.ApplyT(func(v AgentActionGroup) interface{} { return v.ActionGroupExecutor }).(pulumi.AnyOutput)
 }
@@ -115,10 +130,12 @@ func (o AgentActionGroupOutput) ActionGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentActionGroup) string { return v.ActionGroupName }).(pulumi.StringOutput)
 }
 
+// Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 func (o AgentActionGroupOutput) ActionGroupState() AgentActionGroupStatePtrOutput {
 	return o.ApplyT(func(v AgentActionGroup) *AgentActionGroupState { return v.ActionGroupState }).(AgentActionGroupStatePtrOutput)
 }
 
+// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
 func (o AgentActionGroupOutput) ApiSchema() pulumi.AnyOutput {
 	return o.ApplyT(func(v AgentActionGroup) interface{} { return v.ApiSchema }).(pulumi.AnyOutput)
 }
@@ -128,10 +145,14 @@ func (o AgentActionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentActionGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
 func (o AgentActionGroupOutput) FunctionSchema() AgentFunctionSchemaPtrOutput {
 	return o.ApplyT(func(v AgentActionGroup) *AgentFunctionSchema { return v.FunctionSchema }).(AgentFunctionSchemaPtrOutput)
 }
 
+// If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+//
+// During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
 func (o AgentActionGroupOutput) ParentActionGroupSignature() AgentActionGroupSignaturePtrOutput {
 	return o.ApplyT(func(v AgentActionGroup) *AgentActionGroupSignature { return v.ParentActionGroupSignature }).(AgentActionGroupSignaturePtrOutput)
 }
@@ -878,7 +899,8 @@ type AgentFunction struct {
 	// Description of function
 	Description *string `pulumi:"description"`
 	// Name for a resource.
-	Name       string                          `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The parameters that the agent elicits from the user to fulfill the function.
 	Parameters map[string]AgentParameterDetail `pulumi:"parameters"`
 }
 
@@ -898,7 +920,8 @@ type AgentFunctionArgs struct {
 	// Description of function
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Name for a resource.
-	Name       pulumi.StringInput           `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameters that the agent elicits from the user to fulfill the function.
 	Parameters AgentParameterDetailMapInput `pulumi:"parameters"`
 }
 
@@ -964,6 +987,7 @@ func (o AgentFunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFunction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The parameters that the agent elicits from the user to fulfill the function.
 func (o AgentFunctionOutput) Parameters() AgentParameterDetailMapOutput {
 	return o.ApplyT(func(v AgentFunction) map[string]AgentParameterDetail { return v.Parameters }).(AgentParameterDetailMapOutput)
 }
@@ -1349,7 +1373,8 @@ type AgentKnowledgeBase struct {
 	// Description of the Resource.
 	Description string `pulumi:"description"`
 	// Identifier for a resource.
-	KnowledgeBaseId    string                   `pulumi:"knowledgeBaseId"`
+	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
+	// Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 	KnowledgeBaseState *AgentKnowledgeBaseState `pulumi:"knowledgeBaseState"`
 }
 
@@ -1369,7 +1394,8 @@ type AgentKnowledgeBaseArgs struct {
 	// Description of the Resource.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Identifier for a resource.
-	KnowledgeBaseId    pulumi.StringInput              `pulumi:"knowledgeBaseId"`
+	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
+	// Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 	KnowledgeBaseState AgentKnowledgeBaseStatePtrInput `pulumi:"knowledgeBaseState"`
 }
 
@@ -1435,6 +1461,7 @@ func (o AgentKnowledgeBaseOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBase) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
+// Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 func (o AgentKnowledgeBaseOutput) KnowledgeBaseState() AgentKnowledgeBaseStatePtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBase) *AgentKnowledgeBaseState { return v.KnowledgeBaseState }).(AgentKnowledgeBaseStatePtrOutput)
 }
@@ -1464,8 +1491,9 @@ type AgentParameterDetail struct {
 	// Description of function parameter.
 	Description *string `pulumi:"description"`
 	// Information about if a parameter is required for function call. Default to false.
-	Required *bool     `pulumi:"required"`
-	Type     AgentType `pulumi:"type"`
+	Required *bool `pulumi:"required"`
+	// The data type of the parameter.
+	Type AgentType `pulumi:"type"`
 }
 
 // AgentParameterDetailInput is an input type that accepts AgentParameterDetailArgs and AgentParameterDetailOutput values.
@@ -1485,7 +1513,8 @@ type AgentParameterDetailArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Information about if a parameter is required for function call. Default to false.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
-	Type     AgentTypeInput      `pulumi:"type"`
+	// The data type of the parameter.
+	Type AgentTypeInput `pulumi:"type"`
 }
 
 func (AgentParameterDetailArgs) ElementType() reflect.Type {
@@ -1550,6 +1579,7 @@ func (o AgentParameterDetailOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentParameterDetail) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
+// The data type of the parameter.
 func (o AgentParameterDetailOutput) Type() AgentTypeOutput {
 	return o.ApplyT(func(v AgentParameterDetail) AgentType { return v.Type }).(AgentTypeOutput)
 }
@@ -1577,12 +1607,22 @@ func (o AgentParameterDetailMapOutput) MapIndex(k pulumi.StringInput) AgentParam
 // BasePromptConfiguration per Prompt Type.
 type AgentPromptConfiguration struct {
 	// Base Prompt Template.
-	BasePromptTemplate     *string                      `pulumi:"basePromptTemplate"`
+	BasePromptTemplate *string `pulumi:"basePromptTemplate"`
+	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration *AgentInferenceConfiguration `pulumi:"inferenceConfiguration"`
-	ParserMode             *AgentCreationMode           `pulumi:"parserMode"`
-	PromptCreationMode     *AgentCreationMode           `pulumi:"promptCreationMode"`
-	PromptState            *AgentPromptState            `pulumi:"promptState"`
-	PromptType             *AgentPromptType             `pulumi:"promptType"`
+	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+	ParserMode *AgentCreationMode `pulumi:"parserMode"`
+	// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
+	PromptCreationMode *AgentCreationMode `pulumi:"promptCreationMode"`
+	// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+	//
+	// - `PRE_PROCESSING` – `ENABLED`
+	// - `ORCHESTRATION` – `ENABLED`
+	// - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
+	// - `POST_PROCESSING` – `DISABLED`
+	PromptState *AgentPromptState `pulumi:"promptState"`
+	// The step in the agent sequence that this prompt configuration applies to.
+	PromptType *AgentPromptType `pulumi:"promptType"`
 }
 
 // AgentPromptConfigurationInput is an input type that accepts AgentPromptConfigurationArgs and AgentPromptConfigurationOutput values.
@@ -1599,12 +1639,22 @@ type AgentPromptConfigurationInput interface {
 // BasePromptConfiguration per Prompt Type.
 type AgentPromptConfigurationArgs struct {
 	// Base Prompt Template.
-	BasePromptTemplate     pulumi.StringPtrInput               `pulumi:"basePromptTemplate"`
+	BasePromptTemplate pulumi.StringPtrInput `pulumi:"basePromptTemplate"`
+	// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 	InferenceConfiguration AgentInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
-	ParserMode             AgentCreationModePtrInput           `pulumi:"parserMode"`
-	PromptCreationMode     AgentCreationModePtrInput           `pulumi:"promptCreationMode"`
-	PromptState            AgentPromptStatePtrInput            `pulumi:"promptState"`
-	PromptType             AgentPromptTypePtrInput             `pulumi:"promptType"`
+	// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
+	ParserMode AgentCreationModePtrInput `pulumi:"parserMode"`
+	// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
+	PromptCreationMode AgentCreationModePtrInput `pulumi:"promptCreationMode"`
+	// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+	//
+	// - `PRE_PROCESSING` – `ENABLED`
+	// - `ORCHESTRATION` – `ENABLED`
+	// - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
+	// - `POST_PROCESSING` – `DISABLED`
+	PromptState AgentPromptStatePtrInput `pulumi:"promptState"`
+	// The step in the agent sequence that this prompt configuration applies to.
+	PromptType AgentPromptTypePtrInput `pulumi:"promptType"`
 }
 
 func (AgentPromptConfigurationArgs) ElementType() reflect.Type {
@@ -1664,22 +1714,32 @@ func (o AgentPromptConfigurationOutput) BasePromptTemplate() pulumi.StringPtrOut
 	return o.ApplyT(func(v AgentPromptConfiguration) *string { return v.BasePromptTemplate }).(pulumi.StringPtrOutput)
 }
 
+// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
 func (o AgentPromptConfigurationOutput) InferenceConfiguration() AgentInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentInferenceConfiguration { return v.InferenceConfiguration }).(AgentInferenceConfigurationPtrOutput)
 }
 
+// Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
 func (o AgentPromptConfigurationOutput) ParserMode() AgentCreationModePtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentCreationMode { return v.ParserMode }).(AgentCreationModePtrOutput)
 }
 
+// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
 func (o AgentPromptConfigurationOutput) PromptCreationMode() AgentCreationModePtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentCreationMode { return v.PromptCreationMode }).(AgentCreationModePtrOutput)
 }
 
+// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+//
+// - `PRE_PROCESSING` – `ENABLED`
+// - `ORCHESTRATION` – `ENABLED`
+// - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
+// - `POST_PROCESSING` – `DISABLED`
 func (o AgentPromptConfigurationOutput) PromptState() AgentPromptStatePtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentPromptState { return v.PromptState }).(AgentPromptStatePtrOutput)
 }
 
+// The step in the agent sequence that this prompt configuration applies to.
 func (o AgentPromptConfigurationOutput) PromptType() AgentPromptTypePtrOutput {
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentPromptType { return v.PromptType }).(AgentPromptTypePtrOutput)
 }
@@ -2024,7 +2084,12 @@ func (o AgentS3IdentifierPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceChunkingConfiguration struct {
-	ChunkingStrategy               DataSourceChunkingStrategy                `pulumi:"chunkingStrategy"`
+	// Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+	//
+	// - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+	// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
+	ChunkingStrategy DataSourceChunkingStrategy `pulumi:"chunkingStrategy"`
+	// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
 	FixedSizeChunkingConfiguration *DataSourceFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
 }
 
@@ -2041,7 +2106,12 @@ type DataSourceChunkingConfigurationInput interface {
 
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceChunkingConfigurationArgs struct {
-	ChunkingStrategy               DataSourceChunkingStrategyInput                  `pulumi:"chunkingStrategy"`
+	// Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+	//
+	// - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+	// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
+	ChunkingStrategy DataSourceChunkingStrategyInput `pulumi:"chunkingStrategy"`
+	// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
 	FixedSizeChunkingConfiguration DataSourceFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
 }
 
@@ -2123,10 +2193,15 @@ func (o DataSourceChunkingConfigurationOutput) ToDataSourceChunkingConfiguration
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+// Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+//
+// - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
 func (o DataSourceChunkingConfigurationOutput) ChunkingStrategy() DataSourceChunkingStrategyOutput {
 	return o.ApplyT(func(v DataSourceChunkingConfiguration) DataSourceChunkingStrategy { return v.ChunkingStrategy }).(DataSourceChunkingStrategyOutput)
 }
 
+// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
 func (o DataSourceChunkingConfigurationOutput) FixedSizeChunkingConfiguration() DataSourceFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceChunkingConfiguration) *DataSourceFixedSizeChunkingConfiguration {
 		return v.FixedSizeChunkingConfiguration
@@ -2157,6 +2232,10 @@ func (o DataSourceChunkingConfigurationPtrOutput) Elem() DataSourceChunkingConfi
 	}).(DataSourceChunkingConfigurationOutput)
 }
 
+// Knowledge base can split your source data into chunks. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for `NONE` , then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
+//
+// - `FIXED_SIZE` – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the `fixedSizeChunkingConfiguration` .
+// - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
 func (o DataSourceChunkingConfigurationPtrOutput) ChunkingStrategy() DataSourceChunkingStrategyPtrOutput {
 	return o.ApplyT(func(v *DataSourceChunkingConfiguration) *DataSourceChunkingStrategy {
 		if v == nil {
@@ -2166,6 +2245,7 @@ func (o DataSourceChunkingConfigurationPtrOutput) ChunkingStrategy() DataSourceC
 	}).(DataSourceChunkingStrategyPtrOutput)
 }
 
+// Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
 func (o DataSourceChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration() DataSourceFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceChunkingConfiguration) *DataSourceFixedSizeChunkingConfiguration {
 		if v == nil {
@@ -2177,8 +2257,10 @@ func (o DataSourceChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration
 
 // Specifies a raw data source location to ingest.
 type DataSourceConfiguration struct {
+	// Contains details about the configuration of the S3 object containing the data source.
 	S3Configuration DataSourceS3DataSourceConfiguration `pulumi:"s3Configuration"`
-	Type            DataSourceType                      `pulumi:"type"`
+	// The type of storage for the data source.
+	Type DataSourceType `pulumi:"type"`
 }
 
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
@@ -2194,8 +2276,10 @@ type DataSourceConfigurationInput interface {
 
 // Specifies a raw data source location to ingest.
 type DataSourceConfigurationArgs struct {
+	// Contains details about the configuration of the S3 object containing the data source.
 	S3Configuration DataSourceS3DataSourceConfigurationInput `pulumi:"s3Configuration"`
-	Type            DataSourceTypeInput                      `pulumi:"type"`
+	// The type of storage for the data source.
+	Type DataSourceTypeInput `pulumi:"type"`
 }
 
 func (DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -2225,10 +2309,12 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutputWithContex
 	return o
 }
 
+// Contains details about the configuration of the S3 object containing the data source.
 func (o DataSourceConfigurationOutput) S3Configuration() DataSourceS3DataSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) DataSourceS3DataSourceConfiguration { return v.S3Configuration }).(DataSourceS3DataSourceConfigurationOutput)
 }
 
+// The type of storage for the data source.
 func (o DataSourceConfigurationOutput) Type() DataSourceTypeOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) DataSourceType { return v.Type }).(DataSourceTypeOutput)
 }
@@ -2257,6 +2343,7 @@ func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
 	}).(DataSourceConfigurationOutput)
 }
 
+// Contains details about the configuration of the S3 object containing the data source.
 func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceS3DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceS3DataSourceConfiguration {
 		if v == nil {
@@ -2266,6 +2353,7 @@ func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceS3DataSour
 	}).(DataSourceS3DataSourceConfigurationPtrOutput)
 }
 
+// The type of storage for the data source.
 func (o DataSourceConfigurationPtrOutput) Type() DataSourceTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceType {
 		if v == nil {
@@ -2703,6 +2791,7 @@ func (o DataSourceServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi
 
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceVectorIngestionConfiguration struct {
+	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 	ChunkingConfiguration *DataSourceChunkingConfiguration `pulumi:"chunkingConfiguration"`
 }
 
@@ -2719,6 +2808,7 @@ type DataSourceVectorIngestionConfigurationInput interface {
 
 // Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type DataSourceVectorIngestionConfigurationArgs struct {
+	// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 	ChunkingConfiguration DataSourceChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
 }
 
@@ -2800,6 +2890,7 @@ func (o DataSourceVectorIngestionConfigurationOutput) ToDataSourceVectorIngestio
 	}).(DataSourceVectorIngestionConfigurationPtrOutput)
 }
 
+// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 func (o DataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration() DataSourceChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceChunkingConfiguration {
 		return v.ChunkingConfiguration
@@ -2830,6 +2921,7 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) Elem() DataSourceVector
 	}).(DataSourceVectorIngestionConfigurationOutput)
 }
 
+// Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 func (o DataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration() DataSourceChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceChunkingConfiguration {
 		if v == nil {
@@ -4106,7 +4198,9 @@ func (o GuardrailWordPolicyConfigPtrOutput) WordsConfig() GuardrailWordConfigArr
 
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfiguration struct {
-	Type                             KnowledgeBaseType                             `pulumi:"type"`
+	// The type of data that the data source is converted into for the knowledge base.
+	Type KnowledgeBaseType `pulumi:"type"`
+	// Contains details about the embeddings model that'sused to convert the data source.
 	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -4123,7 +4217,9 @@ type KnowledgeBaseConfigurationInput interface {
 
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfigurationArgs struct {
-	Type                             KnowledgeBaseTypeInput                             `pulumi:"type"`
+	// The type of data that the data source is converted into for the knowledge base.
+	Type KnowledgeBaseTypeInput `pulumi:"type"`
+	// Contains details about the embeddings model that'sused to convert the data source.
 	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfigurationInput `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -4154,10 +4250,12 @@ func (o KnowledgeBaseConfigurationOutput) ToKnowledgeBaseConfigurationOutputWith
 	return o
 }
 
+// The type of data that the data source is converted into for the knowledge base.
 func (o KnowledgeBaseConfigurationOutput) Type() KnowledgeBaseTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseType { return v.Type }).(KnowledgeBaseTypeOutput)
 }
 
+// Contains details about the embeddings model that'sused to convert the data source.
 func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() KnowledgeBaseVectorKnowledgeBaseConfigurationOutput {
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration
@@ -4167,8 +4265,9 @@ func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() Kno
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 type KnowledgeBaseOpenSearchServerlessConfiguration struct {
 	// The ARN of the OpenSearch Service vector store.
-	CollectionArn string                                        `pulumi:"collectionArn"`
-	FieldMapping  KnowledgeBaseOpenSearchServerlessFieldMapping `pulumi:"fieldMapping"`
+	CollectionArn string `pulumi:"collectionArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseOpenSearchServerlessFieldMapping `pulumi:"fieldMapping"`
 	// The name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -4187,8 +4286,9 @@ type KnowledgeBaseOpenSearchServerlessConfigurationInput interface {
 // Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 type KnowledgeBaseOpenSearchServerlessConfigurationArgs struct {
 	// The ARN of the OpenSearch Service vector store.
-	CollectionArn pulumi.StringInput                                 `pulumi:"collectionArn"`
-	FieldMapping  KnowledgeBaseOpenSearchServerlessFieldMappingInput `pulumi:"fieldMapping"`
+	CollectionArn pulumi.StringInput `pulumi:"collectionArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBaseOpenSearchServerlessFieldMappingInput `pulumi:"fieldMapping"`
 	// The name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -4276,6 +4376,7 @@ func (o KnowledgeBaseOpenSearchServerlessConfigurationOutput) CollectionArn() pu
 	return o.ApplyT(func(v KnowledgeBaseOpenSearchServerlessConfiguration) string { return v.CollectionArn }).(pulumi.StringOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseOpenSearchServerlessConfigurationOutput) FieldMapping() KnowledgeBaseOpenSearchServerlessFieldMappingOutput {
 	return o.ApplyT(func(v KnowledgeBaseOpenSearchServerlessConfiguration) KnowledgeBaseOpenSearchServerlessFieldMapping {
 		return v.FieldMapping
@@ -4321,6 +4422,7 @@ func (o KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput) CollectionArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput) FieldMapping() KnowledgeBaseOpenSearchServerlessFieldMappingPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseOpenSearchServerlessConfiguration) *KnowledgeBaseOpenSearchServerlessFieldMapping {
 		if v == nil {
@@ -4523,8 +4625,9 @@ type KnowledgeBasePineconeConfiguration struct {
 	// The endpoint URL for your index management page.
 	ConnectionString string `pulumi:"connectionString"`
 	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-	CredentialsSecretArn string                            `pulumi:"credentialsSecretArn"`
-	FieldMapping         KnowledgeBasePineconeFieldMapping `pulumi:"fieldMapping"`
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBasePineconeFieldMapping `pulumi:"fieldMapping"`
 	// The namespace to be used to write new data to your database.
 	Namespace *string `pulumi:"namespace"`
 }
@@ -4545,8 +4648,9 @@ type KnowledgeBasePineconeConfigurationArgs struct {
 	// The endpoint URL for your index management page.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
-	CredentialsSecretArn pulumi.StringInput                     `pulumi:"credentialsSecretArn"`
-	FieldMapping         KnowledgeBasePineconeFieldMappingInput `pulumi:"fieldMapping"`
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// Contains the names of the fields to which to map information about the vector store.
+	FieldMapping KnowledgeBasePineconeFieldMappingInput `pulumi:"fieldMapping"`
 	// The namespace to be used to write new data to your database.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
@@ -4639,6 +4743,7 @@ func (o KnowledgeBasePineconeConfigurationOutput) CredentialsSecretArn() pulumi.
 	return o.ApplyT(func(v KnowledgeBasePineconeConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBasePineconeConfigurationOutput) FieldMapping() KnowledgeBasePineconeFieldMappingOutput {
 	return o.ApplyT(func(v KnowledgeBasePineconeConfiguration) KnowledgeBasePineconeFieldMapping { return v.FieldMapping }).(KnowledgeBasePineconeFieldMappingOutput)
 }
@@ -4692,6 +4797,7 @@ func (o KnowledgeBasePineconeConfigurationPtrOutput) CredentialsSecretArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBasePineconeConfigurationPtrOutput) FieldMapping() KnowledgeBasePineconeFieldMappingPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBasePineconeConfiguration) *KnowledgeBasePineconeFieldMapping {
 		if v == nil {
@@ -4875,7 +4981,8 @@ type KnowledgeBaseRdsConfiguration struct {
 	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// The name of your Amazon RDS database.
-	DatabaseName string                       `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
+	// Contains the names of the fields to which to map information about the vector store.
 	FieldMapping KnowledgeBaseRdsFieldMapping `pulumi:"fieldMapping"`
 	// The ARN of the vector store.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -4899,7 +5006,8 @@ type KnowledgeBaseRdsConfigurationArgs struct {
 	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// The name of your Amazon RDS database.
-	DatabaseName pulumi.StringInput                `pulumi:"databaseName"`
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Contains the names of the fields to which to map information about the vector store.
 	FieldMapping KnowledgeBaseRdsFieldMappingInput `pulumi:"fieldMapping"`
 	// The ARN of the vector store.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
@@ -4995,6 +5103,7 @@ func (o KnowledgeBaseRdsConfigurationOutput) DatabaseName() pulumi.StringOutput 
 	return o.ApplyT(func(v KnowledgeBaseRdsConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseRdsConfigurationOutput) FieldMapping() KnowledgeBaseRdsFieldMappingOutput {
 	return o.ApplyT(func(v KnowledgeBaseRdsConfiguration) KnowledgeBaseRdsFieldMapping { return v.FieldMapping }).(KnowledgeBaseRdsFieldMappingOutput)
 }
@@ -5053,6 +5162,7 @@ func (o KnowledgeBaseRdsConfigurationPtrOutput) DatabaseName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the names of the fields to which to map information about the vector store.
 func (o KnowledgeBaseRdsConfigurationPtrOutput) FieldMapping() KnowledgeBaseRdsFieldMappingPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRdsConfiguration) *KnowledgeBaseRdsFieldMapping {
 		if v == nil {
@@ -5281,10 +5391,14 @@ func (o KnowledgeBaseRdsFieldMappingPtrOutput) VectorField() pulumi.StringPtrOut
 
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfiguration struct {
+	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration *KnowledgeBaseOpenSearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
-	PineconeConfiguration             *KnowledgeBasePineconeConfiguration             `pulumi:"pineconeConfiguration"`
-	RdsConfiguration                  *KnowledgeBaseRdsConfiguration                  `pulumi:"rdsConfiguration"`
-	Type                              KnowledgeBaseStorageType                        `pulumi:"type"`
+	// Contains the storage configuration of the knowledge base in Pinecone.
+	PineconeConfiguration *KnowledgeBasePineconeConfiguration `pulumi:"pineconeConfiguration"`
+	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
+	RdsConfiguration *KnowledgeBaseRdsConfiguration `pulumi:"rdsConfiguration"`
+	// The vector store service in which the knowledge base is stored.
+	Type KnowledgeBaseStorageType `pulumi:"type"`
 }
 
 // KnowledgeBaseStorageConfigurationInput is an input type that accepts KnowledgeBaseStorageConfigurationArgs and KnowledgeBaseStorageConfigurationOutput values.
@@ -5300,10 +5414,14 @@ type KnowledgeBaseStorageConfigurationInput interface {
 
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfigurationArgs struct {
+	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 	OpensearchServerlessConfiguration KnowledgeBaseOpenSearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
-	PineconeConfiguration             KnowledgeBasePineconeConfigurationPtrInput             `pulumi:"pineconeConfiguration"`
-	RdsConfiguration                  KnowledgeBaseRdsConfigurationPtrInput                  `pulumi:"rdsConfiguration"`
-	Type                              KnowledgeBaseStorageTypeInput                          `pulumi:"type"`
+	// Contains the storage configuration of the knowledge base in Pinecone.
+	PineconeConfiguration KnowledgeBasePineconeConfigurationPtrInput `pulumi:"pineconeConfiguration"`
+	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
+	RdsConfiguration KnowledgeBaseRdsConfigurationPtrInput `pulumi:"rdsConfiguration"`
+	// The vector store service in which the knowledge base is stored.
+	Type KnowledgeBaseStorageTypeInput `pulumi:"type"`
 }
 
 func (KnowledgeBaseStorageConfigurationArgs) ElementType() reflect.Type {
@@ -5333,22 +5451,26 @@ func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigura
 	return o
 }
 
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
 func (o KnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchServerlessConfiguration {
 		return v.OpensearchServerlessConfiguration
 	}).(KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput)
 }
 
+// Contains the storage configuration of the knowledge base in Pinecone.
 func (o KnowledgeBaseStorageConfigurationOutput) PineconeConfiguration() KnowledgeBasePineconeConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBasePineconeConfiguration {
 		return v.PineconeConfiguration
 	}).(KnowledgeBasePineconeConfigurationPtrOutput)
 }
 
+// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
 func (o KnowledgeBaseStorageConfigurationOutput) RdsConfiguration() KnowledgeBaseRdsConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseRdsConfiguration { return v.RdsConfiguration }).(KnowledgeBaseRdsConfigurationPtrOutput)
 }
 
+// The vector store service in which the knowledge base is stored.
 func (o KnowledgeBaseStorageConfigurationOutput) Type() KnowledgeBaseStorageTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) KnowledgeBaseStorageType { return v.Type }).(KnowledgeBaseStorageTypeOutput)
 }

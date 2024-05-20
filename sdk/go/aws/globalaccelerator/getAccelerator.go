@@ -46,7 +46,10 @@ type LookupAcceleratorResult struct {
 	// The IPv6 addresses assigned if the accelerator is dualstack
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Name of accelerator.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Create tags for an accelerator.
+	//
+	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -131,6 +134,9 @@ func (o LookupAcceleratorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Create tags for an accelerator.
+//
+// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 func (o LookupAcceleratorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

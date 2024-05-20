@@ -23,10 +23,12 @@ func LookupProactiveEngagement(ctx *pulumi.Context, args *LookupProactiveEngagem
 }
 
 type LookupProactiveEngagementArgs struct {
+	// The ID of the account that submitted the template.
 	AccountId string `pulumi:"accountId"`
 }
 
 type LookupProactiveEngagementResult struct {
+	// The ID of the account that submitted the template.
 	AccountId *string `pulumi:"accountId"`
 	// A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.
 	// To enable proactive engagement, the contact list must include at least one phone number.
@@ -50,6 +52,7 @@ func LookupProactiveEngagementOutput(ctx *pulumi.Context, args LookupProactiveEn
 }
 
 type LookupProactiveEngagementOutputArgs struct {
+	// The ID of the account that submitted the template.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 }
 
@@ -71,6 +74,7 @@ func (o LookupProactiveEngagementResultOutput) ToLookupProactiveEngagementResult
 	return o
 }
 
+// The ID of the account that submitted the template.
 func (o LookupProactiveEngagementResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProactiveEngagementResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

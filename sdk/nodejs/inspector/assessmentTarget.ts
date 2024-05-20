@@ -34,8 +34,17 @@ export class AssessmentTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssessmentTarget.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that specifies the assessment target that is created.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
+     */
     public readonly assessmentTargetName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+     */
     public readonly resourceGroupArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -68,6 +77,12 @@ export class AssessmentTarget extends pulumi.CustomResource {
  * The set of arguments for constructing a AssessmentTarget resource.
  */
 export interface AssessmentTargetArgs {
+    /**
+     * The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
+     */
     assessmentTargetName?: pulumi.Input<string>;
+    /**
+     * The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
+     */
     resourceGroupArn?: pulumi.Input<string>;
 }

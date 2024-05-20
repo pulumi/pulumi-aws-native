@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.RefactorSpaces
     [AwsNativeResourceType("aws-native:refactorspaces:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the service.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The endpoint type of the service.
+        /// </summary>
         [Output("endpointType")]
         public Output<Pulumi.AwsNative.RefactorSpaces.ServiceEndpointType> EndpointType { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Output("environmentIdentifier")]
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A summary of the configuration for the AWS Lambda endpoint type.
+        /// </summary>
         [Output("lambdaEndpoint")]
         public Output<Outputs.ServiceLambdaEndpointInput?> LambdaEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the service.
+        /// </summary>
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
 
@@ -45,9 +69,15 @@ namespace Pulumi.AwsNative.RefactorSpaces
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The summary of the configuration for the URL endpoint type.
+        /// </summary>
         [Output("urlEndpoint")]
         public Output<Outputs.ServiceUrlEndpointInput?> UrlEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the virtual private cloud (VPC).
+        /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
 
@@ -107,21 +137,39 @@ namespace Pulumi.AwsNative.RefactorSpaces
 
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the application.
+        /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the service.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The endpoint type of the service.
+        /// </summary>
         [Input("endpointType", required: true)]
         public Input<Pulumi.AwsNative.RefactorSpaces.ServiceEndpointType> EndpointType { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the environment.
+        /// </summary>
         [Input("environmentIdentifier", required: true)]
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// A summary of the configuration for the AWS Lambda endpoint type.
+        /// </summary>
         [Input("lambdaEndpoint")]
         public Input<Inputs.ServiceLambdaEndpointInputArgs>? LambdaEndpoint { get; set; }
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -137,9 +185,15 @@ namespace Pulumi.AwsNative.RefactorSpaces
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The summary of the configuration for the URL endpoint type.
+        /// </summary>
         [Input("urlEndpoint")]
         public Input<Inputs.ServiceUrlEndpointInputArgs>? UrlEndpoint { get; set; }
 
+        /// <summary>
+        /// The ID of the virtual private cloud (VPC).
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -27,9 +27,17 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetAnalysisTemplateArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the identifier for the analysis template.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        /// </summary>
         [Input("analysisTemplateIdentifier", required: true)]
         public string AnalysisTemplateIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public string MembershipIdentifier { get; set; } = null!;
 
@@ -41,9 +49,17 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetAnalysisTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Returns the identifier for the analysis template.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        /// </summary>
         [Input("analysisTemplateIdentifier", required: true)]
         public Input<string> AnalysisTemplateIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for a membership resource.
+        /// </summary>
         [Input("membershipIdentifier", required: true)]
         public Input<string> MembershipIdentifier { get; set; } = null!;
 
@@ -57,11 +73,39 @@ namespace Pulumi.AwsNative.CleanRooms
     [OutputType]
     public sealed class GetAnalysisTemplateResult
     {
+        /// <summary>
+        /// Returns the identifier for the analysis template.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        /// </summary>
         public readonly string? AnalysisTemplateIdentifier;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the analysis template.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/analysistemplates/a1b2c3d4-5678-90ab-cdef-EXAMPLE2222`
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Returns the unique ARN for the analysis template’s associated collaboration.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         public readonly string? CollaborationArn;
+        /// <summary>
+        /// Returns the unique ID for the associated collaboration of the analysis template.
+        /// 
+        /// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
+        /// </summary>
         public readonly string? CollaborationIdentifier;
+        /// <summary>
+        /// The description of the analysis template.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
+        /// 
+        /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
+        /// </summary>
         public readonly string? MembershipArn;
         public readonly Outputs.AnalysisTemplateAnalysisSchema? Schema;
         /// <summary>

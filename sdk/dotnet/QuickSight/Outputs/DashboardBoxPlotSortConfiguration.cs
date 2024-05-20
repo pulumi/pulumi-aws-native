@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardBoxPlotSortConfiguration
     {
+        /// <summary>
+        /// The sort configuration of a group by fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> CategorySort;
+        /// <summary>
+        /// The pagination configuration of a table visual or box plot.
+        /// </summary>
         public readonly Outputs.DashboardPaginationConfiguration? PaginationConfiguration;
 
         [OutputConstructor]

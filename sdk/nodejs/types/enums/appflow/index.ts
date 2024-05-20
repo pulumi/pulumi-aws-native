@@ -326,6 +326,9 @@ export const FlowS3InputFormatConfigS3InputFileType = {
     Json: "JSON",
 } as const;
 
+/**
+ * The file type that Amazon AppFlow gets from your Amazon S3 bucket.
+ */
 export type FlowS3InputFormatConfigS3InputFileType = (typeof FlowS3InputFormatConfigS3InputFileType)[keyof typeof FlowS3InputFormatConfigS3InputFileType];
 
 export const FlowSalesforceConnectorOperator = {
@@ -385,6 +388,9 @@ export const FlowScheduledTriggerPropertiesDataPullMode = {
     Complete: "Complete",
 } as const;
 
+/**
+ * Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
+ */
 export type FlowScheduledTriggerPropertiesDataPullMode = (typeof FlowScheduledTriggerPropertiesDataPullMode)[keyof typeof FlowScheduledTriggerPropertiesDataPullMode];
 
 export const FlowServiceNowConnectorOperator = {

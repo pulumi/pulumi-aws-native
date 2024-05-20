@@ -13,10 +13,35 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCustomFilterConfiguration
     {
+        /// <summary>
+        /// The category value for the filter.
+        /// 
+        /// This field is mutually exclusive to `ParameterName` .
+        /// </summary>
         public readonly string? CategoryValue;
+        /// <summary>
+        /// The match operator that is used to determine if a filter should be applied.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisCategoryFilterMatchOperator MatchOperator;
+        /// <summary>
+        /// This option determines how null values should be treated when filtering data.
+        /// 
+        /// - `ALL_VALUES` : Include null values in filtered results.
+        /// - `NULLS_ONLY` : Only include null values in filtered results.
+        /// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisFilterNullOption NullOption;
+        /// <summary>
+        /// The parameter whose value should be used for the filter value.
+        /// 
+        /// This field is mutually exclusive to `CategoryValue` .
+        /// </summary>
         public readonly string? ParameterName;
+        /// <summary>
+        /// Select all of the values. Null is not the assigned value of select all.
+        /// 
+        /// - `FILTER_ALL_VALUES`
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisCategoryFilterSelectAllOptions? SelectAllOptions;
 
         [OutputConstructor]

@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclRuleGroupReferenceStatement
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the entity.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Rules in the referenced rule group whose actions are set to `Count` .
+        /// 
+        /// &gt; Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclExcludedRule> ExcludedRules;
         /// <summary>
         /// Action overrides for rules in the rule group.

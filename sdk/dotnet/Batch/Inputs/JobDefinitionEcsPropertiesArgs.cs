@@ -14,6 +14,12 @@ namespace Pulumi.AwsNative.Batch.Inputs
     {
         [Input("taskProperties", required: true)]
         private InputList<Inputs.JobDefinitionEcsTaskPropertiesArgs>? _taskProperties;
+
+        /// <summary>
+        /// An object that contains the properties for the Amazon ECS task definition of a job.
+        /// 
+        /// &gt; This object is currently limited to one element.
+        /// </summary>
         public InputList<Inputs.JobDefinitionEcsTaskPropertiesArgs> TaskProperties
         {
             get => _taskProperties ?? (_taskProperties = new InputList<Inputs.JobDefinitionEcsTaskPropertiesArgs>());

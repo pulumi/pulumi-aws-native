@@ -37,15 +37,33 @@ export class VpcConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcConnection.__pulumiType;
     }
 
+    /**
+     * The ARN of the VPC connection.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The type of private link authentication.
+     */
     public readonly authentication!: pulumi.Output<enums.msk.VpcConnectionAuthentication>;
+    /**
+     * The list of subnets in the client VPC to connect to.
+     */
     public readonly clientSubnets!: pulumi.Output<string[]>;
+    /**
+     * The security groups to attach to the ENIs for the broker nodes.
+     */
     public readonly securityGroups!: pulumi.Output<string[]>;
+    /**
+     * Create tags when creating the VPC connection.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target cluster
      */
     public readonly targetClusterArn!: pulumi.Output<string>;
+    /**
+     * The VPC id of the remote client.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -101,13 +119,28 @@ export class VpcConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcConnection resource.
  */
 export interface VpcConnectionArgs {
+    /**
+     * The type of private link authentication.
+     */
     authentication: pulumi.Input<enums.msk.VpcConnectionAuthentication>;
+    /**
+     * The list of subnets in the client VPC to connect to.
+     */
     clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The security groups to attach to the ENIs for the broker nodes.
+     */
     securityGroups: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Create tags when creating the VPC connection.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) of the target cluster
      */
     targetClusterArn: pulumi.Input<string>;
+    /**
+     * The VPC id of the remote client.
+     */
     vpcId: pulumi.Input<string>;
 }

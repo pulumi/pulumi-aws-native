@@ -35,6 +35,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        /// <summary>
+        /// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+        /// 
+        /// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
+        /// </summary>
         [Input("identityCenterConfiguration")]
         public Input<Inputs.DataSourceIdentityCenterConfigurationArgs>? IdentityCenterConfiguration { get; set; }
 

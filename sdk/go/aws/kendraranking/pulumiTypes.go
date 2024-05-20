@@ -14,6 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ExecutionPlanCapacityUnitsConfiguration struct {
+	// The amount of extra capacity for your rescore execution plan.
+	//
+	// A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
 	RescoreCapacityUnits int `pulumi:"rescoreCapacityUnits"`
 }
 
@@ -29,6 +32,9 @@ type ExecutionPlanCapacityUnitsConfigurationInput interface {
 }
 
 type ExecutionPlanCapacityUnitsConfigurationArgs struct {
+	// The amount of extra capacity for your rescore execution plan.
+	//
+	// A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
 	RescoreCapacityUnits pulumi.IntInput `pulumi:"rescoreCapacityUnits"`
 }
 
@@ -109,6 +115,9 @@ func (o ExecutionPlanCapacityUnitsConfigurationOutput) ToExecutionPlanCapacityUn
 	}).(ExecutionPlanCapacityUnitsConfigurationPtrOutput)
 }
 
+// The amount of extra capacity for your rescore execution plan.
+//
+// A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
 func (o ExecutionPlanCapacityUnitsConfigurationOutput) RescoreCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v ExecutionPlanCapacityUnitsConfiguration) int { return v.RescoreCapacityUnits }).(pulumi.IntOutput)
 }
@@ -137,6 +146,9 @@ func (o ExecutionPlanCapacityUnitsConfigurationPtrOutput) Elem() ExecutionPlanCa
 	}).(ExecutionPlanCapacityUnitsConfigurationOutput)
 }
 
+// The amount of extra capacity for your rescore execution plan.
+//
+// A single extra capacity unit for a rescore execution plan provides 0.01 rescore requests per second. You can add up to 1000 extra capacity units.
 func (o ExecutionPlanCapacityUnitsConfigurationPtrOutput) RescoreCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExecutionPlanCapacityUnitsConfiguration) *int {
 		if v == nil {

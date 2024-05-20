@@ -19,12 +19,32 @@ export function getTopicRule(args: GetTopicRuleArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetTopicRuleArgs {
+    /**
+     * The name of the rule.
+     *
+     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     */
     ruleName: string;
 }
 
 export interface GetTopicRuleResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
+     */
     readonly arn?: string;
+    /**
+     * Metadata which can be used to manage the topic rule.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The rule payload.
+     */
     readonly topicRulePayload?: outputs.iot.TopicRulePayload;
 }
 /**
@@ -35,5 +55,10 @@ export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.I
 }
 
 export interface GetTopicRuleOutputArgs {
+    /**
+     * The name of the rule.
+     *
+     * *Pattern* : `[a-zA-Z0-9:_-]+`
+     */
     ruleName: pulumi.Input<string>;
 }

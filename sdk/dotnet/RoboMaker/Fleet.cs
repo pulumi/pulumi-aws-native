@@ -141,6 +141,9 @@ namespace Pulumi.AwsNative.RoboMaker
     [AwsNativeResourceType("aws-native:robomaker:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the fleet, such as `arn:aws:robomaker:us-west-2:123456789012:deployment-fleet/MyFleet/1539894765711` .
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -150,6 +153,9 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of all tags added to the fleet.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -210,6 +216,10 @@ namespace Pulumi.AwsNative.RoboMaker
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The list of all tags added to the fleet.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

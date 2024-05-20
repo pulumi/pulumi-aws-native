@@ -34,6 +34,9 @@ export class Alarm extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alarm.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the alarm.
+     */
     public /*out*/ readonly alarmArn!: pulumi.Output<string>;
     /**
      * The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.

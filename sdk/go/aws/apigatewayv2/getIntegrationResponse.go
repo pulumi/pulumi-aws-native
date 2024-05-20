@@ -26,7 +26,8 @@ type LookupIntegrationResponseArgs struct {
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`
 	// The integration ID.
-	IntegrationId         string `pulumi:"integrationId"`
+	IntegrationId string `pulumi:"integrationId"`
+	// The integration response ID.
 	IntegrationResponseId string `pulumi:"integrationResponseId"`
 }
 
@@ -36,7 +37,8 @@ type LookupIntegrationResponseResult struct {
 	//   ``CONVERT_TO_TEXT``: Converts a response payload from a binary blob to a Base64-encoded string.
 	//  If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
 	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
-	IntegrationResponseId   *string `pulumi:"integrationResponseId"`
+	// The integration response ID.
+	IntegrationResponseId *string `pulumi:"integrationResponseId"`
 	// The integration response key.
 	IntegrationResponseKey *string `pulumi:"integrationResponseKey"`
 	// A key-value map specifying response parameters that are passed to the method response from the backend. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where name is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``{name}`` is a valid and unique response header name and ``{JSON-expression}`` is a valid JSON expression without the ``$`` prefix.
@@ -68,7 +70,8 @@ type LookupIntegrationResponseOutputArgs struct {
 	// The API identifier.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The integration ID.
-	IntegrationId         pulumi.StringInput `pulumi:"integrationId"`
+	IntegrationId pulumi.StringInput `pulumi:"integrationId"`
+	// The integration response ID.
 	IntegrationResponseId pulumi.StringInput `pulumi:"integrationResponseId"`
 }
 
@@ -99,6 +102,7 @@ func (o LookupIntegrationResponseResultOutput) ContentHandlingStrategy() pulumi.
 	return o.ApplyT(func(v LookupIntegrationResponseResult) *string { return v.ContentHandlingStrategy }).(pulumi.StringPtrOutput)
 }
 
+// The integration response ID.
 func (o LookupIntegrationResponseResultOutput) IntegrationResponseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResponseResult) *string { return v.IntegrationResponseId }).(pulumi.StringPtrOutput)
 }

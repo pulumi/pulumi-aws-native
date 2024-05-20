@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateAxisScale
     {
+        /// <summary>
+        /// The linear axis scale setup.
+        /// </summary>
         public readonly Outputs.TemplateAxisLinearScale? Linear;
+        /// <summary>
+        /// The logarithmic axis scale setup.
+        /// </summary>
         public readonly Outputs.TemplateAxisLogarithmicScale? Logarithmic;
 
         [OutputConstructor]

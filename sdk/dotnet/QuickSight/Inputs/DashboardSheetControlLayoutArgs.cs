@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSheetControlLayoutArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that determines the elements and canvas size options of sheet control.
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.DashboardSheetControlLayoutConfigurationArgs> Configuration { get; set; } = null!;
 

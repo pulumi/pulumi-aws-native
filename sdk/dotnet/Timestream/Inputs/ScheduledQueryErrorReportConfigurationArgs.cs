@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Timestream.Inputs
     /// </summary>
     public sealed class ScheduledQueryErrorReportConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 configuration for the error reports.
+        /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.ScheduledQueryS3ConfigurationArgs> S3Configuration { get; set; } = null!;
 

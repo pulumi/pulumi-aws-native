@@ -20,13 +20,31 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPolicyArgs {
+    /**
+     * The unique ID of the new or updated policy.
+     */
     policyId: string;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     policyStoreId: string;
 }
 
 export interface GetPolicyResult {
+    /**
+     * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
+     */
     readonly definition?: outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties;
+    /**
+     * The unique ID of the new or updated policy.
+     */
     readonly policyId?: string;
+    /**
+     * The type of the policy. This is one of the following values:
+     *
+     * - Static
+     * - TemplateLinked
+     */
     readonly policyType?: enums.verifiedpermissions.PolicyType;
 }
 /**
@@ -37,6 +55,12 @@ export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetPolicyOutputArgs {
+    /**
+     * The unique ID of the new or updated policy.
+     */
     policyId: pulumi.Input<string>;
+    /**
+     * Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
+     */
     policyStoreId: pulumi.Input<string>;
 }

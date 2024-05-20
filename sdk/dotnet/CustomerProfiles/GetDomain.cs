@@ -77,7 +77,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The time of this integration got last updated at
         /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// The process of matching duplicate profiles.
+        /// </summary>
         public readonly Outputs.DomainMatching? Matching;
+        /// <summary>
+        /// The process of matching duplicate profiles using Rule-Based matching.
+        /// </summary>
         public readonly Outputs.DomainRuleBasedMatching? RuleBasedMatching;
         public readonly Outputs.DomainStats? Stats;
         /// <summary>

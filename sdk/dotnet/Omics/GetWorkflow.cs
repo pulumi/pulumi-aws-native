@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetWorkflowArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The workflow's ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Omics
 
     public sealed class GetWorkflowInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The workflow's ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.Omics
     [OutputType]
     public sealed class GetWorkflowResult
     {
+        /// <summary>
+        /// The ARN for the workflow.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// When the workflow was created.
+        /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The parameter's description.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The workflow's ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The workflow's name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The workflow's status.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.WorkflowStatus? Status;
+        /// <summary>
+        /// Tags for the workflow.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The workflow's type.
+        /// </summary>
         public readonly Pulumi.AwsNative.Omics.WorkflowType? Type;
 
         [OutputConstructor]

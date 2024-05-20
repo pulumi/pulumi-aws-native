@@ -24,7 +24,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackageAdTriggersItem> AdTriggers;
+        /// <summary>
+        /// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
+        /// <summary>
+        /// Parameters for encrypting content.
+        /// </summary>
         public readonly Outputs.OriginEndpointHlsEncryption? Encryption;
         /// <summary>
         /// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
@@ -50,6 +56,9 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
         /// </summary>
         public readonly int? SegmentDurationSeconds;
+        /// <summary>
+        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// </summary>
         public readonly Outputs.OriginEndpointStreamSelection? StreamSelection;
         /// <summary>
         /// When enabled, audio streams will be placed in rendition groups in the output.

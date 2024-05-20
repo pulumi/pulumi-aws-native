@@ -33,6 +33,9 @@ class GetAccessPointResult:
     @property
     @pulumi.getter(name="accessPointId")
     def access_point_id(self) -> Optional[str]:
+        """
+        The ID of the EFS access point.
+        """
         return pulumi.get(self, "access_point_id")
 
     @property
@@ -47,6 +50,9 @@ class GetAccessPointResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the access point.
+        """
         return pulumi.get(self, "arn")
 
 
@@ -66,6 +72,9 @@ def get_access_point(access_point_id: Optional[str] = None,
     """
     The ``AWS::EFS::AccessPoint`` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
      This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.
+
+
+    :param str access_point_id: The ID of the EFS access point.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
@@ -84,5 +93,8 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
     """
     The ``AWS::EFS::AccessPoint`` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
      This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.
+
+
+    :param str access_point_id: The ID of the EFS access point.
     """
     ...

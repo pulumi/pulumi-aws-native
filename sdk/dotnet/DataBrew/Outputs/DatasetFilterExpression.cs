@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// Filtering expression for a parameter
         /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// The map of substitution variable names to their values used in this filter expression.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetFilterValue> ValuesMap;
 
         [OutputConstructor]

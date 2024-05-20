@@ -30,7 +30,15 @@ export interface GetInstanceResult {
      * An array of objects representing the add-ons to enable for the new instance.
      */
     readonly addOns?: outputs.lightsail.InstanceAddOn[];
+    /**
+     * The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     *
+     * > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
+     */
     readonly hardware?: outputs.lightsail.InstanceHardware;
+    /**
+     * The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+     */
     readonly instanceArn?: string;
     /**
      * IPv6 addresses of the instance
@@ -44,7 +52,15 @@ export interface GetInstanceResult {
      * The name of your key pair.
      */
     readonly keyPairName?: string;
+    /**
+     * The location for the instance, such as the AWS Region and Availability Zone.
+     *
+     * > The `Location` property is read-only and should not be specified in a create instance or update instance request.
+     */
     readonly location?: outputs.lightsail.InstanceLocation;
+    /**
+     * The public ports and the monthly amount of data transfer allocated for the instance.
+     */
     readonly networking?: outputs.lightsail.InstanceNetworking;
     /**
      * Private IP Address of the Instance
@@ -62,6 +78,11 @@ export interface GetInstanceResult {
      * SSH Key Name of the  Lightsail instance.
      */
     readonly sshKeyName?: string;
+    /**
+     * The status code and the state (for example, `running` ) of the instance.
+     *
+     * > The `State` property is read-only and should not be specified in a create instance or update instance request.
+     */
     readonly state?: outputs.lightsail.InstanceState;
     /**
      * Support code to help identify any issues

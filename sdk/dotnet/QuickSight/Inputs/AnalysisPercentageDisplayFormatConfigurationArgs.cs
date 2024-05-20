@@ -12,21 +12,39 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPercentageDisplayFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that determines the decimal places configuration.
+        /// </summary>
         [Input("decimalPlacesConfiguration")]
         public Input<Inputs.AnalysisDecimalPlacesConfigurationArgs>? DecimalPlacesConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the negative value configuration.
+        /// </summary>
         [Input("negativeValueConfiguration")]
         public Input<Inputs.AnalysisNegativeValueConfigurationArgs>? NegativeValueConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         [Input("nullValueFormatConfiguration")]
         public Input<Inputs.AnalysisNullValueFormatConfigurationArgs>? NullValueFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines the prefix value of the percentage format.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The options that determine the numeric separator configuration.
+        /// </summary>
         [Input("separatorConfiguration")]
         public Input<Inputs.AnalysisNumericSeparatorConfigurationArgs>? SeparatorConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines the suffix value of the percentage format.
+        /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }
 

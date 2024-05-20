@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
     [AwsNativeResourceType("aws-native:devopsguru:ResourceCollection")]
     public partial class ResourceCollection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        /// </summary>
         [Output("resourceCollectionFilter")]
         public Output<Outputs.ResourceCollectionFilter> ResourceCollectionFilter { get; private set; } = null!;
 
@@ -181,6 +184,9 @@ namespace Pulumi.AwsNative.DevOpsGuru
 
     public sealed class ResourceCollectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        /// </summary>
         [Input("resourceCollectionFilter", required: true)]
         public Input<Inputs.ResourceCollectionFilterArgs> ResourceCollectionFilter { get; set; } = null!;
 

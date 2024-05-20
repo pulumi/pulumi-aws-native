@@ -23,11 +23,14 @@ func LookupOriginAccessControl(ctx *pulumi.Context, args *LookupOriginAccessCont
 }
 
 type LookupOriginAccessControlArgs struct {
+	// The unique identifier of the origin access control.
 	Id string `pulumi:"id"`
 }
 
 type LookupOriginAccessControlResult struct {
-	Id                        *string                    `pulumi:"id"`
+	// The unique identifier of the origin access control.
+	Id *string `pulumi:"id"`
+	// The origin access control.
 	OriginAccessControlConfig *OriginAccessControlConfig `pulumi:"originAccessControlConfig"`
 }
 
@@ -45,6 +48,7 @@ func LookupOriginAccessControlOutput(ctx *pulumi.Context, args LookupOriginAcces
 }
 
 type LookupOriginAccessControlOutputArgs struct {
+	// The unique identifier of the origin access control.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupOriginAccessControlResultOutput) ToLookupOriginAccessControlResult
 	return o
 }
 
+// The unique identifier of the origin access control.
 func (o LookupOriginAccessControlResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The origin access control.
 func (o LookupOriginAccessControlResultOutput) OriginAccessControlConfig() OriginAccessControlConfigPtrOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) *OriginAccessControlConfig { return v.OriginAccessControlConfig }).(OriginAccessControlConfigPtrOutput)
 }

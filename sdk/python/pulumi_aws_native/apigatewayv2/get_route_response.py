@@ -65,6 +65,9 @@ class GetRouteResponseResult:
     @property
     @pulumi.getter(name="routeResponseId")
     def route_response_id(self) -> Optional[str]:
+        """
+        The route response ID.
+        """
         return pulumi.get(self, "route_response_id")
 
     @property
@@ -99,6 +102,7 @@ def get_route_response(api_id: Optional[str] = None,
 
     :param str api_id: The API identifier.
     :param str route_id: The route ID.
+    :param str route_response_id: The route response ID.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -126,5 +130,6 @@ def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
 
     :param str api_id: The API identifier.
     :param str route_id: The route ID.
+    :param str route_response_id: The route response ID.
     """
     ...

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// </summary>
     public sealed class DetectorModelStateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When entering this state, perform these `actions` if the `condition` is TRUE.
+        /// </summary>
         [Input("onEnter")]
         public Input<Inputs.DetectorModelOnEnterArgs>? OnEnter { get; set; }
 
+        /// <summary>
+        /// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+        /// </summary>
         [Input("onExit")]
         public Input<Inputs.DetectorModelOnExitArgs>? OnExit { get; set; }
 
+        /// <summary>
+        /// When an input is received and the `condition` is TRUE, perform the specified `actions` .
+        /// </summary>
         [Input("onInput")]
         public Input<Inputs.DetectorModelOnInputArgs>? OnInput { get; set; }
 

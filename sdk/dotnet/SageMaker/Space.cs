@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        /// <summary>
+        /// The collection of ownership settings for a space.
+        /// </summary>
         [Output("ownershipSettings")]
         public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("spaceArn")]
         public Output<string> SpaceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the space that appears in the Studio UI.
+        /// </summary>
         [Output("spaceDisplayName")]
         public Output<string?> SpaceDisplayName { get; private set; } = null!;
 
@@ -45,6 +51,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSettings?> SpaceSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of space sharing settings.
+        /// </summary>
         [Output("spaceSharingSettings")]
         public Output<Outputs.SpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
 
@@ -54,6 +63,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+        /// 
+        /// The following application types are supported:
+        /// 
+        /// - Studio Classic: `&amp;redirect=JupyterServer`
+        /// - JupyterLab: `&amp;redirect=JupyterLab`
+        /// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&amp;redirect=CodeEditor`
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -115,9 +133,15 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
+        /// <summary>
+        /// The collection of ownership settings for a space.
+        /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
 
+        /// <summary>
+        /// The name of the space that appears in the Studio UI.
+        /// </summary>
         [Input("spaceDisplayName")]
         public Input<string>? SpaceDisplayName { get; set; }
 
@@ -133,6 +157,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSettingsArgs>? SpaceSettings { get; set; }
 
+        /// <summary>
+        /// A collection of space sharing settings.
+        /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
 

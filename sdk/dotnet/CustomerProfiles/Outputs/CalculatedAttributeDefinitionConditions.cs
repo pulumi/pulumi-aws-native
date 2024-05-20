@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class CalculatedAttributeDefinitionConditions
     {
+        /// <summary>
+        /// The number of profile objects used for the calculated attribute.
+        /// </summary>
         public readonly int? ObjectCount;
+        /// <summary>
+        /// The relative time period over which data is included in the aggregation.
+        /// </summary>
         public readonly Outputs.CalculatedAttributeDefinitionRange? Range;
+        /// <summary>
+        /// The threshold for the calculated attribute.
+        /// </summary>
         public readonly Outputs.CalculatedAttributeDefinitionThreshold? Threshold;
 
         [OutputConstructor]

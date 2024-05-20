@@ -22,6 +22,9 @@ class SegmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Segment resource.
+        :param pulumi.Input[str] description: An optional description for this segment.
+        :param pulumi.Input[str] name: A name for the segment.
+        :param pulumi.Input[str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if description is not None:
@@ -36,6 +39,9 @@ class SegmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description for this segment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -45,6 +51,9 @@ class SegmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the segment.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -54,6 +63,9 @@ class SegmentArgs:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -88,6 +100,9 @@ class Segment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: An optional description for this segment.
+        :param pulumi.Input[str] name: A name for the segment.
+        :param pulumi.Input[str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -164,21 +179,33 @@ class Segment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        An optional description for this segment.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the segment.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Output[Optional[str]]:
+        """
+        The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
+        """
         return pulumi.get(self, "pattern")
 
     @property

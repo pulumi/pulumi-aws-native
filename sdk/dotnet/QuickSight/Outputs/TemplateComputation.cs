@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateComputation
     {
+        /// <summary>
+        /// The forecast computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateForecastComputation? Forecast;
+        /// <summary>
+        /// The growth rate computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateGrowthRateComputation? GrowthRate;
+        /// <summary>
+        /// The maximum and minimum computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateMaximumMinimumComputation? MaximumMinimum;
+        /// <summary>
+        /// The metric comparison computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateMetricComparisonComputation? MetricComparison;
+        /// <summary>
+        /// The period over period computation configuration.
+        /// </summary>
         public readonly Outputs.TemplatePeriodOverPeriodComputation? PeriodOverPeriod;
+        /// <summary>
+        /// The period to `DataSetIdentifier` computation configuration.
+        /// </summary>
         public readonly Outputs.TemplatePeriodToDateComputation? PeriodToDate;
+        /// <summary>
+        /// The top movers and bottom movers computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateTopBottomMoversComputation? TopBottomMovers;
+        /// <summary>
+        /// The top ranked and bottom ranked computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateTopBottomRankedComputation? TopBottomRanked;
+        /// <summary>
+        /// The total aggregation computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateTotalAggregationComputation? TotalAggregation;
+        /// <summary>
+        /// The unique values computation configuration.
+        /// </summary>
         public readonly Outputs.TemplateUniqueValuesComputation? UniqueValues;
 
         [OutputConstructor]

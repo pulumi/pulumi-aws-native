@@ -12,27 +12,51 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisCurrencyDisplayFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The option that determines the decimal places configuration.
+        /// </summary>
         [Input("decimalPlacesConfiguration")]
         public Input<Inputs.AnalysisDecimalPlacesConfigurationArgs>? DecimalPlacesConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the negative value configuration.
+        /// </summary>
         [Input("negativeValueConfiguration")]
         public Input<Inputs.AnalysisNegativeValueConfigurationArgs>? NegativeValueConfiguration { get; set; }
 
+        /// <summary>
+        /// The options that determine the null value format configuration.
+        /// </summary>
         [Input("nullValueFormatConfiguration")]
         public Input<Inputs.AnalysisNullValueFormatConfigurationArgs>? NullValueFormatConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines the number scale value for the currency format.
+        /// </summary>
         [Input("numberScale")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisNumberScale>? NumberScale { get; set; }
 
+        /// <summary>
+        /// Determines the prefix value of the currency format.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// The options that determine the numeric separator configuration.
+        /// </summary>
         [Input("separatorConfiguration")]
         public Input<Inputs.AnalysisNumericSeparatorConfigurationArgs>? SeparatorConfiguration { get; set; }
 
+        /// <summary>
+        /// Determines the suffix value of the currency format.
+        /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }
 
+        /// <summary>
+        /// Determines the symbol for the currency format.
+        /// </summary>
         [Input("symbol")]
         public Input<string>? Symbol { get; set; }
 

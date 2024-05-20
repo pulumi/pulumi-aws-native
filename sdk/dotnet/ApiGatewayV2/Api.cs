@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [AwsNativeResourceType("aws-native:apigatewayv2:Api")]
     public partial class Api : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
+        /// </summary>
         [Output("apiEndpoint")]
         public Output<string> ApiEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 

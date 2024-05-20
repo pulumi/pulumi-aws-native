@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDecimalDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
+        /// </summary>
         [Input("dynamicValue")]
         public Input<Inputs.DashboardDynamicDefaultValueArgs>? DynamicValue { get; set; }
 
         [Input("staticValues")]
         private InputList<double>? _staticValues;
+
+        /// <summary>
+        /// The static values of the `DecimalDefaultValues` .
+        /// </summary>
         public InputList<double> StaticValues
         {
             get => _staticValues ?? (_staticValues = new InputList<double>());

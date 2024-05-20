@@ -19,14 +19,32 @@ export function getFlywheel(args: GetFlywheelArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetFlywheelArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the flywheel.
+     */
     arn: string;
 }
 
 export interface GetFlywheelResult {
+    /**
+     * The Amazon Resource Number (ARN) of the active model version.
+     */
     readonly activeModelArn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the flywheel.
+     */
     readonly arn?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
+     */
     readonly dataAccessRoleArn?: string;
+    /**
+     * Data security configuration.
+     */
     readonly dataSecurityConfig?: outputs.comprehend.FlywheelDataSecurityConfig;
+    /**
+     * Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +55,8 @@ export function getFlywheelOutput(args: GetFlywheelOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetFlywheelOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the flywheel.
+     */
     arn: pulumi.Input<string>;
 }

@@ -34,14 +34,31 @@ export class Archive extends pulumi.CustomResource {
         return obj['__pulumiType'] === Archive.__pulumiType;
     }
 
+    /**
+     * The name for the archive to create.
+     */
     public readonly archiveName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the archive created.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A description for the archive.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * An event pattern to use to filter events sent to the archive.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
     public readonly eventPattern!: pulumi.Output<any | undefined>;
+    /**
+     * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+     */
     public readonly retentionDays!: pulumi.Output<number | undefined>;
+    /**
+     * The ARN of the event bus that sends events to the archive.
+     */
     public readonly sourceArn!: pulumi.Output<string>;
 
     /**
@@ -83,12 +100,26 @@ export class Archive extends pulumi.CustomResource {
  * The set of arguments for constructing a Archive resource.
  */
 export interface ArchiveArgs {
+    /**
+     * The name for the archive to create.
+     */
     archiveName?: pulumi.Input<string>;
+    /**
+     * A description for the archive.
+     */
     description?: pulumi.Input<string>;
     /**
+     * An event pattern to use to filter events sent to the archive.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
      */
     eventPattern?: any;
+    /**
+     * The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
+     */
     retentionDays?: pulumi.Input<number>;
+    /**
+     * The ARN of the event bus that sends events to the archive.
+     */
     sourceArn: pulumi.Input<string>;
 }

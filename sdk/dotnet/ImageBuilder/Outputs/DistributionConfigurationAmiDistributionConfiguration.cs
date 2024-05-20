@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// The KMS key identifier used to encrypt the distributed image.
         /// </summary>
         public readonly string? KmsKeyId;
+        /// <summary>
+        /// Launch permissions can be used to configure which AWS account s can use the AMI to launch instances.
+        /// </summary>
         public readonly Outputs.DistributionConfigurationLaunchPermissionConfiguration? LaunchPermissionConfiguration;
         /// <summary>
         /// The name of the AMI distribution configuration.

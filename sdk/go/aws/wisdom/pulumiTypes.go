@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssistantAssociationAssociationData struct {
+	// The identifier of the knowledge base.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 }
 
@@ -29,6 +30,7 @@ type AssistantAssociationAssociationDataInput interface {
 }
 
 type AssistantAssociationAssociationDataArgs struct {
+	// The identifier of the knowledge base.
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
 }
 
@@ -58,16 +60,20 @@ func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssocia
 	return o
 }
 
+// The identifier of the knowledge base.
 func (o AssistantAssociationAssociationDataOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssistantAssociationAssociationData) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
 type AssistantAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// The key-value string map. The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
 }
 
 type AssistantServerSideEncryptionConfiguration struct {
+	// The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -83,6 +89,7 @@ type AssistantServerSideEncryptionConfigurationInput interface {
 }
 
 type AssistantServerSideEncryptionConfigurationArgs struct {
+	// The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -163,6 +170,7 @@ func (o AssistantServerSideEncryptionConfigurationOutput) ToAssistantServerSideE
 	}).(AssistantServerSideEncryptionConfigurationPtrOutput)
 }
 
+// The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 func (o AssistantServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssistantServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -191,6 +199,7 @@ func (o AssistantServerSideEncryptionConfigurationPtrOutput) Elem() AssistantSer
 	}).(AssistantServerSideEncryptionConfigurationOutput)
 }
 
+// The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 func (o AssistantServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssistantServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -201,13 +210,31 @@ func (o AssistantServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.S
 }
 
 type AssistantTag struct {
-	Key   string `pulumi:"key"`
+	// The key-value string map. The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
 }
 
 type KnowledgeBaseAppIntegrationsConfiguration struct {
-	AppIntegrationArn string   `pulumi:"appIntegrationArn"`
-	ObjectFields      []string `pulumi:"objectFields"`
+	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+	//
+	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
+	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
+	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
+	// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
+	// - For [Amazon S3](https://docs.aws.amazon.com/https://aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
+	//
+	// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
+	AppIntegrationArn string `pulumi:"appIntegrationArn"`
+	// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+	//
+	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
+	//
+	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
+	ObjectFields []string `pulumi:"objectFields"`
 }
 
 // KnowledgeBaseAppIntegrationsConfigurationInput is an input type that accepts KnowledgeBaseAppIntegrationsConfigurationArgs and KnowledgeBaseAppIntegrationsConfigurationOutput values.
@@ -222,8 +249,24 @@ type KnowledgeBaseAppIntegrationsConfigurationInput interface {
 }
 
 type KnowledgeBaseAppIntegrationsConfigurationArgs struct {
-	AppIntegrationArn pulumi.StringInput      `pulumi:"appIntegrationArn"`
-	ObjectFields      pulumi.StringArrayInput `pulumi:"objectFields"`
+	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+	//
+	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
+	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
+	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
+	// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
+	// - For [Amazon S3](https://docs.aws.amazon.com/https://aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
+	//
+	// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
+	AppIntegrationArn pulumi.StringInput `pulumi:"appIntegrationArn"`
+	// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+	//
+	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
+	//
+	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
+	ObjectFields pulumi.StringArrayInput `pulumi:"objectFields"`
 }
 
 func (KnowledgeBaseAppIntegrationsConfigurationArgs) ElementType() reflect.Type {
@@ -303,10 +346,26 @@ func (o KnowledgeBaseAppIntegrationsConfigurationOutput) ToKnowledgeBaseAppInteg
 	}).(KnowledgeBaseAppIntegrationsConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+//
+// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
+// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
+// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
+// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
+// - For [Amazon S3](https://docs.aws.amazon.com/https://aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
+//
+// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
 func (o KnowledgeBaseAppIntegrationsConfigurationOutput) AppIntegrationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseAppIntegrationsConfiguration) string { return v.AppIntegrationArn }).(pulumi.StringOutput)
 }
 
+// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+//
+// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
+//
+// Make sure to include additional fields. These fields are indexed and used to source recommendations.
 func (o KnowledgeBaseAppIntegrationsConfigurationOutput) ObjectFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseAppIntegrationsConfiguration) []string { return v.ObjectFields }).(pulumi.StringArrayOutput)
 }
@@ -335,6 +394,15 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) Elem() KnowledgeBase
 	}).(KnowledgeBaseAppIntegrationsConfigurationOutput)
 }
 
+// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
+//
+// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
+// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
+// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
+// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
+// - For [Amazon S3](https://docs.aws.amazon.com/https://aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
+//
+// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
 func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) AppIntegrationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseAppIntegrationsConfiguration) *string {
 		if v == nil {
@@ -344,6 +412,13 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) AppIntegrationArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
+//
+// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
+// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
+// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
+//
+// Make sure to include additional fields. These fields are indexed and used to source recommendations.
 func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ObjectFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseAppIntegrationsConfiguration) []string {
 		if v == nil {
@@ -354,6 +429,13 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ObjectFields() pulum
 }
 
 type KnowledgeBaseRenderingConfiguration struct {
+	// A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+	//
+	// - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+	// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+	// - Zendesk: `id` , `title` , `updated_at` , or `draft`
+	//
+	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
 	TemplateUri *string `pulumi:"templateUri"`
 }
 
@@ -369,6 +451,13 @@ type KnowledgeBaseRenderingConfigurationInput interface {
 }
 
 type KnowledgeBaseRenderingConfigurationArgs struct {
+	// A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+	//
+	// - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+	// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+	// - Zendesk: `id` , `title` , `updated_at` , or `draft`
+	//
+	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
 	TemplateUri pulumi.StringPtrInput `pulumi:"templateUri"`
 }
 
@@ -449,6 +538,13 @@ func (o KnowledgeBaseRenderingConfigurationOutput) ToKnowledgeBaseRenderingConfi
 	}).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
+// A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+//
+// - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+// - Zendesk: `id` , `title` , `updated_at` , or `draft`
+//
+// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
 func (o KnowledgeBaseRenderingConfigurationOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRenderingConfiguration) *string { return v.TemplateUri }).(pulumi.StringPtrOutput)
 }
@@ -477,6 +573,13 @@ func (o KnowledgeBaseRenderingConfigurationPtrOutput) Elem() KnowledgeBaseRender
 	}).(KnowledgeBaseRenderingConfigurationOutput)
 }
 
+// A URI template containing exactly one variable in `${variableName}` format. This can only be set for `EXTERNAL` knowledge bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one of the following:
+//
+// - Salesforce: `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , or `IsDeleted`
+// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
+// - Zendesk: `id` , `title` , `updated_at` , or `draft`
+//
+// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) .
 func (o KnowledgeBaseRenderingConfigurationPtrOutput) TemplateUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRenderingConfiguration) *string {
 		if v == nil {
@@ -487,6 +590,11 @@ func (o KnowledgeBaseRenderingConfigurationPtrOutput) TemplateUri() pulumi.Strin
 }
 
 type KnowledgeBaseServerSideEncryptionConfiguration struct {
+	// The customer managed key used for encryption.
+	//
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+	//
+	// For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -502,6 +610,11 @@ type KnowledgeBaseServerSideEncryptionConfigurationInput interface {
 }
 
 type KnowledgeBaseServerSideEncryptionConfigurationArgs struct {
+	// The customer managed key used for encryption.
+	//
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+	//
+	// For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -582,6 +695,11 @@ func (o KnowledgeBaseServerSideEncryptionConfigurationOutput) ToKnowledgeBaseSer
 	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
+// The customer managed key used for encryption.
+//
+// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+//
+// For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
 func (o KnowledgeBaseServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseServerSideEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -610,6 +728,11 @@ func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) Elem() Knowledg
 	}).(KnowledgeBaseServerSideEncryptionConfigurationOutput)
 }
 
+// The customer managed key used for encryption.
+//
+// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom.
+//
+// For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
 func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -620,6 +743,7 @@ func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulu
 }
 
 type KnowledgeBaseSourceConfiguration struct {
+	// Configuration information for Amazon AppIntegrations to automatically ingest content.
 	AppIntegrations *KnowledgeBaseAppIntegrationsConfiguration `pulumi:"appIntegrations"`
 }
 
@@ -635,6 +759,7 @@ type KnowledgeBaseSourceConfigurationInput interface {
 }
 
 type KnowledgeBaseSourceConfigurationArgs struct {
+	// Configuration information for Amazon AppIntegrations to automatically ingest content.
 	AppIntegrations KnowledgeBaseAppIntegrationsConfigurationPtrInput `pulumi:"appIntegrations"`
 }
 
@@ -715,6 +840,7 @@ func (o KnowledgeBaseSourceConfigurationOutput) ToKnowledgeBaseSourceConfigurati
 	}).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
+// Configuration information for Amazon AppIntegrations to automatically ingest content.
 func (o KnowledgeBaseSourceConfigurationOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseSourceConfiguration) *KnowledgeBaseAppIntegrationsConfiguration {
 		return v.AppIntegrations
@@ -745,6 +871,7 @@ func (o KnowledgeBaseSourceConfigurationPtrOutput) Elem() KnowledgeBaseSourceCon
 	}).(KnowledgeBaseSourceConfigurationOutput)
 }
 
+// Configuration information for Amazon AppIntegrations to automatically ingest content.
 func (o KnowledgeBaseSourceConfigurationPtrOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration) *KnowledgeBaseAppIntegrationsConfiguration {
 		if v == nil {
@@ -755,7 +882,9 @@ func (o KnowledgeBaseSourceConfigurationPtrOutput) AppIntegrations() KnowledgeBa
 }
 
 type KnowledgeBaseTag struct {
-	Key   string `pulumi:"key"`
+	// The key-value string map. The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
 }
 

@@ -20,7 +20,13 @@ export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetThemeArgs {
+    /**
+     * The ID of the AWS account where you want to store the new theme.
+     */
     awsAccountId: string;
+    /**
+     * An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+     */
     themeId: string;
 }
 
@@ -37,9 +43,21 @@ export interface GetThemeResult {
      * <p>The date and time that the theme was last updated.</p>
      */
     readonly lastUpdatedTime?: string;
+    /**
+     * A display name for the theme.
+     */
     readonly name?: string;
+    /**
+     * A valid grouping of resource permissions to apply to the new theme.
+     */
     readonly permissions?: outputs.quicksight.ThemeResourcePermission[];
+    /**
+     * A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * Theme type.
+     */
     readonly type?: enums.quicksight.ThemeType;
     readonly version?: outputs.quicksight.ThemeVersion;
 }
@@ -51,6 +69,12 @@ export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetThemeOutputArgs {
+    /**
+     * The ID of the AWS account where you want to store the new theme.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
+     */
     themeId: pulumi.Input<string>;
 }

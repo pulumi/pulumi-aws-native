@@ -16,19 +16,33 @@ import (
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	Arn                          pulumi.StringOutput                   `pulumi:"arn"`
-	AssessmentId                 pulumi.StringOutput                   `pulumi:"assessmentId"`
+	// The Amazon Resource Name (ARN) of the assessment.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier for the assessment.
+	AssessmentId pulumi.StringOutput `pulumi:"assessmentId"`
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination AssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
-	AwsAccount                   AssessmentAwsAccountPtrOutput         `pulumi:"awsAccount"`
-	CreationTime                 pulumi.Float64Output                  `pulumi:"creationTime"`
+	// The AWS account that's associated with the assessment.
+	AwsAccount AssessmentAwsAccountPtrOutput `pulumi:"awsAccount"`
+	// Specifies when the assessment was created.
+	CreationTime pulumi.Float64Output `pulumi:"creationTime"`
 	// The list of delegations.
 	Delegations AssessmentDelegationArrayOutput `pulumi:"delegations"`
-	Description pulumi.StringPtrOutput          `pulumi:"description"`
-	FrameworkId pulumi.StringPtrOutput          `pulumi:"frameworkId"`
-	Name        pulumi.StringPtrOutput          `pulumi:"name"`
+	// The description of the assessment.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique identifier for the framework.
+	FrameworkId pulumi.StringPtrOutput `pulumi:"frameworkId"`
+	// The name of the assessment.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The list of roles for the specified assessment.
-	Roles  AssessmentRoleArrayOutput `pulumi:"roles"`
-	Scope  AssessmentScopePtrOutput  `pulumi:"scope"`
+	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
+	Scope AssessmentScopePtrOutput `pulumi:"scope"`
+	// The overall status of the assessment.
+	//
+	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+	//
+	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status AssessmentStatusPtrOutput `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -79,16 +93,27 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	AwsAccount                   *AssessmentAwsAccount         `pulumi:"awsAccount"`
+	// The AWS account that's associated with the assessment.
+	AwsAccount *AssessmentAwsAccount `pulumi:"awsAccount"`
 	// The list of delegations.
 	Delegations []AssessmentDelegation `pulumi:"delegations"`
-	Description *string                `pulumi:"description"`
-	FrameworkId *string                `pulumi:"frameworkId"`
-	Name        *string                `pulumi:"name"`
+	// The description of the assessment.
+	Description *string `pulumi:"description"`
+	// The unique identifier for the framework.
+	FrameworkId *string `pulumi:"frameworkId"`
+	// The name of the assessment.
+	Name *string `pulumi:"name"`
 	// The list of roles for the specified assessment.
-	Roles  []AssessmentRole  `pulumi:"roles"`
-	Scope  *AssessmentScope  `pulumi:"scope"`
+	Roles []AssessmentRole `pulumi:"roles"`
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
+	Scope *AssessmentScope `pulumi:"scope"`
+	// The overall status of the assessment.
+	//
+	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+	//
+	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status *AssessmentStatus `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -96,16 +121,27 @@ type assessmentArgs struct {
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination AssessmentReportsDestinationPtrInput
-	AwsAccount                   AssessmentAwsAccountPtrInput
+	// The AWS account that's associated with the assessment.
+	AwsAccount AssessmentAwsAccountPtrInput
 	// The list of delegations.
 	Delegations AssessmentDelegationArrayInput
+	// The description of the assessment.
 	Description pulumi.StringPtrInput
+	// The unique identifier for the framework.
 	FrameworkId pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// The name of the assessment.
+	Name pulumi.StringPtrInput
 	// The list of roles for the specified assessment.
-	Roles  AssessmentRoleArrayInput
-	Scope  AssessmentScopePtrInput
+	Roles AssessmentRoleArrayInput
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
+	Scope AssessmentScopePtrInput
+	// The overall status of the assessment.
+	//
+	// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+	//
+	// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 	Status AssessmentStatusPtrInput
 	// The tags associated with the assessment.
 	Tags aws.TagArrayInput
@@ -148,22 +184,27 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the assessment.
 func (o AssessmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the assessment.
 func (o AssessmentOutput) AssessmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AssessmentId }).(pulumi.StringOutput)
 }
 
+// The destination that evidence reports are stored in for the assessment.
 func (o AssessmentOutput) AssessmentReportsDestination() AssessmentReportsDestinationPtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentReportsDestinationPtrOutput { return v.AssessmentReportsDestination }).(AssessmentReportsDestinationPtrOutput)
 }
 
+// The AWS account that's associated with the assessment.
 func (o AssessmentOutput) AwsAccount() AssessmentAwsAccountPtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentAwsAccountPtrOutput { return v.AwsAccount }).(AssessmentAwsAccountPtrOutput)
 }
 
+// Specifies when the assessment was created.
 func (o AssessmentOutput) CreationTime() pulumi.Float64Output {
 	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.CreationTime }).(pulumi.Float64Output)
 }
@@ -173,14 +214,17 @@ func (o AssessmentOutput) Delegations() AssessmentDelegationArrayOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentDelegationArrayOutput { return v.Delegations }).(AssessmentDelegationArrayOutput)
 }
 
+// The description of the assessment.
 func (o AssessmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the framework.
 func (o AssessmentOutput) FrameworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.FrameworkId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the assessment.
 func (o AssessmentOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -190,10 +234,16 @@ func (o AssessmentOutput) Roles() AssessmentRoleArrayOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentRoleArrayOutput { return v.Roles }).(AssessmentRoleArrayOutput)
 }
 
+// The wrapper of AWS accounts and services that are in scope for the assessment.
 func (o AssessmentOutput) Scope() AssessmentScopePtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentScopePtrOutput { return v.Scope }).(AssessmentScopePtrOutput)
 }
 
+// The overall status of the assessment.
+//
+// When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
+//
+// After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
 func (o AssessmentOutput) Status() AssessmentStatusPtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentStatusPtrOutput { return v.Status }).(AssessmentStatusPtrOutput)
 }

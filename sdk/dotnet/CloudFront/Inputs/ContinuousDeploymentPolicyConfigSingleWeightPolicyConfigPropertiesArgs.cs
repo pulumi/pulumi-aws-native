@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+    /// </summary>
     public sealed class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("sessionStickinessConfig")]

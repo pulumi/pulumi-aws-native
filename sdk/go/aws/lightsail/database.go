@@ -23,7 +23,8 @@ type Database struct {
 	BackupRetention pulumi.BoolPtrOutput `pulumi:"backupRetention"`
 	// Indicates the certificate that needs to be associated with the database.
 	CaCertificateIdentifier pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
-	DatabaseArn             pulumi.StringOutput    `pulumi:"databaseArn"`
+	// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
+	DatabaseArn pulumi.StringOutput `pulumi:"databaseArn"`
 	// The name of the database to create when the Lightsail database resource is created. For MySQL, if this parameter isn't specified, no database is created in the database resource. For PostgreSQL, if this parameter isn't specified, a database named postgres is created in the database resource.
 	MasterDatabaseName pulumi.StringOutput `pulumi:"masterDatabaseName"`
 	// The password for the master user. The password can include any printable ASCII character except "/", """, or "@". It cannot contain spaces.
@@ -232,6 +233,7 @@ func (o DatabaseOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the database (for example, `arn:aws:lightsail:us-east-2:123456789101:RelationalDatabase/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 func (o DatabaseOutput) DatabaseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DatabaseArn }).(pulumi.StringOutput)
 }

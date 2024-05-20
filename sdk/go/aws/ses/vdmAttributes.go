@@ -15,8 +15,10 @@ import (
 type VdmAttributes struct {
 	pulumi.CustomResourceState
 
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes VdmAttributesDashboardAttributesPtrOutput `pulumi:"dashboardAttributes"`
-	GuardianAttributes  VdmAttributesGuardianAttributesPtrOutput  `pulumi:"guardianAttributes"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianAttributes VdmAttributesGuardianAttributesPtrOutput `pulumi:"guardianAttributes"`
 	// Unique identifier for this resource
 	VdmAttributesResourceId pulumi.StringOutput `pulumi:"vdmAttributesResourceId"`
 }
@@ -61,14 +63,18 @@ func (VdmAttributesState) ElementType() reflect.Type {
 }
 
 type vdmAttributesArgs struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes *VdmAttributesDashboardAttributes `pulumi:"dashboardAttributes"`
-	GuardianAttributes  *VdmAttributesGuardianAttributes  `pulumi:"guardianAttributes"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianAttributes *VdmAttributesGuardianAttributes `pulumi:"guardianAttributes"`
 }
 
 // The set of arguments for constructing a VdmAttributes resource.
 type VdmAttributesArgs struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes VdmAttributesDashboardAttributesPtrInput
-	GuardianAttributes  VdmAttributesGuardianAttributesPtrInput
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianAttributes VdmAttributesGuardianAttributesPtrInput
 }
 
 func (VdmAttributesArgs) ElementType() reflect.Type {
@@ -108,10 +114,12 @@ func (o VdmAttributesOutput) ToVdmAttributesOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 func (o VdmAttributesOutput) DashboardAttributes() VdmAttributesDashboardAttributesPtrOutput {
 	return o.ApplyT(func(v *VdmAttributes) VdmAttributesDashboardAttributesPtrOutput { return v.DashboardAttributes }).(VdmAttributesDashboardAttributesPtrOutput)
 }
 
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 func (o VdmAttributesOutput) GuardianAttributes() VdmAttributesGuardianAttributesPtrOutput {
 	return o.ApplyT(func(v *VdmAttributes) VdmAttributesGuardianAttributesPtrOutput { return v.GuardianAttributes }).(VdmAttributesGuardianAttributesPtrOutput)
 }

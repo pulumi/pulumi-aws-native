@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Fis
 
     public sealed class GetTargetAccountConfigurationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID of the target account.
+        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Input("experimentTemplateId", required: true)]
         public string ExperimentTemplateId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Fis
 
     public sealed class GetTargetAccountConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The AWS account ID of the target account.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the experiment template.
+        /// </summary>
         [Input("experimentTemplateId", required: true)]
         public Input<string> ExperimentTemplateId { get; set; } = null!;
 
@@ -57,7 +69,13 @@ namespace Pulumi.AwsNative.Fis
     [OutputType]
     public sealed class GetTargetAccountConfigurationResult
     {
+        /// <summary>
+        /// The description of the target account.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role for the target account.
+        /// </summary>
         public readonly string? RoleArn;
 
         [OutputConstructor]

@@ -16,6 +16,9 @@ export function getSequenceStore(args: GetSequenceStoreArgs, opts?: pulumi.Invok
 }
 
 export interface GetSequenceStoreArgs {
+    /**
+     * The store's ID.
+     */
     sequenceStoreId: string;
 }
 
@@ -28,6 +31,9 @@ export interface GetSequenceStoreResult {
      * When the store was created.
      */
     readonly creationTime?: string;
+    /**
+     * The store's ID.
+     */
     readonly sequenceStoreId?: string;
 }
 /**
@@ -38,5 +44,8 @@ export function getSequenceStoreOutput(args: GetSequenceStoreOutputArgs, opts?: 
 }
 
 export interface GetSequenceStoreOutputArgs {
+    /**
+     * The store's ID.
+     */
     sequenceStoreId: pulumi.Input<string>;
 }

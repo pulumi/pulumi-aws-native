@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("stops")]
         private InputList<Inputs.DashboardGradientStopArgs>? _stops;
+
+        /// <summary>
+        /// The list of gradient color stops.
+        /// </summary>
         public InputList<Inputs.DashboardGradientStopArgs> Stops
         {
             get => _stops ?? (_stops = new InputList<Inputs.DashboardGradientStopArgs>());

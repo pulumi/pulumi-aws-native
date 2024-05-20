@@ -34,13 +34,25 @@ export class VpcLink extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcLink.__pulumiType;
     }
 
+    /**
+     * The name of the VPC link.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of security group IDs for the VPC link.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of subnet IDs to include in the VPC link.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * This resource type use map for Tags, suggest to use List of Tag
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The VPC link ID.
+     */
     public /*out*/ readonly vpcLinkId!: pulumi.Output<string>;
 
     /**
@@ -80,8 +92,17 @@ export class VpcLink extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcLink resource.
  */
 export interface VpcLinkArgs {
+    /**
+     * The name of the VPC link.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of security group IDs for the VPC link.
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of subnet IDs to include in the VPC link.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This resource type use map for Tags, suggest to use List of Tag

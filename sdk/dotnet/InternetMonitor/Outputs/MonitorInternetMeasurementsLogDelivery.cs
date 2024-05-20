@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.InternetMonitor.Outputs
     [OutputType]
     public sealed class MonitorInternetMeasurementsLogDelivery
     {
+        /// <summary>
+        /// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
+        /// </summary>
         public readonly Outputs.MonitorS3Config? S3Config;
 
         [OutputConstructor]

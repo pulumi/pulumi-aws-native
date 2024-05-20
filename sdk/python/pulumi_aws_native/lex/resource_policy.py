@@ -20,6 +20,8 @@ class ResourcePolicyArgs:
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+        :param pulumi.Input['ResourcePolicyPolicyArgs'] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -27,6 +29,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input['ResourcePolicyPolicyArgs']:
+        """
+        A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -36,6 +41,9 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -56,6 +64,8 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ResourcePolicyPolicyArgs']] policy: A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
         """
         ...
     @overload
@@ -131,20 +141,32 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the resource policy.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.ResourcePolicyPolicy']:
+        """
+        A resource policy to add to the resource. The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
+        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
+        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the current revision of a resource policy.
+        """
         return pulumi.get(self, "revision_id")
 

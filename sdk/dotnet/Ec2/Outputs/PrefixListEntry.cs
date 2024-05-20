@@ -13,7 +13,15 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class PrefixListEntry
     {
+        /// <summary>
+        /// The CIDR block.
+        /// </summary>
         public readonly string Cidr;
+        /// <summary>
+        /// A description for the entry.
+        /// 
+        /// Constraints: Up to 255 characters in length.
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

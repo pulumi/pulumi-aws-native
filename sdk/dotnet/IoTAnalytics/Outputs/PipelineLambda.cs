@@ -13,9 +13,23 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineLambda
     {
+        /// <summary>
+        /// The number of messages passed to the Lambda function for processing.
+        /// 
+        /// The AWS Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
+        /// </summary>
         public readonly int BatchSize;
+        /// <summary>
+        /// The name of the Lambda function that is run on the message.
+        /// </summary>
         public readonly string LambdaName;
+        /// <summary>
+        /// The name of the 'lambda' activity.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The next activity in the pipeline.
+        /// </summary>
         public readonly string? Next;
 
         [OutputConstructor]

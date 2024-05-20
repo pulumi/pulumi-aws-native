@@ -16,9 +16,12 @@ import (
 type ApplicationEntitlementAssociation struct {
 	pulumi.CustomResourceState
 
+	// The identifier of the application.
 	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
-	EntitlementName       pulumi.StringOutput `pulumi:"entitlementName"`
-	StackName             pulumi.StringOutput `pulumi:"stackName"`
+	// The name of the entitlement.
+	EntitlementName pulumi.StringOutput `pulumi:"entitlementName"`
+	// The name of the stack.
+	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
 
 // NewApplicationEntitlementAssociation registers a new resource with the given unique name, arguments, and options.
@@ -76,16 +79,22 @@ func (ApplicationEntitlementAssociationState) ElementType() reflect.Type {
 }
 
 type applicationEntitlementAssociationArgs struct {
+	// The identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
-	EntitlementName       string `pulumi:"entitlementName"`
-	StackName             string `pulumi:"stackName"`
+	// The name of the entitlement.
+	EntitlementName string `pulumi:"entitlementName"`
+	// The name of the stack.
+	StackName string `pulumi:"stackName"`
 }
 
 // The set of arguments for constructing a ApplicationEntitlementAssociation resource.
 type ApplicationEntitlementAssociationArgs struct {
+	// The identifier of the application.
 	ApplicationIdentifier pulumi.StringInput
-	EntitlementName       pulumi.StringInput
-	StackName             pulumi.StringInput
+	// The name of the entitlement.
+	EntitlementName pulumi.StringInput
+	// The name of the stack.
+	StackName pulumi.StringInput
 }
 
 func (ApplicationEntitlementAssociationArgs) ElementType() reflect.Type {
@@ -125,14 +134,17 @@ func (o ApplicationEntitlementAssociationOutput) ToApplicationEntitlementAssocia
 	return o
 }
 
+// The identifier of the application.
 func (o ApplicationEntitlementAssociationOutput) ApplicationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationEntitlementAssociation) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the entitlement.
 func (o ApplicationEntitlementAssociationOutput) EntitlementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationEntitlementAssociation) pulumi.StringOutput { return v.EntitlementName }).(pulumi.StringOutput)
 }
 
+// The name of the stack.
 func (o ApplicationEntitlementAssociationOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationEntitlementAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }

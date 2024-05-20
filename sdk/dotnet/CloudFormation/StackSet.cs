@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("managedExecution")]
         public Output<Outputs.ManagedExecutionProperties?> ManagedExecution { get; private set; } = null!;
 
+        /// <summary>
+        /// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
         [Output("operationPreferences")]
         public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
 
@@ -206,6 +209,9 @@ namespace Pulumi.AwsNative.CloudFormation
         [Input("managedExecution")]
         public Input<Inputs.ManagedExecutionPropertiesArgs>? ManagedExecution { get; set; }
 
+        /// <summary>
+        /// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
         [Input("operationPreferences")]
         public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }
 

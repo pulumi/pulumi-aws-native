@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("calculatedFields")]
         private InputList<Inputs.TopicCalculatedFieldArgs>? _calculatedFields;
+
+        /// <summary>
+        /// The list of calculated field definitions.
+        /// </summary>
         public InputList<Inputs.TopicCalculatedFieldArgs> CalculatedFields
         {
             get => _calculatedFields ?? (_calculatedFields = new InputList<Inputs.TopicCalculatedFieldArgs>());
@@ -22,26 +26,46 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("columns")]
         private InputList<Inputs.TopicColumnArgs>? _columns;
+
+        /// <summary>
+        /// The list of column definitions.
+        /// </summary>
         public InputList<Inputs.TopicColumnArgs> Columns
         {
             get => _columns ?? (_columns = new InputList<Inputs.TopicColumnArgs>());
             set => _columns = value;
         }
 
+        /// <summary>
+        /// The definition of a data aggregation.
+        /// </summary>
         [Input("dataAggregation")]
         public Input<Inputs.TopicDataAggregationArgs>? DataAggregation { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the dataset.
+        /// </summary>
         [Input("datasetArn", required: true)]
         public Input<string> DatasetArn { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the dataset.
+        /// </summary>
         [Input("datasetDescription")]
         public Input<string>? DatasetDescription { get; set; }
 
+        /// <summary>
+        /// The name of the dataset.
+        /// </summary>
         [Input("datasetName")]
         public Input<string>? DatasetName { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.TopicFilterArgs>? _filters;
+
+        /// <summary>
+        /// The list of filter definitions.
+        /// </summary>
         public InputList<Inputs.TopicFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.TopicFilterArgs>());
@@ -50,6 +74,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("namedEntities")]
         private InputList<Inputs.TopicNamedEntityArgs>? _namedEntities;
+
+        /// <summary>
+        /// The list of named entities definitions.
+        /// </summary>
         public InputList<Inputs.TopicNamedEntityArgs> NamedEntities
         {
             get => _namedEntities ?? (_namedEntities = new InputList<Inputs.TopicNamedEntityArgs>());

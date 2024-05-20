@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     [AwsNativeResourceType("aws-native:pcaconnectorad:Template")]
     public partial class Template : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Output("connectorArn")]
         public Output<string> ConnectorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        /// </summary>
         [Output("definition")]
         public Output<object> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the templates. Template names must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+        /// </summary>
         [Output("reenrollAllCertificateHolders")]
         public Output<bool?> ReenrollAllCertificateHolders { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata assigned to a template consisting of a key-value pair.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
+        /// </summary>
         [Output("templateArn")]
         public Output<string> TemplateArn { get; private set; } = null!;
 
@@ -83,20 +101,36 @@ namespace Pulumi.AwsNative.PcaConnectorAd
 
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
+        /// </summary>
         [Input("connectorArn", required: true)]
         public Input<string> ConnectorArn { get; set; } = null!;
 
+        /// <summary>
+        /// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        /// </summary>
         [Input("definition", required: true)]
         public object Definition { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the templates. Template names must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
+        /// </summary>
         [Input("reenrollAllCertificateHolders")]
         public Input<bool>? ReenrollAllCertificateHolders { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata assigned to a template consisting of a key-value pair.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

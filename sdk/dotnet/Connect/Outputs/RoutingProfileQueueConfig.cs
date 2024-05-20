@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RoutingProfileQueueConfig
     {
+        /// <summary>
+        /// The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+        /// </summary>
         public readonly int Delay;
+        /// <summary>
+        /// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// Contains information about a queue resource.
+        /// </summary>
         public readonly Outputs.RoutingProfileQueueReference QueueReference;
 
         [OutputConstructor]

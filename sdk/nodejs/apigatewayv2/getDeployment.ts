@@ -21,10 +21,16 @@ export interface GetDeploymentArgs {
      * The API identifier.
      */
     apiId: string;
+    /**
+     * The deployment ID.
+     */
     deploymentId: string;
 }
 
 export interface GetDeploymentResult {
+    /**
+     * The deployment ID.
+     */
     readonly deploymentId?: string;
     /**
      * The description for the deployment resource.
@@ -43,5 +49,8 @@ export interface GetDeploymentOutputArgs {
      * The API identifier.
      */
     apiId: pulumi.Input<string>;
+    /**
+     * The deployment ID.
+     */
     deploymentId: pulumi.Input<string>;
 }

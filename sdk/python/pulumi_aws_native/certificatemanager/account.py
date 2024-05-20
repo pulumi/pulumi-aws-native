@@ -19,12 +19,16 @@ class AccountArgs:
                  expiry_events_configuration: pulumi.Input['AccountExpiryEventsConfigurationArgs']):
         """
         The set of arguments for constructing a Account resource.
+        :param pulumi.Input['AccountExpiryEventsConfigurationArgs'] expiry_events_configuration: Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
         """
         pulumi.set(__self__, "expiry_events_configuration", expiry_events_configuration)
 
     @property
     @pulumi.getter(name="expiryEventsConfiguration")
     def expiry_events_configuration(self) -> pulumi.Input['AccountExpiryEventsConfigurationArgs']:
+        """
+        Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+        """
         return pulumi.get(self, "expiry_events_configuration")
 
     @expiry_events_configuration.setter
@@ -44,6 +48,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AccountExpiryEventsConfigurationArgs']] expiry_events_configuration: Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
         """
         ...
     @overload
@@ -112,10 +117,16 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        ID of the AWS account that owns the certificate.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="expiryEventsConfiguration")
     def expiry_events_configuration(self) -> pulumi.Output['outputs.AccountExpiryEventsConfiguration']:
+        """
+        Object containing expiration events options associated with an AWS account . For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
+        """
         return pulumi.get(self, "expiry_events_configuration")
 

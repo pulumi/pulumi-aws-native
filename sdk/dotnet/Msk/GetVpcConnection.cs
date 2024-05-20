@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetVpcConnectionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the VPC connection.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class GetVpcConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the VPC connection.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Msk
     [OutputType]
     public sealed class GetVpcConnectionResult
     {
+        /// <summary>
+        /// The ARN of the VPC connection.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Create tags when creating the VPC connection.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

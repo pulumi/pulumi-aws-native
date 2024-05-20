@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardTimeRangeFilterValue
     {
+        /// <summary>
+        /// The parameter type input value.
+        /// </summary>
         public readonly string? Parameter;
+        /// <summary>
+        /// The rolling date input value.
+        /// </summary>
         public readonly Outputs.DashboardRollingDateConfiguration? RollingDate;
+        /// <summary>
+        /// The static input value.
+        /// </summary>
         public readonly string? StaticValue;
 
         [OutputConstructor]

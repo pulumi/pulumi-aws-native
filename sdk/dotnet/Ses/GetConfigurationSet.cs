@@ -57,11 +57,29 @@ namespace Pulumi.AwsNative.Ses
     [OutputType]
     public sealed class GetConfigurationSetResult
     {
+        /// <summary>
+        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        /// </summary>
         public readonly Outputs.ConfigurationSetDeliveryOptions? DeliveryOptions;
+        /// <summary>
+        /// An object that represents the reputation settings for the configuration set.
+        /// </summary>
         public readonly Outputs.ConfigurationSetReputationOptions? ReputationOptions;
+        /// <summary>
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        /// </summary>
         public readonly Outputs.ConfigurationSetSendingOptions? SendingOptions;
+        /// <summary>
+        /// An object that contains information about the suppression list preferences for your account.
+        /// </summary>
         public readonly Outputs.ConfigurationSetSuppressionOptions? SuppressionOptions;
+        /// <summary>
+        /// The name of the custom open and click tracking domain associated with the configuration set.
+        /// </summary>
         public readonly Outputs.ConfigurationSetTrackingOptions? TrackingOptions;
+        /// <summary>
+        /// The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
+        /// </summary>
         public readonly Outputs.ConfigurationSetVdmOptions? VdmOptions;
 
         [OutputConstructor]

@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("nameNodes")]
         public Output<ImmutableArray<Outputs.LocationHdfsNameNode>> NameNodes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
+        /// </summary>
         [Output("qopConfiguration")]
         public Output<Outputs.LocationHdfsQopConfiguration?> QopConfiguration { get; private set; } = null!;
 
@@ -207,6 +210,9 @@ namespace Pulumi.AwsNative.DataSync
             set => _nameNodes = value;
         }
 
+        /// <summary>
+        /// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
+        /// </summary>
         [Input("qopConfiguration")]
         public Input<Inputs.LocationHdfsQopConfigurationArgs>? QopConfiguration { get; set; }
 

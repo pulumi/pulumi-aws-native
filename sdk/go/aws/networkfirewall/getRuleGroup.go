@@ -24,15 +24,23 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 }
 
 type LookupRuleGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the `RuleGroup` .
 	RuleGroupArn string `pulumi:"ruleGroupArn"`
 }
 
 type LookupRuleGroupResult struct {
-	Description  *string        `pulumi:"description"`
-	RuleGroup    *RuleGroupType `pulumi:"ruleGroup"`
-	RuleGroupArn *string        `pulumi:"ruleGroupArn"`
-	RuleGroupId  *string        `pulumi:"ruleGroupId"`
-	Tags         []aws.Tag      `pulumi:"tags"`
+	// A description of the rule group.
+	Description *string `pulumi:"description"`
+	// An object that defines the rule group rules.
+	RuleGroup *RuleGroupType `pulumi:"ruleGroup"`
+	// The Amazon Resource Name (ARN) of the `RuleGroup` .
+	RuleGroupArn *string `pulumi:"ruleGroupArn"`
+	// The unique ID of the `RuleGroup` resource.
+	RuleGroupId *string `pulumi:"ruleGroupId"`
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRuleGroupResultOutput {
@@ -49,6 +57,7 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 }
 
 type LookupRuleGroupOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the `RuleGroup` .
 	RuleGroupArn pulumi.StringInput `pulumi:"ruleGroupArn"`
 }
 
@@ -70,22 +79,29 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ct
 	return o
 }
 
+// A description of the rule group.
 func (o LookupRuleGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An object that defines the rule group rules.
 func (o LookupRuleGroupResultOutput) RuleGroup() RuleGroupTypePtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *RuleGroupType { return v.RuleGroup }).(RuleGroupTypePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the `RuleGroup` .
 func (o LookupRuleGroupResultOutput) RuleGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.RuleGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID of the `RuleGroup` resource.
 func (o LookupRuleGroupResultOutput) RuleGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) *string { return v.RuleGroupId }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupRuleGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

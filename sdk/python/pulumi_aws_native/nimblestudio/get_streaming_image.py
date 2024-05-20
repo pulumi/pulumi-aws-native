@@ -91,6 +91,9 @@ class GetStreamingImageResult:
     @property
     @pulumi.getter(name="streamingImageId")
     def streaming_image_id(self) -> Optional[str]:
+        """
+        The unique identifier for the streaming image resource.
+        """
         return pulumi.get(self, "streaming_image_id")
 
 
@@ -116,6 +119,7 @@ def get_streaming_image(streaming_image_id: Optional[str] = None,
     Represents a streaming session machine image that can be used to launch a streaming session
 
 
+    :param str streaming_image_id: The unique identifier for the streaming image resource.
     :param str studio_id: <p>The studioId. </p>
     """
     __args__ = dict()
@@ -142,6 +146,7 @@ def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[str]] =
     Represents a streaming session machine image that can be used to launch a streaming session
 
 
+    :param str streaming_image_id: The unique identifier for the streaming image resource.
     :param str studio_id: <p>The studioId. </p>
     """
     ...

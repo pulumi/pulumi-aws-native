@@ -89,8 +89,10 @@ type Solution struct {
 	// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
 	PerformHpo pulumi.BoolPtrOutput `pulumi:"performHpo"`
 	// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
-	RecipeArn      pulumi.StringPtrOutput  `pulumi:"recipeArn"`
-	SolutionArn    pulumi.StringOutput     `pulumi:"solutionArn"`
+	RecipeArn pulumi.StringPtrOutput `pulumi:"recipeArn"`
+	// The Amazon Resource Name (ARN) of the solution.
+	SolutionArn pulumi.StringOutput `pulumi:"solutionArn"`
+	// Describes the configuration properties for the solution.
 	SolutionConfig SolutionConfigPtrOutput `pulumi:"solutionConfig"`
 }
 
@@ -158,7 +160,8 @@ type solutionArgs struct {
 	// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
 	PerformHpo *bool `pulumi:"performHpo"`
 	// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
-	RecipeArn      *string         `pulumi:"recipeArn"`
+	RecipeArn *string `pulumi:"recipeArn"`
+	// Describes the configuration properties for the solution.
 	SolutionConfig *SolutionConfig `pulumi:"solutionConfig"`
 }
 
@@ -175,7 +178,8 @@ type SolutionArgs struct {
 	// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
 	PerformHpo pulumi.BoolPtrInput
 	// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
-	RecipeArn      pulumi.StringPtrInput
+	RecipeArn pulumi.StringPtrInput
+	// Describes the configuration properties for the solution.
 	SolutionConfig SolutionConfigPtrInput
 }
 
@@ -246,10 +250,12 @@ func (o SolutionOutput) RecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Solution) pulumi.StringPtrOutput { return v.RecipeArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the solution.
 func (o SolutionOutput) SolutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.SolutionArn }).(pulumi.StringOutput)
 }
 
+// Describes the configuration properties for the solution.
 func (o SolutionOutput) SolutionConfig() SolutionConfigPtrOutput {
 	return o.ApplyT(func(v *Solution) SolutionConfigPtrOutput { return v.SolutionConfig }).(SolutionConfigPtrOutput)
 }

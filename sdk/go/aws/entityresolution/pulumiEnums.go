@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of ID mapping.
 type IdMappingWorkflowIdMappingTechniquesIdMappingType string
 
 const (
@@ -173,6 +174,11 @@ func (in *idMappingWorkflowIdMappingTechniquesIdMappingTypePtr) ToIdMappingWorkf
 	return pulumi.ToOutputWithContext(ctx, in).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+//
+// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+//
+// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
 type IdMappingWorkflowInputSourceType string
 
 const (
@@ -338,6 +344,7 @@ func (in *idMappingWorkflowInputSourceTypePtr) ToIdMappingWorkflowInputSourceTyp
 	return pulumi.ToOutputWithContext(ctx, in).(IdMappingWorkflowInputSourceTypePtrOutput)
 }
 
+// The type of ID mapping.
 type IdNamespaceIdMappingWorkflowPropertiesIdMappingType string
 
 const (
@@ -501,6 +508,11 @@ func (in *idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr) ToIdNamespaceI
 	return pulumi.ToOutputWithContext(ctx, in).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput)
 }
 
+// The type of ID namespace. There are two types: `SOURCE` and `TARGET` .
+//
+// The `SOURCE` contains configurations for `sourceId` data that will be processed in an ID mapping workflow.
+//
+// The `TARGET` contains a configuration of `targetId` to which all `sourceIds` will resolve to.
 type IdNamespaceType string
 
 const (
@@ -666,6 +678,7 @@ func (in *idNamespaceTypePtr) ToIdNamespaceTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(IdNamespaceTypePtrOutput)
 }
 
+// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 type MatchingWorkflowResolutionTechniquesResolutionType string
 
 const (
@@ -833,6 +846,7 @@ func (in *matchingWorkflowResolutionTechniquesResolutionTypePtr) ToMatchingWorkf
 	return pulumi.ToOutputWithContext(ctx, in).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
 }
 
+// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel string
 
 const (

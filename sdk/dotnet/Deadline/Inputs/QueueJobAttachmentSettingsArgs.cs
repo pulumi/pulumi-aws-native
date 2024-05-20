@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class QueueJobAttachmentSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The root prefix.
+        /// </summary>
         [Input("rootPrefix", required: true)]
         public Input<string> RootPrefix { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 bucket name.
+        /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 

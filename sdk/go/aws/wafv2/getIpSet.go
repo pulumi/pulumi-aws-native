@@ -24,19 +24,31 @@ func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.Invo
 }
 
 type LookupIpSetArgs struct {
-	Id    string     `pulumi:"id"`
-	Name  string     `pulumi:"name"`
+	// The ID of the IP set.
+	Id string `pulumi:"id"`
+	// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+	Name string `pulumi:"name"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 	Scope IpSetScope `pulumi:"scope"`
 }
 
 type LookupIpSetResult struct {
 	// List of IPAddresses.
-	Addresses        []string               `pulumi:"addresses"`
-	Arn              *string                `pulumi:"arn"`
-	Description      *string                `pulumi:"description"`
-	Id               *string                `pulumi:"id"`
+	Addresses []string `pulumi:"addresses"`
+	// The Amazon Resource Name (ARN) of the IP set.
+	Arn *string `pulumi:"arn"`
+	// A description of the IP set that helps with identification.
+	Description *string `pulumi:"description"`
+	// The ID of the IP set.
+	Id *string `pulumi:"id"`
+	// The version of the IP addresses, either `IPV4` or `IPV6` .
 	IpAddressVersion *IpSetIpAddressVersion `pulumi:"ipAddressVersion"`
-	Tags             []aws.Tag              `pulumi:"tags"`
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	//
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
@@ -53,9 +65,14 @@ func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...
 }
 
 type LookupIpSetOutputArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
-	Name  pulumi.StringInput `pulumi:"name"`
-	Scope IpSetScopeInput    `pulumi:"scope"`
+	// The ID of the IP set.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the IP set. You cannot change the name of an `IPSet` after you create it.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
+	//
+	// > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
+	Scope IpSetScopeInput `pulumi:"scope"`
 }
 
 func (LookupIpSetOutputArgs) ElementType() reflect.Type {
@@ -81,22 +98,29 @@ func (o LookupIpSetResultOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIpSetResult) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IP set.
 func (o LookupIpSetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A description of the IP set that helps with identification.
 func (o LookupIpSetResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the IP set.
 func (o LookupIpSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The version of the IP addresses, either `IPV4` or `IPV6` .
 func (o LookupIpSetResultOutput) IpAddressVersion() IpSetIpAddressVersionPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *IpSetIpAddressVersion { return v.IpAddressVersion }).(IpSetIpAddressVersionPtrOutput)
 }
 
+// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+//
+// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 func (o LookupIpSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIpSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -23,18 +23,27 @@ func LookupAnnotationStore(ctx *pulumi.Context, args *LookupAnnotationStoreArgs,
 }
 
 type LookupAnnotationStoreArgs struct {
+	// The name of the Annotation Store.
 	Name string `pulumi:"name"`
 }
 
 type LookupAnnotationStoreResult struct {
-	CreationTime   *string                     `pulumi:"creationTime"`
-	Description    *string                     `pulumi:"description"`
-	Id             *string                     `pulumi:"id"`
-	Status         *AnnotationStoreStoreStatus `pulumi:"status"`
-	StatusMessage  *string                     `pulumi:"statusMessage"`
-	StoreArn       *string                     `pulumi:"storeArn"`
-	StoreSizeBytes *float64                    `pulumi:"storeSizeBytes"`
-	UpdateTime     *string                     `pulumi:"updateTime"`
+	// When the store was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// A description for the store.
+	Description *string `pulumi:"description"`
+	// The store's ID.
+	Id *string `pulumi:"id"`
+	// The store's status.
+	Status *AnnotationStoreStoreStatus `pulumi:"status"`
+	// The store's status message.
+	StatusMessage *string `pulumi:"statusMessage"`
+	// The store's ARN.
+	StoreArn *string `pulumi:"storeArn"`
+	// The store's size in bytes.
+	StoreSizeBytes *float64 `pulumi:"storeSizeBytes"`
+	// When the store was updated.
+	UpdateTime *string `pulumi:"updateTime"`
 }
 
 func LookupAnnotationStoreOutput(ctx *pulumi.Context, args LookupAnnotationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupAnnotationStoreResultOutput {
@@ -51,6 +60,7 @@ func LookupAnnotationStoreOutput(ctx *pulumi.Context, args LookupAnnotationStore
 }
 
 type LookupAnnotationStoreOutputArgs struct {
+	// The name of the Annotation Store.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -72,34 +82,42 @@ func (o LookupAnnotationStoreResultOutput) ToLookupAnnotationStoreResultOutputWi
 	return o
 }
 
+// When the store was created.
 func (o LookupAnnotationStoreResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// A description for the store.
 func (o LookupAnnotationStoreResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The store's ID.
 func (o LookupAnnotationStoreResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The store's status.
 func (o LookupAnnotationStoreResultOutput) Status() AnnotationStoreStoreStatusPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *AnnotationStoreStoreStatus { return v.Status }).(AnnotationStoreStoreStatusPtrOutput)
 }
 
+// The store's status message.
 func (o LookupAnnotationStoreResultOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
+// The store's ARN.
 func (o LookupAnnotationStoreResultOutput) StoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *string { return v.StoreArn }).(pulumi.StringPtrOutput)
 }
 
+// The store's size in bytes.
 func (o LookupAnnotationStoreResultOutput) StoreSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *float64 { return v.StoreSizeBytes }).(pulumi.Float64PtrOutput)
 }
 
+// When the store was updated.
 func (o LookupAnnotationStoreResultOutput) UpdateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnnotationStoreResult) *string { return v.UpdateTime }).(pulumi.StringPtrOutput)
 }

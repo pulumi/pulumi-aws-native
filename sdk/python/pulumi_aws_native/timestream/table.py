@@ -229,6 +229,9 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The `arn` of the table.
+        """
         return pulumi.get(self, "arn")
 
     @property

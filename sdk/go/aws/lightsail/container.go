@@ -17,6 +17,7 @@ import (
 type Container struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the container.
 	ContainerArn pulumi.StringOutput `pulumi:"containerArn"`
 	// Describes a container deployment configuration of an Amazon Lightsail container service.
 	ContainerServiceDeployment ContainerServiceDeploymentPtrOutput `pulumi:"containerServiceDeployment"`
@@ -168,6 +169,7 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the container.
 func (o ContainerOutput) ContainerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ContainerArn }).(pulumi.StringOutput)
 }

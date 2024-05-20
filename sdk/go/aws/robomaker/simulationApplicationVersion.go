@@ -16,9 +16,12 @@ import (
 type SimulationApplicationVersion struct {
 	pulumi.CustomResourceState
 
-	Application        pulumi.StringOutput `pulumi:"application"`
+	// The application information for the simulation application.
+	Application pulumi.StringOutput `pulumi:"application"`
+	// The simulation application version.
 	ApplicationVersion pulumi.StringOutput `pulumi:"applicationVersion"`
-	Arn                pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the simulation application version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
 }
@@ -71,6 +74,7 @@ func (SimulationApplicationVersionState) ElementType() reflect.Type {
 }
 
 type simulationApplicationVersionArgs struct {
+	// The application information for the simulation application.
 	Application string `pulumi:"application"`
 	// The revision ID of robot application.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
@@ -78,6 +82,7 @@ type simulationApplicationVersionArgs struct {
 
 // The set of arguments for constructing a SimulationApplicationVersion resource.
 type SimulationApplicationVersionArgs struct {
+	// The application information for the simulation application.
 	Application pulumi.StringInput
 	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrInput
@@ -120,14 +125,17 @@ func (o SimulationApplicationVersionOutput) ToSimulationApplicationVersionOutput
 	return o
 }
 
+// The application information for the simulation application.
 func (o SimulationApplicationVersionOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimulationApplicationVersion) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
+// The simulation application version.
 func (o SimulationApplicationVersionOutput) ApplicationVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimulationApplicationVersion) pulumi.StringOutput { return v.ApplicationVersion }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the simulation application version.
 func (o SimulationApplicationVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimulationApplicationVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

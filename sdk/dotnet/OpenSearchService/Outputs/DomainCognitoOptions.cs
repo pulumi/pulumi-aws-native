@@ -13,9 +13,27 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainCognitoOptions
     {
+        /// <summary>
+        /// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards. See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+        /// 
+        /// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        /// </summary>
         public readonly string? IdentityPoolId;
+        /// <summary>
+        /// The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
+        /// 
+        /// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
+        /// 
+        /// Required if you enabled Cognito Authentication for OpenSearch Dashboards.
+        /// </summary>
         public readonly string? UserPoolId;
 
         [OutputConstructor]

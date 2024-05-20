@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardDataSetIdentifierDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data set.
+        /// </summary>
         [Input("dataSetArn", required: true)]
         public Input<string> DataSetArn { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the data set, typically the data set's name.
+        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 

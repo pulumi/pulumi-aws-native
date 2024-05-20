@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisNumericAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The range setup of a numeric axis.
+        /// </summary>
         [Input("range")]
         public Input<Inputs.AnalysisAxisDisplayRangeArgs>? Range { get; set; }
 
+        /// <summary>
+        /// The scale setup of a numeric axis.
+        /// </summary>
         [Input("scale")]
         public Input<Inputs.AnalysisAxisScaleArgs>? Scale { get; set; }
 

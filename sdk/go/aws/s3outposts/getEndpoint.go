@@ -40,7 +40,8 @@ type LookupEndpointResult struct {
 	Id *string `pulumi:"id"`
 	// The network interfaces of the endpoint.
 	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
-	Status            *EndpointStatus            `pulumi:"status"`
+	// The status of the endpoint.
+	Status *EndpointStatus `pulumi:"status"`
 }
 
 func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
@@ -109,6 +110,7 @@ func (o LookupEndpointResultOutput) NetworkInterfaces() EndpointNetworkInterface
 	return o.ApplyT(func(v LookupEndpointResult) []EndpointNetworkInterface { return v.NetworkInterfaces }).(EndpointNetworkInterfaceArrayOutput)
 }
 
+// The status of the endpoint.
 func (o LookupEndpointResultOutput) Status() EndpointStatusPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointStatus { return v.Status }).(EndpointStatusPtrOutput)
 }

@@ -30,24 +30,28 @@ type LookupApplicationArgs struct {
 
 type LookupApplicationResult struct {
 	// The ID of the EMR Serverless Application.
-	ApplicationId *string                  `pulumi:"applicationId"`
-	Architecture  *ApplicationArchitecture `pulumi:"architecture"`
+	ApplicationId *string `pulumi:"applicationId"`
+	// The CPU architecture of an application.
+	Architecture *ApplicationArchitecture `pulumi:"architecture"`
 	// The Amazon Resource Name (ARN) of the EMR Serverless Application.
 	Arn *string `pulumi:"arn"`
 	// Configuration for Auto Start of Application.
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration   `pulumi:"autoStopConfiguration"`
-	ImageConfiguration    *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
+	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	// The image configuration applied to all worker types.
+	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-	MaximumCapacity         *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
+	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// EMR release label.
-	ReleaseLabel         *string                          `pulumi:"releaseLabel"`
+	ReleaseLabel *string `pulumi:"releaseLabel"`
+	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 	RuntimeConfiguration []ApplicationConfigurationObject `pulumi:"runtimeConfiguration"`
 	// Tag map with key and value
 	Tags []aws.Tag `pulumi:"tags"`
@@ -96,6 +100,7 @@ func (o LookupApplicationResultOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// The CPU architecture of an application.
 func (o LookupApplicationResultOutput) Architecture() ApplicationArchitecturePtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationArchitecture { return v.Architecture }).(ApplicationArchitecturePtrOutput)
 }
@@ -115,6 +120,7 @@ func (o LookupApplicationResultOutput) AutoStopConfiguration() ApplicationAutoSt
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAutoStopConfiguration { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
+// The image configuration applied to all worker types.
 func (o LookupApplicationResultOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationImageConfigurationInput { return v.ImageConfiguration }).(ApplicationImageConfigurationInputPtrOutput)
 }
@@ -131,6 +137,7 @@ func (o LookupApplicationResultOutput) MaximumCapacity() ApplicationMaximumAllow
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMaximumAllowedResources { return v.MaximumCapacity }).(ApplicationMaximumAllowedResourcesPtrOutput)
 }
 
+// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 func (o LookupApplicationResultOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMonitoringConfiguration { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
 }
@@ -145,6 +152,7 @@ func (o LookupApplicationResultOutput) ReleaseLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ReleaseLabel }).(pulumi.StringPtrOutput)
 }
 
+// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 func (o LookupApplicationResultOutput) RuntimeConfiguration() ApplicationConfigurationObjectArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationConfigurationObject { return v.RuntimeConfiguration }).(ApplicationConfigurationObjectArrayOutput)
 }

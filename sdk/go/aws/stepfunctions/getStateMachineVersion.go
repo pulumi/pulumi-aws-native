@@ -23,11 +23,14 @@ func LookupStateMachineVersion(ctx *pulumi.Context, args *LookupStateMachineVers
 }
 
 type LookupStateMachineVersionArgs struct {
+	// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
 	Arn string `pulumi:"arn"`
 }
 
 type LookupStateMachineVersionResult struct {
-	Arn         *string `pulumi:"arn"`
+	// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
+	Arn *string `pulumi:"arn"`
+	// An optional description of the state machine version.
 	Description *string `pulumi:"description"`
 }
 
@@ -45,6 +48,7 @@ func LookupStateMachineVersionOutput(ctx *pulumi.Context, args LookupStateMachin
 }
 
 type LookupStateMachineVersionOutputArgs struct {
+	// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +70,12 @@ func (o LookupStateMachineVersionResultOutput) ToLookupStateMachineVersionResult
 	return o
 }
 
+// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
 func (o LookupStateMachineVersionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineVersionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An optional description of the state machine version.
 func (o LookupStateMachineVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

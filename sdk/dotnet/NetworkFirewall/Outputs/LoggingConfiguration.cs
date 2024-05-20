@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class LoggingConfiguration
     {
+        /// <summary>
+        /// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LoggingConfigurationLogDestinationConfig> LogDestinationConfigs;
 
         [OutputConstructor]

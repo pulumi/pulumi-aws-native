@@ -16,6 +16,9 @@ class SigningProfilePlatformId(str, Enum):
 
 
 class SigningProfileSignatureValidityPeriodType(str, Enum):
+    """
+    The time unit for signature validity: DAYS | MONTHS | YEARS.
+    """
     DAYS = "DAYS"
     MONTHS = "MONTHS"
     YEARS = "YEARS"

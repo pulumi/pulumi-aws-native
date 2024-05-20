@@ -33,7 +33,8 @@ type LookupLoadBalancerTlsCertificateResult struct {
 	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
 	HttpsRedirectionEnabled *bool `pulumi:"httpsRedirectionEnabled"`
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
-	IsAttached                    *bool   `pulumi:"isAttached"`
+	IsAttached *bool `pulumi:"isAttached"`
+	// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
 	LoadBalancerTlsCertificateArn *string `pulumi:"loadBalancerTlsCertificateArn"`
 	// The validation status of the SSL/TLS certificate.
 	Status *string `pulumi:"status"`
@@ -87,6 +88,7 @@ func (o LookupLoadBalancerTlsCertificateResultOutput) IsAttached() pulumi.BoolPt
 	return o.ApplyT(func(v LookupLoadBalancerTlsCertificateResult) *bool { return v.IsAttached }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
 func (o LookupLoadBalancerTlsCertificateResultOutput) LoadBalancerTlsCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerTlsCertificateResult) *string { return v.LoadBalancerTlsCertificateArn }).(pulumi.StringPtrOutput)
 }

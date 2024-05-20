@@ -34,8 +34,17 @@ export class SimulationApplicationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SimulationApplicationVersion.__pulumiType;
     }
 
+    /**
+     * The application information for the simulation application.
+     */
     public readonly application!: pulumi.Output<string>;
+    /**
+     * The simulation application version.
+     */
     public /*out*/ readonly applicationVersion!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the simulation application version.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The revision ID of robot application.
@@ -77,6 +86,9 @@ export class SimulationApplicationVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SimulationApplicationVersion resource.
  */
 export interface SimulationApplicationVersionArgs {
+    /**
+     * The application information for the simulation application.
+     */
     application: pulumi.Input<string>;
     /**
      * The revision ID of robot application.

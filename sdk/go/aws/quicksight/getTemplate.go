@@ -24,8 +24,10 @@ func LookupTemplate(ctx *pulumi.Context, args *LookupTemplateArgs, opts ...pulum
 }
 
 type LookupTemplateArgs struct {
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId string `pulumi:"awsAccountId"`
-	TemplateId   string `pulumi:"templateId"`
+	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+	TemplateId string `pulumi:"templateId"`
 }
 
 type LookupTemplateResult struct {
@@ -34,11 +36,14 @@ type LookupTemplateResult struct {
 	// <p>Time when this was created.</p>
 	CreatedTime *string `pulumi:"createdTime"`
 	// <p>Time when this was last updated.</p>
-	LastUpdatedTime *string                      `pulumi:"lastUpdatedTime"`
-	Name            *string                      `pulumi:"name"`
-	Permissions     []TemplateResourcePermission `pulumi:"permissions"`
-	Tags            []aws.Tag                    `pulumi:"tags"`
-	Version         *TemplateVersion             `pulumi:"version"`
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// A display name for the template.
+	Name *string `pulumi:"name"`
+	// A list of resource permissions to be set on the template.
+	Permissions []TemplateResourcePermission `pulumi:"permissions"`
+	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+	Tags    []aws.Tag        `pulumi:"tags"`
+	Version *TemplateVersion `pulumi:"version"`
 }
 
 func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupTemplateResultOutput {
@@ -55,8 +60,10 @@ func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, op
 }
 
 type LookupTemplateOutputArgs struct {
+	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
-	TemplateId   pulumi.StringInput `pulumi:"templateId"`
+	// An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
+	TemplateId pulumi.StringInput `pulumi:"templateId"`
 }
 
 func (LookupTemplateOutputArgs) ElementType() reflect.Type {
@@ -92,14 +99,17 @@ func (o LookupTemplateResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// A display name for the template.
 func (o LookupTemplateResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A list of resource permissions to be set on the template.
 func (o LookupTemplateResultOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateResourcePermission { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
+// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
 func (o LookupTemplateResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

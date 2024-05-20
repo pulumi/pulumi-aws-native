@@ -19,17 +19,54 @@ export function getDomainConfiguration(args: GetDomainConfigurationArgs, opts?: 
 }
 
 export interface GetDomainConfigurationArgs {
+    /**
+     * The name of the domain configuration. This value must be unique to a region.
+     */
     domainConfigurationName: string;
 }
 
 export interface GetDomainConfigurationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the domain configuration.
+     */
     readonly arn?: string;
+    /**
+     * An object that specifies the authorization service for a domain.
+     */
     readonly authorizerConfig?: outputs.iot.DomainConfigurationAuthorizerConfig;
+    /**
+     * The status to which the domain configuration should be updated.
+     *
+     * Valid values: `ENABLED` | `DISABLED`
+     */
     readonly domainConfigurationStatus?: enums.iot.DomainConfigurationStatus;
+    /**
+     * The type of service delivered by the domain.
+     */
     readonly domainType?: enums.iot.DomainConfigurationDomainType;
+    /**
+     * The server certificate configuration.
+     *
+     * For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+     */
     readonly serverCertificateConfig?: outputs.iot.DomainConfigurationServerCertificateConfig;
+    /**
+     * The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
+     */
     readonly serverCertificates?: outputs.iot.DomainConfigurationServerCertificateSummary[];
+    /**
+     * Metadata which can be used to manage the domain configuration.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * An object that specifies the TLS configuration for a domain.
+     */
     readonly tlsConfig?: outputs.iot.DomainConfigurationTlsConfig;
 }
 /**
@@ -40,5 +77,8 @@ export function getDomainConfigurationOutput(args: GetDomainConfigurationOutputA
 }
 
 export interface GetDomainConfigurationOutputArgs {
+    /**
+     * The name of the domain configuration. This value must be unique to a region.
+     */
     domainConfigurationName: pulumi.Input<string>;
 }

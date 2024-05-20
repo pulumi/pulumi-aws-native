@@ -93,6 +93,9 @@ export class Nodegroup extends pulumi.CustomResource {
      * The AMI type for your node group.
      */
     public readonly amiType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) associated with the managed node group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**

@@ -37,10 +37,12 @@ type LookupConfigRuleArgs struct {
 }
 
 type LookupConfigRuleResult struct {
+	// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
 	Arn *string `pulumi:"arn"`
 	// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
-	Compliance   *ComplianceProperties `pulumi:"compliance"`
-	ConfigRuleId *string               `pulumi:"configRuleId"`
+	Compliance *ComplianceProperties `pulumi:"compliance"`
+	// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
+	ConfigRuleId *string `pulumi:"configRuleId"`
 	// The description that you provide for the CC rule.
 	Description *string `pulumi:"description"`
 	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
@@ -98,6 +100,7 @@ func (o LookupConfigRuleResultOutput) ToLookupConfigRuleResultOutputWithContext(
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AWS Config rule, such as `arn:aws:config:us-east-1:123456789012:config-rule/config-rule-a1bzhi` .
 func (o LookupConfigRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -107,6 +110,7 @@ func (o LookupConfigRuleResultOutput) Compliance() CompliancePropertiesPtrOutput
 	return o.ApplyT(func(v LookupConfigRuleResult) *ComplianceProperties { return v.Compliance }).(CompliancePropertiesPtrOutput)
 }
 
+// The ID of the AWS Config rule, such as `config-rule-a1bzhi` .
 func (o LookupConfigRuleResultOutput) ConfigRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigRuleResult) *string { return v.ConfigRuleId }).(pulumi.StringPtrOutput)
 }

@@ -27,12 +27,31 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetIntegrationAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the integration being associated with the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `140`
+        /// </summary>
         [Input("integrationArn", required: true)]
         public string IntegrationArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the integration type to be associated with the instance.
+        /// 
+        /// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        /// </summary>
         [Input("integrationType", required: true)]
         public Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType IntegrationType { get; set; }
 
@@ -44,12 +63,31 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetIntegrationAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `100`
+        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of the integration being associated with the instance.
+        /// 
+        /// *Minimum* : `1`
+        /// 
+        /// *Maximum* : `140`
+        /// </summary>
         [Input("integrationArn", required: true)]
         public Input<string> IntegrationArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the integration type to be associated with the instance.
+        /// 
+        /// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
+        /// </summary>
         [Input("integrationType", required: true)]
         public Input<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; set; } = null!;
 
@@ -63,6 +101,9 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetIntegrationAssociationResult
     {
+        /// <summary>
+        /// Identifier of the association with an Amazon Connect instance.
+        /// </summary>
         public readonly string? IntegrationAssociationId;
 
         [OutputConstructor]

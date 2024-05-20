@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     [OutputType]
     public sealed class CustomPluginLocation
     {
+        /// <summary>
+        /// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+        /// </summary>
         public readonly Outputs.CustomPluginS3Location S3Location;
 
         [OutputConstructor]

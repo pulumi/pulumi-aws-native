@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSankeyDiagramFieldWells
     {
+        /// <summary>
+        /// The field well configuration of a sankey diagram.
+        /// </summary>
         public readonly Outputs.AnalysisSankeyDiagramAggregatedFieldWells? SankeyDiagramAggregatedFieldWells;
 
         [OutputConstructor]

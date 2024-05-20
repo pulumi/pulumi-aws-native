@@ -61,8 +61,17 @@ namespace Pulumi.AwsNative.Iam
         /// Amazon Resource Name (ARN) of the OIDC provider
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         public readonly ImmutableArray<string> ClientIdList;
+        /// <summary>
+        /// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
+        /// </summary>
         public readonly ImmutableArray<string> ThumbprintList;
 
         [OutputConstructor]

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleAssetPropertyVariant
     {
+        /// <summary>
+        /// Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
+        /// </summary>
         public readonly string? BooleanValue;
+        /// <summary>
+        /// Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+        /// </summary>
         public readonly string? DoubleValue;
+        /// <summary>
+        /// Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+        /// </summary>
         public readonly string? IntegerValue;
+        /// <summary>
+        /// Optional. The string value of the value entry. Accepts substitution templates.
+        /// </summary>
         public readonly string? StringValue;
 
         [OutputConstructor]

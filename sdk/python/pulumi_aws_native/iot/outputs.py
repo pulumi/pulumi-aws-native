@@ -122,12 +122,16 @@ class AbortConfigProperties(dict):
                  criteria_list: Sequence['outputs.JobTemplateAbortCriteria']):
         """
         The criteria that determine when and how a job abort takes place.
+        :param Sequence['JobTemplateAbortCriteria'] criteria_list: The list of criteria that determine when and how to abort the job.
         """
         pulumi.set(__self__, "criteria_list", criteria_list)
 
     @property
     @pulumi.getter(name="criteriaList")
     def criteria_list(self) -> Sequence['outputs.JobTemplateAbortCriteria']:
+        """
+        The list of criteria that determine when and how to abort the job.
+        """
         return pulumi.get(self, "criteria_list")
 
 
@@ -225,6 +229,22 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
                  unauthenticated_cognito_role_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None):
         """
         Specifies which audit checks are enabled and disabled for this account.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' authenticated_cognito_role_overly_permissive_check: Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_expiring_check: Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' ca_certificate_key_quality_check: Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' conflicting_client_ids_check: Checks if multiple devices connect using the same client ID.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_expiring_check: Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_key_quality_check: Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' device_certificate_shared_check: Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' intermediate_ca_revoked_for_active_device_certificates_check: Checks if device certificates are still active despite being revoked by an intermediate CA.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' io_t_policy_potential_mis_configuration_check: Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' iot_policy_overly_permissive_check: Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' iot_role_alias_allows_access_to_unused_services_check: Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' iot_role_alias_overly_permissive_check: Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' logging_disabled_check: Checks if AWS IoT logs are disabled.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' revoked_ca_certificate_still_active_check: Checks if a revoked CA certificate is still active.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' revoked_device_certificate_still_active_check: Checks if a revoked device certificate is still active.
+        :param 'AccountAuditConfigurationAuditCheckConfiguration' unauthenticated_cognito_role_overly_permissive_check: Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
         """
         if authenticated_cognito_role_overly_permissive_check is not None:
             pulumi.set(__self__, "authenticated_cognito_role_overly_permissive_check", authenticated_cognito_role_overly_permissive_check)
@@ -262,81 +282,129 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
     @property
     @pulumi.getter(name="authenticatedCognitoRoleOverlyPermissiveCheck")
     def authenticated_cognito_role_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+        """
         return pulumi.get(self, "authenticated_cognito_role_overly_permissive_check")
 
     @property
     @pulumi.getter(name="caCertificateExpiringCheck")
     def ca_certificate_expiring_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
+        """
         return pulumi.get(self, "ca_certificate_expiring_check")
 
     @property
     @pulumi.getter(name="caCertificateKeyQualityCheck")
     def ca_certificate_key_quality_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
+        """
         return pulumi.get(self, "ca_certificate_key_quality_check")
 
     @property
     @pulumi.getter(name="conflictingClientIdsCheck")
     def conflicting_client_ids_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if multiple devices connect using the same client ID.
+        """
         return pulumi.get(self, "conflicting_client_ids_check")
 
     @property
     @pulumi.getter(name="deviceCertificateExpiringCheck")
     def device_certificate_expiring_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+        """
         return pulumi.get(self, "device_certificate_expiring_check")
 
     @property
     @pulumi.getter(name="deviceCertificateKeyQualityCheck")
     def device_certificate_key_quality_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
+        """
         return pulumi.get(self, "device_certificate_key_quality_check")
 
     @property
     @pulumi.getter(name="deviceCertificateSharedCheck")
     def device_certificate_shared_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
+        """
         return pulumi.get(self, "device_certificate_shared_check")
 
     @property
     @pulumi.getter(name="intermediateCaRevokedForActiveDeviceCertificatesCheck")
     def intermediate_ca_revoked_for_active_device_certificates_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if device certificates are still active despite being revoked by an intermediate CA.
+        """
         return pulumi.get(self, "intermediate_ca_revoked_for_active_device_certificates_check")
 
     @property
     @pulumi.getter(name="ioTPolicyPotentialMisConfigurationCheck")
     def io_t_policy_potential_mis_configuration_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
+        """
         return pulumi.get(self, "io_t_policy_potential_mis_configuration_check")
 
     @property
     @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")
     def iot_policy_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
+        """
         return pulumi.get(self, "iot_policy_overly_permissive_check")
 
     @property
     @pulumi.getter(name="iotRoleAliasAllowsAccessToUnusedServicesCheck")
     def iot_role_alias_allows_access_to_unused_services_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
+        """
         return pulumi.get(self, "iot_role_alias_allows_access_to_unused_services_check")
 
     @property
     @pulumi.getter(name="iotRoleAliasOverlyPermissiveCheck")
     def iot_role_alias_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
+        """
         return pulumi.get(self, "iot_role_alias_overly_permissive_check")
 
     @property
     @pulumi.getter(name="loggingDisabledCheck")
     def logging_disabled_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if AWS IoT logs are disabled.
+        """
         return pulumi.get(self, "logging_disabled_check")
 
     @property
     @pulumi.getter(name="revokedCaCertificateStillActiveCheck")
     def revoked_ca_certificate_still_active_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if a revoked CA certificate is still active.
+        """
         return pulumi.get(self, "revoked_ca_certificate_still_active_check")
 
     @property
     @pulumi.getter(name="revokedDeviceCertificateStillActiveCheck")
     def revoked_device_certificate_still_active_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if a revoked device certificate is still active.
+        """
         return pulumi.get(self, "revoked_device_certificate_still_active_check")
 
     @property
     @pulumi.getter(name="unauthenticatedCognitoRoleOverlyPermissiveCheck")
     def unauthenticated_cognito_role_overly_permissive_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        """
+        Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
+        """
         return pulumi.get(self, "unauthenticated_cognito_role_overly_permissive_check")
 
 
@@ -411,6 +479,7 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurations(dict):
                  sns: Optional['outputs.AccountAuditConfigurationAuditNotificationTarget'] = None):
         """
         Information about the targets to which audit notifications are sent.
+        :param 'AccountAuditConfigurationAuditNotificationTarget' sns: The `Sns` notification target.
         """
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
@@ -418,11 +487,17 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurations(dict):
     @property
     @pulumi.getter
     def sns(self) -> Optional['outputs.AccountAuditConfigurationAuditNotificationTarget']:
+        """
+        The `Sns` notification target.
+        """
         return pulumi.get(self, "sns")
 
 
 @pulumi.output_type
 class BillingGroupPropertiesProperties(dict):
+    """
+    The properties of the billing group.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -442,12 +517,19 @@ class BillingGroupPropertiesProperties(dict):
 
     def __init__(__self__, *,
                  billing_group_description: Optional[str] = None):
+        """
+        The properties of the billing group.
+        :param str billing_group_description: The description of the billing group.
+        """
         if billing_group_description is not None:
             pulumi.set(__self__, "billing_group_description", billing_group_description)
 
     @property
     @pulumi.getter(name="billingGroupDescription")
     def billing_group_description(self) -> Optional[str]:
+        """
+        The description of the billing group.
+        """
         return pulumi.get(self, "billing_group_description")
 
 
@@ -478,6 +560,11 @@ class CaCertificateRegistrationConfig(dict):
                  role_arn: Optional[str] = None,
                  template_body: Optional[str] = None,
                  template_name: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of the role.
+        :param str template_body: The template body.
+        :param str template_name: The name of the provisioning template.
+        """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if template_body is not None:
@@ -488,16 +575,25 @@ class CaCertificateRegistrationConfig(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[str]:
+        """
+        The template body.
+        """
         return pulumi.get(self, "template_body")
 
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> Optional[str]:
+        """
+        The name of the provisioning template.
+        """
         return pulumi.get(self, "template_name")
 
 
@@ -525,6 +621,10 @@ class DomainConfigurationAuthorizerConfig(dict):
     def __init__(__self__, *,
                  allow_authorizer_override: Optional[bool] = None,
                  default_authorizer_name: Optional[str] = None):
+        """
+        :param bool allow_authorizer_override: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+        :param str default_authorizer_name: The name of the authorization service for a domain configuration.
+        """
         if allow_authorizer_override is not None:
             pulumi.set(__self__, "allow_authorizer_override", allow_authorizer_override)
         if default_authorizer_name is not None:
@@ -533,11 +633,17 @@ class DomainConfigurationAuthorizerConfig(dict):
     @property
     @pulumi.getter(name="allowAuthorizerOverride")
     def allow_authorizer_override(self) -> Optional[bool]:
+        """
+        A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+        """
         return pulumi.get(self, "allow_authorizer_override")
 
     @property
     @pulumi.getter(name="defaultAuthorizerName")
     def default_authorizer_name(self) -> Optional[str]:
+        """
+        The name of the authorization service for a domain configuration.
+        """
         return pulumi.get(self, "default_authorizer_name")
 
 
@@ -562,12 +668,18 @@ class DomainConfigurationServerCertificateConfig(dict):
 
     def __init__(__self__, *,
                  enable_ocsp_check: Optional[bool] = None):
+        """
+        :param bool enable_ocsp_check: A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        """
         if enable_ocsp_check is not None:
             pulumi.set(__self__, "enable_ocsp_check", enable_ocsp_check)
 
     @property
     @pulumi.getter(name="enableOcspCheck")
     def enable_ocsp_check(self) -> Optional[bool]:
+        """
+        A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        """
         return pulumi.get(self, "enable_ocsp_check")
 
 
@@ -598,6 +710,11 @@ class DomainConfigurationServerCertificateSummary(dict):
                  server_certificate_arn: Optional[str] = None,
                  server_certificate_status: Optional['DomainConfigurationServerCertificateSummaryServerCertificateStatus'] = None,
                  server_certificate_status_detail: Optional[str] = None):
+        """
+        :param str server_certificate_arn: The ARN of the server certificate.
+        :param 'DomainConfigurationServerCertificateSummaryServerCertificateStatus' server_certificate_status: The status of the server certificate.
+        :param str server_certificate_status_detail: Details that explain the status of the server certificate.
+        """
         if server_certificate_arn is not None:
             pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
         if server_certificate_status is not None:
@@ -608,16 +725,25 @@ class DomainConfigurationServerCertificateSummary(dict):
     @property
     @pulumi.getter(name="serverCertificateArn")
     def server_certificate_arn(self) -> Optional[str]:
+        """
+        The ARN of the server certificate.
+        """
         return pulumi.get(self, "server_certificate_arn")
 
     @property
     @pulumi.getter(name="serverCertificateStatus")
     def server_certificate_status(self) -> Optional['DomainConfigurationServerCertificateSummaryServerCertificateStatus']:
+        """
+        The status of the server certificate.
+        """
         return pulumi.get(self, "server_certificate_status")
 
     @property
     @pulumi.getter(name="serverCertificateStatusDetail")
     def server_certificate_status_detail(self) -> Optional[str]:
+        """
+        Details that explain the status of the server certificate.
+        """
         return pulumi.get(self, "server_certificate_status_detail")
 
 
@@ -642,12 +768,18 @@ class DomainConfigurationTlsConfig(dict):
 
     def __init__(__self__, *,
                  security_policy: Optional[str] = None):
+        """
+        :param str security_policy: The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
+        """
         if security_policy is not None:
             pulumi.set(__self__, "security_policy", security_policy)
 
     @property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[str]:
+        """
+        The security policy for a domain configuration. For more information, see [Security policies](https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table) in the *AWS IoT Core developer guide* .
+        """
         return pulumi.get(self, "security_policy")
 
 
@@ -686,6 +818,9 @@ class FleetMetricAggregationType(dict):
 
 @pulumi.output_type
 class JobExecutionsRetryConfigProperties(dict):
+    """
+    Allows you to create the criteria to retry a job.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -705,12 +840,19 @@ class JobExecutionsRetryConfigProperties(dict):
 
     def __init__(__self__, *,
                  retry_criteria_list: Optional[Sequence['outputs.JobTemplateRetryCriteria']] = None):
+        """
+        Allows you to create the criteria to retry a job.
+        :param Sequence['JobTemplateRetryCriteria'] retry_criteria_list: The list of criteria that determines how many retries are allowed for each failure type for a job.
+        """
         if retry_criteria_list is not None:
             pulumi.set(__self__, "retry_criteria_list", retry_criteria_list)
 
     @property
     @pulumi.getter(name="retryCriteriaList")
     def retry_criteria_list(self) -> Optional[Sequence['outputs.JobTemplateRetryCriteria']]:
+        """
+        The list of criteria that determines how many retries are allowed for each failure type for a job.
+        """
         return pulumi.get(self, "retry_criteria_list")
 
 
@@ -938,6 +1080,8 @@ class JobTemplateMaintenanceWindow(dict):
                  start_time: Optional[str] = None):
         """
         Specifies a start time and duration for a scheduled Job.
+        :param int duration_in_minutes: Displays the duration of the next maintenance window.
+        :param str start_time: Displays the start time of the next maintenance window.
         """
         if duration_in_minutes is not None:
             pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
@@ -947,11 +1091,17 @@ class JobTemplateMaintenanceWindow(dict):
     @property
     @pulumi.getter(name="durationInMinutes")
     def duration_in_minutes(self) -> Optional[int]:
+        """
+        Displays the duration of the next maintenance window.
+        """
         return pulumi.get(self, "duration_in_minutes")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[str]:
+        """
+        Displays the start time of the next maintenance window.
+        """
         return pulumi.get(self, "start_time")
 
 
@@ -979,6 +1129,10 @@ class JobTemplateRateIncreaseCriteria(dict):
     def __init__(__self__, *,
                  number_of_notified_things: Optional[int] = None,
                  number_of_succeeded_things: Optional[int] = None):
+        """
+        :param int number_of_notified_things: The threshold for number of notified things that will initiate the increase in rate of rollout.
+        :param int number_of_succeeded_things: The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        """
         if number_of_notified_things is not None:
             pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
         if number_of_succeeded_things is not None:
@@ -987,11 +1141,17 @@ class JobTemplateRateIncreaseCriteria(dict):
     @property
     @pulumi.getter(name="numberOfNotifiedThings")
     def number_of_notified_things(self) -> Optional[int]:
+        """
+        The threshold for number of notified things that will initiate the increase in rate of rollout.
+        """
         return pulumi.get(self, "number_of_notified_things")
 
     @property
     @pulumi.getter(name="numberOfSucceededThings")
     def number_of_succeeded_things(self) -> Optional[int]:
+        """
+        The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        """
         return pulumi.get(self, "number_of_succeeded_things")
 
 
@@ -1024,6 +1184,8 @@ class JobTemplateRetryCriteria(dict):
                  number_of_retries: Optional[int] = None):
         """
         Specifies how many times a failure type should be retried.
+        :param 'JobTemplateJobRetryFailureType' failure_type: The type of job execution failures that can initiate a job retry.
+        :param int number_of_retries: The number of retries allowed for a failure type for the job.
         """
         if failure_type is not None:
             pulumi.set(__self__, "failure_type", failure_type)
@@ -1033,11 +1195,17 @@ class JobTemplateRetryCriteria(dict):
     @property
     @pulumi.getter(name="failureType")
     def failure_type(self) -> Optional['JobTemplateJobRetryFailureType']:
+        """
+        The type of job execution failures that can initiate a job retry.
+        """
         return pulumi.get(self, "failure_type")
 
     @property
     @pulumi.getter(name="numberOfRetries")
     def number_of_retries(self) -> Optional[int]:
+        """
+        The number of retries allowed for a failure type for the job.
+        """
         return pulumi.get(self, "number_of_retries")
 
 
@@ -1134,6 +1302,12 @@ class MitigationActionActionParams(dict):
                  update_device_certificate_params: Optional['outputs.MitigationActionUpdateDeviceCertificateParams'] = None):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
+        :param 'MitigationActionAddThingsToThingGroupParams' add_things_to_thing_group_params: Specifies the group to which you want to add the devices.
+        :param 'MitigationActionEnableIoTLoggingParams' enable_io_t_logging_params: Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+        :param 'MitigationActionPublishFindingToSnsParams' publish_finding_to_sns_params: Specifies the topic to which the finding should be published.
+        :param 'MitigationActionReplaceDefaultPolicyVersionParams' replace_default_policy_version_params: Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
+        :param 'MitigationActionUpdateCaCertificateParams' update_ca_certificate_params: Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+        :param 'MitigationActionUpdateDeviceCertificateParams' update_device_certificate_params: Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
         """
         if add_things_to_thing_group_params is not None:
             pulumi.set(__self__, "add_things_to_thing_group_params", add_things_to_thing_group_params)
@@ -1151,31 +1325,49 @@ class MitigationActionActionParams(dict):
     @property
     @pulumi.getter(name="addThingsToThingGroupParams")
     def add_things_to_thing_group_params(self) -> Optional['outputs.MitigationActionAddThingsToThingGroupParams']:
+        """
+        Specifies the group to which you want to add the devices.
+        """
         return pulumi.get(self, "add_things_to_thing_group_params")
 
     @property
     @pulumi.getter(name="enableIoTLoggingParams")
     def enable_io_t_logging_params(self) -> Optional['outputs.MitigationActionEnableIoTLoggingParams']:
+        """
+        Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+        """
         return pulumi.get(self, "enable_io_t_logging_params")
 
     @property
     @pulumi.getter(name="publishFindingToSnsParams")
     def publish_finding_to_sns_params(self) -> Optional['outputs.MitigationActionPublishFindingToSnsParams']:
+        """
+        Specifies the topic to which the finding should be published.
+        """
         return pulumi.get(self, "publish_finding_to_sns_params")
 
     @property
     @pulumi.getter(name="replaceDefaultPolicyVersionParams")
     def replace_default_policy_version_params(self) -> Optional['outputs.MitigationActionReplaceDefaultPolicyVersionParams']:
+        """
+        Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
+        """
         return pulumi.get(self, "replace_default_policy_version_params")
 
     @property
     @pulumi.getter(name="updateCaCertificateParams")
     def update_ca_certificate_params(self) -> Optional['outputs.MitigationActionUpdateCaCertificateParams']:
+        """
+        Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+        """
         return pulumi.get(self, "update_ca_certificate_params")
 
     @property
     @pulumi.getter(name="updateDeviceCertificateParams")
     def update_device_certificate_params(self) -> Optional['outputs.MitigationActionUpdateDeviceCertificateParams']:
+        """
+        Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
+        """
         return pulumi.get(self, "update_device_certificate_params")
 
 
@@ -1349,12 +1541,16 @@ class MitigationActionReplaceDefaultPolicyVersionParams(dict):
                  template_name: 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName'):
         """
         Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        :param 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName' template_name: The name of the template to be applied. The only supported value is `BLANK_POLICY` .
         """
         pulumi.set(__self__, "template_name", template_name)
 
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName':
+        """
+        The name of the template to be applied. The only supported value is `BLANK_POLICY` .
+        """
         return pulumi.get(self, "template_name")
 
 
@@ -1367,12 +1563,16 @@ class MitigationActionUpdateCaCertificateParams(dict):
                  action: 'MitigationActionUpdateCaCertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        :param 'MitigationActionUpdateCaCertificateParamsAction' action: The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
         """
         pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
     def action(self) -> 'MitigationActionUpdateCaCertificateParamsAction':
+        """
+        The action that you want to apply to the CA certificate. The only supported value is `DEACTIVATE` .
+        """
         return pulumi.get(self, "action")
 
 
@@ -1385,12 +1585,16 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
                  action: 'MitigationActionUpdateDeviceCertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        :param 'MitigationActionUpdateDeviceCertificateParamsAction' action: The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
         """
         pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
     def action(self) -> 'MitigationActionUpdateDeviceCertificateParamsAction':
+        """
+        The action that you want to apply to the device certificate. The only supported value is `DEACTIVATE` .
+        """
         return pulumi.get(self, "action")
 
 
@@ -1423,6 +1627,10 @@ class PresignedUrlConfigProperties(dict):
                  expires_in_sec: Optional[int] = None):
         """
         Configuration for pre-signed S3 URLs.
+        :param str role_arn: The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+               
+               > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
+        :param int expires_in_sec: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if expires_in_sec is not None:
@@ -1431,11 +1639,19 @@ class PresignedUrlConfigProperties(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.
+
+        > For information about addressing the confused deputy problem, see [cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html) in the *AWS IoT Core developer guide* .
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="expiresInSec")
     def expires_in_sec(self) -> Optional[int]:
+        """
+        How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.
+        """
         return pulumi.get(self, "expires_in_sec")
 
 
@@ -1463,6 +1679,10 @@ class ProvisioningTemplateProvisioningHook(dict):
     def __init__(__self__, *,
                  payload_version: Optional[str] = None,
                  target_arn: Optional[str] = None):
+        """
+        :param str payload_version: The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
+        :param str target_arn: The ARN of the target function.
+        """
         if payload_version is not None:
             pulumi.set(__self__, "payload_version", payload_version)
         if target_arn is not None:
@@ -1471,11 +1691,17 @@ class ProvisioningTemplateProvisioningHook(dict):
     @property
     @pulumi.getter(name="payloadVersion")
     def payload_version(self) -> Optional[str]:
+        """
+        The payload that was sent to the target function. The valid payload is `"2020-04-01"` .
+        """
         return pulumi.get(self, "payload_version")
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[str]:
+        """
+        The ARN of the target function.
+        """
         return pulumi.get(self, "target_arn")
 
 
@@ -1567,7 +1793,12 @@ class SecurityProfileBehavior(dict):
         """
         A security profile behavior.
         :param str name: The name for the behavior.
+        :param 'SecurityProfileBehaviorCriteria' criteria: The criteria that determine if a device is behaving normally in regard to the `metric` .
+               
+               > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
+        :param bool export_metric: Value indicates exporting metrics related to the behavior when it is true.
         :param str metric: What is measured by the behavior.
+        :param 'SecurityProfileMetricDimension' metric_dimension: The dimension of the metric.
         :param bool suppress_alerts: Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
         """
         pulumi.set(__self__, "name", name)
@@ -1593,11 +1824,19 @@ class SecurityProfileBehavior(dict):
     @property
     @pulumi.getter
     def criteria(self) -> Optional['outputs.SecurityProfileBehaviorCriteria']:
+        """
+        The criteria that determine if a device is behaving normally in regard to the `metric` .
+
+        > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
+        """
         return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter(name="exportMetric")
     def export_metric(self) -> Optional[bool]:
+        """
+        Value indicates exporting metrics related to the behavior when it is true.
+        """
         return pulumi.get(self, "export_metric")
 
     @property
@@ -1611,6 +1850,9 @@ class SecurityProfileBehavior(dict):
     @property
     @pulumi.getter(name="metricDimension")
     def metric_dimension(self) -> Optional['outputs.SecurityProfileMetricDimension']:
+        """
+        The dimension of the metric.
+        """
         return pulumi.get(self, "metric_dimension")
 
     @property
@@ -1668,6 +1910,9 @@ class SecurityProfileBehaviorCriteria(dict):
         :param int consecutive_datapoints_to_alarm: If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         :param int consecutive_datapoints_to_clear: If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
         :param int duration_seconds: Use this to specify the time duration over which the behavior is evaluated.
+        :param 'SecurityProfileMachineLearningDetectionConfig' ml_detection_config: The confidence level of the detection model.
+        :param 'SecurityProfileStatisticalThreshold' statistical_threshold: A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+        :param 'SecurityProfileMetricValue' value: The value to be compared with the `metric` .
         """
         if comparison_operator is not None:
             pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -1719,16 +1964,25 @@ class SecurityProfileBehaviorCriteria(dict):
     @property
     @pulumi.getter(name="mlDetectionConfig")
     def ml_detection_config(self) -> Optional['outputs.SecurityProfileMachineLearningDetectionConfig']:
+        """
+        The confidence level of the detection model.
+        """
         return pulumi.get(self, "ml_detection_config")
 
     @property
     @pulumi.getter(name="statisticalThreshold")
     def statistical_threshold(self) -> Optional['outputs.SecurityProfileStatisticalThreshold']:
+        """
+        A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+        """
         return pulumi.get(self, "statistical_threshold")
 
     @property
     @pulumi.getter
     def value(self) -> Optional['outputs.SecurityProfileMetricValue']:
+        """
+        The value to be compared with the `metric` .
+        """
         return pulumi.get(self, "value")
 
 
@@ -1854,6 +2108,8 @@ class SecurityProfileMetricToRetain(dict):
         """
         The metric you want to retain. Dimensions are optional.
         :param str metric: What is measured by the behavior.
+        :param bool export_metric: The value indicates exporting metrics related to the `MetricToRetain` when it's true.
+        :param 'SecurityProfileMetricDimension' metric_dimension: The dimension of the metric.
         """
         pulumi.set(__self__, "metric", metric)
         if export_metric is not None:
@@ -1872,11 +2128,17 @@ class SecurityProfileMetricToRetain(dict):
     @property
     @pulumi.getter(name="exportMetric")
     def export_metric(self) -> Optional[bool]:
+        """
+        The value indicates exporting metrics related to the `MetricToRetain` when it's true.
+        """
         return pulumi.get(self, "export_metric")
 
     @property
     @pulumi.getter(name="metricDimension")
     def metric_dimension(self) -> Optional['outputs.SecurityProfileMetricDimension']:
+        """
+        The dimension of the metric.
+        """
         return pulumi.get(self, "metric_dimension")
 
 
@@ -1990,12 +2252,22 @@ class SecurityProfileStatisticalThreshold(dict):
 class ThingAttributePayload(dict):
     def __init__(__self__, *,
                  attributes: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] attributes: A JSON string containing up to three key-value pair in JSON format. For example:
+               
+               `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
+        """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        A JSON string containing up to three key-value pair in JSON format. For example:
+
+        `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
+        """
         return pulumi.get(self, "attributes")
 
 
@@ -2003,17 +2275,30 @@ class ThingAttributePayload(dict):
 class ThingGroupAttributePayload(dict):
     def __init__(__self__, *,
                  attributes: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] attributes: A JSON string containing up to three key-value pair in JSON format. For example:
+               
+               `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
+        """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        A JSON string containing up to three key-value pair in JSON format. For example:
+
+        `{\\"attributes\\":{\\"string1\\":\\"string2\\"}}`
+        """
         return pulumi.get(self, "attributes")
 
 
 @pulumi.output_type
 class ThingGroupPropertiesProperties(dict):
+    """
+    Thing group properties.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2036,6 +2321,11 @@ class ThingGroupPropertiesProperties(dict):
     def __init__(__self__, *,
                  attribute_payload: Optional['outputs.ThingGroupAttributePayload'] = None,
                  thing_group_description: Optional[str] = None):
+        """
+        Thing group properties.
+        :param 'ThingGroupAttributePayload' attribute_payload: The thing group attributes in JSON format.
+        :param str thing_group_description: The thing group description.
+        """
         if attribute_payload is not None:
             pulumi.set(__self__, "attribute_payload", attribute_payload)
         if thing_group_description is not None:
@@ -2044,16 +2334,25 @@ class ThingGroupPropertiesProperties(dict):
     @property
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> Optional['outputs.ThingGroupAttributePayload']:
+        """
+        The thing group attributes in JSON format.
+        """
         return pulumi.get(self, "attribute_payload")
 
     @property
     @pulumi.getter(name="thingGroupDescription")
     def thing_group_description(self) -> Optional[str]:
+        """
+        The thing group description.
+        """
         return pulumi.get(self, "thing_group_description")
 
 
 @pulumi.output_type
 class ThingTypePropertiesProperties(dict):
+    """
+    The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2076,6 +2375,11 @@ class ThingTypePropertiesProperties(dict):
     def __init__(__self__, *,
                  searchable_attributes: Optional[Sequence[str]] = None,
                  thing_type_description: Optional[str] = None):
+        """
+        The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        :param Sequence[str] searchable_attributes: A list of searchable thing attribute names.
+        :param str thing_type_description: The description of the thing type.
+        """
         if searchable_attributes is not None:
             pulumi.set(__self__, "searchable_attributes", searchable_attributes)
         if thing_type_description is not None:
@@ -2084,11 +2388,17 @@ class ThingTypePropertiesProperties(dict):
     @property
     @pulumi.getter(name="searchableAttributes")
     def searchable_attributes(self) -> Optional[Sequence[str]]:
+        """
+        A list of searchable thing attribute names.
+        """
         return pulumi.get(self, "searchable_attributes")
 
     @property
     @pulumi.getter(name="thingTypeDescription")
     def thing_type_description(self) -> Optional[str]:
+        """
+        The description of the thing type.
+        """
         return pulumi.get(self, "thing_type_description")
 
 
@@ -2118,12 +2428,16 @@ class TimeoutConfigProperties(dict):
                  in_progress_timeout_in_minutes: int):
         """
         Specifies the amount of time each device has to finish its execution of the job.
+        :param int in_progress_timeout_in_minutes: Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
         """
         pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
 
     @property
     @pulumi.getter(name="inProgressTimeoutInMinutes")
     def in_progress_timeout_in_minutes(self) -> int:
+        """
+        Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal `TIMED_OUT` status.
+        """
         return pulumi.get(self, "in_progress_timeout_in_minutes")
 
 
@@ -2189,6 +2503,32 @@ class TopicRuleAction(dict):
                  sqs: Optional['outputs.TopicRuleSqsAction'] = None,
                  step_functions: Optional['outputs.TopicRuleStepFunctionsAction'] = None,
                  timestream: Optional['outputs.TopicRuleTimestreamAction'] = None):
+        """
+        :param 'TopicRuleCloudwatchAlarmAction' cloudwatch_alarm: Change the state of a CloudWatch alarm.
+        :param 'TopicRuleCloudwatchLogsAction' cloudwatch_logs: Sends data to CloudWatch.
+        :param 'TopicRuleCloudwatchMetricAction' cloudwatch_metric: Capture a CloudWatch metric.
+        :param 'TopicRuleDynamoDBv2Action' dynamo_d_bv2: Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+        :param 'TopicRuleDynamoDbAction' dynamo_db: Write to a DynamoDB table.
+        :param 'TopicRuleElasticsearchAction' elasticsearch: Write data to an Amazon OpenSearch Service domain.
+               
+               > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
+        :param 'TopicRuleFirehoseAction' firehose: Write to an Amazon Kinesis Firehose stream.
+        :param 'TopicRuleHttpAction' http: Send data to an HTTPS endpoint.
+        :param 'TopicRuleIotAnalyticsAction' iot_analytics: Sends message data to an AWS IoT Analytics channel.
+        :param 'TopicRuleIotEventsAction' iot_events: Sends an input to an AWS IoT Events detector.
+        :param 'TopicRuleIotSiteWiseAction' iot_site_wise: Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+        :param 'TopicRuleKafkaAction' kafka: Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+        :param 'TopicRuleKinesisAction' kinesis: Write data to an Amazon Kinesis stream.
+        :param 'TopicRuleLambdaAction' lambda_: Invoke a Lambda function.
+        :param 'TopicRuleLocationAction' location: Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+        :param 'TopicRuleOpenSearchAction' open_search: Write data to an Amazon OpenSearch Service domain.
+        :param 'TopicRuleRepublishAction' republish: Publish to another MQTT topic.
+        :param 'TopicRuleS3Action' s3: Write to an Amazon S3 bucket.
+        :param 'TopicRuleSnsAction' sns: Publish to an Amazon SNS topic.
+        :param 'TopicRuleSqsAction' sqs: Publish to an Amazon SQS queue.
+        :param 'TopicRuleStepFunctionsAction' step_functions: Starts execution of a Step Functions state machine.
+        :param 'TopicRuleTimestreamAction' timestream: Writes attributes from an MQTT message.
+        """
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
@@ -2237,111 +2577,179 @@ class TopicRuleAction(dict):
     @property
     @pulumi.getter(name="cloudwatchAlarm")
     def cloudwatch_alarm(self) -> Optional['outputs.TopicRuleCloudwatchAlarmAction']:
+        """
+        Change the state of a CloudWatch alarm.
+        """
         return pulumi.get(self, "cloudwatch_alarm")
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.TopicRuleCloudwatchLogsAction']:
+        """
+        Sends data to CloudWatch.
+        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @property
     @pulumi.getter(name="cloudwatchMetric")
     def cloudwatch_metric(self) -> Optional['outputs.TopicRuleCloudwatchMetricAction']:
+        """
+        Capture a CloudWatch metric.
+        """
         return pulumi.get(self, "cloudwatch_metric")
 
     @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.TopicRuleDynamoDBv2Action']:
+        """
+        Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+        """
         return pulumi.get(self, "dynamo_d_bv2")
 
     @property
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional['outputs.TopicRuleDynamoDbAction']:
+        """
+        Write to a DynamoDB table.
+        """
         return pulumi.get(self, "dynamo_db")
 
     @property
     @pulumi.getter
     def elasticsearch(self) -> Optional['outputs.TopicRuleElasticsearchAction']:
+        """
+        Write data to an Amazon OpenSearch Service domain.
+
+        > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
+        """
         return pulumi.get(self, "elasticsearch")
 
     @property
     @pulumi.getter
     def firehose(self) -> Optional['outputs.TopicRuleFirehoseAction']:
+        """
+        Write to an Amazon Kinesis Firehose stream.
+        """
         return pulumi.get(self, "firehose")
 
     @property
     @pulumi.getter
     def http(self) -> Optional['outputs.TopicRuleHttpAction']:
+        """
+        Send data to an HTTPS endpoint.
+        """
         return pulumi.get(self, "http")
 
     @property
     @pulumi.getter(name="iotAnalytics")
     def iot_analytics(self) -> Optional['outputs.TopicRuleIotAnalyticsAction']:
+        """
+        Sends message data to an AWS IoT Analytics channel.
+        """
         return pulumi.get(self, "iot_analytics")
 
     @property
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional['outputs.TopicRuleIotEventsAction']:
+        """
+        Sends an input to an AWS IoT Events detector.
+        """
         return pulumi.get(self, "iot_events")
 
     @property
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional['outputs.TopicRuleIotSiteWiseAction']:
+        """
+        Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+        """
         return pulumi.get(self, "iot_site_wise")
 
     @property
     @pulumi.getter
     def kafka(self) -> Optional['outputs.TopicRuleKafkaAction']:
+        """
+        Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
+        """
         return pulumi.get(self, "kafka")
 
     @property
     @pulumi.getter
     def kinesis(self) -> Optional['outputs.TopicRuleKinesisAction']:
+        """
+        Write data to an Amazon Kinesis stream.
+        """
         return pulumi.get(self, "kinesis")
 
     @property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.TopicRuleLambdaAction']:
+        """
+        Invoke a Lambda function.
+        """
         return pulumi.get(self, "lambda_")
 
     @property
     @pulumi.getter
     def location(self) -> Optional['outputs.TopicRuleLocationAction']:
+        """
+        Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="openSearch")
     def open_search(self) -> Optional['outputs.TopicRuleOpenSearchAction']:
+        """
+        Write data to an Amazon OpenSearch Service domain.
+        """
         return pulumi.get(self, "open_search")
 
     @property
     @pulumi.getter
     def republish(self) -> Optional['outputs.TopicRuleRepublishAction']:
+        """
+        Publish to another MQTT topic.
+        """
         return pulumi.get(self, "republish")
 
     @property
     @pulumi.getter
     def s3(self) -> Optional['outputs.TopicRuleS3Action']:
+        """
+        Write to an Amazon S3 bucket.
+        """
         return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter
     def sns(self) -> Optional['outputs.TopicRuleSnsAction']:
+        """
+        Publish to an Amazon SNS topic.
+        """
         return pulumi.get(self, "sns")
 
     @property
     @pulumi.getter
     def sqs(self) -> Optional['outputs.TopicRuleSqsAction']:
+        """
+        Publish to an Amazon SQS queue.
+        """
         return pulumi.get(self, "sqs")
 
     @property
     @pulumi.getter(name="stepFunctions")
     def step_functions(self) -> Optional['outputs.TopicRuleStepFunctionsAction']:
+        """
+        Starts execution of a Step Functions state machine.
+        """
         return pulumi.get(self, "step_functions")
 
     @property
     @pulumi.getter
     def timestream(self) -> Optional['outputs.TopicRuleTimestreamAction']:
+        """
+        Writes attributes from an MQTT message.
+        """
         return pulumi.get(self, "timestream")
 
 
@@ -2369,6 +2777,10 @@ class TopicRuleAssetPropertyTimestamp(dict):
     def __init__(__self__, *,
                  time_in_seconds: str,
                  offset_in_nanos: Optional[str] = None):
+        """
+        :param str time_in_seconds: A string that contains the time in seconds since epoch. Accepts substitution templates.
+        :param str offset_in_nanos: Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+        """
         pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
@@ -2376,11 +2788,17 @@ class TopicRuleAssetPropertyTimestamp(dict):
     @property
     @pulumi.getter(name="timeInSeconds")
     def time_in_seconds(self) -> str:
+        """
+        A string that contains the time in seconds since epoch. Accepts substitution templates.
+        """
         return pulumi.get(self, "time_in_seconds")
 
     @property
     @pulumi.getter(name="offsetInNanos")
     def offset_in_nanos(self) -> Optional[str]:
+        """
+        Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+        """
         return pulumi.get(self, "offset_in_nanos")
 
 
@@ -2390,6 +2808,11 @@ class TopicRuleAssetPropertyValue(dict):
                  timestamp: 'outputs.TopicRuleAssetPropertyTimestamp',
                  value: 'outputs.TopicRuleAssetPropertyVariant',
                  quality: Optional[str] = None):
+        """
+        :param 'TopicRuleAssetPropertyTimestamp' timestamp: The asset property value timestamp.
+        :param 'TopicRuleAssetPropertyVariant' value: The value of the asset property.
+        :param str quality: Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+        """
         pulumi.set(__self__, "timestamp", timestamp)
         pulumi.set(__self__, "value", value)
         if quality is not None:
@@ -2398,16 +2821,25 @@ class TopicRuleAssetPropertyValue(dict):
     @property
     @pulumi.getter
     def timestamp(self) -> 'outputs.TopicRuleAssetPropertyTimestamp':
+        """
+        The asset property value timestamp.
+        """
         return pulumi.get(self, "timestamp")
 
     @property
     @pulumi.getter
     def value(self) -> 'outputs.TopicRuleAssetPropertyVariant':
+        """
+        The value of the asset property.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def quality(self) -> Optional[str]:
+        """
+        Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
+        """
         return pulumi.get(self, "quality")
 
 
@@ -2441,6 +2873,12 @@ class TopicRuleAssetPropertyVariant(dict):
                  double_value: Optional[str] = None,
                  integer_value: Optional[str] = None,
                  string_value: Optional[str] = None):
+        """
+        :param str boolean_value: Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
+        :param str double_value: Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+        :param str integer_value: Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+        :param str string_value: Optional. The string value of the value entry. Accepts substitution templates.
+        """
         if boolean_value is not None:
             pulumi.set(__self__, "boolean_value", boolean_value)
         if double_value is not None:
@@ -2453,21 +2891,33 @@ class TopicRuleAssetPropertyVariant(dict):
     @property
     @pulumi.getter(name="booleanValue")
     def boolean_value(self) -> Optional[str]:
+        """
+        Optional. A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
+        """
         return pulumi.get(self, "boolean_value")
 
     @property
     @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[str]:
+        """
+        Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+        """
         return pulumi.get(self, "double_value")
 
     @property
     @pulumi.getter(name="integerValue")
     def integer_value(self) -> Optional[str]:
+        """
+        Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+        """
         return pulumi.get(self, "integer_value")
 
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[str]:
+        """
+        Optional. The string value of the value entry. Accepts substitution templates.
+        """
         return pulumi.get(self, "string_value")
 
 
@@ -2501,6 +2951,12 @@ class TopicRuleCloudwatchAlarmAction(dict):
                  role_arn: str,
                  state_reason: str,
                  state_value: str):
+        """
+        :param str alarm_name: The CloudWatch alarm name.
+        :param str role_arn: The IAM role that allows access to the CloudWatch alarm.
+        :param str state_reason: The reason for the alarm change.
+        :param str state_value: The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+        """
         pulumi.set(__self__, "alarm_name", alarm_name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "state_reason", state_reason)
@@ -2509,21 +2965,33 @@ class TopicRuleCloudwatchAlarmAction(dict):
     @property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> str:
+        """
+        The CloudWatch alarm name.
+        """
         return pulumi.get(self, "alarm_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role that allows access to the CloudWatch alarm.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stateReason")
     def state_reason(self) -> str:
+        """
+        The reason for the alarm change.
+        """
         return pulumi.get(self, "state_reason")
 
     @property
     @pulumi.getter(name="stateValue")
     def state_value(self) -> str:
+        """
+        The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+        """
         return pulumi.get(self, "state_value")
 
 
@@ -2554,6 +3022,11 @@ class TopicRuleCloudwatchLogsAction(dict):
                  log_group_name: str,
                  role_arn: str,
                  batch_mode: Optional[bool] = None):
+        """
+        :param str log_group_name: The CloudWatch log name.
+        :param str role_arn: The IAM role that allows access to the CloudWatch log.
+        :param bool batch_mode: Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+        """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if batch_mode is not None:
@@ -2562,16 +3035,25 @@ class TopicRuleCloudwatchLogsAction(dict):
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> str:
+        """
+        The CloudWatch log name.
+        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role that allows access to the CloudWatch log.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="batchMode")
     def batch_mode(self) -> Optional[bool]:
+        """
+        Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+        """
         return pulumi.get(self, "batch_mode")
 
 
@@ -2611,6 +3093,14 @@ class TopicRuleCloudwatchMetricAction(dict):
                  metric_value: str,
                  role_arn: str,
                  metric_timestamp: Optional[str] = None):
+        """
+        :param str metric_name: The CloudWatch metric name.
+        :param str metric_namespace: The CloudWatch metric namespace name.
+        :param str metric_unit: The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
+        :param str metric_value: The CloudWatch metric value.
+        :param str role_arn: The IAM role that allows access to the CloudWatch metric.
+        :param str metric_timestamp: An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
+        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_namespace", metric_namespace)
         pulumi.set(__self__, "metric_unit", metric_unit)
@@ -2622,31 +3112,49 @@ class TopicRuleCloudwatchMetricAction(dict):
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
+        """
+        The CloudWatch metric name.
+        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter(name="metricNamespace")
     def metric_namespace(self) -> str:
+        """
+        The CloudWatch metric namespace name.
+        """
         return pulumi.get(self, "metric_namespace")
 
     @property
     @pulumi.getter(name="metricUnit")
     def metric_unit(self) -> str:
+        """
+        The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
+        """
         return pulumi.get(self, "metric_unit")
 
     @property
     @pulumi.getter(name="metricValue")
     def metric_value(self) -> str:
+        """
+        The CloudWatch metric value.
+        """
         return pulumi.get(self, "metric_value")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role that allows access to the CloudWatch metric.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="metricTimestamp")
     def metric_timestamp(self) -> Optional[str]:
+        """
+        An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
+        """
         return pulumi.get(self, "metric_timestamp")
 
 
@@ -2671,12 +3179,18 @@ class TopicRuleDestinationHttpUrlDestinationSummary(dict):
 
     def __init__(__self__, *,
                  confirmation_url: Optional[str] = None):
+        """
+        :param str confirmation_url: The URL used to confirm the HTTP topic rule destination URL.
+        """
         if confirmation_url is not None:
             pulumi.set(__self__, "confirmation_url", confirmation_url)
 
     @property
     @pulumi.getter(name="confirmationUrl")
     def confirmation_url(self) -> Optional[str]:
+        """
+        The URL used to confirm the HTTP topic rule destination URL.
+        """
         return pulumi.get(self, "confirmation_url")
 
 
@@ -2710,6 +3224,12 @@ class TopicRuleDestinationVpcDestinationProperties(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None,
                  vpc_id: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+        :param Sequence[str] security_groups: The security groups of the VPC destination.
+        :param Sequence[str] subnet_ids: The subnet IDs of the VPC destination.
+        :param str vpc_id: The ID of the VPC.
+        """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if security_groups is not None:
@@ -2722,21 +3242,33 @@ class TopicRuleDestinationVpcDestinationProperties(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security groups of the VPC destination.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The subnet IDs of the VPC destination.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -2764,6 +3296,14 @@ class TopicRuleDynamoDBv2Action(dict):
     def __init__(__self__, *,
                  put_item: Optional['outputs.TopicRulePutItemInput'] = None,
                  role_arn: Optional[str] = None):
+        """
+        :param 'TopicRulePutItemInput' put_item: Specifies the DynamoDB table to which the message data will be written. For example:
+               
+               `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+               
+               Each attribute in the message payload will be written to a separate column in the DynamoDB database.
+        :param str role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
+        """
         if put_item is not None:
             pulumi.set(__self__, "put_item", put_item)
         if role_arn is not None:
@@ -2772,11 +3312,21 @@ class TopicRuleDynamoDBv2Action(dict):
     @property
     @pulumi.getter(name="putItem")
     def put_item(self) -> Optional['outputs.TopicRulePutItemInput']:
+        """
+        Specifies the DynamoDB table to which the message data will be written. For example:
+
+        `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+
+        Each attribute in the message payload will be written to a separate column in the DynamoDB database.
+        """
         return pulumi.get(self, "put_item")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role that grants access to the DynamoDB table.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -2825,6 +3375,17 @@ class TopicRuleDynamoDbAction(dict):
                  range_key_field: Optional[str] = None,
                  range_key_type: Optional[str] = None,
                  range_key_value: Optional[str] = None):
+        """
+        :param str hash_key_field: The hash key name.
+        :param str hash_key_value: The hash key value.
+        :param str role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
+        :param str table_name: The name of the DynamoDB table.
+        :param str hash_key_type: The hash key type. Valid values are "STRING" or "NUMBER"
+        :param str payload_field: The action payload. This name can be customized.
+        :param str range_key_field: The range key name.
+        :param str range_key_type: The range key type. Valid values are "STRING" or "NUMBER"
+        :param str range_key_value: The range key value.
+        """
         pulumi.set(__self__, "hash_key_field", hash_key_field)
         pulumi.set(__self__, "hash_key_value", hash_key_value)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2843,46 +3404,73 @@ class TopicRuleDynamoDbAction(dict):
     @property
     @pulumi.getter(name="hashKeyField")
     def hash_key_field(self) -> str:
+        """
+        The hash key name.
+        """
         return pulumi.get(self, "hash_key_field")
 
     @property
     @pulumi.getter(name="hashKeyValue")
     def hash_key_value(self) -> str:
+        """
+        The hash key value.
+        """
         return pulumi.get(self, "hash_key_value")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role that grants access to the DynamoDB table.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The name of the DynamoDB table.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="hashKeyType")
     def hash_key_type(self) -> Optional[str]:
+        """
+        The hash key type. Valid values are "STRING" or "NUMBER"
+        """
         return pulumi.get(self, "hash_key_type")
 
     @property
     @pulumi.getter(name="payloadField")
     def payload_field(self) -> Optional[str]:
+        """
+        The action payload. This name can be customized.
+        """
         return pulumi.get(self, "payload_field")
 
     @property
     @pulumi.getter(name="rangeKeyField")
     def range_key_field(self) -> Optional[str]:
+        """
+        The range key name.
+        """
         return pulumi.get(self, "range_key_field")
 
     @property
     @pulumi.getter(name="rangeKeyType")
     def range_key_type(self) -> Optional[str]:
+        """
+        The range key type. Valid values are "STRING" or "NUMBER"
+        """
         return pulumi.get(self, "range_key_type")
 
     @property
     @pulumi.getter(name="rangeKeyValue")
     def range_key_value(self) -> Optional[str]:
+        """
+        The range key value.
+        """
         return pulumi.get(self, "range_key_value")
 
 
@@ -2911,6 +3499,13 @@ class TopicRuleElasticsearchAction(dict):
                  index: str,
                  role_arn: str,
                  type: str):
+        """
+        :param str endpoint: The endpoint of your OpenSearch domain.
+        :param str id: The unique identifier for the document you are storing.
+        :param str index: The index where you want to store your data.
+        :param str role_arn: The IAM role ARN that has access to OpenSearch.
+        :param str type: The type of document you are storing.
+        """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "index", index)
@@ -2920,26 +3515,41 @@ class TopicRuleElasticsearchAction(dict):
     @property
     @pulumi.getter
     def endpoint(self) -> str:
+        """
+        The endpoint of your OpenSearch domain.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The unique identifier for the document you are storing.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def index(self) -> str:
+        """
+        The index where you want to store your data.
+        """
         return pulumi.get(self, "index")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role ARN that has access to OpenSearch.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of document you are storing.
+        """
         return pulumi.get(self, "type")
 
 
@@ -2971,6 +3581,14 @@ class TopicRuleFirehoseAction(dict):
                  role_arn: str,
                  batch_mode: Optional[bool] = None,
                  separator: Optional[str] = None):
+        """
+        :param str delivery_stream_name: The delivery stream name.
+        :param str role_arn: The IAM role that grants access to the Amazon Kinesis Firehose stream.
+        :param bool batch_mode: Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+               
+               When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
+        :param str separator: A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
+        """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if batch_mode is not None:
@@ -2981,21 +3599,35 @@ class TopicRuleFirehoseAction(dict):
     @property
     @pulumi.getter(name="deliveryStreamName")
     def delivery_stream_name(self) -> str:
+        """
+        The delivery stream name.
+        """
         return pulumi.get(self, "delivery_stream_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role that grants access to the Amazon Kinesis Firehose stream.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="batchMode")
     def batch_mode(self) -> Optional[bool]:
+        """
+        Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
+
+        When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
+        """
         return pulumi.get(self, "batch_mode")
 
     @property
     @pulumi.getter
     def separator(self) -> Optional[str]:
+        """
+        A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
+        """
         return pulumi.get(self, "separator")
 
 
@@ -3023,6 +3655,12 @@ class TopicRuleHttpAction(dict):
                  auth: Optional['outputs.TopicRuleHttpAuthorization'] = None,
                  confirmation_url: Optional[str] = None,
                  headers: Optional[Sequence['outputs.TopicRuleHttpActionHeader']] = None):
+        """
+        :param str url: The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
+        :param 'TopicRuleHttpAuthorization' auth: The authentication method to use when sending data to an HTTPS endpoint.
+        :param str confirmation_url: The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
+        :param Sequence['TopicRuleHttpActionHeader'] headers: The HTTP headers to send with the message data.
+        """
         pulumi.set(__self__, "url", url)
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
@@ -3034,21 +3672,33 @@ class TopicRuleHttpAction(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter
     def auth(self) -> Optional['outputs.TopicRuleHttpAuthorization']:
+        """
+        The authentication method to use when sending data to an HTTPS endpoint.
+        """
         return pulumi.get(self, "auth")
 
     @property
     @pulumi.getter(name="confirmationUrl")
     def confirmation_url(self) -> Optional[str]:
+        """
+        The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
+        """
         return pulumi.get(self, "confirmation_url")
 
     @property
     @pulumi.getter
     def headers(self) -> Optional[Sequence['outputs.TopicRuleHttpActionHeader']]:
+        """
+        The HTTP headers to send with the message data.
+        """
         return pulumi.get(self, "headers")
 
 
@@ -3057,17 +3707,27 @@ class TopicRuleHttpActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The HTTP header key.
+        :param str value: The HTTP header value. Substitution templates are supported.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The HTTP header key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The HTTP header value. Substitution templates are supported.
+        """
         return pulumi.get(self, "value")
 
 
@@ -3075,12 +3735,18 @@ class TopicRuleHttpActionHeader(dict):
 class TopicRuleHttpAuthorization(dict):
     def __init__(__self__, *,
                  sigv4: Optional['outputs.TopicRuleSigV4Authorization'] = None):
+        """
+        :param 'TopicRuleSigV4Authorization' sigv4: Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+        """
         if sigv4 is not None:
             pulumi.set(__self__, "sigv4", sigv4)
 
     @property
     @pulumi.getter
     def sigv4(self) -> Optional['outputs.TopicRuleSigV4Authorization']:
+        """
+        Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+        """
         return pulumi.get(self, "sigv4")
 
 
@@ -3111,6 +3777,13 @@ class TopicRuleIotAnalyticsAction(dict):
                  channel_name: str,
                  role_arn: str,
                  batch_mode: Optional[bool] = None):
+        """
+        :param str channel_name: The name of the IoT Analytics channel to which message data will be sent.
+        :param str role_arn: The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+        :param bool batch_mode: Whether to process the action as a batch. The default value is `false` .
+               
+               When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
+        """
         pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if batch_mode is not None:
@@ -3119,16 +3792,27 @@ class TopicRuleIotAnalyticsAction(dict):
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> str:
+        """
+        The name of the IoT Analytics channel to which message data will be sent.
+        """
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="batchMode")
     def batch_mode(self) -> Optional[bool]:
+        """
+        Whether to process the action as a batch. The default value is `false` .
+
+        When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
+        """
         return pulumi.get(self, "batch_mode")
 
 
@@ -3162,6 +3846,20 @@ class TopicRuleIotEventsAction(dict):
                  role_arn: str,
                  batch_mode: Optional[bool] = None,
                  message_id: Optional[str] = None):
+        """
+        :param str input_name: The name of the AWS IoT Events input.
+        :param str role_arn: The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
+        :param bool batch_mode: Whether to process the event actions as a batch. The default value is `false` .
+               
+               When `batchMode` is `true` , you can't specify a `messageId` .
+               
+               When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
+        :param str message_id: The ID of the message. The default `messageId` is a new UUID value.
+               
+               When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+               
+               Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
+        """
         pulumi.set(__self__, "input_name", input_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if batch_mode is not None:
@@ -3172,21 +3870,41 @@ class TopicRuleIotEventsAction(dict):
     @property
     @pulumi.getter(name="inputName")
     def input_name(self) -> str:
+        """
+        The name of the AWS IoT Events input.
+        """
         return pulumi.get(self, "input_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="batchMode")
     def batch_mode(self) -> Optional[bool]:
+        """
+        Whether to process the event actions as a batch. The default value is `false` .
+
+        When `batchMode` is `true` , you can't specify a `messageId` .
+
+        When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
+        """
         return pulumi.get(self, "batch_mode")
 
     @property
     @pulumi.getter(name="messageId")
     def message_id(self) -> Optional[str]:
+        """
+        The ID of the message. The default `messageId` is a new UUID value.
+
+        When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
+
+        Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
+        """
         return pulumi.get(self, "message_id")
 
 
@@ -3214,17 +3932,27 @@ class TopicRuleIotSiteWiseAction(dict):
     def __init__(__self__, *,
                  put_asset_property_value_entries: Sequence['outputs.TopicRulePutAssetPropertyValueEntry'],
                  role_arn: str):
+        """
+        :param Sequence['TopicRulePutAssetPropertyValueEntry'] put_asset_property_value_entries: A list of asset property value entries.
+        :param str role_arn: The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
+        """
         pulumi.set(__self__, "put_asset_property_value_entries", put_asset_property_value_entries)
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="putAssetPropertyValueEntries")
     def put_asset_property_value_entries(self) -> Sequence['outputs.TopicRulePutAssetPropertyValueEntry']:
+        """
+        A list of asset property value entries.
+        """
         return pulumi.get(self, "put_asset_property_value_entries")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
+        """
         return pulumi.get(self, "role_arn")
 
 
@@ -3256,6 +3984,14 @@ class TopicRuleKafkaAction(dict):
                  headers: Optional[Sequence['outputs.TopicRuleKafkaActionHeader']] = None,
                  key: Optional[str] = None,
                  partition: Optional[str] = None):
+        """
+        :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client.
+        :param str destination_arn: The ARN of Kafka action's VPC `TopicRuleDestination` .
+        :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param Sequence['TopicRuleKafkaActionHeader'] headers: The list of Kafka headers that you specify.
+        :param str key: The Kafka message key.
+        :param str partition: The Kafka message partition.
+        """
         pulumi.set(__self__, "client_properties", client_properties)
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "topic", topic)
@@ -3269,31 +4005,49 @@ class TopicRuleKafkaAction(dict):
     @property
     @pulumi.getter(name="clientProperties")
     def client_properties(self) -> Mapping[str, str]:
+        """
+        Properties of the Apache Kafka producer client.
+        """
         return pulumi.get(self, "client_properties")
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> str:
+        """
+        The ARN of Kafka action's VPC `TopicRuleDestination` .
+        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter
     def topic(self) -> str:
+        """
+        The Kafka topic for messages to be sent to the Kafka broker.
+        """
         return pulumi.get(self, "topic")
 
     @property
     @pulumi.getter
     def headers(self) -> Optional[Sequence['outputs.TopicRuleKafkaActionHeader']]:
+        """
+        The list of Kafka headers that you specify.
+        """
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        The Kafka message key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def partition(self) -> Optional[str]:
+        """
+        The Kafka message partition.
+        """
         return pulumi.get(self, "partition")
 
 
@@ -3302,17 +4056,27 @@ class TopicRuleKafkaActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key of the Kafka header.
+        :param str value: The value of the Kafka header.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key of the Kafka header.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value of the Kafka header.
+        """
         return pulumi.get(self, "value")
 
 
@@ -3343,6 +4107,11 @@ class TopicRuleKinesisAction(dict):
                  role_arn: str,
                  stream_name: str,
                  partition_key: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+        :param str stream_name: The name of the Amazon Kinesis stream.
+        :param str partition_key: The partition key.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "stream_name", stream_name)
         if partition_key is not None:
@@ -3351,16 +4120,25 @@ class TopicRuleKinesisAction(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="streamName")
     def stream_name(self) -> str:
+        """
+        The name of the Amazon Kinesis stream.
+        """
         return pulumi.get(self, "stream_name")
 
     @property
     @pulumi.getter(name="partitionKey")
     def partition_key(self) -> Optional[str]:
+        """
+        The partition key.
+        """
         return pulumi.get(self, "partition_key")
 
 
@@ -3385,12 +4163,18 @@ class TopicRuleLambdaAction(dict):
 
     def __init__(__self__, *,
                  function_arn: Optional[str] = None):
+        """
+        :param str function_arn: The ARN of the Lambda function.
+        """
         if function_arn is not None:
             pulumi.set(__self__, "function_arn", function_arn)
 
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
+        """
+        The ARN of the Lambda function.
+        """
         return pulumi.get(self, "function_arn")
 
 
@@ -3424,6 +4208,14 @@ class TopicRuleLocationAction(dict):
                  role_arn: str,
                  tracker_name: str,
                  timestamp: Optional['outputs.TopicRuleTimestamp'] = None):
+        """
+        :param str device_id: The unique ID of the device providing the location data.
+        :param str latitude: A string that evaluates to a double value that represents the latitude of the device's location.
+        :param str longitude: A string that evaluates to a double value that represents the longitude of the device's location.
+        :param str role_arn: The IAM role that grants permission to write to the Amazon Location resource.
+        :param str tracker_name: The name of the tracker resource in Amazon Location in which the location is updated.
+        :param 'TopicRuleTimestamp' timestamp: The time that the location data was sampled. The default value is the time the MQTT message was processed.
+        """
         pulumi.set(__self__, "device_id", device_id)
         pulumi.set(__self__, "latitude", latitude)
         pulumi.set(__self__, "longitude", longitude)
@@ -3435,31 +4227,49 @@ class TopicRuleLocationAction(dict):
     @property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> str:
+        """
+        The unique ID of the device providing the location data.
+        """
         return pulumi.get(self, "device_id")
 
     @property
     @pulumi.getter
     def latitude(self) -> str:
+        """
+        A string that evaluates to a double value that represents the latitude of the device's location.
+        """
         return pulumi.get(self, "latitude")
 
     @property
     @pulumi.getter
     def longitude(self) -> str:
+        """
+        A string that evaluates to a double value that represents the longitude of the device's location.
+        """
         return pulumi.get(self, "longitude")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role that grants permission to write to the Amazon Location resource.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> str:
+        """
+        The name of the tracker resource in Amazon Location in which the location is updated.
+        """
         return pulumi.get(self, "tracker_name")
 
     @property
     @pulumi.getter
     def timestamp(self) -> Optional['outputs.TopicRuleTimestamp']:
+        """
+        The time that the location data was sampled. The default value is the time the MQTT message was processed.
+        """
         return pulumi.get(self, "timestamp")
 
 
@@ -3488,6 +4298,13 @@ class TopicRuleOpenSearchAction(dict):
                  index: str,
                  role_arn: str,
                  type: str):
+        """
+        :param str endpoint: The endpoint of your OpenSearch domain.
+        :param str id: The unique identifier for the document you are storing.
+        :param str index: The OpenSearch index where you want to store your data.
+        :param str role_arn: The IAM role ARN that has access to OpenSearch.
+        :param str type: The type of document you are storing.
+        """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "index", index)
@@ -3497,26 +4314,41 @@ class TopicRuleOpenSearchAction(dict):
     @property
     @pulumi.getter
     def endpoint(self) -> str:
+        """
+        The endpoint of your OpenSearch domain.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The unique identifier for the document you are storing.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def index(self) -> str:
+        """
+        The OpenSearch index where you want to store your data.
+        """
         return pulumi.get(self, "index")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The IAM role ARN that has access to OpenSearch.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of document you are storing.
+        """
         return pulumi.get(self, "type")
 
 
@@ -3550,6 +4382,16 @@ class TopicRulePayload(dict):
                  description: Optional[str] = None,
                  error_action: Optional['outputs.TopicRuleAction'] = None,
                  rule_disabled: Optional[bool] = None):
+        """
+        :param Sequence['TopicRuleAction'] actions: The actions associated with the rule.
+        :param str sql: The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+        :param str aws_iot_sql_version: The version of the SQL rules engine to use when evaluating the rule.
+               
+               The default value is 2015-10-08.
+        :param str description: The description of the rule.
+        :param 'TopicRuleAction' error_action: The action to take when an error occurs.
+        :param bool rule_disabled: Specifies whether the rule is disabled.
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "sql", sql)
         if aws_iot_sql_version is not None:
@@ -3564,31 +4406,51 @@ class TopicRulePayload(dict):
     @property
     @pulumi.getter
     def actions(self) -> Sequence['outputs.TopicRuleAction']:
+        """
+        The actions associated with the rule.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def sql(self) -> str:
+        """
+        The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
+        """
         return pulumi.get(self, "sql")
 
     @property
     @pulumi.getter(name="awsIotSqlVersion")
     def aws_iot_sql_version(self) -> Optional[str]:
+        """
+        The version of the SQL rules engine to use when evaluating the rule.
+
+        The default value is 2015-10-08.
+        """
         return pulumi.get(self, "aws_iot_sql_version")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="errorAction")
     def error_action(self) -> Optional['outputs.TopicRuleAction']:
+        """
+        The action to take when an error occurs.
+        """
         return pulumi.get(self, "error_action")
 
     @property
     @pulumi.getter(name="ruleDisabled")
     def rule_disabled(self) -> Optional[bool]:
+        """
+        Specifies whether the rule is disabled.
+        """
         return pulumi.get(self, "rule_disabled")
 
 
@@ -3625,6 +4487,13 @@ class TopicRulePutAssetPropertyValueEntry(dict):
                  entry_id: Optional[str] = None,
                  property_alias: Optional[str] = None,
                  property_id: Optional[str] = None):
+        """
+        :param Sequence['TopicRuleAssetPropertyValue'] property_values: A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+        :param str asset_id: The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        :param str entry_id: Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+        :param str property_alias: The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        :param str property_id: The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        """
         pulumi.set(__self__, "property_values", property_values)
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
@@ -3638,26 +4507,41 @@ class TopicRulePutAssetPropertyValueEntry(dict):
     @property
     @pulumi.getter(name="propertyValues")
     def property_values(self) -> Sequence['outputs.TopicRuleAssetPropertyValue']:
+        """
+        A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+        """
         return pulumi.get(self, "property_values")
 
     @property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> Optional[str]:
+        """
+        The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        """
         return pulumi.get(self, "asset_id")
 
     @property
     @pulumi.getter(name="entryId")
     def entry_id(self) -> Optional[str]:
+        """
+        Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+        """
         return pulumi.get(self, "entry_id")
 
     @property
     @pulumi.getter(name="propertyAlias")
     def property_alias(self) -> Optional[str]:
+        """
+        The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        """
         return pulumi.get(self, "property_alias")
 
     @property
     @pulumi.getter(name="propertyId")
     def property_id(self) -> Optional[str]:
+        """
+        The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
+        """
         return pulumi.get(self, "property_id")
 
 
@@ -3682,11 +4566,17 @@ class TopicRulePutItemInput(dict):
 
     def __init__(__self__, *,
                  table_name: str):
+        """
+        :param str table_name: The table where the message data will be written.
+        """
         pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The table where the message data will be written.
+        """
         return pulumi.get(self, "table_name")
 
 
@@ -3714,6 +4604,12 @@ class TopicRuleRepublishAction(dict):
                  topic: str,
                  headers: Optional['outputs.TopicRuleRepublishActionHeaders'] = None,
                  qos: Optional[int] = None):
+        """
+        :param str role_arn: The ARN of the IAM role that grants access.
+        :param str topic: The name of the MQTT topic.
+        :param 'TopicRuleRepublishActionHeaders' headers: MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+        :param int qos: The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
         if headers is not None:
@@ -3724,21 +4620,33 @@ class TopicRuleRepublishAction(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role that grants access.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def topic(self) -> str:
+        """
+        The name of the MQTT topic.
+        """
         return pulumi.get(self, "topic")
 
     @property
     @pulumi.getter
     def headers(self) -> Optional['outputs.TopicRuleRepublishActionHeaders']:
+        """
+        MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+        """
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
     def qos(self) -> Optional[int]:
+        """
+        The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
+        """
         return pulumi.get(self, "qos")
 
 
@@ -3778,6 +4686,36 @@ class TopicRuleRepublishActionHeaders(dict):
                  payload_format_indicator: Optional[str] = None,
                  response_topic: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.TopicRuleUserProperty']] = None):
+        """
+        :param str content_type: A UTF-8 encoded string that describes the content of the publishing message.
+               
+               For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+               
+               Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        :param str correlation_data: The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+               
+               For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+               
+               Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+               
+               > This binary data must be base64-encoded.
+        :param str message_expiry: A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+               
+               Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        :param str payload_format_indicator: An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+               
+               Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+               
+               For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+               
+               Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        :param str response_topic: A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+               
+               For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+               
+               Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        :param Sequence['TopicRuleUserProperty'] user_properties: An array of key-value pairs that you define in the MQTT5 header.
+        """
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
         if correlation_data is not None:
@@ -3794,31 +4732,71 @@ class TopicRuleRepublishActionHeaders(dict):
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
+        """
+        A UTF-8 encoded string that describes the content of the publishing message.
+
+        For more information, see [Content Type](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118) in the MQTT Version 5.0 specification.
+
+        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter(name="correlationData")
     def correlation_data(self) -> Optional[str]:
+        """
+        The base64-encoded binary data used by the sender of the request message to identify which request the response message is for.
+
+        For more information, see [Correlation Data](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115) in the MQTT Version 5.0 specification.
+
+        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+
+        > This binary data must be base64-encoded.
+        """
         return pulumi.get(self, "correlation_data")
 
     @property
     @pulumi.getter(name="messageExpiry")
     def message_expiry(self) -> Optional[str]:
+        """
+        A user-defined integer value that represents the message expiry interval at the broker. If the messages haven't been sent to the subscribers within that interval, the message expires and is removed. The value of `messageExpiry` represents the number of seconds before it expires. For more information about the limits of `messageExpiry` , see [Message broker and protocol limits and quotas](https://docs.aws.amazon.com//general/latest/gr/iot-core.html#limits_iot) in the IoT Core Reference Guide.
+
+        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        """
         return pulumi.get(self, "message_expiry")
 
     @property
     @pulumi.getter(name="payloadFormatIndicator")
     def payload_format_indicator(self) -> Optional[str]:
+        """
+        An `Enum` string value that indicates whether the payload is formatted as UTF-8.
+
+        Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA` .
+
+        For more information, see [Payload Format Indicator](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111) from the MQTT Version 5.0 specification.
+
+        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        """
         return pulumi.get(self, "payload_format_indicator")
 
     @property
     @pulumi.getter(name="responseTopic")
     def response_topic(self) -> Optional[str]:
+        """
+        A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic to which the receiver should publish as part of the request-response flow. The topic must not contain wildcard characters.
+
+        For more information, see [Response Topic](https://docs.aws.amazon.com/https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114) in the MQTT Version 5.0 specification.
+
+        Supports [substitution templates](https://docs.aws.amazon.com//iot/latest/developerguide/iot-substitution-templates.html) .
+        """
         return pulumi.get(self, "response_topic")
 
     @property
     @pulumi.getter(name="userProperties")
     def user_properties(self) -> Optional[Sequence['outputs.TopicRuleUserProperty']]:
+        """
+        An array of key-value pairs that you define in the MQTT5 header.
+        """
         return pulumi.get(self, "user_properties")
 
 
@@ -3850,6 +4828,12 @@ class TopicRuleS3Action(dict):
                  key: str,
                  role_arn: str,
                  canned_acl: Optional['TopicRuleCannedAccessControlList'] = None):
+        """
+        :param str bucket_name: The Amazon S3 bucket.
+        :param str key: The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+        :param str role_arn: The ARN of the IAM role that grants access.
+        :param 'TopicRuleCannedAccessControlList' canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -3859,21 +4843,33 @@ class TopicRuleS3Action(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
+        """
+        The Amazon S3 bucket.
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The object key. For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role that grants access.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="cannedAcl")
     def canned_acl(self) -> Optional['TopicRuleCannedAccessControlList']:
+        """
+        The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
+        """
         return pulumi.get(self, "canned_acl")
 
 
@@ -3904,6 +4900,11 @@ class TopicRuleSigV4Authorization(dict):
                  role_arn: str,
                  service_name: str,
                  signing_region: str):
+        """
+        :param str role_arn: The ARN of the signing role.
+        :param str service_name: The service name to use while signing with Sig V4.
+        :param str signing_region: The signing region.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "signing_region", signing_region)
@@ -3911,16 +4912,25 @@ class TopicRuleSigV4Authorization(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the signing role.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> str:
+        """
+        The service name to use while signing with Sig V4.
+        """
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter(name="signingRegion")
     def signing_region(self) -> str:
+        """
+        The signing region.
+        """
         return pulumi.get(self, "signing_region")
 
 
@@ -3951,6 +4961,11 @@ class TopicRuleSnsAction(dict):
                  role_arn: str,
                  target_arn: str,
                  message_format: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of the IAM role that grants access.
+        :param str target_arn: The ARN of the SNS topic.
+        :param str message_format: (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
         if message_format is not None:
@@ -3959,16 +4974,25 @@ class TopicRuleSnsAction(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role that grants access.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> str:
+        """
+        The ARN of the SNS topic.
+        """
         return pulumi.get(self, "target_arn")
 
     @property
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[str]:
+        """
+        (Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
+        """
         return pulumi.get(self, "message_format")
 
 
@@ -3999,6 +5023,11 @@ class TopicRuleSqsAction(dict):
                  queue_url: str,
                  role_arn: str,
                  use_base64: Optional[bool] = None):
+        """
+        :param str queue_url: The URL of the Amazon SQS queue.
+        :param str role_arn: The ARN of the IAM role that grants access.
+        :param bool use_base64: Specifies whether to use Base64 encoding.
+        """
         pulumi.set(__self__, "queue_url", queue_url)
         pulumi.set(__self__, "role_arn", role_arn)
         if use_base64 is not None:
@@ -4007,16 +5036,25 @@ class TopicRuleSqsAction(dict):
     @property
     @pulumi.getter(name="queueUrl")
     def queue_url(self) -> str:
+        """
+        The URL of the Amazon SQS queue.
+        """
         return pulumi.get(self, "queue_url")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role that grants access.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="useBase64")
     def use_base64(self) -> Optional[bool]:
+        """
+        Specifies whether to use Base64 encoding.
+        """
         return pulumi.get(self, "use_base64")
 
 
@@ -4047,6 +5085,11 @@ class TopicRuleStepFunctionsAction(dict):
                  role_arn: str,
                  state_machine_name: str,
                  execution_name_prefix: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+        :param str state_machine_name: The name of the Step Functions state machine whose execution will be started.
+        :param str execution_name_prefix: (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
+        """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "state_machine_name", state_machine_name)
         if execution_name_prefix is not None:
@@ -4055,16 +5098,25 @@ class TopicRuleStepFunctionsAction(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stateMachineName")
     def state_machine_name(self) -> str:
+        """
+        The name of the Step Functions state machine whose execution will be started.
+        """
         return pulumi.get(self, "state_machine_name")
 
     @property
     @pulumi.getter(name="executionNamePrefix")
     def execution_name_prefix(self) -> Optional[str]:
+        """
+        (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
+        """
         return pulumi.get(self, "execution_name_prefix")
 
 
@@ -4073,6 +5125,10 @@ class TopicRuleTimestamp(dict):
     def __init__(__self__, *,
                  value: str,
                  unit: Optional[str] = None):
+        """
+        :param str value: An expression that returns a long epoch time value.
+        :param str unit: The precision of the timestamp value that results from the expression described in `value` .
+        """
         pulumi.set(__self__, "value", value)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
@@ -4080,11 +5136,17 @@ class TopicRuleTimestamp(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        An expression that returns a long epoch time value.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def unit(self) -> Optional[str]:
+        """
+        The precision of the timestamp value that results from the expression described in `value` .
+        """
         return pulumi.get(self, "unit")
 
 
@@ -4117,6 +5179,13 @@ class TopicRuleTimestreamAction(dict):
                  role_arn: str,
                  table_name: str,
                  timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None):
+        """
+        :param str database_name: The name of an Amazon Timestream database that has the table to write records into.
+        :param Sequence['TopicRuleTimestreamDimension'] dimensions: Metadata attributes of the time series that are written in each measure record.
+        :param str role_arn: The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
+        :param str table_name: The table where the message data will be written.
+        :param 'TopicRuleTimestreamTimestamp' timestamp: The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
+        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -4127,26 +5196,41 @@ class TopicRuleTimestreamAction(dict):
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
+        """
+        The name of an Amazon Timestream database that has the table to write records into.
+        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.TopicRuleTimestreamDimension']:
+        """
+        Metadata attributes of the time series that are written in each measure record.
+        """
         return pulumi.get(self, "dimensions")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
+        """
+        The table where the message data will be written.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
     def timestamp(self) -> Optional['outputs.TopicRuleTimestreamTimestamp']:
+        """
+        The value to use for the entry's timestamp. If blank, the time that the entry was processed is used.
+        """
         return pulumi.get(self, "timestamp")
 
 
@@ -4174,17 +5258,27 @@ class TopicRuleTimestreamTimestamp(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: str):
+        """
+        :param str unit: The precision of the timestamp value that results from the expression described in `value` .
+        :param str value: An expression that returns a long epoch time value.
+        """
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def unit(self) -> str:
+        """
+        The precision of the timestamp value that results from the expression described in `value` .
+        """
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        An expression that returns a long epoch time value.
+        """
         return pulumi.get(self, "value")
 
 

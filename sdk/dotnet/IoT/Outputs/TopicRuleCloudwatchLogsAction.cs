@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleCloudwatchLogsAction
     {
+        /// <summary>
+        /// Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+        /// </summary>
         public readonly bool? BatchMode;
+        /// <summary>
+        /// The CloudWatch log name.
+        /// </summary>
         public readonly string LogGroupName;
+        /// <summary>
+        /// The IAM role that allows access to the CloudWatch log.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

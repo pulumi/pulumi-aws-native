@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("computations")]
         private InputList<Inputs.TemplateComputationArgs>? _computations;
+
+        /// <summary>
+        /// The computations configurations of the insight visual
+        /// </summary>
         public InputList<Inputs.TemplateComputationArgs> Computations
         {
             get => _computations ?? (_computations = new InputList<Inputs.TemplateComputationArgs>());
             set => _computations = value;
         }
 
+        /// <summary>
+        /// The custom narrative of the insight visual.
+        /// </summary>
         [Input("customNarrative")]
         public Input<Inputs.TemplateCustomNarrativeOptionsArgs>? CustomNarrative { get; set; }
 

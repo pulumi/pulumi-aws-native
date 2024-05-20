@@ -114,12 +114,23 @@ export class RegistryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryPolicy.__pulumiType;
     }
 
+    /**
+     * The ID of the policy.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
+     * A resource-based policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any>;
+    /**
+     * The name of the registry.
+     */
     public readonly registryName!: pulumi.Output<string>;
+    /**
+     * The revision ID of the policy.
+     */
     public readonly revisionId!: pulumi.Output<string | undefined>;
 
     /**
@@ -159,9 +170,17 @@ export class RegistryPolicy extends pulumi.CustomResource {
  */
 export interface RegistryPolicyArgs {
     /**
+     * A resource-based policy.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
      */
     policy: any;
+    /**
+     * The name of the registry.
+     */
     registryName: pulumi.Input<string>;
+    /**
+     * The revision ID of the policy.
+     */
     revisionId?: pulumi.Input<string>;
 }

@@ -19,11 +19,20 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
 }
 
 export interface GetApiArgs {
+    /**
+     * The API identifier.
+     */
     apiId: string;
 }
 
 export interface GetApiResult {
+    /**
+     * The default endpoint for an API. For example: `https://abcdef.execute-api.us-west-2.amazonaws.com` .
+     */
     readonly apiEndpoint?: string;
+    /**
+     * The API identifier.
+     */
     readonly apiId?: string;
     /**
      * An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
@@ -66,5 +75,8 @@ export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetApiOutputArgs {
+    /**
+     * The API identifier.
+     */
     apiId: pulumi.Input<string>;
 }

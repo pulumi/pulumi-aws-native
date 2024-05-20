@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentSortProperty
     {
+        /// <summary>
+        /// The direction of the sort, either ascending or descending.
+        /// </summary>
         public readonly Pulumi.AwsNative.AmplifyUiBuilder.ComponentSortDirection Direction;
+        /// <summary>
+        /// The field to perform the sort on.
+        /// </summary>
         public readonly string Field;
 
         [OutputConstructor]

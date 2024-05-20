@@ -15,9 +15,18 @@ import (
 type ZonalAutoshiftConfiguration struct {
 	pulumi.CustomResourceState
 
+	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
+	//
+	// Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
+	//
+	// You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
 	PracticeRunConfiguration ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput `pulumi:"practiceRunConfiguration"`
-	ResourceIdentifier       pulumi.StringPtrOutput                                       `pulumi:"resourceIdentifier"`
-	ZonalAutoshiftStatus     ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput     `pulumi:"zonalAutoshiftStatus"`
+	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+	//
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
+	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+	ZonalAutoshiftStatus ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput `pulumi:"zonalAutoshiftStatus"`
 }
 
 // NewZonalAutoshiftConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -64,16 +73,34 @@ func (ZonalAutoshiftConfigurationState) ElementType() reflect.Type {
 }
 
 type zonalAutoshiftConfigurationArgs struct {
+	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
+	//
+	// Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
+	//
+	// You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
 	PracticeRunConfiguration *ZonalAutoshiftConfigurationPracticeRunConfiguration `pulumi:"practiceRunConfiguration"`
-	ResourceIdentifier       *string                                              `pulumi:"resourceIdentifier"`
-	ZonalAutoshiftStatus     *ZonalAutoshiftConfigurationZonalAutoshiftStatus     `pulumi:"zonalAutoshiftStatus"`
+	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+	//
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
+	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+	ZonalAutoshiftStatus *ZonalAutoshiftConfigurationZonalAutoshiftStatus `pulumi:"zonalAutoshiftStatus"`
 }
 
 // The set of arguments for constructing a ZonalAutoshiftConfiguration resource.
 type ZonalAutoshiftConfigurationArgs struct {
+	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
+	//
+	// Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
+	//
+	// You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
 	PracticeRunConfiguration ZonalAutoshiftConfigurationPracticeRunConfigurationPtrInput
-	ResourceIdentifier       pulumi.StringPtrInput
-	ZonalAutoshiftStatus     ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrInput
+	// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+	//
+	// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
+	ResourceIdentifier pulumi.StringPtrInput
+	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
+	ZonalAutoshiftStatus ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrInput
 }
 
 func (ZonalAutoshiftConfigurationArgs) ElementType() reflect.Type {
@@ -113,16 +140,25 @@ func (o ZonalAutoshiftConfigurationOutput) ToZonalAutoshiftConfigurationOutputWi
 	return o
 }
 
+// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
+//
+// Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
+//
+// You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
 func (o ZonalAutoshiftConfigurationOutput) PracticeRunConfiguration() ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfiguration) ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput {
 		return v.PracticeRunConfiguration
 	}).(ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput)
 }
 
+// The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
+//
+// At this time, supported resources are Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.
 func (o ZonalAutoshiftConfigurationOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfiguration) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
 func (o ZonalAutoshiftConfigurationOutput) ZonalAutoshiftStatus() ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput {
 	return o.ApplyT(func(v *ZonalAutoshiftConfiguration) ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput {
 		return v.ZonalAutoshiftStatus

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleIotSiteWiseAction
     {
+        /// <summary>
+        /// A list of asset property value entries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TopicRulePutAssetPropertyValueEntry> PutAssetPropertyValueEntries;
+        /// <summary>
+        /// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

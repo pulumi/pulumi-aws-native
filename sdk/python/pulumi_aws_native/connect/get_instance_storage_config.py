@@ -43,31 +43,49 @@ class GetInstanceStorageConfigResult:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[str]:
+        """
+        The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="kinesisFirehoseConfig")
     def kinesis_firehose_config(self) -> Optional['outputs.InstanceStorageConfigKinesisFirehoseConfig']:
+        """
+        The configuration of the Kinesis Firehose delivery stream.
+        """
         return pulumi.get(self, "kinesis_firehose_config")
 
     @property
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> Optional['outputs.InstanceStorageConfigKinesisStreamConfig']:
+        """
+        The configuration of the Kinesis data stream.
+        """
         return pulumi.get(self, "kinesis_stream_config")
 
     @property
     @pulumi.getter(name="kinesisVideoStreamConfig")
     def kinesis_video_stream_config(self) -> Optional['outputs.InstanceStorageConfigKinesisVideoStreamConfig']:
+        """
+        The configuration of the Kinesis video stream.
+        """
         return pulumi.get(self, "kinesis_video_stream_config")
 
     @property
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> Optional['outputs.InstanceStorageConfigS3Config']:
+        """
+        The S3 bucket configuration.
+        """
         return pulumi.get(self, "s3_config")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional['InstanceStorageConfigStorageType']:
+        """
+        A valid storage type.
+        """
         return pulumi.get(self, "storage_type")
 
 
@@ -93,7 +111,9 @@ def get_instance_storage_config(association_id: Optional[str] = None,
     Resource Type definition for AWS::Connect::InstanceStorageConfig
 
 
+    :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param str instance_arn: Connect Instance ID with which the storage config will be associated
+    :param 'InstanceStorageConfigInstanceStorageResourceType' resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -120,6 +140,8 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
     Resource Type definition for AWS::Connect::InstanceStorageConfig
 
 
+    :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param str instance_arn: Connect Instance ID with which the storage config will be associated
+    :param 'InstanceStorageConfigInstanceStorageResourceType' resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
     """
     ...

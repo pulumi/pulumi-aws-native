@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelPackageDriftCheckBaselines
     {
+        /// <summary>
+        /// Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
+        /// </summary>
         public readonly Outputs.ModelPackageDriftCheckBias? Bias;
+        /// <summary>
+        /// Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
+        /// </summary>
         public readonly Outputs.ModelPackageDriftCheckExplainability? Explainability;
+        /// <summary>
+        /// Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
+        /// </summary>
         public readonly Outputs.ModelPackageDriftCheckModelDataQuality? ModelDataQuality;
+        /// <summary>
+        /// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
+        /// </summary>
         public readonly Outputs.ModelPackageDriftCheckModelQuality? ModelQuality;
 
         [OutputConstructor]

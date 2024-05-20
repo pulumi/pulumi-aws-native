@@ -39,9 +39,15 @@ namespace Pulumi.AwsNative.Proton
         [Output("encryptionKey")]
         public Output<string?> EncryptionKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service template.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
+        /// </summary>
         [Output("pipelineProvisioning")]
         public Output<Pulumi.AwsNative.Proton.ServiceTemplateProvisioning?> PipelineProvisioning { get; private set; } = null!;
 
@@ -122,9 +128,15 @@ namespace Pulumi.AwsNative.Proton
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
+        /// <summary>
+        /// The name of the service template.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
+        /// </summary>
         [Input("pipelineProvisioning")]
         public Input<Pulumi.AwsNative.Proton.ServiceTemplateProvisioning>? PipelineProvisioning { get; set; }
 

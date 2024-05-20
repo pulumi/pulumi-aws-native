@@ -19,15 +19,24 @@ export function getTransitGatewayVpcAttachment(args: GetTransitGatewayVpcAttachm
 }
 
 export interface GetTransitGatewayVpcAttachmentArgs {
+    /**
+     * The ID of the attachment.
+     */
     id: string;
 }
 
 export interface GetTransitGatewayVpcAttachmentResult {
+    /**
+     * The ID of the attachment.
+     */
     readonly id?: string;
     /**
      * The options for the transit gateway vpc attachment.
      */
     readonly options?: outputs.ec2.OptionsProperties;
+    /**
+     * The tags for the VPC attachment.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -38,5 +47,8 @@ export function getTransitGatewayVpcAttachmentOutput(args: GetTransitGatewayVpcA
 }
 
 export interface GetTransitGatewayVpcAttachmentOutputArgs {
+    /**
+     * The ID of the attachment.
+     */
     id: pulumi.Input<string>;
 }

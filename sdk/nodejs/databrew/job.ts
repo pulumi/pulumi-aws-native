@@ -64,7 +64,13 @@ export class Job extends pulumi.CustomResource {
         return obj['__pulumiType'] === Job.__pulumiType;
     }
 
+    /**
+     * One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+     */
     public readonly dataCatalogOutputs!: pulumi.Output<outputs.databrew.JobDataCatalogOutput[] | undefined>;
+    /**
+     * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+     */
     public readonly databaseOutputs!: pulumi.Output<outputs.databrew.JobDatabaseOutput[] | undefined>;
     /**
      * Dataset name
@@ -102,6 +108,9 @@ export class Job extends pulumi.CustomResource {
      * Output location
      */
     public readonly outputLocation!: pulumi.Output<outputs.databrew.JobOutputLocation | undefined>;
+    /**
+     * One or more artifacts that represent output from running the job.
+     */
     public readonly outputs!: pulumi.Output<outputs.databrew.JobOutput[] | undefined>;
     /**
      * Profile Job configuration
@@ -111,11 +120,17 @@ export class Job extends pulumi.CustomResource {
      * Project name
      */
     public readonly projectName!: pulumi.Output<string | undefined>;
+    /**
+     * A series of data transformation steps that the job runs.
+     */
     public readonly recipe!: pulumi.Output<outputs.databrew.JobRecipe | undefined>;
     /**
      * Role arn
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * Metadata tags that have been applied to the job.
+     */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
      * Timeout
@@ -200,7 +215,13 @@ export class Job extends pulumi.CustomResource {
  * The set of arguments for constructing a Job resource.
  */
 export interface JobArgs {
+    /**
+     * One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
+     */
     dataCatalogOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDataCatalogOutputArgs>[]>;
+    /**
+     * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+     */
     databaseOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDatabaseOutputArgs>[]>;
     /**
      * Dataset name
@@ -238,6 +259,9 @@ export interface JobArgs {
      * Output location
      */
     outputLocation?: pulumi.Input<inputs.databrew.JobOutputLocationArgs>;
+    /**
+     * One or more artifacts that represent output from running the job.
+     */
     outputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobOutputArgs>[]>;
     /**
      * Profile Job configuration
@@ -247,11 +271,17 @@ export interface JobArgs {
      * Project name
      */
     projectName?: pulumi.Input<string>;
+    /**
+     * A series of data transformation steps that the job runs.
+     */
     recipe?: pulumi.Input<inputs.databrew.JobRecipeArgs>;
     /**
      * Role arn
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * Metadata tags that have been applied to the job.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**
      * Timeout

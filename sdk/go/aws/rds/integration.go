@@ -17,8 +17,12 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
+	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+	//
+	// You can only include this parameter if you specify the `KMSKeyId` parameter.
 	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
-	CreateTime                  pulumi.StringOutput    `pulumi:"createTime"`
+	// The time when the integration was created, in Universal Coordinated Time (UTC).
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// The data filter for the integration.
 	DataFilter pulumi.StringPtrOutput `pulumi:"dataFilter"`
 	// The description of the integration.
@@ -90,6 +94,9 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
+	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+	//
+	// You can only include this parameter if you specify the `KMSKeyId` parameter.
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
 	// The data filter for the integration.
 	DataFilter *string `pulumi:"dataFilter"`
@@ -109,6 +116,9 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
+	// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+	//
+	// You can only include this parameter if you specify the `KMSKeyId` parameter.
 	AdditionalEncryptionContext pulumi.StringMapInput
 	// The data filter for the integration.
 	DataFilter pulumi.StringPtrInput
@@ -163,10 +173,14 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+//
+// You can only include this parameter if you specify the `KMSKeyId` parameter.
 func (o IntegrationOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
+// The time when the integration was created, in Universal Coordinated Time (UTC).
 func (o IntegrationOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }

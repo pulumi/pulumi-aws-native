@@ -29,11 +29,17 @@ class GetAttributeGroupAssociationResult:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) of the application that was augmented with attributes.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="attributeGroupArn")
     def attribute_group_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
+        """
         return pulumi.get(self, "attribute_group_arn")
 
 
@@ -52,6 +58,10 @@ def get_attribute_group_association(application_arn: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttributeGroupAssociationResult:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
+
+
+    :param str application_arn: The Amazon resource name (ARN) of the application that was augmented with attributes.
+    :param str attribute_group_arn: The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -70,5 +80,9 @@ def get_attribute_group_association_output(application_arn: Optional[pulumi.Inpu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
+
+
+    :param str application_arn: The Amazon resource name (ARN) of the application that was augmented with attributes.
+    :param str attribute_group_arn: The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
     """
     ...

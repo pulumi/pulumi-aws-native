@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInterfaceAttachmentEnaSrdSpecification
     {
+        /// <summary>
+        /// Indicates whether ENA Express is enabled for the network interface.
+        /// </summary>
         public readonly bool? EnaSrdEnabled;
+        /// <summary>
+        /// Configures ENA Express for UDP network traffic.
+        /// </summary>
         public readonly Outputs.NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties? EnaSrdUdpSpecification;
 
         [OutputConstructor]

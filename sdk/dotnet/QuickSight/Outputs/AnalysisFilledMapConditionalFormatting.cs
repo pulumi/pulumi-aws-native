@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilledMapConditionalFormatting
     {
+        /// <summary>
+        /// Conditional formatting options of a `FilledMapVisual` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFilledMapConditionalFormattingOption> ConditionalFormattingOptions;
 
         [OutputConstructor]

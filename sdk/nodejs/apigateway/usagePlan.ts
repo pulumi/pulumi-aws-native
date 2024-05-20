@@ -42,6 +42,9 @@ export class UsagePlan extends pulumi.CustomResource {
      * The associated API stages of a usage plan.
      */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
+    /**
+     * The ID for the usage plan. For example: `abc123` .
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The description of a usage plan.

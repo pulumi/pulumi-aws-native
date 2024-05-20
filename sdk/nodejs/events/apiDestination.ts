@@ -45,12 +45,21 @@ export class ApiDestination extends pulumi.CustomResource {
      * The arn of the connection.
      */
     public readonly connectionArn!: pulumi.Output<string>;
+    /**
+     * A description for the API destination to create.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The method to use for the request to the HTTP invocation endpoint.
+     */
     public readonly httpMethod!: pulumi.Output<enums.events.ApiDestinationHttpMethod>;
     /**
      * Url endpoint to invoke.
      */
     public readonly invocationEndpoint!: pulumi.Output<string>;
+    /**
+     * The maximum number of requests per second to send to the HTTP invocation endpoint.
+     */
     public readonly invocationRateLimitPerSecond!: pulumi.Output<number | undefined>;
     /**
      * Name of the apiDestination.
@@ -108,12 +117,21 @@ export interface ApiDestinationArgs {
      * The arn of the connection.
      */
     connectionArn: pulumi.Input<string>;
+    /**
+     * A description for the API destination to create.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The method to use for the request to the HTTP invocation endpoint.
+     */
     httpMethod: pulumi.Input<enums.events.ApiDestinationHttpMethod>;
     /**
      * Url endpoint to invoke.
      */
     invocationEndpoint: pulumi.Input<string>;
+    /**
+     * The maximum number of requests per second to send to the HTTP invocation endpoint.
+     */
     invocationRateLimitPerSecond?: pulumi.Input<number>;
     /**
      * Name of the apiDestination.

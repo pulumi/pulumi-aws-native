@@ -39,7 +39,13 @@ export class AlarmModel extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlarmModel.__pulumiType;
     }
 
+    /**
+     * Contains the configuration information of alarm state changes.
+     */
     public readonly alarmCapabilities!: pulumi.Output<outputs.iotevents.AlarmModelAlarmCapabilities | undefined>;
+    /**
+     * Contains information about one or more alarm actions.
+     */
     public readonly alarmEventActions!: pulumi.Output<outputs.iotevents.AlarmModelAlarmEventActions | undefined>;
     /**
      * A brief description of the alarm model.
@@ -49,6 +55,9 @@ export class AlarmModel extends pulumi.CustomResource {
      * The name of the alarm model.
      */
     public readonly alarmModelName!: pulumi.Output<string | undefined>;
+    /**
+     * Defines when your alarm is invoked.
+     */
     public readonly alarmRule!: pulumi.Output<outputs.iotevents.AlarmModelAlarmRule>;
     /**
      * The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
@@ -119,7 +128,13 @@ export class AlarmModel extends pulumi.CustomResource {
  * The set of arguments for constructing a AlarmModel resource.
  */
 export interface AlarmModelArgs {
+    /**
+     * Contains the configuration information of alarm state changes.
+     */
     alarmCapabilities?: pulumi.Input<inputs.iotevents.AlarmModelAlarmCapabilitiesArgs>;
+    /**
+     * Contains information about one or more alarm actions.
+     */
     alarmEventActions?: pulumi.Input<inputs.iotevents.AlarmModelAlarmEventActionsArgs>;
     /**
      * A brief description of the alarm model.
@@ -129,6 +144,9 @@ export interface AlarmModelArgs {
      * The name of the alarm model.
      */
     alarmModelName?: pulumi.Input<string>;
+    /**
+     * Defines when your alarm is invoked.
+     */
     alarmRule: pulumi.Input<inputs.iotevents.AlarmModelAlarmRuleArgs>;
     /**
      * The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.

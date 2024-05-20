@@ -73,7 +73,19 @@ namespace Pulumi.AwsNative.SageMaker
         /// The space Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? SpaceArn;
+        /// <summary>
+        /// The name of the space that appears in the Studio UI.
+        /// </summary>
         public readonly string? SpaceDisplayName;
+        /// <summary>
+        /// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
+        /// 
+        /// The following application types are supported:
+        /// 
+        /// - Studio Classic: `&amp;redirect=JupyterServer`
+        /// - JupyterLab: `&amp;redirect=JupyterLab`
+        /// - Code Editor, based on Code-OSS, Visual Studio Code - Open Source: `&amp;redirect=CodeEditor`
+        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

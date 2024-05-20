@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetCloudFormationProvisionedProductArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the provisioned product.
+        /// </summary>
         [Input("provisionedProductId", required: true)]
         public string ProvisionedProductId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetCloudFormationProvisionedProductInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the provisioned product.
+        /// </summary>
         [Input("provisionedProductId", required: true)]
         public Input<string> ProvisionedProductId { get; set; } = null!;
 
@@ -51,22 +57,77 @@ namespace Pulumi.AwsNative.ServiceCatalog
     [OutputType]
     public sealed class GetCloudFormationProvisionedProductResult
     {
+        /// <summary>
+        /// The language code.
+        /// 
+        /// - `jp` - Japanese
+        /// - `zh` - Chinese
+        /// </summary>
         public readonly Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductAcceptLanguage? AcceptLanguage;
         public readonly string? CloudformationStackArn;
         /// <summary>
         /// List of key-value pair outputs.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Outputs;
+        /// <summary>
+        /// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+        /// 
+        /// &gt; You must provide the name or ID, but not both.
+        /// </summary>
         public readonly string? PathId;
+        /// <summary>
+        /// The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
+        /// 
+        /// &gt; You must provide the name or ID, but not both.
+        /// </summary>
         public readonly string? PathName;
+        /// <summary>
+        /// The product identifier.
+        /// 
+        /// &gt; You must specify either the ID or the name of the product, but not both.
+        /// </summary>
         public readonly string? ProductId;
+        /// <summary>
+        /// The name of the Service Catalog product.
+        /// 
+        /// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
+        /// 
+        /// &gt; You must specify either the name or the ID of the product, but not both.
+        /// </summary>
         public readonly string? ProductName;
+        /// <summary>
+        /// The ID of the provisioned product.
+        /// </summary>
         public readonly string? ProvisionedProductId;
+        /// <summary>
+        /// The identifier of the provisioning artifact (also known as a version).
+        /// 
+        /// &gt; You must specify either the ID or the name of the provisioning artifact, but not both.
+        /// </summary>
         public readonly string? ProvisioningArtifactId;
+        /// <summary>
+        /// The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
+        /// 
+        /// &gt; You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
+        /// </summary>
         public readonly string? ProvisioningArtifactName;
+        /// <summary>
+        /// Parameters specified by the administrator that are required for provisioning the product.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CloudFormationProvisionedProductProvisioningParameter> ProvisioningParameters;
+        /// <summary>
+        /// StackSet preferences that are required for provisioning the product or updating a provisioned product.
+        /// </summary>
         public readonly Outputs.CloudFormationProvisionedProductProvisioningPreferences? ProvisioningPreferences;
+        /// <summary>
+        /// The ID of the record, such as `rec-rjeatvy434trk` .
+        /// </summary>
         public readonly string? RecordId;
+        /// <summary>
+        /// One or more tags.
+        /// 
+        /// &gt; Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentDataConfiguration
     {
+        /// <summary>
+        /// A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+        /// </summary>
         public readonly ImmutableArray<string> Identifiers;
+        /// <summary>
+        /// The name of the data model to use to bind data to a component.
+        /// </summary>
         public readonly string Model;
+        /// <summary>
+        /// Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
+        /// </summary>
         public readonly Outputs.ComponentPredicate? Predicate;
+        /// <summary>
+        /// Describes how to sort the component's properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ComponentSortProperty> Sort;
 
         [OutputConstructor]

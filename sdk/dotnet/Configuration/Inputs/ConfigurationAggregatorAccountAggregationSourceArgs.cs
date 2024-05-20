@@ -14,17 +14,28 @@ namespace Pulumi.AwsNative.Configuration.Inputs
     {
         [Input("accountIds", required: true)]
         private InputList<string>? _accountIds;
+
+        /// <summary>
+        /// The 12-digit account ID of the account being aggregated.
+        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
 
+        /// <summary>
+        /// If true, aggregate existing AWS Config regions and future regions.
+        /// </summary>
         [Input("allAwsRegions")]
         public Input<bool>? AllAwsRegions { get; set; }
 
         [Input("awsRegions")]
         private InputList<string>? _awsRegions;
+
+        /// <summary>
+        /// The source regions being aggregated.
+        /// </summary>
         public InputList<string> AwsRegions
         {
             get => _awsRegions ?? (_awsRegions = new InputList<string>());

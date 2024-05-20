@@ -17,7 +17,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// A key-value pair to configure the logDestinations.
         /// </summary>
         public readonly ImmutableDictionary<string, string> LogDestination;
+        /// <summary>
+        /// The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
+        /// </summary>
         public readonly Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogDestinationType LogDestinationType;
+        /// <summary>
+        /// The type of log to send. Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
+        /// </summary>
         public readonly Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogType LogType;
 
         [OutputConstructor]

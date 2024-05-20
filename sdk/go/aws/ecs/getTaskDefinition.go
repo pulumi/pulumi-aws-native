@@ -29,6 +29,7 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, o
 }
 
 type LookupTaskDefinitionArgs struct {
+	// The ARN of the task definition.
 	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
 }
 
@@ -42,8 +43,9 @@ type LookupTaskDefinitionResult struct {
 	//   +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 	//   +  Tag keys and values are case-sensitive.
 	//   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-	Tags              []aws.Tag `pulumi:"tags"`
-	TaskDefinitionArn *string   `pulumi:"taskDefinitionArn"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ARN of the task definition.
+	TaskDefinitionArn *string `pulumi:"taskDefinitionArn"`
 }
 
 func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
@@ -60,6 +62,7 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 }
 
 type LookupTaskDefinitionOutputArgs struct {
+	// The ARN of the task definition.
 	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
 }
 
@@ -95,6 +98,7 @@ func (o LookupTaskDefinitionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ARN of the task definition.
 func (o LookupTaskDefinitionResultOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) *string { return v.TaskDefinitionArn }).(pulumi.StringPtrOutput)
 }

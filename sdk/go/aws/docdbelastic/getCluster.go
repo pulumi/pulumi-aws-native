@@ -28,17 +28,35 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
-	BackupRetentionPeriod      *int      `pulumi:"backupRetentionPeriod"`
-	ClusterArn                 *string   `pulumi:"clusterArn"`
-	ClusterEndpoint            *string   `pulumi:"clusterEndpoint"`
-	PreferredBackupWindow      *string   `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
-	ShardCapacity              *int      `pulumi:"shardCapacity"`
-	ShardCount                 *int      `pulumi:"shardCount"`
-	ShardInstanceCount         *int      `pulumi:"shardInstanceCount"`
-	SubnetIds                  []string  `pulumi:"subnetIds"`
-	Tags                       []aws.Tag `pulumi:"tags"`
-	VpcSecurityGroupIds        []string  `pulumi:"vpcSecurityGroupIds"`
+	// The number of days for which automatic snapshots are retained.
+	BackupRetentionPeriod *int    `pulumi:"backupRetentionPeriod"`
+	ClusterArn            *string `pulumi:"clusterArn"`
+	// The URL used to connect to the elastic cluster.
+	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
+	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
+	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+	//
+	// *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+	//
+	// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+	//
+	// *Constraints* : Minimum 30-minute window.
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
+	ShardCapacity *int `pulumi:"shardCapacity"`
+	// The number of shards assigned to the elastic cluster. Maximum is 32.
+	ShardCount *int `pulumi:"shardCount"`
+	// The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
+	ShardInstanceCount *int `pulumi:"shardInstanceCount"`
+	// The Amazon EC2 subnet IDs for the new elastic cluster.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The tags to be assigned to the new elastic cluster.
+	Tags []aws.Tag `pulumi:"tags"`
+	// A list of EC2 VPC security groups to associate with the new elastic cluster.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -76,6 +94,7 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// The number of days for which automatic snapshots are retained.
 func (o LookupClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
@@ -84,38 +103,55 @@ func (o LookupClusterResultOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterArn }).(pulumi.StringPtrOutput)
 }
 
+// The URL used to connect to the elastic cluster.
 func (o LookupClusterResultOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
 func (o LookupClusterResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
+// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+//
+// *Format* : `ddd:hh24:mi-ddd:hh24:mi`
+//
+// *Default* : a 30-minute window selected at random from an 8-hour block of time for each AWS Region , occurring on a random day of the week.
+//
+// *Valid days* : Mon, Tue, Wed, Thu, Fri, Sat, Sun
+//
+// *Constraints* : Minimum 30-minute window.
 func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
 func (o LookupClusterResultOutput) ShardCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.ShardCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The number of shards assigned to the elastic cluster. Maximum is 32.
 func (o LookupClusterResultOutput) ShardCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.ShardCount }).(pulumi.IntPtrOutput)
 }
 
+// The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
 func (o LookupClusterResultOutput) ShardInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.ShardInstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon EC2 subnet IDs for the new elastic cluster.
 func (o LookupClusterResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The tags to be assigned to the new elastic cluster.
 func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// A list of EC2 VPC security groups to associate with the new elastic cluster.
 func (o LookupClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

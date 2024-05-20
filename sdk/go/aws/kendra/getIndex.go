@@ -24,10 +24,12 @@ func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.Invo
 }
 
 type LookupIndexArgs struct {
+	// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 	Id string `pulumi:"id"`
 }
 
 type LookupIndexResult struct {
+	// The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
 	Arn *string `pulumi:"arn"`
 	// Capacity units
 	CapacityUnits *IndexCapacityUnitsConfiguration `pulumi:"capacityUnits"`
@@ -35,12 +37,25 @@ type LookupIndexResult struct {
 	Description *string `pulumi:"description"`
 	// Document metadata configurations
 	DocumentMetadataConfigurations []IndexDocumentMetadataConfiguration `pulumi:"documentMetadataConfigurations"`
-	Id                             *string                              `pulumi:"id"`
-	Name                           *string                              `pulumi:"name"`
-	RoleArn                        *string                              `pulumi:"roleArn"`
+	// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
+	Id *string `pulumi:"id"`
+	// The name of the index.
+	Name *string `pulumi:"name"`
+	// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
+	RoleArn *string `pulumi:"roleArn"`
 	// Tags for labeling the index
-	Tags                    []aws.Tag                     `pulumi:"tags"`
-	UserContextPolicy       *IndexUserContextPolicy       `pulumi:"userContextPolicy"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The user context policy.
+	//
+	// ATTRIBUTE_FILTER
+	//
+	// - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+	//
+	// USER_TOKEN
+	//
+	// - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
+	UserContextPolicy *IndexUserContextPolicy `pulumi:"userContextPolicy"`
+	// Defines the type of user token used for the index.
 	UserTokenConfigurations []IndexUserTokenConfiguration `pulumi:"userTokenConfigurations"`
 }
 
@@ -58,6 +73,7 @@ func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...
 }
 
 type LookupIndexOutputArgs struct {
+	// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -79,6 +95,7 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the index. For example: `arn:aws:kendra:us-west-2:111122223333:index/0123456789abcdef` .
 func (o LookupIndexResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -100,14 +117,17 @@ func (o LookupIndexResultOutput) DocumentMetadataConfigurations() IndexDocumentM
 	}).(IndexDocumentMetadataConfigurationArrayOutput)
 }
 
+// The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
 func (o LookupIndexResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the index.
 func (o LookupIndexResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
 func (o LookupIndexResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -117,10 +137,20 @@ func (o LookupIndexResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The user context policy.
+//
+// ATTRIBUTE_FILTER
+//
+// - All indexed content is searchable and displayable for all users. If you want to filter search results on user context, you can use the attribute filters of `_user_id` and `_group_ids` or you can provide user and group information in `UserContext` .
+//
+// USER_TOKEN
+//
+// - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
 func (o LookupIndexResultOutput) UserContextPolicy() IndexUserContextPolicyPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexUserContextPolicy { return v.UserContextPolicy }).(IndexUserContextPolicyPtrOutput)
 }
 
+// Defines the type of user token used for the index.
 func (o LookupIndexResultOutput) UserTokenConfigurations() IndexUserTokenConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupIndexResult) []IndexUserTokenConfiguration { return v.UserTokenConfigurations }).(IndexUserTokenConfigurationArrayOutput)
 }

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.RoboMaker
     [AwsNativeResourceType("aws-native:robomaker:RobotApplicationVersion")]
     public partial class RobotApplicationVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application information for the robot application.
+        /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
 
+        /// <summary>
+        /// The robot application version.
+        /// </summary>
         [Output("applicationVersion")]
         public Output<string> ApplicationVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the robot application version.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -80,6 +89,9 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class RobotApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application information for the robot application.
+        /// </summary>
         [Input("application", required: true)]
         public Input<string> Application { get; set; } = null!;
 

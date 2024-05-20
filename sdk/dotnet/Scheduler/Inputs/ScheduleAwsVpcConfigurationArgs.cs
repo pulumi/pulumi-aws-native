@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
     /// </summary>
     public sealed class ScheduleAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
+        /// </summary>
         [Input("assignPublicIp")]
         public Input<Pulumi.AwsNative.Scheduler.ScheduleAssignPublicIp>? AssignPublicIp { get; set; }
 

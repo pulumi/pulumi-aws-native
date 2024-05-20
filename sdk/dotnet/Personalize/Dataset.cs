@@ -89,6 +89,9 @@ namespace Pulumi.AwsNative.Personalize
         [Output("datasetGroupArn")]
         public Output<string> DatasetGroupArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        /// </summary>
         [Output("datasetImportJob")]
         public Output<Outputs.DatasetImportJob?> DatasetImportJob { get; private set; } = null!;
 
@@ -168,6 +171,9 @@ namespace Pulumi.AwsNative.Personalize
         [Input("datasetGroupArn", required: true)]
         public Input<string> DatasetGroupArn { get; set; } = null!;
 
+        /// <summary>
+        /// Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        /// </summary>
         [Input("datasetImportJob")]
         public Input<Inputs.DatasetImportJobArgs>? DatasetImportJob { get; set; }
 

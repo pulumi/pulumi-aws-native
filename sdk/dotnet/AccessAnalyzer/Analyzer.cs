@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         [Output("analyzerName")]
         public Output<string?> AnalyzerName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+        /// </summary>
         [Output("archiveRules")]
         public Output<ImmutableArray<Outputs.AnalyzerArchiveRule>> ArchiveRules { get; private set; } = null!;
 
@@ -176,6 +179,10 @@ namespace Pulumi.AwsNative.AccessAnalyzer
 
         [Input("archiveRules")]
         private InputList<Inputs.AnalyzerArchiveRuleArgs>? _archiveRules;
+
+        /// <summary>
+        /// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
+        /// </summary>
         public InputList<Inputs.AnalyzerArchiveRuleArgs> ArchiveRules
         {
             get => _archiveRules ?? (_archiveRules = new InputList<Inputs.AnalyzerArchiveRuleArgs>());

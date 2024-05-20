@@ -75,9 +75,21 @@ export class Project extends pulumi.CustomResource {
      * The time at which the project was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the project.
+     */
     public /*out*/ readonly projectArn!: pulumi.Output<string>;
+    /**
+     * The description of the project.
+     */
     public readonly projectDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the project. This ID is prepended to all entities associated with this project.
+     */
     public /*out*/ readonly projectId!: pulumi.Output<string>;
+    /**
+     * The name of the project.
+     */
     public readonly projectName!: pulumi.Output<string>;
     /**
      * The status of a project.
@@ -141,7 +153,13 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
+    /**
+     * The description of the project.
+     */
     projectDescription?: pulumi.Input<string>;
+    /**
+     * The name of the project.
+     */
     projectName?: pulumi.Input<string>;
     /**
      * Provisioned ServiceCatalog  Details

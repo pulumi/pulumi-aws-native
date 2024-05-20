@@ -29,11 +29,17 @@ class GetHypervisorResult:
     @property
     @pulumi.getter
     def host(self) -> Optional[str]:
+        """
+        The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).
+        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter(name="hypervisorArn")
     def hypervisor_arn(self) -> Optional[str]:
+        """
+        Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
+        """
         return pulumi.get(self, "hypervisor_arn")
 
 
@@ -51,6 +57,9 @@ def get_hypervisor(hypervisor_arn: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHypervisorResult:
     """
     Definition of AWS::BackupGateway::Hypervisor Resource Type
+
+
+    :param str hypervisor_arn: Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
     """
     __args__ = dict()
     __args__['hypervisorArn'] = hypervisor_arn
@@ -67,5 +76,8 @@ def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHypervisorResult]:
     """
     Definition of AWS::BackupGateway::Hypervisor Resource Type
+
+
+    :param str hypervisor_arn: Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
     """
     ...
